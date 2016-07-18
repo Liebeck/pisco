@@ -1,2 +1,2 @@
-/data/training/*.txt text eol=lf
-/data/test/*.txt text eol=lf
+/data/training/*.txt text eol=crlf
+/data/test/*.txt text eol=crlf
