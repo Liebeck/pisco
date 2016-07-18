@@ -1,0 +1,1318 @@
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int i = 0; i < cas; i++) {
+            int t = sc.nextInt();
+            boolean d = false;
+            int che = 0;
+            char[][] c = new char[t][t];
+            for (int j = 0; j < t; j++) {
+                String s = sc.next();
+                char[] ch = s.toCharArray();
+                for (int k = 0; k < ch.length; k++) {
+                    c[j][k] = ch[k];
+                    if (ch[k] == '#') {
+                        che++;
+                    }
+                }
+            }
+            if (che % 2 == 0) {
+                int ac = 0;
+                for (int j = 0; j < c.length; j++) {
+                    int to = 0;
+                    for (int k = 0; k < c.length; k++) {
+                        if (c[j][k] == '#') {
+                            to++;
+                        }
+                    }
+                    ac = ac + to;
+                    if (ac == che / 2) {
+                        d = true;
+                    } else {
+                        if (ac > che / 2) {
+                            ac = 0;
+                            break;
+                        }
+                    }
+                }
+                for (int j = 0; j < c.length; j++) {
+                    int to = 0;
+                    for (int k = 0; k < c.length; k++) {
+                        if (c[k][j] == '#') {
+                            to++;
+                        }
+                    }
+                    ac = ac + to;
+                    if (ac == che / 2) {
+                        d = true;                
+                    } else {
+                        if (ac > che / 2) {
+                            break;
+                        }
+                    }
+                }
+            } else {
+                d = false;
+            }
+            if (d) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int nums = sc.nextInt();
+        BigInteger[] n = new BigInteger[nums];
+        for (int i = 0; i < n.length; i++) {
+            n[i] = sc.nextBigInteger();
+        }
+        BigInteger may = BigInteger.ZERO;
+        for (int i = 0; i < n.length; i++) {
+            for (int j = 0; j < n.length; j++) {
+                if (i != j) {
+                    if (n[i].multiply(n[j]).compareTo(may) > 0) {
+                        may = n[i].multiply(n[j]);
+                    }
+                }
+            }
+        }
+        System.out.println(may);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = 1;
+        while (sc.hasNext()) {
+            int t = sc.nextInt();
+            int win = 0;
+            int[][] a = new int[t][t];
+            for (int i = 0; i < t; i++) {
+                for (int j = 0; j < t; j++) {
+                    a[i][j] = sc.nextInt();
+                }
+            }
+ 
+            for (int i = 0; i < t; i++) {
+                for (int j = 0; j < t; j++) {
+                    int row = 0, col = 0;
+                    for (int k = 0; k < t; k++) {
+                        row = row + a[i][k];
+                    }
+                    for (int k = 0; k < t; k++) {
+                        col = col + a[k][j];
+                    }
+                    if (row < col) {
+                        win++;
+                    }
+                }
+            }
+            System.out.println("Case #" + cas + ":\n" + win);
+            cas++;
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for(int l = 0; l < cas; l++) {
+            int teams = sc.nextInt();
+            int[][] wear = new int[teams][2];
+            for (int i = 0; i < wear.length; i++) {
+                wear[i][0] = sc.nextInt();
+                wear[i][1] = sc.nextInt();
+            }
+            int vis = 0;
+            for (int i = 0; i < wear.length; i++) {
+                for (int j = 0; j < wear.length; j++) {
+                    if (i != j) {
+                        if (wear[i][0] == wear[j][1]) {
+                            vis++;
+                        }
+                    }
+                }
+            }
+            System.out.println("Case #" + (l + 1) + ":\n" + vis);
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for(int l = 0; l < cas; l++) {
+            int teams = sc.nextInt();
+            int vis = 0;
+            int[][] wear = new int[teams][2];
+
+            // Recibir datos de equipos
+            for (int i = 0; i < teams ; i++) {
+                wear[i][0] = sc.nextInt();
+                wear[i][1] = sc.nextInt();
+            }
+
+            // ¿Son iguales? Suma
+
+            for (int i = 0 ; i<teams ; i++) {
+                for (int j = 0; j<teams ; j++) {
+                    if ( i != j ) {
+                        if (wear[i][0] == wear[j][1]) {
+                            vis++;
+                        }
+                    }
+                }
+            }
+
+            System.out.println("Case #" + (l + 1) + ":\n" + vis);
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for(int l = 0; l < cas; l++) {
+            int teams = sc.nextInt();
+            int vis = 0;
+            int[][] wear = new int[teams][2];
+
+            // Recibir datos de equipos
+            for (int i = 0; i < teams ; i++) {
+                wear[i][0] = sc.nextInt();
+                wear[i][1] = sc.nextInt();
+            }
+
+            // ¿Son iguales? Suma
+
+            for (int i = 0 ; i<teams ; i++) {
+                for (int j = 0; j<teams ; j++) {
+                    if ( i != j ) {
+                        if (wear[i][0] == wear[j][1]) {
+                            vis++;
+                        }
+                    }
+                }
+            }
+
+            System.out.println("Case #" + (l + 1) + ":\n" + vis);
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for(int l = 0; l < cas; l++) {
+            int teams = sc.nextInt();
+            int vis = 0;
+            int[][] wear = new int[teams][2];
+            for (int i = 0; i < teams ; i++) {
+                wear[i][0] = sc.nextInt();
+                wear[i][1] = sc.nextInt();
+            }
+            for (int i = 0 ; i<teams ; i++) {
+                for (int j = 0; j<teams ; j++) {
+                    if ( i != j ) {
+                        if (wear[i][0] == wear[j][1]) {
+                            vis++;
+                        }
+                    }
+                }
+            }
+
+            System.out.println("Case #" + (l + 1) + ":\n" + vis);
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+
+public class Main
+
+{
+
+	public static void main (String[] args) 	
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int right = sc.nextInt();
+		
+		int goal = 0;
+
+		for(int i = 0; i < 5; i++){
+
+			int a = sc.nextInt();
+
+			if (a == right){
+
+				goal++;
+
+			}
+
+		}
+
+		System.out.println(goal);
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+
+public class Main
+
+{
+
+	public static void main (String[] args) 	
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int right = sc.nextInt();
+		
+		int goal = 0;
+
+		for(int i = 0; i < 5; i++){
+
+			int a = sc.nextInt();
+
+			if (a == right){
+
+				goal++;
+
+			}
+
+		}
+
+		System.out.println(goal);
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int cas = sc.nextInt();
+		for(int i = 0; i < cas; i++){
+			int t = sc.nextInt(); 
+			boolean g = false;
+			char[] n = new char[t];
+			char[] l = new char[t];
+			for(int j = 0; j < t; j++){
+				String s = sc.next();
+				n[j] = s.charAt(0);
+				l[j] = s.charAt(1);
+			}
+			for(int j = 0; j < t; j++){
+				int c = 1;
+				for(int k = 0; k < t; k++){
+					if(j != k){
+						if(n[j] == (n[k])){
+							c++;
+						}
+					}
+				}
+				if(c == 3){
+					g = true;
+					break;
+				}
+			}
+			for(int j = 0; j < t; j++){
+				int c = 1;
+				for(int k = 0; k < t; k++){
+					if(j != k){
+						if(l[j] == (l[k])){
+							c++;
+						}
+					}
+				}
+				if(c == 3){
+					g = true;
+					break;
+				}
+			}
+			if(g){
+				System.out.println("YES");
+			}else{
+				System.out.println("NO");
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int i = 0; i < cas; i++) {
+            int t = sc.nextInt();
+            boolean g = false;
+            String[] n = new String[t];
+            char[] l = new char[t];
+            for (int j = 0; j < t; j++) {
+                String s = sc.next();
+                n[j] = s.substring(0, s.length() - 1);
+                l[j] = s.charAt(s.length() - 1);
+            }
+            for (int j = 0; j < t; j++) {
+                int c = 1;
+                for (int k = 0; k < t; k++) {
+                    if (j != k) {
+                        if (n[j].equals(n[k])) {
+                            c++;
+                        }
+                    }
+                }
+                if (c == 3) {
+                    g = true;
+                    break;
+                }
+            }
+            for (int j = 0; j < t; j++) {
+                Integer[] q = new Integer[t];
+                int x = 0;
+                for (int k = 0; k < q.length; k++) {
+                    q[k] = 0;                       q[j] = Integer.parseInt(n[j]);
+             
+                }
+                q[x] = Integer.parseInt(n[j]);
+                x++;
+                for (int k = 0; k < t; k++) {
+                    if (j != k) {
+                        if (l[j] == (l[k])) {
+                            q[x] = Integer.parseInt(n[k]);
+                            x++;
+                        }
+                    }
+                }
+                int[] d = new int[x+1];
+                for (int k = 0; k < x; k++) {
+                    d[k] = q[k];
+                }
+                Arrays.sort(d);
+                int p = 0;
+                while(!g && p < x){
+                    int tr = 0;
+                    if(d[p] == d[p+1] - 1){
+                        tr++;
+                    }
+                    if(tr == 2){
+                        g = true;
+                    }
+                    p++;
+                }
+            }
+            if (g) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int l = 0; l < cas; l++) {
+            boolean ans = false;
+            int f = sc.nextInt();
+            String[] fi = new String[f];
+            Character[] le = new Character[f];
+            int[] nu = new int[f];
+            for (int m = 0; m < f; m++) {
+                fi[m] = sc.next();
+                nu[m] = parseInt(fi[m].substring(0, fi[m].length() - 1));
+                le[m] = fi[m].charAt(fi[m].length() - 1);
+            }
+            for (int i = 0; i < nu.length; i++) {
+                for (int j = 0; j < nu.length; j++) {
+                    if (i != j && nu[i] == nu[j]) {
+                        for (int k = 0; k < nu.length; k++) {
+                            if (k != i && k != j && nu[i] == nu[k]) {
+                                if (!le[i].equals(le[j]) && !le[i].equals(le[k]) && !le[j].equals(le[k])) {
+                                    ans = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < le.length; i++) {
+                for (int j = 0; j < le.length; j++) {
+                    if (i != j && le[i].equals(le[j])) {
+                        for (int k = 0; k < le.length; k++) {
+                            if (i != k && j != k && nu[i] != nu[j] && le[i].equals(le[k])) {
+                                if (nu[j] != nu[k]) {
+                                    if(nu[i] + 1 == nu[j] && nu[j] + 1 == nu[k]){
+                                        ans = true;
+                                    }                                    
+                                    if(nu[i] + 1 == nu[k] && nu[k] + 1 == nu[j]){
+                                        ans = true;
+                                    }
+                                    if(nu[j] + 1 == nu[i] && nu[i] + 1 == nu[j]){
+                                        ans = true;
+                                    }
+                                    if(nu[j] + 1 == nu[k] && nu[k] + 1 == nu[i]){
+                                        ans = true;
+                                    }
+                                    if(nu[k] + 1 == nu[i] && nu[i] + 1 == nu[j]){
+                                        ans = true;
+                                    }
+                                    if(nu[k] + 1 == nu[j] && nu[j] + 1 == nu[i]){
+                                        ans = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (ans) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+class Node {
+
+    Integer data;
+    Node next;
+
+    public Node(Integer data) {
+        this.data = data;
+        this.next = null;
+    }
+
+}
+
+class LinkedList {
+
+    Node head;
+    int size;
+    int cost;
+
+    public LinkedList() {
+        head = null;
+        size = 0;
+        cost = 0;
+    }
+
+    public boolean Insert(Integer data, int pos) {
+        Node a = new Node(data);
+        if (pos - 1 >= size) {
+            return false;
+        } else {
+            if (pos == 0) {
+                a.next = head;
+                head = a;
+            } else {
+                Node aux = Search(pos - 1);
+                cost++;
+                a.next = aux.next;
+                aux.next = a;
+            }
+            size++;
+            return true;
+        }
+    }
+
+    public boolean Delete(int pos) {
+        if (pos >= size) {
+            return false;
+        } else {
+            if (pos == 0) {
+                head = head.next;
+            } else {
+                Node aux = Search(pos - 1);
+                aux.next = aux.next.next;
+
+            }
+            size--;
+            return true;
+        }
+    }
+
+    public Integer Value(int pos) {
+        if (pos >= size) {
+            return -1;
+        } else {
+            Node aux = Search(pos);
+            return aux.data;
+        }
+    }
+
+    public int IndexOf(Integer val) {
+        Node aux = head;
+        int pos = 0;
+        boolean r = false;
+        while (pos < size && !r) {
+            if (aux.data.equals(val)) {
+                r = true;
+            } else {
+                aux = aux.next;
+                pos++;
+            }
+            cost++;
+        }
+        if (r) {
+            return pos;
+        } else {
+            return -1;
+        }
+    }
+
+    public Node Search(int pos) {
+        Node aux = head;
+        int posa = 0;
+        while (posa != pos) {
+            aux = aux.next;
+            posa++;
+            cost++;
+        }
+        return aux;
+    }
+
+    public boolean isEmpty() {
+        return (size == 0);
+    }
+
+}
+
+class ArrayList {
+
+    Integer[] Array;
+    int index;
+    int cost;
+
+    public ArrayList(int size) {
+        Array = new Integer[size];
+        index = 0;
+        cost = 0;
+    }
+
+    public void Move(int pos, int op) {
+        if (op == 1) {
+            if (Array[pos + 1] == null) {
+                Array[pos + 1] = Array[pos];
+                Array[pos] = null;
+                cost++;
+            } else {
+                Move(pos + 1, op);
+                Move(pos, op);
+            }
+        } else {
+            if (Array[pos + 1] == null) {
+                Array[pos] = null;
+            } else {
+                Array[pos] = Array[pos + 1];
+                Move(pos + 1, op);
+                cost++;
+            }
+        }
+    }
+
+    public boolean Insert(Integer data, int pos) {
+        if (pos - 1 >= index) {
+            return false;
+        } else {
+            if (index == 0) {
+                Array[0] = data;
+            } else {
+                if (Array[pos] == null) {
+                    Array[pos] = data;
+                } else {
+                    Move(pos, 1);
+                    Array[pos] = data;
+                }
+            }
+            index++;
+            return true;
+        }
+    }
+
+    public boolean Delete(int pos) {
+        if (pos >= index) {
+            return false;
+        } else {
+            Array[pos] = null;
+            Move(pos, 2);
+            index--;
+            return true;
+        }
+    }
+
+    public Integer Value(int pos) {
+        if (pos >= index) {
+            return -1;
+        } else {
+            return Array[pos];
+        }
+    }
+
+    public int IndexOf(Integer val) {
+        int pos = 0;
+        boolean r = false;
+        while (pos < index && !r) {
+            if (Array[pos].equals(val)) {
+                r = true;
+            } else {
+                pos++;
+            }
+            cost++;
+        }
+        if (r) {
+            return pos;
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean isEmpty() {
+        return (index == 0);
+    }
+
+}
+
+public class Lab2_A {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int z = 0; z < cas; z++) {
+            int l = sc.nextInt();
+            LinkedList A = new LinkedList();
+            ArrayList B = new ArrayList(l);
+            System.out.println("Caso #" + (z + 1) + ":");
+            for (int y = 0; y < l; y++) {
+                String s = sc.next();
+                if (s.equals("insertar")) {
+                    int val = sc.nextInt();
+                    int pos = sc.nextInt();
+                    boolean p = A.Insert(val, pos);
+                    boolean q = B.Insert(val, pos);
+                    if (p && q) {
+                        System.out.println("insertar: posicion valida");
+                    } else {
+                        System.out.println("insertar: posicion invalida");
+                    }
+                } else {
+                    if (s.equals("consultar")) {
+                        int pos = sc.nextInt();
+                        int p = A.Value(pos);
+                        int q = B.Value(pos);
+                        if (p == q && p > 0) {
+                            System.out.println("consulta: " + p);
+                        } else {
+                            System.out.println("consulta: no encontrado");
+                        }
+                    } else {
+                        if (s.equals("eliminar")) {
+                            int pos = sc.nextInt();
+                            boolean p = A.Delete(pos);
+                            boolean q = B.Delete(pos);
+                            if (p && q) {
+                                System.out.println("eliminar: posicion valida");
+                            } else {
+                                System.out.println("eliminar: posicion invalida");
+                            }
+                        } else {
+                            if (s.equals("buscar")) {
+                                int pos = sc.nextInt();
+                                int p = A.IndexOf(pos);
+                                int q = B.IndexOf(pos);
+                                if (p == q && p > 0) {
+                                    System.out.println("buscar: " + p);
+                                } else {
+                                    System.out.println("no existe numero");
+                                }
+                            } else {
+                                if (s.equals("costo")) {
+                                    System.out.println("costo: " + B.cost + " " + A.cost);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int y = 0; y < cas; y++) {
+            int c = sc.nextInt();
+            int p = sc.nextInt();
+            int[] cards = new int[c];
+            int[] score = new int[p];
+            for (int x = 0; x < c; x++) {
+                cards[x] = sc.nextInt();
+            }
+            int iminor = 0, imajor = c - 1;
+            for (int w = 0; w < c; w++) {
+                if (cards[imajor] < cards[iminor]) {
+                    score[w % p] = score[w % p] + cards[iminor];
+                    iminor++;
+                } else {
+                    score[w % p] = score[w % p] + cards[imajor];
+                    imajor--;
+                }
+            }
+            int major = 0;
+            for (int v = 0; v < p; v++) {
+                if (score[v] > major) {
+                    major = score[v];
+                }
+            }
+            System.out.println("Caso #" + (y + 1) + ":");
+            for (int t = 0; t < p; t++) {
+                if (score[t] == major) {
+                    System.out.print((t + 1) + " ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        int[] w = new int[q];
+        for (int z = 0; z < q; z++) {
+            w[z] = sc.nextInt();
+        }
+        int cas = sc.nextInt();
+        String s = sc.nextLine();
+        int a = 0;
+        for (int z = 0; z < cas; z++) {
+            s = sc.nextLine();
+            String[] se = s.split("\\s");
+            int[] t = new int[se.length];
+            for (int y = 0; y < se.length; y++) {
+                t[y] = Integer.parseInt(se[y]);
+            }
+            if (t.length >= w.length) {
+                int c = 0;
+                for (int r = 0; r < w.length; r++) {
+                    boolean o = false;
+                    for (int u = 0; u < t.length; u++) {
+                        if (w[r] == t[u]) {
+                            c++;
+                            o = true;
+                            break;
+                        }
+                    }
+                    if (!o) {
+                        break;
+                    }
+                }
+                if (c == q) {
+                    a++;
+                }
+            }
+        }
+        System.out.println(a);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+class Person {
+
+    String name;
+    String lastname;
+    Double id;
+
+    public Person(String name, String lastname, Double id) {
+        this.name = name;
+        this.lastname = lastname;
+        this.id = id;
+    }
+
+}
+
+class Chamber {
+
+    Person[] Array;
+    int siz;
+    int ocp;
+
+    public Chamber(int size) {
+        Array = new Person[size];
+        siz = size;
+        ocp = 0;
+    }
+
+    public int Insert(String nm, String ln, Double id) {
+        Person a = new Person(nm, ln, id);
+        int emp = SearchEmpty();
+        Array[emp] = a;
+        ocp++;
+        return emp;
+    }
+
+    public String Delete(int pos) {
+        String s = Array[pos].name;
+        Array[pos] = null;
+        ocp--;
+        return s;
+    }
+
+    public int SearchID(Double id) {
+        int pos = 0;
+        boolean c = false;
+        while (pos < siz && !c) {
+            if (Array[pos] != (null)) {
+                if (Array[pos].id.equals(id)) {
+                    c = true;
+                } else {
+                    pos++;
+                }
+            } else {
+                pos++;
+            }
+        }
+        if (!c) {
+            return -1;
+        }
+        return pos;
+    }
+
+    public int SearchEmpty() {
+        int pos = 0;
+        boolean c = false;
+        while (pos < siz && !c) {
+            if (Array[pos] == null) {
+                c = true;
+            } else {
+                pos++;
+            }
+        }
+        if (!c) {
+            return -1;
+        } else {
+            return pos;
+        }
+    }
+
+    public float Percentage() {
+        return (ocp * 100 / siz);
+    }
+
+}
+
+public class Main {
+
+    static int Cho(Chamber[] G, int cap) {
+        int cho = 0;
+        float asg = G[0].Percentage();
+        for (int w = 1; w < cap; w++) {
+            if (G[w].Percentage() < asg) {
+                asg = G[w].Percentage();
+                cho = w;
+            }
+        }
+        if (asg == 100) {
+            return -1;
+        } else {
+            return cho;
+        }
+    }
+
+    static void Del(Chamber[] G, int cap, Double id) {
+        int t = 0;
+        for (int z = 0; z < cap; z++) {
+            for (int y = 0; y < G[z].siz; y++) {
+                t = G[z].SearchID(id);
+                if (t != -1) {
+                    System.out.println(G[z].Delete(t));
+                    G[z].Array[t] = null;
+                    break;
+                }
+            }
+            if (t != -1) {
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int z = 0; z < cas; z++) {
+            System.out.println("Caso #" + (z + 1) + ":");
+            int cap = sc.nextInt();
+            Chamber[] Gym = new Chamber[cap];
+            for (int y = 0; y < cap; y++) {
+                int siz = sc.nextInt();
+                Chamber f = new Chamber(siz);
+                Gym[y] = f;
+            }
+            int ops = sc.nextInt();
+            for (int x = 0; x < ops; x++) {
+                String s = sc.next();
+                if (s.equals("ingresar")) {
+                    String nam = sc.next();
+                    String las = sc.next();
+                    Double id = sc.nextDouble();
+                    int c = Cho(Gym, cap);
+                    if (c == -1) {
+                        System.out.println("limite alcanzado");
+                    } else {
+                        int d = Gym[c].Insert(nam, las, id);
+                        System.out.println((c + 1) + " " + (d + 1));
+                    }
+                } else {
+                    Double id = sc.nextDouble();
+                    Del(Gym, cap, id);
+                }
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+class Node {
+
+    Integer data;
+    Node next;
+
+    public Node(Integer data) {
+        this.data = data;
+        this.next = null;
+    }
+
+}
+
+class LinkedList {
+
+    Node head;
+    int size;
+    int cost;
+
+    public LinkedList() {
+        head = null;
+        size = 0;
+        cost = 0;
+    }
+
+    public boolean Insert(Integer data, int pos) {
+        Node a = new Node(data);
+        if (pos - 1 >= size) {
+            return false;
+        } else {
+            if (pos == 0) {
+                a.next = head;
+                head = a;
+            } else {
+                Node aux = Search(pos - 1);
+                cost++;
+                a.next = aux.next;
+                aux.next = a;
+            }
+            size++;
+            return true;
+        }
+    }
+
+    public boolean Delete(int pos) {
+        if (pos >= size) {
+            return false;
+        } else {
+            if (pos == 0) {
+                head = head.next;
+            } else {
+                Node aux = Search(pos - 1);
+                aux.next = aux.next.next;
+
+            }
+            size--;
+            return true;
+        }
+    }
+
+    public Integer Value(int pos) {
+        if (pos >= size) {
+            return -1;
+        } else {
+            Node aux = Search(pos);
+            return aux.data;
+        }
+    }
+
+    public int IndexOf(Integer val) {
+        Node aux = head;
+        int pos = 0;
+        boolean r = false;
+        while (pos < size && !r) {
+            if (aux.data.equals(val)) {
+                r = true;
+            } else {
+                aux = aux.next;
+                pos++;
+            }
+            cost++;
+        }
+        if (r) {
+            return pos;
+        } else {
+            return -1;
+        }
+    }
+
+    public Node Search(int pos) {
+        Node aux = head;
+        int posa = 0;
+        while (posa != pos) {
+            aux = aux.next;
+            posa++;
+            cost++;
+        }
+        return aux;
+    }
+
+    public boolean isEmpty() {
+        return (size == 0);
+    }
+
+}
+
+class ArrayList {
+
+    Integer[] Array;
+    int index;
+    int cost;
+
+    public ArrayList(int size) {
+        Array = new Integer[size];
+        index = 0;
+        cost = 0;
+    }
+
+    public void Move(int pos, int op) {
+        if (op == 1) {
+            if (Array[pos + 1] == null) {
+                Array[pos + 1] = Array[pos];
+                Array[pos] = null;
+                cost++;
+            } else {
+                Move(pos + 1, op);
+                Move(pos, op);
+            }
+        } else {
+            if (Array[pos + 1] == null) {
+                Array[pos] = null;
+            } else {
+                Array[pos] = Array[pos + 1];
+                Move(pos + 1, op);
+                cost++;
+            }
+        }
+    }
+
+    public boolean Insert(Integer data, int pos) {
+        if (pos - 1 >= index) {
+            return false;
+        } else {
+            if (index == 0) {
+                Array[0] = data;
+            } else {
+                if (Array[pos] == null) {
+                    Array[pos] = data;
+                } else {
+                    Move(pos, 1);
+                    Array[pos] = data;
+                }
+            }
+            index++;
+            return true;
+        }
+    }
+
+    public boolean Delete(int pos) {
+        if (pos >= index) {
+            return false;
+        } else {
+            Array[pos] = null;
+            Move(pos, 2);
+            index--;
+            return true;
+        }
+    }
+
+    public Integer Value(int pos) {
+        if (pos >= index) {
+            return -1;
+        } else {
+            return Array[pos];
+        }
+    }
+
+    public int IndexOf(Integer val) {
+        int pos = 0;
+        boolean r = false;
+        while (pos < index && !r) {
+            if (Array[pos].equals(val)) {
+                r = true;
+            } else {
+                pos++;
+            }
+            cost++;
+        }
+        if (r) { 
+            return pos;
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean isEmpty() {
+        return (index == 0);
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cas = sc.nextInt();
+        for (int z = 0; z < cas; z++) {
+            int l = sc.nextInt();
+            LinkedList A = new LinkedList();
+            ArrayList B = new ArrayList(l);
+            System.out.println("Caso #" + (z + 1) + ":");
+            for (int y = 0; y < l; y++) {
+                String s = sc.next();
+                if (s.equals("insertar")) {
+                    int val = sc.nextInt();
+                    int pos = sc.nextInt();
+                    boolean p = A.Insert(val, pos);
+                    boolean q = B.Insert(val, pos);
+                    if (p && q) {
+                        System.out.println("insertar: posicion valida");
+                    } else {
+                        System.out.println("insertar: posicion invalida");
+                    }
+                } else {
+                    if (s.equals("consultar")) {
+                        int pos = sc.nextInt();
+                        int p = A.Value(pos);
+                        int q = B.Value(pos);
+                        if (p == q && p >= 0) {
+                            System.out.println("consulta: " + p);
+                        } else {
+                            System.out.println("consulta: no encontrado");
+                        }
+                    } else {
+                        if (s.equals("eliminar")) {
+                            int pos = sc.nextInt();
+                            boolean p = A.Delete(pos);
+                            boolean q = B.Delete(pos);
+                            if (p && q) {
+                                System.out.println("eliminar: posicion valida");
+                            } else {
+                                System.out.println("eliminar: posicion invalida");
+                            }
+                        } else {
+                            if (s.equals("buscar")) {
+                                int pos = sc.nextInt();
+                                int p = A.IndexOf(pos);
+                                int q = B.IndexOf(pos);
+                                if (p == q && p >= 0) {
+                                    System.out.println("buscar: " + p);
+                                } else {
+                                    System.out.println("no existe numero");
+                                }
+                            } else {
+                                if (s.equals("costo")) {
+                                    System.out.println("costo: " + B.cost + " " + A.cost);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

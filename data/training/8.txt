@@ -1,0 +1,5877 @@
+import java.util.Scanner;
+
+public class ProblemaA {
+
+
+public static class Casos {
+
+	private int numeros;
+	private int[] arrayn;
+
+	// Constructor
+	public Casos(int num, int[] array) {
+		setNumeros(num);
+		setArray(array);
+	}
+
+	// Set numeros
+	public void setNumeros(int num) {
+		numeros = num;
+	}
+
+	public void setArray(int[] array) {
+		arrayn = array;
+	}
+
+	// Mayores que
+	public int mayoresQue() {
+		int total = 0;
+		for (int i = 0; i < arrayn.length; i++) {
+			for (int j = 0; j < arrayn.length; j++) {
+				if (arrayn[i] > arrayn[j] && i!=j) {
+					total++;
+				}
+			}
+		}
+		return total;
+	}
+
+	// Menores que
+	public int menoresQue() {
+		int total = 0;
+		for (int i = 0; i < arrayn.length; i++) {
+			for (int j = 0; j < arrayn.length; j++) {
+				if (arrayn[i] < arrayn[j] && i!=j) {
+					total++;
+				}
+			}
+		}
+		return total;
+
+	}
+
+	// Iguales
+	public int iguales() {
+		int total = 0;
+		for (int i = 0; i < arrayn.length; i++) {
+			for (int j = 0; j < arrayn.length; j++) {
+				if (arrayn[i] == arrayn[j] && i!=j) {
+					total++;
+		
+				}
+			}
+		}
+		return total;
+
+	}
+
+}
+
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+
+
+		int casos = entrada.nextInt();
+		int cont = 0;
+		int numeros;
+		int [] arrnum;
+		// crear objetos segun la cantidad de casos
+		Casos[] caso = new Casos[casos];
+
+		while (cont < casos) {
+			
+			numeros = entrada.nextInt();
+			arrnum = new int[numeros];
+			for(int i=0; i<arrnum.length;i++){
+				arrnum[i] = entrada.nextInt(); 
+			}
+			caso[cont] = new Casos(numeros, arrnum);
+			System.out.println("Case #"+(cont+1)+":");
+			System.out.println(caso[cont].mayoresQue());
+			System.out.println(caso[cont].menoresQue());
+			System.out.println(caso[cont].iguales());
+			cont++;
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static void main(String[] args) {
+		File file = new File("C:\\Java\\archivo.txt");
+		int caso = 1;
+		try {
+
+			Scanner sc = new Scanner(file);
+
+			while (sc.hasNextInt()) {
+			
+				int numero = sc.nextInt();
+				int[][] matriz = new int[numero][numero];
+				for (int i = 0; i < numero; i++) {
+					for (int j = 0; j < numero; j++) {
+						matriz[i][j] = sc.nextInt();
+						
+					}
+				}
+				
+				int sfilas= 0, scolumnas= 0,  cont=0;
+		
+				for (int i = 0; i < numero; i++) {
+					for (int j = 0; j < numero; j++) {
+						
+						for(int z = 0; z < numero ; z++)
+						{sfilas += matriz[i][z] ;
+						scolumnas += matriz[z][j];
+						}
+						if(sfilas < scolumnas){
+							cont++;
+						}
+						//System.out.println("f"+ sfilas+ "c"+scolumnas);
+						sfilas = 0;
+						scolumnas = 0;
+					}
+					
+					
+				
+				}
+				
+				
+				System.out.println("Case #"+caso+":");
+				System.out.println(cont);
+				caso++;
+				
+			}
+			sc.close();
+
+		} catch (FileNotFoundException e)
+
+		{
+			e.printStackTrace();
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaD {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+		int casos = entrada.nextInt();
+		int contador = 0;
+
+		while (contador < casos) {
+			int equipos = entrada.nextInt();
+			int[][] colores = new int[equipos][2];
+			// Llenar colores
+			for (int i = 0; i < equipos; i++) {
+				for (int j = 0; j < 2; j++) {
+					colores[i][j] = entrada.nextInt();
+					
+					
+					
+					
+					
+				}
+			}
+
+			int comparaciones=0;
+			int cambiosColor = 0;
+			for (int team = 0; team< equipos; team++) {
+				for (int compTeam = 0; compTeam < equipos; compTeam++) {
+					
+					if(colores[team][0] == colores[compTeam][1] && team!=compTeam){
+						cambiosColor++;
+					}
+					comparaciones++;
+		
+				}
+			}
+			
+			
+			System.out.println("Case #"+(contador+1)+":");
+			System.out.println(cambiosColor);
+			
+			
+			
+			
+			contador++;
+
+		}
+
+		
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Pruebas {
+
+	public static void main(String[] args) {
+
+		int caso = 1;
+	
+
+			Scanner sc = new Scanner(System.in);
+
+			while (sc.hasNextInt()) {
+			
+				int numero = sc.nextInt();
+				int[][] matriz = new int[numero][numero];
+				for (int i = 0; i < numero; i++) {
+					for (int j = 0; j < numero; j++) {
+						matriz[i][j] = sc.nextInt();
+						
+					}
+				}
+				
+				int sfilas= 0, scolumnas= 0,  cont=0;
+		
+				for (int i = 0; i < numero; i++) {
+					for (int j = 0; j < numero; j++) {
+						
+						for(int z = 0; z < numero ; z++)
+						{sfilas += matriz[i][z] ;
+						scolumnas += matriz[z][j];
+						}
+						if(sfilas < scolumnas){
+							cont++;
+						}
+						//System.out.println("f"+ sfilas+ "c"+scolumnas);
+						sfilas = 0;
+						scolumnas = 0;
+					}
+					
+					
+				
+				}
+				
+				
+				System.out.println("Case #"+caso+":");
+				System.out.println(cont);
+				caso++;
+				
+			}
+			sc.close();
+
+		 
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaC {
+
+	public static int factorial(int num) {
+
+		if (num == 0)
+			return 1;
+
+		return num * factorial(num - 1);
+	}
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+
+		System.out.println(factorial(3));
+
+		int casos = entrada.nextInt();
+		int num = entrada.nextInt();
+		/*
+		 * char [] colores = new char [num]; String combinaciones = "";
+		 */
+		String comb = "";
+		/*
+		 * for(int i = 0; i < num; i++ ){
+		 * 
+		 * colores [i] = entrada.next().charAt(0);
+		 * 
+		 * }
+		 */
+		int veces;
+		if (num % 2 == 0) {
+			veces = num / 2;
+		} else {
+			veces = (num - 1) / 2;
+		}
+
+		int contador = 0;
+		String[] guardar = new String[factorial(num)];
+
+		for (int i = 0; i < guardar.length; i++) {
+
+			guardar[i] = "";
+		}
+
+		for (int x = 0; x < factorial(num); x++) {
+			for (int z = 0; z < veces; z++) {
+
+				for (int i = 0; i < num; i++) {
+					for (int j = 0; j < num; j++) {
+
+						comb += Integer.toString(i) + Integer.toString(j);
+
+					}
+				}
+
+				System.out.println(comb.length());
+				for (int i = 0, t = 0; i <= comb.length(); i += 2) {
+					if (i == comb.length()) {
+						break;
+					}
+				
+					System.out.println(comb.substring(i, i + 2));
+					if ((t <= guardar.length-1 )&& comb.charAt(i)!=comb.charAt(i+1)) {
+						
+						System.out.println(guardar[t] = (comb.substring(i, i + 2)));
+						t++;
+					}
+
+					System.out.println("i: " + i / 2);
+
+					contador++;
+				}
+			}
+
+			System.out.println("Guardar:");
+			for (int i = 0; i < guardar.length; i++) {
+				System.out.println("-" + guardar[i]);
+			}
+			
+			
+			int conter=0;
+			for (int i = 0; i < guardar.length; i++) {
+				for (int j = 0; j < guardar.length; j++){
+					
+					
+					for(int z=0; z<num;z++){
+						if(guardar[i].charAt(z)!=j){
+							conter++;
+					}
+					
+					
+					}
+					
+					if(conter==num){
+						guardar[i]+=Integer.toString(j);
+					}
+				}
+				conter=0;
+			}
+			
+			for (int i = 0; i < guardar.length; i++) {
+				System.out.println("+" + guardar[i]);
+			}
+			
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaE{
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+		int casos = entrada.nextInt();
+		int cont = 0;
+		int numeros;
+		int[] arreglo;
+
+		while (cont < casos) {
+
+			numeros = entrada.nextInt();
+			arreglo = new int[numeros];
+			// llenar
+			for (int i = 0; i < numeros; i++) {
+				arreglo[i] = entrada.nextInt();
+			}
+
+			int inicio = 0;
+			for (int i = 0; i < numeros; i++) {
+				if (arreglo[i] == 0) {
+					inicio = i;
+					break;
+				}
+			}
+
+			int ultimo = 0;
+			for (int i = inicio; i < numeros; i++) {
+				if (arreglo[i] == 1) {
+					ultimo = i;
+				}
+			}
+
+			for (int i = inicio; i < ultimo; i++) {
+				arreglo[i] = 1 - arreglo[i];
+
+			}
+
+			int contar = 0;
+			for (int i = 0; i < numeros; i++) {
+				if (arreglo[i] == 1) {
+					contar++;
+				}
+			}
+
+			System.out.println("Case #" + (cont + 1) + ":\n" + contar);
+		}
+
+		entrada.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Pruebas {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+		int casos = entrada.nextInt();
+		int cont = 0;
+		int numeros;
+		int[] arreglo;
+
+		while (cont < casos) {
+
+			numeros = entrada.nextInt();
+			arreglo = new int[numeros];
+			// llenar
+			for (int i = 0; i < numeros; i++) {
+				arreglo[i] = entrada.nextInt();
+			}
+
+			int inicio = 0;
+			for (int i = 0; i < numeros; i++) {
+				if (arreglo[i] == 0) {
+					inicio = i;
+					break;
+				}
+			}
+
+			int ultimo = 0;
+			for (int i = inicio; i < numeros; i++) {
+				if (arreglo[i] == 1) {
+					ultimo = i;
+				}
+			}
+
+			for (int i = inicio; i < ultimo; i++) {
+				arreglo[i] = 1 - arreglo[i];
+
+			}
+
+			int contar = 0;
+			for (int i = 0; i < numeros; i++) {
+				if (arreglo[i] == 1) {
+					contar++;
+				}
+			}
+
+			System.out.println(contar);
+		}
+
+		entrada.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Pruebas {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+		int casos = entrada.nextInt();
+		int cont = 0;
+		int numeros;
+		int[] arreglo;
+
+		while (cont < casos) {
+
+			numeros = entrada.nextInt();
+			arreglo = new int[numeros];
+			// llenar
+			for (int i = 0; i < numeros; i++) {
+				arreglo[i] = entrada.nextInt();
+			}
+
+			int inicio = 0;
+			for (int i = 0; i < numeros; i++) {
+				if (arreglo[i] == 0) {
+					inicio = i;
+					break;
+				}
+			}
+
+			int ultimo = 0;
+			for (int i = inicio; i < numeros; i++) {
+				if (arreglo[i] == 1) {
+					ultimo = i;
+				}
+			}
+
+			for (int i = inicio; i < ultimo; i++) {
+				arreglo[i] = 1 - arreglo[i];
+
+			}
+
+			int contar = 0;
+			for (int i = 0; i < numeros; i++) {
+				if (arreglo[i] == 1) {
+					contar++;
+				}
+			}
+
+			System.out.println(contar);
+		}
+
+		entrada.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class Main {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+	   
+	        
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;  
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+	    
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists; 
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+	    
+
+	}
+	
+	public static class Dos implements Comparable <Dos> {
+		
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+		
+		
+		@Override
+		public int compareTo (Dos a){
+			
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+			
+			return 0;
+			
+			
+			
+		}
+		
+	}
+	
+	public static void main (String [] args) throws Exception{
+		
+		Scanner scan = new Scanner (System.in);
+
+		
+	
+		File f = new File("file.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+		
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+			
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+		
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+			
+			
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+			
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+					
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+				
+			}
+			
+			
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+				
+				for (int j = 0; j < n; j++) {
+					
+					
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+					
+					
+					
+				}	
+			}
+			
+			
+			//Contar colisiones 
+			
+			
+			int colisiones [] = new int [m];
+			
+			for (int i = 0; i < m; i++) {
+				
+				
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+					
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += Hash[i].theLists[j].size();
+					
+				}
+				
+			}
+			
+			
+			
+			//Minimas colisiones
+			
+			int min = colisiones [0], id=0;
+			
+			for (int i = 0; i < colisiones.length; i++) {
+					
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;			
+				}
+			}
+			
+		
+
+			int xcolisiones [] = new int [m];
+			
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+			
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+			
+			for (int i = 0; i < m; i++) {
+				
+				
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+					
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+					
+					
+					
+				}
+				
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+		
+				
+			}
+			
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad máxima de colisiones que existen en cada uno de estos
+			
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+				
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+					
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+				
+				}
+				
+			
+			}
+			
+
+			
+			ArrayList <Integer> func = new ArrayList ();
+			
+			for (int i = 0; i < acolisiones.size(); i++) {
+			
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+				
+			}
+			
+			Collections.sort(func);
+			
+			
+			
+			System.out.println(func.get(0));
+			System.out.println(max-1);
+			
+			
+			
+			
+			int idx=0;
+			
+			for (int i = 0; i < funciones.length; i++) {
+				
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+				
+			}
+			
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+		//	for (int i = 0; i < acolisiones.size(); i++) {
+				
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+					
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+					
+				}
+				
+			
+			
+			
+			//
+
+	
+
+			
+
+			
+			
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+				
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+				 
+				 
+				 for (int j = 0; j < ax2.size(); j++) {
+					 System.out.print(ax2.get(j)+" ");
+				}
+				
+				System.out.println();
+			}
+		
+			}
+			
+		
+		}
+	
+	}
+		
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.LinkedList;
+
+
+
+
+public class Test {
+
+	// SeparateChaining Hash table class
+	//
+	// CONSTRUCTION: an approximate initial size or default of 101
+	//
+	// ******************PUBLIC OPERATIONS*********************
+	// void insert( x )       --> Insert x
+	// void remove( x )       --> Remove x
+	// boolean contains( x )  --> Return true if x is present
+	// void makeEmpty( )      --> Remove all items
+
+	/**
+	 * Separate chaining table implementation of hash tables.
+	 * Note that all "matching" is based on the equals method.
+	 * @param <AnyType>
+	 */
+	static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+	            if( ++currentSize > theLists.length )
+	                rehash( );
+	        
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;  
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+	    
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists; 
+	    private int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+
+	        // Simple main
+	    
+
+	}
+
+
+	public static void main (String [] args) throws Exception{
+		
+		Scanner scan = new Scanner (System.in);
+
+		
+	
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+		
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+			
+			SeparateChainingHashTable Hash = new SeparateChainingHashTable ();
+			
+			int nestanques = Integer.parseInt(scan.nextLine());
+	
+			
+			int contador=0;
+			for (int i = 0; i < nestanques; i++) {
+				
+				String datos[] = scan.nextLine().split(" ");
+				
+				int comida = Integer.parseInt(datos[0]);
+				int npoke = Integer.parseInt(datos[1]);
+			
+				
+				Hash.insert(comida);
+				
+				if(!Hash.contains(npoke))
+					contador++;
+				else
+					Hash.remove(npoke);
+				
+				
+				
+			}
+			
+			System.out.println(contador);
+			
+		}
+		
+}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+
+		File archivo = new File("file.txt");
+		Scanner scan;
+
+		if (archivo.exists())
+			scan = new Scanner(archivo);
+		else
+			scan = new Scanner(System.in);
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < ncasos; t++) {
+
+			System.out.println("Case #" + (t + 1) + ": ");
+
+			String[] nproblemas = scan.nextLine().split(" ");
+
+			String[] norma = scan.nextLine().split(" ");
+			String[] mario = scan.nextLine().split(" ");
+			String[] pipe = scan.nextLine().split(" ");
+
+			SeparateChainingHashTable<Problema> Hash = new SeparateChainingHashTable();
+
+			for (int i = 0; i < norma.length; i++) {
+
+				Hash.insert(new Problema(Integer.parseInt(norma[i]), "Norma"));
+
+			}
+
+			for (int i = 0; i < mario.length; i++) {
+
+				Hash.insert(new Problema(Integer.parseInt(mario[i]), "Mario"));
+
+			}
+			for (int i = 0; i < pipe.length; i++) {
+
+				Hash.insert(new Problema(Integer.parseInt(pipe[i]), "Pipe"));
+
+			}
+
+			ArrayList<Integer>[] apersona = new ArrayList[3];
+
+			for (int i = 0; i < apersona.length; i++) {
+				apersona[i] = new ArrayList ();
+			}
+
+			// recorremos el arreglo de listas
+			for (int i = 0; i < Hash.theLists.length; i++) {
+				// miramos si la lista es null
+				if (Hash.theLists[i] != null) {
+					// comparamos cada objeto con todos los de la lista
+					for (int j = 0; j < Hash.theLists[i].size(); j++) {
+						int repetido = 0;
+						for (int k = 0; k < Hash.theLists[i].size(); k++) {
+							if (Hash.theLists[i].get(j).igual(
+									Hash.theLists[i].get(k)))
+								repetido++;
+						}
+						// si no es repetido guardamos en el arreglo
+						// correspondiente
+						if (repetido == 1) {
+
+							switch (Hash.theLists[i].get(j).nombre) {
+							case "Norma":
+								apersona[0].add( Hash.theLists[i].get(j).id );
+								break;
+							case "Mario":
+								apersona[1].add(Hash.theLists[i].get(j).id);
+								break;
+							case "Pipe":
+								apersona[2].add(Hash.theLists[i].get(j).id);
+								break;
+							}
+						}
+					}
+				}
+			}
+
+			ArrayList max = apersona[0];
+
+			for (int i = 1; i < apersona.length; i++) {
+
+				if (max.size() < apersona[i].size())
+					max = apersona[i];
+			}
+
+
+			for (int i = 0; i < apersona.length; i++) {
+
+				Collections.sort(apersona[i]);
+
+			}
+
+
+			for (int i = 0; i < apersona.length; i++) {
+
+				if(apersona[i].size()==max.size())
+					switch (i){
+					case 0: String str = "Norma ";
+					 str += apersona[i].size()+ " ";
+
+					 for (int j = 0; j < apersona[0].size(); j++) {
+						str += apersona[0].get(j)+" ";
+					 }
+
+					 System.out.println(str);
+					 break;
+					case 1: String str1 = "Mario ";
+					 str1 += apersona[i].size()+ " ";
+
+					 for (int j = 0; j < apersona[1].size(); j++) {
+						str1 += apersona[1].get(j)+" ";
+					 }
+					 System.out.println(str1);
+					 break;
+					case 2: String str2 = "Pipe ";
+					 str2 += apersona[i].size()+ " ";
+
+					 for (int j = 0; j < apersona[2].size(); j++) {
+						str2 += apersona[2].get(j)+" ";
+					 }
+					 System.out.println(str2);
+					 break;
+					}
+			}
+
+		}
+
+	}
+
+	/**
+	 * Separate chaining table implementation of hash tables. Note that all
+	 * "matching" is based on the equals method.
+	 *
+	 * @param <AnyType>
+	 */
+	public static class SeparateChainingHashTable<AnyType> {
+		/**
+		 * Construct the hash table.
+		 */
+		public SeparateChainingHashTable() {
+			this(DEFAULT_TABLE_SIZE);
+		}
+
+		/**
+		 * Construct the hash table.
+		 *
+		 * @param size
+		 *            approximate table size.
+		 */
+		public SeparateChainingHashTable(int size) {
+			theLists = new LinkedList[nextPrime(size)];
+			for (int i = 0; i < theLists.length; i++)
+				theLists[i] = new LinkedList<>();
+		}
+
+		/**
+		 * Insert into the hash table. If the item is already present, then do
+		 * nothing.
+		 *
+		 * @param x
+		 *            the item to insert.
+		 */
+		public void insert(AnyType x) {
+			List<AnyType> whichList = theLists[myhash(x)];
+			if (!whichList.contains(x)) {
+				whichList.add(x);
+
+				// Rehash; see Section 5.5
+				if (++currentSize > theLists.length)
+					rehash();
+			}
+		}
+
+		/**
+		 * Remove from the hash table.
+		 *
+		 * @param x
+		 *            the item to remove.
+		 */
+		public void remove(AnyType x) {
+			List<AnyType> whichList = theLists[myhash(x)];
+			if (whichList.contains(x)) {
+				whichList.remove(x);
+				currentSize--;
+			}
+		}
+
+		/**
+		 * Find an item in the hash table.
+		 *
+		 * @param x
+		 *            the item to search for.
+		 * @return true if x is found.
+		 */
+		public boolean contains(AnyType x) {
+			List<AnyType> whichList = theLists[myhash(x)];
+			return whichList.contains(x);
+		}
+
+		/**
+		 * Make the hash table logically empty.
+		 */
+		public void makeEmpty() {
+			for (int i = 0; i < theLists.length; i++)
+				theLists[i].clear();
+			currentSize = 0;
+		}
+
+		/**
+		 * A hash routine for String objects.
+		 *
+		 * @param key
+		 *            the String to hash.
+		 * @param tableSize
+		 *            the size of the hash table.
+		 * @return the hash value.
+		 */
+		public static int hash(String key, int tableSize) {
+			int hashVal = 0;
+
+			for (int i = 0; i < key.length(); i++)
+				hashVal = 37 * hashVal + key.charAt(i);
+
+			hashVal %= tableSize;
+			if (hashVal < 0)
+				hashVal += tableSize;
+
+			return hashVal;
+		}
+
+		private void rehash() {
+			List<AnyType>[] oldLists = theLists;
+
+			// Create new double-sized, empty table
+			theLists = new List[nextPrime(2 * theLists.length)];
+			for (int j = 0; j < theLists.length; j++)
+				theLists[j] = new LinkedList<>();
+
+			// Copy table over
+			currentSize = 0;
+			for (List<AnyType> list : oldLists)
+				for (AnyType item : list)
+					insert(item);
+		}
+
+		private int myhash(AnyType x) {
+			int hashVal = x.hashCode();
+
+			hashVal %= theLists.length;
+			if (hashVal < 0)
+				hashVal += theLists.length;
+
+			return hashVal;
+		}
+
+		private static final int DEFAULT_TABLE_SIZE = 101;
+
+		/** The array of Lists. */
+		public List<AnyType>[] theLists;
+		private int currentSize;
+
+		/**
+		 * Internal method to find a prime number at least as large as n.
+		 *
+		 * @param n
+		 *            the starting number (must be positive).
+		 * @return a prime number larger than or equal to n.
+		 */
+		@SuppressWarnings("empty-statement")
+		private static int nextPrime(int n) {
+			if (n % 2 == 0)
+				n++;
+
+			for (; !isPrime(n); n += 2)
+				;
+
+			return n;
+		}
+
+		/**
+		 * Internal method to test if a number is prime. Not an efficient
+		 * algorithm.
+		 *
+		 * @param n
+		 *            the number to test.
+		 * @return the result of the test.
+		 */
+		private static boolean isPrime(int n) {
+			if (n == 2 || n == 3)
+				return true;
+
+			if (n == 1 || n % 2 == 0)
+				return false;
+
+			for (int i = 3; i * i <= n; i += 2)
+				if (n % i == 0)
+					return false;
+
+			return true;
+		}
+
+		// Simple main
+	}
+
+	public static class Problema {
+
+		int id;
+		String nombre;
+
+		public Problema(int id, String nombre) {
+			this.id = id;
+			this.nombre = nombre;
+		}
+
+		public Problema(int id) {
+			this.id = id;
+		}
+
+		public boolean igual(Problema c) {
+			if (c == null)
+				return false;
+			else if (this.id == c.id)
+				return true;
+			else
+				return false;
+		}
+
+		@Override
+		public int hashCode() {
+			return id;
+		}
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
+public class Main {
+
+	public static class Candidato {
+
+		String nombre;
+		String partido;
+		int votos;
+
+		public Candidato(String nombre, String partido) {
+			this.nombre = nombre;
+			this.partido = partido;
+		}
+		@Override
+		public int hashCode (){
+
+			return this.nombre.hashCode();
+		}
+		public boolean igual( Candidato c){
+			if(c == null)
+				return false;
+			else if( this.nombre.equals(c.nombre) )
+				return true;
+			else
+				return false;
+		}
+	}
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+
+		File archivo = new File("file.txt");
+		Scanner scan;
+
+		if (archivo.exists())
+			scan = new Scanner(archivo);
+		else
+			scan = new Scanner(System.in);
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < ncasos; t++) {
+
+			System.out.println("Case #" + (t + 1) + ": ");
+
+
+			int ncandidatos = Integer.parseInt(scan.nextLine());
+
+
+			SeparateChainingHashTable <Candidato> hash = new SeparateChainingHashTable (ncandidatos);
+
+			for (int i = 0; i < ncandidatos; i++) {
+
+				String datos [] =  scan.nextLine().split(" ");
+
+				hash.insert(new Candidato(datos[0], datos[1]));
+
+			}
+
+
+			int nvotos = Integer.parseInt(scan.nextLine());
+
+			for (int i = 0; i < nvotos; i++) {
+
+				Candidato voto = new Candidato(scan.nextLine()," " );
+				int codigo = hash.myhash(voto);
+
+				for (int j = 0; j < hash.theLists[codigo].size(); j++) {
+
+					if(voto.igual(hash.theLists[codigo].get(j))){
+						hash.theLists[codigo].get(j).votos++;
+					}
+				}
+
+			}
+
+			Candidato max = new Candidato (" ", " ");
+			ArrayList<String> ganadores = new ArrayList();
+			//Quien gano
+			for (int i = 0; i < hash.theLists.length; i++) {
+
+				if( hash.theLists[i]!=null){
+
+					for (int j = 0; j < hash.theLists[i].size(); j++) {
+						if(max.votos< hash.theLists[i].get(j).votos){
+							max = hash.theLists[i].get(j);
+							ganadores = new ArrayList();
+							ganadores.add(max.partido);
+						}
+						else if(max.votos == hash.theLists[i].get(j).votos){
+							ganadores.add( hash.theLists[i].get(j).partido );
+
+						}
+					}
+				}
+			}
+			Collections.sort(ganadores);
+			for (String ganador : ganadores) {
+				System.out.println(ganador);
+			}
+		}
+
+	}
+
+	/**
+	 * Separate chaining table implementation of hash tables. Note that all
+	 * "matching" is based on the equals method.
+	 *
+	 * @param <AnyType>
+	 */
+	public static class SeparateChainingHashTable<AnyType> {
+		/**
+		 * Construct the hash table.
+		 */
+		public SeparateChainingHashTable() {
+			this(DEFAULT_TABLE_SIZE);
+		}
+
+		/**
+		 * Construct the hash table.
+		 *
+		 * @param size
+		 *            approximate table size.
+		 */
+		public SeparateChainingHashTable(int size) {
+			theLists = new LinkedList[nextPrime(size)];
+			for (int i = 0; i < theLists.length; i++)
+				theLists[i] = new LinkedList<>();
+		}
+
+		/**
+		 * Insert into the hash table. If the item is already present, then do
+		 * nothing.
+		 *
+		 * @param x
+		 *            the item to insert.
+		 */
+		public void insert(AnyType x) {
+			List<AnyType> whichList = theLists[myhash(x)];
+			if (!whichList.contains(x)) {
+				whichList.add(x);
+
+				// Rehash; see Section 5.5
+				if (++currentSize > theLists.length)
+					rehash();
+			}
+		}
+
+		/**
+		 * Remove from the hash table.
+		 *
+		 * @param x
+		 *            the item to remove.
+		 */
+		public void remove(AnyType x) {
+			List<AnyType> whichList = theLists[myhash(x)];
+			if (whichList.contains(x)) {
+				whichList.remove(x);
+				currentSize--;
+			}
+		}
+
+		/**
+		 * Find an item in the hash table.
+		 *
+		 * @param x
+		 *            the item to search for.
+		 * @return true if x is found.
+		 */
+		public boolean contains(AnyType x) {
+			List<AnyType> whichList = theLists[myhash(x)];
+			return whichList.contains(x);
+		}
+
+		/**
+		 * Make the hash table logically empty.
+		 */
+		public void makeEmpty() {
+			for (int i = 0; i < theLists.length; i++)
+				theLists[i].clear();
+			currentSize = 0;
+		}
+
+		/**
+		 * A hash routine for String objects.
+		 *
+		 * @param key
+		 *            the String to hash.
+		 * @param tableSize
+		 *            the size of the hash table.
+		 * @return the hash value.
+		 */
+		public static int hash(String key, int tableSize) {
+			int hashVal = 0;
+
+			for (int i = 0; i < key.length(); i++)
+				hashVal = 37 * hashVal + key.charAt(i);
+
+			hashVal %= tableSize;
+			if (hashVal < 0)
+				hashVal += tableSize;
+
+			return hashVal;
+		}
+
+		private void rehash() {
+			List<AnyType>[] oldLists = theLists;
+
+			// Create new double-sized, empty table
+			theLists = new List[nextPrime(2 * theLists.length)];
+			for (int j = 0; j < theLists.length; j++)
+				theLists[j] = new LinkedList<>();
+
+			// Copy table over
+			currentSize = 0;
+			for (List<AnyType> list : oldLists)
+				for (AnyType item : list)
+					insert(item);
+		}
+
+		public int myhash(AnyType x) {
+			int hashVal = x.hashCode();
+
+			hashVal %= theLists.length;
+			if (hashVal < 0)
+				hashVal += theLists.length;
+
+			return hashVal;
+		}
+
+		private static final int DEFAULT_TABLE_SIZE = 101;
+
+		/** The array of Lists. */
+		public List<AnyType>[] theLists;
+		private int currentSize;
+
+		/**
+		 * Internal method to find a prime number at least as large as n.
+		 *
+		 * @param n
+		 *            the starting number (must be positive).
+		 * @return a prime number larger than or equal to n.
+		 */
+		@SuppressWarnings("empty-statement")
+		private static int nextPrime(int n) {
+			if (n % 2 == 0)
+				n++;
+
+			for (; !isPrime(n); n += 2)
+				;
+
+			return n;
+		}
+
+		/**
+		 * Internal method to test if a number is prime. Not an efficient
+		 * algorithm.
+		 *
+		 * @param n
+		 *            the number to test.
+		 * @return the result of the test.
+		 */
+		private static boolean isPrime(int n) {
+			if (n == 2 || n == 3)
+				return true;
+
+			if (n == 1 || n % 2 == 0)
+				return false;
+
+			for (int i = 3; i * i <= n; i += 2)
+				if (n % i == 0)
+					return false;
+
+			return true;
+		}
+
+		// Simple main
+	}
+
+	public static class Problema {
+
+		int id;
+		String nombre;
+
+		public Problema(int id, String nombre) {
+			this.id = id;
+			this.nombre = nombre;
+		}
+
+		public Problema(int id) {
+			this.id = id;
+		}
+
+		public boolean igual(Problema c) {
+			if (c == null)
+				return false;
+			else if (this.id == c.id)
+				return true;
+			else
+				return false;
+		}
+
+		@Override
+		public int hashCode() {
+			return id;
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class P5ProblemaA {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("file.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+
+			}
+
+
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+
+
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+
+
+
+				}
+			}
+
+
+			//Contar colisiones
+
+
+			int colisiones [] = new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += Hash[i].theLists[j].size();
+
+				}
+
+			}
+
+
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+
+
+
+				}
+
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+
+
+			}
+
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad máxima de colisiones que existen en cada uno de estos
+
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+
+				}
+
+
+			}
+
+
+
+			ArrayList <Integer> func = new ArrayList ();
+
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+
+			}
+
+			Collections.sort(func);
+
+
+
+			System.out.println(func.get(0));
+			System.out.println(max-1);
+
+
+
+
+			int idx=0;
+
+			for (int i = 0; i < funciones.length; i++) {
+
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+
+			}
+
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+		//	for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+
+				}
+
+
+
+
+			//
+
+
+
+
+
+
+
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+
+
+				 for (int j = 0; j < ax2.size(); j++) {
+					 System.out.print(ax2.get(j)+" ");
+				}
+
+				System.out.println();
+			}
+
+			}
+
+
+		}
+
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class P5ProblemaA {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("file.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+
+			}
+
+
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+
+
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+
+
+
+				}
+			}
+
+
+			//Contar colisiones
+
+
+			int colisiones [] = new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += Hash[i].theLists[j].size();
+
+				}
+
+			}
+
+
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+
+
+
+				}
+
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+
+
+			}
+
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad
+			 de colisiones que existen en cada uno de estos
+
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+
+				}
+
+
+			}
+
+
+
+			ArrayList <Integer> func = new ArrayList ();
+
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+
+			}
+
+			Collections.sort(func);
+
+
+
+			System.out.println(func.get(0));
+			System.out.println(max-1);
+
+
+
+
+			int idx=0;
+
+			for (int i = 0; i < funciones.length; i++) {
+
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+
+			}
+
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+		//	for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+
+				}
+
+
+
+
+			//
+
+
+
+
+
+
+
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+
+
+				 for (int j = 0; j < ax2.size(); j++) {
+					 System.out.print(ax2.get(j)+" ");
+				}
+
+				System.out.println();
+			}
+
+			}
+
+
+		}
+
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class P5ProblemaA {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("file.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+
+			}
+
+
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+
+
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+
+
+
+				}
+			}
+
+
+			//Contar colisiones
+
+
+			int colisiones [] = new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += Hash[i].theLists[j].size();
+
+				}
+
+			}
+
+
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+
+
+
+				}
+
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+
+
+			}
+
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad max de colisiones que existen en cada uno de estos
+
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+
+				}
+
+
+			}
+
+
+
+			ArrayList <Integer> func = new ArrayList ();
+
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+
+			}
+
+			Collections.sort(func);
+
+
+
+			System.out.println(func.get(0));
+			System.out.println(max-1);
+
+
+
+
+			int idx=0;
+
+			for (int i = 0; i < funciones.length; i++) {
+
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+
+			}
+
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+		//	for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+
+				}
+
+
+
+
+			//
+
+
+
+
+
+
+
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+
+
+				 for (int j = 0; j < ax2.size(); j++) {
+					 System.out.print(ax2.get(j)+" ");
+				}
+
+				System.out.println();
+			}
+
+			}
+
+
+		}
+
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+
+public class P6ProblemaE {
+
+	// SeparateChaining Hash table class
+	//
+	// CONSTRUCTION: an approximate initial size or default of 101
+	//
+	// ******************PUBLIC OPERATIONS*********************
+	// void insert( x )       --> Insert x
+	// void remove( x )       --> Remove x
+	// boolean contains( x )  --> Return true if x is present
+	// void makeEmpty( )      --> Remove all items
+
+	/**
+	 * Separate chaining table implementation of hash tables.
+	 * Note that all "matching" is based on the equals method.
+	 * @param <AnyType>
+	 */
+	static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+	            if( ++currentSize > theLists.length )
+	                rehash( );
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    private int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+
+	        // Simple main
+
+
+	}
+
+
+	public static class Alimento implements Comparable <Alimento>  {
+
+		int alimento;
+		int cantidad;
+
+		public Alimento (int alimento){
+			this.alimento = alimento;
+			this.cantidad = 1;
+
+		}
+
+
+
+
+		public int compareTo (Alimento c){
+
+			if(this.alimento<c.alimento)
+				return -1;
+			else if(this.alimento>c.alimento)
+				return 1;
+
+			return 0;
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			SeparateChainingHashTable Hash = new SeparateChainingHashTable ();
+			ArrayList <Alimento>falta = new ArrayList ();
+			int nestanques = Integer.parseInt(scan.nextLine());
+
+
+			int contador=0;
+			for (int i = 0; i < nestanques; i++) {
+
+				String datos[] = scan.nextLine().split(" ");
+
+				int comida = Integer.parseInt(datos[0]);
+				int npoke = Integer.parseInt(datos[1]);
+
+
+				Hash.insert(comida);
+
+				if(!Hash.contains(npoke))
+				{	contador++;
+
+				boolean entro = false;
+					for (int j = 0; j < falta.size(); j++) {
+
+						if(falta != null && falta.get(j).alimento == npoke){
+							falta.get(j).cantidad++;
+							entro = true;
+						}
+					}
+					if(!entro){
+							falta.add(new Alimento (npoke));
+					}
+				}
+
+				else
+					Hash.remove(npoke);
+
+
+
+
+			}
+
+			System.out.println(contador);
+
+
+			Collections.sort(falta);
+
+			for (int i = 0; i < falta.size(); i++) {
+
+				System.out.println(falta.get(i).alimento + " "+ falta.get(i).cantidad);
+
+			}
+		}
+
+}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class P5ProblemaA {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+
+			}
+
+
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+
+
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+
+
+
+				}
+			}
+
+
+			//Contar colisiones
+
+
+			int colisiones [] = new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += (Hash[i].theLists[j].size()-1);
+
+				}
+
+			}
+
+
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+
+
+
+				}
+
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+
+
+			}
+
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad max de colisiones que existen en cada uno de estos
+
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+
+				}
+
+
+			}
+
+
+
+			ArrayList <Integer> func = new ArrayList ();
+
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+
+			}
+
+			Collections.sort(func);
+
+
+
+
+
+
+
+			int idx=0;
+
+			for (int i = 0; i < funciones.length; i++) {
+
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+
+			}
+
+			System.out.println(func.get(0));
+			System.out.println(colisiones[idx]);
+
+
+
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+
+
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+
+				}
+
+
+
+
+
+
+
+
+
+
+
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+
+
+				 for (int j = 0; j < ax2.size(); j++) {
+					 System.out.print(ax2.get(j)+" ");
+				}
+
+				System.out.println();
+			}
+
+			}
+
+
+		}
+
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class P5ProblemaAA {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+
+			}
+
+
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+
+
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+
+
+
+				}
+			}
+
+
+			//Contar colisiones
+
+
+			int colisiones [] = new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += (Hash[i].theLists[j].size()-1);
+
+				}
+
+			}
+
+
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+
+
+
+				}
+
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+
+
+			}
+
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad max de colisiones que existen en cada uno de estos
+
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+
+				}
+
+
+			}
+
+
+
+			ArrayList <Integer> func = new ArrayList ();
+
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+
+			}
+
+			Collections.sort(func);
+
+
+
+
+
+
+
+			int idx=0;
+
+			for (int i = 0; i < funciones.length; i++) {
+
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+
+			}
+
+			System.out.println(func.get(0));
+			System.out.println(colisiones[idx]);
+
+
+
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+
+
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+
+				}
+
+
+
+
+
+
+
+
+
+
+
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+
+
+				 for (int j = 0; j < ax2.size(); j++) {
+					 System.out.print(ax2.get(j)+" ");
+				}
+
+				System.out.println();
+			}
+
+			}
+
+
+		}
+
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class P5ProblemaA {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 59;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+
+			SeparateChainingHashTable [] Hash = new SeparateChainingHashTable [m];
+
+			//Inicializar tablas
+			for (int i = 0; i < m; i++) {
+
+				Hash[i] = new SeparateChainingHashTable(Integer.parseInt(funciones[i]));
+
+			}
+
+
+			//Llenar tablas
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+
+
+					Hash[i].insert(Integer.parseInt(numeros[j]));
+
+
+
+				}
+			}
+
+
+			//Contar colisiones
+
+
+			int colisiones [] = new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					colisiones [i] += (Hash[i].theLists[j].size()-1);
+
+				}
+
+			}
+
+
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+			ArrayList <Integer>acolisiones  = new ArrayList ();
+
+			for (int i = 0; i < m; i++) {
+
+
+				for (int j = 0; j < Hash[i].theLists.length; j++) {
+
+					if(Hash[i].theLists[j].size()>1)
+					xcolisiones [i] += Hash[i].theLists[j].size();
+
+
+
+				}
+
+				if(colisiones [i]==min)
+					acolisiones.add(i);
+
+
+			}
+
+			//Teniendo el id de los que tuvieron menor cantidad de colisiones buscar la cantidad max de colisiones que existen en cada uno de estos
+
+
+			int max=1;
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				for (int j = 0; j < Hash[acolisiones.get(i)].theLists.length; j++) {
+
+					if(max<Hash[acolisiones.get(i)].theLists[j].size())
+					max=Hash[acolisiones.get(i)].theLists[j].size();
+
+				}
+
+
+			}
+
+
+
+			ArrayList <Integer> func = new ArrayList ();
+
+			for (int i = 0; i < acolisiones.size(); i++) {
+
+				func.add(Integer.parseInt(funciones[acolisiones.get(i)]));
+
+			}
+
+			Collections.sort(func);
+
+
+
+
+
+
+
+			int idx=0;
+
+			for (int i = 0; i < funciones.length; i++) {
+
+				if(Integer.parseInt(funciones[i])==func.get(0))
+					idx=i;
+
+			}
+
+			System.out.println(func.get(0));
+			System.out.println(colisiones[idx]);
+
+
+
+			ArrayList <Dos> ax = new ArrayList ();
+			int cont =0;
+
+
+				for (int j = 0; j < Hash[idx].theLists.length; j++) {
+
+					if(Hash[idx].theLists[j].size()>1){
+						cont++;
+						ax.add(new Dos(Hash[idx].theLists[j]));
+					}
+
+				}
+
+
+
+
+			//if(max<1)
+			{List <Integer>ax2;
+			Collections.sort(ax);
+			for (int i = 0; i < ax.size(); i++) {
+
+				 ax2=ax.get(i).m;
+				 Collections.sort(ax2);
+
+
+				 for (int j = 0; j < ax2.size(); j++) {
+
+					 if(j!=ax2.size())
+					 System.out.print(ax2.get(j)+" ");
+					 else
+				 	System.out.print(ax2.get(j));
+				}
+
+				System.out.println();
+			}
+
+			}
+
+
+		}
+
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class main {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 59;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static class Datos implements Comparable <Datos>  {
+
+
+		List <Integer> m;
+
+		public Datos (List <Integer> m){
+
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo(Datos c) {
+
+			if(this.m.get(0)<c.m.get(0))
+				return -1;
+			else if(this.m.get(0)>c.m.get(0))
+				return 1;
+
+			return 0;
+
+
+		}
+	}
+
+	public static class Coliders implements Comparable <Coliders>  {
+		int funcion;
+		int id;
+		int colisiones;
+
+
+		public Coliders (int funcion, int id, int colisiones){
+
+
+
+			this.colisiones = colisiones;
+					this.funcion = funcion;
+					this.colisiones=colisiones;
+		}
+
+
+		@Override
+		public int compareTo(Coliders c) {
+
+			if(this.funcion<c.funcion)
+				return -1;
+			else if(this.funcion>c.funcion)
+				return 1;
+
+			return 0;
+
+
+
+		}
+	}
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+			ArrayList <Coliders>colitions = new ArrayList ();
+			int colisiones [ ]= new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+				SeparateChainingHashTable  Hash = new SeparateChainingHashTable (Integer.parseInt(funciones[i]));
+
+
+				//Llenar tablas
+
+					for (int j = 0; j < numeros.length; j++) {
+
+						Hash.insert(Integer.parseInt(numeros[j]));
+					}
+
+					//Contar colisiones
+
+
+					for (int j = 0; j < Hash.theLists.length; j++) {
+
+						if(Hash.theLists[j].size()>1)
+							colisiones[i]+=(Hash.theLists[j].size()-1);
+
+
+
+					}
+
+
+
+					colitions.add(new Coliders(Integer.parseInt(funciones[i]), i, colisiones[i]));
+
+
+
+
+			}
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+			ArrayList <Coliders>igualesm = new ArrayList ();
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+
+
+
+			for (int i = 0; i < colitions.size(); i++) {
+
+				if(colitions.get(i).colisiones==min){
+					igualesm.add(colitions.get(i));
+				}
+			}
+
+
+
+
+
+
+			Collections.sort(igualesm);
+
+			System.out.println(igualesm.get(0).funcion);
+			System.out.println(min);
+
+			SeparateChainingHashTable <Integer>  uax = new SeparateChainingHashTable (igualesm.get(0).funcion);
+			for (int i = 0; i < numeros.length; i++) {
+
+				uax.insert(Integer.parseInt(numeros[i]));
+
+			}
+
+
+
+			ArrayList <Datos>  elementos= new ArrayList ();
+
+			for (int i = 0; i < uax.theLists.length; i++) {
+
+				if(uax.theLists[i].size()>1){
+					elementos.add(new Datos(uax.theLists[i]));
+				}
+
+
+			}
+
+
+			Collections.sort(elementos);
+
+
+
+				List <Integer> zx;
+				for (int i = 0; i < elementos.size(); i++) {
+
+
+					zx=elementos.get(i).m;
+					Collections.sort(zx);
+
+					for (int j = 0; j < zx.size(); j++) {
+						if(j!=zx.size())
+							 System.out.print(zx.get(j)+" ");
+							 else if((j-1)==zx.size())
+						 	System.out.print(zx.get(j));
+					}
+
+
+					System.out.println();
+				}
+
+
+
+
+
+
+			}
+
+
+		}
+
+	}
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class main {
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[  size ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	       whichList.add( x );
+
+	                // Rehash; see Section 5.5
+
+
+	    }
+
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+
+	    private static final int DEFAULT_TABLE_SIZE = 59;
+
+	        /** The array of Lists. */
+	    public List<AnyType> [ ] theLists;
+	    public int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+
+		public char[] get(int i) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+	        // Simple main
+
+
+	}
+
+	public static class Dos implements Comparable <Dos> {
+
+		List <Integer> m;
+
+		public Dos(List<Integer> m) {
+			super();
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo (Dos a){
+
+			if(this.m.get(0)< a.m.get(0))
+				return -1;
+			else if(this.m.get(0)> a.m.get(0))
+				return 1;
+			else
+			return 0;
+
+
+
+		}
+
+	}
+
+	public static class Datos implements Comparable <Datos>  {
+
+
+		List <Integer> m;
+
+		public Datos (List <Integer> m){
+
+			this.m = m;
+		}
+
+
+		@Override
+		public int compareTo(Datos c) {
+
+			if(this.m.get(0)<c.m.get(0))
+				return -1;
+			else if(this.m.get(0)>c.m.get(0))
+				return 1;
+
+			return 0;
+
+
+		}
+	}
+
+	public static class Coliders implements Comparable <Coliders>  {
+		int funcion;
+		int id;
+		int colisiones;
+
+
+		public Coliders (int funcion, int id, int colisiones){
+
+
+
+			this.colisiones = colisiones;
+					this.funcion = funcion;
+					this.colisiones=colisiones;
+		}
+
+
+		@Override
+		public int compareTo(Coliders c) {
+
+			if(this.funcion<c.funcion)
+				return -1;
+			else if(this.funcion>c.funcion)
+				return 1;
+
+			return 0;
+
+
+
+		}
+	}
+	public static void main (String [] args) throws Exception{
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+		File f = new File("test.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+
+		for (int casos = 0; casos < ncasos; casos++) {
+			System.out.println("Case #"+(casos+1)+":");
+
+			String [] rec = scan.nextLine().split(" ");
+			int n = Integer.parseInt(rec[0]);
+			int m = Integer.parseInt(rec[1]);
+
+			String [] numeros = scan.nextLine().split(" ");
+			String [] funciones = scan.nextLine().split(" ");
+
+
+			ArrayList <Coliders>colitions = new ArrayList ();
+			int colisiones [ ]= new int [m];
+
+			for (int i = 0; i < m; i++) {
+
+				SeparateChainingHashTable  Hash = new SeparateChainingHashTable (Integer.parseInt(funciones[i]));
+
+
+				//Llenar tablas
+
+					for (int j = 0; j < numeros.length; j++) {
+
+						Hash.insert(Integer.parseInt(numeros[j]));
+					}
+
+					//Contar colisiones
+
+
+					for (int j = 0; j < Hash.theLists.length; j++) {
+
+						if(Hash.theLists[j].size()>1)
+							colisiones[i]+=(Hash.theLists[j].size()-1);
+
+
+
+					}
+
+
+
+					colitions.add(new Coliders(Integer.parseInt(funciones[i]), i, colisiones[i]));
+
+
+
+
+			}
+
+			//Minimas colisiones
+
+			int min = colisiones [0], id=0;
+
+			for (int i = 0; i < colisiones.length; i++) {
+
+				if(min>colisiones[i]){
+					min=colisiones[i];
+					id=i;
+				}
+			}
+
+
+
+			int xcolisiones [] = new int [m];
+
+			ArrayList <Coliders>igualesm = new ArrayList ();
+		//ID de las funciones que tienen la misma cantidad de colisiones menores
+
+
+
+
+			for (int i = 0; i < colitions.size(); i++) {
+
+				if(colitions.get(i).colisiones==min){
+					igualesm.add(colitions.get(i));
+				}
+			}
+
+
+
+
+
+
+			Collections.sort(igualesm);
+
+			System.out.println(igualesm.get(0).funcion);
+			System.out.println(min);
+
+			SeparateChainingHashTable <Integer>  uax = new SeparateChainingHashTable (igualesm.get(0).funcion);
+			for (int i = 0; i < numeros.length; i++) {
+
+				uax.insert(Integer.parseInt(numeros[i]));
+
+			}
+
+
+
+			ArrayList <Datos>  elementos= new ArrayList ();
+
+			for (int i = 0; i < uax.theLists.length; i++) {
+
+				if(uax.theLists[i].size()>1){
+					elementos.add(new Datos(uax.theLists[i]));
+				}
+
+
+			}
+
+
+			Collections.sort(elementos);
+
+
+
+				List <Integer> zx;
+				for (int i = 0; i < elementos.size(); i++) {
+
+
+					zx=elementos.get(i).m;
+					Collections.sort(zx);
+
+					for (int j = 0; j < zx.size(); j++) {
+						if(j!=zx.size())
+							 System.out.print(zx.get(j)+" ");
+							 else if((j-1)==zx.size())
+						 	System.out.print(zx.get(j));
+					}
+
+
+					System.out.println();
+				}
+
+
+
+
+
+
+			}
+
+
+		}
+
+	}
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class Iliar {
+
+
+	public static class Graph {
+
+	    private int[] parent;  // parent[i] = parent of i
+	    private byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)
+	    private int count;     // number of components
+
+	    /**
+	     * Initializes an empty union-find data structure with <tt>N</tt> sites
+	     * <tt>0</tt> through <tt>N-1</tt>. Each site is initially in its own
+	     * component.
+	     *
+	     * @param  N the number of sites
+	     * @throws IllegalArgumentException if <tt>N &lt; 0</tt>
+	     */
+	    public Graph(int N) {
+
+	        if (N < 0) throw new IllegalArgumentException();
+	        count = N;
+	        parent = new int[N];
+	        rank = new byte[N];
+	        for (int i = 0; i < N; i++) {
+	            parent[i] = i;
+	            rank[i] = 0;
+	        }
+	    }
+
+	    /**
+	     * Returns the component identifier for the component containing site <tt>p</tt>.
+	     *
+	     * @param  p the integer representing one site
+	     * @return the component identifier for the component containing site <tt>p</tt>
+	     * @throws IndexOutOfBoundsException unless <tt>0 &le; p &lt; N</tt>
+	     */
+	    public int find(int p) {
+	        validate(p);
+	        while (p != parent[p]) {
+	            parent[p] = parent[parent[p]];    // path compression by halving
+	            p = parent[p];
+	        }
+	        return p;
+	    }
+
+	    /**
+	     * Returns the number of components.
+	     *
+	     * @return the number of components (between <tt>1</tt> and <tt>N</tt>)
+	     */
+	    public int count() {
+	        return count;
+	    }
+
+	    /**
+	     * Returns true if the the two sites are in the same component.
+	     *
+	     * @param  p the integer representing one site
+	     * @param  q the integer representing the other site
+	     * @return <tt>true</tt> if the two sites <tt>p</tt> and <tt>q</tt> are in the same component;
+	     *         <tt>false</tt> otherwise
+	     * @throws IndexOutOfBoundsException unless
+	     *         both <tt>0 &le; p &lt; N</tt> and <tt>0 &le; q &lt; N</tt>
+	     */
+	    public boolean connected(int p, int q) {
+	        return find(p) == find(q);
+	    }
+
+	    /**
+	     * Merges the component containing site <tt>p</tt> with the
+	     * the component containing site <tt>q</tt>.
+	     *
+	     * @param  p the integer representing one site
+	     * @param  q the integer representing the other site
+	     * @throws IndexOutOfBoundsException unless
+	     *         both <tt>0 &le; p &lt; N</tt> and <tt>0 &le; q &lt; N</tt>
+	     */
+	    public void union(int p, int q) {
+	        int rootP = find(p);
+	        int rootQ = find(q);
+	        if (rootP == rootQ) return;
+
+	        // make root of smaller rank point to root of larger rank
+	        if      (rank[rootP] < rank[rootQ]) parent[rootP] = rootQ;
+	        else if (rank[rootP] > rank[rootQ]) parent[rootQ] = rootP;
+	        else {
+	            parent[rootQ] = rootP;
+	            rank[rootP]++;
+	        }
+	        count--;
+
+	    }
+
+	    // validate that p is a valid index
+	    private void validate(int p) {
+	        int N = parent.length;
+	        if (p < 0 || p >= N) {
+	            throw new IndexOutOfBoundsException("index " + p + " is not between 0 and " + (N-1));
+	        }
+	    }
+
+	    /**
+	     * Reads in a an integer <tt>N</tt> and a sequence of pairs of integers
+	     * (between <tt>0</tt> and <tt>N-1</tt>) from standard input, where each integer
+	     * in the pair represents some site;
+	     * if the sites are in different components, merge the two components
+	     * and print the pair to standard output.
+	     */
+	}
+
+  	public static void main(String[] args) {
+
+  		Scanner scan = new Scanner (System.in);
+
+
+
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < ncasos; i++) {
+			System.out.println("Case #"+(i+1)+":");
+
+			String lin [] = scan.nextLine().split(" ");
+
+			Graph test = new Graph (Integer.parseInt(lin[0]));
+
+
+			for (int j = 0; j < Integer.parseInt(lin[1]); j++) {
+				String datos [] =  scan.nextLine().split(" ");
+				int a = Integer.parseInt(datos[0]);
+				int b = Integer.parseInt(datos[1]);
+
+
+
+				test.union(a, b);
+
+
+			}
+
+			int ck = Integer.parseInt(scan.nextLine());
+
+			int cont=0;
+
+			for (int j = 0; j < Integer.parseInt(lin[0]); j++) {
+
+				if(test.connected(ck, j))
+					cont++;
+
+			}
+			System.out.println(cont-1);
+
+
+		}
+
+  }
+}
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class GrafoLA {
+
+
+	public int V;
+	public int E;
+	public boolean elem [][];
+
+
+	public GrafoLA (int V){
+
+		this.V=V;
+		elem = new boolean [V][V];
+		this.E=0;
+	}
+
+	//Grafo no dirigido
+	public void agregar(int a, int b){
+
+		elem [a][b] = true;
+		//elem [b][a] = true;
+		E++;
+
+	}
+
+
+	public boolean estaConectado (int a, int b){
+		if(elem [a][b] && elem [b][a]){
+			return true;
+		}
+		return false;
+	}
+
+
+	public void print (){
+
+
+
+		for (int i = 0; i < V; i++) {
+			for (int j = 0; j < V; j++) {
+
+				if(elem[i][j])
+				System.out.print("[ X ] ");
+				else
+					System.out.print("[   ] ");
+			}
+			System.out.println();
+		}
+	}
+
+	public boolean pasar (){
+
+		int total=0;
+
+		for (int i = 0; i < V; i++) {
+			int cont=0;
+
+			for (int j = 0; j < V; j++) {
+
+
+				if(elem[i][j])
+					cont++;
+
+				if(cont==2){
+					for (int x = 0; x < V; x++) {
+						if(elem[x][j] && x!=i)
+						{	cont--;
+
+
+						break;}
+					}
+				}
+			}
+
+			if(cont==0)
+				cont=1;
+
+
+			if(cont==1)
+				total++;
+		}
+
+		if(total==V)
+			return true;
+		else
+			return false;
+
+
+	}
+
+
+
+	public static void main (String [] args){
+
+
+
+		Scanner scan = new Scanner (System.in);
+
+
+
+
+
+
+		int ncasos = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < ncasos; i++) {
+			System.out.println("Case #"+(i+1)+":");
+
+			String lin [] = scan.nextLine().split(" ");
+			GrafoLA  aa = new GrafoLA(Integer.parseInt(lin[0]));
+
+
+			for (int j = 0; j < Integer.parseInt(lin[1]); j++) {
+				String datos [] =  scan.nextLine().split(" ");
+				int a = Integer.parseInt(datos[0]);
+				int b = Integer.parseInt(datos[1]);
+
+
+				aa.agregar(a, b);
+
+
+			}
+
+			System.out.println(aa.pasar());
+
+
+		}
+
+
+
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

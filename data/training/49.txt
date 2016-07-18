@@ -1,0 +1,319 @@
+package problemaB;
+import java.util.Scanner;
+
+public class Problem {
+	private static int N;
+	private int n;
+	private int[][] mat;
+	private static int cont = 0;
+	public void cargar() {
+		Scanner teclado=new Scanner(System.in);
+        N=teclado.nextInt();
+        mat=new int[N][N];
+        for(int f=0;f<N;f++) {
+            for(int c=0;c<N;c++) {
+                n=teclado.nextInt();
+                if(1<=n && n<=100){
+                	mat[f][c]=n;
+                }
+            }
+        }
+	}
+	public void evaluar(int a, int b){
+		int c =0,d=0;
+        for(int i=0;i<N;i++) {
+            c += mat[a][i];
+            d += mat[i][b];
+            
+        }
+        if(c<d){
+        	cont+=1;
+        }
+    }
+	public static void main(String[] ar){
+		Problem ma = new Problem();
+		ma.cargar();
+		for(int f=0;f<N;f++) {
+            for(int c=0;c<N;c++){
+        		ma.evaluar(f, c);
+            }
+		}
+		System.out.print(cont);
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problem1;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class Problem1 {
+
+    private static int N;
+	private int n;
+	private int[][] mat;
+	private static int cont = 0;
+        private static Scanner teclado=new Scanner(System.in);
+	public void cargar() {
+            N=teclado.nextInt();
+            if(1<=N && N<=100){
+                mat=new int[N][N];
+                for(int f=0;f<N;f++) {
+                    for(int c=0;c<N;c++) {
+                        n=teclado.nextInt();
+                        if(1<=n && n<=100){
+                                mat[f][c]=n;
+                        }
+                    }
+                }
+            }
+	}
+	public void evaluar(int a, int b){
+		int c =0,d=0;
+        for(int i=0;i<N;i++) {
+            c += mat[a][i];
+            d += mat[i][b];
+            
+        }
+        if(c<d){
+        	cont+=1;
+        }
+    }
+	public static void main(String[] ar){
+		Problem1 ma = new Problem1();
+                int cont1=1;
+                while(teclado.hasNextInt()){
+                    ma.cargar();
+                    for(int f=0;f<N;f++) {
+                        for(int c=0;c<N;c++){
+                            ma.evaluar(f, c);
+                        }
+                    }
+                    System.out.println("Case #"+cont1+":\n"+cont);
+                    cont = 0;
+                    cont1 += 1;
+                }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemac;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Problemac { 
+public static void main(String[] args) {
+       int N = 0;
+       Scanner sc = new Scanner(System.in);
+       while(sc.hasNextInt())
+       {
+           N = sc.nextInt();
+           sc.nextLine();
+           String entrada = sc.nextLine();
+           String[] separado = entrada.split(" ");
+           long[] convertido = new long[N];
+           for(int n = 0;n < N; n++){
+               convertido[n] = Integer.parseInt(separado[n]);
+           }
+           long producto;
+           Arrays.sort(convertido);
+           long test1 =  (convertido[0] * convertido[1]);
+           long test2 =  (convertido[N-1] * convertido[N-2]);
+           producto = test1 > test2 ? test1 : test2;
+           System.out.println(Math.abs(producto));
+       } 
+   }
+}
+    
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problemf;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Problemf {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       int N = 0;
+       Scanner sc = new Scanner(System.in);
+       while(sc.hasNextInt())
+       {
+           int aciertos = 0;
+           N = sc.nextInt();
+           sc.nextLine();
+           String entrada = sc.nextLine();
+           String[] separado = entrada.split(" ");
+           int[] convertido = new int[5];
+           for(int n = 0;n < 5; n++){
+               convertido[n] = Integer.parseInt(separado[n]);
+               if(convertido[n] == N){
+                   aciertos++;
+               }
+           }
+           System.out.println(aciertos);
+       }
+   }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaaaaa;
+import java.util.Scanner;
+public class Problemaaaaa {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N;
+        N = sc.nextInt();
+        if(1<=N && N<=100){
+            for(int i=0;i<N;i++){
+                int n,cont=0;
+                n = sc.nextInt();
+                int[][] mat;
+                mat = new int[n][2];
+                for(int j=0;j<n;j++){
+                    for(int h=0;h<2;h++){
+                        mat[j][h]=sc.nextInt();
+                    }
+                }
+                for(int j=0;j<n;j++){
+                    for(int h=0;h<2;h++){
+                        if(mat[j][0]==mat[h][1]){
+                            cont+=1;
+                        }
+                    }
+                }
+                
+                System.out.println("Case #"+i+":\n"+cont);
+                cont=0;
+            }
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntob;
+import java.util.Scanner;
+import java.util.Deque;
+import java.util.LinkedList;
+public class PuntoB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] separado = new String[2];
+        String entrada = "";
+        int Casos = 0,Casos2 = 0, NoCartas = 0,NoJugadores = 0;
+        ////
+        Casos = Integer.parseInt(sc.nextLine());
+        while(Casos > 0){
+            String ganadores = "";
+            Deque mazo = new LinkedList();
+            entrada = sc.nextLine();
+            separado = entrada.split(" ");
+            NoCartas = Integer.parseInt(separado[0]);
+            NoJugadores = Integer.parseInt(separado[1]);
+            int[] jugadores = new int[NoJugadores];
+            for(int n = 0;n < NoJugadores;n++){
+                jugadores[n] = 0;
+            }
+            /////////
+            entrada = sc.nextLine();
+            String[] separado2 = new String[NoCartas];
+            separado2 = entrada.split(" ");
+            /////////////////
+            for(int n = 0;n < NoCartas;n++){
+                mazo.add(separado2[n]);
+            }
+            //////////
+            int n = 0;
+            while(mazo.isEmpty() != true){
+                int[] tmp = new int[2];
+                tmp[0] = Integer.parseInt(mazo.getFirst().toString());
+                tmp[1] = Integer.parseInt(mazo.getLast().toString());
+                /////////
+                if(tmp[0] > tmp[1]){
+                    jugadores[n] += tmp[0];
+                    mazo.removeFirst();
+                }
+                else if(tmp[0] < tmp[1]){
+                    jugadores[n] += tmp[1];
+                    mazo.removeLast();
+                }
+                else{//tmp[0] == tmp[1]
+                    jugadores[n] += tmp[1];
+                    mazo.removeLast();
+                }
+                /////////
+                n++;
+                if(n >= NoJugadores){n = 0;}
+            }
+            int NoMayor = 0, ignorar = -1;
+            for(int m = 0;m < NoJugadores;m++){
+                if(jugadores[m] > NoMayor){NoMayor = jugadores[m]; ganadores =(m+1)+""; ignorar = m;}
+            }
+            for(int m = 0;m < NoJugadores;m++){
+                if(jugadores[m] == NoMayor && ignorar != m){ganadores += " "+(m+1);}
+            }
+            //////////
+            System.out.println("Caso #"+(Casos2+1)+":\n"+ganadores);
+            Casos--;
+            Casos2++;
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntoc;
+import java.util.Scanner;
+public class PuntoC {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String entrada = "";
+        int Aprueban = 0;
+        int NoCualidades = Integer.parseInt(sc.nextLine());
+        String[] Cualidades = new String[NoCualidades];
+        //
+        entrada = sc.nextLine();
+        Cualidades = entrada.split(" ");
+        //
+        int NoNinas = Integer.parseInt(sc.nextLine());
+        //
+        for(int n = 0;n < NoNinas;n++){
+            entrada = sc.nextLine();
+            String[] tmp2 = entrada.split(" ");
+            int tmp = 0;
+            for(int m = 0;m < tmp2.length;m++){
+                for(int j = 0;j < NoCualidades;j++){
+                    if(tmp2[m].equals(Cualidades[j])){
+                        tmp++;
+                    }
+                }
+            }
+            if(tmp >= NoCualidades){
+                Aprueban++;
+            }
+        }
+        //
+        System.out.println(Aprueban);
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

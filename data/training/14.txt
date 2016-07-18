@@ -1,0 +1,3672 @@
+import java.util.Scanner;
+
+public class ProblemA {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamaño;
+	public static int[] numeros;
+	public static int numeroMenor;
+	public static int numeroIgual;
+	public static int numeroMayor;
+
+	public static void evaluar(int j) {
+		for (int k = 0; k < numeros.length; k++) {
+			if (k != j) {
+				if (numeros[j] < numeros[k]) {
+					numeroMenor++;
+				} else if (numeros[j] == numeros[k]) {
+					numeroIgual++;
+				} else
+					numeroMayor++;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			tamaño = entrada.nextInt();
+			numeros = new int[tamaño];
+
+			numeroMenor = 0;
+			numeroIgual = 0;
+			numeroMayor = 0;
+
+			for (int i = 0; i < numeros.length; i++) {
+				numeros[i] = entrada.nextInt();
+			}
+
+			for (int j = 0; j < numeros.length; j++) {
+				evaluar(j);
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			System.out.println(numeroMayor);
+			System.out.println(numeroMenor);
+			System.out.println(numeroIgual);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemB {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos = 0;
+	public static int tamaño;
+	public static int[][] matriz;
+	public static int sumaFil;
+	public static int sumaCol;
+	public static int casillasGanadoras;
+
+	public static void evaluar(int fil, int col) {
+		for (int m = 0; m < matriz.length; m++) {
+			for (int n = 0; n < matriz.length; n++) {
+				if (m == fil) {
+					sumaFil += matriz[m][n];
+				}
+				if (n == col) {
+					sumaCol += matriz[m][n];
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+
+		while (entrada.hasNextInt()) {
+			tamaño = entrada.nextInt();
+			matriz = new int[tamaño][tamaño];
+
+			numeroCasos++;
+			casillasGanadoras = 0;
+
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz.length; j++) {
+					matriz[i][j] = entrada.nextInt();
+				}
+			}
+
+			for (int fil = 0; fil < matriz.length; fil++) {
+				for (int col = 0; col < matriz.length; col++) {
+					evaluar(fil, col);
+					if (sumaFil < sumaCol) {
+						casillasGanadoras++;
+					}
+					sumaFil = 0;
+					sumaCol = 0;
+				}
+			}
+
+			System.out.println("Case #" + numeroCasos + ":");
+			System.out.println(casillasGanadoras);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemC {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamaño;
+	public static int dimension;
+	public static int filaEliminar;
+	public static String[] colores;
+	public static String[][] solucion;
+
+	public static void combinaUno(int y) {
+		solucion[y][y] = colores[y];
+	}
+
+	public static void combinaDos(String color1, String color2, int fil, int col) {
+		solucion[fil][col] = color2;
+		solucion[fil][col + 1] = color1;
+	}
+
+	public static void combinaTres(int y, int x) {
+		combinaDos(colores[x + 1], colores[x + 2], y + 1, x + 1);
+		solucion[y + 1][x + 0] = colores[x + 0];
+		combinaDos(colores[x + 0], colores[x + 1], y + 2, x + 0);
+		solucion[y + 2][x + 2] = colores[x + 2];
+		combinaDos(solucion[y + 2][x + 1], solucion[y + 2][x + 2], y + 3, x + 1);
+		solucion[y + 3][x + 0] = colores[x + 1];
+		combinaDos(solucion[y + 1][x + 0], solucion[y + 1][x + 1], y + 4, x + 0);
+		solucion[y + 4][x + 2] = colores[x + 1];
+		combinaDos(solucion[y + 4][x + 1], solucion[y + 4][x + 2], y + 5, x + 1);
+		solucion[y + 5][x + 0] = colores[x + 2];
+	}
+
+	public static void combinaCuatro(int y, int x) {
+		String[] colores1 = new String[tamaño];
+		colores1 = colores;
+		for (int i = 0; i < 24; i++) {
+			if (i < 6) {
+				solucion[y + i][x + 0] = colores1[x + 0];
+			} else if ((i >= 6) && (i < 12)) {
+				solucion[y + i][x + 0] = colores1[x + 1];
+			} else if ((i >= 12) && (i < 18)) {
+				solucion[y + i][x + 0] = colores1[x + 2];
+			} else
+				solucion[y + i][x + 0] = colores1[x + 3];
+		}
+		combinaTres(y + 0, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 6][x + k] = colores1[x + k];
+		}
+		combinaDos(colores1[x + 0], colores1[x + 1], y + 6, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 6][x + k];
+		}
+		combinaTres(y + 6, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 12][x + k] = solucion[y + 2][x + k];
+		}
+		combinaDos(solucion[y + 2][x + 0], solucion[y + 2][x + 1], y + 12, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 12][x + k];
+		}
+		combinaTres(y + 12, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 18][x + k] = solucion[y + 4][x + k];
+		}
+		combinaDos(solucion[y + 4][x + 0], solucion[y + 4][x + 1], y + 18, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 18][x + k];
+		}
+		combinaTres(y + 18, x + 1);
+		for (int k = 0; k < tamaño; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaCinco(int y, int x) {
+		String[] colores2 = new String[tamaño];
+		colores2 = colores;
+
+		for (int i = 0; i < 120; i++) {
+			if (i < 24) {
+				solucion[y + i][x + 0] = colores2[x + 0];
+			} else if ((i >= 24) && (i < 48)) {
+				solucion[y + i][x + 0] = colores2[x + 1];
+			} else if ((i >= 48) && (i < 72)) {
+				solucion[y + i][x + 0] = colores2[x + 2];
+			} else if ((i >= 72) && (i < 96)) {
+				solucion[y + i][x + 0] = colores2[x + 3];
+			} else
+				solucion[y + i][x + 0] = colores2[x + 4];
+		}
+		combinaCuatro(y + 0, x + 1);
+
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 24][x + k] = colores2[x + k];
+		}
+		combinaDos(colores2[x + 0], colores2[x + 1], y + 24, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 24][x + k];
+		}
+		combinaCuatro(y + 24, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 48][x + k] = solucion[y + 6][x + k];
+		}
+		combinaDos(solucion[y + 6][x + 0], solucion[y + 6][x + 1], y + 48, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 48][x + k];
+		}
+		combinaCuatro(y + 48, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 72][x + k] = solucion[y + 12][x + k];
+		}
+		combinaDos(solucion[y + 12][x + 0], solucion[y + 12][x + 1], y + 72, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 72][x + k];
+		}
+		combinaCuatro(y + 72, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 96][x + k] = solucion[y + 18][x + k];
+		}
+		combinaDos(solucion[y + 18][x + 0], solucion[y + 18][x + 1], y + 96, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 96][x + k];
+		}
+		combinaCuatro(y + 96, x + 1);
+		for (int k = 0; k < tamaño; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaSeis(int y, int x) {
+		String[] colores3 = new String[tamaño];
+		colores3 = colores;
+
+		for (int i = 0; i < 720; i++) {
+			if (i < 120) {
+				solucion[y + i][x + 0] = colores3[x + 0];
+			} else if ((i >= 120) && (i < 240)) {
+				solucion[y + i][x + 0] = colores3[x + 1];
+			} else if ((i >= 240) && (i < 360)) {
+				solucion[y + i][x + 0] = colores3[x + 2];
+			} else if ((i >= 360) && (i < 480)) {
+				solucion[y + i][x + 0] = colores3[x + 3];
+			} else if ((i >= 480) && (i < 600)) {
+				solucion[y + i][x + 0] = colores3[x + 4];
+			} else
+				solucion[y + i][x + 0] = colores3[x + 5];
+		}
+		combinaCinco(y + 0, x + 1);
+
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 120][x + k] = colores3[x + k];
+		}
+		combinaDos(colores3[x + 0], colores3[x + 1], y + 120, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 120][x + k];
+		}
+		combinaCinco(y + 120, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 240][x + k] = solucion[y + 24][x + k];
+		}
+		combinaDos(solucion[y + 24][x + 0], solucion[y + 24][x + 1], y + 240, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 240][x + k];
+		}
+		combinaCinco(y + 240, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 360][x + k] = solucion[y + 48][x + k];
+		}
+		combinaDos(solucion[y + 48][x + 0], solucion[y + 48][x + 1], y + 360, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 360][x + k];
+		}
+		combinaCinco(y + 360, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 480][x + k] = solucion[y + 72][x + k];
+		}
+		combinaDos(solucion[y + 72][x + 0], solucion[y + 72][x + 1], y + 480, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 480][x + k];
+		}
+		combinaCinco(y + 480, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 600][x + k] = solucion[y + 96][x + k];
+		}
+		combinaDos(solucion[y + 96][x + 0], solucion[y + 96][x + 1], y + 600, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 600][x + k];
+		}
+		combinaCinco(y + 600, x + 1);
+	}
+
+	public static boolean comparar(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < colores.length; k++) {
+			if (solucion[var][k].equals(solucion[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == colores.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminar(int i) {
+		for (int m = i + 1; m < (dimension - filaEliminar); m++) {
+			for (int n = 0; n < colores.length; n++) {
+				solucion[i][n] = solucion[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			int var = 0;
+			int z;
+			boolean decision;
+			tamaño = entrada.nextInt();
+			colores = new String[tamaño];
+			filaEliminar = 0;
+
+			switch (tamaño) {
+			case 1:
+				dimension = 1;
+				break;
+			case 2:
+				dimension = 2;
+				break;
+			case 3:
+				dimension = 6;
+				break;
+			case 4:
+				dimension = 24;
+				break;
+			case 5:
+				dimension = 120;
+				break;
+			case 6:
+				dimension = 720;
+				break;
+			}
+
+			solucion = new String[dimension][tamaño];
+
+			for (int i = 0; i < colores.length; i++) {
+				colores[i] = entrada.next();
+				solucion[0][i] = colores[i];
+			}
+
+			switch (tamaño) {
+			case 1:
+				combinaUno(0);
+				break;
+			case 2:
+				combinaDos(colores[0], colores[1], 1, 0);
+				break;
+			case 3:
+				combinaTres(0, 0);
+				break;
+			case 4:
+				combinaCuatro(0, 0);
+				break;
+			case 5:
+				combinaCinco(0, 0);
+				break;
+			case 6:
+				combinaSeis(0, 0);
+				break;
+			}
+
+			while (var < dimension) {
+				z = var;
+				while (z < (dimension - 1 - filaEliminar)) {
+					decision = comparar(var, z + 1);
+					if (decision) {
+						eliminar(z + 1);
+						filaEliminar++;
+					} else
+						z++;
+				}
+				var++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (dimension - filaEliminar); i++) {
+				for (int j = 0; j < tamaño; j++) {
+					System.out.print(solucion[i][j] + " ");
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemC {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamaño;
+	public static int dimension;
+	public static int filaEliminar;
+	public static String[] colores;
+	public static String[][] solucion;
+
+	public static void combinaUno(int y) {
+		solucion[y][y] = colores[y];
+	}
+
+	public static void combinaDos(String color1, String color2, int fil, int col) {
+		solucion[fil][col] = color2;
+		solucion[fil][col + 1] = color1;
+	}
+
+	public static void combinaTres(int y, int x) {
+		combinaDos(colores[x + 1], colores[x + 2], y + 1, x + 1);
+		solucion[y + 1][x + 0] = colores[x + 0];
+		combinaDos(colores[x + 0], colores[x + 1], y + 2, x + 0);
+		solucion[y + 2][x + 2] = colores[x + 2];
+		combinaDos(solucion[y + 2][x + 1], solucion[y + 2][x + 2], y + 3, x + 1);
+		solucion[y + 3][x + 0] = colores[x + 1];
+		combinaDos(solucion[y + 1][x + 0], solucion[y + 1][x + 1], y + 4, x + 0);
+		solucion[y + 4][x + 2] = colores[x + 1];
+		combinaDos(solucion[y + 4][x + 1], solucion[y + 4][x + 2], y + 5, x + 1);
+		solucion[y + 5][x + 0] = colores[x + 2];
+	}
+
+	public static void combinaCuatro(int y, int x) {
+		String[] colores1 = new String[tamaño];
+		colores1 = colores;
+		for (int i = 0; i < 24; i++) {
+			if (i < 6) {
+				solucion[y + i][x + 0] = colores1[x + 0];
+			} else if ((i >= 6) && (i < 12)) {
+				solucion[y + i][x + 0] = colores1[x + 1];
+			} else if ((i >= 12) && (i < 18)) {
+				solucion[y + i][x + 0] = colores1[x + 2];
+			} else
+				solucion[y + i][x + 0] = colores1[x + 3];
+		}
+		combinaTres(y + 0, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 6][x + k] = colores1[x + k];
+		}
+		combinaDos(colores1[x + 0], colores1[x + 1], y + 6, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 6][x + k];
+		}
+		combinaTres(y + 6, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 12][x + k] = solucion[y + 2][x + k];
+		}
+		combinaDos(solucion[y + 2][x + 0], solucion[y + 2][x + 1], y + 12, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 12][x + k];
+		}
+		combinaTres(y + 12, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 18][x + k] = solucion[y + 4][x + k];
+		}
+		combinaDos(solucion[y + 4][x + 0], solucion[y + 4][x + 1], y + 18, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 18][x + k];
+		}
+		combinaTres(y + 18, x + 1);
+		for (int k = 0; k < tamaño; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaCinco(int y, int x) {
+		String[] colores2 = new String[tamaño];
+		colores2 = colores;
+
+		for (int i = 0; i < 120; i++) {
+			if (i < 24) {
+				solucion[y + i][x + 0] = colores2[x + 0];
+			} else if ((i >= 24) && (i < 48)) {
+				solucion[y + i][x + 0] = colores2[x + 1];
+			} else if ((i >= 48) && (i < 72)) {
+				solucion[y + i][x + 0] = colores2[x + 2];
+			} else if ((i >= 72) && (i < 96)) {
+				solucion[y + i][x + 0] = colores2[x + 3];
+			} else
+				solucion[y + i][x + 0] = colores2[x + 4];
+		}
+		combinaCuatro(y + 0, x + 1);
+
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 24][x + k] = colores2[x + k];
+		}
+		combinaDos(colores2[x + 0], colores2[x + 1], y + 24, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 24][x + k];
+		}
+		combinaCuatro(y + 24, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 48][x + k] = solucion[y + 6][x + k];
+		}
+		combinaDos(solucion[y + 6][x + 0], solucion[y + 6][x + 1], y + 48, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 48][x + k];
+		}
+		combinaCuatro(y + 48, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 72][x + k] = solucion[y + 12][x + k];
+		}
+		combinaDos(solucion[y + 12][x + 0], solucion[y + 12][x + 1], y + 72, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 72][x + k];
+		}
+		combinaCuatro(y + 72, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 96][x + k] = solucion[y + 18][x + k];
+		}
+		combinaDos(solucion[y + 18][x + 0], solucion[y + 18][x + 1], y + 96, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 96][x + k];
+		}
+		combinaCuatro(y + 96, x + 1);
+		for (int k = 0; k < tamaño; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaSeis(int y, int x) {
+		String[] colores3 = new String[tamaño];
+		colores3 = colores;
+
+		for (int i = 0; i < 720; i++) {
+			if (i < 120) {
+				solucion[y + i][x + 0] = colores3[x + 0];
+			} else if ((i >= 120) && (i < 240)) {
+				solucion[y + i][x + 0] = colores3[x + 1];
+			} else if ((i >= 240) && (i < 360)) {
+				solucion[y + i][x + 0] = colores3[x + 2];
+			} else if ((i >= 360) && (i < 480)) {
+				solucion[y + i][x + 0] = colores3[x + 3];
+			} else if ((i >= 480) && (i < 600)) {
+				solucion[y + i][x + 0] = colores3[x + 4];
+			} else
+				solucion[y + i][x + 0] = colores3[x + 5];
+		}
+		combinaCinco(y + 0, x + 1);
+
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 120][x + k] = colores3[x + k];
+		}
+		combinaDos(colores3[x + 0], colores3[x + 1], y + 120, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 120][x + k];
+		}
+		combinaCinco(y + 120, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 240][x + k] = solucion[y + 24][x + k];
+		}
+		combinaDos(solucion[y + 24][x + 0], solucion[y + 24][x + 1], y + 240, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 240][x + k];
+		}
+		combinaCinco(y + 240, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 360][x + k] = solucion[y + 48][x + k];
+		}
+		combinaDos(solucion[y + 48][x + 0], solucion[y + 48][x + 1], y + 360, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 360][x + k];
+		}
+		combinaCinco(y + 360, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 480][x + k] = solucion[y + 72][x + k];
+		}
+		combinaDos(solucion[y + 72][x + 0], solucion[y + 72][x + 1], y + 480, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 480][x + k];
+		}
+		combinaCinco(y + 480, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 600][x + k] = solucion[y + 96][x + k];
+		}
+		combinaDos(solucion[y + 96][x + 0], solucion[y + 96][x + 1], y + 600, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 600][x + k];
+		}
+		combinaCinco(y + 600, x + 1);
+	}
+
+	public static boolean comparar(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < colores.length; k++) {
+			if (solucion[var][k].equals(solucion[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == colores.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminar(int i) {
+		for (int m = i + 1; m < (dimension - filaEliminar); m++) {
+			for (int n = 0; n < colores.length; n++) {
+				solucion[i][n] = solucion[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			int var = 0;
+			int z;
+			boolean decision;
+			tamaño = entrada.nextInt();
+			colores = new String[tamaño];
+			filaEliminar = 0;
+
+			switch (tamaño) {
+			case 1:
+				dimension = 1;
+				break;
+			case 2:
+				dimension = 2;
+				break;
+			case 3:
+				dimension = 6;
+				break;
+			case 4:
+				dimension = 24;
+				break;
+			case 5:
+				dimension = 120;
+				break;
+			case 6:
+				dimension = 720;
+				break;
+			}
+
+			solucion = new String[dimension][tamaño];
+
+			for (int i = 0; i < colores.length; i++) {
+				colores[i] = entrada.next();
+				solucion[0][i] = colores[i];
+			}
+
+			switch (tamaño) {
+			case 1:
+				combinaUno(0);
+				break;
+			case 2:
+				combinaDos(colores[0], colores[1], 1, 0);
+				break;
+			case 3:
+				combinaTres(0, 0);
+				break;
+			case 4:
+				combinaCuatro(0, 0);
+				break;
+			case 5:
+				combinaCinco(0, 0);
+				break;
+			case 6:
+				combinaSeis(0, 0);
+				break;
+			}
+
+			while (var < dimension) {
+				z = var;
+				while (z < (dimension - 1 - filaEliminar)) {
+					decision = comparar(var, z + 1);
+					if (decision) {
+						eliminar(z + 1);
+						filaEliminar++;
+					} else
+						z++;
+				}
+				var++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (dimension - filaEliminar); i++) {
+				for (int j = 0; j < tamaño; j++) {
+					System.out.print(solucion[i][j] + " ");
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package pROBLEMAS;
+
+public class ProblemA {
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package pROBLEMAS;
+
+public class ProblemA {
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B {
+
+	public static int numeroCasos = 0;
+	public static int tamano;
+	public static int[][] matriz;
+	public static int sumaFil;
+	public static int sumaCol;
+	public static int casillasGanadoras;
+
+	public static void evaluar(int fil, int col) {
+		for (int m = 0; m < matriz.length; m++) {
+			for (int n = 0; n < matriz.length; n++) {
+				if (m == fil) {
+					sumaFil += matriz[m][n];
+				}
+				if (n == col) {
+					sumaCol += matriz[m][n];
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+		while (entrada.hasNextInt()) {
+			tamano = entrada.nextInt();
+			matriz = new int[tamano][tamano];
+
+			numeroCasos++;
+			casillasGanadoras = 0;
+
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz.length; j++) {
+					matriz[i][j] = entrada.nextInt();
+				}
+			}
+
+			for (int fil = 0; fil < matriz.length; fil++) {
+				for (int col = 0; col < matriz.length; col++) {
+					evaluar(fil, col);
+					if (sumaFil < sumaCol) {
+						casillasGanadoras++;
+					}
+					sumaFil = 0;
+					sumaCol = 0;
+				}
+			}
+
+			System.out.println("Case #" + numeroCasos + ":");
+			System.out.println(casillasGanadoras);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class C {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamaño;
+	public static int dimension;
+	public static int filaEliminar;
+	public static String[] colores;
+	public static String[][] solucion;
+
+	public static void combinaUno(int y) {
+		solucion[y][y] = colores[y];
+	}
+
+	public static void combinaDos(String color1, String color2, int fil, int col) {
+		solucion[fil][col] = color2;
+		solucion[fil][col + 1] = color1;
+	}
+
+	public static void combinaTres(int y, int x) {
+		combinaDos(colores[x + 1], colores[x + 2], y + 1, x + 1);
+		solucion[y + 1][x + 0] = colores[x + 0];
+		combinaDos(colores[x + 0], colores[x + 1], y + 2, x + 0);
+		solucion[y + 2][x + 2] = colores[x + 2];
+		combinaDos(solucion[y + 2][x + 1], solucion[y + 2][x + 2], y + 3, x + 1);
+		solucion[y + 3][x + 0] = colores[x + 1];
+		combinaDos(solucion[y + 1][x + 0], solucion[y + 1][x + 1], y + 4, x + 0);
+		solucion[y + 4][x + 2] = colores[x + 1];
+		combinaDos(solucion[y + 4][x + 1], solucion[y + 4][x + 2], y + 5, x + 1);
+		solucion[y + 5][x + 0] = colores[x + 2];
+	}
+
+	public static void combinaCuatro(int y, int x) {
+		String[] colores1 = new String[tamaño];
+		colores1 = colores;
+		for (int i = 0; i < 24; i++) {
+			if (i < 6) {
+				solucion[y + i][x + 0] = colores1[x + 0];
+			} else if ((i >= 6) && (i < 12)) {
+				solucion[y + i][x + 0] = colores1[x + 1];
+			} else if ((i >= 12) && (i < 18)) {
+				solucion[y + i][x + 0] = colores1[x + 2];
+			} else
+				solucion[y + i][x + 0] = colores1[x + 3];
+		}
+		combinaTres(y + 0, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 6][x + k] = colores1[x + k];
+		}
+		combinaDos(colores1[x + 0], colores1[x + 1], y + 6, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 6][x + k];
+		}
+		combinaTres(y + 6, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 12][x + k] = solucion[y + 2][x + k];
+		}
+		combinaDos(solucion[y + 2][x + 0], solucion[y + 2][x + 1], y + 12, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 12][x + k];
+		}
+		combinaTres(y + 12, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 18][x + k] = solucion[y + 4][x + k];
+		}
+		combinaDos(solucion[y + 4][x + 0], solucion[y + 4][x + 1], y + 18, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 18][x + k];
+		}
+		combinaTres(y + 18, x + 1);
+		for (int k = 0; k < tamaño; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaCinco(int y, int x) {
+		String[] colores2 = new String[tamaño];
+		colores2 = colores;
+
+		for (int i = 0; i < 120; i++) {
+			if (i < 24) {
+				solucion[y + i][x + 0] = colores2[x + 0];
+			} else if ((i >= 24) && (i < 48)) {
+				solucion[y + i][x + 0] = colores2[x + 1];
+			} else if ((i >= 48) && (i < 72)) {
+				solucion[y + i][x + 0] = colores2[x + 2];
+			} else if ((i >= 72) && (i < 96)) {
+				solucion[y + i][x + 0] = colores2[x + 3];
+			} else
+				solucion[y + i][x + 0] = colores2[x + 4];
+		}
+		combinaCuatro(y + 0, x + 1);
+
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 24][x + k] = colores2[x + k];
+		}
+		combinaDos(colores2[x + 0], colores2[x + 1], y + 24, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 24][x + k];
+		}
+		combinaCuatro(y + 24, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 48][x + k] = solucion[y + 6][x + k];
+		}
+		combinaDos(solucion[y + 6][x + 0], solucion[y + 6][x + 1], y + 48, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 48][x + k];
+		}
+		combinaCuatro(y + 48, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 72][x + k] = solucion[y + 12][x + k];
+		}
+		combinaDos(solucion[y + 12][x + 0], solucion[y + 12][x + 1], y + 72, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 72][x + k];
+		}
+		combinaCuatro(y + 72, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 96][x + k] = solucion[y + 18][x + k];
+		}
+		combinaDos(solucion[y + 18][x + 0], solucion[y + 18][x + 1], y + 96, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 96][x + k];
+		}
+		combinaCuatro(y + 96, x + 1);
+		for (int k = 0; k < tamaño; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaSeis(int y, int x) {
+		String[] colores3 = new String[tamaño];
+		colores3 = colores;
+
+		for (int i = 0; i < 720; i++) {
+			if (i < 120) {
+				solucion[y + i][x + 0] = colores3[x + 0];
+			} else if ((i >= 120) && (i < 240)) {
+				solucion[y + i][x + 0] = colores3[x + 1];
+			} else if ((i >= 240) && (i < 360)) {
+				solucion[y + i][x + 0] = colores3[x + 2];
+			} else if ((i >= 360) && (i < 480)) {
+				solucion[y + i][x + 0] = colores3[x + 3];
+			} else if ((i >= 480) && (i < 600)) {
+				solucion[y + i][x + 0] = colores3[x + 4];
+			} else
+				solucion[y + i][x + 0] = colores3[x + 5];
+		}
+		combinaCinco(y + 0, x + 1);
+
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 120][x + k] = colores3[x + k];
+		}
+		combinaDos(colores3[x + 0], colores3[x + 1], y + 120, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 120][x + k];
+		}
+		combinaCinco(y + 120, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 240][x + k] = solucion[y + 24][x + k];
+		}
+		combinaDos(solucion[y + 24][x + 0], solucion[y + 24][x + 1], y + 240, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 240][x + k];
+		}
+		combinaCinco(y + 240, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 360][x + k] = solucion[y + 48][x + k];
+		}
+		combinaDos(solucion[y + 48][x + 0], solucion[y + 48][x + 1], y + 360, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 360][x + k];
+		}
+		combinaCinco(y + 360, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 480][x + k] = solucion[y + 72][x + k];
+		}
+		combinaDos(solucion[y + 72][x + 0], solucion[y + 72][x + 1], y + 480, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 480][x + k];
+		}
+		combinaCinco(y + 480, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 600][x + k] = solucion[y + 96][x + k];
+		}
+		combinaDos(solucion[y + 96][x + 0], solucion[y + 96][x + 1], y + 600, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 600][x + k];
+		}
+		combinaCinco(y + 600, x + 1);
+	}
+
+	public static boolean comparar(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < colores.length; k++) {
+			if (solucion[var][k].equals(solucion[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == colores.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminar(int i) {
+		for (int m = i + 1; m < (dimension - filaEliminar); m++) {
+			for (int n = 0; n < colores.length; n++) {
+				solucion[i][n] = solucion[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			int var = 0;
+			int z;
+			boolean decision;
+			tamaño = entrada.nextInt();
+			colores = new String[tamaño];
+			filaEliminar = 0;
+
+			switch (tamaño) {
+			case 1:
+				dimension = 1;
+				break;
+			case 2:
+				dimension = 2;
+				break;
+			case 3:
+				dimension = 6;
+				break;
+			case 4:
+				dimension = 24;
+				break;
+			case 5:
+				dimension = 120;
+				break;
+			case 6:
+				dimension = 720;
+				break;
+			}
+
+			solucion = new String[dimension][tamaño];
+
+			for (int i = 0; i < colores.length; i++) {
+				colores[i] = entrada.next();
+				solucion[0][i] = colores[i];
+			}
+
+			switch (tamaño) {
+			case 1:
+				combinaUno(0);
+				break;
+			case 2:
+				combinaDos(colores[0], colores[1], 1, 0);
+				break;
+			case 3:
+				combinaTres(0, 0);
+				break;
+			case 4:
+				combinaCuatro(0, 0);
+				break;
+			case 5:
+				combinaCinco(0, 0);
+				break;
+			case 6:
+				combinaSeis(0, 0);
+				break;
+			}
+
+			while (var < dimension) {
+				z = var;
+				while (z < (dimension - 1 - filaEliminar)) {
+					decision = comparar(var, z + 1);
+					if (decision) {
+						eliminar(z + 1);
+						filaEliminar++;
+					} else
+						z++;
+				}
+				var++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (dimension - filaEliminar); i++) {
+				for (int j = 0; j < tamaño; j++) {
+					System.out.print(solucion[i][j] + " ");
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class C {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamano;
+	public static int dimension;
+	public static int filaEliminar;
+	public static String[] colores;
+	public static String[][] solucion;
+
+	public static void combinaUno(int y) {
+		solucion[y][y] = colores[y];
+	}
+
+	public static void combinaDos(String color1, String color2, int fil, int col) {
+		solucion[fil][col] = color2;
+		solucion[fil][col + 1] = color1;
+	}
+
+	public static void combinaTres(int y, int x) {
+		combinaDos(colores[x + 1], colores[x + 2], y + 1, x + 1);
+		solucion[y + 1][x + 0] = colores[x + 0];
+		combinaDos(colores[x + 0], colores[x + 1], y + 2, x + 0);
+		solucion[y + 2][x + 2] = colores[x + 2];
+		combinaDos(solucion[y + 2][x + 1], solucion[y + 2][x + 2], y + 3, x + 1);
+		solucion[y + 3][x + 0] = colores[x + 1];
+		combinaDos(solucion[y + 1][x + 0], solucion[y + 1][x + 1], y + 4, x + 0);
+		solucion[y + 4][x + 2] = colores[x + 1];
+		combinaDos(solucion[y + 4][x + 1], solucion[y + 4][x + 2], y + 5, x + 1);
+		solucion[y + 5][x + 0] = colores[x + 2];
+	}
+
+	public static void combinaCuatro(int y, int x) {
+		String[] colores1 = new String[tamano];
+		colores1 = colores;
+		for (int i = 0; i < 24; i++) {
+			if (i < 6) {
+				solucion[y + i][x + 0] = colores1[x + 0];
+			} else if ((i >= 6) && (i < 12)) {
+				solucion[y + i][x + 0] = colores1[x + 1];
+			} else if ((i >= 12) && (i < 18)) {
+				solucion[y + i][x + 0] = colores1[x + 2];
+			} else
+				solucion[y + i][x + 0] = colores1[x + 3];
+		}
+		combinaTres(y + 0, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 6][x + k] = colores1[x + k];
+		}
+		combinaDos(colores1[x + 0], colores1[x + 1], y + 6, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 6][x + k];
+		}
+		combinaTres(y + 6, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 12][x + k] = solucion[y + 2][x + k];
+		}
+		combinaDos(solucion[y + 2][x + 0], solucion[y + 2][x + 1], y + 12, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 12][x + k];
+		}
+		combinaTres(y + 12, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 18][x + k] = solucion[y + 4][x + k];
+		}
+		combinaDos(solucion[y + 4][x + 0], solucion[y + 4][x + 1], y + 18, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 18][x + k];
+		}
+		combinaTres(y + 18, x + 1);
+		for (int k = 0; k < tamano; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaCinco(int y, int x) {
+		String[] colores2 = new String[tamano];
+		colores2 = colores;
+
+		for (int i = 0; i < 120; i++) {
+			if (i < 24) {
+				solucion[y + i][x + 0] = colores2[x + 0];
+			} else if ((i >= 24) && (i < 48)) {
+				solucion[y + i][x + 0] = colores2[x + 1];
+			} else if ((i >= 48) && (i < 72)) {
+				solucion[y + i][x + 0] = colores2[x + 2];
+			} else if ((i >= 72) && (i < 96)) {
+				solucion[y + i][x + 0] = colores2[x + 3];
+			} else
+				solucion[y + i][x + 0] = colores2[x + 4];
+		}
+		combinaCuatro(y + 0, x + 1);
+
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 24][x + k] = colores2[x + k];
+		}
+		combinaDos(colores2[x + 0], colores2[x + 1], y + 24, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 24][x + k];
+		}
+		combinaCuatro(y + 24, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 48][x + k] = solucion[y + 6][x + k];
+		}
+		combinaDos(solucion[y + 6][x + 0], solucion[y + 6][x + 1], y + 48, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 48][x + k];
+		}
+		combinaCuatro(y + 48, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 72][x + k] = solucion[y + 12][x + k];
+		}
+		combinaDos(solucion[y + 12][x + 0], solucion[y + 12][x + 1], y + 72, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 72][x + k];
+		}
+		combinaCuatro(y + 72, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 96][x + k] = solucion[y + 18][x + k];
+		}
+		combinaDos(solucion[y + 18][x + 0], solucion[y + 18][x + 1], y + 96, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 96][x + k];
+		}
+		combinaCuatro(y + 96, x + 1);
+		for (int k = 0; k < tamano; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaSeis(int y, int x) {
+		String[] colores3 = new String[tamano];
+		colores3 = colores;
+
+		for (int i = 0; i < 720; i++) {
+			if (i < 120) {
+				solucion[y + i][x + 0] = colores3[x + 0];
+			} else if ((i >= 120) && (i < 240)) {
+				solucion[y + i][x + 0] = colores3[x + 1];
+			} else if ((i >= 240) && (i < 360)) {
+				solucion[y + i][x + 0] = colores3[x + 2];
+			} else if ((i >= 360) && (i < 480)) {
+				solucion[y + i][x + 0] = colores3[x + 3];
+			} else if ((i >= 480) && (i < 600)) {
+				solucion[y + i][x + 0] = colores3[x + 4];
+			} else
+				solucion[y + i][x + 0] = colores3[x + 5];
+		}
+		combinaCinco(y + 0, x + 1);
+
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 120][x + k] = colores3[x + k];
+		}
+		combinaDos(colores3[x + 0], colores3[x + 1], y + 120, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 120][x + k];
+		}
+		combinaCinco(y + 120, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 240][x + k] = solucion[y + 24][x + k];
+		}
+		combinaDos(solucion[y + 24][x + 0], solucion[y + 24][x + 1], y + 240, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 240][x + k];
+		}
+		combinaCinco(y + 240, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 360][x + k] = solucion[y + 48][x + k];
+		}
+		combinaDos(solucion[y + 48][x + 0], solucion[y + 48][x + 1], y + 360, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 360][x + k];
+		}
+		combinaCinco(y + 360, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 480][x + k] = solucion[y + 72][x + k];
+		}
+		combinaDos(solucion[y + 72][x + 0], solucion[y + 72][x + 1], y + 480, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 480][x + k];
+		}
+		combinaCinco(y + 480, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 600][x + k] = solucion[y + 96][x + k];
+		}
+		combinaDos(solucion[y + 96][x + 0], solucion[y + 96][x + 1], y + 600, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 600][x + k];
+		}
+		combinaCinco(y + 600, x + 1);
+	}
+
+	public static boolean comparar(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < colores.length; k++) {
+			if (solucion[var][k].equals(solucion[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == colores.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminar(int i) {
+		for (int m = i + 1; m < (dimension - filaEliminar); m++) {
+			for (int n = 0; n < colores.length; n++) {
+				solucion[i][n] = solucion[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			int var = 0;
+			int z;
+			boolean decision;
+			tamano = entrada.nextInt();
+			colores = new String[tamano];
+			filaEliminar = 0;
+
+			switch (tamano) {
+			case 1:
+				dimension = 1;
+				break;
+			case 2:
+				dimension = 2;
+				break;
+			case 3:
+				dimension = 6;
+				break;
+			case 4:
+				dimension = 24;
+				break;
+			case 5:
+				dimension = 120;
+				break;
+			case 6:
+				dimension = 720;
+				break;
+			}
+
+			solucion = new String[dimension][tamano];
+
+			for (int i = 0; i < colores.length; i++) {
+				colores[i] = entrada.next();
+				solucion[0][i] = colores[i];
+			}
+
+			switch (tamano) {
+			case 1:
+				combinaUno(0);
+				break;
+			case 2:
+				combinaDos(colores[0], colores[1], 1, 0);
+				break;
+			case 3:
+				combinaTres(0, 0);
+				break;
+			case 4:
+				combinaCuatro(0, 0);
+				break;
+			case 5:
+				combinaCinco(0, 0);
+				break;
+			case 6:
+				combinaSeis(0, 0);
+				break;
+			}
+
+			while (var < dimension) {
+				z = var;
+				while (z < (dimension - 1 - filaEliminar)) {
+					decision = comparar(var, z + 1);
+					if (decision) {
+						eliminar(z + 1);
+						filaEliminar++;
+					} else
+						z++;
+				}
+				var++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (dimension - filaEliminar); i++) {
+				for (int j = 0; j < tamano; j++) {
+					System.out.print(solucion[i][j] + " ");
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class D {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamano;
+	public static int[][] uniformes;
+	public static int numeroVeces;
+
+	public static void evaluar(int i) {
+		for (int k = 0; k < tamano; k++) {
+			if (k != i) {
+				if (uniformes[k][1] == uniformes[i][0]) {
+					numeroVeces++;
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+
+		for (int h = 0; h < numeroCasos; h++) {
+			tamano = entrada.nextInt();
+			uniformes = new int[tamano][2];
+
+			numeroVeces = 0;
+
+			for (int i = 0; i < tamano; i++) {
+				for (int j = 0; j < 2; j++) {
+					uniformes[i][j] = entrada.nextInt();
+				}
+			}
+
+			for (int i = 0; i < tamano; i++) {
+				evaluar(i);
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			System.out.println(numeroVeces);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class A {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamano;
+	public static int[] numeros;
+	public static int numeroMenor;
+	public static int numeroIgual;
+	public static int numeroMayor;
+
+	public static void evaluar(int j) {
+		for (int k = 0; k < numeros.length; k++) {
+			if (k != j) {
+				if (numeros[j] < numeros[k]) {
+					numeroMenor++;
+				} else if (numeros[j] == numeros[k]) {
+					numeroIgual++;
+				} else
+					numeroMayor++;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			tamano = entrada.nextInt();
+			numeros = new int[tamano];
+
+			numeroMenor = 0;
+			numeroIgual = 0;
+			numeroMayor = 0;
+
+			for (int i = 0; i < numeros.length; i++) {
+				numeros[i] = entrada.nextInt();
+			}
+
+			for (int j = 0; j < numeros.length; j++) {
+				evaluar(j);
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			System.out.println(numeroMayor);
+			System.out.println(numeroMenor);
+			System.out.println(numeroIgual);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class C {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamano;
+	public static int dimension;
+	public static int filaEliminar;
+	public static String[] colores;
+	public static String[][] solucion;
+
+	public static void combinaUno(int y) {
+		solucion[y][y] = colores[y];
+	}
+
+	public static void combinaDos(String color1, String color2, int fil, int col) {
+		solucion[fil][col] = color2;
+		solucion[fil][col + 1] = color1;
+	}
+
+	public static void combinaTres(int y, int x) {
+		combinaDos(colores[x + 1], colores[x + 2], y + 1, x + 1);
+		solucion[y + 1][x + 0] = colores[x + 0];
+		combinaDos(colores[x + 0], colores[x + 1], y + 2, x + 0);
+		solucion[y + 2][x + 2] = colores[x + 2];
+		combinaDos(solucion[y + 2][x + 1], solucion[y + 2][x + 2], y + 3, x + 1);
+		solucion[y + 3][x + 0] = colores[x + 1];
+		combinaDos(solucion[y + 1][x + 0], solucion[y + 1][x + 1], y + 4, x + 0);
+		solucion[y + 4][x + 2] = colores[x + 1];
+		combinaDos(solucion[y + 4][x + 1], solucion[y + 4][x + 2], y + 5, x + 1);
+		solucion[y + 5][x + 0] = colores[x + 2];
+	}
+
+	public static void combinaCuatro(int y, int x) {
+		String[] colores1 = new String[tamano];
+		colores1 = colores;
+		for (int i = 0; i < 24; i++) {
+			if (i < 6) {
+				solucion[y + i][x + 0] = colores1[x + 0];
+			} else if ((i >= 6) && (i < 12)) {
+				solucion[y + i][x + 0] = colores1[x + 1];
+			} else if ((i >= 12) && (i < 18)) {
+				solucion[y + i][x + 0] = colores1[x + 2];
+			} else
+				solucion[y + i][x + 0] = colores1[x + 3];
+		}
+		combinaTres(y + 0, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 6][x + k] = colores1[x + k];
+		}
+		combinaDos(colores1[x + 0], colores1[x + 1], y + 6, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 6][x + k];
+		}
+		combinaTres(y + 6, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 12][x + k] = solucion[y + 2][x + k];
+		}
+		combinaDos(solucion[y + 2][x + 0], solucion[y + 2][x + 1], y + 12, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 12][x + k];
+		}
+		combinaTres(y + 12, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 18][x + k] = solucion[y + 4][x + k];
+		}
+		combinaDos(solucion[y + 4][x + 0], solucion[y + 4][x + 1], y + 18, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 18][x + k];
+		}
+		combinaTres(y + 18, x + 1);
+		for (int k = 0; k < tamano; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaCinco(int y, int x) {
+		String[] colores2 = new String[tamano];
+		colores2 = colores;
+
+		for (int i = 0; i < 120; i++) {
+			if (i < 24) {
+				solucion[y + i][x + 0] = colores2[x + 0];
+			} else if ((i >= 24) && (i < 48)) {
+				solucion[y + i][x + 0] = colores2[x + 1];
+			} else if ((i >= 48) && (i < 72)) {
+				solucion[y + i][x + 0] = colores2[x + 2];
+			} else if ((i >= 72) && (i < 96)) {
+				solucion[y + i][x + 0] = colores2[x + 3];
+			} else
+				solucion[y + i][x + 0] = colores2[x + 4];
+		}
+		combinaCuatro(y + 0, x + 1);
+
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 24][x + k] = colores2[x + k];
+		}
+		combinaDos(colores2[x + 0], colores2[x + 1], y + 24, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 24][x + k];
+		}
+		combinaCuatro(y + 24, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 48][x + k] = solucion[y + 6][x + k];
+		}
+		combinaDos(solucion[y + 6][x + 0], solucion[y + 6][x + 1], y + 48, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 48][x + k];
+		}
+		combinaCuatro(y + 48, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 72][x + k] = solucion[y + 12][x + k];
+		}
+		combinaDos(solucion[y + 12][x + 0], solucion[y + 12][x + 1], y + 72, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 72][x + k];
+		}
+		combinaCuatro(y + 72, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 96][x + k] = solucion[y + 18][x + k];
+		}
+		combinaDos(solucion[y + 18][x + 0], solucion[y + 18][x + 1], y + 96, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 96][x + k];
+		}
+		combinaCuatro(y + 96, x + 1);
+		for (int k = 0; k < tamano; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaSeis(int y, int x) {
+		String[] colores3 = new String[tamano];
+		colores3 = colores;
+
+		for (int i = 0; i < 720; i++) {
+			if (i < 120) {
+				solucion[y + i][x + 0] = colores3[x + 0];
+			} else if ((i >= 120) && (i < 240)) {
+				solucion[y + i][x + 0] = colores3[x + 1];
+			} else if ((i >= 240) && (i < 360)) {
+				solucion[y + i][x + 0] = colores3[x + 2];
+			} else if ((i >= 360) && (i < 480)) {
+				solucion[y + i][x + 0] = colores3[x + 3];
+			} else if ((i >= 480) && (i < 600)) {
+				solucion[y + i][x + 0] = colores3[x + 4];
+			} else
+				solucion[y + i][x + 0] = colores3[x + 5];
+		}
+		combinaCinco(y + 0, x + 1);
+
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 120][x + k] = colores3[x + k];
+		}
+		combinaDos(colores3[x + 0], colores3[x + 1], y + 120, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 120][x + k];
+		}
+		combinaCinco(y + 120, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 240][x + k] = solucion[y + 24][x + k];
+		}
+		combinaDos(solucion[y + 24][x + 0], solucion[y + 24][x + 1], y + 240, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 240][x + k];
+		}
+		combinaCinco(y + 240, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 360][x + k] = solucion[y + 48][x + k];
+		}
+		combinaDos(solucion[y + 48][x + 0], solucion[y + 48][x + 1], y + 360, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 360][x + k];
+		}
+		combinaCinco(y + 360, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 480][x + k] = solucion[y + 72][x + k];
+		}
+		combinaDos(solucion[y + 72][x + 0], solucion[y + 72][x + 1], y + 480, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 480][x + k];
+		}
+		combinaCinco(y + 480, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 600][x + k] = solucion[y + 96][x + k];
+		}
+		combinaDos(solucion[y + 96][x + 0], solucion[y + 96][x + 1], y + 600, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 600][x + k];
+		}
+		combinaCinco(y + 600, x + 1);
+	}
+
+	public static boolean comparar(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < colores.length; k++) {
+			if (solucion[var][k].equals(solucion[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == colores.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminar(int i) {
+		for (int m = i + 1; m < (dimension - filaEliminar); m++) {
+			for (int n = 0; n < colores.length; n++) {
+				solucion[i][n] = solucion[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			int var = 0;
+			int z;
+			boolean decision;
+			tamano = entrada.nextInt();
+			colores = new String[tamano];
+			filaEliminar = 0;
+
+			switch (tamano) {
+			case 1:
+				dimension = 1;
+				break;
+			case 2:
+				dimension = 2;
+				break;
+			case 3:
+				dimension = 6;
+				break;
+			case 4:
+				dimension = 24;
+				break;
+			case 5:
+				dimension = 120;
+				break;
+			case 6:
+				dimension = 720;
+				break;
+			}
+
+			solucion = new String[dimension][tamano];
+
+			for (int i = 0; i < colores.length; i++) {
+				colores[i] = entrada.next();
+				solucion[0][i] = colores[i];
+			}
+
+			switch (tamano) {
+			case 1:
+				combinaUno(0);
+				break;
+			case 2:
+				combinaDos(colores[0], colores[1], 1, 0);
+				break;
+			case 3:
+				combinaTres(0, 0);
+				break;
+			case 4:
+				combinaCuatro(0, 0);
+				break;
+			case 5:
+				combinaCinco(0, 0);
+				break;
+			case 6:
+				combinaSeis(0, 0);
+				break;
+			}
+
+			while (var < dimension) {
+				z = var;
+				while (z < (dimension - 1 - filaEliminar)) {
+					decision = comparar(var, z + 1);
+					if (decision) {
+						eliminar(z + 1);
+						filaEliminar++;
+					} else
+						z++;
+				}
+				var++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (dimension - filaEliminar); i++) {
+				for (int j = 0; j < tamano; j++) {
+					System.out.print(solucion[i][j]);
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class C {
+
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamano;
+	public static int dimension;
+	public static int filaEliminar;
+	public static String[] colores;
+	public static String[][] solucion;
+
+	public static void combinaUno(int y) {
+		solucion[y][y] = colores[y];
+	}
+
+	public static void combinaDos(String color1, String color2, int fil, int col) {
+		solucion[fil][col] = color2;
+		solucion[fil][col + 1] = color1;
+	}
+
+	public static void combinaTres(int y, int x) {
+		combinaDos(colores[x + 1], colores[x + 2], y + 1, x + 1);
+		solucion[y + 1][x + 0] = colores[x + 0];
+		combinaDos(colores[x + 0], colores[x + 1], y + 2, x + 0);
+		solucion[y + 2][x + 2] = colores[x + 2];
+		combinaDos(solucion[y + 2][x + 1], solucion[y + 2][x + 2], y + 3, x + 1);
+		solucion[y + 3][x + 0] = colores[x + 1];
+		combinaDos(solucion[y + 1][x + 0], solucion[y + 1][x + 1], y + 4, x + 0);
+		solucion[y + 4][x + 2] = colores[x + 1];
+		combinaDos(solucion[y + 4][x + 1], solucion[y + 4][x + 2], y + 5, x + 1);
+		solucion[y + 5][x + 0] = colores[x + 2];
+	}
+
+	public static void combinaCuatro(int y, int x) {
+		String[] colores1 = new String[tamano];
+		colores1 = colores;
+		for (int i = 0; i < 24; i++) {
+			if (i < 6) {
+				solucion[y + i][x + 0] = colores1[x + 0];
+			} else if ((i >= 6) && (i < 12)) {
+				solucion[y + i][x + 0] = colores1[x + 1];
+			} else if ((i >= 12) && (i < 18)) {
+				solucion[y + i][x + 0] = colores1[x + 2];
+			} else
+				solucion[y + i][x + 0] = colores1[x + 3];
+		}
+		combinaTres(y + 0, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 6][x + k] = colores1[x + k];
+		}
+		combinaDos(colores1[x + 0], colores1[x + 1], y + 6, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 6][x + k];
+		}
+		combinaTres(y + 6, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 12][x + k] = solucion[y + 2][x + k];
+		}
+		combinaDos(solucion[y + 2][x + 0], solucion[y + 2][x + 1], y + 12, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 12][x + k];
+		}
+		combinaTres(y + 12, x + 1);
+		for (int k = 0; k < 4; k++) {
+			solucion[y + 18][x + k] = solucion[y + 4][x + k];
+		}
+		combinaDos(solucion[y + 4][x + 0], solucion[y + 4][x + 1], y + 18, x + 0);
+		for (int k = 0; k < 4; k++) {
+			colores1[x + k] = solucion[y + 18][x + k];
+		}
+		combinaTres(y + 18, x + 1);
+		for (int k = 0; k < tamano; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaCinco(int y, int x) {
+		String[] colores2 = new String[tamano];
+		colores2 = colores;
+
+		for (int i = 0; i < 120; i++) {
+			if (i < 24) {
+				solucion[y + i][x + 0] = colores2[x + 0];
+			} else if ((i >= 24) && (i < 48)) {
+				solucion[y + i][x + 0] = colores2[x + 1];
+			} else if ((i >= 48) && (i < 72)) {
+				solucion[y + i][x + 0] = colores2[x + 2];
+			} else if ((i >= 72) && (i < 96)) {
+				solucion[y + i][x + 0] = colores2[x + 3];
+			} else
+				solucion[y + i][x + 0] = colores2[x + 4];
+		}
+		combinaCuatro(y + 0, x + 1);
+
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 24][x + k] = colores2[x + k];
+		}
+		combinaDos(colores2[x + 0], colores2[x + 1], y + 24, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 24][x + k];
+		}
+		combinaCuatro(y + 24, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 48][x + k] = solucion[y + 6][x + k];
+		}
+		combinaDos(solucion[y + 6][x + 0], solucion[y + 6][x + 1], y + 48, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 48][x + k];
+		}
+		combinaCuatro(y + 48, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 72][x + k] = solucion[y + 12][x + k];
+		}
+		combinaDos(solucion[y + 12][x + 0], solucion[y + 12][x + 1], y + 72, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 72][x + k];
+		}
+		combinaCuatro(y + 72, x + 1);
+		for (int k = 0; k < 5; k++) {
+			solucion[y + 96][x + k] = solucion[y + 18][x + k];
+		}
+		combinaDos(solucion[y + 18][x + 0], solucion[y + 18][x + 1], y + 96, x + 0);
+		for (int k = 0; k < 5; k++) {
+			colores2[x + k] = solucion[y + 96][x + k];
+		}
+		combinaCuatro(y + 96, x + 1);
+		for (int k = 0; k < tamano; k++) {
+			colores[k] = solucion[0][k];
+		}
+	}
+
+	public static void combinaSeis(int y, int x) {
+		String[] colores3 = new String[tamano];
+		colores3 = colores;
+
+		for (int i = 0; i < 720; i++) {
+			if (i < 120) {
+				solucion[y + i][x + 0] = colores3[x + 0];
+			} else if ((i >= 120) && (i < 240)) {
+				solucion[y + i][x + 0] = colores3[x + 1];
+			} else if ((i >= 240) && (i < 360)) {
+				solucion[y + i][x + 0] = colores3[x + 2];
+			} else if ((i >= 360) && (i < 480)) {
+				solucion[y + i][x + 0] = colores3[x + 3];
+			} else if ((i >= 480) && (i < 600)) {
+				solucion[y + i][x + 0] = colores3[x + 4];
+			} else
+				solucion[y + i][x + 0] = colores3[x + 5];
+		}
+		combinaCinco(y + 0, x + 1);
+
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 120][x + k] = colores3[x + k];
+		}
+		combinaDos(colores3[x + 0], colores3[x + 1], y + 120, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 120][x + k];
+		}
+		combinaCinco(y + 120, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 240][x + k] = solucion[y + 24][x + k];
+		}
+		combinaDos(solucion[y + 24][x + 0], solucion[y + 24][x + 1], y + 240, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 240][x + k];
+		}
+		combinaCinco(y + 240, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 360][x + k] = solucion[y + 48][x + k];
+		}
+		combinaDos(solucion[y + 48][x + 0], solucion[y + 48][x + 1], y + 360, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 360][x + k];
+		}
+		combinaCinco(y + 360, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 480][x + k] = solucion[y + 72][x + k];
+		}
+		combinaDos(solucion[y + 72][x + 0], solucion[y + 72][x + 1], y + 480, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 480][x + k];
+		}
+		combinaCinco(y + 480, x + 1);
+		for (int k = 0; k < 6; k++) {
+			solucion[y + 600][x + k] = solucion[y + 96][x + k];
+		}
+		combinaDos(solucion[y + 96][x + 0], solucion[y + 96][x + 1], y + 600, x + 0);
+		for (int k = 0; k < 6; k++) {
+			colores3[x + k] = solucion[y + 600][x + k];
+		}
+		combinaCinco(y + 600, x + 1);
+	}
+
+	public static boolean comparar(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < colores.length; k++) {
+			if (solucion[var][k].equals(solucion[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == colores.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminar(int i) {
+		for (int m = i + 1; m < (dimension - filaEliminar); m++) {
+			for (int n = 0; n < colores.length; n++) {
+				solucion[i][n] = solucion[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			int var = 0;
+			int z;
+			boolean decision;
+			tamano = entrada.nextInt();
+			colores = new String[tamano];
+			filaEliminar = 0;
+
+			switch (tamano) {
+			case 1:
+				dimension = 1;
+				break;
+			case 2:
+				dimension = 2;
+				break;
+			case 3:
+				dimension = 6;
+				break;
+			case 4:
+				dimension = 24;
+				break;
+			case 5:
+				dimension = 120;
+				break;
+			case 6:
+				dimension = 720;
+				break;
+			}
+
+			solucion = new String[dimension][tamano];
+
+			for (int i = 0; i < colores.length; i++) {
+				colores[i] = entrada.next();
+				solucion[0][i] = colores[i];
+			}
+
+			switch (tamano) {
+			case 1:
+				combinaUno(0);
+				break;
+			case 2:
+				combinaDos(colores[0], colores[1], 1, 0);
+				break;
+			case 3:
+				combinaTres(0, 0);
+				break;
+			case 4:
+				combinaCuatro(0, 0);
+				break;
+			case 5:
+				combinaCinco(0, 0);
+				break;
+			case 6:
+				combinaSeis(0, 0);
+				break;
+			}
+
+			while (var < dimension) {
+				z = var;
+				while (z < (dimension - 1 - filaEliminar)) {
+					decision = comparar(var, z + 1);
+					if (decision) {
+						eliminar(z + 1);
+						filaEliminar++;
+					} else
+						z++;
+				}
+				var++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (dimension - filaEliminar); i++) {
+				for (int j = 0; j < tamano; j++) {
+					System.out.print(solucion[i][j]);
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class E {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int numeroCasos;
+	public static int tamano;
+	public static int[] numeros;
+	public static int numeroMov;
+	
+	public static int evaluar(int m) {
+		int pos=0;
+		for (int z=m; z<numeros.length;z++) {
+			if(numeros[z]==0) {
+				numeros[z]=1;
+			}
+			else {
+				pos=z;
+				break;}
+		}
+		return pos;
+	}
+	
+	public static void main(String[] args) {
+		numeroCasos = entrada.nextInt();
+		for (int h = 0; h < numeroCasos; h++) {
+			tamano = entrada.nextInt();
+			numeros = new int[tamano];
+
+			int m=0;
+			int numero = tamano;
+			numeroMov=0;
+			
+			/*int factorial = 1;
+			while (numero != 0) {
+				factorial = factorial * numero;
+				numero--;
+			}*/
+
+			//sumaRango = new int[factorial];
+			//int inicio = 0;
+			//int contador = 0;
+
+			for (int i = 0; i < numeros.length; i++) {
+				numeros[i] = entrada.nextInt();
+				//inicio += numeros[i];
+			}
+
+			while(m<numeros.length)
+				if(numeros[m]==0) {
+					m=evaluar(m);
+					numeroMov++;
+				}
+				else m++;
+			System.out.println(numeroMov);
+			}
+			}
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ProblemA {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int colMin;
+	public static int kMenor;
+
+	public static void main(String[] args) throws Exception {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			HashMap<Integer, ArrayList<Integer>> cFinal = new HashMap<>();
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			int M = Integer.parseInt(line[1]);
+			int x[] = readInts(entrada.nextLine());
+			int k[] = readInts(entrada.nextLine());
+			for (int i = 0; i < M; i++) {
+				int colFuncion = 0;
+				HashMap<Integer, Integer> tabla = new HashMap<>();
+				HashMap<Integer, ArrayList<Integer>> c = new HashMap<>();
+				for (int j = 0; j < N; j++) {
+					int llave = x[j] % k[i];
+					if (tabla.containsKey(llave)) {
+						colFuncion++;
+						if (!c.containsKey(llave)) {
+							ArrayList<Integer> valores = new ArrayList<>();
+							valores.add(tabla.get(llave));
+							c.put(llave, valores);
+						}
+						c.get(llave).add(x[j]);
+					} else
+						tabla.put(llave, x[j]);
+				}
+				if (i == 0) {
+					cFinal = c;
+					colMin = colFuncion;
+					kMenor = k[i];
+				} else if (colFuncion < colMin) {
+					cFinal = c;
+					colMin = colFuncion;
+					kMenor = k[i];
+				} else if (colFuncion == colMin && k[i] < kMenor) {
+					cFinal = c;
+					colMin = colFuncion;
+					kMenor = k[i];
+				}
+			}
+
+			System.out.println(kMenor);
+			System.out.println(colMin);
+
+			if (colMin > 0) {
+				BinaryHeap<Nodo> arbol = new BinaryHeap<>();
+				for (Map.Entry<Integer, ArrayList<Integer>> recorrido : cFinal.entrySet()) {
+					ArrayList<Integer> arregloOrdenado = new ArrayList<>();
+					arregloOrdenado = recorrido.getValue();
+					Collections.sort(arregloOrdenado);
+					Nodo aux = new Nodo(arregloOrdenado);
+					arbol.insert(aux);
+				}
+				while (!arbol.isEmpty()) {
+					int count = 0;
+					Nodo elimina = arbol.deleteMin();
+					for (Integer n : elimina.lista) {
+						count++;
+						if (count == elimina.lista.size()) {
+							System.out.println(n);
+						} else
+							System.out.print(n + " ");
+					}
+				}
+			}
+		}
+	}
+
+	public static int[] readInts(String cad) {
+		String line[] = cad.split(" ");
+		int arr[] = new int[line.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(line[i]);
+		}
+		return arr;
+	}
+
+	public static class Nodo implements Comparable<Nodo> {
+		ArrayList<Integer> lista;
+
+		public Nodo(ArrayList<Integer> lista) {
+			this.lista = lista;
+		}
+
+		@Override
+		public int compareTo(Nodo o) {
+			if (lista.get(0) < o.lista.get(0))
+				return -1;
+			if (lista.get(0) > o.lista.get(0))
+				return 1;
+			return 0;
+		}
+	}
+
+	static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;
+		private AnyType[] array;
+
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	static class MyLinkedList<AnyType> implements Iterable<AnyType> {
+		public MyLinkedList() {
+			doClear();
+		}
+
+		public void doClear() {
+			beginMarker = new Node<>(null, null, null);
+			endMarker = new Node<>(null, beginMarker, null);
+			beginMarker.next = endMarker;
+
+			theSize = 0;
+			modCount++;
+		}
+
+		public int size() {
+			return theSize;
+		}
+
+		public boolean isEmpty() {
+			return size() == 0;
+		}
+
+		public boolean add(AnyType x) {
+			add(size(), x);
+			return true;
+		}
+
+		public void add(int idx, AnyType x) {
+			addBefore(getNode(idx, 0, size()), x);
+		}
+
+		private void addBefore(Node<AnyType> p, AnyType x) {
+			Node<AnyType> newNode = new Node<>(x, p.prev, p);
+			newNode.prev.next = newNode;
+			p.prev = newNode;
+			theSize++;
+			modCount++;
+		}
+
+		public AnyType get(int idx) {
+			return getNode(idx).data;
+		}
+
+		public AnyType set(int idx, AnyType newVal) {
+			Node<AnyType> p = getNode(idx);
+			AnyType oldVal = p.data;
+
+			p.data = newVal;
+			return oldVal;
+		}
+
+		private Node<AnyType> getNode(int idx) {
+			return getNode(idx, 0, size() - 1);
+		}
+
+		private Node<AnyType> getNode(int idx, int lower, int upper) {
+			Node<AnyType> p;
+			if (idx < lower || idx > upper)
+				throw new IndexOutOfBoundsException("getNode index: " + idx + "; size: " + size());
+			if (idx < size() / 2) {
+				p = beginMarker.next;
+				for (int i = 0; i < idx; i++)
+					p = p.next;
+			} else {
+				p = endMarker;
+				for (int i = size(); i > idx; i--)
+					p = p.prev;
+			}
+			return p;
+		}
+
+		public AnyType remove(int idx) {
+			return remove(getNode(idx));
+		}
+
+		private AnyType remove(Node<AnyType> p) {
+			p.next.prev = p.prev;
+			p.prev.next = p.next;
+			theSize--;
+			modCount++;
+
+			return p.data;
+		}
+
+		public String toString() {
+			StringBuilder sb = new StringBuilder("[ ");
+
+			for (AnyType x : this)
+				sb.append(x + " ");
+			sb.append("]");
+
+			return new String(sb);
+		}
+
+		public java.util.Iterator<AnyType> iterator() {
+			return new LinkedListIterator();
+		}
+
+		private class LinkedListIterator implements java.util.Iterator<AnyType> {
+			private Node<AnyType> current = beginMarker.next;
+			private int expectedModCount = modCount;
+			private boolean okToRemove = false;
+
+			public boolean hasNext() {
+				return current != endMarker;
+			}
+
+			public AnyType next() {
+				if (modCount != expectedModCount)
+					throw new java.util.ConcurrentModificationException();
+				if (!hasNext())
+					throw new java.util.NoSuchElementException();
+
+				AnyType nextItem = current.data;
+				current = current.next;
+				okToRemove = true;
+				return nextItem;
+			}
+
+			public void remove() {
+				if (modCount != expectedModCount)
+					throw new java.util.ConcurrentModificationException();
+				if (!okToRemove)
+					throw new IllegalStateException();
+
+				MyLinkedList.this.remove(current.prev);
+				expectedModCount++;
+				okToRemove = false;
+			}
+		}
+
+		private static class Node<AnyType> {
+			public Node(AnyType d, Node<AnyType> p, Node<AnyType> n) {
+				data = d;
+				prev = p;
+				next = n;
+			}
+
+			public AnyType data;
+			public Node<AnyType> prev;
+			public Node<AnyType> next;
+		}
+
+		private int theSize;
+		private int modCount = 0;
+		private Node<AnyType> beginMarker;
+		private Node<AnyType> endMarker;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class ProblemB {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int necesita;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<Integer, Integer> alimentos = new HashMap<>();
+			necesita = 0;
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				int comida = Integer.parseInt(line[0]);
+				int pokemon = Integer.parseInt(line[1]);
+				if (comida != pokemon) {
+					if (alimentos.containsKey(comida)) {
+						Integer c = alimentos.get(comida);
+						alimentos.replace(comida, c + 1);
+					} else
+						alimentos.put(comida, 1);
+					if (alimentos.containsKey(pokemon)) {
+						Integer p = alimentos.get(pokemon);
+						if (p > 0)
+							alimentos.replace(pokemon, p - 1);
+						else
+							necesita++;
+					} else
+						necesita++;
+				}
+			}
+			System.out.println("Case #" + (z + 1) + ":");
+			System.out.println(necesita);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class ProblemC {
+	public static Scanner entrada = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			HashSet<Integer> Norma = new HashSet<>();
+			HashSet<Integer> Mario = new HashSet<>();
+			HashSet<Integer> Pipe = new HashSet<>();
+			HashSet<Integer> eliminados = new HashSet<>();
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			int M = Integer.parseInt(line[1]);
+			int P = Integer.parseInt(line[2]);
+			int idN[] = readInts(entrada.nextLine());
+			int idM[] = readInts(entrada.nextLine());
+			int idP[] = readInts(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				int valor = idN[i];
+				Norma.add(valor);
+			}
+			for (int j = 0; j < M; j++) {
+				int valor = idM[j];
+				if (Norma.contains(valor)) {
+					Norma.remove(valor);
+					eliminados.add(valor);
+				} else
+					Mario.add(valor);
+			}
+			for (int k = 0; k < P; k++) {
+				int valor = idP[k];
+				boolean decisionN = Norma.contains(valor);
+				boolean decisionM = Mario.contains(valor);
+				boolean decisionE = eliminados.contains(valor);
+				if (decisionN || decisionM || decisionE) {
+					if (decisionN)
+						Norma.remove(valor);
+					if (decisionM)
+						Mario.remove(valor);
+				} else
+					Pipe.add(valor);
+			}
+			int sizeN = Norma.size();
+			int sizeM = Mario.size();
+			int sizeP = Pipe.size();
+			if (sizeN >= sizeM && sizeN >= sizeP) {
+				TreeSet<Integer> aNorma = new TreeSet<>(Norma);
+				System.out.println(
+						"Norma " + sizeN + " " + aNorma.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if (sizeM >= sizeN && sizeM >= sizeP) {
+				TreeSet<Integer> aMario = new TreeSet<>(Mario);
+				System.out.println(
+						"Mario " + sizeM + " " + aMario.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if (sizeP >= sizeN && sizeP >= sizeM) {
+				TreeSet<Integer> aPipe = new TreeSet<>(Pipe);
+				System.out.println(
+						"Pipe " + sizeP + " " + aPipe.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+		}
+	}
+
+	public static int[] readInts(String cad) {
+		String line[] = cad.split(" ");
+		int arr[] = new int[line.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(line[i]);
+		}
+		return arr;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.TreeSet;
+
+public class ProblemD {
+	public static Scanner entrada = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<String, Nodo> candidatos = new HashMap<>();
+			System.out.println("Case #" + (z + 1) + ":");
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				String candidato = line[0];
+				String partido = line[1];
+				Nodo aux = new Nodo(partido, 0);
+				candidatos.put(candidato, aux);
+			}
+			int votos = Integer.parseInt(entrada.nextLine());
+			for (int j = 0; j < votos; j++) {
+				String nombre = entrada.nextLine();
+				Nodo aux = candidatos.get(nombre);
+				aux.numeroVotos++;
+				candidatos.replace(nombre, aux);
+			}
+			TreeSet<Nodo> tablaOrdenada = new TreeSet<>(candidatos.values());
+			int votosGanador = tablaOrdenada.first().numeroVotos;
+			for (Nodo n : tablaOrdenada) {
+				if (n.numeroVotos == votosGanador)
+					System.out.println(n);
+				else
+					break;
+			}
+		}
+	}
+
+	public static class Nodo implements Comparable<Nodo> {
+		String nombre;
+		int numeroVotos;
+
+		public Nodo(String nombre, int numeroVotos) {
+			this.nombre = nombre;
+			this.numeroVotos = numeroVotos;
+		}
+
+		@Override
+		public int compareTo(Nodo o) {
+			if (o.numeroVotos < numeroVotos)
+				return -1;
+			if (o.numeroVotos > numeroVotos)
+				return 1;
+			return nombre.compareTo(o.nombre);
+		}
+
+		@Override
+		public String toString() {
+			return nombre;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class ProblemB {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int necesita;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<Integer, Integer> alimentos = new HashMap<>();
+			necesita = 0;
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				int comida = Integer.parseInt(line[0]);
+				int pokemon = Integer.parseInt(line[1]);
+				if (comida != pokemon) {
+					if (alimentos.containsKey(comida)) {
+						Integer c = alimentos.get(comida);
+						alimentos.put(comida, c + 1);
+					} else
+						alimentos.put(comida, 1);
+					if (alimentos.containsKey(pokemon)) {
+						Integer p = alimentos.get(pokemon);
+						if (p > 0)
+							alimentos.put(pokemon, p - 1);
+						else
+							necesita++;
+					} else
+						necesita++;
+				}
+			}
+			System.out.println("Case #" + (z + 1) + ":");
+			System.out.println(necesita);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.TreeSet;
+
+public class ProblemD {
+	public static Scanner entrada = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<String, Nodo> candidatos = new HashMap<>();
+			System.out.println("Case #" + (z + 1) + ":");
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				String candidato = line[0];
+				String partido = line[1];
+				Nodo aux = new Nodo(partido, 0);
+				candidatos.put(candidato, aux);
+			}
+			int votos = Integer.parseInt(entrada.nextLine());
+			for (int j = 0; j < votos; j++) {
+				String nombre = entrada.nextLine();
+				Nodo aux = candidatos.get(nombre);
+				aux.numeroVotos++;
+				candidatos.put(nombre, aux);
+			}
+			TreeSet<Nodo> tablaOrdenada = new TreeSet<>(candidatos.values());
+			int votosGanador = tablaOrdenada.first().numeroVotos;
+			for (Nodo n : tablaOrdenada) {
+				if (n.numeroVotos == votosGanador)
+					System.out.println(n);
+				else
+					break;
+			}
+		}
+	}
+
+	public static class Nodo implements Comparable<Nodo> {
+		String nombre;
+		int numeroVotos;
+
+		public Nodo(String nombre, int numeroVotos) {
+			this.nombre = nombre;
+			this.numeroVotos = numeroVotos;
+		}
+
+		@Override
+		public int compareTo(Nodo o) {
+			if (o.numeroVotos < numeroVotos)
+				return -1;
+			if (o.numeroVotos > numeroVotos)
+				return 1;
+			return nombre.compareTo(o.nombre);
+		}
+
+		@Override
+		public String toString() {
+			return nombre;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ProblemE3 {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int necesita;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<Integer, Integer> alimentos = new HashMap<>();
+			HashMap<Integer, Integer> cantidades = new HashMap<>();
+			necesita = 0;
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				int comida = Integer.parseInt(line[0]);
+				int pokemon = Integer.parseInt(line[1]);
+				if (comida != pokemon) {
+					if (alimentos.containsKey(comida)) {
+						Integer c = alimentos.get(comida);
+						alimentos.put(comida, c + 1);
+					} else
+						alimentos.put(comida, 1);
+					Integer p = alimentos.get(pokemon);
+					if (p == null || p <= 0) {
+						Integer n = cantidades.get(pokemon);
+						if (n == null)
+							cantidades.put(pokemon, 1);
+						else
+							cantidades.replace(pokemon, n + 1);
+						necesita++;
+					} else
+						alimentos.put(pokemon, p - 1);
+				}
+			}
+			System.out.println("Case #" + (z + 1) + ":");
+			System.out.println(necesita);
+
+			if(!cantidades.isEmpty()) {
+				int i = 0;
+				int menorNumero = 0;
+				int menorKey1 = 0;
+				int mayorNumero = 0;
+				int menorKey2 = 0;
+
+				for (Map.Entry<Integer, Integer> recorrido : cantidades.entrySet()) {
+					if (i == 0) {
+						menorNumero = recorrido.getValue();
+						mayorNumero = recorrido.getValue();
+						i++;
+					} else {
+						if(recorrido.getValue() < menorNumero)
+							menorNumero = recorrido.getValue();
+						if(recorrido.getValue() > mayorNumero)
+							mayorNumero = recorrido.getValue();
+					}
+				}
+				
+				int j = 0;
+				int k = 0;
+				
+				for (Map.Entry<Integer, Integer> recorrido : cantidades.entrySet()) {
+					if(menorNumero == recorrido.getValue()) {
+						if (j == 0) {
+							menorKey1 = recorrido.getKey();
+							j++;
+						} else if (recorrido.getKey() < menorKey1)
+							menorKey1 = recorrido.getKey();
+					}
+					
+					if(mayorNumero == recorrido.getValue()) {
+						if (k == 0) {
+							menorKey2 = recorrido.getKey();
+							k++;
+						} else if (recorrido.getKey() < menorKey2)
+							menorKey2 = recorrido.getKey();
+					}
+				}
+				
+				System.out.println(mayorNumero + " " + menorKey2);
+				System.out.println(menorNumero + " " + menorKey1);
+			} else
+				System.out.println(-1);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ProblemE3 {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int necesita;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<Integer, Integer> alimentos = new HashMap<>();
+			HashMap<Integer, Integer> cantidades = new HashMap<>();
+			necesita = 0;
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				int comida = Integer.parseInt(line[0]);
+				int pokemon = Integer.parseInt(line[1]);
+				if (comida != pokemon) {
+					if (alimentos.containsKey(comida)) {
+						Integer c = alimentos.get(comida);
+						alimentos.put(comida, c + 1);
+					} else
+						alimentos.put(comida, 1);
+					Integer p = alimentos.get(pokemon);
+					if (p == null || p <= 0) {
+						Integer n = cantidades.get(pokemon);
+						if (n == null)
+							cantidades.put(pokemon, 1);
+						else
+							cantidades.put(pokemon, n + 1);
+						necesita++;
+					} else
+						alimentos.put(pokemon, p - 1);
+				}
+			}
+			System.out.println("Case #" + (z + 1) + ":");
+			System.out.println(necesita);
+
+			if(!cantidades.isEmpty()) {
+				int i = 0;
+				int menorNumero = 0;
+				int menorKey1 = 0;
+				int mayorNumero = 0;
+				int menorKey2 = 0;
+
+				for (Map.Entry<Integer, Integer> recorrido : cantidades.entrySet()) {
+					if (i == 0) {
+						menorNumero = recorrido.getValue();
+						mayorNumero = recorrido.getValue();
+						i++;
+					} else {
+						if(recorrido.getValue() < menorNumero)
+							menorNumero = recorrido.getValue();
+						if(recorrido.getValue() > mayorNumero)
+							mayorNumero = recorrido.getValue();
+					}
+				}
+				
+				int j = 0;
+				int k = 0;
+				
+				for (Map.Entry<Integer, Integer> recorrido : cantidades.entrySet()) {
+					if(menorNumero == recorrido.getValue()) {
+						if (j == 0) {
+							menorKey1 = recorrido.getKey();
+							j++;
+						} else if (recorrido.getKey() < menorKey1)
+							menorKey1 = recorrido.getKey();
+					}
+					
+					if(mayorNumero == recorrido.getValue()) {
+						if (k == 0) {
+							menorKey2 = recorrido.getKey();
+							k++;
+						} else if (recorrido.getKey() < menorKey2)
+							menorKey2 = recorrido.getKey();
+					}
+				}
+				
+				System.out.println(mayorNumero + " " + menorKey2);
+				System.out.println(menorNumero + " " + menorKey1);
+			} else
+				System.out.println(-1);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ProblemE3 {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int necesita;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			HashMap<Integer, Integer> alimentos = new HashMap<>();
+			HashMap<Integer, Integer> cantidades = new HashMap<>();
+			necesita = 0;
+			int N = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < N; i++) {
+				String line[] = entrada.nextLine().split(" ");
+				int comida = Integer.parseInt(line[0]);
+				int pokemon = Integer.parseInt(line[1]);
+				if (comida != pokemon) {
+					if (alimentos.containsKey(comida)) {
+						Integer c = alimentos.get(comida);
+						alimentos.put(comida, c + 1);
+					} else
+						alimentos.put(comida, 1);
+					Integer p = alimentos.get(pokemon);
+					if (p == null || p <= 0) {
+						Integer n = cantidades.get(pokemon);
+						if (n == null)
+							cantidades.put(pokemon, 1);
+						else
+							cantidades.put(pokemon, n + 1);
+						necesita++;
+					} else
+						alimentos.put(pokemon, p - 1);
+				}
+			}
+			System.out.println("Case #" + (z + 1) + ":");
+
+			if(!cantidades.isEmpty()) {
+				int i = 0;
+				int menorNumero = 0;
+				int menorKey1 = 0;
+				int mayorNumero = 0;
+				int menorKey2 = 0;
+
+				for (Map.Entry<Integer, Integer> recorrido : cantidades.entrySet()) {
+					if (i == 0) {
+						menorNumero = recorrido.getValue();
+						mayorNumero = recorrido.getValue();
+						i++;
+					} else {
+						if(recorrido.getValue() < menorNumero)
+							menorNumero = recorrido.getValue();
+						if(recorrido.getValue() > mayorNumero)
+							mayorNumero = recorrido.getValue();
+					}
+				}
+				
+				int j = 0;
+				int k = 0;
+				
+				for (Map.Entry<Integer, Integer> recorrido : cantidades.entrySet()) {
+					if(menorNumero == recorrido.getValue()) {
+						if (j == 0) {
+							menorKey1 = recorrido.getKey();
+							j++;
+						} else if (recorrido.getKey() < menorKey1)
+							menorKey1 = recorrido.getKey();
+					}
+					
+					if(mayorNumero == recorrido.getValue()) {
+						if (k == 0) {
+							menorKey2 = recorrido.getKey();
+							k++;
+						} else if (recorrido.getKey() < menorKey2)
+							menorKey2 = recorrido.getKey();
+					}
+				}
+				
+				System.out.println(mayorNumero + " " + menorKey2);
+				System.out.println(menorNumero + " " + menorKey1);
+			} else
+				System.out.println(-1);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Problem7A {
+	public static Scanner entrada = new Scanner(System.in);
+	public static int resultado;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			Queue<Integer> cola = new LinkedList<>();
+			BinarySearchTree<Integer> visitados = new BinarySearchTree<>();
+			resultado = 0;
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			int M = Integer.parseInt(line[1]);
+			Nodo[] grafo = new Nodo[N];
+			for (int j = 0; j < M; j++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]);
+				int v = Integer.parseInt(line2[1]);
+				if (grafo[u] == null) {
+					Nodo aux = new Nodo();
+					grafo[u] = aux;
+				}
+				if (grafo[v] == null) {
+					Nodo aux = new Nodo();
+					grafo[v] = aux;
+				}
+				grafo[u].listaDeAdyacencia.add(v);
+				grafo[v].listaDeAdyacencia.add(u);
+			}
+			int s = Integer.parseInt(entrada.nextLine());
+			cola.add(s);
+			visitados.insert(s);
+			while (!cola.isEmpty()) {
+				int num = cola.remove();
+				if (grafo[num] != null) {
+					for (Integer n : grafo[num].listaDeAdyacencia) {
+						if (!visitados.contains(n)) {
+							cola.add(n);
+							visitados.insert(n);
+							resultado++;
+						}
+					}
+				}
+			}
+			System.out.println(resultado);
+		}
+	}
+
+	static class Nodo {
+		LinkedList<Integer> listaDeAdyacencia;
+
+		public Nodo() {
+			listaDeAdyacencia = new LinkedList<>();
+		}
+	}
+
+	static class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
+		public BinarySearchTree() {
+			root = null;
+		}
+
+		public void insert(AnyType x) {
+			root = insert(x, root);
+		}
+
+		public void remove(AnyType x) {
+			root = remove(x, root);
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return findMin(root).element;
+		}
+
+		public AnyType findMax() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return findMax(root).element;
+		}
+
+		public boolean contains(AnyType x) {
+			return contains(x, root);
+		}
+
+		public void makeEmpty() {
+			root = null;
+		}
+
+		public boolean isEmpty() {
+			return root == null;
+		}
+
+		public void printTree() {
+			if (isEmpty())
+				System.out.println("Empty tree");
+			else
+				printTree(root);
+		}
+
+		private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+			if (t == null)
+				return new BinaryNode<>(x, null, null);
+
+			int compareResult = x.compareTo(t.element);
+
+			if (compareResult < 0)
+				t.left = insert(x, t.left);
+			else if (compareResult > 0)
+				t.right = insert(x, t.right);
+			else
+				;
+			return t;
+		}
+
+		private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+			if (t == null)
+				return t;
+
+			int compareResult = x.compareTo(t.element);
+
+			if (compareResult < 0)
+				t.left = remove(x, t.left);
+			else if (compareResult > 0)
+				t.right = remove(x, t.right);
+			else if (t.left != null && t.right != null) {
+				t.element = findMin(t.right).element;
+				t.right = remove(t.element, t.right);
+			} else
+				t = (t.left != null) ? t.left : t.right;
+			return t;
+		}
+
+		private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
+			if (t == null)
+				return null;
+			else if (t.left == null)
+				return t;
+			return findMin(t.left);
+		}
+
+		private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+			if (t != null)
+				while (t.right != null)
+					t = t.right;
+
+			return t;
+		}
+
+		private boolean contains(AnyType x, BinaryNode<AnyType> t) {
+			if (t == null)
+				return false;
+
+			int compareResult = x.compareTo(t.element);
+
+			if (compareResult < 0)
+				return contains(x, t.left);
+			else if (compareResult > 0)
+				return contains(x, t.right);
+			else
+				return true;
+		}
+
+		private void printTree(BinaryNode<AnyType> t) {
+			if (t != null) {
+				printTree(t.left);
+				System.out.println(t.element);
+				printTree(t.right);
+			}
+		}
+
+		private static class BinaryNode<AnyType> {
+			BinaryNode(AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt) {
+				element = theElement;
+				left = lt;
+				right = rt;
+			}
+
+			AnyType element;
+			BinaryNode<AnyType> left;
+			BinaryNode<AnyType> right;
+		}
+
+		private BinaryNode<AnyType> root;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class ProblemB {
+	public static Scanner entrada = new Scanner(System.in);
+	static int[][] matrizAdy;
+	static Queue<Integer> col;
+	static Queue<Integer> fil;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			boolean resultado = false;
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			matrizAdy = new int[N][N];
+			col = new LinkedList<>();
+			fil = new LinkedList<>();
+			int M = Integer.parseInt(line[1]);
+			for (int i = 0; i < M; i++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]);
+				int v = Integer.parseInt(line2[1]);
+				matrizAdy[u][v] = 1;
+			}
+
+			evaluarMatriz(N);
+
+			if (col.size() > 1)
+				resultado = true;
+			if (!resultado) {
+				while (!col.isEmpty()) {
+					int num = col.remove();
+					for (int l = 0; l < N; l++) {
+						if (matrizAdy[num][l] == 1) {
+							matrizAdy[num][l] = 0;
+							fil.add(l);
+						}
+					}
+					while (!fil.isEmpty()) {
+						int var = fil.remove();
+						evaluar(N, var);
+					}
+					if (col.size() > 1) {
+						resultado = true;
+						break;
+					}
+				}
+			}
+			if (resultado)
+			else
+				System.out.println("Deberia empezar a estudiar");
+		}
+	}
+
+	static void evaluarMatriz(int N) {
+		for (int i = 0; i < N; i++) {
+			boolean decision = false;
+			for (int j = 0; j < N; j++) {
+				if (matrizAdy[j][i] == 1) {
+					decision = true;
+					break;
+				}
+			}
+			if (!decision)
+				col.add(i);
+		}
+	}
+
+	static void evaluar(int N, int var) {
+		boolean decision = false;
+		for (int i = 0; i < N; i++) {
+			if (matrizAdy[i][var] == 1) {
+				decision = true;
+				break;
+			}
+		}
+		if (!decision)
+			col.add(var);
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
+public class Problem7C {
+	public static Scanner entrada = new Scanner(System.in);
+	static final int MAX = 10005;
+	static final int INF = 1 << 30;
+	static List<List<Node>> ady;
+	static int distancia[];
+	static boolean visitado[];
+	static PriorityQueue<Node> Q;
+	static int previo[];
+	static int V;
+	static int E;
+	static int Time;
+	static int resultado;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			ady = new ArrayList<List<Node>>();
+			distancia = new int[MAX];
+			visitado = new boolean[MAX];
+			Q = new PriorityQueue<Node>();
+			previo = new int[MAX];
+			resultado = 0;
+			String line[] = entrada.nextLine().split(" ");
+			V = Integer.parseInt(line[0]);
+			E = Integer.parseInt(line[1]) + 1;
+			Time = Integer.parseInt(line[2]);
+			for (int i = 0; i <= V; i++)
+				ady.add(new ArrayList<Node>());
+			int M = Integer.parseInt(entrada.nextLine());
+			for (int i = 0; i < M; i++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]) + 1;
+				int v = Integer.parseInt(line2[1]) + 1;
+				int w = Integer.parseInt(line2[2]);
+				ady.get(u).add(new Node(v, w));
+			}
+			for (int j = 1; j <= V; j++) {
+				dijkstra(j);
+			}
+			System.out.println(resultado);
+		}
+	}
+
+	static class Node implements Comparable<Node> {
+		int first, second;
+
+		Node(int d, int p) {
+			this.first = d;
+			this.second = p;
+		}
+
+		public int compareTo(Node other) {
+			if (second > other.second)
+				return 1;
+			if (second == other.second)
+				return 0;
+			return -1;
+		}
+	};
+
+	static void init() {
+		for (int i = 0; i <= V; ++i) {
+			distancia[i] = INF;
+			visitado[i] = false;
+			previo[i] = -1;
+		}
+	}
+
+	static void relajacion(int actual, int adyacente, int peso) {
+		if (distancia[actual] + peso < distancia[adyacente]) {
+			distancia[adyacente] = distancia[actual] + peso;
+			previo[adyacente] = actual;
+			Q.add(new Node(adyacente, distancia[adyacente]));
+		}
+	}
+
+	static void dijkstra(int inicial) {
+		init();
+		Q.add(new Node(inicial, 0));
+		distancia[inicial] = 0;
+		int actual, adyacente, peso;
+		while (!Q.isEmpty()) {
+			actual = Q.element().first;
+			Q.remove();
+			if (visitado[actual])
+				continue;
+			visitado[actual] = true;
+
+			for (int i = 0; i < ady.get(actual).size(); ++i) {
+				adyacente = ady.get(actual).get(i).first;
+				peso = ady.get(actual).get(i).second;
+				if (!visitado[adyacente]) {
+					relajacion(actual, adyacente, peso);
+				}
+			}
+		}
+
+		if (distancia[E] <= Time)
+			resultado++;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class ProblemDG2 {
+	public static Scanner entrada = new Scanner(System.in);
+	static int[][] matrizAdy;
+	static Queue<Integer> col;
+	static Queue<Integer> fil;
+	static LinkedList<Integer> salida;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			matrizAdy = new int[N][N];
+			col = new LinkedList<>();
+			fil = new LinkedList<>();
+			salida = new LinkedList<>();
+			int M = Integer.parseInt(line[1]);
+			for (int i = 0; i < M; i++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]);
+				int v = Integer.parseInt(line2[1]);
+				matrizAdy[u][v] = 1;
+			}
+			evaluarMatriz(N);
+			while (!col.isEmpty()) {
+				int num = col.remove();
+				for (int l = 0; l < N; l++) {
+					if (matrizAdy[num][l] == 1) {
+						matrizAdy[num][l] = 0;
+						fil.add(l);
+					}
+				}
+				while (!fil.isEmpty()) {
+					int var = fil.remove();
+					evaluar(N, var);
+				}
+			}
+			System.out.println(salida.toString().replace("[", "").replace(",", "").replace("]", ""));
+		}
+	}
+
+	static void evaluarMatriz(int N) {
+		for (int i = 0; i < N; i++) {
+			boolean decision = false;
+			for (int j = 0; j < N; j++) {
+				if (matrizAdy[j][i] == 1) {
+					decision = true;
+					break;
+				}
+			}
+			if (!decision) {
+				col.add(i);
+				salida.add(i);
+				break;
+			}
+		}
+	}
+
+	static void evaluar(int N, int var) {
+		boolean decision = false;
+		for (int i = 0; i < N; i++) {
+			if (matrizAdy[i][var] == 1) {
+				decision = true;
+				break;
+			}
+		}
+		if (!decision) {
+			col.add(var);
+			salida.add(var);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class ProblemDG2 {
+	public static Scanner entrada = new Scanner(System.in);
+	static int[][] matrizAdy;
+	static Queue<Integer> col;
+	static Queue<Integer> fil;
+	static LinkedList<Integer> salida;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			matrizAdy = new int[N][N];
+			col = new LinkedList<>();
+			fil = new LinkedList<>();
+			salida = new LinkedList<>();
+			int M = Integer.parseInt(line[1]);
+			for (int i = 0; i < M; i++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]);
+				int v = Integer.parseInt(line2[1]);
+				matrizAdy[u][v] = 1;
+			}
+			evaluarMatriz(N);
+			while (!col.isEmpty()) {
+				int num = col.remove();
+				for (int l = 0; l < N; l++) {
+					if (matrizAdy[num][l] == 1) {
+						matrizAdy[num][l] = 0;
+						fil.add(l);
+					}
+				}
+				while (!fil.isEmpty()) {
+					int var = fil.remove();
+					evaluar(N, var);
+				}
+			}
+			System.out.println(salida.toString().replace("[", "").replace(",", "").replace("]", ""));
+		}
+	}
+
+	static void evaluarMatriz(int N) {
+		for (int i = 0; i < N; i++) {
+			boolean decision = false;
+			for (int j = 0; j < N; j++) {
+				if (matrizAdy[j][i] == 1) {
+					decision = true;
+					break;
+				}
+			}
+			if (!decision) {
+				col.add(i);
+				salida.add(i);
+			}
+		}
+	}
+
+	static void evaluar(int N, int var) {
+		boolean decision = false;
+		for (int i = 0; i < N; i++) {
+			if (matrizAdy[i][var] == 1) {
+				decision = true;
+				break;
+			}
+		}
+		if (!decision) {
+			col.add(var);
+			salida.add(var);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.LinkedList;
+
+public class ProblemDG2 {
+	public static Scanner entrada = new Scanner(System.in);
+	static int[][] matrizAdy;
+	static PriorityQueue<Integer> col;
+	static Queue<Integer> fil;
+	static LinkedList<Integer> salida;
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			matrizAdy = new int[N][N];
+			col = new PriorityQueue<>();
+			fil = new LinkedList<>();
+			salida = new LinkedList<>();
+			int M = Integer.parseInt(line[1]);
+			for (int i = 0; i < M; i++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]);
+				int v = Integer.parseInt(line2[1]);
+				matrizAdy[u][v] = 1;
+			}
+			evaluarMatriz(N);
+			while (!col.isEmpty()) {
+				int num = col.remove();
+				salida.add(num);
+				for (int l = 0; l < N; l++) {
+					if (matrizAdy[num][l] == 1) {
+						matrizAdy[num][l] = 0;
+						fil.add(l);
+					}
+				}
+				while (!fil.isEmpty()) {
+					int var = fil.remove();
+					evaluar(N, var);
+				}
+			}
+			System.out.println(salida.toString().replace("[", "").replace(",", "").replace("]", ""));
+		}
+	}
+
+	static void evaluarMatriz(int N) {
+		for (int i = 0; i < N; i++) {
+			boolean decision = false;
+			for (int j = 0; j < N; j++) {
+				if (matrizAdy[j][i] == 1) {
+					decision = true;
+					break;
+				}
+			}
+			if (!decision) {
+				col.add(i);
+			}
+		}
+	}
+
+	static void evaluar(int N, int var) {
+		boolean decision = false;
+		for (int i = 0; i < N; i++) {
+			if (matrizAdy[i][var] == 1) {
+				decision = true;
+				break;
+			}
+		}
+		if (!decision) {
+			col.add(var);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

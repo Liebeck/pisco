@@ -1,0 +1,5795 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaA {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int n = scan.nextInt();
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Case #" + i + ":");
+            int k = scan.nextInt();
+            int[] a = new int[k];
+            for (int j = 0; j < a.length; j++) {
+                a[j] = scan.nextInt();
+            }
+
+            int mayor = 0;
+            int menor = 0;
+            int igual = 0;
+            for (int j = 0; j < a.length; j++) {
+                for (int l = 0; l < a.length; l++) {
+                    if (j != l) {
+                        if (a[j] < a[l]) {
+                            menor++;
+                        }
+                        if (a[j] > a[l]) {
+                            mayor++;
+                        }
+                        if (a[j] == a[l]) {
+                            igual++;
+                        }
+                    }
+                }
+
+            }
+            System.out.println(mayor);
+            System.out.println(menor);
+            System.out.println(igual);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaB {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int c = 0;
+        while (scan.hasNextLine()) {
+            int n = scan.nextInt();
+            System.out.println("Case #" + ++c + ":");
+            int[][] A = new int[n][n];
+
+            for (int[] A1 : A) {
+                for (int i = 0; i < A1.length; i++) {
+                    A1[i] = scan.nextInt();
+                }
+            }
+            int casillasGanadoras = 0;
+            for (int[] A1 : A) {
+                for (int i = 0; i < A1.length; i++) {
+                    int sumaFila = 0;
+                    int sumaColumna = 0;
+                    for (int j = 0; j < A1.length; j++) {
+                        sumaColumna += A[j][i];
+                        sumaFila += A1[j];
+                    }
+                    if (sumaFila < sumaColumna) {
+                        casillasGanadoras++;
+                    }
+                }
+            }
+            System.out.println(casillasGanadoras);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ */
+public class ProblemaC {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int t = scan.nextInt();
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+            int n = scan.nextInt();
+            char[] c = new char[n];
+            for (int j = 0; j < c.length; j++) {
+                c[j] = scan.next().charAt(0);
+            }
+            imprimirManeras(c);
+        }
+    }
+
+    private static void imprimirManeras(char[] c) {
+        Set set = new LinkedHashSet();
+        getManeras(c, "", c.length, set, new boolean[c.length]);
+        for (Object set1 : set) {
+            System.out.println(set1);
+        }
+    }
+
+    private static void getManeras(char[] c, String string, int n, Set set, boolean[] aBoolean) {
+        if (n == 0){
+            set.add(string);
+        } else {
+            for (int i = 0; i < c.length; i++) {
+                if(!aBoolean[i]){
+                    aBoolean[i] = true;
+                    getManeras(c, string + c[i], n - 1, set, aBoolean);
+                    aBoolean[i] = false;
+                }
+            }
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaD {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     */
+    public static void main(String[] args) throws IOException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int t = scan.nextInt();
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+            int n = scan.nextInt();
+            int[][] equipos = new int[n][2];
+            for (int j = 0; j < n; j++) {
+                //String[] ss = linea.readLine().split(" ");
+                equipos[j][0] = scan.nextInt();
+                equipos[j][1] = scan.nextInt();
+            }
+            int v = 0;
+            for (int j = 0; j < equipos.length; j++) {
+                for (int k = 0; k < equipos.length; k++) {
+                    if (k != j && equipos[j][0] == equipos[k][1]) {
+                        v++;
+                    }
+                }
+            }
+            System.out.println(v);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaE {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int t = scan.nextInt();
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+            int n = scan.nextInt();
+            ArrayList<Integer> ints = new ArrayList<>(n);
+            for (int j = 0; j < n; j++) {
+                ints.add(scan.nextInt());
+            }
+            int max = 0;
+            for (int j = 0; j < n; j++) {
+                if (ints.contains(0)) {
+                    for (int k = ints.indexOf(0); k <= ints.lastIndexOf(0); k++) {
+                        ArrayList<Integer> list = new ArrayList<>(ints);
+                        int suma = 0;
+                        for (int l = k; l <= ints.lastIndexOf(0); l++) {
+                            list.set(l, 1 - list.get(l));
+
+                        }
+
+                        for (Integer list1 : list) {
+                            suma += list1;
+                        }
+                        max = Math.max(max, suma);
+                    }
+                } else {
+                    for (Integer l : ints) {
+                            max += l;
+                        }
+                }
+            }
+            System.out.println(max);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaD {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     */
+    public static void main(String[] args) throws IOException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int t = scan.nextInt();
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+            int n = scan.nextInt();
+            int[][] equipos = new int[n][2];
+            for (int j = 0; j < n; j++) {
+                //String[] ss = linea.readLine().split(" ");
+                equipos[j][0] = scan.nextInt();
+                equipos[j][1] = scan.nextInt();
+            }
+            int v = 0;
+            for (int j = 0; j < equipos.length; j++) {
+                for (int k = 0; k < equipos.length; k++) {
+                    if (k != j && equipos[j][0] == equipos[k][1]) {
+                        v++;
+                    }
+                }
+            }
+            System.out.println(v);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaE {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int t = scan.nextInt();
+        for (int i = 1; i <= t; i++) {
+            int n = scan.nextInt();
+            ArrayList<Integer> ints = new ArrayList<>(n);
+            for (int j = 0; j < n; j++) {
+                ints.add(scan.nextInt());
+            }
+            int max = 0;
+            for (int j = 0; j < n; j++) {
+                if (ints.contains(0)) {
+                    for (int k = ints.indexOf(0); k <= ints.lastIndexOf(0); k++) {
+                        ArrayList<Integer> list = new ArrayList<>(ints);
+                        int suma = 0;
+                        for (int l = k; l <= ints.lastIndexOf(0); l++) {
+                            list.set(l, 1 - list.get(l));
+
+                        }
+
+                        for (Integer list1 : list) {
+                            suma += list1;
+                        }
+                        max = Math.max(max, suma);
+                    }
+                } else {
+                    for (Integer l : ints) {
+                            max += l;
+                        }
+                }
+            }
+            System.out.println(max);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaB {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     */
+    public static void main(String[] args) throws IOException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        String s;
+        int c = 0;
+        while (scan.hasNextLine()) {
+            int n = scan.nextInt();
+            System.out.println("Case #" + ++c + ":");
+            int[][] A = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    while (!scan.hasNextInt()) {
+                        scan.next();
+                    }
+                    A[i][j] = scan.nextInt();
+                }
+            }
+            int casillasGanadoras = 0;
+            for (int[] a : A) {
+                for (int j = 0; j < a.length; j++) {
+                    int sumaFila = 0;
+                    int sumaColumna = 0;
+                    for (int k = 0; k < A.length; k++) {
+                        sumaColumna += A[k][j];
+                        sumaFila += a[k];
+                    }
+                    if (sumaFila < sumaColumna) {
+                        casillasGanadoras++;
+                    }
+                }
+            }
+            System.out.println(casillasGanadoras);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaB {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     */
+    public static void main(String[] args) throws IOException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        String s;
+        int c = 0;
+        while (scan.hasNextLine()) {
+            int n = scan.nextInt();
+            System.out.println("Case #" + ++c + ":");
+            int[][] A = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    while (!scan.hasNextInt()) {
+                        scan.next();
+                    }
+                    A[i][j] = scan.nextInt();
+                }
+            }
+            int casillasGanadoras = 0;
+            for (int[] a : A) {
+                for (int j = 0; j < a.length; j++) {
+                    int sumaFila = 0;
+                    int sumaColumna = 0;
+                    for (int k = 0; k < A.length; k++) {
+                        sumaColumna += A[k][j];
+                        sumaFila += a[k];
+                    }
+                    if (sumaFila < sumaColumna) {
+                        casillasGanadoras++;
+                    }
+                }
+            }
+            System.out.println(casillasGanadoras);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaE {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("entrada.in");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int t = scan.nextInt();
+        for (int i = 1; i <= t; i++) {
+            int n = scan.nextInt();
+            ArrayList<Integer> ints = new ArrayList<>(n);
+            for (int j = 0; j < n; j++) {
+                ints.add(scan.nextInt());
+            }
+            int max = 0;
+            for (int j = 0; j < n; j++) {
+                if (ints.contains(0)) {
+                    for (int k = ints.indexOf(0); k <= ints.lastIndexOf(0); k++) {
+                        ArrayList<Integer> list = new ArrayList<>(ints);
+                        int suma = 0;
+                        for (int l = k; l <= ints.lastIndexOf(0); l++) {
+                            list.set(l, 1 - list.get(l));
+
+                        }
+
+                        for (Integer list1 : list) {
+                            suma += list1;
+                        }
+                        max = Math.max(max, suma);
+                    }
+                } else {
+                    for (Integer l : ints) {
+                            max += l;
+                        }
+                }
+            }
+            System.out.println(max);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaB {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int n = in.nextInt();
+
+            int comidaNecesaria = 0;
+            HashMap<Integer, Integer> mapa = new HashMap<>();
+            for (int j = 0; j < n; j++) {
+                int[] ints = in.nextInts();
+                mapa.put(ints[0], (mapa.containsKey(ints[0]) ? mapa.get(ints[0]) : 0) + 1);
+                if (mapa.containsKey(ints[1]) && mapa.get(ints[1]) > 0) {
+                    mapa.put(ints[1], mapa.get(ints[1]) - 1);
+                } else {
+                    comidaNecesaria++;
+                }
+            }
+
+            System.out.println(comidaNecesaria);
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("B.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaC {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int m = ints[1];
+            int p = ints[2];
+
+            int[] an = in.nextInts(), am = in.nextInts(), ap = in.nextInts();
+            QuadraticProbingHashTable<Integer> norma = new QuadraticProbingHashTable<>(an.length),
+                    mario = new QuadraticProbingHashTable<>(am.length);
+            for (int j = 0; j < n; j++) {
+                norma.insert(an[j]);
+            }
+            for (int j = 0; j < am.length; j++) {
+                mario.insert(am[j]);
+                if (norma.contains(am[j])) {
+                    n--;
+                    m--;
+                }
+            }
+            for (int j = 0; j < ap.length; j++) {
+                if (mario.contains(ap[j])) {
+                    if (norma.contains(ap[j])) {
+                        n--;
+                    }
+                    m--;
+                    p--;
+                } else if (norma.contains(ap[j])) {
+                    n--;
+                    p--;
+                }
+            }
+
+            if (n >= m && n >= p) {
+                Arrays.sort(an);
+                System.out.print("Norma " + an.length);
+                for (int b : an) {
+                    System.out.print(" " + b);
+                }
+                System.out.println("");
+            }
+            if (m >= n && m >= p) {
+                Arrays.sort(am);
+                System.out.print("Mario " + am.length);
+                for (int b : am) {
+                    System.out.print(" " + b);
+                }
+                System.out.println("");
+            }
+            if (p >= n && p >= m) {
+                Arrays.sort(ap);
+                System.out.print("Pipe " + ap.length);
+                for (int b : ap) {
+                    System.out.print(" " + b);
+                }
+                System.out.println("");
+            }
+        }
+    }
+
+    private static class QuadraticProbingHashTable<AnyType> {
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+                ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private HashEntry<AnyType>[] array; // The array of elements
+        private int occupied; // The number of occupied cells
+        private int theSize; // Current size
+
+        /**
+         * Construct the hash table.
+         */
+        public QuadraticProbingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size the approximate initial size.
+         */
+        public QuadraticProbingHashTable(int size) {
+            allocateArray(size);
+            doClear();
+        }
+
+        /**
+         * Insert into the hash table. If the item is already present, do
+         * nothing.
+         *
+         * @param x the item to insert.
+         * @return
+         */
+        public boolean insert(AnyType x) {
+            // Insert x as active
+            int currentPos = findPos(x);
+            if (isActive(currentPos)) {
+                return false;
+            }
+
+            array[currentPos] = new HashEntry<>(x, true);
+            theSize++;
+
+            // Rehash; see Section 5.5
+            if (++occupied > array.length / 2) {
+                rehash();
+            }
+
+            return true;
+        }
+
+        /**
+         * Expand the hash table.
+         */
+        private void rehash() {
+            HashEntry<AnyType>[] oldArray = array;
+
+            // Create a new double-sized, empty table
+            allocateArray(2 * oldArray.length);
+            occupied = 0;
+            theSize = 0;
+
+            // Copy table over
+            for (HashEntry<AnyType> entry : oldArray) {
+                if (entry != null && entry.isActive) {
+                    insert(entry.element);
+                }
+            }
+        }
+
+        /**
+         * Method that performs quadratic probing resolution.
+         *
+         * @param x the item to search for.
+         * @return the position where the search terminates.
+         */
+        private int findPos(AnyType x) {
+            int offset = 1;
+            int currentPos = myhash(x);
+
+            while (array[currentPos] != null
+                    && !array[currentPos].element.equals(x)) {
+                currentPos += offset;  // Compute ith probe
+                offset += 2;
+                if (currentPos >= array.length) {
+                    currentPos -= array.length;
+                }
+            }
+
+            return currentPos;
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         * @return true if item removed
+         */
+        public boolean remove(AnyType x) {
+            int currentPos = findPos(x);
+            if (isActive(currentPos)) {
+                array[currentPos].isActive = false;
+                theSize--;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        /**
+         * Get current size.
+         *
+         * @return the size.
+         */
+        public int size() {
+            return theSize;
+        }
+
+        /**
+         * Get length of internal table.
+         *
+         * @return the size.
+         */
+        public int capacity() {
+            return array.length;
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return the matching item.
+         */
+        public boolean contains(AnyType x) {
+            int currentPos = findPos(x);
+            return isActive(currentPos);
+        }
+
+        /**
+         * Return true if currentPos exists and is active.
+         *
+         * @param currentPos the result of a call to findPos.
+         * @return true if currentPos is active.
+         */
+        private boolean isActive(int currentPos) {
+            return array[currentPos] != null && array[currentPos].isActive;
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            doClear();
+        }
+
+        private void doClear() {
+            occupied = 0;
+            for (int i = 0; i < array.length; i++) {
+                array[i] = null;
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= array.length;
+            if (hashVal < 0) {
+                hashVal += array.length;
+            }
+
+            return hashVal;
+        }
+
+        /**
+         * Internal method to allocate array.
+         *
+         * @param arraySize the size of the array.
+         */
+        private void allocateArray(int arraySize) {
+            array = new HashEntry[nextPrime(arraySize)];
+        }
+
+        private static class HashEntry<AnyType> {
+
+            public AnyType element;   // the element
+            public boolean isActive;  // false if marked deleted
+
+            public HashEntry(AnyType e) {
+                this(e, true);
+            }
+
+            public HashEntry(AnyType e, boolean i) {
+                element = e;
+                isActive = i;
+            }
+        }
+
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("C.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ */
+public class ProblemaD {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int n = in.nextInt();
+            HashMap<Candidato, Integer> votos = new HashMap<>(n);
+
+            for (int j = 0; j < n; j++) {
+                String[] line = in.nextStrings();
+                votos.put(new Candidato(line[0], line[1]), 0);
+            }
+
+            int q = in.nextInt();
+            for (int j = 0; j < q; j++) {
+                String nombre = in.nextString();
+                Candidato c;
+                if (votos.containsKey(c = new Candidato(nombre, ""))) {
+                    votos.put(c, votos.get(c) + 1);
+                }
+            }
+
+            MonticuloBinario<Par> monticulo = new MonticuloBinario<>(n);
+            for (Map.Entry<Candidato, Integer> entry : votos.entrySet()) {
+                monticulo.insert(new Par(entry.getKey(), entry.getValue()));
+            }
+
+            Par par = monticulo.deleteMin();
+            System.out.println(par);
+            while (!monticulo.isEmpty() && par.votos == (par = monticulo.deleteMin()).votos) {
+                System.out.println(par);
+            }
+
+        }
+    }
+
+    private static class Candidato {
+
+        private final String nombre, partido;
+
+        public Candidato(String nombre, String partido) {
+            this.nombre = nombre;
+            this.partido = partido;
+        }
+
+        @Override
+        public int hashCode() {
+            return nombre.hashCode(); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Candidato other = (Candidato) obj;
+            return Objects.equals(this.nombre, other.nombre);
+        }
+
+    }
+
+    private static class Par implements Comparable<Par> {
+
+        private final Candidato candidato;
+        private final int votos;
+
+        public Par(Candidato candidato, int votos) {
+            this.candidato = candidato;
+            this.votos = votos;
+        }
+
+        @Override
+        public int compareTo(Par o) {
+            int comp = Integer.compare(o.votos, votos);
+            if (comp == 0) {
+                return candidato.nombre.compareTo(o.candidato.nombre);
+            } else {
+                return comp;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return candidato.partido;
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> implements Comparable<MonticuloBinario<AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+
+        @Override
+        public int compareTo(MonticuloBinario<AnyType> o) {
+            if (this.isEmpty()) {
+                if (o.isEmpty()) {
+                    return 0;
+                }
+                return -1;
+            } else if (o.isEmpty()) {
+                if (this.isEmpty()) {
+                    return 0;
+                }
+                return 1;
+            }
+
+            try {
+                return this.findMin().compareTo(o.findMin());
+            } catch (Exception ex) {
+                Logger.getLogger(ProblemaA.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
+            }
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("D.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ */
+public class ProblemaD {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int n = in.nextInt();
+            HashMap<Candidato, Integer> votos = new HashMap<>(n);
+
+            for (int j = 0; j < n; j++) {
+                String[] line = in.nextStrings();
+                votos.put(new Candidato(line[0], line[1]), 0);
+            }
+
+            int q = in.nextInt();
+            for (int j = 0; j < q; j++) {
+                String nombre = in.nextString();
+                Candidato c;
+                if (votos.containsKey(c = new Candidato(nombre, ""))) {
+                    votos.put(c, votos.get(c) + 1);
+                }
+            }
+
+            MonticuloBinario<Par> monticulo = new MonticuloBinario<>(n);
+            for (Map.Entry<Candidato, Integer> entry : votos.entrySet()) {
+                monticulo.insert(new Par(entry.getKey(), entry.getValue()));
+            }
+
+            Par par = monticulo.deleteMin();
+            System.out.println(par);
+            while (!monticulo.isEmpty() && par.votos == (par = monticulo.deleteMin()).votos) {
+                System.out.println(par);
+            }
+
+        }
+    }
+
+    private static class Candidato {
+
+        private final String nombre, partido;
+
+        public Candidato(String nombre, String partido) {
+            this.nombre = nombre;
+            this.partido = partido;
+        }
+
+        @Override
+        public int hashCode() {
+            return nombre.hashCode(); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Candidato other = (Candidato) obj;
+            return Objects.equals(this.nombre, other.nombre);
+        }
+
+    }
+
+    private static class Par implements Comparable<Par> {
+
+        private final Candidato candidato;
+        private final int votos;
+
+        public Par(Candidato candidato, int votos) {
+            this.candidato = candidato;
+            this.votos = votos;
+        }
+
+        @Override
+        public int compareTo(Par o) {
+            int comp = Integer.compare(o.votos, votos);
+            if (comp == 0) {
+                return candidato.nombre.compareTo(o.candidato.nombre);
+            } else {
+                return comp;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return candidato.partido;
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> implements Comparable<MonticuloBinario<AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+
+        @Override
+        public int compareTo(MonticuloBinario<AnyType> o) {
+            if (this.isEmpty()) {
+                if (o.isEmpty()) {
+                    return 0;
+                }
+                return -1;
+            } else if (o.isEmpty()) {
+                if (this.isEmpty()) {
+                    return 0;
+                }
+                return 1;
+            }
+
+            try {
+                return this.findMin().compareTo(o.findMin());
+            } catch (Exception ex) {
+                Logger.getLogger(ProblemaD.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
+            }
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("D.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ */
+public class ProblemaA {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0], m = ints[1];
+
+            int[] x = in.nextInts();
+            int[] k = in.nextInts();
+
+            HashSet[] sets = new HashSet[m];
+            for (int j = 0; j < m; j++) {
+                sets[j] = new HashSet(k[j]);
+                for (int l = 0; l < n; l++) {
+                    sets[j].insert(x[l]);
+                }
+            }
+
+            int km = k[0], colisiones = sets[0].colisiones, jm = 0;
+            for (int j = 1; j < m; j++) {
+                if (sets[j].colisiones < colisiones) {
+                    km = k[j];
+                    colisiones = sets[j].colisiones;
+                    jm = j;
+                } else if (sets[j].colisiones == colisiones && k[j] < km) {
+                    km = k[j];
+                }
+            }
+
+            System.out.println(km);
+            System.out.println(colisiones);
+
+            HashSet set = sets[jm];
+            MyArrayList<Integer> posiciones = set.posCol;
+            MonticuloBinario<MonticuloBinario<Integer>> c = new MonticuloBinario<>(posiciones.size);
+            for (Integer posicion : posiciones) {
+                c.insert(set.elementosPos(posicion));
+            }
+
+            while (!c.isEmpty()) {
+                MonticuloBinario<Integer> d = c.deleteMin();
+                StringBuilder sb = new StringBuilder();
+                while (!d.isEmpty()) {
+                    sb.append(d.deleteMin()).append(" ");
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                System.out.println(sb);
+            }
+
+        }
+    }
+
+    private static class HashSet {
+
+        private final Node[] tabla;
+        public int colisiones;
+        public final MyArrayList<Integer> posCol;
+        public final MonticuloBinario<Integer>[] col;
+        public final boolean[] b;
+
+        public HashSet(int tamañoTabla) {
+            tabla = new Node[tamañoTabla];
+            posCol = new MyArrayList<>(tamañoTabla);
+            b = new boolean[tamañoTabla];
+            col = new MonticuloBinario[tamañoTabla];
+        }
+
+        public boolean insert(int x) {
+            int hash = hash(x);
+            if (tabla[hash] != null) {
+                return tabla[hash].insert(x);
+            } else {
+                tabla[hash] = new Node(x);
+                return true;
+            }
+        }
+
+        private int hash(int x) {
+            return x % tabla.length;
+        }
+
+        public MonticuloBinario<Integer> elementosPos(int pos) {
+            return col[pos];
+        }
+
+        private class Node {
+
+            Node next;
+            int data;
+
+            public Node(int data) {
+                this.data = data;
+            }
+
+            private boolean insert(int x) {
+                if (this.data == x) {
+                    colisiones++;
+                    int pos = hash(x);
+                    if (!b[pos]) {
+                        posCol.add(hash(x));
+                        col[pos] = new MonticuloBinario<>();
+                        col[pos].insert(this.data);
+                        b[pos] = true;
+                    }
+                    col[pos].insert(x);
+                    return false;
+                }
+                if (next == null) {
+                    next = new Node(x);
+                    colisiones++;
+                    int pos = hash(x);
+                    if (!b[pos]) {
+                        posCol.add(hash(x));
+                        col[pos] = new MonticuloBinario<>();
+                        col[pos].insert(this.data);
+                        b[pos] = true;
+                    }
+                    col[pos].insert(x);
+                    return true;
+                } else {
+                    return next.insert(x);
+                }
+            }
+        }
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> implements Comparable<MonticuloBinario<AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+
+        @Override
+        public int compareTo(MonticuloBinario<AnyType> o) {
+            if (this.isEmpty()) {
+                if (o.isEmpty()) {
+                    return 0;
+                }
+                return -1;
+            } else if (o.isEmpty()) {
+                if (this.isEmpty()) {
+                    return 0;
+                }
+                return 1;
+            }
+
+            try {
+                return this.findMin().compareTo(o.findMin());
+            } catch (Exception ex) {
+                Logger.getLogger(ProblemaA.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
+            }
+        }
+    }
+
+    private static class MyArrayList<AnyType> implements Iterable<AnyType> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private AnyType[] items;
+        private int size;
+
+        public MyArrayList(int initialCapacity) {
+            items = (AnyType[]) new Object[initialCapacity];
+            size = 0;
+        }
+
+        /**
+         * Construct an empty ArrayList.
+         */
+        public MyArrayList() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Returns the number of items in this collection.
+         *
+         * @return the number of items in this collection.
+         */
+        public int size() {
+            return size;
+        }
+
+        /**
+         * Returns true if this collection is empty.
+         *
+         * @return true if this collection is empty.
+         */
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        /**
+         * Returns the item at position idx.
+         *
+         * @param idx the index to search in.
+         * @return
+         * @throws ArrayIndexOutOfBoundsException if index is out of range.
+         */
+        public AnyType get(int idx) {
+            if (idx < 0 || idx >= size()) {
+                throw new ArrayIndexOutOfBoundsException("Index " + idx + "; size " + size());
+            }
+            return items[idx];
+        }
+
+        /**
+         * Changes the item at position idx.
+         *
+         * @param idx the index to change.
+         * @param newVal the new value.
+         * @return the old value.
+         * @throws ArrayIndexOutOfBoundsException if index is out of range.
+         */
+        public AnyType set(int idx, AnyType newVal) {
+            if (idx < 0 || idx >= size()) {
+                throw new ArrayIndexOutOfBoundsException("Index " + idx + "; size " + size());
+            }
+            AnyType old = items[idx];
+            items[idx] = newVal;
+
+            return old;
+        }
+
+        private void ensureCapacity(int newCapacity) {
+            if (newCapacity < size) {
+                return;
+            }
+
+            AnyType[] old = items;
+            items = (AnyType[]) new Object[newCapacity];
+            System.arraycopy(old, 0, items, 0, size());
+        }
+
+        /**
+         * Adds an item to this collection, at the end.
+         *
+         * @param x any object.
+         * @return true.
+         */
+        public boolean add(AnyType x) {
+            add(size(), x);
+            return true;
+        }
+
+        /**
+         * Adds an item to this collection, at the specified index.
+         *
+         * @param idx
+         * @param x any object.
+         */
+        public void add(int idx, AnyType x) {
+            if (items.length == size()) {
+                ensureCapacity(size() * 2 + 1);
+            }
+
+//        for (int i = size; i > idx; i--) {
+//            items[i] = items[i - 1];
+//        }
+            System.arraycopy(items, idx, items, idx + 1, size - idx);
+
+            items[idx] = x;
+            size++;
+        }
+
+        /**
+         * Removes an item from this collection.
+         *
+         * @param idx the index of the object.
+         * @return the item was removed from the collection.
+         */
+        public AnyType remove(int idx) {
+            AnyType removedItem = items[idx];
+
+            for (int i = idx; i < size() - 1; i++) {
+                items[i] = items[i + 1];
+            }
+            size--;
+
+            return removedItem;
+        }
+
+        /**
+         * Change the size of this collection to zero.
+         */
+        public void clear() {
+            size = 0;
+            ensureCapacity(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Obtains an Iterator object used to traverse the collection.
+         *
+         * @return an iterator positioned prior to the first element.
+         */
+        @Override
+        public Iterator<AnyType> iterator() {
+            return new ArrayListIterator();
+        }
+
+        public ListIterator<AnyType> listIterator() {
+            return new ArrayListIterator();
+        }
+
+        public ListIterator<AnyType> listIterator(int index) {
+            return new ArrayListIterator(index);
+        }
+
+        /**
+         * Returns a String representation of this collection.
+         */
+        @Override
+        public String toString() {
+            Iterator<AnyType> it = iterator();
+            if (!it.hasNext()) {
+                return "[]";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            for (;;) {
+                AnyType e = it.next();
+                sb.append(e == this ? "(this Collection)" : e);
+                if (!it.hasNext()) {
+                    return sb.append(']').toString();
+                }
+                sb.append(',').append(' ');
+            }
+        }
+
+        /**
+         * This is the implementation of the ArrayListIterator. It maintains a
+         * notion of a current position and of course the implicit reference to
+         * the MyArrayList.
+         */
+        private class ArrayListIterator implements ListIterator<AnyType> {
+
+            private int current;
+            private boolean okToRemove = false;
+
+            public ArrayListIterator() {
+                this(0);
+            }
+
+            public ArrayListIterator(int index) {
+                this.current = index;
+            }
+
+            @Override
+            public boolean hasNext() {
+                return current < size();
+            }
+
+            @Override
+            public AnyType next() {
+                if (!hasNext()) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                okToRemove = true;
+                return items[current++];
+            }
+
+            @Override
+            public void remove() {
+                if (!okToRemove) {
+                    throw new IllegalStateException();
+                }
+
+                MyArrayList.this.remove(--current);
+                okToRemove = false;
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                return current >= 0;
+            }
+
+            @Override
+            public AnyType previous() {
+                if (!hasPrevious()) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                okToRemove = true;
+                return items[current--];
+            }
+
+            @Override
+            public int nextIndex() {
+                return current;
+            }
+
+            @Override
+            public int previousIndex() {
+                return current - 2;
+            }
+
+            @Override
+            public void set(AnyType e) {
+                items[current - 1] = e;
+            }
+
+            @Override
+            public void add(AnyType e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        }
+
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("A.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ */
+public class ProblemaA {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0], m = ints[1];
+
+            int[] x = in.nextInts();
+            int[] k = in.nextInts();
+
+            HashSet[] sets = new HashSet[m];
+            for (int j = 0; j < m; j++) {
+                sets[j] = new HashSet(k[j]);
+                for (int l = 0; l < n; l++) {
+                    sets[j].insert(x[l]);
+                }
+            }
+
+            int km = k[0], colisiones = sets[0].colisiones, jm = 0;
+            for (int j = 1; j < m; j++) {
+                if (sets[j].colisiones < colisiones) {
+                    km = k[j];
+                    colisiones = sets[j].colisiones;
+                    jm = j;
+                } else if (sets[j].colisiones == colisiones && k[j] < km) {
+                    km = k[j];
+                }
+            }
+
+            System.out.println(km);
+            System.out.println(colisiones);
+
+            HashSet set = sets[jm];
+            MyArrayList<Integer> posiciones = set.posCol;
+            MonticuloBinario<MonticuloBinario<Integer>> c = new MonticuloBinario<>(posiciones.size);
+            for (Integer posicion : posiciones) {
+                c.insert(set.elementosPos(posicion));
+            }
+
+            while (!c.isEmpty()) {
+                MonticuloBinario<Integer> d = c.deleteMin();
+                StringBuilder sb = new StringBuilder();
+                while (!d.isEmpty()) {
+                    sb.append(d.deleteMin()).append(" ");
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                System.out.println(sb);
+            }
+
+        }
+    }
+
+    private static class HashSet {
+
+        private final Node[] tabla;
+        public int colisiones;
+        public final MyArrayList<Integer> posCol;
+        public final MonticuloBinario<Integer>[] col;
+        public final boolean[] b;
+
+        public HashSet(int tamanoTabla) {
+            tabla = new Node[tamanoTabla];
+            posCol = new MyArrayList<>(tamanoTabla);
+            b = new boolean[tamanoTabla];
+            col = new MonticuloBinario[tamanoTabla];
+        }
+
+        public boolean insert(int x) {
+            int hash = hash(x);
+            if (tabla[hash] != null) {
+                return tabla[hash].insert(x);
+            } else {
+                tabla[hash] = new Node(x);
+                return true;
+            }
+        }
+
+        private int hash(int x) {
+            return x % tabla.length;
+        }
+
+        public MonticuloBinario<Integer> elementosPos(int pos) {
+            return col[pos];
+        }
+
+        private class Node {
+
+            Node next;
+            int data;
+
+            public Node(int data) {
+                this.data = data;
+            }
+
+            private boolean insert(int x) {
+                if (this.data == x) {
+                    colisiones++;
+                    int pos = hash(x);
+                    if (!b[pos]) {
+                        posCol.add(hash(x));
+                        col[pos] = new MonticuloBinario<>();
+                        col[pos].insert(this.data);
+                        b[pos] = true;
+                    }
+                    col[pos].insert(x);
+                    return false;
+                }
+                if (next == null) {
+                    next = new Node(x);
+                    colisiones++;
+                    int pos = hash(x);
+                    if (!b[pos]) {
+                        posCol.add(hash(x));
+                        col[pos] = new MonticuloBinario<>();
+                        col[pos].insert(this.data);
+                        b[pos] = true;
+                    }
+                    col[pos].insert(x);
+                    return true;
+                } else {
+                    return next.insert(x);
+                }
+            }
+        }
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> implements Comparable<MonticuloBinario<AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+
+        @Override
+        public int compareTo(MonticuloBinario<AnyType> o) {
+            if (this.isEmpty()) {
+                if (o.isEmpty()) {
+                    return 0;
+                }
+                return -1;
+            } else if (o.isEmpty()) {
+                if (this.isEmpty()) {
+                    return 0;
+                }
+                return 1;
+            }
+
+            try {
+                return this.findMin().compareTo(o.findMin());
+            } catch (Exception ex) {
+                Logger.getLogger(ProblemaA.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
+            }
+        }
+    }
+
+    private static class MyArrayList<AnyType> implements Iterable<AnyType> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private AnyType[] items;
+        private int size;
+
+        public MyArrayList(int initialCapacity) {
+            items = (AnyType[]) new Object[initialCapacity];
+            size = 0;
+        }
+
+        /**
+         * Construct an empty ArrayList.
+         */
+        public MyArrayList() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Returns the number of items in this collection.
+         *
+         * @return the number of items in this collection.
+         */
+        public int size() {
+            return size;
+        }
+
+        /**
+         * Returns true if this collection is empty.
+         *
+         * @return true if this collection is empty.
+         */
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        /**
+         * Returns the item at position idx.
+         *
+         * @param idx the index to search in.
+         * @return
+         * @throws ArrayIndexOutOfBoundsException if index is out of range.
+         */
+        public AnyType get(int idx) {
+            if (idx < 0 || idx >= size()) {
+                throw new ArrayIndexOutOfBoundsException("Index " + idx + "; size " + size());
+            }
+            return items[idx];
+        }
+
+        /**
+         * Changes the item at position idx.
+         *
+         * @param idx the index to change.
+         * @param newVal the new value.
+         * @return the old value.
+         * @throws ArrayIndexOutOfBoundsException if index is out of range.
+         */
+        public AnyType set(int idx, AnyType newVal) {
+            if (idx < 0 || idx >= size()) {
+                throw new ArrayIndexOutOfBoundsException("Index " + idx + "; size " + size());
+            }
+            AnyType old = items[idx];
+            items[idx] = newVal;
+
+            return old;
+        }
+
+        private void ensureCapacity(int newCapacity) {
+            if (newCapacity < size) {
+                return;
+            }
+
+            AnyType[] old = items;
+            items = (AnyType[]) new Object[newCapacity];
+            System.arraycopy(old, 0, items, 0, size());
+        }
+
+        /**
+         * Adds an item to this collection, at the end.
+         *
+         * @param x any object.
+         * @return true.
+         */
+        public boolean add(AnyType x) {
+            add(size(), x);
+            return true;
+        }
+
+        /**
+         * Adds an item to this collection, at the specified index.
+         *
+         * @param idx
+         * @param x any object.
+         */
+        public void add(int idx, AnyType x) {
+            if (items.length == size()) {
+                ensureCapacity(size() * 2 + 1);
+            }
+
+//        for (int i = size; i > idx; i--) {
+//            items[i] = items[i - 1];
+//        }
+            System.arraycopy(items, idx, items, idx + 1, size - idx);
+
+            items[idx] = x;
+            size++;
+        }
+
+        /**
+         * Removes an item from this collection.
+         *
+         * @param idx the index of the object.
+         * @return the item was removed from the collection.
+         */
+        public AnyType remove(int idx) {
+            AnyType removedItem = items[idx];
+
+            for (int i = idx; i < size() - 1; i++) {
+                items[i] = items[i + 1];
+            }
+            size--;
+
+            return removedItem;
+        }
+
+        /**
+         * Change the size of this collection to zero.
+         */
+        public void clear() {
+            size = 0;
+            ensureCapacity(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Obtains an Iterator object used to traverse the collection.
+         *
+         * @return an iterator positioned prior to the first element.
+         */
+        @Override
+        public Iterator<AnyType> iterator() {
+            return new ArrayListIterator();
+        }
+
+        public ListIterator<AnyType> listIterator() {
+            return new ArrayListIterator();
+        }
+
+        public ListIterator<AnyType> listIterator(int index) {
+            return new ArrayListIterator(index);
+        }
+
+        /**
+         * Returns a String representation of this collection.
+         */
+        @Override
+        public String toString() {
+            Iterator<AnyType> it = iterator();
+            if (!it.hasNext()) {
+                return "[]";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            for (;;) {
+                AnyType e = it.next();
+                sb.append(e == this ? "(this Collection)" : e);
+                if (!it.hasNext()) {
+                    return sb.append(']').toString();
+                }
+                sb.append(',').append(' ');
+            }
+        }
+
+        /**
+         * This is the implementation of the ArrayListIterator. It maintains a
+         * notion of a current position and of course the implicit reference to
+         * the MyArrayList.
+         */
+        private class ArrayListIterator implements ListIterator<AnyType> {
+
+            private int current;
+            private boolean okToRemove = false;
+
+            public ArrayListIterator() {
+                this(0);
+            }
+
+            public ArrayListIterator(int index) {
+                this.current = index;
+            }
+
+            @Override
+            public boolean hasNext() {
+                return current < size();
+            }
+
+            @Override
+            public AnyType next() {
+                if (!hasNext()) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                okToRemove = true;
+                return items[current++];
+            }
+
+            @Override
+            public void remove() {
+                if (!okToRemove) {
+                    throw new IllegalStateException();
+                }
+
+                MyArrayList.this.remove(--current);
+                okToRemove = false;
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                return current >= 0;
+            }
+
+            @Override
+            public AnyType previous() {
+                if (!hasPrevious()) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                okToRemove = true;
+                return items[current--];
+            }
+
+            @Override
+            public int nextIndex() {
+                return current;
+            }
+
+            @Override
+            public int previousIndex() {
+                return current - 2;
+            }
+
+            @Override
+            public void set(AnyType e) {
+                items[current - 1] = e;
+            }
+
+            @Override
+            public void add(AnyType e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        }
+
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("A.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaE {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int n = in.nextInt();
+
+            int comidaNecesaria = 0;
+            HashMap<Integer, Integer> nec = new HashMap<>();
+            HashMap<Integer, Integer> mapa = new HashMap<>();
+            for (int j = 0; j < n; j++) {
+                int[] ints = in.nextInts();
+                mapa.put(ints[0], (mapa.containsKey(ints[0]) ? mapa.get(ints[0]) : 0) + 1);
+                if (mapa.containsKey(ints[1]) && mapa.get(ints[1]) > 0) {
+                    mapa.put(ints[1], mapa.get(ints[1]) - 1);
+                } else {
+                    comidaNecesaria++;
+                    nec.put(ints[1], nec.containsKey(ints[1]) ? (nec.get(ints[1]) + 1) : 1);
+                }
+            }
+
+            System.out.println(comidaNecesaria);
+            for (Map.Entry<Integer, Integer> entrySet : nec.entrySet()) {
+                Integer key = entrySet.getKey();
+                Integer value = entrySet.getValue();
+                System.out.println(key + " " + value);
+            }
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("E.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaE {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int n = in.nextInt();
+
+            int comidaNecesaria = 0;
+            HashMap<Integer, Integer> nec = new HashMap<>();
+            HashMap<Integer, Integer> mapa = new HashMap<>();
+            for (int j = 0; j < n; j++) {
+                int[] ints = in.nextInts();
+                mapa.put(ints[0], (mapa.containsKey(ints[0]) ? mapa.get(ints[0]) : 0) + 1);
+                if (mapa.containsKey(ints[1]) && mapa.get(ints[1]) > 0) {
+                    mapa.put(ints[1], mapa.get(ints[1]) - 1);
+                } else {
+                    comidaNecesaria++;
+                    nec.put(ints[1], nec.containsKey(ints[1]) ? (nec.get(ints[1]) + 1) : 1);
+                }
+            }
+
+            System.out.println(comidaNecesaria);
+            MonticuloBinario<Entry> c = new MonticuloBinario<>();
+            for (Map.Entry<Integer, Integer> entrySet : nec.entrySet()) {
+                Integer key = entrySet.getKey();
+                Integer value = entrySet.getValue();
+                c.insert(new Entry(key, value));
+            }
+
+            while (!c.isEmpty()) {
+                Entry entry = c.deleteMin();
+                System.out.println(entry.k + " " + entry.v);
+            }
+        }
+    }
+
+    private static class Entry implements Comparable<Entry> {
+
+        private final int k, v;
+
+        public Entry(int k, int v) {
+            this.k = k;
+            this.v = v;
+        }
+
+        @Override
+        public int compareTo(Entry o) {
+            Integer.compare(k, o.k);
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("E.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaE {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws Exception {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int n = in.nextInt();
+
+            int comidaNecesaria = 0;
+            HashMap<Integer, Integer> nec = new HashMap<>();
+            HashMap<Integer, Integer> mapa = new HashMap<>();
+            for (int j = 0; j < n; j++) {
+                int[] ints = in.nextInts();
+                mapa.put(ints[0], (mapa.containsKey(ints[0]) ? mapa.get(ints[0]) : 0) + 1);
+                if (mapa.containsKey(ints[1]) && mapa.get(ints[1]) > 0) {
+                    mapa.put(ints[1], mapa.get(ints[1]) - 1);
+                } else {
+                    comidaNecesaria++;
+                    nec.put(ints[1], nec.containsKey(ints[1]) ? (nec.get(ints[1]) + 1) : 1);
+                }
+            }
+
+            System.out.println(comidaNecesaria);
+            MonticuloBinario<Entry> c = new MonticuloBinario<>();
+            for (Map.Entry<Integer, Integer> entrySet : nec.entrySet()) {
+                Integer key = entrySet.getKey();
+                Integer value = entrySet.getValue();
+                c.insert(new Entry(key, value));
+            }
+
+            while (!c.isEmpty()) {
+                Entry entry = c.deleteMin();
+                System.out.println(entry.k + " " + entry.v);
+            }
+        }
+    }
+
+    private static class Entry implements Comparable<Entry> {
+
+        private final int k, v;
+
+        public Entry(int k, int v) {
+            this.k = k;
+            this.v = v;
+        }
+
+        @Override
+        public int compareTo(Entry o) {
+            return Integer.compare(k, o.k);
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("E.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaA {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int m = ints[1];
+
+            Metro metro = new Metro(n);
+            for (int j = 0; j < m; j++) {
+                ints = in.nextInts();
+                int u = ints[0];
+                int v = ints[1];
+
+                metro.addLine(u, v);
+            }
+
+            System.out.println(metro.estacionesConectadas(in.nextInt()));
+        }
+    }
+
+    private static class Metro {
+
+        private final Node[] estaciones;
+
+        public Metro(int n) {
+            estaciones = new Node[n];
+
+            for (int i = 0; i < estaciones.length; i++) {
+                estaciones[i] = new Node();
+            }
+        }
+
+        public void addLine(int u, int v) {
+            estaciones[u].adyacentes.add(estaciones[v]);
+            estaciones[v].adyacentes.add(estaciones[u]);
+        }
+
+        public int estacionesConectadas(int s) {
+            bfs(s);
+
+            int suma = 0;
+            for (Node estacion : estaciones) {
+                if (estacion.from != null) {
+                    suma++;
+                }
+            }
+            return suma;
+
+        }
+
+        private void bfs(int s) {
+            for (int i = 0; i < estaciones.length; i++) {
+                Node estacion = estaciones[i];
+
+                estacion.from = null;
+                if (i == s) {
+                    estacion.dist = 0;
+                } else {
+                    estacion.dist = -1;
+                }
+            }
+
+            SingleLinkedQueue<Node> cola = new SingleLinkedQueue();
+            cola.offer(estaciones[s]);
+
+            while (!cola.isEmpty()) {
+                Node node = cola.poll();
+
+                for (Node estacion : node.adyacentes) {
+                    if (estacion.dist < 0) {
+                        estacion.from = node;
+                        estacion.dist = node.dist + 1;
+                        cola.offer(estacion);
+                    }
+                }
+            }
+
+        }
+
+        private static class Node {
+
+            DoubleLinkedList<Node> adyacentes = new DoubleLinkedList<>();
+            Node from;
+            int dist = -1;
+
+        }
+    }
+
+    private static class SingleLinkedQueue<AnyType> {
+
+        Node beginMaker, last;
+
+        public SingleLinkedQueue() {
+            beginMaker = new Node(null, null);
+            last = beginMaker;
+        }
+
+        public void offer(AnyType x) {
+            last.next = new Node(null, x);
+            last = last.next;
+        }
+
+        public AnyType poll() {
+            if (beginMaker.next != null) {
+                AnyType data = beginMaker.next.data;
+                if (beginMaker.next == last) {
+                    last = beginMaker;
+                }
+                beginMaker.next = beginMaker.next.next;
+                return data;
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        public AnyType peek() {
+            return beginMaker.next.data;
+        }
+
+        public boolean isEmpty() {
+            return beginMaker.next == null;
+        }
+
+        public void clear() {
+            beginMaker.next = null;
+            last = beginMaker;
+        }
+
+        private class Node {
+
+            Node next;
+            AnyType data;
+
+            public Node(Node next, AnyType data) {
+                this.next = next;
+                this.data = data;
+            }
+
+        }
+
+    }
+
+    private static final class DoubleLinkedList<E> implements Iterable<E> {
+
+        int size;
+
+        Node head, tail;
+
+        public DoubleLinkedList() {
+            clear();
+        }
+
+        @Override
+        public Iterator<E> iterator() {
+            return listIterator();
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public boolean contains(Object o) {
+            return indexOf(o) != -1;
+        }
+
+        public boolean add(E e) {
+            add(size, e);
+            return true;
+        }
+
+        public boolean remove(Object o) {
+            for (Iterator<E> iterator = this.iterator(); iterator.hasNext();) {
+                E next = iterator.next();
+                if (next.equals(o)) {
+                    iterator.remove();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public boolean containsAll(Collection<?> c) {
+            return c.stream().noneMatch((c1) -> (!contains(c1)));
+        }
+
+        public boolean addAll(Collection<? extends E> c) {
+            return addAll(size, c);
+        }
+
+        public boolean addAll(int index, Collection<? extends E> c) {
+            checkIndex(index);
+
+            if (c.isEmpty()) {
+                return false;
+            }
+
+            Node n, s;
+
+            s = getNode(index);
+            n = s.prev;
+
+            for (E c1 : c) {
+                Node newNode = new Node(n, c1, null);
+                n.next = newNode;
+                n = newNode;
+            }
+
+            n.next = s;
+            s.prev = n;
+
+            size += c.size();
+
+            return true;
+        }
+
+        /**
+         * (inheritDoc)
+         *
+         * @param c
+         * @return
+         */
+        public boolean removeAll(Collection<?> c) {
+            return removeAll(c, true);
+        }
+
+        public boolean removeAll(Collection<?> c, boolean b) {
+            if (isEmpty() || c.isEmpty()) {
+                return false;
+            }
+
+            boolean result = false;
+            Iterator<E> it = this.iterator();
+
+            if (b) {
+                while (it.hasNext()) {
+                    if (c.contains(it.next())) {
+                        it.remove();
+                        result = true;
+                    }
+                }
+            } else {
+                for (Object c1 : c) {
+                    it = this.iterator();
+                    while (it.hasNext()) {
+                        if (it.next() == c1) {
+                            it.remove();
+                            result = true;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public boolean retainAll(Collection<?> c) {
+            boolean result = false;
+            for (Iterator<? extends E> iterator = this.iterator(); iterator.hasNext();) {
+                E next = iterator.next();
+                if (!c.contains(next)) {
+                    iterator.remove();
+                    result = true;
+                }
+            }
+            return result;
+        }
+
+        public void clear() {
+            head = new Node(null, null, null);
+            tail = new Node(head, null, null);
+            head.next = tail;
+
+            size = 0;
+        }
+
+        public E get(int index) {
+            return getNode(index).data;
+        }
+
+        public E set(int index, E element) {
+            Node n = getNode(index);
+            E oldVal = n.data;
+            n.data = element;
+            return oldVal;
+        }
+
+        public void add(int index, E element) {
+            addBefore(getNode(index, 0, size), element);
+        }
+
+        public E remove(int index) {
+            return remove(getNode(index));
+        }
+
+        private E remove(Node n) {
+            Node prev = n.prev;
+            Node next = n.next;
+            next.prev = prev;
+            prev.next = next;
+            size--;
+            return n.data;
+        }
+
+        public int indexOf(Object o) {
+            int index = 0;
+            if (o == null) {
+                for (Node x = head.next; x != tail; x = x.next) {
+                    if (x.data == null) {
+                        return index;
+                    }
+                    index++;
+                }
+            } else {
+                for (Node x = head.next; x != tail; x = x.next) {
+                    if (o.equals(x.data)) {
+                        return index;
+                    }
+                    index++;
+                }
+            }
+            return -1;
+        }
+
+        public int lastIndexOf(Object o) {
+            int i = size - 1;
+            for (ListIterator<E> iterator = this.listIterator(size - 1); iterator.hasPrevious(); i--) {
+                E e = iterator.previous();
+                if (e.equals(o)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public ListIterator<E> listIterator() {
+            return listIterator(0);
+        }
+
+        public ListIterator<E> listIterator(int index) {
+            return new DoubleLinkedListIterator(index, getNode(index));
+        }
+
+        private void checkIndex(int index) {
+            checkIndex(index, 0, size);
+        }
+
+        private void checkIndex(int index, int lower, int upper) {
+            if (index < lower || index > upper) {
+                throw new IndexOutOfBoundsException("index: " + index + "; size: " + size);
+            }
+        }
+
+        private Node getNode(int index) {
+            return getNode(index, 0, size);
+        }
+
+        private Node getNode(int index, int lower, int upper) {
+            checkIndex(index, lower, upper);
+
+            if (size == 0) {
+                return tail;
+            }
+
+            Node n;
+            if (index < size / 2) {
+                n = head.next;
+                for (int i = 0; i < index; i++) {
+                    n = n.next;
+                }
+            } else {
+                n = tail;
+                for (int i = size(); i > index; i--) {
+                    n = n.prev;
+                }
+            }
+            return n;
+
+        }
+
+        private void addBefore(Node node, E element) {
+            Node newNode = new Node(node.prev, element, node);
+            if (node.prev != null) {
+                newNode.prev.next = newNode;
+            }
+            node.prev = newNode;
+            size++;
+        }
+
+        @Override
+        public String toString() {
+            Iterator<E> it = iterator();
+            if (!it.hasNext()) {
+                return "[]";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            for (;;) {
+                E e = it.next();
+                sb.append(e == this ? "(this Collection)" : e);
+                if (!it.hasNext()) {
+                    return sb.append(']').toString();
+                }
+                sb.append(',').append(' ');
+            }
+        }
+
+        @Override
+        public int hashCode() {
+            int hashCode = 0;
+            for (E e : this) {
+                hashCode = 31 * hashCode + e.hashCode();
+            }
+            return hashCode;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final DoubleLinkedList<?> other = (DoubleLinkedList<?>) obj;
+            if (this.size != other.size) {
+                return false;
+            }
+
+            Iterator<?> it = this.iterator(), it2 = other.iterator();
+            while (it.hasNext() && it2.hasNext()) {
+                if (!it.next().equals(it.next())) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private class Node {
+
+            E data;
+            Node prev;
+            Node next;
+
+            public Node(Node prev, E data, Node next) {
+                this.data = data;
+                this.prev = prev;
+                this.next = next;
+            }
+        }
+
+        private class DoubleLinkedListIterator implements ListIterator<E> {
+
+            Node current;
+            int i;
+            boolean okToRemove = false;
+
+            public DoubleLinkedListIterator(int i, Node current) {
+                this.current = current;
+                this.i = i;
+            }
+
+            @Override
+            public boolean hasNext() {
+                return current != tail;
+            }
+
+            @Override
+            public E next() {
+                if (!hasNext()) {
+                    throw new java.util.NoSuchElementException();
+                }
+                E next = current.data;
+                current = current.next;
+                okToRemove = true;
+                i++;
+                return next;
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                return current.prev != head;
+            }
+
+            @Override
+            public E previous() {
+                if (!hasPrevious()) {
+                    throw new java.util.NoSuchElementException();
+                }
+                E prev = current.data;
+                current = current.prev;
+                okToRemove = true;
+                i--;
+                return prev;
+            }
+
+            @Override
+            public int nextIndex() {
+                return i;
+            }
+
+            @Override
+            public int previousIndex() {
+                return i;
+            }
+
+            @Override
+            public void remove() {
+                if (!okToRemove) {
+                    throw new IllegalStateException();
+                }
+
+                DoubleLinkedList.this.remove(current.prev);
+                okToRemove = false;
+            }
+
+            @Override
+            public void set(E e) {
+                current.data = e;
+            }
+
+            @Override
+            public void add(E e) {
+                addBefore(current, e);
+            }
+        }
+
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("A.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaB {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int m = ints[1];
+
+            GrafoDirigido grafo = new GrafoDirigido(n);
+            for (int j = 0; j < m; j++) {
+                ints = in.nextInts();
+                int u = ints[0];
+                int v = ints[1];
+
+                grafo.add(u, v);
+            }
+
+        }
+    }
+
+    private static class GrafoDirigido {
+
+        private final ArrayList<Integer>[] nodos;
+
+        public GrafoDirigido(int n) {
+            nodos = new ArrayList[n];
+        }
+
+        public void add(int u, int v) {
+            if (nodos[u] == null) {
+                nodos[u] = new ArrayList<>(nodos.length);
+            }
+            nodos[u].add(v);
+        }
+
+        public boolean ordenUnico() {
+
+            int[] gradoEntrada = new int[nodos.length];
+
+            for (ArrayList<Integer> nodo : nodos) {
+                if (nodo != null) {
+                    for (int h : nodo) {
+                        gradoEntrada[h]++;
+                    }
+                }
+            }
+
+            Queue<Integer> cola = new ArrayDeque<>(nodos.length);
+
+            for (int i = 0; i < gradoEntrada.length; i++) {
+                int h = gradoEntrada[i];
+                if (h == 0) {
+                    cola.add(i);
+                }
+            }
+
+            while (!cola.isEmpty()) {
+                int next = cola.remove();
+                if (!cola.isEmpty()) {
+                    return false;
+                }
+
+                if (nodos[next] != null) {
+                    for (int h : nodos[next]) {
+                        if (--gradoEntrada[h] == 0) {
+                            cola.add(h);
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("B.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaC {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int e = ints[1];
+            int time = ints[2];
+
+            int m = in.nextInt();
+
+            GrafoDirigidoPonderado grafo = new GrafoDirigidoPonderado(n);
+            for (int j = 0; j < m; j++) {
+                ints = in.nextInts();
+                int u = ints[0];
+                int v = ints[1];
+                int w = ints[2];
+
+                grafo.add(v, u, w);
+            }
+
+            int[] distancias = grafo.dijkstra(e);
+
+            int suma = 0;
+            for (int distancia : distancias) {
+                if (distancia <= time) {
+                    suma++;
+                }
+            }
+            System.out.println(suma);
+        }
+    }
+
+    private static class GrafoDirigidoPonderado {
+
+        private final ArrayList<Arista>[] vertices;
+
+        public GrafoDirigidoPonderado(int n) {
+            vertices = new ArrayList[n];
+        }
+
+        public void add(int u, int v, int w) {
+            if (vertices[u] == null) {
+                vertices[u] = new ArrayList<>(vertices.length);
+            }
+            vertices[u].add(new Arista(v, w));
+        }
+
+        public int[] dijkstra(int s) {
+            int[] distancias = new int[vertices.length];
+
+            for (int i = 0; i < distancias.length; i++) {
+                distancias[i] = -1;
+            }
+
+            distancias[s] = 0;
+
+            MonticuloBinario<Arista> cola = new MonticuloBinario<>(vertices.length);
+            cola.insert(new Arista(s, 0));
+
+            while (!cola.isEmpty()) {
+                Arista h = cola.deleteMin();
+
+                if (vertices[h.v] != null) {
+                    for (Arista a : vertices[h.v]) {
+                        if (distancias[a.v] < 0 || distancias[h.v] + a.w < distancias[a.v]) {
+                            distancias[a.v] = distancias[h.v] + a.w;
+                            cola.insert(new Arista(a.v, distancias[a.v]));
+                        }
+                    }
+                }
+
+            }
+
+            return distancias;
+        }
+
+        private class Arista implements Comparable<Arista> {
+
+            private final int v, w;
+
+            public Arista(int v, int w) {
+                this.v = v;
+                this.w = w;
+            }
+
+            @Override
+            public int compareTo(Arista o) {
+                if (w == o.w) {
+                    return v - o.v;
+                }
+                return w - o.w;
+            }
+
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or null if empty.
+         */
+        public AnyType findMin() {
+            if (isEmpty()) {
+                return null;
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or null if empty.
+         */
+        public AnyType deleteMin() {
+            if (isEmpty()) {
+                return null;
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("C.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ */
+public class ProblemaA {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int m = ints[1];
+
+            Metro metro = new Metro(n);
+            for (int j = 0; j < m; j++) {
+                ints = in.nextInts();
+                int u = ints[0];
+                int v = ints[1];
+
+                metro.addLine(u, v);
+            }
+
+            System.out.println(metro.estacionesConectadas(in.nextInt()));
+        }
+    }
+
+    private static class Metro {
+
+        private final Node[] estaciones;
+
+        public Metro(int n) {
+            estaciones = new Node[n];
+
+            for (int i = 0; i < estaciones.length; i++) {
+                estaciones[i] = new Node();
+            }
+        }
+
+        public void addLine(int u, int v) {
+            estaciones[u].adyacentes.add(estaciones[v]);
+            estaciones[v].adyacentes.add(estaciones[u]);
+        }
+
+        public int estacionesConectadas(int s) {
+            bfs(s);
+
+            int suma = 0;
+            for (Node estacion : estaciones) {
+                if (estacion.from != null) {
+                    suma++;
+                }
+            }
+            return suma;
+
+        }
+
+        private void bfs(int s) {
+            for (int i = 0; i < estaciones.length; i++) {
+                Node estacion = estaciones[i];
+
+                estacion.from = null;
+                if (i == s) {
+                    estacion.dist = 0;
+                } else {
+                    estacion.dist = -1;
+                }
+            }
+
+            Queue<Node> cola = new ArrayDeque<>(estaciones.length);
+            cola.offer(estaciones[s]);
+
+            while (!cola.isEmpty()) {
+                Node node = cola.poll();
+
+                for (Node estacion : node.adyacentes) {
+                    if (estacion.dist < 0) {
+                        estacion.from = node;
+                        estacion.dist = node.dist + 1;
+                        cola.offer(estacion);
+                    }
+                }
+            }
+
+        }
+
+        private class Node {
+
+            List<Node> adyacentes = new ArrayList<>(estaciones.length);
+            Node from;
+            int dist = -1;
+
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("A.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaC {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int e = ints[1];
+            int time = ints[2];
+
+            int m = in.nextInt();
+
+            GrafoDirigidoPonderado grafo = new GrafoDirigidoPonderado(n);
+            for (int j = 0; j < m; j++) {
+                ints = in.nextInts();
+                int u = ints[0];
+                int v = ints[1];
+                int w = ints[2];
+
+                grafo.add(v, u, w);
+            }
+
+            int[] distancias = grafo.dijkstra(e);
+
+            int suma = 0;
+            for (int distancia : distancias) {
+                if (distancia >= 0 && distancia <= time) {
+                    suma++;
+                }
+            }
+            System.out.println(suma);
+        }
+    }
+
+    private static class GrafoDirigidoPonderado {
+
+        private final ArrayList<Arista>[] vertices;
+
+        public GrafoDirigidoPonderado(int n) {
+            vertices = new ArrayList[n];
+        }
+
+        public void add(int u, int v, int w) {
+            if (vertices[u] == null) {
+                vertices[u] = new ArrayList<>(vertices.length);
+            }
+            vertices[u].add(new Arista(v, w));
+        }
+
+        public int[] dijkstra(int s) {
+            int[] distancias = new int[vertices.length];
+
+            for (int i = 0; i < distancias.length; i++) {
+                distancias[i] = -1;
+            }
+
+            distancias[s] = 0;
+
+            MonticuloBinario<Arista> cola = new MonticuloBinario<>(vertices.length);
+            cola.insert(new Arista(s, 0));
+
+            while (!cola.isEmpty()) {
+                Arista h = cola.deleteMin();
+
+                if (vertices[h.v] != null) {
+                    for (Arista a : vertices[h.v]) {
+                        if (distancias[a.v] < 0 || distancias[h.v] + a.w < distancias[a.v]) {
+                            distancias[a.v] = distancias[h.v] + a.w;
+                            cola.insert(new Arista(a.v, distancias[a.v]));
+                        }
+                    }
+                }
+
+            }
+
+            return distancias;
+        }
+
+        private class Arista implements Comparable<Arista> {
+
+            private final int v, w;
+
+            public Arista(int v, int w) {
+                this.v = v;
+                this.w = w;
+            }
+
+            @Override
+            public int compareTo(Arista o) {
+                if (w == o.w) {
+                    return v - o.v;
+                }
+                return w - o.w;
+            }
+
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or null if empty.
+         */
+        public AnyType findMin() {
+            if (isEmpty()) {
+                return null;
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or null if empty.
+         */
+        public AnyType deleteMin() {
+            if (isEmpty()) {
+                return null;
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("C.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProblemaC {
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        In in = new In();
+
+        int t = in.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            System.out.println("Case #" + i + ":");
+
+            int[] ints = in.nextInts();
+            int n = ints[0];
+            int e = ints[1];
+            int time = ints[2];
+
+            int m = in.nextInt();
+
+            GrafoDirigidoPonderado grafo = new GrafoDirigidoPonderado(n);
+            for (int j = 0; j < m; j++) {
+                ints = in.nextInts();
+                int u = ints[0];
+                int v = ints[1];
+                int w = ints[2];
+
+                grafo.add(v, u, w);
+            }
+
+            int[] distancias = grafo.dijkstra(e);
+
+            List<Integer> lista = new ArrayList<>(n);
+            for (int j = 0; j < distancias.length; j++) {
+                int distancia = distancias[j];
+                if (distancia >= 0 && distancia <= time) {
+                    lista.add(j);
+                }
+            }
+
+            Collections.sort(lista);
+            for (Iterator<Integer> iterator = lista.iterator(); iterator.hasNext();) {
+                Integer next = iterator.next();
+                System.out.print(next);
+                if (iterator.hasNext()) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    private static class GrafoDirigidoPonderado {
+
+        private final ArrayList<Arista>[] vertices;
+
+        public GrafoDirigidoPonderado(int n) {
+            vertices = new ArrayList[n];
+        }
+
+        public void add(int u, int v, int w) {
+            if (vertices[u] == null) {
+                vertices[u] = new ArrayList<>(vertices.length);
+            }
+            vertices[u].add(new Arista(v, w));
+        }
+
+        public int[] dijkstra(int s) {
+            int[] distancias = new int[vertices.length];
+
+            for (int i = 0; i < distancias.length; i++) {
+                distancias[i] = -1;
+            }
+
+            distancias[s] = 0;
+
+            MonticuloBinario<Arista> cola = new MonticuloBinario<>(vertices.length);
+            cola.insert(new Arista(s, 0));
+
+            while (!cola.isEmpty()) {
+                Arista h = cola.deleteMin();
+
+                if (vertices[h.v] != null) {
+                    for (Arista a : vertices[h.v]) {
+                        if (distancias[a.v] < 0 || distancias[h.v] + a.w < distancias[a.v]) {
+                            distancias[a.v] = distancias[h.v] + a.w;
+                            cola.insert(new Arista(a.v, distancias[a.v]));
+                        }
+                    }
+                }
+
+            }
+
+            return distancias;
+        }
+
+        private class Arista implements Comparable<Arista> {
+
+            private final int v, w;
+
+            public Arista(int v, int w) {
+                this.v = v;
+                this.w = w;
+            }
+
+            @Override
+            public int compareTo(Arista o) {
+                if (w == o.w) {
+                    return v - o.v;
+                }
+                return w - o.w;
+            }
+
+        }
+
+    }
+
+    private static class MonticuloBinario<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+        private int currentSize; // Number of elements in heap
+        private AnyType[] array; // The heap array
+        private Comparator<AnyType> comparador;
+
+        /**
+         * Construct the binary heap.
+         */
+        public MonticuloBinario() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public MonticuloBinario(int capacity) {
+            this(DEFAULT_CAPACITY, new Comparator<AnyType>() {
+
+                @Override
+                public int compare(AnyType o1, AnyType o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         * @param comparador
+         */
+        public MonticuloBinario(int capacity, Comparator<AnyType> comparador) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+            this.comparador = comparador;
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public MonticuloBinario(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; comparador.compare(x, array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or null if empty.
+         */
+        public AnyType findMin() {
+            if (isEmpty()) {
+                return null;
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or null if empty.
+         */
+        public AnyType deleteMin() {
+            if (isEmpty()) {
+                return null;
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && comparador.compare(array[child + 1], (array[child])) < 0) {
+                    child++;
+                }
+                if (comparador.compare(array[child], (tmp)) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+
+    private static class In {
+
+        private final Scanner scan;
+
+        public In() throws FileNotFoundException {
+            File f = new File("C.in");
+            if (f.exists()) {
+                this.scan = new Scanner(f);
+            } else {
+                this.scan = new Scanner(System.in);
+            }
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(scan.nextLine());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(scan.nextLine());
+        }
+
+        public String nextString() {
+            return scan.nextLine();
+        }
+
+        public int[] nextInts() {
+            String[] line = scan.nextLine().split(" ");
+            int[] ints = new int[line.length];
+
+            for (int i = 0; i < ints.length; i++) {
+                ints[i] = Integer.parseInt(line[i]);
+            }
+            return ints;
+        }
+
+        public long[] nextLongs() {
+            String[] line = scan.nextLine().split(" ");
+            long[] longs = new long[line.length];
+
+            for (int i = 0; i < longs.length; i++) {
+                longs[i] = Long.parseLong(line[i]);
+            }
+            return longs;
+        }
+
+        public String[] nextStrings() {
+            return scan.nextLine().split(" ");
+        }
+
+        public double[] nextDoubles() {
+            String[] line = scan.nextLine().split(" ");
+            double[] doubles = new double[line.length];
+
+            for (int i = 0; i < doubles.length; i++) {
+                doubles[i] = Double.parseDouble(line[i]);
+            }
+            return doubles;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

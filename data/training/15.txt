@@ -1,0 +1,5933 @@
+package p1;
+
+import java.util.Scanner;
+
+public class P1 {
+
+    public static void main(String[] args) {
+        
+        
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        for(int a=1;a<=n;a++){
+            int m=0, o=0, p=0;
+        //Ahora pedimos al usuario el numero de elementos a analizar por cada caso
+        Scanner scank = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de elementos:");
+        int k = scank.nextInt();
+        
+        //Usamos un arreglo de tamaño dado por el usuario para almacenar las variables
+        int [] array1 = new int [k];
+        int [] array2 = new int [k];
+        
+        //Usamos este for para recorrer el arreglo e ir almacenando el dato
+        for(int i=0;i<k;i++){
+            Scanner scani = new Scanner(System.in);
+            //System.out.println("Ingrese el elemento "+(i+1)+":");
+            array1 [i] = scani.nextInt();
+            array2 [i] = array1 [i];
+        }
+        
+        for(int j=0;j<k;j++){
+            for (int l=0;l<k;l++){
+                if(j != l){
+                    if(array1 [j] < array2 [l]){
+                        m = m + 1;
+                    }else if(array1 [j] > array2 [l]){
+                        o = o + 1;
+                    }else{
+                        p = p + 1;
+                    }                
+                }
+            }
+        }
+        System.out.println("Case #"+a+":");
+        System.out.println(m);
+        System.out.println(o);
+        System.out.println(p);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P1 {
+
+    public static void main(String[] args) {
+        
+        
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        for(int a=1;a<=n;a++){
+            int m=0, o=0, p=0;
+        //Ahora pedimos al usuario el numero de elementos a analizar por cada caso
+        Scanner scank = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de elementos:");
+        int k = scank.nextInt();
+        
+        //Usamos un arreglo de tamano dado por el usuario para almacenar las variables
+        int [] array1 = new int [k];
+        int [] array2 = new int [k];
+        
+        //Usamos este for para recorrer el arreglo e ir almacenando el dato
+        for(int i=0;i<k;i++){
+            Scanner scani = new Scanner(System.in);
+            //System.out.println("Ingrese el elemento "+(i+1)+":");
+            array1 [i] = scani.nextInt();
+            array2 [i] = array1 [i];
+        }
+        
+        for(int j=0;j<k;j++){
+            for (int l=0;l<k;l++){
+                if(j != l){
+                    if(array1 [j] < array2 [l]){
+                        m = m + 1;
+                    }else if(array1 [j] > array2 [l]){
+                        o = o + 1;
+                    }else{
+                        p = p + 1;
+                    }                
+                }
+            }
+        }
+        System.out.println("Case #"+a+":");
+        System.out.println(m);
+        System.out.println(o);
+        System.out.println(p);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P1 {
+
+    public static void main(String[] args) {
+        
+        
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        for(int a=1;a<=n;a++){
+            int m=0, o=0, p=0;
+        //Ahora pedimos al usuario el numero de elementos a analizar por cada caso
+        //Scanner scank = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de elementos:");
+        int k = scann.nextInt();
+        
+        //Usamos un arreglo de tamano dado por el usuario para almacenar las variables
+        int [] array1 = new int [k];
+        int [] array2 = new int [k];
+        
+        //Usamos este for para recorrer el arreglo e ir almacenando el dato
+        for(int i=0;i<k;i++){
+            //Scanner scani = new Scanner(System.in);
+            //System.out.println("Ingrese el elemento "+(i+1)+":");
+            array1 [i] = scann.nextInt();
+            array2 [i] = array1 [i];
+        }
+        
+        for(int j=0;j<k;j++){
+            for (int l=0;l<k;l++){
+                if(j != l){
+                    if(array1 [j] < array2 [l]){
+                        m = m + 1;
+                    }else if(array1 [j] > array2 [l]){
+                        o = o + 1;
+                    }else{
+                        p = p + 1;
+                    }                
+                }
+            }
+        }
+        System.out.println("Case #"+a+":");
+        System.out.println(m);
+        System.out.println(o);
+        System.out.println(p);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P2 {
+
+    public static void main(String[] args) {
+        
+        int i, j, aux=0;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int [] row = new int [n];
+        int [] column = new int [n];
+        int [][] board = new int [n][n];
+        
+        //System.out.println("Lectura de elementos de la matriz: ");
+        for(i=0 ; i<n ; i++){
+            for(j=0 ; j<n ; j++){
+                //System.out.print("[" + (i+1) + "][" + (j+1) + "]= ");
+                board[i][j] = sc.nextInt();
+                row[i] += board[i][j];
+                column[j] += board[i][j];
+            }
+        }
+        for(i=0 ; i<n ; i++){ 
+            for(j=0 ; j<n ; j++){
+                if(row[j] < column[i])
+                    aux++;
+            }
+        }
+        
+        //System.out.println("Veces mayor " + aux);
+        
+        /*for(i=0 ; i<n ; i++){ 
+            for(j=0 ; j<n ; j++){
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        for(j=0 ; j<n ; j++){
+            System.out.println("Fila "+ (j+1) +": " + fila[j]);
+            System.out.println("Columna "+ (j+1) +": " + columna[j]);
+        } */
+        System.out.println("Case #1: ");
+        System.out.println(aux);
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P2 {
+
+    public static void main(String[] args) {
+        
+        int i, j, aux=0, b;
+        Scanner sc = new Scanner(System.in);
+        
+        //System.out.println("Ingrese el numero de casos:");
+        b = sc.nextInt();
+        
+        for(int a=1;a<=b;a++){
+            //System.out.println("Tamano de la matriz: ");
+            int n = sc.nextInt();
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int [][] board = new int [n][n];
+            
+            //System.out.println("Lectura de elementos de la matriz: ");
+            for(i=0 ; i<n ; i++){
+                for(j=0 ; j<n ; j++){
+                    //System.out.println("Lectura de cada elemento de la matriz: ");
+                    //System.out.print("[" + (i+1) + "][" + (j+1) + "]= ");
+                    board[i][j] = sc.nextInt();
+                    row[i] += board[i][j];
+                    column[j] += board[i][j];
+                }
+            }
+            //comparador de filas contra columnas
+            for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    if(row[j] < column[i])
+                        aux++;
+                }  
+            }
+        
+            //System.out.println("Veces mayor " + aux);
+        
+            /*for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    System.out.print(board[i][j] + " ");
+                }
+                System.out.println();
+            }
+        
+            for(j=0 ; j<n ; j++){
+                System.out.println("Fila "+ (j+1) +": " + fila[j]);
+                System.out.println("Columna "+ (j+1) +": " + columna[j]);
+            } */
+            System.out.println("Case #"+ a +": ");
+            System.out.println(aux);
+    
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P4 {
+
+    public static void main(String[] args) {
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        int i, a, j, aux=0, aux1=0;
+        
+        for(a=1; a<=n; a++){
+            //Ahora pedimos al usuario el numero de equipos a analizar por cada caso
+            //Scanner scank = new Scanner(System.in);
+            //System.out.println("Ingrese el numero de equipos:");
+            int k = scann.nextInt();
+            
+            //Usamos un arreglo de tamaño dado por el usuario para almacenar las variables
+            int [] array1 = new int [k];
+            int [] array2 = new int [k];
+        
+            //Usamos este for para recorrer el arreglo e ir almacenando el dato de los uniformes de cada equipo
+            for(i=0 ; i<k ; i++){
+                //Scanner scani = new Scanner(System.in);
+                //System.out.println("Ingrese el uniforme de local y el de visitante para el equipo "+ (i+1) +":");
+                array1 [i] = scann.nextInt();
+                array2 [i] = scann.nextInt();
+            }
+            
+            for(i=0 ; i<k ; i++){
+                //System.out.println("Equipo "+ i);
+                //System.out.println("Equipo "+ (i+1) + ": "+ array1[i] + " " + array2 [i]);
+                for(j=(k-1) ; j>=0 ; j--){
+                    if(i != j){
+                        aux1++;
+                        if(array1[i] == array2[j]){
+                            aux++;  
+                        }
+                    }
+                           
+                }
+            }
+        System.out.println("Case #"+a+":");
+        System.out.println(aux);
+        //System.out.println("Partidos jugados:" + aux1);
+        }   
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P4 {
+
+    public static void main(String[] args) {
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        int i, a, j, aux=0, aux1=0;
+        
+        for(a=1; a<=n; a++){
+            //Ahora pedimos al usuario el numero de equipos a analizar por cada caso
+            //Scanner scank = new Scanner(System.in);
+            //System.out.println("Ingrese el numero de equipos:");
+            int k = scann.nextInt();
+            
+            //Usamos un arreglo de tamano dado por el usuario para almacenar las variables
+            int [] array1 = new int [k];
+            int [] array2 = new int [k];
+        
+            //Usamos este for para recorrer el arreglo e ir almacenando el dato de los uniformes de cada equipo
+            for(i=0 ; i<k ; i++){
+                //Scanner scani = new Scanner(System.in);
+                //System.out.println("Ingrese el uniforme de local y el de visitante para el equipo "+ (i+1) +":");
+                array1 [i] = scann.nextInt();
+                array2 [i] = scann.nextInt();
+            }
+            
+            for(i=0 ; i<k ; i++){
+                //System.out.println("Equipo "+ i);
+                //System.out.println("Equipo "+ (i+1) + ": "+ array1[i] + " " + array2 [i]);
+                for(j=(k-1) ; j>=0 ; j--){
+                    if(i != j){
+                        aux1++;
+                        if(array1[i] == array2[j]){
+                            aux++;  
+                        }
+                    }
+                           
+                }
+            }
+        System.out.println("Case #"+a+":");
+        System.out.println(aux);
+        //System.out.println("Partidos jugados:" + aux1);
+        }   
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P2 {
+
+    public static void main(String[] args) {
+        
+        int i, j, aux=0, b, n;
+        Scanner sc = new Scanner(System.in);
+        
+        //System.out.println("Ingrese el numero de casos:");
+        //int n = sc.nextInt();
+        
+        while(sc.hasNext()){
+            //System.out.println("Tamano de la matriz: ");
+            n = sc.nextInt();
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int [][] board = new int [n][n];
+            
+            //System.out.println("Lectura de elementos de la matriz: ");
+            for(i=0 ; i<n ; i++){
+                for(j=0 ; j<n ; j++){
+                    //System.out.println("Lectura de cada elemento de la matriz: ");
+                    //System.out.print("[" + (i+1) + "][" + (j+1) + "]= ");
+                    board[i][j] = sc.nextInt();
+                    row[i] += board[i][j];
+                    column[j] += board[i][j];
+                }
+            }
+            //comparador de filas contra columnas
+            for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    if(row[j] < column[i])
+                        aux++;
+                }  
+            }
+        
+            //System.out.println("Veces mayor " + aux);
+        
+            /*for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    System.out.print(board[i][j] + " ");
+                }
+                System.out.println();
+            }
+        
+            for(j=0 ; j<n ; j++){
+                System.out.println("Fila "+ (j+1) +": " + fila[j]);
+                System.out.println("Columna "+ (j+1) +": " + columna[j]);
+            }*/
+            
+            System.out.println(aux);
+    
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P5 {
+
+    public static void main(String[] args) {
+        
+        
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        for(int a=0 ; a<n; a++){
+            int ini=0, fini=0, m, aux=0;
+            
+            //Ahora pedimos al usuario el numero de elementos a analizar por cada caso
+            //System.out.println("Ingrese el numero de elementos:");
+            int k = scann.nextInt();
+        
+            //Usamos un arreglo de tamano dado por el usuario para almacenar las variables
+            int [] array1 = new int [k];
+        
+            //Usamos este for para recorrer el arreglo e ir almacenando el dato
+            for(int i=0 ; i<k ; i++){
+                //System.out.println("Ingrese el elemento "+(i+1)+":");
+                array1 [i] = scann.nextInt();
+                }
+            
+            //Ingresamos los limites
+            ini = scann.nextInt();
+            fini = scann.nextInt();
+            
+            for(m=ini ; m<=fini ; m++){
+                if(array1[m] == 0){
+                    aux++;
+                }
+                
+            }
+            System.out.println(aux);
+                       
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+import java.util.Scanner;
+
+public class P3 {
+
+    public static void main(String[] args) {
+        
+        
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        for(int a=1;a<=n;a++){
+        //Ahora pedimos al usuario el numero de elementos a analizar por cada caso
+        Scanner scank = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de colores:");
+        int k = scank.nextInt();
+        
+        String [] color = new String[6];
+        
+        for(int i=0;i<k;i++){
+            Scanner scani = new Scanner(System.in);
+            //System.out.println("Ingrese el color "+(i+1)+":");
+            color [i] = scani.next();
+            }
+        
+        for(int j=0;j<k;j++){
+            for (int l=0;l<k && j != l;l++){
+                if(color[j].compareTo(color[l])<0){
+                    String aux = color[j];
+                    color[j]=color[l];
+                    color[l]=aux;
+                }
+            }
+        }
+        int o, p, q;
+        if(k == 6){
+            System.out.println(color[0]+color[1]+color[2]+color[3]+color[4]+color[5]);
+        }else if(k == 5){
+            System.out.println(color[0]+color[1]+color[2]+color[3]+color[4]);
+        }else if(k == 4){
+            System.out.println("Case #"+a+":");
+            for(q = 0; q < k ; q++){
+                for(p = 0; p < k-1 ; p++){
+                    for(o = 0;o < k-2 ; o++){
+                    System.out.println(color[0]+color[1]+color[2]+color[3]);
+                    String aux4 = color[3];
+                    color[3] = color[2];
+                    color[2] = aux4;
+                    }
+                    String aux5 = color[p+2];
+                    color [p+2] = color [1];
+                    color [1] = aux5;                
+                }
+            String aux6 = color[q+1];
+                color [q+1] = color [0];
+                color [0] = aux6;
+            }
+        }else if(k == 3){
+            System.out.println("Case #"+a+":");
+            for(p = 0; p < k ; p++){
+                for(o = 0;o < k-1; o++){
+                System.out.println(color[0]+color[1]+color[2]);
+                String aux2 = color[2];
+                color[2] = color[1];
+                color[1] = aux2;
+                }
+                String aux3 = color[0];
+                color [0] = color [p+1];
+                color [p+1] = aux3;                
+            }          
+        }else if(k == 2){
+            System.out.println("Case #"+a+":");
+            if(color[0].equals(color[1])){
+                System.out.println(color[0]+color[1]);
+            }else{
+            for(o=0;o<k;o++){
+                System.out.println(color[0]+color[1]);
+                String aux1 = color[1];
+                color[1] = color[0];
+                color[0] = aux1;
+                }
+            }
+        }else{
+            System.out.println("Case #"+a+":");
+            System.out.println(color[0]);
+        }
+        }
+    }    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P2 {
+
+    public static void main(String[] args) {
+        
+        int i, j, n;
+        Scanner sc = new Scanner(System.in);
+        
+        //System.out.println("Ingrese el numero de casos:");
+        //int n = sc.nextInt();
+        
+        while(sc.hasNext()){
+            int aux=0;
+
+            //System.out.println("Tamano de la matriz: ");
+            n = sc.nextInt();
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int [][] board = new int [n][n];
+            
+            //System.out.println("Lectura de elementos de la matriz: ");
+            for(i=0 ; i<n ; i++){
+                for(j=0 ; j<n ; j++){
+                    //System.out.println("Lectura de cada elemento de la matriz: ");
+                    //System.out.print("[" + (i+1) + "][" + (j+1) + "]= ");
+                    board[i][j] = sc.nextInt();
+                    row[i] += board[i][j];
+                    column[j] += board[i][j];
+                }
+            }
+            //comparador de filas contra columnas
+            for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    if(row[j] < column[i])
+                        aux++;
+                }  
+            }
+        
+            //System.out.println("Veces mayor " + aux);
+        
+            /*for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    System.out.print(board[i][j] + " ");
+                }
+                System.out.println();
+            }
+        
+            for(j=0 ; j<n ; j++){
+                System.out.println("Fila "+ (j+1) +": " + fila[j]);
+                System.out.println("Columna "+ (j+1) +": " + columna[j]);
+            }*/
+            
+            System.out.println(aux);
+            }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P2 {
+
+    public static void main(String[] args) {
+        
+        int i, j, n, a=0;
+        Scanner sc = new Scanner(System.in);
+        
+        //System.out.println("Ingrese el numero de casos:");
+        //int n = sc.nextInt();
+        
+        while(sc.hasNext()){
+            int aux=0;
+            a++;
+
+            //System.out.println("Tamano de la matriz: ");
+            n = sc.nextInt();
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int [][] board = new int [n][n];
+            
+            //System.out.println("Lectura de elementos de la matriz: ");
+            for(i=0 ; i<n ; i++){
+                for(j=0 ; j<n ; j++){
+                    //System.out.println("Lectura de cada elemento de la matriz: ");
+                    //System.out.print("[" + (i+1) + "][" + (j+1) + "]= ");
+                    board[i][j] = sc.nextInt();
+                    row[i] += board[i][j];
+                    column[j] += board[i][j];
+                }
+            }
+            //comparador de filas contra columnas
+            for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    if(row[j] < column[i])
+                        aux++;
+                }  
+            }
+        
+            //System.out.println("Veces mayor " + aux);
+        
+            /*for(i=0 ; i<n ; i++){ 
+                for(j=0 ; j<n ; j++){
+                    System.out.print(board[i][j] + " ");
+                }
+                System.out.println();
+            }
+        
+            for(j=0 ; j<n ; j++){
+                System.out.println("Fila "+ (j+1) +": " + fila[j]);
+                System.out.println("Columna "+ (j+1) +": " + columna[j]);
+            }*/
+            System.out.println("Case #"+a+":");
+            System.out.println(aux);
+            }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P4 {
+
+    public static void main(String[] args) {
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        int i, a, j;
+        
+        for(a=1; a<=n; a++){
+            int aux=0, aux1=0;
+            //Ahora pedimos al usuario el numero de equipos a analizar por cada caso
+            //Scanner scank = new Scanner(System.in);
+            //System.out.println("Ingrese el numero de equipos:");
+            int k = scann.nextInt();
+            
+            //Usamos un arreglo de tamano dado por el usuario para almacenar las variables
+            int [] array1 = new int [k];
+            int [] array2 = new int [k];
+        
+            //Usamos este for para recorrer el arreglo e ir almacenando el dato de los uniformes de cada equipo
+            for(i=0 ; i<k ; i++){
+                //Scanner scani = new Scanner(System.in);
+                //System.out.println("Ingrese el uniforme de local y el de visitante para el equipo "+ (i+1) +":");
+                array1 [i] = scann.nextInt();
+                array2 [i] = scann.nextInt();
+            }
+            
+            for(i=0 ; i<k ; i++){
+                //System.out.println("Equipo "+ i);
+                //System.out.println("Equipo "+ (i+1) + ": "+ array1[i] + " " + array2 [i]);
+                for(j=(k-1) ; j>=0 ; j--){
+                    if(i != j){
+                        aux1++;
+                        if(array1[i] == array2[j]){
+                            aux++;  
+                        }
+                    }
+                           
+                }
+            }
+        System.out.println("Case #"+a+":");
+        System.out.println(aux);
+        //System.out.println("Partidos jugados:" + aux1);
+        }   
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p1;
+
+import java.util.Scanner;
+
+public class P5 {
+
+    public static void main(String[] args) {
+        
+        
+        //Primero pedimos al usuario el numero de casos a analizar
+        Scanner scann = new Scanner(System.in);
+        //System.out.println("Ingrese el numero de casos:");
+        int n = scann.nextInt();
+        
+        for(int a=0 ; a<n; a++){
+            int m, aux=0;
+            
+            //Ahora pedimos al usuario el numero de elementos a analizar por cada caso
+            //System.out.println("Ingrese el numero de elementos:");
+            int k = scann.nextInt();
+        
+            //Usamos un arreglo de tamano dado por el usuario para almacenar las variables
+            int [] array1 = new int [k];
+        
+            //Usamos este for para recorrer el arreglo e ir almacenando el dato
+            for(int i=0 ; i<k ; i++){
+                //System.out.println("Ingrese el elemento "+(i+1)+":");
+                array1 [i] = scann.nextInt();
+                }
+            
+            //Ingresamos los limites
+            for(m=0 ; m<k ; m++){
+                if(array1[m] == 0){
+                    aux++;
+                }
+                
+            }
+            System.out.println(aux);
+                       
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.util.HashMap;
+import java.util.Scanner;
+class Food{
+    int ids=0;
+    int cant=0;
+    public Food(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class P2311B {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+        int casos=Integer.parseInt(entrada.nextLine());
+
+        for ( int i = 0; i < casos; i++ ) {
+            System.out.println( "Case #" + (i+1) + ":" );
+            int comands = Integer.parseInt( entrada.nextLine() );
+            int cont = 0;
+            HashMap<Integer,Food> foody = new HashMap<>();  
+            
+            for ( int j = 0; j < comands; j++ ) {
+                String [] pond = entrada.nextLine().split(" ");
+                int foodx = Integer.parseInt( pond[0] );
+                int pokemon = Integer.parseInt( pond[1] ); 
+		
+                if( foodx != pokemon ){			
+			if( foody.containsKey(foodx) )
+				foody.get(foodx).cant++;
+			else
+				foody.put(foodx, new Food(foodx, 1));
+			if( foody.containsKey(pokemon) ){
+                            foody.get(pokemon).cant--;
+                            
+                            if( foody.get(pokemon).cant < 1 )
+                                foody.remove(pokemon);
+                        }
+                        else
+                            cont++;
+		}                 
+            }
+            System.out.println( cont );            
+        }            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.io.File;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+/**
+ * Separate chaining table implementation of hash tables.
+ * Note that all "matching" is based on the equals method.
+ * @param <AnyType>
+ */
+class Separate<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public Separate( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public Separate( int size )
+    {
+        colisiones=0;
+        theLists = new LinkedList[ size ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        if(!whichList.isEmpty())
+            colisiones++;        
+        whichList.add( x );         
+    }
+    public List<AnyType> getList( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList;
+    }
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+        {
+            whichList.remove( x );
+            currentSize--;
+        }
+    }
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+        // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+        // Copy table over
+        currentSize = 0;
+        
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+    private int myhash( AnyType x )
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    private static final int DEFAULT_TABLE_SIZE = 101;
+    /** The array of Lists. */
+    List<AnyType> [ ] theLists; 
+    private int currentSize;
+    int colisiones;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+}
+class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    private int currentSize;
+    private AnyType[] array;
+    public BinaryHeap() {
+        this(DEFAULT_CAPACITY);
+    }
+    @SuppressWarnings("unchecked")
+    public BinaryHeap(int capacity) {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[capacity + 1];
+    }
+    @SuppressWarnings({ "unchecked", "unused" })
+    public BinaryHeap(AnyType[] items) {
+        currentSize = items.length;
+        array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+        int i = 1;
+        
+        for (AnyType item : items)
+            array[i++] = item;
+        buildHeap();
+    }
+    public void insert(AnyType x) {
+        if (currentSize == array.length - 1)
+            enlargeArray(array.length * 2 + 1);
+        
+        int hole = ++currentSize;
+        
+        for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+            array[hole] = array[hole / 2];
+        
+        array[hole] = x;
+    }
+    @SuppressWarnings("unchecked")
+    private void enlargeArray(int newSize) {
+        AnyType[] old = array;
+        array = (AnyType[]) new Comparable[newSize];
+        
+        for (int i = 0; i < old.length; i++)
+            array[i] = old[i];
+    }
+    public AnyType findMin() throws Exception {
+        if (isEmpty())
+            throw new Exception();
+        return array[1];
+    }
+    public AnyType deleteMin() throws Exception {
+        if (isEmpty())
+            throw new Exception();
+        
+        AnyType minItem = findMin();
+        array[1] = array[currentSize--];
+        percolateDown(1);
+        
+        return minItem;
+    }
+    private void buildHeap() {
+        for (int i = currentSize / 2; i > 0; i--)
+            percolateDown(i);
+    }
+    public boolean isEmpty() {
+        return currentSize == 0;
+    }
+    public void makeEmpty() {
+        currentSize = 0;
+    }
+    private void percolateDown(int hole) {
+        int child;
+        AnyType tmp = array[hole];
+        
+        for (; hole * 2 <= currentSize; hole = child) {
+            child = hole * 2;
+            if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+                child++;
+            if (array[child].compareTo(tmp) < 0)
+                array[hole] = array[child];
+            else
+                break;
+        }
+        array[hole] = tmp;
+    }
+}
+public class P2311 {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
+    // TODO code application logic here
+        Scanner in;
+        File archivo = new File("A_2.txt");
+        
+        if( archivo.exists() )
+            in = new Scanner( archivo );
+        else
+            in = new Scanner( System.in );
+        int casos = Integer.parseInt( in.nextLine() );
+        
+        for ( int i = 1; i <= casos; i++ ) {
+            System.out.println( "Case #" + i + ":" );
+            String [] comandos = in.nextLine().split(" ");
+            int comands = Integer.parseInt( comandos[0] );
+            int function = Integer.parseInt( comandos[1] );
+            String [] nums = in.nextLine().split(" ");        
+            String [] fun = in.nextLine().split(" ");  
+            
+            Separate<Integer> set = new Separate<>(Integer.parseInt(fun[0]));     
+            
+            for (int j = 0; j < comands; j++) {
+              set.insert( Integer.parseInt( nums[j] ) );              
+            }
+            int col = set.colisiones;
+            int funcion = Integer.parseInt( fun[0] );
+            
+            
+            for (int j = 1; j < function; j++) {
+                set = new Separate<>( Integer.parseInt( fun[j] ) );
+                for (int k = 0; k < comands; k++) {
+                    set.insert( Integer.parseInt( nums[k] ) );              
+                  }
+                
+                if( set.colisiones< col ){
+                    col = set.colisiones;
+                    funcion = Integer.parseInt( fun[j] );
+                }
+                
+                if( set.colisiones==col ){
+                    if( Integer.parseInt( fun[j] ) < funcion )
+                       funcion = Integer.parseInt( fun[j] );
+                }
+            }
+            set = new Separate<>( funcion );
+            for ( int j = 0; j < comands; j++ ) {
+              set.insert( Integer.parseInt( nums[j] ) );              
+            }
+            System.out.println( funcion );
+            System.out.println( col );
+            BinaryHeap<Integer> heap = new BinaryHeap<>();
+            
+            for( List <Integer> lista:set.theLists ) {
+                Collections.sort( lista );
+                if( lista.size() > 1 )
+                    heap.insert( lista.get(0) );
+            }
+            
+            for ( int j = 0; !heap.isEmpty(); j++ ) {
+                List<Integer> listb = set.getList( heap.deleteMin() );
+                String salida = "";
+                
+                for( Integer a:listb )
+                    salida = salida + a + " ";               
+                
+
+                System.out.println( salida );
+            }
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+public class P2311C {
+    private static class MyArrayList<AnyType> implements Iterable<AnyType> {
+        private static final int DEFAULT_CAPACITY = 10;
+        private AnyType[] theItems;
+        private int size;
+        public MyArrayList() {
+            doClear();
+        }
+        public int size() {
+            return size;
+        }
+	public AnyType get(int idx) {
+            if (idx < 0 || idx > size())
+                throw new ArrayIndexOutOfBoundsException("Index: " + idx + "; Size of List: " + size());
+            return theItems[idx];
+        }
+	public AnyType[] toArray(){
+            return theItems;
+        }
+	@SuppressWarnings("unchecked")
+        public void ensureCapacity(int newCapacity) {
+            if (newCapacity < size)
+                return;
+            AnyType[] old = theItems;
+            theItems = (AnyType[]) new Object[newCapacity];
+            for ( int i = 0; i < size(); i++ )
+                theItems[i] = old[i];
+        }
+	public AnyType add(AnyType data) {
+            add(size(), data);
+            return data;
+        }
+	public void add(int idx, AnyType data) {
+            if (theItems.length == size())
+                ensureCapacity(size() * 2 + 1);
+            
+            for (int i = size; i > idx; i--)
+                theItems[i] = theItems[i - 1];
+            theItems[idx] = data;
+            size++;
+        }
+	public AnyType remove(int idx) {
+            AnyType removedItem = theItems[idx];
+            for (int i = idx; i < size() - 1; i++)
+                theItems[i] = theItems[i + 1];
+            size--;
+            return removedItem;
+        }
+        private void doClear() {
+            size = 0;
+            ensureCapacity(DEFAULT_CAPACITY);
+        }
+        public java.util.Iterator<AnyType> iterator() {
+            return new ArrayListIterator();
+        }
+        public String toString() {
+            String list = "";
+            for (AnyType lst : this)
+                list += lst + " ";
+            return list;
+        }
+	private class ArrayListIterator implements java.util.Iterator<AnyType> {
+            private int current = 0;
+            private boolean okToRemove = false;
+            public boolean hasNext() {
+                return current < size();
+            }
+            public AnyType next() {
+                if (!hasNext())
+                    throw new java.util.NoSuchElementException();
+                okToRemove = true;
+                return theItems[current++];
+            }
+            public void remove() {
+                if (!okToRemove)
+                    throw new IllegalStateException();
+                MyArrayList.this.remove(--current);
+                okToRemove = false;
+            }
+        }
+    }
+    private static class Person {
+        private String name;
+        private MyArrayList<Integer> problems;
+        private HashSet<Integer> idsSet;
+        public Person(String name) {
+            this.name = name;
+            problems = new MyArrayList<>();
+            idsSet = new HashSet<>();
+        }
+	public MyArrayList<Integer> getProblems() {
+            return problems;
+        }
+        public HashSet<Integer> getIdsSet() {
+            return idsSet;
+        }
+        @Override
+        public String toString() {
+            return name + " " + problems.size() + " " + problems;
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        Scanner input;
+        File file = new File("C_1.txt");
+        if ( file.exists() )
+            input = new Scanner( file );
+        else
+            input = new Scanner( System.in );
+        int caseAmount = Integer.parseInt( input.nextLine() );
+        
+        for ( int caseCount = 0; caseCount < caseAmount; caseCount++ ) {
+            System.out.println("Case #" + (caseCount + 1) + ":");
+            String[] line = input.nextLine().split(" ");
+            final String[] names = { "Norma", "Mario", "Pipe" };
+            Person[] persons = new Person[names.length];
+            
+            for ( int i = 0; i < persons.length; i++ )
+                persons[i] = new Person(names[i]);
+            
+            for (int i = 0; i < persons.length; i++) {
+                line = input.nextLine().split(" ");
+                
+                for (int j = 0; j < line.length; j++)
+                    persons[i].getIdsSet().add(Integer.parseInt(line[j]));
+            }
+            
+            for (int i = 0; i < persons.length; i++) {
+                
+                for (Integer value : persons[i].getIdsSet()) {
+                    boolean value1 = persons[(i + 1) % persons.length].getIdsSet().contains(value);
+                    boolean value2 = persons[(i + 2) % persons.length].getIdsSet().contains(value);
+                    
+                    if (!value1 && !value2)
+                        persons[i].getProblems().add(value);
+                }
+            }
+            int max = 0;
+            
+            for ( int i = 0; i < persons.length; i++ ) {
+                
+                if ( persons[i].getProblems().size() > max )
+                    max = persons[i].getProblems().size();
+            }
+            
+            for (int i = 0; i < persons.length; i++) {
+                
+                if ( persons[i].getProblems().size() == max ) {
+                    Arrays.sort( persons[i].getProblems().toArray(), 0, persons[i].getProblems().size() );
+                    System.out.println( persons[i] );
+                }
+            }
+        }
+        input.close();
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+class matches{
+    String nomp = "";
+    int vot = 0;
+    public matches ( String match, int votes ){
+        nomp = match;
+        vot = votes;
+    }
+}
+public class P2311D {
+    public static void main(String[] args) {
+        Scanner entrada= new Scanner( System.in );
+        String [] mt = entrada.nextLine().split(" ");
+        int cases = Integer.parseInt( mt[0] );
+        
+        for ( int i = 0; i < cases; i++ ) {
+            System.out.println("Case #"+(i+1)+":");
+            String [] comands = entrada.nextLine().split(" ");
+            
+            int comand = Integer.parseInt( comands[0] );
+            HashMap<String,matches> select = new HashMap<>();
+            
+            for ( int j = 0; j < comand; j++ ) {
+               String [] mat = entrada.nextLine().split(" ");
+               matches mats = new matches( mat[1],0 );
+               select.put( mat[0], mats );
+            }
+            String [] votes = entrada.nextLine().split(" ");
+            int vots = Integer.parseInt( votes[0] );
+            int aux1 = 0, mayor = 0;  
+            String name = "";
+            
+            while( aux1 < vots ){ 
+                name = entrada.nextLine();
+                
+                for( Map.Entry<String,matches>search : select.entrySet() ){
+                    
+                    if( search.getKey().equals( name ) ){
+                        search.getValue().vot++;
+                    }
+                    
+                    if( search.getValue().vot > mayor ){
+                        mayor = search.getValue().vot;
+                    }
+                }
+                aux1++;
+            }
+            LinkedList <String> winner = new LinkedList<>();
+            
+            for( Map.Entry<String,matches>search2 : select.entrySet() ){
+                if( search2.getValue().vot == mayor ){
+                    winner.add( search2.getValue().nomp );
+                }
+            }
+            Collections.sort( winner );
+            
+            for ( String win : winner ) {
+                System.out.println( win );                
+            }
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map;
+import java.util.TreeMap;
+/*class Food1{
+    int ids = 0;
+    int cant = 0;
+    public Food1(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}*/
+public class P2311E {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner( System.in );
+        int casos = Integer.parseInt( entrada.nextLine() );
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println( "Case #" + (i+1) + ":");
+            int comands = Integer.parseInt( entrada.nextLine() );
+            int cont = 0;
+            HashMap<Integer,Food> foody = new HashMap<>();  
+            TreeMap<Integer,Food> aux1 = new TreeMap<>();
+            
+            for ( int j = 0; j < comands; j++ ) {
+                String [] estanque = entrada.nextLine().split(" ");
+                int foodx = Integer.parseInt( estanque[0] );
+                int pokemon = Integer.parseInt( estanque[1] );
+                
+                if( foodx != pokemon ){
+                    if( foody.containsKey( foodx ) )
+                        foody.get( foodx ).cant++;
+                    
+                    else
+                        foody.put( foodx, new Food( foodx, 1 ) );
+                    //------------------------------------------------
+                    if( foody.containsKey( pokemon ) ){
+                        foody.get(pokemon).cant--;
+                        
+                        if( foody.get(pokemon).cant < 1 )
+                            foody.remove( pokemon );
+                    }
+                    
+                    else{
+                        cont++;
+                        if(!aux1.containsKey( pokemon ) )
+                            aux1.put( pokemon, new Food( pokemon, 1 ) );
+                        else
+                            aux1.get(pokemon).cant++;
+                    }
+                }
+            }
+            //System.out.println( cont );     
+            
+            for(Map.Entry<Integer,Food> search : aux1.entrySet() ){
+                Integer key = search.getKey();
+                Food price = search.getValue();
+                System.out.println( price.cant + " " + key );
+            }
+       }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map;
+import java.util.TreeMap;
+class Food1{
+    int ids = 0;
+    int cant = 0;
+    public Food1(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class P2311E {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner( System.in );
+        int casos = Integer.parseInt( entrada.nextLine() );
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println( "Case #" + (i+1) + ":");
+            int comands = Integer.parseInt( entrada.nextLine() );
+            int cont = 0;
+            HashMap<Integer,Food> foody = new HashMap<>();  
+            TreeMap<Integer,Food> aux1 = new TreeMap<>();
+            
+            for ( int j = 0; j < comands; j++ ) {
+                String [] estanque = entrada.nextLine().split(" ");
+                int foodx = Integer.parseInt( estanque[0] );
+                int pokemon = Integer.parseInt( estanque[1] );
+                
+                if( foodx != pokemon ){
+                    if( foody.containsKey( foodx ) )
+                        foody.get( foodx ).cant++;
+                    
+                    else
+                        foody.put( foodx, new Food( foodx, 1 ) );
+                    //------------------------------------------------
+                    if( foody.containsKey( pokemon ) ){
+                        foody.get(pokemon).cant--;
+                        
+                        if( foody.get(pokemon).cant < 1 )
+                            foody.remove( pokemon );
+                    }
+                    
+                    else{
+                        cont++;
+                        if(!aux1.containsKey( pokemon ) )
+                            aux1.put( pokemon, new Food( pokemon, 1 ) );
+                        else
+                            aux1.get(pokemon).cant++;
+                    }
+                }
+            }
+            //System.out.println( cont );     
+            
+            for(Map.Entry<Integer,Food> search : aux1.entrySet() ){
+                Integer key = search.getKey();
+                Food price = search.getValue();
+                System.out.println( price.cant + " " + key );
+            }
+       }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map;
+import java.util.TreeMap;
+class Food1{
+    int ids = 0;
+    int cant = 0;
+    public Food1(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class P2311E {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner( System.in );
+        int casos = Integer.parseInt( entrada.nextLine() );
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println( "Case #" + (i+1) + ":");
+            int comands = Integer.parseInt( entrada.nextLine() );
+            int cont = 0;
+            HashMap<Integer,Food1> foody = new HashMap<>();  
+            TreeMap<Integer,Food1> aux1 = new TreeMap<>();
+            
+            for ( int j = 0; j < comands; j++ ) {
+                String [] estanque = entrada.nextLine().split(" ");
+                int foodx = Integer.parseInt( estanque[0] );
+                int pokemon = Integer.parseInt( estanque[1] );
+                
+                if( foodx != pokemon ){
+                    if( foody.containsKey( foodx ) )
+                        foody.get( foodx ).cant++;
+                    
+                    else
+                        foody.put( foodx, new Food1( foodx, 1 ) );
+                    //------------------------------------------------
+                    if( foody.containsKey( pokemon ) ){
+                        foody.get(pokemon).cant--;
+                        
+                        if( foody.get(pokemon).cant < 1 )
+                            foody.remove( pokemon );
+                    }
+                    
+                    else{
+                        cont++;
+                        if(!aux1.containsKey( pokemon ) )
+                            aux1.put( pokemon, new Food1( pokemon, 1 ) );
+                        else
+                            aux1.get(pokemon).cant++;
+                    }
+                }
+            }
+            //System.out.println( cont );     
+            
+            for(Map.Entry<Integer,Food1> search : aux1.entrySet() ){
+                Integer key = search.getKey();
+                Food1 price = search.getValue();
+                System.out.println( price.cant + " " + key );
+            }
+       }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p2311;
+/**
+ *
+ */
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map;
+import java.util.TreeMap;
+class Food1{
+    int ids = 0;
+    int cant = 0;
+    public Food1(int id, int cantidad){
+    ids = id;
+    cant = cantidad;
+    }    
+}
+public class P2311E {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner( System.in );
+        int casos = Integer.parseInt( entrada.nextLine() );
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println( "Case #" + (i+1) + ":");
+            int comands = Integer.parseInt( entrada.nextLine() );
+            int cont = 0;
+            HashMap<Integer,Food1> foody = new HashMap<>();  
+            TreeMap<Integer,Food1> aux1 = new TreeMap<>();
+            
+            for ( int j = 0; j < comands; j++ ) {
+                String [] estanque = entrada.nextLine().split(" ");
+                int foodx = Integer.parseInt( estanque[0] );
+                int pokemon = Integer.parseInt( estanque[1] );
+                
+                if( foodx != pokemon ){
+                    if( foody.containsKey( foodx ) )
+                        foody.get( foodx ).cant++;
+                    
+                    else
+                        foody.put( foodx, new Food1( foodx, 1 ) );
+                    //------------------------------------------------
+                    if( foody.containsKey( pokemon ) ){
+                        foody.get(pokemon).cant--;
+                        
+                        if( foody.get(pokemon).cant < 1 )
+                            foody.remove( pokemon );
+                    }
+                    
+                    else{
+                        cont++;
+                        if(!aux1.containsKey( pokemon ) )
+                            aux1.put( pokemon, new Food1( pokemon, 1 ) );
+                        else
+                            aux1.get(pokemon).cant++;
+                    }
+                }
+            }
+            
+            for ( Map.Entry<Integer,Food1> search : aux1.entrySet() ){
+                if ( foody.isEmpty() ){
+                    System.out.println( "-1" );
+                }
+                else{
+                    Integer key = search.getKey();
+                    Food1 price = search.getValue();
+                    Food1 id = search.getValue();
+                    System.out.println( price.cant + " " + id.ids );
+                }
+            }
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7a;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7A {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int vertex = entry.nextInt();
+            int edge = entry.nextInt();
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < vertex; j++) 
+                gra.add( new ArrayList<Integer>() );
+                        
+            for (int j = 0; j < edge; j++) {
+                int e = entry.nextInt();
+                int v = entry.nextInt();
+                gra.get(e).add(v);
+                gra.get(v).add(e);                
+            }
+            int first = entry.nextInt();
+            LinkedList<Integer> queue = new LinkedList<>();
+            queue.push( first );
+            boolean seen[]= new boolean[ vertex ];
+            seen[ first ] = true;
+            int cont = 0;
+            while( queue.size() > 0 ){
+                int aux = queue.pop();
+                cont++;
+                
+                for (int j = 0; j < gra.get(aux).size(); j++) {
+                    int n = gra.get(aux).get(j);
+                    
+                    if( !seen[n] ){
+                        queue.push(n);
+                        seen[n] = true;
+                    }
+                }
+            }
+            cont-=1;
+            System.out.println( "Case #" + (i+1) + ":" );
+            System.out.println( cont );
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7a;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7B {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int them = entry.nextInt();
+            int rela = entry.nextInt();
+            int grad[] = new int [ them+1 ];
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < (them+1); j++)
+                gra.add( new ArrayList<Integer>() );                
+            
+            for (int j = 0; j < rela; j++) {
+                int u = entry.nextInt();
+                int v = entry.nextInt();;
+                grad[v]++;
+                gra.get(u).add(v);
+            }
+            LinkedList<Integer> queue = new LinkedList<>();
+            
+            for (int j = 0; j < them; j++) {
+                if( grad[i] == 0 )
+                    queue.push(i);
+            }
+            boolean seen=true;
+            
+            while( queue.size() > 0 ){
+                if( queue.size() > 1 ){
+                    seen = false;
+                    break;
+                }
+                int u = queue.pop();
+                
+                for (int j = 0; j < gra.get(u).size(); j++) {
+                    int v = gra.get(u).get(i);
+                    grad[v]--;
+                    
+                    if( grad[v] == 0 )
+                        queue.push(v);
+                }
+            }
+            System.out.println( "Case #" + (i+1) + ":" );
+            if( seen )
+                System.out.println( "Deberia empezar a estudiar" );
+            else if( !seen )
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7a;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7C {
+    private static Vertex[] graph;
+    public static void main(String[] args) throws Exception {
+        Scanner input;
+        File file = new File("C_3.IN");
+        if (file.exists())
+            input = new Scanner(file);
+        else
+            input = new Scanner(System.in);
+        byte cases = (byte) Integer.parseInt(input.nextLine());
+        
+        for ( int i = 0; i < cases; i++ ) {
+            System.out.println("Case #" + (i + 1) + ":");
+            String[] line = input.nextLine().split(" ");
+            int n = Integer.parseInt(line[0]);
+            int e = Integer.parseInt(line[1]);
+            int time = Integer.parseInt(line[2]);
+            int m = Integer.parseInt(input.nextLine());
+            graph = new Vertex[n];
+            
+            for ( int j = 0; j < m; j++ ) {
+                line = input.nextLine().split(" ");
+                int u = Integer.parseInt(line[0]);
+                int v = Integer.parseInt(line[1]);
+                int w = Integer.parseInt(line[2]);
+                
+                if ( graph[u] == null )
+                        graph[u] = new Vertex(u);
+                
+                graph[u].adjacents.add(v);
+                graph[u].weights.add(w);
+                
+                if ( graph[v] == null )
+                    graph[v] = new Vertex(v);
+            }
+            int counter = 1;
+            
+            for ( Vertex ver : graph ) {
+                if ( ver != null )
+                    dijkstra( ver );
+                
+                if ( graph[e] != null ) {
+                    if ( graph[e].dist <= time ) {
+                        if ( (ver != null) && (ver.id != e) )
+                            counter++;
+                        }
+                    }
+                }
+                System.out.println(counter);
+            }
+		input.close();
+    }
+
+    private static void dijkstra(Vertex s) throws Exception {
+        for (Vertex v : graph) {
+            if (v != null) {
+                v.dist = Integer.MAX_VALUE;
+                v.known = false;
+            }
+        }
+        s.dist = 0;
+        BinaryHeap<Vertex> heap = new BinaryHeap<>();
+        heap.insert(s);
+
+        while (!heap.isEmpty()) {
+            Vertex v = heap.deleteMin();
+            if (!v.known) {
+                v.known = true;
+
+                for (int i = 0; i < v.adjacents.size(); i++) {
+                    Vertex w = graph[v.adjacents.get(i)];
+
+                    if (!w.known) {
+                        int aux = v.weights.get(i);
+                        if (v.dist + aux < w.dist) {
+                            w.dist = v.dist + aux;
+                            w.path = v.id;
+                        }
+                        heap.insert(w);
+                    }
+                }
+            }
+        }
+    }
+
+	private static class Vertex implements Comparable<Vertex> {
+		private int id;
+		private int dist;
+		private boolean known;
+		private int path;
+		private ArrayList<Integer> adjacents;
+		private ArrayList<Integer> weights;
+
+		public Vertex(int id) {
+			this.id = id;
+			path = -1;
+			dist = 0;
+			known = true;
+			adjacents = new ArrayList<>();
+			weights = new ArrayList<>();
+		}
+
+		@Override
+		public String toString() {
+			return "Vertex [id=" + id + ", dist=" + dist + ", known=" + known + ", path=" + path + ", adjacents="
+					+ adjacents + ", weights=" + weights + "]";
+		}
+
+		@Override
+		public int compareTo(Vertex o) {
+
+			if (dist < o.dist)
+				return -1;
+			else if (dist > o.dist)
+				return 1;
+			return 0;
+		}
+	}
+
+	private static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;
+		private AnyType[] array;
+
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7a;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7B {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int them = entry.nextInt();
+            int rela = entry.nextInt();
+            int grad[] = new int [ them+1 ];
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < (them+1); j++)
+                gra.add( new ArrayList<Integer>() );                
+            
+            for (int j = 0; j < rela; j++) {
+                int u = entry.nextInt();
+                int v = entry.nextInt();;
+                grad[v]++;
+                gra.get(u).add(v);
+            }
+            LinkedList<Integer> queue = new LinkedList<>();
+            
+            for (int j = 0; j < them; j++) {
+                if( grad[i] == 0 )
+                    queue.push(i);
+            }
+            boolean seen=true;
+            
+            while( queue.size() > 0 ){
+                if( queue.size() > 1 ){
+                    seen = false;
+                    break;
+                }
+                int u = queue.pop();
+                
+                for (int j = 0; j < gra.get(u).size(); j++) {
+                    int v = gra.get(u).get(i);
+                    grad[v]--;
+                    
+                    if( grad[v] == 0 )
+                        queue.push(v);
+                }
+            }
+            System.out.println( "Case #" + (i+1) + ":" );
+            if( seen )
+                System.out.println( "Deberia empezar a estudiar" );
+            else if( !seen )
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7B {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int them = entry.nextInt();
+            int rela = entry.nextInt();
+            int grad[] = new int [ them+1 ];
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < (them+1); j++)
+                gra.add( new ArrayList<Integer>() );                
+            
+            for (int j = 0; j < rela; j++) {
+                int u = entry.nextInt();
+                int v = entry.nextInt();;
+                grad[v]++;
+                gra.get(u).add(v);
+            }
+            LinkedList<Integer> queue = new LinkedList<>();
+            
+            for (int j = 0; j < them; j++) {
+                if( grad[j] == 0 )
+                    queue.push(j);
+            }
+            boolean pro = true;
+            
+            while( queue.size() > 0 ){
+                if( queue.size() > 1 ){
+                    pro = false;
+                    break;
+                }
+                int u = queue.pop();
+                
+                for (int j = 0; j < gra.get(u).size(); j++) {
+                    int v = gra.get(u).get(j);
+                    grad[v]--;
+                    
+                    if( grad[v] == 0 )
+                        queue.push(v);
+                }
+            }
+            System.out.println( "Case #" + (i+1) + ":" );
+            if( pro == true )
+                System.out.println( "Deberia empezar a estudiar" );
+            else 
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int them = entry.nextInt();
+            int rela = entry.nextInt();
+            int grad[] = new int [ them+1 ];
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < (them+1); j++)
+                gra.add( new ArrayList<Integer>() );                
+            
+            for (int j = 0; j < rela; j++) {
+                int u = entry.nextInt();
+                int v = entry.nextInt();;
+                grad[v]++;
+                gra.get(u).add(v);
+            }
+            LinkedList<Integer> queue = new LinkedList<>();
+            LinkedList<Integer> sort = new LinkedList<>();
+            
+            for (int j = 0; j < them; j++) {
+                if( grad[j] == 0 ){
+                    queue.push(j);
+                }
+            }
+            boolean pro = true;
+            
+            while( queue.size() > 0 ){
+                if( queue.size() > 1 ){
+                    pro = false;
+                    break;
+                }
+                
+                int u = queue.pop();
+                sort.add( u );
+                
+                for (int j = 0; j < gra.get(u).size(); j++) {
+                    int v = gra.get(u).get(j);
+                    grad[v]--;
+                    
+                    if( grad[v] == 0 )
+                        queue.push(v);
+                }
+            }
+            
+            System.out.println( "Case #" + (i+1) + ":" );
+            
+            for ( Integer k: sort ) {
+                System.out.println( k + " " );
+            }
+            
+            /*if( pro == true )
+                System.out.println( "Deberia empezar a estudiar" );
+            else 
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+/**
+ *
+ */
+public class Eje7D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int them = entry.nextInt();
+            int rela = entry.nextInt();
+            int grad[] = new int [ them+1 ];
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < (them+1); j++)
+                gra.add( new ArrayList<Integer>() );                
+            
+            for (int j = 0; j < rela; j++) {
+                int u = entry.nextInt();
+                int v = entry.nextInt();;
+                grad[v]++;
+                gra.get(u).add(v);
+            }
+            LinkedList<Integer> queue = new LinkedList<>();
+            LinkedList<Integer> sort = new LinkedList<>();
+            
+            for (int j = 0; j < them; j++) {
+                if( grad[j] == 0 ){
+                    queue.push(j);
+                }
+            }
+            boolean pro = true;
+            
+            while( queue.size() > 0 ){
+                if( queue.size() > 1 ){
+                    pro = false;
+                }
+                
+                int u = queue.pop();
+                sort.add( u );
+                
+                for (int j = 0; j < gra.get(u).size(); j++) {
+                    int v = gra.get(u).get(j);
+                    grad[v]--;
+                    
+                    if( grad[v] == 0 )
+                        queue.push(v);
+                }
+            }
+            
+            System.out.println( "Case #" + (i+1) + ":" );
+            
+            for ( Integer k: sort )
+                System.out.println( k + " " );
+            
+            
+            /*if( pro == true )
+                System.out.println( "Deberia empezar a estudiar" );
+            else 
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eje7;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+/**
+ *
+ */
+class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;
+		private AnyType[] array;
+
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		@SuppressWarnings("unchecked")
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		@SuppressWarnings({ "unchecked", "unused" })
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		@SuppressWarnings("unchecked")
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+		
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+}
+public class Eje7D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
+        Scanner entry = new Scanner(System.in);
+        int cases = entry.nextInt();
+        
+        for (int i = 0; i < cases; i++) {
+            int them = entry.nextInt();
+            int rela = entry.nextInt();
+            int grad[] = new int [ them+1 ];
+            ArrayList<ArrayList<Integer>> gra = new ArrayList<>();
+            
+            for (int j = 0; j < (them+1); j++)
+                gra.add( new ArrayList<Integer>() );                
+            
+            for (int j = 0; j < rela; j++) {
+                int u = entry.nextInt();
+                int v = entry.nextInt();;
+                grad[v]++;
+                gra.get(u).add(v);
+            }
+            LinkedList<Integer> queue = new LinkedList<>();
+            LinkedList<Integer> sortx = new LinkedList<>();
+            
+            for (int j = 0; j < them; j++) {
+                if( grad[j] == 0 ){
+                    queue.push(j);
+                }
+            }
+                       
+            while( queue.size() > 0 ){
+                
+                int u = queue.pop();
+                sortx.add( u );
+                
+                for (int j = 0; j < gra.get(u).size(); j++) {
+                    int v = gra.get(u).get(j);
+                    grad[v]--;
+                    
+                    if( grad[v] == 0 )
+                        queue.push(v);
+                }
+            }
+            BinaryHeap<Integer> heap = new BinaryHeap<>();
+            Collections.sort( sortx );
+                if( sortx.size() > 1 )
+                    heap.insert(sortx.get(0));
+            
+            System.out.println( "Case #" + (i+1) + ":" );
+            String sorty = "";
+            
+            for ( Integer k: sortx )
+                sorty = sorty + k + " ";
+            
+            System.out.println( sorty );
+            
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1a;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1A {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();//La cantidad de numeros a ingresar
+        int b, c = 0;//Inicializo las variables
+        int [] array = new int[a];
+        int [] aux = new int[a];//Inicializo los array
+        
+        for (int i = 0; i < a; i++) {
+            array[i] = sc.nextInt();
+            aux[i] = array[i];
+        }//Relleno los array
+        
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a; j++) {
+                if(i != j) {
+                    b = array[i] * aux[j];
+                    if (b > c)
+                        c = b;
+                }
+            }
+        }
+        System.out.println( c );
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1b;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1B {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases = 0;
+        Scanner sc = new Scanner(System.in);
+        
+        while ( sc.hasNext() ) {
+            n = sc.nextInt();
+            int [][] matriz = new int[n][n];
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int count = 0;
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    matriz[i][j] = sc.nextInt();
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    row[i] = row[i] + matriz[i][j];
+                    column[i] = column[i] + matriz[j][i];
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {                
+                for (int j = 0; j < matriz.length; j++) {
+                    if (row[i] < column[j] )
+                        count++;
+                }
+            }
+            cases++;
+            System.out.println( "Case #" + cases + ":" );
+            System.out.println( count );
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1c;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1C {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, ciclo = 0, ciclos = 0, k;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        
+        while (ciclo < n) {//Numero de casos
+            k = sc.nextInt();
+            int [] local = new int[k];
+            int [] visit = new int[k];
+            
+            for (int i = 0; i < k; i++) {
+                local[i] = sc.nextInt();
+                visit[i] = sc.nextInt();
+            }//Pedimos los uniformes
+            
+            for (int m = 0; m < k; m++) {
+                for (int j = 0; j < k; j++) {
+                    if (m == j)
+                        continue;
+                    
+                    if ( local[m] == visit[j] )
+                        ciclos++;
+                }
+            }
+            ciclo++;
+            System.out.println( "Case #" + ciclo + ":" );
+            System.out.println( ciclos );
+            ciclos = 0;
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1a;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1A {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();//La cantidad de numeros a ingresar
+        long b = 0, c = 0;//Inicializo las variables
+        long [] array = new long[a];
+        long [] aux = new long[a];//Inicializo los array
+        
+        for (int i = 0; i < a; i++) {
+            array[i] = sc.nextInt();
+            aux[i] = array[i];
+        }//Relleno los array
+        
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a; j++) {
+                if(i != j) {
+                    b = array[i] * aux[j];
+                    if (b > c)
+                        c = b;
+                }
+            }
+        }
+        System.out.println( c );
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1c;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1C {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, ciclo = 0, ciclos = 0, k;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        
+        while (ciclo < n) {//Numero de casos
+            k = sc.nextInt();
+            int [] local = new int[k];
+            int [] visit = new int[k];
+            
+            for (int i = 0; i < k; i++) {
+                local[i] = sc.nextInt();
+                visit[i] = sc.nextInt();
+            }//Pedimos los uniformes
+            
+            for (int m = 0; m < k; m++) {
+                for (int j = 0; j < k; j++) {
+                    if (m == j)
+                        continue;
+                    
+                    if ( local[m] == visit[j] )
+                        ciclos++;
+                }
+            }
+            ciclo++;
+            System.out.println( "Case #" + ciclo + ":" );
+            System.out.println( ciclos );
+            ciclos = 0;
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1d;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();
+        
+        for (int k = 0; k < cases; k++) {
+            n = sc.nextInt();
+            int [][] matriz = new int[n][n];
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int count = 0, aux1 = 0, aux2 = 0, p, q;
+            String papu = "";
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    papu = sc.next();
+                    
+                    if(papu.equals("#"))
+                        matriz[i][j] = 1;
+                    
+                    if(papu.equals("."))
+                        matriz[i][j] = 0;
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    row[i] = row[i] + matriz[i][j];
+                    column[i] = column[i] + matriz[j][i];
+                    aux1 += matriz[i][j];
+                    aux2 += matriz[j][i];
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {                
+                p = aux1 - row[i];
+                q = aux2 - column[i];
+                
+                if ((2*p) == aux1 )
+                    count = 1;
+                
+                else if (((2*q) == aux2) && (count != 1) )
+                    count = 2;
+            }
+            
+            if((count == 1) || (count == 2))
+                System.out.println( "YES" );
+            
+            else
+                System.out.println( "NO" );
+            
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1d;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();
+        
+        for (int k = 0; k < cases; k++) {
+            n = sc.nextInt();
+            int [][] matriz = new int[n][n];
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int count = 0, aux1 = 0, aux2 = 0, p, q;
+            String st = "";
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    st = sc.next();
+                    
+                    if(st.equals("#"))
+                        matriz[i][j] = 1;
+                    
+                    if(st.equals("."))
+                        matriz[i][j] = 0;
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    row[i] = row[i] + matriz[i][j];
+                    column[i] = column[i] + matriz[j][i];
+                    aux1 += matriz[i][j];
+                    aux2 += matriz[j][i];
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {                
+                p = aux1 - row[i];
+                q = aux2 - column[i];
+                
+                if ((2*p) == aux1 )
+                    count = 1;
+                
+                else if (((2*q) == aux2) && (count != 1) )
+                    count = 2;
+            }
+            
+            if((count == 1) || (count == 2))
+                System.out.println( "YES" );
+            
+            else
+                System.out.println( "NO" );
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools Templates
+ * and open the template in the editor.
+ */
+package p1d;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();
+        
+        for (int k = 0; k < cases; k++) {
+            n = sc.nextInt();
+            int [][] matriz = new int[n][n];
+            int [] row = new int [n];
+            int [] column = new int [n];
+            int count = 0, aux1 = 0, aux2 = 0, p, q;
+            String st;
+            
+            for (int[] matriz1 : matriz) {
+                for (int j = 0; j < matriz.length; j++) {
+                    st = sc.next();
+                    if (st.equals("#")) {
+                        matriz1[j] = 1;
+                    }
+                    if (st.equals(".")) {
+                        matriz1[j] = 0;
+                    }
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    row[i] = row[i] + matriz[i][j];
+                    column[i] = column[i] + matriz[j][i];
+                    aux1 += matriz[i][j];
+                    aux2 += matriz[j][i];
+                }
+            }
+            
+            for (int i = 0; i < matriz.length; i++) {                
+                p = aux1 - row[i];
+                q = aux2 - column[i];
+                
+                if ((2*p) == aux1 )
+                    count = 1;
+                
+                else if (((2*q) == aux2) && (count != 1) )
+                    count = 2;
+            }
+            
+            if((count == 1) || (count == 2))
+                System.out.println( "YES" );
+            
+            else
+                System.out.println( "NO" );
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p1f;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1F {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int rc, count = 0;
+        int [] resp = new int [5];
+        Scanner sc = new Scanner(System.in);
+        rc = sc.nextInt();
+        
+        for (int i = 0; i < 5; i++) {
+            resp[i] = sc.nextInt();
+            if(resp[i] == rc)
+                count++;
+        }
+        System.out.println( count );
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools Templates
+ * and open the template in the editor.
+ */
+package p1d;
+import java.util.Scanner;
+/**
+ *
+ */
+public class P1D {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();
+        
+        for (int k = 0; k < cases; k++) {
+            n = sc.nextInt();
+            int [][] matriz = new int[n][n];
+            int [] row = new int [n];
+            int [] column = new int [n];
+            char [] st = new char [n*n];
+            String [] del = new String [n];
+            int count = 0, aux1 = 0, aux2 = 0, p = 0, q = 0, i, j, z = 0;
+                        
+            for (i = 0; i < n; i++) {
+                del[i] = sc.next();
+            }
+            
+            for (i = 0; i < n; i++) {
+                for (j = 0; j < n; j++) {
+                    st[z] = del[i].charAt(j);
+                    z++;
+                }
+            }
+            z = 0;
+            
+            for (i = 0; i < matriz.length; i++) {
+                for (j = 0; j < matriz.length; j++) {
+                    if (st[z] == '#') {
+                        matriz[i][j] = 1;
+                    }
+                    
+                    if (st[z] == '.') {
+                        matriz[i][j] = 0;
+                    }
+                    z++;
+                }
+            }
+            
+            for (i = 0; i < matriz.length; i++) {
+                for (j = 0; j < matriz.length; j++) {
+                    row[i] = row[i] + matriz[i][j];
+                    column[i] = column[i] + matriz[j][i];
+                    aux1 += matriz[i][j];
+                    aux2 += matriz[j][i];
+                }
+            }
+            
+            if (aux1%2 == 0) {
+                for (i = 0; i < (matriz.length-1); i++) {
+                    p += row[i];
+                    q += column[i];
+                    
+                    if ((2*p) == aux1 )
+                        count = 1;
+                    
+                    else if (((2*q) == aux2) && (count != 1) )
+                        count = 2;
+                }
+            }
+            
+            if((count == 1) || (count == 2))
+                System.out.println( "YES" );
+            
+            else
+                System.out.println( "NO" );
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools Templates
+ * and open the template in the editor.
+ */
+package p1e;
+import java.util.Scanner;
+import java.util.Arrays;
+/**
+ *
+ */
+public class P1E {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();//Pido el numero de casos
+        
+        for (int k = 0; k < cases; k++) {//Ciclo para cada caso
+            n = sc.nextInt();//Pido el numero de fichas
+            String [] row = new String [n];
+            int i, b = 0, g = 0, r = 0, y = 0;
+            int ib = 0, ig = 0, ir = 0, iy = 0;
+            int baux = 0, gaux = 0, raux = 0, yaux = 0;
+            int bx = 0, gx = 0, rx = 0, yx = 0;
+            boolean boo = false;
+            
+            for (i = 0; i < n; i++) {
+                row[i] = sc.next();//Relleno el arreglo de fichas
+                
+                switch (row[i].charAt(1)) {//Cuento el numero de fichas de cada color
+                    case 'b':
+                        b++;
+                        break;
+                    case 'g':
+                        g++;
+                        break;
+                    case 'r':
+                        r++;
+                        break;
+                    case 'y':
+                        y++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            int [] blue = new int[b];//Creo los arreglos para cada color
+            int [] green = new int[g];
+            int [] red = new int[r];
+            int [] yellow = new int[y];
+            
+            if ((b > 2) || (g > 2) || (r > 2) || (y > 2)) {//Inicio a analizar carreras
+                
+                for (i = 0; i < n; i++) {//Almaceno los numeros de cada ficha en arreglos
+                    
+                    switch (row[i].charAt(1)) {
+                        case 'b':
+                            blue[ib] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ib++;
+                            break;
+                        case 'g':
+                            green[ig] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ig++;
+                            break;
+                        case 'r':
+                            red[ir] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ir++;
+                            break;
+                        case 'y':
+                            yellow[iy] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            iy++;
+                            break;
+                        default:
+                            break;
+                    }   
+                }
+                Arrays.sort(blue);//Ordeno arreglos de los numeros por color
+                Arrays.sort(green);
+                Arrays.sort(red);
+                Arrays.sort(yellow);
+                
+                if (b > 2) {//Comparo si tengo carrera por cada color
+                    
+                    for (int j = 0; j < (b - 1); j++) {
+                        
+                        if ((blue[j+1] - blue[j]) == 1){//Encuentro numeros seguidos
+                            baux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (baux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            baux=0;
+                    }
+                    //Imprimo
+                    if (baux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (g > 2) {
+                    
+                    for (int j = 0; j < (g - 1); j++) {
+                        
+                        if ((green[j+1] - green[j]) == 1){//Encuentro numeros seguidos
+                            gaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (gaux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            gaux=0;
+                    }
+                    //Imprimo
+                    if (gaux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (r > 2) {
+                    
+                    for (int j = 0; j < (r - 1); j++) {
+                        
+                        if ((red[j+1] - red[j]) == 1){//Encuentro numeros seguidos
+                            raux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (raux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            raux=0;
+                    }
+                    //Imprimo
+                    if (raux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else {
+                    
+                    for (int j = 0; j < (y - 1); j++) {
+                        
+                        if ((yellow[j+1] - yellow[j]) == 1){//Encuentro numeros seguidos
+                            yaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (yaux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            yaux = 0;
+                    }
+                    //Imprimo
+                    if (yaux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+            }//Termino de analizar carreras
+            //Inicio a comparar por grupos
+            for (i = 0; i < n; i++) {
+                
+                switch (row[i].charAt(1)) {
+                    case 'b':
+                        bx++;
+                        break;
+                    case 'g':
+                        gx++;
+                        break;
+                    case 'r':
+                        rx++;
+                        break;
+                    case 'y':
+                        yx++;
+                        break;
+                    default:
+                        break;
+                }
+                
+                for (int j = 1; j < n; j++) {
+                    
+                    if ((i != j) && (row[i].charAt(0) == row[j].charAt(0))) {
+                        
+                        switch (row[j].charAt(1)) {
+                            case 'b':
+                                bx++;
+                                break;
+                            case 'g':
+                                gx++;
+                                break;
+                            case 'r':
+                                rx++;
+                                break;
+                            case 'y':
+                                yx++;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                
+                if ((bx == 1) && (gx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (rx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+            
+                else if ((gx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+            }
+            
+            if (boo == false) 
+                System.out.println("NO");
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools Templates
+ * and open the template in the editor.
+ */
+package p1e;
+import java.util.Scanner;
+import java.util.Arrays;
+/**
+ *
+ */
+public class P1E {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();//Pido el numero de casos
+        
+        for (int k = 0; k < cases; k++) {//Ciclo para cada caso
+            n = sc.nextInt();//Pido el numero de fichas
+            String [] row = new String [n];
+            int i, b = 0, g = 0, r = 0, y = 0;
+            int ib = 0, ig = 0, ir = 0, iy = 0;
+            int baux = 0, gaux = 0, raux = 0, yaux = 0;
+            int bx = 0, gx = 0, rx = 0, yx = 0;
+            boolean boo = false;
+            
+            for (i = 0; i < n; i++) {
+                row[i] = sc.next();//Relleno el arreglo de fichas
+                
+                switch (row[i].charAt(1)) {//Cuento el numero de fichas de cada color
+                    case 'b':
+                        b++;
+                        break;
+                    case 'g':
+                        g++;
+                        break;
+                    case 'r':
+                        r++;
+                        break;
+                    case 'y':
+                        y++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            int [] blue = new int[b];//Creo los arreglos para cada color
+            int [] green = new int[g];
+            int [] red = new int[r];
+            int [] yellow = new int[y];
+            
+            if ((b > 2) || (g > 2) || (r > 2) || (y > 2)) {//Inicio a analizar carreras
+                
+                for (i = 0; i < n; i++) {//Almaceno los numeros de cada ficha en arreglos
+                    
+                    switch (row[i].charAt(1)) {
+                        case 'b':
+                            blue[ib] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ib++;
+                            break;
+                        case 'g':
+                            green[ig] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ig++;
+                            break;
+                        case 'r':
+                            red[ir] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ir++;
+                            break;
+                        case 'y':
+                            yellow[iy] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            iy++;
+                            break;
+                        default:
+                            break;
+                    }   
+                }
+                Arrays.sort(blue);//Ordeno arreglos de los numeros por color
+                Arrays.sort(green);
+                Arrays.sort(red);
+                Arrays.sort(yellow);
+                
+                if (b > 2) {//Comparo si tengo carrera por cada color
+                    
+                    for (int j = 0; j < (b - 1); j++) {
+                        
+                        if ((blue[j+1] - blue[j]) == 1){//Encuentro numeros seguidos
+                            baux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (baux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                                System.exit(0);
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            baux=0;
+                    }
+                    //Imprimo
+                    if (baux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                        System.exit(0);
+                    }
+                }
+                
+                else if (g > 2) {
+                    
+                    for (int j = 0; j < (g - 1); j++) {
+                        
+                        if ((green[j+1] - green[j]) == 1){//Encuentro numeros seguidos
+                            gaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (gaux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                                System.exit(0);
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            gaux=0;
+                    }
+                    //Imprimo
+                    if (gaux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (r > 2) {
+                    
+                    for (int j = 0; j < (r - 1); j++) {
+                        
+                        if ((red[j+1] - red[j]) == 1){//Encuentro numeros seguidos
+                            raux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (raux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                                System.exit(0);
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            raux=0;
+                    }
+                    //Imprimo
+                    if (raux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else {
+                    
+                    for (int j = 0; j < (y - 1); j++) {
+                        
+                        if ((yellow[j+1] - yellow[j]) == 1){//Encuentro numeros seguidos
+                            yaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (yaux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                                System.exit(0);
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            yaux = 0;
+                    }
+                    //Imprimo
+                    if (yaux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                        System.exit(0);
+                    }
+                }
+            }//Termino de analizar carreras
+            //Inicio a comparar por grupos
+            for (i = 0; i < n; i++) {
+                
+                switch (row[i].charAt(1)) {
+                    case 'b':
+                        bx++;
+                        break;
+                    case 'g':
+                        gx++;
+                        break;
+                    case 'r':
+                        rx++;
+                        break;
+                    case 'y':
+                        yx++;
+                        break;
+                    default:
+                        break;
+                }
+                
+                for (int j = 1; j < n; j++) {
+                    
+                    if ((i != j) && (row[i].charAt(0) == row[j].charAt(0))) {
+                        
+                        switch (row[j].charAt(1)) {
+                            case 'b':
+                                bx++;
+                                break;
+                            case 'g':
+                                gx++;
+                                break;
+                            case 'r':
+                                rx++;
+                                break;
+                            case 'y':
+                                yx++;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                
+                if ((bx == 1) && (gx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                    System.exit(0);
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (rx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                    System.exit(0);
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                    System.exit(0);
+                }
+                
+                else if ((bx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                    System.exit(0);
+                }
+            
+                else if ((gx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                    System.exit(0);
+                }
+            }
+            
+            if (boo == false) 
+                System.out.println("NO");
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools Templates
+ * and open the template in the editor.
+ */
+package pie;
+import java.util.Scanner;
+import java.util.Arrays;
+/**
+ *
+ */
+public class PIE {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();//Pido el numero de casos
+        
+        for (int k = 0; k < cases; k++) {//Ciclo para cada caso
+            n = sc.nextInt();//Pido el numero de fichas
+            String [] row = new String [n];
+            int i, b = 0, g = 0, r = 0, y = 0;
+            int ib = 0, ig = 0, ir = 0, iy = 0;
+            int baux = 0, gaux = 0, raux = 0, yaux = 0;
+            int bx = 0, gx = 0, rx = 0, yx = 0;
+            boolean boo = false;
+            
+            for (i = 0; i < n; i++) {
+                row[i] = sc.next();//Relleno el arreglo de fichas
+                
+                switch (row[i].charAt(1)) {//Cuento el numero de fichas de cada color
+                    case 'b':
+                        b++;
+                        break;
+                    case 'g':
+                        g++;
+                        break;
+                    case 'r':
+                        r++;
+                        break;
+                    case 'y':
+                        y++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            int [] blue = new int[b];//Creo los arreglos para cada color
+            int [] green = new int[g];
+            int [] red = new int[r];
+            int [] yellow = new int[y];
+            
+            if ((b > 2) || (g > 2) || (r > 2) || (y > 2)) {//Inicio a analizar carreras
+                
+                for (i = 0; i < n; i++) {//Almaceno los numeros de cada ficha en arreglos
+                    
+                    switch (row[i].charAt(1)) {
+                        case 'b':
+                            blue[ib] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ib++;
+                            break;
+                        case 'g':
+                            green[ig] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ig++;
+                            break;
+                        case 'r':
+                            red[ir] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ir++;
+                            break;
+                        case 'y':
+                            yellow[iy] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            iy++;
+                            break;
+                        default:
+                            break;
+                    }   
+                }
+                Arrays.sort(blue);//Ordeno arreglos de los numeros por color
+                Arrays.sort(green);
+                Arrays.sort(red);
+                Arrays.sort(yellow);
+                
+                if (b > 2) {//Comparo si tengo carrera por cada color
+                    
+                    for (int j = 0; j < (b - 1); j++) {
+                        
+                        if ((blue[j+1] - blue[j]) == 1){//Encuentro numeros seguidos
+                            baux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (baux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            baux=0;
+                    }
+                    //Imprimo
+                    if (baux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (g > 2) {
+                    
+                    for (int j = 0; j < (g - 1); j++) {
+                        
+                        if ((green[j+1] - green[j]) == 1){//Encuentro numeros seguidos
+                            gaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (gaux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            gaux=0;
+                    }
+                    //Imprimo
+                    if (gaux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (r > 2) {
+                    
+                    for (int j = 0; j < (r - 1); j++) {
+                        
+                        if ((red[j+1] - red[j]) == 1){//Encuentro numeros seguidos
+                            raux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (raux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            raux=0;
+                    }
+                    //Imprimo
+                    if (raux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else {
+                    
+                    for (int j = 0; j < (y - 1); j++) {
+                        
+                        if ((yellow[j+1] - yellow[j]) == 1){//Encuentro numeros seguidos
+                            yaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if (yaux > 1) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            yaux = 0;
+                    }
+                    //Imprimo
+                    if (yaux <= 1) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+            }//Termino de analizar carreras
+            //Inicio a comparar por grupos
+            for (i = 0; i < n; i++) {
+                
+                switch (row[i].charAt(1)) {
+                    case 'b':
+                        bx++;
+                        break;
+                    case 'g':
+                        gx++;
+                        break;
+                    case 'r':
+                        rx++;
+                        break;
+                    case 'y':
+                        yx++;
+                        break;
+                    default:
+                        break;
+                }
+                
+                for (int j = 1; j < n; j++) {
+                    
+                    if ((i != j) && (row[i].charAt(0) == row[j].charAt(0))) {
+                        
+                        switch (row[j].charAt(1)) {
+                            case 'b':
+                                bx++;
+                                break;
+                            case 'g':
+                                gx++;
+                                break;
+                            case 'r':
+                                rx++;
+                                break;
+                            case 'y':
+                                yx++;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                
+                if ((bx == 1) && (gx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (rx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+            
+                else if ((gx == 1) && (rx == 1) && (yx == 1)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+            }
+            
+            if (boo == false) 
+                System.out.println("NO");
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools Templates
+ * and open the template in the editor.
+ */
+package pie;
+import java.util.Scanner;
+import java.util.Arrays;
+/**
+ *
+ */
+public class PIE {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n, cases;
+        Scanner sc = new Scanner(System.in);
+        cases = sc.nextInt();//Pido el numero de casos
+        
+        for (int k = 0; k < cases; k++) {//Ciclo para cada caso
+            n = sc.nextInt();//Pido el numero de fichas
+            String [] row = new String [n];
+            int i, b = 0, g = 0, r = 0, y = 0;
+            int ib = 0, ig = 0, ir = 0, iy = 0;
+            int baux = 0, gaux = 0, raux = 0, yaux = 0;
+            int bx = 0, gx = 0, rx = 0, yx = 0;
+            boolean boo = false;
+            
+            for (i = 0; i < n; i++) {
+                row[i] = sc.next();//Relleno el arreglo de fichas
+                
+                switch (row[i].charAt(1)) {//Cuento el numero de fichas de cada color
+                    case 'b':
+                        b++;
+                        break;
+                    case 'g':
+                        g++;
+                        break;
+                    case 'r':
+                        r++;
+                        break;
+                    case 'y':
+                        y++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            int [] blue = new int[b];//Creo los arreglos para cada color
+            int [] green = new int[g];
+            int [] red = new int[r];
+            int [] yellow = new int[y];
+            
+            if ((b > 2) || (g > 2) || (r > 2) || (y > 2)) {//Inicio a analizar carreras
+                
+                for (i = 0; i < n; i++) {//Almaceno los numeros de cada ficha en arreglos
+                    
+                    switch (row[i].charAt(1)) {
+                        case 'b':
+                            blue[ib] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ib++;
+                            break;
+                        case 'g':
+                            green[ig] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ig++;
+                            break;
+                        case 'r':
+                            red[ir] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            ir++;
+                            break;
+                        case 'y':
+                            yellow[iy] = Integer.parseInt(String.valueOf(row[i].charAt(0)));
+                            iy++;
+                            break;
+                        default:
+                            break;
+                    }   
+                }
+                Arrays.sort(blue);//Ordeno arreglos de los numeros por color
+                Arrays.sort(green);
+                Arrays.sort(red);
+                Arrays.sort(yellow);
+                
+                if (b > 2) {//Comparo si tengo carrera por cada color
+                    
+                    for (int j = 0; j < (b - 1); j++) {
+                        
+                        if ((blue[j+1] - blue[j]) == 1){//Encuentro numeros seguidos
+                            baux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if ((baux > 1) && (boo == false)) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            baux=0;
+                    }
+                    //Imprimo
+                    if ((baux <= 1) && (boo == false)) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (g > 2) {
+                    
+                    for (int j = 0; j < (g - 1); j++) {
+                        
+                        if ((green[j+1] - green[j]) == 1){//Encuentro numeros seguidos
+                            gaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if ((gaux > 1) && (boo == false)) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            gaux=0;
+                    }
+                    //Imprimo
+                    if ((gaux <= 1) && (boo == false)) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else if (r > 2) {
+                    
+                    for (int j = 0; j < (r - 1); j++) {
+                        
+                        if ((red[j+1] - red[j]) == 1){//Encuentro numeros seguidos
+                            raux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if ((raux > 1) && (boo == false)) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            raux=0;
+                    }
+                    //Imprimo
+                    if ((raux <= 1) && (boo == false)) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+                
+                else {
+                    
+                    for (int j = 0; j < (y - 1); j++) {
+                        
+                        if ((yellow[j+1] - yellow[j]) == 1){//Encuentro numeros seguidos
+                            yaux++;//Almaceno las veces que encontre numeros seguidos
+                            
+                            if ((yaux > 1) && (boo == false)) {
+                                System.out.println("YES");
+                                boo = true;
+                            }
+                        }
+                        
+                        else//Si llega a suceder que no
+                            yaux = 0;
+                    }
+                    //Imprimo
+                    if ((yaux <= 1) && (boo == false)) {
+                        System.out.println("NO");
+                        boo = true;
+                    }
+                }
+            }//Termino de analizar carreras
+            //Inicio a comparar por grupos
+            for (i = 0; i < n; i++) {
+                
+                switch (row[i].charAt(1)) {
+                    case 'b':
+                        bx++;
+                        break;
+                    case 'g':
+                        gx++;
+                        break;
+                    case 'r':
+                        rx++;
+                        break;
+                    case 'y':
+                        yx++;
+                        break;
+                    default:
+                        break;
+                }
+                
+                for (int j = 1; j < n; j++) {
+                    
+                    if ((i != j) && (row[i].charAt(0) == row[j].charAt(0))) {
+                        
+                        switch (row[j].charAt(1)) {
+                            case 'b':
+                                bx++;
+                                break;
+                            case 'g':
+                                gx++;
+                                break;
+                            case 'r':
+                                rx++;
+                                break;
+                            case 'y':
+                                yx++;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                
+                if ((bx == 1) && (gx == 1) && (rx == 1) && (yx == 1) && (boo == false)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (rx == 1) && (boo == false)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (gx == 1) && (yx == 1) && (boo == false)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+                
+                else if ((bx == 1) && (rx == 1) && (yx == 1) && (boo == false)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+            
+                else if ((gx == 1) && (rx == 1) && (yx == 1) && (boo == false)) {
+                    System.out.println("YES");
+                    boo = true;
+                }
+            }
+            
+            if (boo == false) 
+                System.out.println("NO");
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ejerciciob;
+
+import java.util.Scanner;
+
+/**
+ *
+
+ */
+// BinaryHeap class
+//
+// CONSTRUCTION: with optional capacity (that defaults to 100)
+//               or an array containing initial items
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// Comparable deleteMin( )--> Return and remove smallest item
+// Comparable findMin( )  --> Return smallest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements a binary heap.
+ * Note that all "matching" is based on the compareTo method.
+ * @param <T>
+ */
+class BinaryHeap<T extends Comparable<? super T>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (T[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( T [ ] items )
+    {
+            currentSize = items.length;
+            array = (T[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( T item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( T x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            T [] old = array;
+            array = (T []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public T findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public T deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        T minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private T [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        T tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+}
+
+public class EjercicioB {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+        int casos=entrada.nextInt();        
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            int tamano=entrada.nextInt();
+            String xm= entrada.nextLine();
+            int []array= new int[tamano];
+            BinaryHeap <Integer> priorityqueue= new BinaryHeap<>();
+            String [] cad=entrada.nextLine().split(" ");
+            for (int j = 0; j < tamano; j++) {
+                  array[j]=Integer.parseInt(cad[j]);
+                  priorityqueue.insert(array[j]);                  
+            }
+            int aux=0; 
+            int aux1=0;   
+            int suma=0;
+            int contador=0;
+            while(!priorityqueue.isEmpty()) {
+                if(tamano==1)
+                    break;
+                aux=priorityqueue.deleteMin();
+                tamano--;
+                aux1=priorityqueue.deleteMin();
+                tamano--;
+                suma=aux+aux1;
+                priorityqueue.insert(suma);
+                tamano++;
+                contador+=suma;
+                }
+                System.out.println(contador);
+            
+            }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ejerciciob;
+
+import java.util.Scanner;
+
+/**
+ *
+
+ */
+// BinaryHeap class
+//
+// CONSTRUCTION: with optional capacity (that defaults to 100)
+//               or an array containing initial items
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// Comparable deleteMin( )--> Return and remove smallest item
+// Comparable findMin( )  --> Return smallest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements a binary heap.
+ * Note that all "matching" is based on the compareTo method.
+ * @param <T>
+ */
+class BinaryHeap<T extends Comparable<? super T>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (T[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( T [ ] items )
+    {
+            currentSize = items.length;
+            array = (T[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( T item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( T x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            T [] old = array;
+            array = (T []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public T findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public T deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        T minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private T [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        T tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+}
+
+public class EjercicioB {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+        int casos=entrada.nextInt();        
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            int tamano=entrada.nextInt();
+            String xm= entrada.nextLine();
+            int []array= new int[tamano];
+            BinaryHeap <Integer> priorityqueue= new BinaryHeap<>();
+            String [] cad=entrada.nextLine().split(" ");
+            for (int j = 0; j < tamano; j++) {
+                  array[j]=Integer.parseInt(cad[j]);
+                  priorityqueue.insert(array[j]);                  
+            }
+            int aux=0; 
+            int aux1=0;   
+            int suma=0;
+            int contador=0;
+            while(!priorityqueue.isEmpty()) {
+                if(tamano==1)
+                    break;
+                aux=priorityqueue.deleteMin();
+                tamano--;
+                aux1=priorityqueue.deleteMin();
+                tamano--;
+                suma=aux+aux1;
+                priorityqueue.insert(suma);
+                tamano++;
+                contador+=suma;
+                }
+                System.out.println(contador);
+            
+            }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicioc;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+
+class Union{
+int MAX=100+10;
+int [][] father=new int [MAX][MAX];
+void init() {
+    for(int i = 0; i < MAX; i++)
+        for(int j = 0; j < MAX; j++)
+            father[i][j] = i;
+}
+
+int find(int x, int c) {
+    if(x == father[x][c]) return x;
+    return father[x][c] = find(father[x][c], c);
+}
+
+void unir(int from,int sport,int to) {
+    father[find(from, sport)][sport] = find(to, sport);
+}
+}
+public class EjercicioC {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+        int casos=entrada.nextInt();
+        int from;
+        int to;
+        int sport;
+        for (int i = 0; i < casos; i++) {
+        System.out.println("Case #"+(i+1)+":");
+        Union conjunto= new Union();
+        conjunto.init();
+        int n=entrada.nextInt();
+        int m=entrada.nextInt();
+            for (int j = 0; j < m; j++) {
+                from=entrada.nextInt();
+                to=entrada.nextInt();
+                sport=entrada.nextInt();
+                if(conjunto.find(from,sport)!=conjunto.find(to, sport)) {
+                    conjunto.unir(from,sport,to);
+                }
+            }
+            int t=entrada.nextInt();
+            
+            for (int j = 0; j < t; j++) {      
+                int ans=0;
+                from=entrada.nextInt();
+                to=entrada.nextInt();              
+                for (int k = 0; k <=m; k++) {    
+                    if((conjunto.find(from,k))==(conjunto.find(to,k))){
+                        ans++;                   
+                    }
+                }
+                System.out.println(ans);
+              }
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejerciciod;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+class WeightedUFPathCompration {
+
+	int[] id;
+	private int[] sz;
+
+	public WeightedUFPathCompration(int lenght) {
+
+		id = new int[lenght];
+		sz = new int[lenght];
+
+		for (int i = 0; i < id.length; i++) {
+			id[i] = i;
+			sz[i] = 1;
+		}
+	}
+
+	public boolean isConnected(int p, int q) {
+		return find(p) == find(q);
+	}
+
+	public void union(int p, int q) {
+		int i = find(p);
+		int j = find(q);
+
+		if (sz[i] < sz[j]) {
+			id[i] = j;
+			sz[j] += sz[i];
+		} else {
+			id[j] = i;
+			sz[i] += sz[j];
+		}
+	}
+
+	public int find(int idx) {
+		int root = idx;
+
+		while (root != id[root])
+			root = id[root];
+		while (idx != root) {
+			int newIdx = id[idx];
+			id[idx] = root;
+			idx = newIdx;
+		}
+		return root;
+	}
+}
+public class EjercicioD {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+         Scanner entrada= new Scanner(System.in);
+        int casos=entrada.nextInt();  
+        String xm= entrada.nextLine();               
+        for (int i = 0; i < casos; i++) { 
+            String [] cad=entrada.nextLine().split(" "); 
+            System.out.println("Case #"+(i+1)+":");
+             int estudiante1= 0;
+             int estudiante2= 0;
+             int estudiantes= Integer.parseInt(cad[0]);
+             int parejas=Integer.parseInt(cad[1]);
+             WeightedUFPathCompration conjunto= new WeightedUFPathCompration (estudiantes+1);             
+             int counter=0;
+             for (int j = 0; j < parejas; j++) {
+                String [] cadena=entrada.nextLine().split(" ");  
+                estudiante1=Integer.parseInt(cadena[0]);
+                estudiante2=Integer.parseInt(cadena[1]);
+                conjunto.union(estudiante1,estudiante2);                
+            } 
+             for (int j = 1; j < conjunto.id.length; j++) {
+                if (j==conjunto.id[j])
+                    counter++;                
+            }
+            System.out.println(counter); 
+        }   
+    
+    }
+} 
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicioa;
+
+/**
+ *
+ */
+import java.io.File;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+
+/**
+ * Separate chaining table implementation of hash tables.
+ * Note that all "matching" is based on the equals method.
+ * @param <AnyType>
+ */
+class Separate<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public Separate( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public Separate( int size )
+    {
+        colisiones=0;
+        theLists = new LinkedList[ size ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        if(!whichList.isEmpty())
+            colisiones++;        
+        whichList.add( x );         
+    }
+    
+    public List<AnyType> getList( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+         
+        return whichList;
+    }
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x )
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    List<AnyType> [ ] theLists; 
+    private int currentSize;
+    int colisiones;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+  
+}
+class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;
+		private AnyType[] array;
+
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		@SuppressWarnings("unchecked")
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		@SuppressWarnings({ "unchecked", "unused" })
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		@SuppressWarnings("unchecked")
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+		
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+public class EjercicioA {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
+        // TODO code application logic here
+        
+        Scanner entrada;       
+        entrada= new Scanner(System.in);
+        int casos=Integer.parseInt(entrada.nextLine());
+        
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            String [] comandos= entrada.nextLine().split(" ");
+            int comands=Integer.parseInt(comandos[0]);
+            int funciones= Integer.parseInt(comandos[1]);
+            String [] numeros= entrada.nextLine().split(" ");        
+            String [] func= entrada.nextLine().split(" ");  
+            
+            Separate<Integer> set=new Separate<>(Integer.parseInt(func[0]));     
+            
+            for (int j = 0; j < comands; j++) {
+              set.insert(Integer.parseInt(numeros[j]));              
+            }
+            int colision=set.colisiones;
+            int funcion=Integer.parseInt(func[0]);
+            
+            
+            for (int j = 1; j < funciones; j++) {
+                set=new Separate<>(Integer.parseInt(func[j]));
+                for (int k = 0; k < comands; k++) {
+                    set.insert(Integer.parseInt(numeros[k]));              
+                  }
+                if(set.colisiones<colision){
+                    colision=set.colisiones;
+                    funcion=Integer.parseInt(func[j]);
+                }
+                if(set.colisiones==colision){
+                    if(Integer.parseInt(func[j])<funcion)
+                       funcion=Integer.parseInt(func[j]);
+                }
+                
+            }
+            set=new Separate<>(funcion);
+            for (int j = 0; j < comands; j++) {
+              set.insert(Integer.parseInt(numeros[j]));              
+            }
+            System.out.println(funcion);
+            System.out.println(colision);
+            BinaryHeap<Integer> heap=new BinaryHeap<>();
+            for(List <Integer> lista:set.theLists){
+                Collections.sort(lista);
+                if(lista.size()>1)
+                    heap.insert(lista.get(0));
+            }
+            for (int j = 0; !heap.isEmpty(); j++) {
+                List<Integer>listb=set.getList(heap.deleteMin());
+                String salida="";
+                for(Integer a:listb)
+                    salida=salida+a+" ";
+                System.out.println(salida);
+            }
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicioa;
+
+/**
+ *
+ */
+import java.io.File;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+
+/**
+ * Separate chaining table implementation of hash tables.
+ * Note that all "matching" is based on the equals method.
+ * @param <AnyType>
+ */
+class Separate<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public Separate( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public Separate( int size )
+    {
+        colisiones=0;
+        theLists = new LinkedList[ size ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        if(!whichList.isEmpty())
+            colisiones++;        
+        whichList.add( x );         
+    }
+    
+    public List<AnyType> getList( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+         
+        return whichList;
+    }
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x )
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    List<AnyType> [ ] theLists; 
+    private int currentSize;
+    int colisiones;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+  
+}
+class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;
+		private AnyType[] array;
+
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		@SuppressWarnings("unchecked")
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		@SuppressWarnings({ "unchecked", "unused" })
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		@SuppressWarnings("unchecked")
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+		
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+public class EjercicioA {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
+        // TODO code application logic here
+        
+        Scanner entrada;       
+        entrada= new Scanner(System.in);
+        int casos=Integer.parseInt(entrada.nextLine());
+        
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            String [] comandos= entrada.nextLine().split(" ");
+            int comands=Integer.parseInt(comandos[0]);
+            int funciones= Integer.parseInt(comandos[1]);
+            String [] numeros= entrada.nextLine().split(" ");        
+            String [] func= entrada.nextLine().split(" ");  
+            
+            Separate<Integer> set=new Separate<>(Integer.parseInt(func[0]));     
+            
+            for (int j = 0; j < comands; j++) {
+              set.insert(Integer.parseInt(numeros[j]));              
+            }
+            int colision=set.colisiones;
+            int funcion=Integer.parseInt(func[0]);
+            
+            
+            for (int j = 1; j < funciones; j++) {
+                set=new Separate<>(Integer.parseInt(func[j]));
+                for (int k = 0; k < comands; k++) {
+                    set.insert(Integer.parseInt(numeros[k]));              
+                  }
+                if(set.colisiones<colision){
+                    colision=set.colisiones;
+                    funcion=Integer.parseInt(func[j]);
+                }
+                if(set.colisiones==colision){
+                    if(Integer.parseInt(func[j])<funcion)
+                       funcion=Integer.parseInt(func[j]);
+                }
+                
+            }
+            set=new Separate<>(funcion);
+            for (int j = 0; j < comands; j++) {
+              set.insert(Integer.parseInt(numeros[j]));              
+            }
+            System.out.println(funcion);
+            System.out.println(colision);
+            BinaryHeap<Integer> heap=new BinaryHeap<>();
+            for(List <Integer> lista:set.theLists){
+                Collections.sort(lista);
+                if(lista.size()>1)
+                    heap.insert(lista.get(0));
+            }
+            for (int j = 0; !heap.isEmpty(); j++) {
+                List<Integer>listb=set.getList(heap.deleteMin());
+                String salida="";
+                for(Integer a:listb)
+                    salida=salida+a+" ";
+                System.out.println(salida);
+            }
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejerciciob;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ *
+ */
+class Food{
+    int ids=0;
+    int cant=0;
+    public Food(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class EjercicioB {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+
+        int casos=Integer.parseInt(entrada.nextLine());
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            int comands=Integer.parseInt(entrada.nextLine());
+            int count=0;
+            HashMap<Integer,Food> comidas = new HashMap<>();  
+            for (int j = 0; j < comands; j++) {
+             String [] estanque= entrada.nextLine().split(" ");
+              int comida=Integer.parseInt(estanque[0]);
+              int pokemon=Integer.parseInt(estanque[1]); 
+		if(comida != pokemon){			
+			if(comidas.containsKey(comida)) // este if - else lo que hace es recoger la comida que le manda la linea
+				comidas.get(comida).cant++;
+			else
+				comidas.put(comida, new Food(comida, 1));
+			if(comidas.containsKey(pokemon)){ // este if - else lo que hace es mirar si tiene una comida que coincida con el pokemon
+								// si la tiene lo que va a hacer es disminuir la cantidad de esa comida, y si no la tiene aumenta el contador
+				comidas.get(pokemon).cant--;
+				if(comidas.get(pokemon).cant < 1) // elimina esa comida
+					comidas.remove(pokemon);
+			}else
+				count++;
+		}                 
+            }
+            System.out.println(count);            
+        }            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejerciciob;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ *
+ */
+class Food{
+    int ids=0;
+    int cant=0;
+    public Food(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class EjercicioB {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+
+        int casos=Integer.parseInt(entrada.nextLine());
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            int comands=Integer.parseInt(entrada.nextLine());
+            int count=0;
+            HashMap<Integer,Food> comidas = new HashMap<>();  
+            for (int j = 0; j < comands; j++) {
+             String [] estanque= entrada.nextLine().split(" ");
+              int comida=Integer.parseInt(estanque[0]);
+              int pokemon=Integer.parseInt(estanque[1]); 
+		if(comida != pokemon){			
+			if(comidas.containsKey(comida)) // este if - else lo que hace es recoger la comida que le manda la linea
+				comidas.get(comida).cant++;
+			else
+				comidas.put(comida, new Food(comida, 1));
+			if(comidas.containsKey(pokemon)){ // este if - else lo que hace es mirar si tiene una comida que coincida con el pokemon
+								// si la tiene lo que va a hacer es disminuir la cantidad de esa comida, y si no la tiene aumenta el contador
+				comidas.get(pokemon).cant--;
+				if(comidas.get(pokemon).cant < 1) // elimina esa comida
+					comidas.remove(pokemon);
+			}else
+				count++;
+		}                 
+            }
+            System.out.println(count);            
+        }            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejerciciod;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+class partidos{
+        String nomp="";
+        int vot=0;
+        public partidos (String partido, int votes){
+        nomp=partido;
+        vot=votes;
+        }
+}
+public class EjercicioD {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+        String []hm=entrada.nextLine().split(" ");
+        int casos=Integer.parseInt(hm[0]);
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            String [] comandos= entrada.nextLine().split(" ");
+            int comands=Integer.parseInt(comandos[0]);
+            HashMap<String,partidos> elecciones= new HashMap<>();
+            
+            for (int j = 0; j < comands; j++) {
+               String [] partidos= entrada.nextLine().split(" ");
+               partidos par=new partidos(partidos[1],0);
+               elecciones.put(partidos[0], par);
+            }
+            String []votes=entrada.nextLine().split(" ");
+            int votos=Integer.parseInt(votes[0]);
+            int aux=0;
+            int mayor=0;  
+            String name="";
+            while(aux<votos){ 
+                name= entrada.nextLine();
+                for(Map.Entry<String,partidos>busqueda:elecciones.entrySet()){
+                if(busqueda.getKey().equals(name)){
+                    busqueda.getValue().vot++;
+                }
+                if(busqueda.getValue().vot>mayor){
+                    mayor=busqueda.getValue().vot;
+                }
+                }
+                
+            aux++;
+            }
+            LinkedList <String> ganadores=new LinkedList<>();
+            for(Map.Entry<String,partidos>busqueda1:elecciones.entrySet()){
+                if(busqueda1.getValue().vot==mayor){
+                    ganadores.add(busqueda1.getValue().nomp);
+                
+                }
+            }
+            Collections.sort(ganadores);
+            for (String ganadore : ganadores) {
+                System.out.println(ganadore);                
+            }
+            }
+            }
+ }
+        
+    
+    
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejerciciod;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+class partidos{
+        String nomp="";
+        int vot=0;
+        public partidos (String partido, int votes){
+        nomp=partido;
+        vot=votes;
+        }
+}
+public class EjercicioD {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+        String []hm=entrada.nextLine().split(" ");
+        int casos=Integer.parseInt(hm[0]);
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            String [] comandos= entrada.nextLine().split(" ");
+            int comands=Integer.parseInt(comandos[0]);
+            HashMap<String,partidos> elecciones= new HashMap<>();
+            
+            for (int j = 0; j < comands; j++) {
+               String [] partidos= entrada.nextLine().split(" ");
+               partidos par=new partidos(partidos[1],0);
+               elecciones.put(partidos[0], par);
+            }
+            String []votes=entrada.nextLine().split(" ");
+            int votos=Integer.parseInt(votes[0]);
+            int aux=0;
+            int mayor=0;  
+            String name="";
+            while(aux<votos){ 
+                name= entrada.nextLine();
+                for(Map.Entry<String,partidos>busqueda:elecciones.entrySet()){
+                if(busqueda.getKey().equals(name)){
+                    busqueda.getValue().vot++;
+                }
+                if(busqueda.getValue().vot>mayor){
+                    mayor=busqueda.getValue().vot;
+                }
+                }
+                
+            aux++;
+            }
+            LinkedList <String> ganadores=new LinkedList<>();
+            for(Map.Entry<String,partidos>busqueda1:elecciones.entrySet()){
+                if(busqueda1.getValue().vot==mayor){
+                    ganadores.add(busqueda1.getValue().nomp);
+                
+                }
+            }
+            Collections.sort(ganadores);
+            for (String ganadore : ganadores) {
+                System.out.println(ganadore);                
+            }
+            }
+            }
+ }
+        
+    
+    
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package EjercicioE;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+/**
+ *
+ */
+class Food{
+    int ids=0;
+    int cant=0;
+    public Food(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class EjercicioE {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+
+        int casos=Integer.parseInt(entrada.nextLine());
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            int comands=Integer.parseInt(entrada.nextLine());
+            int count=0;
+            HashMap<Integer,Food> comidas = new HashMap<>();  
+            TreeMap<Integer,Food> aux = new TreeMap<>();
+            for (int j = 0; j < comands; j++) {
+             String [] estanque= entrada.nextLine().split(" ");
+              int comida=Integer.parseInt(estanque[0]);
+              int pokemon=Integer.parseInt(estanque[1]); 
+		if(comida != pokemon){			
+			if(comidas.containsKey(comida)) 
+				comidas.get(comida).cant++;
+			else
+				comidas.put(comida, new Food(comida, 1));
+			if(comidas.containsKey(pokemon)){ 
+								
+				comidas.get(pokemon).cant--;
+				if(comidas.get(pokemon).cant < 1) 
+					comidas.remove(pokemon);
+			}else{
+                            count++;
+                            if(!aux.containsKey(pokemon))
+                                aux.put(pokemon,new Food(pokemon,1));
+                            else
+                                aux.get(pokemon).cant++;
+                        }
+		}                 
+            }
+            System.out.println(count);     
+            for(Map.Entry<Integer,Food> busqueda: aux.entrySet()){
+               Integer key=busqueda.getKey();
+               Food am=busqueda.getValue();
+                System.out.println(key+" "+am.cant);
+            }
+        }            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package EjercicioE;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+/**
+ *
+ */
+class Food{
+    int ids=0;
+    int cant=0;
+    public Food(int id, int cantidad){
+    ids=id;
+    cant=cantidad;
+    }    
+}
+public class EjercicioE {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada= new Scanner(System.in);
+
+        int casos=Integer.parseInt(entrada.nextLine());
+
+        for (int i = 0; i < casos; i++) {
+            System.out.println("Case #"+(i+1)+":");
+            int comands=Integer.parseInt(entrada.nextLine());
+            int count=0;
+            HashMap<Integer,Food> comidas = new HashMap<>();  
+            TreeMap<Integer,Food> aux = new TreeMap<>();
+            for (int j = 0; j < comands; j++) {
+             String [] estanque= entrada.nextLine().split(" ");
+              int comida=Integer.parseInt(estanque[0]);
+              int pokemon=Integer.parseInt(estanque[1]); 
+		if(comida != pokemon){			
+			if(comidas.containsKey(comida)) 
+				comidas.get(comida).cant++;
+			else
+				comidas.put(comida, new Food(comida, 1));
+			if(comidas.containsKey(pokemon)){ 
+								
+				comidas.get(pokemon).cant--;
+				if(comidas.get(pokemon).cant < 1) 
+					comidas.remove(pokemon);
+			}else{
+                            count++;
+                            if(!aux.containsKey(pokemon))
+                                aux.put(pokemon,new Food(pokemon,1));
+                            else
+                                aux.get(pokemon).cant++;
+                        }
+		}                 
+            }
+            System.out.println(count);     
+            for(Map.Entry<Integer,Food> busqueda: aux.entrySet()){
+               Integer key=busqueda.getKey();
+               Food am=busqueda.getValue();
+                System.out.println(key+" "+am.cant);
+            }
+        }            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,173 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main (String[] args){
+		int i = 0;
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()){
+			i = sc.nextInt();
+			if ((i%3 == 0) && (i%5 == 0)){
+				System.out.println("Fuzz Buzz");
+			} else if(i%3 == 0) {
+				System.out.println("Fuzz");
+			} else if (i%5 == 0) {
+				System.out.println("Buzz");
+			}  else {
+				System.out.println(i);
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ */
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] p_array;
+        p_array = new int[n];
+        for (int i = 0; i<n; i++) {
+            p_array[i] = sc.nextInt();
+        }
+        Arrays.sort(p_array);
+         int mx0 = p_array[p_array.length-1];
+         int mx1 = p_array[p_array.length-2];
+         System.out.println(mx0*mx1); 
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+run:
+7
+1 2 3 8 4 1 10 
+80
+BUILD SUCCESSFUL (total time: 15 seconds)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        long[] p_array;
+        p_array = new long[n];
+        for (int i = 0; i < n; i++) {
+            p_array[i] = sc.nextLong();
+        }
+        Arrays.sort(p_array);
+        long mx0 = p_array[p_array.length - 1];
+        long mx1 = p_array[p_array.length - 2];
+
+        System.out.println(mx0 * mx1);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void Add (List<Integer> l , int x , int pos ){
+		if (pos <= l.size()){
+			l.add(pos,x);
+			System.out.println("insertar: posicion valida");
+		}else
+			System.out.println("insertar: posicion invalida");
+	}
+
+	public static void Consult (List<Integer> l, int pos){
+		if (pos < l.size())
+			System.out.println("consulta: " + l.get(pos));
+		else
+			System.out.println("consulta: no encontrado");
+	}
+
+	public static void Delete(List<Integer> l , int pos){
+		if (pos < l.size()){
+			l.remove(pos);
+			System.out.println("eliminar: posicion valida");
+		} else
+			System.out.println("eliminar: posicion invalida");
+	}
+
+	public static void Search (List<Integer> l , int x ){
+		if (l.contains(x))
+			System.out.println("buscar: " + l.indexOf(x));
+		else
+			System.out.println("no existe numero");
+	}
+
+	public static void Cost (int ac , int lc ){
+		System.out.println("costo: " +ac +"  "+ lc);
+	}
+
+	public static void main ( String args[]){
+		Scanner sc = new Scanner (System.in);
+		int T =sc.nextInt();
+		ArrayList<Integer> arr = new ArrayList<>();
+		int AccumArray =0;
+		int AccumLinked=0;
+		for ( int i = 0 ; i< T ; i++){
+			int cases = sc.nextInt();
+			System.out.println("Caso #" + (i+1) +" :");
+			for (int j=0 ; j < cases ; j++){
+				String s = sc.next();
+				if (s.contains("insertar")){
+					int x = sc.nextInt();
+					int pos = sc.nextInt();	
+					Add(arr,x,pos);
+					AccumArray = arr.size();
+					AccumLinked += arr.size();
+				}
+				else if(s.contains("consultar")){
+					int pos = sc.nextInt();
+					Consult(arr,pos);
+					AccumLinked += arr.size();
+
+				}
+				else if(s.contains("eliminar")){
+					int pos = sc.nextInt();
+					Delete (arr,pos);
+					AccumArray += arr.size();
+					AccumLinked = arr.size();
+				}
+				else if(s.contains("buscar")){
+					int x = sc.nextInt();
+					Search(arr,x);
+					AccumArray += arr.size();
+					AccumLinked += arr.size();
+				}
+				else if(s.contains("costo"))
+					Cost(AccumArray,AccumLinked);
+				/*else{
+					System.out.println("failure");
+				}*/
+			}
+		}
+	}
+}
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

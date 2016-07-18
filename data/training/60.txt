@@ -1,0 +1,5378 @@
+package Laboratorio;
+
+import java.util.Scanner;
+
+public class LaboratorioA {
+
+	static Scanner leer = new Scanner(System.in);
+	static long tamano = 0;
+	static long valor = 0;
+	static long positivo1 = 0;
+	static long positivo2 = 0;
+	static long negativo1 = 0;
+	static long negativo2 = 0;
+	static long respP = 0;
+	static long respN = 0;
+
+	public static void main(String[] args) {
+
+		tamano = leer.nextLong();
+		long[] num = new long[(int) tamano];
+
+		for (int i = 0; i < num.length; i++) {
+			valor = leer.nextLong();
+			num[i] = valor;
+
+			if (positivo1 < num[i] && positivo2 < num[i]) {
+				positivo1 = positivo2;
+				positivo2 = num[i];
+			} else if (positivo1 < num[i]) {
+				positivo1 = num[i];
+			} else if (negativo1 > num[i] && negativo2 > num[i]) {
+				negativo1 = negativo2;
+				negativo2 = num[i];
+			} else if (negativo1 > num[i]) {
+				negativo1 = num[i];
+			}
+
+			respP = positivo1 * positivo2;
+			respN = negativo1 * negativo2;
+		}
+
+		if (respP >= respN) {
+			System.out.println(respP);
+		} else {
+			System.out.println(respN);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class LaboratorioB {
+	static int tablero[][];
+	static int lado;
+	static int valor;
+	static int valores;
+	static int filas[];
+	static int columnas[];
+	static int temp;
+	static int a, b;
+	static int i = 0;
+
+	public static void main(String[] args) {
+		Scanner leer = null;
+		try {
+			leer = new Scanner(new File("LaboratorioB.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		while (leer.hasNext()) {
+			i++;
+			lado = leer.nextInt();
+			tablero = new int[lado][lado];
+			valores = lado * lado;
+			filas = new int[lado];
+			columnas = new int[lado];
+
+			// ACOMODAR VALORES
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					valor = leer.nextInt();
+					tablero[i][j] = valor;
+					temp += valor;
+				}
+				filas[i] = temp;
+				temp = 0;
+			}
+			for (int j = 0; j < lado; j++) {
+				for (int i = 0; i < lado; i++) {
+					temp += tablero[i][j];
+				}
+				columnas[j] = temp;
+				temp = 0;
+			}
+
+			// COMPARACION
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					if (filas[i] < columnas[j]) {
+						a = i;
+						b = j;
+					}
+				}
+			}
+			if (lado == 1) {
+				System.out.println("Case #" + i + ":");
+				System.out.println("0");
+			} else {
+				System.out.println("Case #" + i + ":");
+				System.out.println(tablero[a][b]);
+			}
+			//
+			// for (int i = 0; i < lado; i++) {
+			// for (int j = 0; j < lado; j++) {
+			// System.out.print("|" + tablero[i][j]);
+			// }
+			// System.out.println("|");
+			// }
+		}
+
+	}
+}
+// <>
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio;
+
+import java.util.Scanner;
+
+public class LaboratorioC {
+
+	static Scanner sc = new Scanner(System.in);
+	static int T, N, temp;
+	static int val[];
+
+	public static void main(String[] args) {
+		T = sc.nextInt();
+		val = new int[T];
+
+		for (int x = 0; x < T; x++) {
+			temp = 0;
+			N = sc.nextInt();
+
+			int equipos[][] = new int[N][2];
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < 2; j++) {
+					equipos[i][j] = sc.nextInt();
+				}
+			}
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					if (i == j) {
+						continue;
+					}
+					if (equipos[i][0] == equipos[j][1]) {
+						temp++;
+						val[x] = temp;
+					}
+				}
+			}
+		}
+		for (int i = 0; i < T; i++) {
+			System.out.println("Case #" + (i + 1) + ":");
+			System.out.println(val[i]);
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio;
+
+import java.util.Scanner;
+
+public class LaboratorioB {
+	static int tablero[][];
+	static int lado;
+	static int valor;
+	static int valores;
+	static int filas[];
+	static int columnas[];
+	static int temp;
+	static int a, b;
+	static int i = 0;
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = null;
+		// try {
+		// leer = new Scanner(new File("LaboratorioB.txt"));
+		// } catch (FileNotFoundException e) {
+		// e.printStackTrace();
+		// }
+		leer = new Scanner(System.in);
+		while (leer.hasNext()) {
+			i++;
+			lado = leer.nextInt();
+			tablero = new int[lado][lado];
+			valores = lado * lado;
+			filas = new int[lado];
+			columnas = new int[lado];
+
+			// ACOMODAR VALORES
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					valor = leer.nextInt();
+					tablero[i][j] = valor;
+					temp += valor;
+				}
+				filas[i] = temp;
+				temp = 0;
+			}
+			for (int j = 0; j < lado; j++) {
+				for (int i = 0; i < lado; i++) {
+					temp += tablero[i][j];
+				}
+				columnas[j] = temp;
+				temp = 0;
+			}
+
+			// COMPARACION
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					if (filas[i] < columnas[j]) {
+						a = i;
+						b = j;
+					}
+				}
+			}
+			if (lado == 1) {
+				System.out.println("Case #" + i + ":");
+				System.out.println("0");
+			} else {
+				System.out.println("Case #" + i + ":");
+				System.out.println(tablero[a][b]);
+			}
+		}
+
+	}
+}
+// <>
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class LaboratorioB {
+	static long tablero[][];
+	static int lado;
+	static long valor;
+	static long valores;
+	static long filas[];
+	static long columnas[];
+	static int temp;
+	static int a;
+	static int i = 0;
+
+	public static void main(String[] args) {
+		Scanner leer = null;
+		try {
+			leer = new Scanner(new File("LaboratorioB.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		while (leer.hasNext()) {
+			i++;
+			lado = leer.nextInt();
+			tablero = new long[lado][lado];
+			valores = lado * lado;
+			filas = new long[lado];
+			columnas = new long[lado];
+
+			// ACOMODAR VALORES
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					valor = leer.nextInt();
+					tablero[i][j] = valor;
+					temp += valor;
+				}
+				filas[i] = temp;
+				temp = 0;
+			}
+			for (int j = 0; j < lado; j++) {
+				for (int i = 0; i < lado; i++) {
+					temp += tablero[i][j];
+				}
+				columnas[j] = temp;
+				temp = 0;
+			}
+			a = 0;
+			// COMPARACION
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					if (filas[i] < columnas[j]) {
+						a++;
+					}
+				}
+			}
+			if (lado == 1) {
+				System.out.println("Case #" + i + ":");
+				System.out.println("0");
+			} else {
+				System.out.println("Case #" + i + ":");
+				System.out.println(a);
+			}
+		}
+	}
+}
+// <>
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio;
+
+import java.util.Scanner;
+
+public class LaboratorioB {
+	static long tablero[][];
+	static int lado;
+	static long valor;
+	static long valores;
+	static long filas[];
+	static long columnas[];
+	static int temp;
+	static int a;
+	static int i = 0;
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		Scanner leer = null;
+
+		leer = new Scanner(System.in);
+		while (leer.hasNext()) {
+			i++;
+			lado = leer.nextInt();
+			tablero = new long[lado][lado];
+			valores = lado * lado;
+			filas = new long[lado];
+			columnas = new long[lado];
+
+			// ACOMODAR VALORES
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					valor = leer.nextInt();
+					tablero[i][j] = valor;
+					temp += valor;
+				}
+				filas[i] = temp;
+				temp = 0;
+			}
+			for (int j = 0; j < lado; j++) {
+				for (int i = 0; i < lado; i++) {
+					temp += tablero[i][j];
+				}
+				columnas[j] = temp;
+				temp = 0;
+			}
+			a = 0;
+			// COMPARACION
+			for (int i = 0; i < lado; i++) {
+				for (int j = 0; j < lado; j++) {
+					if (filas[i] < columnas[j]) {
+						a++;
+					}
+				}
+			}
+			if (lado == 1) {
+				System.out.println("Case #" + i + ":");
+				System.out.println("0");
+			} else {
+				System.out.println("Case #" + i + ":");
+				System.out.println(a);
+			}
+		}
+	}
+}
+// <>
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio;
+
+import java.util.Scanner;
+
+public class LaboratorioF {
+	static Scanner leer;
+	static int tipoTe;
+	static int respuesta[];
+	static int cont;
+
+	public static void main(String[] args) {
+		respuesta = new int[5];
+		cont = 0;
+		leer = new Scanner(System.in);
+		tipoTe = leer.nextInt();
+		for (int i = 0; i < 5; i++) {
+			respuesta[i] = leer.nextInt();
+			if (respuesta[i] == tipoTe) {
+				cont += 1;
+			}
+		}
+		System.out.println(cont);
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Casillero {
+	public int CODusado;
+	public String nombre;
+	public String apellido;
+	public boolean usado;
+
+	public Casillero() {
+		CODusado = 0;
+		nombre = "";
+		apellido = "";
+		usado = false;
+	}
+
+	public int GetUsado() {
+		return CODusado;
+	}
+
+	public boolean isUsado() {
+		return usado;
+	}
+
+	public void setUsado(boolean usado) {
+		this.usado = usado;
+	}
+
+	public int getCODusado() {
+		return CODusado;
+	}
+
+	public void setCODusado(int CODusado) {
+		this.CODusado = CODusado;
+	}
+
+	public void limpiarCasillero() {
+		CODusado = 0;
+		nombre = "";
+		apellido = "";
+		usado = false;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+}
+
+class Cubiculo {
+	public ArrayList<Casillero> Casilleros;
+	public double libres;
+	public double carga;
+	public double tamaño;
+
+	public Cubiculo(int i) {
+		Casilleros = new ArrayList<Casillero>();
+		Casillero casillero;
+		libres = i;
+		for (int j = 0; j < i; j++) {
+			casillero = new Casillero();
+			Casilleros.add(casillero);
+		}
+		tamaño = Casilleros.size();
+		ActualizarCarga();
+	}
+
+	public void ActualizarCarga() {
+		carga = (tamaño - libres) / tamaño;
+	}
+}
+
+class Gimnasio {
+	public ArrayList<Cubiculo> Cubiculos;
+
+	public Gimnasio() {
+		this.Cubiculos = new ArrayList<Cubiculo>();
+	}
+
+	public void CrearCubiculos(int Ncubiculos, int[] Casilleros) {
+		Cubiculo cubiculo;
+		for (int i = 0; i < Ncubiculos; i++) {
+			cubiculo = new Cubiculo(Casilleros[i]);
+			Cubiculos.add(cubiculo);
+		}
+	}
+
+	public int AsignarCasillero(String nombre, String apellido, int codigo, int lugar) {
+		int casilleroasignado = 0;
+		Cubiculo cubiculo = Cubiculos.get(lugar);
+		for (int i = 0; i < cubiculo.Casilleros.size(); i++) {
+			if (cubiculo.Casilleros.get(i).isUsado()) {
+			} else {
+				cubiculo.Casilleros.get(i).setUsado(true);
+				cubiculo.Casilleros.get(i).setNombre(nombre);
+				cubiculo.Casilleros.get(i).setApellido(apellido);
+				cubiculo.Casilleros.get(i).setCODusado(codigo);
+				cubiculo.libres = (cubiculo.libres) - 1;
+				cubiculo.ActualizarCarga();
+				Cubiculos.set(lugar, cubiculo);
+				casilleroasignado = i;
+				break;
+			}
+		}
+		return casilleroasignado;
+	}
+
+	public boolean EspacioCubiculo() {
+		double carga;
+		for (int i = 0; i < Cubiculos.size(); i++) {
+			carga = Cubiculos.get(i).carga;
+			if (carga == 1) {
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public int EncontrarCubiculo() {
+		int espacio = 0;
+		for (int i = 1; i < Cubiculos.size(); i++) {
+			double carga1 = Cubiculos.get(espacio).carga;
+			double carga2 = Cubiculos.get(i).carga;
+			if (carga1 <= carga2) {
+			} else {
+				espacio = i;
+			}
+		}
+		return espacio;
+	}
+
+	public int[] EncontrarCodigo(int codigo) {
+		int[] posicion = new int[2];
+		for (int i = 0; i < Cubiculos.size(); i++) {
+			for (int j = 0; j < Cubiculos.get(i).Casilleros.size(); j++) {
+				if (Cubiculos.get(i).Casilleros.get(j).getCODusado() == codigo) {
+					posicion[0] = i;
+					posicion[1] = j;
+				}
+			}
+		}
+		return posicion;
+	}
+
+	public boolean CodigoUsado(int codigo) {
+		for (int i = 0; i < Cubiculos.size(); i++) {
+			for (int j = 0; j < Cubiculos.get(i).Casilleros.size(); j++) {
+				if (Cubiculos.get(i).Casilleros.get(j).getCODusado() == codigo) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+}
+
+class Persona {
+	public int Nentradas;
+	public int Codigo;
+
+	public Persona() {
+		Nentradas = 0;
+		Codigo = 0;
+	}
+
+	public int getNentradas() {
+		return Nentradas;
+	}
+
+	public void Entrar() {
+		this.Nentradas = this.Nentradas + 1;
+	}
+
+	public int getCodigo() {
+		return Codigo;
+	}
+
+	public void setCodigo(int Codigo) {
+		this.Codigo = Codigo;
+	}
+}
+
+public class PuntoD {
+
+	@SuppressWarnings({ "resource", "unused" })
+	public static void main(String[] args) {
+
+		ArrayList<Persona> estudiantes;
+		int nCubiculos;
+		int[] nCasilleros;
+		String nombre;
+		String apellido;
+		int id;
+		int ubicacionCubiculo;
+		int ubicacionCasillero;
+		int comandos;
+		int nCasos;
+		boolean acceso;
+
+		Scanner leer = new Scanner(System.in);
+		nCasos = leer.nextInt();
+
+		for (int k = 0; k < nCasos; k++) {
+			System.out.println("Caso #" + (k + 1) + ":");
+
+			Gimnasio Gym = new Gimnasio();
+			acceso = false;
+			estudiantes = new ArrayList<Persona>();
+			nCubiculos = leer.nextInt();
+			nCasilleros = new int[nCubiculos];
+
+			for (int i = 0; i < nCubiculos; i++) {
+				nCasilleros[i] = leer.nextInt();
+			}
+
+			Gym.CrearCubiculos(nCubiculos, nCasilleros);
+
+			comandos = leer.nextInt();
+
+			for (int j = 0; j < comandos; j++) {
+
+				switch (leer.next()) {
+
+				case "ingresar":
+
+					Persona estudiante = new Persona();
+					estudiantes.add(estudiante);
+					nombre = leer.next();
+					apellido = leer.next();
+					id = leer.nextInt();
+
+					for (int i = 0; i < estudiantes.size(); i++) {
+
+						if (estudiantes.get(i).getNentradas() == 3) {
+							acceso = true;
+							break;
+						}
+						if (id == estudiantes.get(i).getCodigo()) {
+							estudiantes.get(i).Entrar();
+							break;
+						}
+
+						estudiante.setCodigo(id);
+						estudiante.Entrar();
+						estudiantes.add(estudiante);
+						break;
+
+					}
+					if (acceso) {
+						System.out.println("ingreso denegado");
+					} else {
+						if (Gym.EspacioCubiculo()) {
+							ubicacionCubiculo = Gym.EncontrarCubiculo();
+							System.out.print(ubicacionCubiculo + 1 + " ");
+							ubicacionCasillero = Gym.AsignarCasillero(nombre, apellido, id, ubicacionCubiculo);
+							System.out.println(ubicacionCasillero + 1);
+						} else {
+							System.out.println("limite alcanzado");
+						}
+					}
+					break;
+
+				case "salir":
+					int[] posicion = new int[2];
+					id = leer.nextInt();
+					posicion = Gym.EncontrarCodigo(id);
+					System.out.println(Gym.Cubiculos.get(posicion[0]).Casilleros.get(posicion[1]).getNombre());
+					Gym.Cubiculos.get(posicion[0]).Casilleros.get(posicion[1]).limpiarCasillero();
+					Gym.Cubiculos.get(posicion[0]).libres = Gym.Cubiculos.get(posicion[0]).libres + 1;
+					Gym.Cubiculos.get(posicion[0]).ActualizarCarga();
+					break;
+				}
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Casillero {
+	public int CODusado;
+	public String nombre;
+	public String apellido;
+	public boolean usado;
+
+	public Casillero() {
+		CODusado = 0;
+		nombre = "";
+		apellido = "";
+		usado = false;
+	}
+
+	public int GetUsado() {
+		return CODusado;
+	}
+
+	public boolean isUsado() {
+		return usado;
+	}
+
+	public void setUsado(boolean usado) {
+		this.usado = usado;
+	}
+
+	public int getCODusado() {
+		return CODusado;
+	}
+
+	public void setCODusado(int CODusado) {
+		this.CODusado = CODusado;
+	}
+
+	public void limpiarCasillero() {
+		CODusado = 0;
+		nombre = "";
+		apellido = "";
+		usado = false;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+}
+
+class Cubiculo {
+	public ArrayList<Casillero> Casilleros;
+	public double libres;
+	public double carga;
+	public double tamano;
+
+	public Cubiculo(int i) {
+		Casilleros = new ArrayList<Casillero>();
+		Casillero casillero;
+		libres = i;
+		for (int j = 0; j < i; j++) {
+			casillero = new Casillero();
+			Casilleros.add(casillero);
+		}
+		tamano = Casilleros.size();
+		ActualizarCarga();
+	}
+
+	public void ActualizarCarga() {
+		carga = (tamano - libres) / tamano;
+	}
+}
+
+class Gimnasio {
+	public ArrayList<Cubiculo> Cubiculos;
+
+	public Gimnasio() {
+		this.Cubiculos = new ArrayList<Cubiculo>();
+	}
+
+	public void CrearCubiculos(int Ncubiculos, int[] Casilleros) {
+		Cubiculo cubiculo;
+		for (int i = 0; i < Ncubiculos; i++) {
+			cubiculo = new Cubiculo(Casilleros[i]);
+			Cubiculos.add(cubiculo);
+		}
+	}
+
+	public int AsignarCasillero(String nombre, String apellido, int codigo, int lugar) {
+		int casilleroasignado = 0;
+		Cubiculo cubiculo = Cubiculos.get(lugar);
+		for (int i = 0; i < cubiculo.Casilleros.size(); i++) {
+			if (cubiculo.Casilleros.get(i).isUsado()) {
+			} else {
+				cubiculo.Casilleros.get(i).setUsado(true);
+				cubiculo.Casilleros.get(i).setNombre(nombre);
+				cubiculo.Casilleros.get(i).setApellido(apellido);
+				cubiculo.Casilleros.get(i).setCODusado(codigo);
+				cubiculo.libres = (cubiculo.libres) - 1;
+				cubiculo.ActualizarCarga();
+				Cubiculos.set(lugar, cubiculo);
+				casilleroasignado = i;
+				break;
+			}
+		}
+		return casilleroasignado;
+	}
+
+	public boolean EspacioCubiculo() {
+		double carga;
+		for (int i = 0; i < Cubiculos.size(); i++) {
+			carga = Cubiculos.get(i).carga;
+			if (carga == 1) {
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public int EncontrarCubiculo() {
+		int espacio = 0;
+		for (int i = 1; i < Cubiculos.size(); i++) {
+			double carga1 = Cubiculos.get(espacio).carga;
+			double carga2 = Cubiculos.get(i).carga;
+			if (carga1 <= carga2) {
+			} else {
+				espacio = i;
+			}
+		}
+		return espacio;
+	}
+
+	public int[] EncontrarCodigo(int codigo) {
+		int[] posicion = new int[2];
+		for (int i = 0; i < Cubiculos.size(); i++) {
+			for (int j = 0; j < Cubiculos.get(i).Casilleros.size(); j++) {
+				if (Cubiculos.get(i).Casilleros.get(j).getCODusado() == codigo) {
+					posicion[0] = i;
+					posicion[1] = j;
+				}
+			}
+		}
+		return posicion;
+	}
+
+	public boolean CodigoUsado(int codigo) {
+		for (int i = 0; i < Cubiculos.size(); i++) {
+			for (int j = 0; j < Cubiculos.get(i).Casilleros.size(); j++) {
+				if (Cubiculos.get(i).Casilleros.get(j).getCODusado() == codigo) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+}
+
+class Persona {
+	public int Nentradas;
+	public int Codigo;
+
+	public Persona() {
+		Nentradas = 0;
+		Codigo = 0;
+	}
+
+	public int getNentradas() {
+		return Nentradas;
+	}
+
+	public void Entrar() {
+		this.Nentradas = this.Nentradas + 1;
+	}
+
+	public int getCodigo() {
+		return Codigo;
+	}
+
+	public void setCodigo(int Codigo) {
+		this.Codigo = Codigo;
+	}
+}
+
+public class PuntoD {
+
+	@SuppressWarnings({ "resource", "unused" })
+	public static void main(String[] args) {
+
+		ArrayList<Persona> estudiantes;
+		int nCubiculos;
+		int[] nCasilleros;
+		String nombre;
+		String apellido;
+		int id;
+		int ubicacionCubiculo;
+		int ubicacionCasillero;
+		int comandos;
+		int nCasos;
+		boolean acceso;
+
+		Scanner leer = new Scanner(System.in);
+		nCasos = leer.nextInt();
+
+		for (int k = 0; k < nCasos; k++) {
+			System.out.println("Caso #" + (k + 1) + ":");
+
+			Gimnasio Gym = new Gimnasio();
+			acceso = false;
+			estudiantes = new ArrayList<Persona>();
+			nCubiculos = leer.nextInt();
+			nCasilleros = new int[nCubiculos];
+
+			for (int i = 0; i < nCubiculos; i++) {
+				nCasilleros[i] = leer.nextInt();
+			}
+
+			Gym.CrearCubiculos(nCubiculos, nCasilleros);
+
+			comandos = leer.nextInt();
+
+			for (int j = 0; j < comandos; j++) {
+
+				switch (leer.next()) {
+
+				case "ingresar":
+
+					Persona estudiante = new Persona();
+					estudiantes.add(estudiante);
+					nombre = leer.next();
+					apellido = leer.next();
+					id = leer.nextInt();
+
+					for (int i = 0; i < estudiantes.size(); i++) {
+
+						if (estudiantes.get(i).getNentradas() == 3) {
+							acceso = true;
+							break;
+						}
+						if (id == estudiantes.get(i).getCodigo()) {
+							estudiantes.get(i).Entrar();
+							break;
+						}
+
+						estudiante.setCodigo(id);
+						estudiante.Entrar();
+						estudiantes.add(estudiante);
+						break;
+
+					}
+					if (acceso) {
+						System.out.println("ingreso denegado");
+					} else {
+						if (Gym.EspacioCubiculo()) {
+							ubicacionCubiculo = Gym.EncontrarCubiculo();
+							System.out.print(ubicacionCubiculo + 1 + " ");
+							ubicacionCasillero = Gym.AsignarCasillero(nombre, apellido, id, ubicacionCubiculo);
+							System.out.println(ubicacionCasillero + 1);
+						} else {
+							System.out.println("limite alcanzado");
+						}
+					}
+					break;
+
+				case "salir":
+					int[] posicion = new int[2];
+					id = leer.nextInt();
+					posicion = Gym.EncontrarCodigo(id);
+					System.out.println(Gym.Cubiculos.get(posicion[0]).Casilleros.get(posicion[1]).getNombre());
+					Gym.Cubiculos.get(posicion[0]).Casilleros.get(posicion[1]).limpiarCasillero();
+					Gym.Cubiculos.get(posicion[0]).libres = Gym.Cubiculos.get(posicion[0]).libres + 1;
+					Gym.Cubiculos.get(posicion[0]).ActualizarCarga();
+					break;
+				}
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoC {
+
+	public static void main(String[] args) {
+
+		Scanner leer = new Scanner(System.in);
+
+		int nCualidades = leer.nextInt();
+		leer.nextLine();
+		String cualidadC = leer.nextLine();
+		String cualidades[] = cualidadC.split(" ");
+
+		int nMujeres = leer.nextInt();
+		int aprovadas = 0;
+
+		leer.nextLine();
+
+		nMujeres += 1;
+		while (--nMujeres != 0) {
+
+			String cualidadM = leer.nextLine();
+			String cualidadesM[] = cualidadM.split(" ");
+
+			int temp = 0;
+			int coicidencias = 0;
+
+			for (int i = 0; i < cualidades.length; i++) {
+				for (int j = 0; j < cualidadesM.length; j++) {
+					if (cualidadesM[j].equals(cualidades[i])) {
+						coicidencias++;
+					}
+					if (coicidencias == nCualidades) {
+						aprovadas++;
+						coicidencias = 0;
+					}
+
+				}
+			}
+		}
+		System.out.println(aprovadas);
+
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+			// ---------------------
+			for (int i = 0; i < personas.length; i++) {
+				System.out.print("|" + personas[i]);
+			}
+			System.out.println("|");
+			// ---------------------
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						indice++;
+						ganadores[j] = indice;
+					} else if (mayor > personas[i + 1]) {
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println(" ");
+		}
+		cont1++;
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<cartas.length;i++){
+// System.out.print(cartas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						indice++;
+						ganadores[j] = indice;
+					} else if (mayor > personas[i + 1]) {
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println(" ");
+		}
+		cont1++;
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<cartas.length;i++){
+// System.out.print(cartas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						indice++;
+						ganadores[j] = indice;
+
+					} else if (mayor > personas[i + 1]) {
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println(" ");
+		}
+		cont1++;
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<cartas.length;i++){
+// System.out.print(cartas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						indice++;
+						ganadores[j] = indice;
+
+					} else if (mayor > personas[i + 1]) {
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println(" ");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<cartas.length;i++){
+// System.out.print(cartas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						indice++;
+						ganadores[j] = indice;
+
+					} else if (mayor > personas[i + 1]) {
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println(" ");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<cartas.length;i++){
+// System.out.print(cartas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) throws FileNotFoundException {
+    //--------------------------------------->>>>>>>>>>>>>>>>>>>>>>  < 
+             
+        Scanner scan;
+        File f = new File("pruebafdsd.in");
+        if (f.exists()){
+            scan = new Scanner(f);
+        } else {
+            scan = new Scanner(System.in);
+        }
+    //--------------------------------------->>>>>>>>>>>>>>>>>>>>>>  <
+
+	int t = Integer.parseInt(scan.next());// numero de casos de prueba
+	for (int prueba = 0; prueba < t;) {
+            System.out.println("Caso #" + ++prueba + ":");
+            //String cad = scan.nextLine();// cadena de cada caso de prueba
+            // TODO resolver su problema
+            
+            MyLinkedList<Integer> Listita = new MyLinkedList<>();
+            
+            int numCarta = Integer.parseInt(scan.next());
+            int numJug = Integer.parseInt(scan.next());
+            
+            int[] jugadores = new int[numJug];
+            for(int i=0; i<numJug; i++){
+                jugadores[i]=0;
+            }
+       
+            for(int i = 0; i < numCarta; i++){
+                
+                Listita.add(Integer.parseInt(scan.next()));
+                
+            }
+            int tam = Listita.size();
+            int jug = 0;
+            while(tam > 0)
+            {
+                if(Listita.get(0) > Listita.get(tam-1))
+                    jugadores[jug] += Listita.remove(0);
+                else
+                    jugadores[jug] += Listita.remove(tam-1);
+                
+                tam--;
+                jug++;
+                
+                if(jug==numJug)
+                    jug = 0;
+            }
+            
+            
+            int mayor = 0;
+            
+            for(int i = 0; i < numJug; i++){
+                if(jugadores[i]> mayor)
+                    mayor = jugadores[i];
+            }
+              
+            for (int i = 0; i < jugadores.length; i++){
+                if(jugadores[i] == mayor)
+                    System.out.print((i + 1) + " ");
+            }
+            System.out.println("");
+	}
+
+    }
+
+	public static int[] readInts(String cad) {
+		String lines[] = cad.split(" ");
+		int arr[] = new int[lines.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}
+
+
+
+
+/**
+ * LinkedList class implements a doubly-linked list.
+ */
+public static class MyLinkedList<T> implements Iterable<T>
+{
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( T x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, T x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<T> p, T x )
+    {
+        Node<T> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public T get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public T set( int idx, T newVal )
+    {
+        Node<T> p = getNode( idx );
+        T oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    private Node<T> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<T> getNode( int idx, int lower, int upper )
+    {
+        Node<T> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        if( idx < size( ) / 2 ){
+            p = beginMarker.next;
+            for( int i = 0; i < idx; i++ )
+                p = p.next;            
+        }
+        else{
+            p = endMarker;
+            for( int i = size( ); i > idx; i-- )
+                p = p.prev;
+        }         
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public T remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private T remove( Node<T> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( T x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<T> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+    private class LinkedListIterator implements java.util.Iterator<T>
+    {
+        private Node<T> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public T next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            T nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<T>
+    {
+        public Node( T d, Node<T> p, Node<T> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public T data;
+        public Node<T>   prev;
+        public Node<T>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<T> beginMarker;
+    private Node<T> endMarker;
+}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						indice++;
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					} else {
+						indice++;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println("");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<cartas.length;i++){
+// System.out.print(cartas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			// ---------------------
+			for (int i = 0; i < personas.length; i++) {
+				System.out.print("|" + personas[i]);
+			}
+			System.out.println("|");
+			// ---------------------
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						j = 0;
+						indice++;
+						ganadores[j] = indice;
+						ganadores[j + 1] = 0;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					} else {
+						indice++;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println("");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<personas.length;i++){
+// System.out.print(personas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						j = 0;
+						indice++;
+						ganadores[j] = indice;
+						ganadores[j + 1] = 0;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					} else {
+						indice++;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println("");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<personas.length;i++){
+// System.out.print(personas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						j = 0;
+						indice++;
+						ganadores[j] = indice;
+						ganadores[j + 1] = 0;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					} else {
+						indice++;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i]);
+				}
+			}
+			System.out.println("");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<personas.length;i++){
+// System.out.print(personas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						j = 0;
+						indice++;
+						for (int m = 0; m < ganadores.length; m++) {
+							ganadores[m] = 0;
+						}
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					} else {
+						indice++;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<personas.length;i++){
+// System.out.print(personas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+
+		// ATRIBUTOS-----------------
+		Scanner leer = new Scanner(System.in);
+		long casos;
+		int cont1 = 1;
+		int nCartas;
+		int nPersonas;
+
+		casos = leer.nextLong();
+		casos++;
+
+		while (--casos != 0) {
+			System.out.println("Caso #" + cont1 + ":");
+			nCartas = leer.nextInt();
+
+			int apuntadorCabeza = 0;
+			int apuntadorCola = nCartas - 1;
+
+			nPersonas = leer.nextInt();
+
+			long cartas[] = new long[nCartas];
+			long personas[] = new long[nPersonas];
+
+			for (int i = 0; i < cartas.length; i++) {
+				cartas[i] = leer.nextLong();
+			}
+
+			int k = 0;
+			nCartas++;
+			while (--nCartas != 0) {
+
+				if (k != nPersonas) {
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				} else {
+					k = 0;
+
+					if (cartas[apuntadorCabeza] <= cartas[apuntadorCola]) {
+						personas[k] += cartas[apuntadorCola];
+						apuntadorCola--;
+					} else if (cartas[apuntadorCola] <= cartas[apuntadorCabeza]) {
+						personas[k] += cartas[apuntadorCabeza];
+						apuntadorCabeza++;
+					}
+					k++;
+				}
+			}
+
+			int ganadores[] = new int[nPersonas];
+			long mayor = personas[0];
+			int indice = 1;
+
+			ganadores[0] = indice;
+			int j = 0;
+			if (nPersonas == 1) {
+				ganadores[0] = 1;
+			} else {
+				for (int i = 0; i < personas.length - 1; i++) {
+					if (mayor < personas[i + 1]) {
+						mayor = personas[i + 1];
+						j = 0;
+						indice++;
+						for (int m = 0; m < ganadores.length; m++) {
+							ganadores[m] = 0;
+						}
+						ganadores[j] = indice;
+					} else if (mayor == personas[i + 1]) {
+						j++;
+						indice++;
+						ganadores[j] = indice;
+
+					} else {
+						indice++;
+					}
+				}
+			}
+
+			for (int i = 0; i < ganadores.length; i++) {
+				if (ganadores[i] != 0) {
+					System.out.print(ganadores[i] + " ");
+				}
+			}
+			System.out.println("");
+
+			cont1++;
+		}
+	}
+}
+
+// // ---------------------
+// for(int i = 0;i<personas.length;i++){
+// System.out.print(personas[i]);
+// } System.out.println(" ");
+// // ---------------------
+
+// System.out.print(nCartas + " :: " + k + " :: " + nPersonas + " ");
+// System.out.println(apuntadorCabeza + "=" + cartas[apuntadorCabeza] + " :: " +
+// apuntadorCola + "="
+// + cartas[apuntadorCola]);
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+// package arboles;
+//
+// import java.util.Scanner;
+//
+// public class PuntoA {
+//
+// @SuppressWarnings("resource")
+// public static void main(String[] args) {
+// Scanner leer = new Scanner(System.in);
+// int nCasos = leer.nextInt();
+// int caso = 0;
+// int nComandos = 0;
+// String comando = "";
+// int index = 0;
+// int persona1 = 0;
+// int persona2 = 0;
+// int distancia = -1;
+// int ancestro = -1;
+// ArbolBinario arbol = new ArbolBinario();
+//
+// while (++caso <= nCasos) {
+// System.out.println("Caso #" + caso + ":");
+// nComandos = leer.nextInt();
+//
+// nComandos++;
+// while (--nComandos != 0) {
+// comando = leer.next();
+// switch (comando) {
+// case "agregar":
+// index = leer.nextInt();
+// arbol.insert(index);
+// break;
+//
+// case "distancia":
+// persona1 = leer.nextInt();
+// persona2 = leer.nextInt();
+// distancia = arbol.distancia(persona1, persona2);
+// System.out.println("distancia: " + distancia);
+// break;
+// case "ancestro":
+// persona1 = leer.nextInt();
+// persona2 = leer.nextInt();
+// ancestro = arbol.ancestro(persona1, persona2);
+// System.out.println("ancestro: " + ancestro);
+// break;
+//
+// }
+// }
+// }
+// }
+// }
+//
+//// ===================================================
+//// NODOS DEL ARBOL=====================================
+//// ===================================================
+// class NodoArbol {
+// int index;
+// NodoArbol izq, der;
+//
+// public NodoArbol(int index) {
+// this.index = index;
+// this.izq = null;
+// this.der = null;
+// }
+// }
+//
+//// ===================================================
+//// ARBOL BINARIO=======================================
+//// ===================================================
+// class ArbolBinario {
+// NodoArbol raiz;
+//
+// public ArbolBinario() {
+// raiz = null;
+// }
+//
+// // METODOS
+// public void insert(int index) {
+// NodoArbol nuevo = new NodoArbol(index);
+// if (raiz == null) {
+// raiz = nuevo;
+// } else {
+// NodoArbol aux = raiz;
+// NodoArbol padre;
+// while (true) {
+// padre = aux;
+// if (index < aux.index) {
+// aux = aux.izq;
+// if (aux == null) {
+// padre.izq = nuevo;
+// return;
+// }
+// } else {
+// aux = aux.der;
+// if (aux == null) {
+// padre.der = nuevo;
+// return;
+// }
+// }
+// }
+// }
+// }
+//
+// public int alturaNodo(int index) {
+// NodoArbol aux = raiz;
+// int count = 0;
+// while (aux.index != index) {
+// if (index < aux.index) {
+// aux = aux.izq;
+// } else {
+// aux = aux.der;
+// }
+// if (aux == null) {
+// return -1;
+// }
+// count++;
+// }
+// return count;
+// }
+//
+// public int distancia(int persona1, int persona2) {
+// if (persona1 != persona2) {
+// NodoArbol aux1 = raiz;
+// NodoArbol aux2 = raiz;
+// int distancia = -1;
+// int dR = -1;
+// int dP1 = alturaNodo(persona1);
+// int dP2 = alturaNodo(persona2);
+// if (dP1 != -1 && dP2 != -1) {
+// while (aux1.index == aux2.index) {
+// dR++;
+// if (persona1 != aux1.index) {
+// if (persona1 < aux1.index) {
+// aux1 = aux1.izq;
+// } else {
+// aux1 = aux1.der;
+// }
+// }
+//
+// if (persona2 != aux2.index) {
+// if (persona2 < aux2.index) {
+// aux2 = aux2.izq;
+// } else {
+// aux2 = aux2.der;
+// }
+// }
+//
+// if (aux2 == null || aux1 == null) {
+// return distancia;
+// }
+// }
+// dP1 = dP1 - dR;
+// dP2 = dP2 - dR;
+// distancia = dP1 + dP2;
+// } else {
+// return -1;
+// }
+// return distancia;
+// }
+// return 0;
+// }
+//
+// public int ancestro(int persona1, int persona2) {
+// NodoArbol aux1 = raiz;
+// NodoArbol aux2 = raiz;
+// int ancestro = -1;
+//
+// int dP1 = alturaNodo(persona1);
+// int dP2 = alturaNodo(persona2);
+//
+// if (dP1 == -1 || dP2 == -1) {
+// return -1;
+// }
+//
+// while (aux1.index == aux2.index) {
+// ancestro = aux1.index;
+// if (persona1 < aux1.index) {
+// aux1 = aux1.izq;
+// } else {
+// aux1 = aux1.der;
+// }
+// if (aux1.index == persona2) {
+// return persona1;
+// }
+//
+// if (persona2 < aux2.index) {
+// aux2 = aux2.izq;
+// } else {
+// aux2 = aux2.der;
+// }
+// if (aux2.index == persona1) {
+// return persona2;
+// }
+// if (aux2 == null || aux1 == null) {
+// return -1;
+// }
+// }
+// return ancestro;
+// }
+// }
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package arboles;
+
+import java.util.Scanner;
+
+public class PuntoA {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = -1;
+		int ancestro = -1;
+		ArbolBinario arbol = new ArbolBinario();
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insert(index);
+					break;
+
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+
+				}
+			}
+		}
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insert(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			NodoArbol padre;
+			while (true) {
+				padre = aux;
+				if (index < aux.index) {
+					aux = aux.izq;
+					if (aux == null) {
+						padre.izq = nuevo;
+						return;
+					}
+				} else {
+					aux = aux.der;
+					if (aux == null) {
+						padre.der = nuevo;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public int alturaNodo(int index) {
+		NodoArbol aux = raiz;
+		int count = 0;
+		while (aux.index != index) {
+			if (index < aux.index) {
+				aux = aux.izq;
+			} else {
+				aux = aux.der;
+			}
+			if (aux == null) {
+				return -1;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (persona1 != persona2) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			int distancia = -1;
+			int dR = -1;
+			int dP1 = alturaNodo(persona1);
+			int dP2 = alturaNodo(persona2);
+			if (dP1 != -1 && dP2 != -1) {
+				while (aux1.index == aux2.index) {
+					dR++;
+					if (persona1 != aux1.index) {
+						if (persona1 < aux1.index) {
+							aux1 = aux1.izq;
+						} else {
+							aux1 = aux1.der;
+						}
+					}
+
+					if (persona2 != aux2.index) {
+						if (persona2 < aux2.index) {
+							aux2 = aux2.izq;
+						} else {
+							aux2 = aux2.der;
+						}
+					}
+
+					if (aux2 == null || aux1 == null) {
+						return distancia;
+					}
+				}
+				dP1 = dP1 - dR;
+				dP2 = dP2 - dR;
+				distancia = dP1 + dP2;
+			} else {
+				return -1;
+			}
+			return distancia;
+		}
+		return 0;
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		NodoArbol aux1 = raiz;
+		NodoArbol aux2 = raiz;
+		int ancestro = -1;
+
+		int dP1 = alturaNodo(persona1);
+		int dP2 = alturaNodo(persona2);
+
+		if (dP1 == -1 || dP2 == -1) {
+			return -1;
+		}
+
+		while (aux1.index == aux2.index) {
+			ancestro = aux1.index;
+			if (persona1 < aux1.index) {
+				aux1 = aux1.izq;
+			} else {
+				aux1 = aux1.der;
+			}
+			if (aux1.index == persona2) {
+				return persona1;
+			}
+
+			if (persona2 < aux2.index) {
+				aux2 = aux2.izq;
+			} else {
+				aux2 = aux2.der;
+			}
+			if (aux2.index == persona1) {
+				return persona2;
+			}
+			if (aux2 == null || aux1 == null) {
+				return -1;
+			}
+		}
+		return ancestro;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package arboles;
+
+import java.util.Scanner;
+
+public class PuntoA {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = -1;
+		int ancestro = -1;
+		ArbolBinario arbol = new ArbolBinario();
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insert(index);
+					break;
+
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				}
+			}
+			System.out.println();
+			System.out.print("  ");
+			arbol.inOrder(arbol.raiz);
+			System.out.println();
+			arbol.preOrder(arbol.raiz);
+		}
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insert(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			NodoArbol padre;
+			while (true) {
+				padre = aux;
+				if (index < aux.index) {
+					aux = aux.izq;
+					if (aux == null) {
+						padre.izq = nuevo;
+						return;
+					}
+				} else {
+					aux = aux.der;
+					if (aux == null) {
+						padre.der = nuevo;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public int alturaNodo(int index) {
+		NodoArbol aux = raiz;
+		int count = 0;
+		while (aux.index != index) {
+			if (index < aux.index) {
+				aux = aux.izq;
+			} else {
+				aux = aux.der;
+			}
+			if (aux == null) {
+				return -1;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (persona1 != persona2) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			int distancia = -1;
+			int dR = -1;
+			int dP1 = alturaNodo(persona1);
+			int dP2 = alturaNodo(persona2);
+			if (dP1 != -1 && dP2 != -1) {
+				while (aux1.index == aux2.index) {
+					dR++;
+					if (persona1 != aux1.index) {
+						if (persona1 < aux1.index) {
+							aux1 = aux1.izq;
+						} else {
+							aux1 = aux1.der;
+						}
+					}
+
+					if (persona2 != aux2.index) {
+						if (persona2 < aux2.index) {
+							aux2 = aux2.izq;
+						} else {
+							aux2 = aux2.der;
+						}
+					}
+
+					if (aux2 == null || aux1 == null) {
+						return distancia;
+					}
+				}
+				dP1 = dP1 - dR;
+				dP2 = dP2 - dR;
+				distancia = dP1 + dP2;
+			} else {
+				return -1;
+			}
+			return distancia;
+		}
+		return 0;
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		NodoArbol aux1 = raiz;
+		NodoArbol aux2 = raiz;
+		int ancestro = -1;
+
+		int dP1 = alturaNodo(persona1);
+		int dP2 = alturaNodo(persona2);
+
+		if (dP1 == -1 || dP2 == -1) {
+			return -1;
+		}
+
+		while (aux1.index == aux2.index) {
+			ancestro = aux1.index;
+			if (persona1 < aux1.index) {
+				aux1 = aux1.izq;
+			} else {
+				aux1 = aux1.der;
+			}
+			if (aux1.index == persona2 && (aux1.izq == null || aux1.der == null)) {
+				return persona1;
+			}
+
+			if (persona2 < aux2.index) {
+				aux2 = aux2.izq;
+			} else {
+				aux2 = aux2.der;
+			}
+			if (aux2.index == persona1 && (aux2.izq == null || aux2.der == null)) {
+				return persona2;
+			}
+			if (aux2 == null || aux1 == null) {
+				return -1;
+			}
+		}
+		return ancestro;
+	}
+
+	public void inOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			inOrder(raiz.izq);
+			System.out.print(raiz.index + " ");
+			inOrder(raiz.der);
+		}
+		;
+	}
+
+	public void preOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			System.out.println(raiz.index + " ");
+			preOrder(raiz.izq);
+			preOrder(raiz.der);
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = -1;
+		int ancestro = -1;
+		ArbolBinario arbol = new ArbolBinario();
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insert(index);
+					break;
+
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				}
+			}
+			System.out.println();
+			System.out.print("  ");
+			arbol.inOrder(arbol.raiz);
+			System.out.println();
+			arbol.preOrder(arbol.raiz);
+		}
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insert(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			NodoArbol padre;
+			while (true) {
+				padre = aux;
+				if (index < aux.index) {
+					aux = aux.izq;
+					if (aux == null) {
+						padre.izq = nuevo;
+						return;
+					}
+				} else {
+					aux = aux.der;
+					if (aux == null) {
+						padre.der = nuevo;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public int alturaNodo(int index) {
+		NodoArbol aux = raiz;
+		int count = 0;
+		while (aux.index != index) {
+			if (index < aux.index) {
+				aux = aux.izq;
+			} else {
+				aux = aux.der;
+			}
+			if (aux == null) {
+				return -1;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (persona1 != persona2) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			int distancia = -1;
+			int dR = -1;
+			int dP1 = alturaNodo(persona1);
+			int dP2 = alturaNodo(persona2);
+			if (dP1 != -1 && dP2 != -1) {
+				while (aux1.index == aux2.index) {
+					dR++;
+					if (persona1 != aux1.index) {
+						if (persona1 < aux1.index) {
+							aux1 = aux1.izq;
+						} else {
+							aux1 = aux1.der;
+						}
+					}
+
+					if (persona2 != aux2.index) {
+						if (persona2 < aux2.index) {
+							aux2 = aux2.izq;
+						} else {
+							aux2 = aux2.der;
+						}
+					}
+
+					if (aux2 == null || aux1 == null) {
+						return distancia;
+					}
+				}
+				dP1 = dP1 - dR;
+				dP2 = dP2 - dR;
+				distancia = dP1 + dP2;
+			} else {
+				return -1;
+			}
+			return distancia;
+		}
+		return 0;
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		NodoArbol aux1 = raiz;
+		NodoArbol aux2 = raiz;
+		int ancestro = -1;
+
+		int dP1 = alturaNodo(persona1);
+		int dP2 = alturaNodo(persona2);
+
+		if (dP1 == -1 || dP2 == -1) {
+			return -1;
+		}
+
+		while (aux1.index == aux2.index) {
+			ancestro = aux1.index;
+			if (persona1 < aux1.index) {
+				aux1 = aux1.izq;
+			} else {
+				aux1 = aux1.der;
+			}
+			if (aux1.index == persona2 && (aux1.izq == null || aux1.der == null)) {
+				return persona1;
+			}
+
+			if (persona2 < aux2.index) {
+				aux2 = aux2.izq;
+			} else {
+				aux2 = aux2.der;
+			}
+			if (aux2.index == persona1 && (aux2.izq == null || aux2.der == null)) {
+				return persona2;
+			}
+			if (aux2 == null || aux1 == null) {
+				return -1;
+			}
+		}
+		return ancestro;
+	}
+
+	public void inOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			inOrder(raiz.izq);
+			System.out.print(raiz.index + " ");
+			inOrder(raiz.der);
+		}
+		;
+	}
+
+	public void preOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			System.out.println(raiz.index + " ");
+			preOrder(raiz.izq);
+			preOrder(raiz.der);
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = -1;
+		int ancestro = -1;
+		ArbolBinario arbol = new ArbolBinario();
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insert(index);
+					break;
+
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				}
+			}
+			System.out.println();
+			System.out.print("  ");
+			arbol.inOrder(arbol.raiz);
+			System.out.println();
+			arbol.preOrder(arbol.raiz);
+		}
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insert(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			NodoArbol padre;
+			while (true) {
+				padre = aux;
+				if (index < aux.index) {
+					aux = aux.izq;
+					if (aux == null) {
+						padre.izq = nuevo;
+						return;
+					}
+				} else {
+					aux = aux.der;
+					if (aux == null) {
+						padre.der = nuevo;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public int alturaNodo(int index) {
+		NodoArbol aux = raiz;
+		int count = 0;
+		while (aux.index != index) {
+			if (index < aux.index) {
+				aux = aux.izq;
+			} else {
+				aux = aux.der;
+			}
+			if (aux == null) {
+				return -1;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (persona1 != persona2) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			int distancia = -1;
+			int dR = -1;
+			int dP1 = alturaNodo(persona1);
+			int dP2 = alturaNodo(persona2);
+			if (dP1 != -1 && dP2 != -1) {
+				while (aux1.index == aux2.index) {
+					dR++;
+					if (persona1 != aux1.index) {
+						if (persona1 < aux1.index) {
+							aux1 = aux1.izq;
+						} else {
+							aux1 = aux1.der;
+						}
+					}
+
+					if (persona2 != aux2.index) {
+						if (persona2 < aux2.index) {
+							aux2 = aux2.izq;
+						} else {
+							aux2 = aux2.der;
+						}
+					}
+
+					if (aux2 == null || aux1 == null) {
+						return distancia;
+					}
+				}
+				dP1 = dP1 - dR;
+				dP2 = dP2 - dR;
+				distancia = dP1 + dP2;
+			} else {
+				return -1;
+			}
+			return distancia;
+		}
+		return 0;
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		NodoArbol aux1 = raiz;
+		NodoArbol aux2 = raiz;
+		int ancestro = -1;
+
+		int dP1 = alturaNodo(persona1);
+		int dP2 = alturaNodo(persona2);
+
+		if (dP1 == -1 || dP2 == -1) {
+			return -1;
+		}
+
+		while (aux1.index == aux2.index) {
+			ancestro = aux1.index;
+			if (persona1 < aux1.index) {
+				aux1 = aux1.izq;
+			} else {
+				aux1 = aux1.der;
+			}
+			if (aux1.index == persona2 && (aux1.izq == null || aux1.der == null)) {
+				return persona1;
+			}
+
+			if (persona2 < aux2.index) {
+				aux2 = aux2.izq;
+			} else {
+				aux2 = aux2.der;
+			}
+			if (aux2.index == persona1 && (aux2.izq == null || aux2.der == null)) {
+				return persona2;
+			}
+			if (aux2 == null || aux1 == null) {
+				return -1;
+			}
+		}
+		return ancestro;
+	}
+
+	public void inOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			inOrder(raiz.izq);
+			System.out.print(raiz.index + " ");
+			inOrder(raiz.der);
+		}
+		;
+	}
+
+	public void preOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			System.out.println(raiz.index + " ");
+			preOrder(raiz.izq);
+			preOrder(raiz.der);
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = -1;
+		int ancestro = -1;
+		ArbolBinario arbol = new ArbolBinario();
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insert(index);
+					break;
+
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				}
+			}
+			System.out.println();
+			System.out.print("  ");
+			arbol.inOrder(arbol.raiz);
+			System.out.println();
+			arbol.preOrder(arbol.raiz);
+		}
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insert(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			NodoArbol padre;
+			while (true) {
+				padre = aux;
+				if (index < aux.index) {
+					aux = aux.izq;
+					if (aux == null) {
+						padre.izq = nuevo;
+						return;
+					}
+				} else {
+					aux = aux.der;
+					if (aux == null) {
+						padre.der = nuevo;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public int alturaNodo(int index) {
+		NodoArbol aux = raiz;
+		int count = 0;
+		while (aux.index != index) {
+			if (index < aux.index) {
+				aux = aux.izq;
+			} else {
+				aux = aux.der;
+			}
+			if (aux == null) {
+				return -1;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (persona1 != persona2) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			int distancia = -1;
+			int dR = -1;
+			int dP1 = alturaNodo(persona1);
+			int dP2 = alturaNodo(persona2);
+			if (dP1 != -1 && dP2 != -1) {
+				while (aux1.index == aux2.index) {
+					dR++;
+					if (persona1 != aux1.index) {
+						if (persona1 < aux1.index) {
+							aux1 = aux1.izq;
+						} else {
+							aux1 = aux1.der;
+						}
+					}
+
+					if (persona2 != aux2.index) {
+						if (persona2 < aux2.index) {
+							aux2 = aux2.izq;
+						} else {
+							aux2 = aux2.der;
+						}
+					}
+
+					if (aux2 == null || aux1 == null) {
+						return distancia;
+					}
+				}
+				dP1 = dP1 - dR;
+				dP2 = dP2 - dR;
+				distancia = dP1 + dP2;
+			} else {
+				return -1;
+			}
+			return distancia;
+		}
+		return 0;
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		NodoArbol aux1 = raiz;
+		NodoArbol aux2 = raiz;
+		int ancestro = -1;
+
+		int dP1 = alturaNodo(persona1);
+		int dP2 = alturaNodo(persona2);
+
+		if (dP1 == -1 || dP2 == -1) {
+			return -1;
+		}
+
+		while (aux1.index == aux2.index) {
+			ancestro = aux1.index;
+			if (persona1 < aux1.index) {
+				aux1 = aux1.izq;
+			} else {
+				aux1 = aux1.der;
+			}
+			if (aux1.index == persona2 && (aux1.izq == null || aux1.der == null)) {
+				return persona1;
+			}
+
+			if (persona2 < aux2.index) {
+				aux2 = aux2.izq;
+			} else {
+				aux2 = aux2.der;
+			}
+			if (aux2.index == persona1 && (aux2.izq == null || aux2.der == null)) {
+				return persona2;
+			}
+			if (aux2 == null || aux1 == null) {
+				return -1;
+			}
+		}
+		return ancestro;
+	}
+
+	public void inOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			inOrder(raiz.izq);
+			System.out.print(raiz.index + " ");
+			inOrder(raiz.der);
+		}
+		;
+	}
+
+	public void preOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			System.out.println(raiz.index + " ");
+			preOrder(raiz.izq);
+			preOrder(raiz.der);
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package arboles;
+
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNodos = 0;
+		int padre = 0;
+		int hoja = 0;
+		String nodos = "";
+		String[] nodo;
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nNodos = leer.nextInt();
+			leer.nextLine();
+			unionNodos unir = new unionNodos(nNodos);
+			nNodos++;
+			while (--nNodos != 0) {
+				nodos = leer.nextLine();
+				nodo = nodos.split(" ");
+				padre = Integer.parseInt(nodo[0]);
+				for (int i = 1; i < nodo.length; i++) {
+					hoja = Integer.parseInt(nodo[i]);
+					unir.union(padre, hoja);
+				}
+			}
+			mostrarCamino(unir);
+			unir.mostrarNodos();
+			unir.mostrarUniones();
+		}
+	}
+
+	public static void mostrarCamino(unionNodos unir) {
+		int sentido = 0;
+		int i = 0;
+		int k = 0;
+		int[] nivel = new int[unir.nNodos];
+		for (int j = 0; j < nivel.length; j++) {
+			nivel[j] = -1;
+		}
+
+		System.out.println(unir.nodos[i]);
+		k++;
+		i++;
+		while (unir.nodos[k] == i) {
+
+		}
+
+	}
+}
+
+class unionNodos {
+	int nNodos;
+	int[] nodos;
+	int[] uniones;
+
+	public unionNodos(int nNodos) {
+		this.nNodos = nNodos;
+		this.nodos = new int[nNodos];
+		this.uniones = new int[nNodos];
+		for (int i = 0; i < nodos.length; i++) {
+			nodos[i] = -1;
+			uniones[i] = -1;
+		}
+	}
+
+	public void union(int p, int q) {
+		if (!existe(p)) {
+			agregarNodo(p);
+		}
+		if (!existe(q)) {
+			agregarNodo(q);
+		}
+		if (!estanConectados(p, q)) {
+			int idP = buscarNodo(p);
+			int idQ = buscarNodo(q);
+			uniones[idQ] = idP;
+		}
+	}
+
+	public boolean existe(int nodo) {
+		int i = 0;
+		while (nodos[i] != nodo) {
+			i++;
+			if (!(i < nodos.length)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public void agregarNodo(int nodo) {
+		int i = 0;
+		while (nodos[i] != -1) {
+			i++;
+		}
+		nodos[i] = nodo;
+	}
+
+	public int buscarNodo(int nodo) {
+		int i = 0;
+		while (nodos[i] != nodo) {
+			i++;
+		}
+		return i;
+	}
+
+	public boolean estanConectados(int p, int q) {
+		int idP = buscarNodo(p);
+		int idQ = buscarNodo(q);
+		if (uniones[idQ] == idP) {
+			return true;
+		}
+		return false;
+	}
+
+	public void mostrarNodos() {
+		System.out.println("Nodos");
+		for (int i = 0; i < nodos.length; i++) {
+			System.out.print("|" + nodos[i]);
+		}
+		System.out.println("|");
+	}
+
+	public void mostrarUniones() {
+		System.out.println("Uniones");
+		for (int i = 0; i < uniones.length; i++) {
+			System.out.print("|" + uniones[i]);
+		}
+		System.out.println("|");
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package arboles;
+
+import java.util.Scanner;
+
+public class PuntoA {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = -1;
+		int ancestro = -1;
+		ArbolBinario arbol = new ArbolBinario();
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insert(index);
+					break;
+
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				}
+			}
+			System.out.println();
+			System.out.print("  ");
+			arbol.inOrder(arbol.raiz);
+			System.out.println();
+			arbol.preOrder(arbol.raiz);
+		}
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insert(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			NodoArbol padre;
+			while (true) {
+				padre = aux;
+				if (index < aux.index) {
+					aux = aux.izq;
+					if (aux == null) {
+						padre.izq = nuevo;
+						return;
+					}
+				} else {
+					aux = aux.der;
+					if (aux == null) {
+						padre.der = nuevo;
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public int alturaNodo(int index) {
+		NodoArbol aux = raiz;
+		int count = 0;
+		while (aux.index != index) {
+			if (index < aux.index) {
+				aux = aux.izq;
+			} else {
+				aux = aux.der;
+			}
+			if (aux == null) {
+				return -1;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (persona1 != persona2) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			int distancia = -1;
+			int dR = -1;
+			int dP1 = alturaNodo(persona1);
+			int dP2 = alturaNodo(persona2);
+			if (dP1 != -1 && dP2 != -1) {
+				while (aux1.index == aux2.index) {
+					dR++;
+					if (persona1 != aux1.index) {
+						if (persona1 < aux1.index) {
+							aux1 = aux1.izq;
+						} else {
+							aux1 = aux1.der;
+						}
+					}
+
+					if (persona2 != aux2.index) {
+						if (persona2 < aux2.index) {
+							aux2 = aux2.izq;
+						} else {
+							aux2 = aux2.der;
+						}
+					}
+
+					if (aux2 == null || aux1 == null) {
+						return distancia;
+					}
+				}
+				dP1 = dP1 - dR;
+				dP2 = dP2 - dR;
+				distancia = dP1 + dP2;
+			} else {
+				return -1;
+			}
+			return distancia;
+		}
+		return 0;
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		NodoArbol aux1 = raiz;
+		NodoArbol aux2 = raiz;
+		int ancestro = -1;
+
+		int dP1 = alturaNodo(persona1);
+		int dP2 = alturaNodo(persona2);
+
+		if (dP1 == -1 || dP2 == -1) {
+			return -1;
+		}
+
+		while (aux1.index == aux2.index) {
+			ancestro = aux1.index;
+			if (persona1 < aux1.index) {
+				aux1 = aux1.izq;
+			} else {
+				aux1 = aux1.der;
+			}
+			if (aux1.index == persona2 && (aux1.izq == null || aux1.der == null)) {
+				return persona1;
+			}
+
+			if (persona2 < aux2.index) {
+				aux2 = aux2.izq;
+			} else {
+				aux2 = aux2.der;
+			}
+			if (aux2.index == persona1 && (aux2.izq == null || aux2.der == null)) {
+				return persona2;
+			}
+			if (aux2 == null || aux1 == null) {
+				return -1;
+			}
+		}
+		return ancestro;
+	}
+
+	public void inOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			inOrder(raiz.izq);
+			System.out.print(raiz.index + " ");
+			inOrder(raiz.der);
+		}
+		;
+	}
+
+	public void preOrder(NodoArbol raiz) {
+		if (raiz != null) {
+			System.out.println(raiz.index + " ");
+			preOrder(raiz.izq);
+			preOrder(raiz.der);
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package hashing;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.replace(j, cantidad.get(j), cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+// ARBOL A ======================0
+// ==============================0
+package p5_16;
+
+import java.util.Scanner;
+
+public class PuntoA {
+	public static void main(String[] arg) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = 0;
+		int ancestro = 0;
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+			ArbolBinario arbol = new ArbolBinario();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insertar(index);
+					break;
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		leer.close();
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insertar(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			while (aux != null) {
+				if (index < aux.index) {
+					if (aux.izq != null) {
+						aux = aux.izq;
+					} else {
+						aux.izq = nuevo;
+						break;
+					}
+				} else {
+					if (aux.der != null) {
+						aux = aux.der;
+					} else {
+						aux.der = nuevo;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		if (raiz != null) {
+			NodoArbol aux = raiz;
+			if (!(buscar(aux, persona1) && buscar(aux, persona2))) {
+				return -1;
+			} else {
+				while (true) {
+					if (persona2 == aux.index && persona1 == persona2) {
+						return persona1;
+					} else {
+						if (persona2 == aux.index) {
+							return persona2;
+						}
+						if (persona1 == aux.index) {
+							return persona1;
+						}
+						if ((persona1 < aux.index && persona2 > aux.index)
+								|| (persona2 < aux.index && persona1 > aux.index)) {
+							return aux.index;
+						}
+						if (persona1 > aux.index && persona2 > aux.index) {
+							aux = aux.der;
+						}
+						if (persona1 < aux.index && persona2 < aux.index) {
+							aux = aux.izq;
+						}
+					}
+				}
+			}
+		} else {
+			return -1;
+		}
+
+	}
+
+	public boolean buscar(NodoArbol raiz, int index) {
+		if (raiz.index == index) {
+			return true;
+		} else {
+			if (index < raiz.index) {
+				if (raiz.izq != null) {
+					return buscar(raiz.izq, index);
+				} else {
+					return false;
+				}
+			} else {
+				if (raiz.der != null) {
+					return buscar(raiz.der, index);
+				} else {
+					return false;
+				}
+			}
+		}
+	}
+
+	public NodoArbol buscarBuscar(NodoArbol reco, int a) {
+		if (reco.index == a) {
+			return reco;
+		} else {
+			if (a < reco.index) {
+				if (reco.izq != null) {
+					return buscarBuscar(reco.izq, a);
+				}
+				return null;
+			} else {
+				if (reco.der != null) {
+					return buscarBuscar(reco.der, a);
+				}
+				return null;
+			}
+		}
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (raiz != null) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			if (!(buscar(aux1, persona1) && buscar(aux1, persona2))) {
+				return -1;
+			} else {
+				aux2 = buscarBuscar(aux1, ancestro(persona1, persona2));
+				return (contar(aux2, persona1) + contar(aux2, persona2));
+			}
+		} else {
+			return -1;
+		}
+	}
+
+	public int contar(NodoArbol reco, int a) {
+
+		if (a == reco.index) {
+			return 0;
+		} else {
+			if (a < reco.index) {
+				return contar(reco.izq, a) + 1;
+			} else {
+				return contar(reco.der, a) + 1;
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+// ARBOL A ======================0
+// ==============================0
+package p5_16;
+
+import java.util.Scanner;
+
+public class PuntoA {
+	public static void main(String[] arg) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = 0;
+		int ancestro = 0;
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+			ArbolBinario arbol = new ArbolBinario();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insertar(index);
+					break;
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		leer.close();
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insertar(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			while (aux != null) {
+				if (index < aux.index) {
+					if (aux.izq != null) {
+						aux = aux.izq;
+					} else {
+						aux.izq = nuevo;
+						break;
+					}
+				} else {
+					if (aux.der != null) {
+						aux = aux.der;
+					} else {
+						aux.der = nuevo;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		if (raiz != null) {
+			NodoArbol aux = raiz;
+			if (!(buscar(aux, persona1) && buscar(aux, persona2))) {
+				return -1;
+			} else {
+				while (true) {
+					if (persona2 == aux.index && persona1 == persona2) {
+						return persona1;
+					} else {
+						if (persona2 == aux.index) {
+							return persona2;
+						}
+						if (persona1 == aux.index) {
+							return persona1;
+						}
+						if ((persona1 < aux.index && persona2 > aux.index)
+								|| (persona2 < aux.index && persona1 > aux.index)) {
+							return aux.index;
+						}
+						if (persona1 > aux.index && persona2 > aux.index) {
+							aux = aux.der;
+						}
+						if (persona1 < aux.index && persona2 < aux.index) {
+							aux = aux.izq;
+						}
+					}
+				}
+			}
+		} else {
+			return -1;
+		}
+
+	}
+
+	public boolean buscar(NodoArbol raiz, int index) {
+		if (raiz.index == index) {
+			return true;
+		} else {
+			if (index < raiz.index) {
+				if (raiz.izq != null) {
+					return buscar(raiz.izq, index);
+				} else {
+					return false;
+				}
+			} else {
+				if (raiz.der != null) {
+					return buscar(raiz.der, index);
+				} else {
+					return false;
+				}
+			}
+		}
+	}
+
+	public NodoArbol buscarBuscar(NodoArbol reco, int a) {
+		if (reco.index == a) {
+			return reco;
+		} else {
+			if (a < reco.index) {
+				if (reco.izq != null) {
+					return buscarBuscar(reco.izq, a);
+				}
+				return null;
+			} else {
+				if (reco.der != null) {
+					return buscarBuscar(reco.der, a);
+				}
+				return null;
+			}
+		}
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (raiz != null) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			if (!(buscar(aux1, persona1) && buscar(aux1, persona2))) {
+				return -1;
+			} else {
+				aux2 = buscarBuscar(aux1, ancestro(persona1, persona2));
+				return (contar(aux2, persona1) + contar(aux2, persona2));
+			}
+		} else {
+			return -1;
+		}
+	}
+
+	public int contar(NodoArbol reco, int a) {
+
+		if (a == reco.index) {
+			return 0;
+		} else {
+			if (a < reco.index) {
+				return contar(reco.izq, a) + 1;
+			} else {
+				return contar(reco.der, a) + 1;
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p5_16;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class PuntoC {
+	static long suma;
+	static long resp;
+	static long[] peso;
+	static ArrayList<ArrayList<Integer>> grafos;
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		nCasos++;
+		int k = 1;
+		int nNodos;
+
+		while (--nCasos != 0) {
+			nNodos = leer.nextInt();
+			grafos = new ArrayList<>();
+			nNodos++;
+			while (--nNodos != 0) {
+				grafos.add(new ArrayList<Integer>());
+			}
+
+			peso = new long[nNodos + 1];
+			suma = 0;
+			resp = Long.MAX_VALUE;
+			for (int i = 1; i <= nNodos; i++) {
+				peso[i] = leer.nextLong();
+				suma += peso[i];
+			}
+			int a, b;
+			for (int j = 1; j < nNodos; j++) {
+				a = leer.nextInt();
+				b = leer.nextInt();
+				grafos.get(a).add(b);
+				grafos.get(b).add(a);
+			}
+			operation(1, -1);
+			System.out.println("Caso #" + (k) + ":\n" + resp);
+			k++;
+		}
+		leer.close();
+	}
+
+	static long operation(int u, int p) {
+		long sumaHijos = peso[u];
+		for (Integer v : grafos.get(u)) {
+			if (v == p)
+				continue;
+			sumaHijos += operation(v, u);
+		}
+		resp = Math.min(resp, Math.abs((suma - sumaHijos) - sumaHijos));
+		return sumaHijos;
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+// ARBOL E ======================0
+// ==============================0
+package p5_16;
+
+import java.util.Scanner;
+
+public class PuntoE {
+	public static void main(String[] arg) {
+		Scanner leer = new Scanner(System.in);
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nComandos = 0;
+		String comando = "";
+		int index = 0;
+		int persona1 = 0;
+		int persona2 = 0;
+		int distancia = 0;
+		int ancestro = 0;
+		int contar = 0;
+
+		while (++caso <= nCasos) {
+			System.out.println("Caso #" + caso + ":");
+			nComandos = leer.nextInt();
+			ArbolBinario arbol = new ArbolBinario();
+
+			nComandos++;
+			while (--nComandos != 0) {
+				comando = leer.next();
+				switch (comando) {
+				case "agregar":
+					index = leer.nextInt();
+					arbol.insertar(index);
+					break;
+				case "distancia":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					distancia = arbol.distancia(persona1, persona2);
+					System.out.println("distancia: " + distancia);
+					break;
+				case "ancestro":
+					persona1 = leer.nextInt();
+					persona2 = leer.nextInt();
+					ancestro = arbol.ancestro(persona1, persona2);
+					System.out.println("ancestro: " + ancestro);
+					break;
+				case "contar":
+					persona1 = leer.nextInt();
+					contar = arbol.contar(persona1);
+					System.out.println("contar: " + contar);
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		leer.close();
+	}
+}
+
+// ===================================================
+// NODOS DEL ARBOL=====================================
+// ===================================================
+class NodoArbol {
+	int index;
+	NodoArbol izq, der;
+
+	public NodoArbol(int index) {
+		this.index = index;
+		this.izq = null;
+		this.der = null;
+	}
+}
+
+// ===================================================
+// ARBOL BINARIO=======================================
+// ===================================================
+class ArbolBinario {
+
+	NodoArbol raiz;
+
+	public ArbolBinario() {
+		raiz = null;
+	}
+
+	// METODOS
+	public void insertar(int index) {
+		NodoArbol nuevo = new NodoArbol(index);
+		if (raiz == null) {
+			raiz = nuevo;
+		} else {
+			NodoArbol aux = raiz;
+			while (aux != null) {
+				if (index < aux.index) {
+					if (aux.izq != null) {
+						aux = aux.izq;
+					} else {
+						aux.izq = nuevo;
+						break;
+					}
+				} else {
+					if (aux.der != null) {
+						aux = aux.der;
+					} else {
+						aux.der = nuevo;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	public int ancestro(int persona1, int persona2) {
+		if (raiz != null) {
+			NodoArbol aux = raiz;
+			if (!(buscar(aux, persona1) && buscar(aux, persona2))) {
+				return -1;
+			} else {
+				while (true) {
+					if (persona2 == aux.index && persona1 == persona2) {
+						return persona1;
+					} else {
+						if (persona2 == aux.index) {
+							return persona2;
+						}
+						if (persona1 == aux.index) {
+							return persona1;
+						}
+						if ((persona1 < aux.index && persona2 > aux.index)
+								|| (persona2 < aux.index && persona1 > aux.index)) {
+							return aux.index;
+						}
+						if (persona1 > aux.index && persona2 > aux.index) {
+							aux = aux.der;
+						}
+						if (persona1 < aux.index && persona2 < aux.index) {
+							aux = aux.izq;
+						}
+					}
+				}
+			}
+		} else {
+			return -1;
+		}
+
+	}
+
+	public boolean buscar(NodoArbol raiz, int index) {
+		if (raiz.index == index) {
+			return true;
+		} else {
+			if (index < raiz.index) {
+				if (raiz.izq != null) {
+					return buscar(raiz.izq, index);
+				} else {
+					return false;
+				}
+			} else {
+				if (raiz.der != null) {
+					return buscar(raiz.der, index);
+				} else {
+					return false;
+				}
+			}
+		}
+	}
+
+	public NodoArbol buscarBuscar(NodoArbol reco, int a) {
+		if (reco.index == a) {
+			return reco;
+		} else {
+			if (a < reco.index) {
+				if (reco.izq != null) {
+					return buscarBuscar(reco.izq, a);
+				}
+				return null;
+			} else {
+				if (reco.der != null) {
+					return buscarBuscar(reco.der, a);
+				}
+				return null;
+			}
+		}
+	}
+
+	public int distancia(int persona1, int persona2) {
+		if (raiz != null) {
+			NodoArbol aux1 = raiz;
+			NodoArbol aux2 = raiz;
+			if (!(buscar(aux1, persona1) && buscar(aux1, persona2))) {
+				return -1;
+			} else {
+				aux2 = buscarBuscar(aux1, ancestro(persona1, persona2));
+				return (contar(aux2, persona1) + contar(aux2, persona2));
+			}
+		} else {
+			return -1;
+		}
+	}
+
+	public int contar(NodoArbol reco, int a) {
+
+		if (a == reco.index) {
+			return 0;
+		} else {
+			if (a < reco.index) {
+				return contar(reco.izq, a) + 1;
+			} else {
+				return contar(reco.der, a) + 1;
+			}
+		}
+	}
+
+	public int contar(int index) {
+		if (raiz != null) {
+			if (!(buscar(raiz, index))) {
+				return -1;
+			} else {
+				return recontar(buscarBuscar(raiz, index)) - 1;
+			}
+		} else {
+			return -1;
+		}
+	}
+
+	public int recontar(NodoArbol nodo) {
+		if (nodo == null) {
+			return 0;
+		} else {
+			return recontar(nodo.izq) + recontar(nodo.der) + 1;
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p7_16;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.replace(j, cantidad.get(j), cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+		leer.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p7_16;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.replace(j, cantidad.get(j), cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+		leer.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p7_16;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.replace(j, cantidad.get(j), cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+		leer.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p7_16;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.replace(j, cantidad.get(j), cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+		leer.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p7_16;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.replace(j, cantidad.get(j), cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+		leer.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+public class PuntoC
+{
+	static long suma;
+	static long resp;
+	static long[] peso;
+	static ArrayList<ArrayList<Integer>> grafos;
+
+	static long operation(int u, int p)
+	{
+		long sumaHijos = peso[u];
+		for (Integer v:grafos.get(u))
+		{
+			if(v == p) continue;
+			sumaHijos += operation(v,u);
+		}
+		resp = Math.min(resp, Math.abs((suma - sumaHijos)-sumaHijos));
+		return sumaHijos;
+	}
+
+	public static void main(String[] args){
+		int n;
+		Scanner sc = new Scanner (System.in);
+		int casos = sc.nextInt();
+		for(int k = 1; k <= casos; k++){
+			n = sc.nextInt();
+
+			grafos = new ArrayList<>();
+			for (int i = 0; i <= n; i++){
+				grafos.add(new ArrayList<Integer>());
+			}
+			
+			peso = new long [n+1];
+			suma = 0;
+			resp = Long.MAX_VALUE;
+			for (int i = 1; i <= n; i++){
+				peso[i] = sc.nextLong();
+				suma += peso[i];
+			}
+			int a, b;
+			for(int j=1; j<n; j++){
+				a = sc.nextInt();
+				b = sc.nextInt();
+				grafos.get(a).add(b);
+				grafos.get(b).add(a);
+			}
+			operation(1,-1);
+			System.out.println("Caso #" + (k) + ":\n" + resp);
+
+		}
+	}
+
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p7_16;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class PuntoB {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		Hashtable<Integer, Integer> tabla;
+		Hashtable<Integer, Integer> cantidad;
+		int nCasos = leer.nextInt();
+		int caso = 0;
+		int nNumeros = 0;
+		int temp;
+		int numero = 0;
+		int i = 0;
+		int j = 0;
+		while (++caso <= nCasos) {
+			tabla = new Hashtable<>();
+			cantidad = new Hashtable<>();
+			i = 0;
+			System.out.println("Caso #" + caso + ":");
+			nNumeros = leer.nextInt();
+			temp = nNumeros;
+			nNumeros++;
+			while (--nNumeros != 0) {
+				numero = leer.nextInt();
+				if (!tabla.contains(numero)) {
+					tabla.put(i, numero);
+					cantidad.put(i, 1);
+					i++;
+				} else {
+					j = 0;
+					while (!tabla.get(j).equals(numero)) {
+						j++;
+					}
+					cantidad.put(j, cantidad.get(j) + 1);
+				}
+			}
+			for (int k = 0; k < temp; k++) {
+				if (tabla.get(k) != null) {
+					System.out.print(tabla.get(k) + " ");
+					System.out.println(cantidad.get(k));
+				}
+			}
+		}
+		leer.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,2061 @@
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int numbers = in.nextInt() ;
+		BigInteger[] array  = new BigInteger[numbers]; 
+		BigInteger out = BigInteger.ZERO ;
+		
+		for ( int i = 0 ; i<numbers ; i++  ) {
+			array[i] = in.nextBigInteger() ;
+		}
+		
+		for ( int i = 0 ; i<numbers ; i++ )
+			for ( int j = 0 ; j<numbers ; j++ ) 
+				if ( i != j ) 
+					if ( 0 < array[i].multiply( array[j] ).compareTo( out ) )
+						out = array[i].multiply( array[j] ) ;
+		
+		System.out.println(out);
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int num = 1 ;
+		
+		while ( in.hasNext() ) {
+			// Inicializacion
+			int sum = 0 ;
+			int n = in.nextInt() ;
+			int [][] array = new int[n][n] ;
+
+			// Entrada de Datos 
+			for ( int i = 0 ; i<n ; i++ ) 
+				for ( int j = 0 ; j<n ; j++ )
+					array[i][j] = in.nextInt() ;
+			
+			// Analisis de Datos
+			for ( int i = 0 ; i<n ; i++ ) 
+				for ( int j = 0 ; j<n ; j++ ) {
+					int sumFile = 0 , sumColumn = 0 ;
+					
+					for ( int k = 0 ; k<n ; k++ )
+						sumFile += array[k][j] ;
+					
+					for ( int k = 0 ; k<n ; k++ )
+						sumColumn += array[i][k] ;
+					
+					if ( sumFile < sumColumn )
+						sum++ ;
+				}
+						
+			
+			// Salida
+			System.out.println( "Case #" + num + ":\n" + sum );
+			num++;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String [] args ) {
+        Scanner sc = new Scanner(System.in);
+        int count = 1;
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            int num = 0;
+            int[][] a = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    a[i][j] = sc.nextInt();
+                }
+            }
+ 
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++) {
+                    int sumRow = 0, sumCol = 0;
+                    for (int k = 0; k < n; k++)
+                        sumRow = sumRow + a[i][k];
+                    for (int k = 0; k < n; k++)
+                        sumCol = sumCol + a[k][j];
+                        
+                    if (sumRow < sumCol)
+                        num++;
+                }
+            System.out.println("Case #" + count + ":\n" + num);
+            count++;
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int a = in.nextInt() ;
+		int count = 0 ;
+		
+		for ( int i = 0 ; i < 5 ; i++ )
+			if ( a == in.nextInt() )
+				count++ ;
+		
+		System.out.println ( count ) ;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int n = in.nextInt() ;
+		
+		for ( int i = 1 ; i <= n ; i++ ) {
+			int a = in.nextInt() ;
+			int [] numbers = new int [a] ;
+			char [] letters = new char [a] ;
+			String [] array = new String [a] ;
+			boolean game = false ;
+			
+			for ( int j = 0 ; j < a ; j++ ) {
+				array[j] = in.next();
+				letters[j] = array[j].charAt( array[j].length()-1 );
+				numbers[j] = Integer.parseInt( array[j].substring( 0 , array[j].length()-1 ) ) ;
+			}
+			
+
+			
+			// Compare numbers
+			for ( int j = 1 ; j < a ; j++ ) 
+				if ( numbers[j-1] != numbers[j]) { 
+					game = false;
+					break ;
+				} else 
+					game = true ;
+			
+			if ( !game ) {
+				// Compare letters
+				boolean letter = false ; 
+				for ( int j = 1 ; j < a ; j++ )
+					if ( letters[j-1] != letters[j]) { 
+						letter = false;
+						break ;
+					} else 
+						letter = true ;
+				
+				// Compare numbers
+				if ( letter ) {
+					Arrays.sort( numbers ); 
+					for ( int j = 1 ; j < a ; j++ ) {
+						if ( 1 != ( numbers[j] - numbers[j-1] ) ) { 
+							game = false;
+							break ;
+						} else 
+							game = true ;
+					}
+				}
+			}
+			
+			if ( game )
+				System.out.println("YES") ;
+			else
+				System.out.println("NO") ;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main ( String [] args ) {
+        Scanner in = new Scanner( System.in ) ;
+        int a = in.nextInt() ;
+        for ( int i = 0 ; i < a ; i++ ) {
+            int n = in.nextInt() ;
+            char [][] array = new char[n][n] ;
+            
+            for ( int j = 0 ; j < n ; j++ ) {
+                String string = in.next() ;
+                for ( int k = 0 ; k < n ; k++ )
+                    array[j][k] = string.charAt(k) ;
+            }
+            
+            int count = 0 ;
+            for ( int j = 0 ; j < n ; j++ )
+                for ( int k = 0 ; k < n ; k++ )
+                    if ( array[j][k] == '#' )
+                        count++ ;
+            
+            if ( 0 == count%2 ) {
+                int sumRows = 0 ;
+                boolean solved = false ;
+                for ( int j = 0 ; j < n ; j++ ) {
+                    for ( int k = 0 ; k < n ; k++ )
+                        if ( '#' == array [j][k] ) 
+                            sumRows++;
+                    if ( sumRows == count/2 ) {
+                        System.out.println("YES") ;
+                        solved = true ;
+                        break ;
+                    }
+                }
+                
+                if ( !solved ) {
+                    int sumCols = 0 ;
+                    for ( int j = 0 ; j < n ; j++ ) {
+                        for ( int k = 0 ; k < n ; k++ )
+                            if ( '#' == array [k][j] ) 
+                                sumCols++;
+                        if ( sumRows == count/2 ) {
+                            System.out.println("YES") ;
+                            solved = true ;
+                            break ;
+                        }
+                    }
+                    if ( !solved )
+                        System.out.println("NO") ;
+                }
+            }
+            else 
+                System.out.println("NO") ;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main ( String [] args ) {
+        Scanner in = new Scanner( System.in ) ;
+        int a = in.nextInt() ;
+        for ( int i = 0 ; i < a ; i++ ) {
+            int n = in.nextInt() ;
+            char [][] array = new char[n][n] ;
+            
+            for ( int j = 0 ; j < n ; j++ ) {
+                String string = in.next() ;
+                for ( int k = 0 ; k < n ; k++ )
+                    array[j][k] = string.charAt(k) ;
+            }
+            
+            int count = 0 ;
+            for ( int j = 0 ; j < n ; j++ )
+                for ( int k = 0 ; k < n ; k++ )
+                    if ( array[j][k] == '#' )
+                        count++ ;
+            
+            if ( 0 == count%2 ) {
+                int sumRows = 0 ;
+                boolean solved = false ;
+                for ( int j = 0 ; j < n ; j++ ) {
+                    for ( int k = 0 ; k < n ; k++ )
+                        if ( '#' == array [j][k] ) 
+                            sumRows++;
+                    if ( sumRows == count/2 ) {
+                        System.out.println("YES") ;
+                        solved = true ;
+                        break ;
+                    }
+                }
+                
+                if ( !solved ) {
+                    int sumCols = 0 ;
+                    for ( int j = 0 ; j < n ; j++ ) {
+                        for ( int k = 0 ; k < n ; k++ )
+                            if ( '#' == array [k][j] ) 
+                                sumCols++;
+                        if ( sumCols == count/2 ) {
+                            System.out.println("YES") ;
+                            solved = true ;
+                            break ;
+                        }
+                    }
+                    if ( !solved )
+                        System.out.println("NO") ;
+                }
+            }
+            else 
+                System.out.println("NO") ;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String args [] ) {
+		Scanner ent = new Scanner( System.in ) ;
+		int casos = ent.nextInt() ;
+		
+		for ( int i = 1 ; i <= casos ; i++ ) {
+			// Numero de cartas y jugadores
+			int cartas = ent.nextInt() ;
+			int jugadores = ent.nextInt() ;
+			
+			// Inicializar baraja, sumas y punteros
+			int [] baraja = new int[cartas] ;
+			int [] sumaJugadores = new int[jugadores] ;
+			int cabeza = 0 , cola = cartas-1;
+			
+			for ( int s : sumaJugadores )
+				s = 0;
+			// Insertar cartas 
+			for ( int j = 0 ; j < cartas ; j++ )
+				baraja[j] = ent.nextInt() ;
+			
+			// Repartir cartas y sumar
+			int turno = 1 ;
+			while( cabeza <= cola ) {
+				if ( baraja[cabeza] > baraja[cola] ) {
+					sumaJugadores[turno-1] += baraja[cabeza] ;
+					cabeza++ ;
+				} else {
+					sumaJugadores[turno-1] += baraja[cola] ;
+					cola-- ;
+				}
+				turno = ( turno % jugadores ) + 1 ;
+			}
+			
+			// Sacar mayor suma
+			int mayor = 0 ;
+			for ( int s : sumaJugadores ) 
+				if ( mayor < s ) 
+					mayor = s ;
+			
+			// Mostrar jugadores
+			System.out.printf( "Caso #%d:\n" , i ) ;
+			for( int j = 0 ; j < jugadores ; j++ )
+				if ( mayor == sumaJugadores[j] )
+                                    System.out.printf( "%d ", (j+1) ) ;			
+		}                   
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String args [] ) throws IOException {
+		Scanner ent = new Scanner( System.in ) ;
+		BufferedReader entrada = new BufferedReader( new InputStreamReader( System.in ) ) ;
+		int cualidades = ent.nextInt() ;
+		int candidatasNotorias = 0;
+		int[] array = new int[cualidades] ;
+		
+		for ( int i = 0 ; i < cualidades ; i++ )
+			array[i] = ent.nextInt() ;
+		
+		int chicas = ent.nextInt() ;
+                
+                // Ciclo de comparacion
+		for ( int i = 0 ; i < chicas ; i++ ) {
+                        // Inicia varibles
+			int cualidadesApropiadas = 0 ;
+			String secuencia = entrada.readLine() ;
+			
+                        // Convierte cualidades en numeros
+			String cadenillas[] = secuencia.split(" ") ;
+                        int[] numeros = new int[cadenillas.length] ;
+			for ( int j = 0 ; j < numeros.length ; j++ ) {
+                            numeros[j] = Integer.parseInt(cadenillas[j]) ;
+                        }
+                        
+                        // Determina si todas las cualidades estan en la chica
+                        if ( cualidades <= numeros.length ) {
+                            for ( int s : numeros )
+                                for ( int r : array  )
+                                    if ( s == r )
+                                        cualidadesApropiadas++ ;
+                                
+                            if ( cualidadesApropiadas == cualidades) {
+                                candidatasNotorias++ ;
+                            }
+                        }
+		}
+		
+		System.out.print( candidatasNotorias );
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String args [] ) throws IOException {
+		Scanner ent = new Scanner( System.in ) ;
+		int cualidades = ent.nextInt() ;
+		int candidatasNotorias = 0;
+		int[] array = new int[cualidades] ;
+		
+		for ( int i = 0 ; i < cualidades ; i++ )
+			array[i] = ent.nextInt() ;
+		
+		int chicas = ent.nextInt() ;
+                
+                // Ciclo de comparacion
+		for ( int i = 0 ; i < chicas ; i++ ) {
+                        // Inicia varibles
+			int cualidadesApropiadas = 0 ;
+			String secuencia = ent.nextLine() ;
+			
+                        // Convierte cualidades en numeros
+			String cadenillas[] = secuencia.split(" ") ;
+                        int[] numeros = new int[cadenillas.length] ;
+			for ( int j = 0 ; j < numeros.length ; j++ ) {
+                            numeros[j] = Integer.parseInt(cadenillas[j]) ;
+                        }
+                        
+                        // Determina si todas las cualidades estan en la chica
+                        if ( cualidades <= numeros.length ) {
+                            for ( int s : numeros )
+                                for ( int r : array  )
+                                    if ( s == r )
+                                        cualidadesApropiadas++ ;
+                                
+                            if ( cualidadesApropiadas == cualidades) {
+                                candidatasNotorias++ ;
+                            }
+                        }
+		}
+		
+		System.out.print( candidatasNotorias );
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String args [] ) {
+		Scanner ent = new Scanner( System.in ) ;
+		int casos = ent.nextInt() ;
+		
+		for ( int i = 1 ; i <= casos ; i++ ) {
+			// Numero de cartas y jugadores
+			int cartas = ent.nextInt() ;
+			int jugadores = ent.nextInt() ;
+			
+			// Inicializar baraja, sumas y punteros
+			int [] baraja = new int[cartas] ;
+			int [] sumaJugadores = new int[jugadores] ;
+			int cabeza = 0 , cola = cartas-1;
+			
+			for ( int s : sumaJugadores )
+				s = 0;
+			// Insertar cartas 
+			for ( int j = 0 ; j < cartas ; j++ )
+				baraja[j] = ent.nextInt() ;
+			
+			// Repartir cartas y sumar
+			int turno = 1 ;
+			while( cabeza <= cola ) {
+				if ( baraja[cabeza] > baraja[cola] ) {
+					sumaJugadores[turno-1] += baraja[cabeza] ;
+					cabeza++ ;
+				} else {
+					sumaJugadores[turno-1] += baraja[cola] ;
+					cola-- ;
+				}
+				turno = ( turno % jugadores ) + 1 ;
+			}
+			
+			// Sacar mayor suma
+			int mayor = 0 ;
+			for ( int s : sumaJugadores ) 
+				if ( mayor < s ) 
+					mayor = s ;
+			
+			// Mostrar jugadores
+			System.out.printf( "Caso #%d:\n" , i ) ;
+			for( int j = 0 ; j < jugadores ; j++ )
+				if ( mayor == sumaJugadores[j] )
+                                    System.out.printf( "%d ", (j+1) ) ;			
+		}                   
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	public static void main ( String args [] ) {
+		Scanner ent = new Scanner( System.in ) ;
+		int casos = ent.nextInt() ;
+		
+		for ( int i = 1 ; i <= casos ; i++ ) {
+			// Numero de cartas y jugadores
+			int cartas = ent.nextInt() ;
+			int jugadores = ent.nextInt() ;
+			
+			// Inicializar baraja, sumas y punteros
+			int [] baraja = new int[cartas] ;
+			int [] sumaJugadores = new int[jugadores] ;
+			int cabeza = 0 , cola = cartas-1;
+			
+			for ( int s : sumaJugadores )
+				s = 0;
+			// Insertar cartas 
+			for ( int j = 0 ; j < cartas ; j++ )
+				baraja[j] = ent.nextInt() ;
+			
+			// Repartir cartas y sumar
+			int turno = 1 ;
+			while( cabeza <= cola ) {
+				if ( baraja[cabeza] > baraja[cola] ) {
+					sumaJugadores[turno-1] += baraja[cabeza] ;
+					cabeza++ ;
+				} else {
+					sumaJugadores[turno-1] += baraja[cola] ;
+					cola-- ;
+				}
+				turno = ( turno % jugadores ) + 1 ;
+			}
+			
+			// Sacar mayor suma
+			int mayor = 0 ;
+			for ( int s : sumaJugadores ) 
+				if ( mayor < s ) 
+					mayor = s ;
+			
+			// Mostrar jugadores
+			System.out.printf( "Caso #%d:\n" , i ) ;
+			for( int j = 0 ; j < jugadores ; j++ )
+				if ( mayor == sumaJugadores[j] )
+                                    System.out.printf( "%d ", (j+1) ) ;
+                        System.out.println() ;
+		}                   
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String args[]) throws IOException {
+        Scanner in = new Scanner(System.in);
+        BufferedReader ent = new BufferedReader ( new InputStreamReader( System.in ) ) ;
+        int cualidades = in.nextInt();
+        int candidatasNotorias = 0;
+        int[] array = new int[cualidades];
+
+        for (int i = 0; i < cualidades; i++) {
+            array[i] = in.nextInt();
+        }
+        
+        // Lectura de datos
+        int chicas = in.nextInt();
+        String[] cualidadesCandidatas = new String[chicas]  ;
+        int counter = 0 ;
+        
+        while ( counter < chicas) {
+        	String line = null ;
+        	line = ent.readLine() ;
+        	if ( ( line != null ) && ( line.length() != 0 ) ) {
+	        	cualidadesCandidatas[counter] = line ;
+	        	counter++ ;
+        	}
+        }
+        
+        // Procesamiento de datos
+        for ( int i = 0 ; i < chicas ; i++ ) {
+        	int cualAprop = 0 ;
+        	String cadenillas[]= cualidadesCandidatas[i].split(" ");
+        	int[] numeros = new int [cadenillas.length] ;
+        	
+        	for ( int j = 0 ; j < cadenillas.length ; j++ ) {
+        		if ( cadenillas[j].length() > 0 )
+        			numeros[j] = Integer.parseInt(cadenillas[j]) ;
+        		
+        		for ( int k = 0 ; k < cualidades ; k++ )
+        			if ( numeros[j] == array [k] )        		
+        				cualAprop++ ;
+        	}
+        	
+        	if ( cualAprop == cualidades ) {
+        		System.out.println( "Candidata " + (i+1) + " es apropiada");
+        		candidatasNotorias++ ;
+        	}
+        }
+        
+        System.out.println( candidatasNotorias ) ;
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			Arbol arbol = new Arbol() ;
+			int operations = in.nextInt() ;
+			
+			for ( int j = 0 ; j < operations ; j++ )
+				arbol.insert( in.nextInt() );
+			
+			System.out.printf( "Caso #%d:\n" , ( i + 1 ) ) ;
+			arbol.print();
+		}
+	}
+	
+	private static class Nodo {
+		int value ;
+		int ocurrences ;
+		Nodo left = null ;
+		Nodo right = null ;
+		Nodo next = null ;
+		public Nodo ( int value ) {
+			this.value = value ;
+			ocurrences = 1 ;
+		}
+	}
+	
+	private static class Arbol {
+		Nodo root = null ;
+		Nodo tail = null ;
+		
+		public void print () {
+			if ( root != null ) {
+				Nodo pointer = root ;
+				System.out.println( pointer.value + " " + pointer.ocurrences );
+				while ( pointer.next != null ) {
+					pointer = pointer.next ;
+					System.out.println( pointer.value + " " + pointer.ocurrences );
+				}
+			}
+		}
+		
+		public void insert ( int value ) {
+			if ( root != null ) {
+				Nodo pointer = root ;
+				boolean searching = true ; 
+				while ( searching ) {
+					if ( pointer.value == value ) { 
+						pointer.ocurrences++ ;
+						searching = false ;
+					} else {
+						if ( pointer.value < value )
+							if ( pointer.right != null )
+								pointer = pointer.right ;
+							else {
+								pointer.right = new Nodo ( value ) ;
+								tail.next = pointer.right ;
+								tail = pointer.right ;
+								searching = false ;
+							}
+						else 
+							if ( pointer.left != null )
+								pointer = pointer.left ;
+							else {
+								pointer.left = new Nodo ( value ) ;
+								tail.next = pointer.left ;
+								tail = pointer.left ;
+								searching = false ;
+							}
+					}
+				}
+			} else {
+				root = new Nodo( value ) ;
+				tail = root ;
+			}
+		}
+	}
+}
+ 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio4;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			Tree tree = new Tree() ;
+			int operations = in.nextInt() ;
+			for ( int j = 0 ; j < operations ; j++ ) {
+				String operation = in.next() ;
+				switch ( operation ) {
+					case "agregar": 
+						tree.insert( in.nextInt() );
+						break ;
+					case "distancia":
+						System.out.printf ( "distancia: %d\n" , tree.distance( in.nextInt() , in.nextInt() ) ) ;
+						break ;
+					case "ancestro" :
+						Node ancester = tree.ancester( in.nextInt() , in.nextInt() ) ;
+						if ( ancester == null )
+							System.out.printf ( "ancester: %d\n" , -1 ) ;
+						else 
+							System.out.printf ( "ancester: %d\n" , ancester.value ) ;
+						break ;
+					default:
+						break ;
+				}
+			}
+		}
+	}
+	
+	private static class Node{
+		int value ;
+		int height ;
+		Node left ;
+		Node right ;
+		public Node ( int value ) {
+			this.value = value ;
+			left = null ;
+			right = null ;
+		}
+	}
+	
+	private static class Tree {
+		Node root ;
+		public Tree () {
+			root = null ;
+		}
+		
+		public void insert ( int value ) {
+			if ( root == null ) {
+				root = new Node( value ) ;
+				root.height = 0 ;
+			} else
+				insert ( value , root );
+		}
+		
+		public void insert ( int value , Node parent ) {
+			if ( parent.value < value )
+				if ( parent.right == null ) {
+					parent.right = new Node( value ) ;
+					parent.right.height = parent.height + 1 ;
+				} else 
+					insert ( value , parent.right ) ;
+			else 
+				if ( parent.left == null ) {
+					parent.left = new Node( value ) ;
+					parent.left.height = parent.height + 1 ;
+			
+				} else 
+					insert ( value , parent.left ) ;
+		}
+		
+		public Node search ( int value ) {
+			return search( value , root ) ;
+		}
+		
+		public Node search ( int value , Node node ) {
+			if ( node == null) 
+				return null;
+			if	( node.value < value ) 
+				return search( value , node.right );
+			else if ( node.value > value ) 
+				return search( value , node.left );
+			else 
+				return node; 
+			}
+		
+		public int distance ( int first , int second ) {
+			Node firstNode = search ( first ) ;
+			Node secondNode = search ( second ) ;
+			Node ancester = ancester ( first , second ) ;
+			if ( firstNode == null || secondNode == null ) 
+				return -1 ;
+			return firstNode.height + secondNode.height - 2*ancester.height ;
+		}
+		
+		public Node ancester ( int first , int second ) {
+			return ancester ( first , second , root ) ;
+		}
+		
+		public Node ancester ( int first , int second , Node node ) {
+			if ( node == null) 
+				return null;
+			
+			boolean searching = true ;
+			Node firstPath ;
+			Node secondPath ;
+			
+			while ( searching ) {
+				if ( node.value == first )
+					return node ;
+				else {
+					if ( node.value < first )
+						if ( node.right == null )
+							return null ;
+						else 
+							firstPath = node.right ;
+					else 
+						if ( node.left == null )
+							return null ;
+						else 
+							firstPath = node.left ;
+					if ( node.value < second )
+						if ( node.right == null )
+							return null ;
+						else 
+							secondPath = node.right ;
+					else 
+						if ( node.left == null )
+							return null ;
+						else 
+							secondPath = node.left ;
+				}
+				if ( !firstPath.equals(secondPath) )
+					searching = false ;
+				else 
+					node = firstPath ;
+			}
+			
+			return node ;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio4;
+
+import java.util.Scanner;
+
+public class ProblemaC {
+	public static void main( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			// Create nodes array 
+			int nodes = in.nextInt() ;
+			int total = 0 ;
+			Node[] ar = new Node[nodes] ;
+			
+			// Initialize nodes
+			for ( int j = 0 ; j < nodes ; j++ ) {
+				// System.out.println( "Inserte el valor " + ( j + 1 ) ); 
+				int weight = in.nextInt() ;
+				total += weight ;
+				ar[j] = new Node( weight ) ;
+			}
+			// Add parents
+			for ( int j = 1 ; j < nodes ; j++ ) {
+				// Add parent
+				int parent = in.nextInt() ;
+				int son = in.nextInt() ;
+				ar[son-1].parent = ar[parent-1] ;
+				
+				// Actualize path
+				Node pointer = ar[son-1] ;
+				int weight = ar[son-1].weight ;
+				
+				while( pointer.parent != null ) {
+					pointer = pointer.parent ;
+					pointer.accumulated += weight ;
+				}
+			}
+			
+			int min = total ;
+			for ( int j = 0 ; j < nodes ; j++ ) {
+				int difference = Math.abs(total - 2*ar[j].accumulated) ;
+				if ( min > difference )
+					min = difference ;
+			}
+			
+			System.out.println( "Caso #" + ( i + 1 ) + ":" );
+			System.out.println( min );
+		}
+	}
+	
+	private static class Node {
+		int weight ;
+		int accumulated ;
+		Node parent ;
+		public Node( int weight ) {
+			this.weight = weight ;
+			this.accumulated = weight ;
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio4;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			Tree tree = new Tree() ;
+			int operations = in.nextInt() ;
+			System.out.println("Case #" + ( i + 1 ) + ":");
+			for ( int j = 0 ; j < operations ;j++ ) {
+				String operation = in.next() ;
+				switch ( operation ) {
+					case "agregar": 
+						tree.insert( in.nextInt() );
+						break ;
+					case "distancia":
+						System.out.printf ( "distancia: %d\n" , tree.distance( in.nextInt() , in.nextInt() ) ) ;
+						break ;
+					case "ancestro" :
+						Node ancester = tree.ancester( in.nextInt() , in.nextInt() ) ;
+						if ( ancester == null )
+							System.out.printf ( "ancestro: %d\n" , -1 ) ;
+						else 
+							System.out.printf ( "ancestro: %d\n" , ancester.value ) ;
+						break ;
+					default:
+						break ;
+				}
+			}
+		}
+	}
+	
+	private static class Node{
+		int value ;
+		int level ;
+		Node left ;
+		Node right ;
+		public Node ( int value ) {
+			this.value = value ;
+			left = null ;
+			right = null ;
+		}
+	}
+	
+	private static class Tree {
+		Node root ;
+		public Tree () {
+			root = null ;
+		}
+		
+		public void insert ( int value ) {
+			boolean searching = true ;
+			if( root == null ) {
+				root = new Node( value ) ;
+				root.level = 0 ;
+			} else {
+				Node pointer = root ;
+				while ( searching ) {
+					if ( pointer.value < value ) 
+						if ( pointer.right == null ) { 
+							pointer.right = new Node( value ) ;
+							pointer.right.level = pointer.level + 1 ; 
+							searching = false ;
+							// System.out.println( "El nodo " + pointer.right.value + " fue insertado" );
+						} else
+							pointer = pointer.right ;
+					else
+						if ( pointer.left == null ){
+							pointer.left = new Node( value ) ;
+							pointer.left.level = pointer.level + 1;
+							searching = false ;
+							// System.out.println( "El nodo " + pointer.left.value + " fue insertado" );
+						} else
+							pointer = pointer.left ;
+					// System.out.println( "Buscando donde ubicar" );
+				}
+			}
+		}
+		
+		public Node search ( int value ) {
+			if ( root == null ) {
+				return null ;
+			} else {
+				Node pointer = root ;
+				while ( pointer.value != value  ){
+					if ( pointer.value < value )
+						if ( pointer.right == null )
+							return null ;
+						else 
+							pointer = pointer.right ;
+					else 
+						if ( pointer.left == null ) 
+							return null ;
+						else
+							pointer = pointer.left ;
+				}
+				// System.out.println( "Nodo hallado" );
+				return pointer ;
+			} 
+		}
+		
+		public int distance ( int first , int second ) {
+			int distance = -1;
+			Node firstN = search( first ) ;
+			Node secondN = search( second ) ;
+			Node ancester = ancester( first , second ) ;
+			if ( firstN != null && secondN != null )
+				distance = firstN.level + secondN.level - 2*ancester.level ;
+			return distance ;
+		}
+		
+		public Node ancester( int first , int second ) {
+			if ( root == null ) {
+				return null ;
+			} else {
+				boolean searching = true ;
+				Node pointer, firstPath, secondPath ;
+				pointer = firstPath = secondPath = root ;
+				if ( root == null )
+					return null ;
+				while ( searching ){
+					// Primer camino
+					if ( firstPath.value == first )
+						return firstPath ;
+					else
+						if ( firstPath.value < first )
+							if ( firstPath.right == null )
+								firstPath = null ;
+							else 
+								firstPath = firstPath.right ;
+						else 
+							if ( firstPath.left == null ) 
+								firstPath = null ;
+							else
+								firstPath = firstPath.left ;
+						
+					// Segundo Camino
+					if ( secondPath.value == second )
+						return secondPath ;
+					else
+						if ( secondPath.value < second )
+							if ( secondPath.right == null )
+								secondPath = null ;
+							else 
+								secondPath = secondPath.right ;
+						else 
+							if ( secondPath.left == null ) 
+								secondPath = null ;
+							else
+								secondPath = secondPath.left ;
+						
+					// Comparación
+					if ( firstPath == null || secondPath == null ) {
+						searching = false ;
+						// System.out.println( "Nodo hallado" );
+					} else if ( !firstPath.equals(secondPath) ) {
+						searching = false ;
+						// System.out.println( "Nodo hallado" );
+					} else {
+						pointer = firstPath ;
+						// System.out.println( "Buscando ancestro" );
+					}
+				}
+				return pointer ;
+			} 
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			// Inicializacion
+			int players = in.nextInt() ;
+			int sended = in.nextInt() ;
+			
+			// Creacion de la PQ
+			Player [] groups = new Player [players] ;
+			for ( int j = 0 ; j < players ; j++ )
+				groups[j] = new Player( j + 1 ) ;
+			
+			for ( int j = 0 ; j < sended ; j++ ) {
+				int group = in.nextInt() ;
+				int problem = in.nextInt() ;
+				int time = in.nextInt() ;
+				String status = in.next() ;
+				
+				switch ( status ) { 
+					case "I" :
+						groups[group-1].sended++ ;
+						groups[group-1].time += 20 ;
+						break ;
+					case "C" :
+						groups[group-1].sended++ ;
+						groups[group-1].solved++ ;
+						groups[group-1].time += time ;
+						break ;
+					case "R": case "T":
+						groups[group-1].sended++ ;
+					default :
+						break ;
+				}
+			}
+			
+			MaxPQ pq = new MaxPQ( players ) ;
+			for ( int j = 0 ; j < players ; j++ )
+				pq.insert( groups[j] );
+			pq.print() ;
+		}
+	}
+	
+	static private class Player {
+		int number ;
+		int sended = 0 ;
+		int time = 0 ;
+		int solved = 0 ;
+		public Player( int number ) {
+			this.number = number ;
+		}
+		
+	}
+	
+	static private class MaxPQ {
+		private Player[] pq ;
+		private int N = 0 ;
+		
+		public MaxPQ ( int maxN ) {
+			pq = new Player[ maxN + 1 ] ;
+		}
+		
+		public boolean isEmpty() {
+			return N == 0 ;
+		}
+		
+		public int size() {
+			return N ;
+		}
+		
+		public void insert( Player v ){
+			pq[++N] = v ;
+			swim(N) ;
+		}
+		
+		private Player delMax() {
+			Player max = pq[1] ;
+			exch( 1 , N-- ) ;
+			pq[N+1] = null ;
+			sink(1) ;
+			return max ;
+		}
+		
+		public void print() {
+			while ( !isEmpty() ) {
+				Player t = delMax() ;
+				if ( t.sended == 0 ) 
+					continue ;
+				System.out.printf( "%d %d %d\n", t.number , t.solved , t.time );
+			}
+		}
+		
+		private boolean less ( int i , int j ) {
+			if ( pq[i].solved == pq[j].solved )
+				if ( pq[i].time == pq[j].time )
+					return pq[i].number < pq[j].number ;
+				else
+					return pq[i].time < pq[j].time ;
+			else
+				return pq[i].solved < pq[j].solved ;
+		}
+		
+		private void exch ( int i , int j ) {
+			Player t = pq[i] ; 
+			pq[i] = pq[j] ;
+			pq[j] = t ;
+		}
+		
+		private void swim( int k ) {
+			while ( k > 1 && less( k/2 , k ) ) {
+				exch( k/2 , k ) ;
+				k = k/2 ;
+			}
+		}
+		
+		private void sink( int k ) {
+			while ( 2*k <= N ) {
+				int j = 2*k ;
+				if ( j < N && less( j , j+1 ) ) 
+					j++  ;
+				if ( !less( k , j ) ) 
+					break ;
+				exch( k , j ) ;
+				k = j ;
+			}
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		
+		for ( int i = 0 ; i < cases ; i++ ) {
+			int entries = in.nextInt() ;
+			int [] array = new int [entries] ;
+			int count = 0 ;
+			HashMap < Integer , Integer > hash = new HashMap< Integer , Integer >( entries ) ;
+			
+			for ( int j = 0 ; j < entries ; j++ ) {
+				int number = in.nextInt() ;
+				if ( hash.containsKey( number ) ) {
+					hash.put( number , hash.get(number) + 1 ) ;
+				} else {
+					hash.put( number , 1 ) ;
+					array[count++] = number ; 
+				}
+			}
+			
+			for ( int j = 0 ; j < count ; j++ ) {
+				System.out.println( array[j] + " " + hash.get(array[j]) ) ;
+			}
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio6;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ){
+			int max = 0 ;
+			int time = 0 ;
+			// System.out.println( "Insertar tamano y posicion" );
+			int prints = in.nextInt() ;
+			int position = in.nextInt() ;
+			int [] priorities = new int [9] ;
+			Queue queue = new Queue() ;
+			
+			// System.out.println( "Insertar proridades" );
+			for ( int j = 0 ; j < prints ; j++ ) {
+				int value = in.nextInt() ;
+				queue.enqueue( value ) ;
+				priorities[value-1]++ ;
+				if ( max < value )
+					max = value ;
+			}
+			
+			// System.out.println( "Calcular tiempo" );
+			while ( !queue.isEmpty() ) {
+				int value = queue.dequeue().value ;
+				while ( priorities[max-1] == 0 ) {
+					max-- ;
+				}
+				// System.out.println( "Las frecuencias son: " );
+				// for ( int j = 0 ; j < 9 ; j++ ) {
+					// System.out.print( priorities[j] + " " ) ;
+				// }
+				// System.out.println( "El maximo es " + max );
+				if ( value == max ) {
+					prints-- ;
+					priorities[value-1]-- ;
+					time++ ;
+					position-- ;
+					// System.out.println( value + " impreso" );
+					if ( position == 0 )
+						break ;
+				} else {
+					if ( position == 0 )
+						position = prints - 1 ;
+					queue.enqueue( value );
+					// System.out.println( value + " salta a la cola" );
+				}
+			}
+						
+			System.out.println( time );
+			// System.out.println( "Terminar" );
+		}		
+	}
+	
+	private static class Node {
+		int value ;
+		Node next ;
+		public Node ( int value ) {
+			this.value = value ;
+			this.next = null ;
+		}
+	}
+	
+	private static class Queue {
+		Node root ;
+		Node tail ;
+		
+		public Queue (){
+			root = tail = null ;
+		}
+		
+		public void enqueue( int value ) {
+			Node newNode = new Node( value ) ;
+			if ( root == null )
+				tail = root = newNode ;
+			else {
+				tail = tail.next = newNode ;
+			}
+		}
+		
+		public Node dequeue() {
+			Node temp = root ;
+			root = root.next ;
+			return temp ;
+		}
+		
+		public boolean isEmpty () {
+			return root == null ;
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio4;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			Tree tree = new Tree() ;
+			int operations = in.nextInt() ;
+			System.out.println("Case #" + ( i + 1 ) + ":");
+			for ( int j = 0 ; j < operations ;j++ ) {
+				String operation = in.next() ;
+				switch ( operation ) {
+					case "agregar": 
+						tree.insert( in.nextInt() );
+						break ;
+					case "distancia":
+						System.out.printf ( "distancia: %d\n" , tree.distance( in.nextInt() , in.nextInt() ) ) ;
+						break ;
+					case "ancestro" :
+						Node ancester = tree.ancester( in.nextInt() , in.nextInt() ) ;
+						if ( ancester == null )
+							System.out.printf ( "ancestro: %d\n" , -1 ) ;
+						else 
+							System.out.printf ( "ancestro: %d\n" , ancester.value ) ;
+						break ;
+					default:
+						break ;
+				}
+			}
+		}
+	}
+	
+	private static class Node{
+		int value ;
+		int level ;
+		Node left ;
+		Node right ;
+		public Node ( int value ) {
+			this.value = value ;
+			left = null ;
+			right = null ;
+		}
+	}
+	
+	private static class Tree {
+		Node root ;
+		public Tree () {
+			root = null ;
+		}
+		
+		public void insert ( int value ) {
+			boolean searching = true ;
+			if( root == null ) {
+				root = new Node( value ) ;
+				root.level = 0 ;
+			} else {
+				Node pointer = root ;
+				while ( searching ) {
+					if ( pointer.value < value ) 
+						if ( pointer.right == null ) { 
+							pointer.right = new Node( value ) ;
+							pointer.right.level = pointer.level + 1 ; 
+							searching = false ;
+							// System.out.println( "El nodo " + pointer.right.value + " fue insertado" );
+						} else
+							pointer = pointer.right ;
+					else
+						if ( pointer.left == null ){
+							pointer.left = new Node( value ) ;
+							pointer.left.level = pointer.level + 1;
+							searching = false ;
+							// System.out.println( "El nodo " + pointer.left.value + " fue insertado" );
+						} else
+							pointer = pointer.left ;
+					// System.out.println( "Buscando donde ubicar" );
+				}
+			}
+		}
+		
+		public Node search ( int value ) {
+			if ( root == null ) {
+				return null ;
+			} else {
+				Node pointer = root ;
+				while ( pointer.value != value  ){
+					if ( pointer.value < value )
+						if ( pointer.right == null )
+							return null ;
+						else 
+							pointer = pointer.right ;
+					else 
+						if ( pointer.left == null ) 
+							return null ;
+						else
+							pointer = pointer.left ;
+				}
+				// System.out.println( "Nodo hallado" );
+				return pointer ;
+			} 
+		}
+		
+		public int distance ( int first , int second ) {
+			int distance = -1;
+			Node firstN = search( first ) ;
+			Node secondN = search( second ) ;
+			Node ancester = ancester( first , second ) ;
+			if ( firstN != null && secondN != null )
+				distance = firstN.level + secondN.level - 2*ancester.level ;
+			return distance ;
+		}
+		
+		public Node ancester( int first , int second ) {
+			if ( root == null ) {
+				return null ;
+			} else {
+				boolean searching = true ;
+				Node pointer, firstPath, secondPath ;
+				pointer = firstPath = secondPath = root ;
+				if ( root == null )
+					return null ;
+				while ( searching ){
+					// Primer camino
+					if ( firstPath.value == first )
+						return firstPath ;
+					else
+						if ( firstPath.value < first )
+							if ( firstPath.right == null )
+								firstPath = null ;
+							else 
+								firstPath = firstPath.right ;
+						else 
+							if ( firstPath.left == null ) 
+								firstPath = null ;
+							else
+								firstPath = firstPath.left ;
+						
+					// Segundo Camino
+					if ( secondPath.value == second )
+						return secondPath ;
+					else
+						if ( secondPath.value < second )
+							if ( secondPath.right == null )
+								secondPath = null ;
+							else 
+								secondPath = secondPath.right ;
+						else 
+							if ( secondPath.left == null ) 
+								secondPath = null ;
+							else
+								secondPath = secondPath.left ;
+						
+					// Comparacion
+					if ( firstPath == null || secondPath == null ) {
+						searching = false ;
+						// System.out.println( "Nodo hallado" );
+					} else if ( !firstPath.equals(secondPath) ) {
+						searching = false ;
+						// System.out.println( "Nodo hallado" );
+					} else {
+						pointer = firstPath ;
+						// System.out.println( "Buscando ancestro" );
+					}
+				}
+				return pointer ;
+			} 
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		
+		for ( int i = 0 ; i < cases ; i++ ) {
+			int entries = in.nextInt() ;
+			int [] array = new int [entries] ;
+			int count = 0 ;
+			HashMap < Integer , Integer > hash = new HashMap< Integer , Integer >( entries ) ;
+			System.out.println( "Case #" + (i+1) + ":") ;
+			for ( int j = 0 ; j < entries ; j++ ) {
+				int number = in.nextInt() ;
+				if ( hash.containsKey( number ) ) {
+					hash.put( number , hash.get(number) + 1 ) ;
+				} else {
+					hash.put( number , 1 ) ;
+					array[count++] = number ; 
+				}
+			}
+			
+			for ( int j = 0 ; j < count ; j++ ) {
+				System.out.println( array[j] + " " + hash.get(array[j]) ) ;
+			}
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		
+		for ( int i = 0 ; i < cases ; i++ ) {
+			int entries = in.nextInt() ;
+			int [] array = new int [entries] ;
+			int count = 0 ;
+			HashMap < Integer , Integer > hash = new HashMap< Integer , Integer >( entries ) ;
+			System.out.println( "Caso #" + (i+1) + ":") ;
+			for ( int j = 0 ; j < entries ; j++ ) {
+				int number = in.nextInt() ;
+				if ( hash.containsKey( number ) ) {
+					hash.put( number , hash.get(number) + 1 ) ;
+				} else {
+					hash.put( number , 1 ) ;
+					array[count++] = number ; 
+				}
+			}
+			
+			for ( int j = 0 ; j < count ; j++ ) {
+				System.out.println( array[j] + " " + hash.get(array[j]) ) ;
+			}
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio6;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ){
+			int max = 0 ;
+			int time = 0 ;
+			// System.out.println( "Insertar tamano y posicion" );
+			int prints = in.nextInt() ;
+			int position = in.nextInt()  ;
+			int [] priorities = new int [10] ;
+			Queue queue = new Queue() ;
+			
+			// System.out.println( "Insertar proridades" );
+			for ( int j = 0 ; j < prints ; j++ ) {
+				int value = in.nextInt() ;
+				queue.enqueue( value ) ;
+				priorities[value-1]++ ;
+				if ( max < value )
+					max = value ;
+			}
+			
+			// System.out.println( "Calcular tiempo" );
+			while ( !queue.isEmpty() ) {
+				int value = queue.dequeue().value ;
+				while ( priorities[max-1] == 0 ) {
+					max-- ;
+				}
+				/*System.out.println( "Las frecuencias son: " );
+				 for ( int j = 0 ; j < 9 ; j++ ) {
+					System.out.print( priorities[j] + " " ) ;
+				} */
+				// System.out.println( "El maximo es " + max );
+				// System.out.println( "Se toma de la cola " + value );
+				if ( value == max ) {
+					prints-- ;
+					priorities[value-1]-- ;
+					time++ ;
+					// System.out.println( "El tiempo es " + time );
+					// System.out.println( value + " impreso" );
+					if ( position == 0 ){
+						break ;
+					}
+					position-- ;
+					// System.out.println( "La impresion pasa a la posicion " + position );
+				} else {
+					if ( position == 0 ){
+						position = prints - 1 ;
+						// System.out.println( "La impresion salta a la posicion " + position );
+					} else {
+						position-- ;
+						// System.out.println( "La impresion pasa a la posicion " + position );
+					}
+					queue.enqueue( value );
+					// System.out.println( value + " salta a la cola" );
+				}
+			}
+						
+			System.out.println( time );
+			// System.out.println( "Terminar" );
+		}		
+	}
+	
+	private static class Node {
+		int value ;
+		Node next ;
+		public Node ( int value ) {
+			this.value = value ;
+			this.next = null ;
+		}
+	}
+	
+	private static class Queue {
+		Node root ;
+		Node tail ;
+		
+		public Queue (){
+			root = tail = null ;
+		}
+		
+		public void enqueue( int value ) {
+			Node newNode = new Node( value ) ;
+			if ( root == null )
+				tail = root = newNode ;
+			else {
+				tail = tail.next = newNode ;
+			}
+		}
+		
+		public Node dequeue() {
+			Node temp = root ;
+			root = root.next ;
+			return temp ;
+		}
+		
+		public boolean isEmpty () {
+			return root == null ;
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio6;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ){
+			int max = 0 ;
+			int time = 0 ;
+			// System.out.println( "Insertar tamano y posicion" );
+			int prints = in.nextInt() ;
+			int position = in.nextInt()  ;
+			int [] priorities = new int [10] ;
+			Queue queue = new Queue() ;
+			
+			// System.out.println( "Insertar proridades" );
+			for ( int j = 0 ; j < prints ; j++ ) {
+				int value = in.nextInt() ;
+				queue.enqueue( value ) ;
+				priorities[value-1]++ ;
+				if ( max < value )
+					max = value ;
+			}
+			
+			// System.out.println( "Calcular tiempo" );
+			while ( !queue.isEmpty() ) {
+				int value = queue.dequeue().value ;
+				while ( priorities[max-1] == 0 ) {
+					max-- ;
+				}
+				/*System.out.println( "Las frecuencias son: " );
+				 for ( int j = 0 ; j < 9 ; j++ ) {
+					System.out.print( priorities[j] + " " ) ;
+				} */
+				// System.out.println( "El maximo es " + max );
+				// System.out.println( "Se toma de la cola " + value );
+				if ( value == max ) {
+					prints-- ;
+					priorities[value-1]-- ;
+					time++ ;
+					// System.out.println( "El tiempo es " + time );
+					// System.out.println( value + " impreso" );
+					if ( position == 0 ){
+						break ;
+					}
+					position-- ;
+					// System.out.println( "La impresion pasa a la posicion " + position );
+				} else {
+					if ( position == 0 ){
+						position = prints - 1 ;
+						// System.out.println( "La impresion salta a la posicion " + position );
+					} else {
+						position-- ;
+						// System.out.println( "La impresion pasa a la posicion " + position );
+					}
+					queue.enqueue( value );
+					// System.out.println( value + " salta a la cola" );
+				}
+			}
+						
+			System.out.println( time );
+			// System.out.println( "Terminar" );
+		}		
+	}
+	
+	private static class Node {
+		int value ;
+		Node next ;
+		public Node ( int value ) {
+			this.value = value ;
+			this.next = null ;
+		}
+	}
+	
+	private static class Queue {
+		Node root ;
+		Node tail ;
+		
+		public Queue (){
+			root = tail = null ;
+		}
+		
+		public void enqueue( int value ) {
+			Node newNode = new Node( value ) ;
+			if ( root == null )
+				tail = root = newNode ;
+			else {
+				tail = tail.next = newNode ;
+			}
+		}
+		
+		public Node dequeue() {
+			Node temp = root ;
+			root = root.next ;
+			return temp ;
+		}
+		
+		public boolean isEmpty () {
+			return root == null ;
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio6;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ){
+			int max = 0 ;
+			int time = 0 ;
+			// System.out.println( "Insertar tamano y posicion" );
+			int prints = in.nextInt() ;
+			int position = in.nextInt()  ;
+			int [] priorities = new int [10] ;
+			Queue queue = new Queue() ;
+			
+			// System.out.println( "Insertar proridades" );
+			for ( int j = 0 ; j < prints ; j++ ) {
+				int value = in.nextInt() ;
+				queue.enqueue( value ) ;
+				priorities[value-1]++ ;
+				if ( max < value )
+					max = value ;
+			}
+			
+			// System.out.println( "Calcular tiempo" );
+			while ( !queue.isEmpty() ) {
+				int value = queue.dequeue().value ;
+				while ( priorities[max-1] == 0 ) {
+					max-- ;
+				}
+				/*System.out.println( "Las frecuencias son: " );
+				 for ( int j = 0 ; j < 9 ; j++ ) {
+					System.out.print( priorities[j] + " " ) ;
+				} */
+				// System.out.println( "El maximo es " + max );
+				// System.out.println( "Se toma de la cola " + value );
+				if ( value == max ) {
+					prints-- ;
+					priorities[value-1]-- ;
+					time++ ;
+					// System.out.println( "El tiempo es " + time );
+					// System.out.println( value + " impreso" );
+					if ( position == 0 ){
+						break ;
+					}
+					position-- ;
+					// System.out.println( "La impresion pasa a la posicion " + position );
+				} else {
+					if ( position == 0 ){
+						position = prints - 1 ;
+						// System.out.println( "La impresion salta a la posicion " + position );
+					} else {
+						position-- ;
+						// System.out.println( "La impresion pasa a la posicion " + position );
+					}
+					queue.enqueue( value );
+					// System.out.println( value + " salta a la cola" );
+				}
+			}
+						
+			System.out.println( time );
+			// System.out.println( "Terminar" );
+		}		
+	}
+	
+	private static class Node {
+		int value ;
+		Node next ;
+		public Node ( int value ) {
+			this.value = value ;
+			this.next = null ;
+		}
+	}
+	
+	private static class Queue {
+		Node root ;
+		Node tail ;
+		
+		public Queue (){
+			root = tail = null ;
+		}
+		
+		public void enqueue( int value ) {
+			Node newNode = new Node( value ) ;
+			if ( root == null )
+				tail = root = newNode ;
+			else {
+				tail = tail.next = newNode ;
+			}
+		}
+		
+		public Node dequeue() {
+			Node temp = root ;
+			root = root.next ;
+			return temp ;
+		}
+		
+		public boolean isEmpty () {
+			return root == null ;
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		for ( int i = 0 ; i < cases ; i++ ) {
+			// Inicializacion
+			int players = in.nextInt() ;
+			int sended = in.nextInt() ;
+			
+			// Creacion de la PQ
+			Player [] groups = new Player [players] ;
+			System.out.println( "Caso #" + ( i + 1 ) + ":" );
+			for ( int j = 0 ; j < players ; j++ )
+				groups[j] = new Player( j + 1 ) ;
+			
+			for ( int j = 0 ; j < sended ; j++ ) {
+				int group = in.nextInt() ;
+				int problem = in.nextInt() ;
+				int time = in.nextInt() ;
+				String status = in.next() ;
+				
+				switch ( status ) { 
+					case "I" :
+						groups[group-1].sended++ ;
+						
+						break ;
+					case "C" :
+						groups[group-1].sended++ ;
+						groups[group-1].solved++ ;
+						groups[group-1].time += time ;
+						break ;
+					case "R": case "T":
+						groups[group-1].sended++ ;
+					default :
+						break ;
+				}
+			}
+			
+			MaxPQ pq = new MaxPQ( players ) ;
+			for ( int j = 0 ; j < players ; j++ )
+				pq.insert( groups[j] );
+			pq.print() ;
+		}
+	}
+	
+	static private class Player {
+		int number ;
+		int sended = 0 ;
+		int time = 0 ;
+		int solved = 0 ;
+		public Player( int number ) {
+			this.number = number ;
+		}
+		
+	}
+	
+	static private class MaxPQ {
+		private Player[] pq ;
+		private int N = 0 ;
+		
+		public MaxPQ ( int maxN ) {
+			pq = new Player[ maxN + 1 ] ;
+		}
+		
+		public boolean isEmpty() {
+			return N == 0 ;
+		}
+		
+		public int size() {
+			return N ;
+		}
+		
+		public void insert( Player v ){
+			pq[++N] = v ;
+			swim(N) ;
+		}
+		
+		private Player delMax() {
+			Player max = pq[1] ;
+			exch( 1 , N-- ) ;
+			pq[N+1] = null ;
+			sink(1) ;
+			return max ;
+		}
+		
+		public void print() {
+			while ( !isEmpty() ) {
+				Player t = delMax() ;
+				if ( t.sended == 0 ) 
+					continue ;
+				System.out.printf( "%d %d %d\n", t.number , t.solved , t.time );
+			}
+		}
+		
+		private boolean less ( int i , int j ) {
+			if ( pq[i].solved == pq[j].solved )
+				if ( pq[i].time == pq[j].time )
+					return pq[i].number > pq[j].number ;
+				else
+					return pq[i].time > pq[j].time ;
+			else
+				return pq[i].solved < pq[j].solved ;
+		}
+		
+		private void exch ( int i , int j ) {
+			Player t = pq[i] ; 
+			pq[i] = pq[j] ;
+			pq[j] = t ;
+		}
+		
+		private void swim( int k ) {
+			while ( k > 1 && less( k/2 , k ) ) {
+				exch( k/2 , k ) ;
+				k = k/2 ;
+			}
+		}
+		
+		private void sink( int k ) {
+			while ( 2*k <= N ) {
+				int j = 2*k ;
+				if ( j < N && less( j , j+1 ) ) 
+					j++  ;
+				if ( !less( k , j ) ) 
+					break ;
+				exch( k , j ) ;
+				k = j ;
+			}
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Laboratorio5;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main ( String [] args ) {
+		Scanner in = new Scanner( System.in ) ;
+		int cases = in.nextInt() ;
+		
+		for ( int i = 0 ; i < cases ; i++ ) {
+			int entries = in.nextInt() ;
+			int [] array = new int [entries] ;
+			int count = 0 ;
+			HashMap < Integer , Integer > hash = new HashMap< Integer , Integer >( entries ) ;
+			System.out.println( "Caso #" + (i+1) + ":") ;
+			for ( int j = 0 ; j < entries ; j++ ) {
+				int number = in.nextInt() ;
+				if ( hash.containsKey( number ) ) {
+					hash.put( number , hash.get(number) + 1 ) ;
+				} else {
+					hash.put( number , 1 ) ;
+					array[count++] = number ; 
+				}
+			}
+			
+			for ( int j = 0 ; j < count ; j++ ) {
+				System.out.println( array[j] + " " + hash.get(array[j]) ) ;
+			}
+		}
+	}
+} 
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

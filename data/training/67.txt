@@ -1,0 +1,861 @@
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        
+        
+        int[] num = new int[a];
+        
+        for (int i = 0; i < a; i++) {
+            num[i]=scan.nextInt();
+        }
+        int multM=num[0]*num[1];
+        for (int i = 0; i < a; i++) {
+            for (int j=(i+1); j<a; j++){
+                if ((num[i]*num[j]) >multM) {
+                    multM=(num[i]*num[j]);
+                }
+            }
+        }
+            
+        
+        System.out.println(multM);
+       
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        
+        long[] num = new long[a];
+        
+        for (int i = 0; i < a; i++) {
+            num[i]=scan.nextLong();
+        }
+        long multM=num[0]*num[1];
+        for (int i = 0; i < a; i++) {
+            for (int j=(i+1); j<a; j++){
+                if ((num[i]*num[j]) >multM) {
+                    multM=(num[i]*num[j]);
+                }
+            }
+        }
+            
+        
+        System.out.println(multM);
+       
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int conteo = 0;
+        int []sumaFila = new int[a];
+        int []sumaColumna = new int[a];
+        int [][] tab = new int[a][a];
+        
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                tab[i][j]=scan.nextInt();
+            }
+        }
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a; j++) {
+                sumaFila[i]= sumaFila[i] + tab[i][j];
+            }
+        }
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a; j++) {
+                sumaColumna[j]= sumaColumna[j] + tab[j][i];
+            }
+        }
+        
+        for (int i = 0; i < a; i++) {
+            if (sumaFila[i]<sumaColumna[i]){
+                conteo++;
+            }
+        }
+    
+        
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int veces=0;
+        while(scan.hasNext()){
+            
+            
+            int a = scan.nextInt();
+            
+            int board[][] = new int[a][a];
+            int sumaColumna[]= new int[a];
+            int sumaFila[] = new int[a];
+            int contador = 0;
+
+            for (int i = 0; i < a; i++) {
+                for (int j = 0; j < a; j++) {
+                    board[i][j]= scan.nextInt();
+                }
+            }
+
+            for (int i = 0; i < a; i++) {
+                for (int j = 0; j < a; j++) {
+                    sumaFila[i]= sumaFila[i] + board[i][j];
+                    sumaColumna[i] = sumaColumna[i] + board[j][i];
+                }
+            }
+
+            for (int i = 0; i < a ; i++) {
+                for (int j = 0; j < a; j++) {
+                    if (sumaFila[i] < sumaColumna[j]) {
+                        contador++;
+                    }
+                }
+            }
+            veces++;
+                System.out.println("Case #" + (veces) + ": \n" + contador);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int casosPrueba = scan.nextInt();
+        int[] contador = new int[casosPrueba];
+        
+        for (int i = 0; i < casosPrueba; i++) {
+            
+            int equipos = scan.nextInt();
+            int[][] colores = new int[equipos][2];
+            
+            for (int j = 0; j < equipos; j++) {
+                for (int k = 0; k < 2; k++) {
+                    colores[j][k] = scan.nextInt();
+                }
+            }
+            
+            for (int j = 0; j < equipos; j++) {
+                for (int k = 0; k < equipos; k++) {
+                    if(j != k){
+                        if(colores[j][0]==colores[k][1]){
+                        contador[i]++;
+                        }
+                    }
+                        
+                    
+                }
+            }
+            
+        }
+        for (int i = 0; i < casosPrueba; i++) {
+            System.out.println("Case #" + (i+1) +":\n" + contador[i]);
+        }
+        
+            
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scan = new Scanner (System.in);
+		int casos= scan.nextInt();
+                int []contador= new int[casos];
+		for (int i = 0; i<casos; i++){
+			int n = scan.nextInt();
+			char[][] chocolate = new char[n][n];
+			int [] cerezasColumna = new int [n];
+			int[] cerezasFila= new int[n];
+                        int cerezas=0;
+                        
+                        
+			
+			for(int j=0; j<n; j++){
+				for(int k=0; k<n; k++){
+					chocolate[j][k]= scan.next().charAt(0);
+                                }
+			}
+			
+			for(int j=0; j<n; j++){
+				for (int k=0; k<n; k++){
+					if(chocolate[j][k]=='#'){
+                                            cerezasFila[j]++;
+                                            cerezasColumna[k]++;
+                                            cerezas++;
+                                            
+                                        }
+				}
+			}
+                        for (int j = 0; j < n; j++) {
+                            int parcialCerezasF = cerezasFila[j];
+                            int parcialCerezasC = cerezasColumna[j];
+                            if((parcialCerezasF == (cerezas/2)) || (parcialCerezasC == (cerezas/2))){
+                                contador[i]++;
+                            }
+                            for (int k = 0; k < n; k++) {
+                                
+                                if (j != k){
+                                    parcialCerezasF = parcialCerezasF + cerezasFila[k];
+                                    parcialCerezasC = parcialCerezasC + cerezasColumna[k];
+                                    
+                                    if((parcialCerezasF == (cerezas/2)) || (parcialCerezasC == (cerezas/2))){
+                                        contador[i]++;
+                                    }
+                                }
+                            }
+                             
+                        
+                        }
+                        
+                                
+		}
+                for (int i = 0; i < casos; i++) {
+                    if (contador[i]>=1){
+                        System.out.println("YES");
+                    }else{
+                        System.out.println("NO");
+                    }
+                }
+                
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scan = new Scanner (System.in);
+		int casos= scan.nextInt();
+                int []contador= new int[casos];
+		for (int i = 0; i<casos; i++){
+			int n = scan.nextInt();
+			char[][] chocolate = new char[n][n];
+			int [] cerezasColumna = new int [n];
+			int[] cerezasFila= new int[n];
+                        int cerezas=0;
+                        
+                        
+			
+			for(int j=0; j<n; j++){
+				for(int k=0; k<n; k++){
+					chocolate[j][k]= scan.next().charAt(0);
+                                }
+			}
+			
+			for(int j=0; j<n; j++){
+				for (int k=0; k<n; k++){
+					if(chocolate[j][k]=='#'){
+                                            cerezasFila[j]++;
+                                            cerezasColumna[k]++;
+                                            cerezas++;
+                                            
+                                        }
+				}
+			}
+                        for (int j = 0; j < n; j++) {
+                            int parcialCerezasF = cerezasFila[j];
+                            int parcialCerezasC = cerezasColumna[j];
+                            if((parcialCerezasF == (cerezas/2)) || (parcialCerezasC == (cerezas/2))){
+                                contador[i]++;
+                            }
+                            for (int k = 0; k < n; k++) {
+                                
+                                if (j != k){
+                                    parcialCerezasF = parcialCerezasF + cerezasFila[k];
+                                    parcialCerezasC = parcialCerezasC + cerezasColumna[k];
+                                    
+                                    if((parcialCerezasF == (cerezas/2)) || (parcialCerezasC == (cerezas/2))){
+                                        contador[i]++;
+                                    }
+                                }
+                            }
+                             
+                        
+                        }
+                        
+                                
+		}
+                for (int i = 0; i < casos; i++) {
+                    if (contador[i]>=1){
+                        System.out.println("YES");
+                    }else{
+                        System.out.println("NO");
+                    }
+                }
+                
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+  
+import java.util.LinkedList;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        int casos = scan.nextInt();
+        
+        for (int i = 0; i < casos; i++) {
+            int cartas = scan.nextInt();
+            int numJugadores = scan.nextInt();
+            int [] cuenta = new int [numJugadores];
+            int ganador = 0;
+            int jugadorG = 0;
+            LinkedList<Integer> empate = new LinkedList<>();
+            LinkedList<Integer> jugadores = new LinkedList<>();
+            LinkedList<Integer> lista = new LinkedList<>();
+            for (int j = 0; j < cartas; j++) {
+                lista.add(scan.nextInt());
+            }
+            
+            
+            
+            for (int j = 1; j < cartas; j++) {
+                if (lista.getFirst() < lista.getLast()) {
+                    jugadores.add(lista.getLast()) ;
+                    lista.removeLast();
+                }
+                else{
+                    if(lista.getFirst() == lista.getLast()){
+                        jugadores.add(lista.getLast()) ;
+                        lista.removeLast();
+                    }else{
+                        jugadores.add(lista.getFirst());
+                        lista.removeFirst();
+                    }
+                }
+            }
+            jugadores.add(lista.getFirst());
+            lista.remove();
+            
+            do{
+                if (numJugadores < cartas){
+                    for (int j = 0; j < (cartas/numJugadores); j++) {
+                        for (int k = 0; k < numJugadores; k++) {
+                            cuenta[k] = cuenta[k] + jugadores.getFirst();
+                            jugadores.removeFirst();
+                        }
+                    }
+                    
+                    for (int j = 0; j < cartas%numJugadores; j++) {
+                            cuenta[j] = cuenta[j] + jugadores.getFirst();
+                            jugadores.removeFirst();
+                    }
+                }else{
+                    for (int j = 0; j < cartas; j++) {
+                        cuenta[j] = cuenta[j] + jugadores.getFirst();
+                        jugadores.removeFirst();
+                    }
+                }
+            }while(!jugadores.isEmpty());
+
+            
+            for (int j = 0; j < numJugadores; j++) {
+                if (ganador == cuenta[j]){
+                    if(!empate.contains(jugadorG)){
+                        empate.add(jugadorG);
+                        empate.add(j+1);
+                    }else{
+                        empate.add(j+1);
+                    }
+                    
+                }
+                if (ganador < cuenta[j]){
+                    jugadorG = j+1;
+                    ganador = cuenta[j];
+                }
+               
+            }
+            
+            
+            if( empate.isEmpty()){
+                System.out.println("Caso #" + (i+1) + ":\n" + jugadorG);
+            }else{
+                System.out.println("Caso #" + (i+1) + ":" ); 
+                for (int j = 0; j < empate.size(); j++) {
+                    System.out.print(empate.get(j)+ " ");
+                }
+                System.out.println("");
+                
+            }
+            
+        }
+    }
+}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+
+
+
+public class Main {
+    public static class Nodo {
+        int dato;
+        LinkedList<Nodo> hijos;
+
+        public Nodo() {
+        }
+
+        @Override
+        public String toString() {
+            return dato + " - " + hijos ;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 3;
+            hash = 31 * hash + this.dato;
+            hash = 31 * hash + Objects.hashCode(this.hijos);
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Nodo other = (Nodo) obj;
+            if (this.dato != other.dato) {
+                return false;
+            }
+            if (!Objects.equals(this.hijos, other.hijos)) {
+                return false;
+            }
+            return true;
+        }
+        
+        
+    }
+    public ArrayList<Integer> des (Nodo nodo){
+        ArrayList<Integer> hijos = new ArrayList<>();
+        for (int i = 0; i < nodo.hijos.size(); i++) {
+            hijos.add(nodo.hijos.get(i).dato);
+        }
+        return hijos;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scan = new Scanner (System.in);
+        int casos = scan.nextInt();
+        
+        for (int i = 0; i < casos; i++) {
+            LinkedList<Nodo> arbol = new LinkedList<>();
+            int nodos = scan.nextInt();
+            scan.nextLine();
+            for (int j = 0; j < nodos; j++) {
+                String linea = scan.nextLine();
+                StringTokenizer toke = new StringTokenizer(linea);
+                LinkedList<Nodo> arbolInterno = new LinkedList<>();
+                Nodo nodo = new Nodo();
+                nodo.dato = Integer.parseInt(toke.nextToken());
+                if(!arbol.contains(nodo)){
+                    arbol.add(nodo);
+                }
+                while(toke.hasMoreTokens()){
+                    Nodo nodo2 = new Nodo();
+                    nodo2.dato = Integer.parseInt(toke.nextToken());
+                    arbolInterno.add(nodo2);
+                    while(!arbol.contains(nodo2)){
+                        arbol.add(nodo2);
+                    }
+                }
+                arbol.get(arbol.indexOf(nodo)).hijos = arbolInterno;
+            }
+            System.out.println(arbol);
+            ArrayList<Integer> repuesto = new ArrayList<>();
+            ArrayList <Integer> arbolA = new ArrayList<>();
+            int nivel = 0;
+            int size = 1;
+            while(arbolA.size() < 11){
+                int size1=0;
+                for (int j = 0; j < size; j++) {
+                    if (!arbol.getFirst().hijos.isEmpty()) {
+                        arbolA.add(arbol.getFirst().dato);
+                        size1 = size1 + arbol.getFirst().hijos.size();
+                        for (int k = 0; k < arbol.getFirst().hijos.size(); k++) {
+                            repuesto.add(arbol.getFirst().hijos.get(k).dato);
+                        }
+                    }else{
+                        for (int k = repuesto.size()- size; k <= repuesto.size(); k++) {
+                            arbolA.add(repuesto.get(k-1));
+                        }
+                        size1 = 1;
+                    }
+                    arbol.removeFirst();
+                    System.out.println(arbol);
+                }
+                size = size1;
+                nivel++;
+            }
+            System.out.println("Caso #: " + (i+1));
+            for (int j = 0; j < arbolA.size(); j++) {
+                System.out.print(arbolA.get(j));
+                System.out.print(" ");
+            }
+            System.out.println("");
+            
+            
+            
+        }
+        
+        
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+
+
+
+public class Main {
+    public static class Nodo {
+        int dato;
+        LinkedList<Nodo> hijos;
+
+        public Nodo() {
+        }
+
+        @Override
+        public String toString() {
+            return dato + " - " + hijos ;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 3;
+            hash = 31 * hash + this.dato;
+            hash = 31 * hash + Objects.hashCode(this.hijos);
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Nodo other = (Nodo) obj;
+            if (this.dato != other.dato) {
+                return false;
+            }
+            if (!Objects.equals(this.hijos, other.hijos)) {
+                return false;
+            }
+            return true;
+        }
+        
+        
+    }
+    public static ArrayList<Integer> des (Nodo nodo, boolean estado, boolean terminado){
+        ArrayList<Integer> hijos = new ArrayList<>();
+        
+        if (!nodo.hijos.equals(null)) {
+            if (estado) {
+                for (int i = 0; i < nodo.hijos.size(); i++) {
+                    hijos.add(nodo.hijos.get(i).dato);
+                }
+                estado =false;
+                for (int i = nodo.hijos.size()-1; i >= 1; i--) {
+                   hijos.addAll(des(nodo.hijos.get(i), estado, terminado));
+                }
+                terminado = true;
+                hijos.addAll(des(nodo.hijos.get(0), estado, terminado));
+            }else{
+                for (int i = nodo.hijos.size()-1; i >= 0; i--) {
+                    hijos.add(nodo.hijos.get(i).dato);
+                }
+                estado = true;
+                for (int i = 0; i < nodo.hijos.size()-1; i++) {
+                    hijos.addAll(des(nodo.hijos.get(i), estado, terminado));
+                }
+                terminado = true;
+                hijos.addAll(des(nodo.hijos.get(nodo.hijos.size()), estado, terminado));
+            }
+        
+        }else{
+            hijos.add(nodo.dato);
+        }    
+        
+    
+        return hijos;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scan = new Scanner (System.in);
+        int casos = scan.nextInt();
+        
+        for (int i = 0; i < casos; i++) {
+            LinkedList<Nodo> arbol = new LinkedList<>();
+            int nodos = scan.nextInt();
+            scan.nextLine();
+            for (int j = 0; j < nodos; j++) {
+                String linea = scan.nextLine();
+                StringTokenizer toke = new StringTokenizer(linea);
+                LinkedList<Nodo> arbolInterno = new LinkedList<>();
+                Nodo nodo = new Nodo();
+                nodo.dato = Integer.parseInt(toke.nextToken());
+                if(!arbol.contains(nodo)){
+                    arbol.add(nodo);
+                }
+                while(toke.hasMoreTokens()){
+                    Nodo nodo2 = new Nodo();
+                    nodo2.dato = Integer.parseInt(toke.nextToken());
+                    arbolInterno.add(nodo2);
+                    while(!arbol.contains(nodo2)){
+                        arbol.add(nodo2);
+                    }
+                }
+                arbol.get(arbol.indexOf(nodo)).hijos = arbolInterno;
+            }
+            System.out.println(arbol);
+            ArrayList<Integer> repuesto = new ArrayList<>();
+            ArrayList <Integer> arbolA = new ArrayList<>();
+            
+            boolean estado = false;
+            boolean terminado = true;
+            arbolA.add(arbol.getFirst().dato);
+            arbolA.addAll(des(arbol.getFirst(), estado, terminado));
+            
+            System.out.println(arbolA);   
+            
+//            int nivel = 0;
+//            int size = 1;
+//            while(arbolA.size() < nodos){
+//                int size1=0;
+//                for (int j = 0; j < size; j++) {
+//                    if (!arbol.getFirst().hijos.isEmpty()) {
+//                        arbolA.add(arbol.getFirst().dato);
+//                        size1 = size1 + arbol.getFirst().hijos.size();
+//                        for (int k = 0; k < arbol.getFirst().hijos.size(); k++) {
+//                            repuesto.add(arbol.getFirst().hijos.get(k).dato);
+//                        }
+//                    }else{
+//                        
+//                        for (int k = nodos-arbolA.size(); k <= repuesto.size(); k++) {
+//                            arbolA.add(repuesto.get(k-1));
+//                        }
+//                        size1 = 1;
+//                    }
+//                    arbol.removeFirst();
+//                    System.out.println(arbol);
+//                }
+//                size = size1;
+//                nivel++;
+//            }
+//            System.out.println("Caso #" + (i+1)+":");
+//            for (int j = 0; j < arbolA.size(); j++) {
+//                System.out.print(arbolA.get(j));
+//                System.out.print(" ");
+//            }
+//            System.out.println("");
+//            
+            
+            
+        }
+        
+        
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Objects;
+
+
+public class Main {
+    
+    public static class arbol {
+        private class node {
+            int valor;
+            node izq;
+            node der;
+            node padre;
+            public node() {
+            }
+
+            @Override
+            public int hashCode() {
+                int hash = 5;
+                hash = 67 * hash + this.valor;
+                hash = 67 * hash + Objects.hashCode(this.izq);
+                hash = 67 * hash + Objects.hashCode(this.der);
+                hash = 67 * hash + Objects.hashCode(this.padre);
+                return hash;
+            }
+
+            @Override
+            public boolean equals(Object obj) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null) {
+                    return false;
+                }
+                if (getClass() != obj.getClass()) {
+                    return false;
+                }
+                final node other = (node) obj;
+                if (this.valor != other.valor) {
+                    return false;
+                }
+                if (!Objects.equals(this.izq, other.izq)) {
+                    return false;
+                }
+                if (!Objects.equals(this.der, other.der)) {
+                    return false;
+                }
+                if (!Objects.equals(this.padre, other.padre)) {
+                    return false;
+                }
+                return true;
+            }
+            
+            
+            public node(int valor,  node izq, node der, node padre) {
+                this.valor = valor;
+                this.izq = izq;
+                this.der = der;
+                this.padre = padre;
+            }
+
+            @Override
+            public String toString() {
+                return "[valor= " + valor + ", izq= " + izq + ", der= " + der + ", padre= "  + padre + ']' ;
+            }
+            
+        }
+        
+        private node raiz;
+        public void insertar (int valor, node inicial){
+            raiz = insertar (valor, raiz, inicial);
+        }
+        
+        public node insertar (int valor, node nodo, node padre){
+            if (nodo == null){
+                return new node (valor, null, null, padre);
+            }
+            if (valor < nodo.valor){
+                nodo.izq = insertar (valor, nodo.izq, nodo);
+            }else{
+                if (valor > nodo.valor){
+                nodo.der = insertar (valor, nodo.der, nodo);
+                }
+            }
+            return nodo;
+        }
+        
+        public node buscar (int valor, node actual){
+            if (actual.valor != valor) {
+                if(actual.valor < valor){
+                    buscar (valor, actual.izq);
+                }else{
+                    buscar (valor, actual.der);
+                }
+            }else{
+                return actual;
+            }
+            return null;
+        }
+        
+        public int distancia (int valor1, int valor2){
+            
+            node encontrado = new node();
+            int contador = 0;
+            while(encontrado.valor != valor2){
+                encontrado = buscar(valor1, encontrado);
+                contador++;
+            }
+            return contador;
+        }
+        
+        public arbol() {
+        }
+        
+        
+        
+    }
+    public static void main(String[] args) {
+        
+        arbol ar = new arbol();
+        
+        ar.insertar(10, ar.raiz);
+        System.out.println(ar.raiz);
+        ar.insertar(9, ar.raiz);
+        System.out.println(ar.raiz);
+//        System.out.println(ar.distancia(8,11));
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

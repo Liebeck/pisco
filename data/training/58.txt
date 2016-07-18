@@ -1,0 +1,1284 @@
+import java.util.Scanner;
+
+public class problemaA {
+
+	public static long maxProduct(long a[]){
+		long max = 0;
+		long n = a.length;
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < n; j++){
+				if(a[i] * a[j] > max && i != j){
+					max = a[i]*a[j];					
+				}
+			}
+		}
+		return max;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int c = 0;		
+		c = sc.nextInt();
+		long a[] = new long[c];
+		for(int i = 0; i < c; i++){
+			a[i] = sc.nextInt();
+		}
+		System.out.println(maxProduct(a));
+		sc.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problemaB {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n; 
+		int totalFila = 0, totalColumna = 0, c = 0;
+
+		for(int i = 0; sc.hasNext(); i++) {
+			n = sc.nextInt();
+			int[][] mat = new int[n][];
+			for(int j = 0; j < n; j++) {
+				mat[i] = new int[n];
+				for(int k = 0; k < n; k++) {
+					mat[i][j] = sc.nextInt();
+				}
+			}
+			for(int j = 0; j < n; j++) {
+				for(int k = 0; k < n; k++) {
+					for(int l = 0; l < n; k++) {
+						totalFila += mat[i][k];
+						totalColumna += mat[k][j];
+					}
+					if(totalFila < totalColumna){
+						c++;
+					}
+					totalFila = 0;
+					totalColumna = 0;
+				}
+			}
+
+			System.out.println("Case #" + (i+1) + ":\n" + c);
+			c = 0;
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problemaB {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n; 
+		int totalFila = 0, totalColumna = 0, c = 0;
+
+		for(int i = 0; sc.hasNext(); i++) {
+			n = sc.nextInt();
+			int[][] mat = new int[n][];
+			for(int j = 0; j < n; j++) {
+				mat[i] = new int[n];
+				for(int k = 0; k < n; k++) {
+					mat[i][j] = sc.nextInt();
+				}
+			}
+			for(int j = 0; j < n; j++) {
+				for(int k = 0; k < n; k++) {
+					for(int l = 0; l < n; k++) {
+						totalFila += mat[i][k];
+						totalColumna += mat[k][j];
+					}
+					if(totalFila < totalColumna){
+						c++;
+					}
+					totalFila = 0;
+					totalColumna = 0;
+				}
+			}
+
+			System.out.println("Case #" + (i+1) + ":\n" + c);
+			c = 0;
+		}
+		sc.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problemaD {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for(int i=0; i<t; i++){
+			int n = sc.nextInt();sc.nextLine();
+			int[] rows = new int[n];
+			int[] columns = new int[n];
+			int total = 0;
+			for(int j = 0; j < n; j++){
+				String s = sc.nextLine();
+				char tempArray[] = s.toCharArray();
+				for(int k = 0; k < n; k++){
+					if(tempArray[k] == '#'){
+						columns[k]++;
+						rows[j]++;
+						total++;
+					}
+				}
+			}
+			int c1 = 0, c2 = 0;
+			boolean ans = false;
+			for(int j = 0; j < n; j++){
+				c1 += rows[j];
+				c2 += columns[j];
+				if(c1 == total/2 || c2 == total/2)
+					ans = true;
+			}if(ans){
+				System.out.println("YES");
+			}else{
+				System.out.println("NO");
+			}
+			sc.close();
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problemaD {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int t = input.nextInt();
+		for(int i=0; i<t; i++){
+			int n = input.nextInt();input.nextLine();
+			int[] rows = new int[n];
+			int[] columns = new int[n];
+			int total = 0;
+			for(int j=0; j<n; j++){
+				String s = input.nextLine();
+				char tempArray[] = s.toCharArray();
+				for(int k=0; k<n; k++){
+					if(tempArray[k]=='#'){
+						columns[k]++;
+						rows[j]++;
+						total++;
+					}
+				}
+			}
+			int c1 = 0, c2 = 0;
+			boolean ans = false;
+			for(int j=0; j<n; j++){
+				c1 += rows[j];
+				c2 += columns[j];
+				if(c1==total/2 || c2==total/2)
+					ans = true;
+			}
+			if(ans)
+				System.out.println("YES");
+			else
+				System.out.println("NO");
+		}
+		input.close();
+	}
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problemaF{
+
+	public static void main(String[] args) {
+		int count = 0;
+		Scanner sc = new Scanner (System.in);
+		int correctTea = sc.nextInt(); sc.nextLine();
+		int[] concursante = new int[5];
+		for (int i = 0; i < 5; i++){
+			concursante[i] = sc.nextInt();
+		}
+		for (int i = 0; i < 5; i++){
+			if(concursante[i] == correctTea){
+				count++;
+			}
+		}
+		System.out.println(count);	
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problemaD {
+
+	public static void main(String[] args) {
+		char[][] imp = new char[2][2];
+		imp[0][0] = '#'; imp [0][1] = '.'; imp [1][0] = '#'; imp [1][1] = '#';
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for(int i=0; i<t; i++){
+			int n = sc.nextInt();sc.nextLine();
+			int[] rows = new int[n];
+			int[] columns = new int[n];
+			int total = 0;
+			for(int j = 0; j < n; j++){
+				String s = sc.nextLine();
+				char tempArray[] = s.toCharArray();
+				for(int k = 0; k < n; k++){
+					if(tempArray[k] == '#'){
+						columns[k]++;
+						rows[j]++;
+						total++;
+					}
+				}
+			}
+			int c1 = 0, c2 = 0;
+			boolean ans = false;
+			for(int j = 0; j < n; j++){
+				c1 += rows[j];
+				c2 += columns[j];
+			
+				if((c1*2 == total) || (c2*2 == total))
+					ans = true;
+			}if(ans){
+				System.out.println("YES");
+			}
+			else{
+				System.out.println("NO");
+			}
+			
+		}
+		sc.close();
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.Scanner;
+
+public class ProblemaB {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N, sumaF = 0, sumaC = 0, cont = 0;
+        
+        for(int t=0; in.hasNext(); t++) {
+            N = in.nextInt();
+            
+            int[][] matriz = new int[N][];
+    
+            for(int i=0; i<N; i++) {
+                matriz[i] = new int[N];
+                for(int j=0; j<N; j++) {
+                    matriz[i][j] = in.nextInt();
+                }
+            }
+            
+            for(int i=0; i<N; i++) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<N; k++) {
+                        sumaF += matriz[i][k];
+                        sumaC += matriz[k][j];
+                    }
+                    if(sumaF < sumaC)
+                        cont ++;
+                    sumaF = 0;
+                    sumaC = 0;
+                }
+            }
+            
+            System.out.println("Case #" + (t+1) + ":\n" + cont);
+            cont = 0;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class Main {
+
+	public static ArrayList<Integer> list = new ArrayList<Integer>();
+	static int costos[] = new int[2];
+
+	public static void costoInsertar(int pos){
+		//array
+		costos[0] += list.size() - (pos+1);
+		//linked
+		costos[1] += pos; 
+	}
+
+	public static void costoConsultar(int pos){
+		//linked
+		costos[1] += pos;
+	}
+
+	public static void costoEliminar(int pos){
+		//array
+		costos[0] += list.size() - (pos);
+		//linked
+		costos[1] += pos; 
+	}
+
+	public static void costoBuscar(int indexOf){
+		if(indexOf < 0){
+			//array
+			costos[0] += list.size();
+			//linked
+			costos[1] += list.size();
+		}else{
+			//array	
+			costos[0] += indexOf + 1;
+			//linked
+			costos[1] += indexOf + 1;
+		}	
+	}
+
+	public static String insertar(Integer x,int pos){
+		String answer = null;
+		String validOrNot = null;
+		if (pos == list.size()) {
+			list.add(x);
+			validOrNot = "posicion valida";
+			answer = "insertar: " + validOrNot;
+
+		} else if ((pos > (list.size()-1)) || (pos < 0)) {
+			validOrNot = "posicion invalida";
+			answer = "insertar: " + validOrNot;
+		} else if (pos < list.size()) {
+			if (pos == 0){
+				int temp = list.get(pos);
+				int last = 0;
+				for (int i = pos; i < (list.size()-1); i++){
+					int temp2 = list.get(pos+1);
+					list.set(i+1, temp);
+					temp = temp2;
+					last = temp2;
+				}
+				list.add(last);
+				list.set(0, x);
+				validOrNot = "posicion valida";
+				answer = "insertar: " + validOrNot;
+			} else {
+				for (int i = pos-1; i < list.size();i++){
+					int temp = list.get(i);
+					list.set(i, list.get(i-1));
+					list.set(i-1, temp);
+					answer = "insertar: " + validOrNot;
+				}
+			}
+		}
+		costoInsertar(pos);
+		return answer;
+	}
+
+	public static String consultar (int pos){
+		String answer = null;
+		costoConsultar(pos);
+		if(list.get(pos).equals(null) || (pos > list.size()-1) || (pos < 0)){
+			answer = "no existe numero";
+		} else {
+			answer = "consulta: " + list.get(pos);
+		}
+		return answer;
+	}
+
+	public static String eliminar (int pos){
+		String answer = null;
+		if((pos > list.size()-1) || (pos < 0)){
+			answer = "eliminar: posicion invalida";
+		}  else if (pos == 0){
+			for (int i = pos; i < list.size()-1;i++){
+				int temp = list.get(i);
+				list.set(i, list.get(i+1));
+				list.set(i+1, temp);	
+			}
+			list.remove(list.size()-1);
+			answer = "eliminar: posicion valida";
+		} else {
+			for (int i = pos-1; i < list.size();i++){
+				int temp = list.get(i);
+				list.set(i, list.get(i+1));
+				list.set(i+1, temp);
+				list.remove(list.size()-1);
+				System.out.println(list.get(i));
+			}
+		}
+		costoEliminar(pos);
+		return answer;
+	}
+	
+	public static String buscar (Integer value){
+		String answer = null;
+		int indexOf = (list.size()-1);
+		for(int i = 0; i < list.size(); i++) {
+			if (value == list.get(i)) {
+				answer = "buscar: " + i;
+				indexOf = i;
+			} else {
+				answer = "no existe numero";
+			}
+		}
+		costoBuscar(indexOf);
+		return answer;
+	}
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		int cases = 0;
+		int operations = 0;
+		String operation;
+		cases = Integer.parseInt(bf.readLine());
+
+		for (int i = 0; i < cases; i++) {
+			System.out.println("Caso #" + (i+1) + ":");
+			operations = Integer.parseInt(bf.readLine());
+			for (int j = 0; j < operations; j++) {
+				String[] temp = bf.readLine().split(" ");
+				operation = temp[0];
+
+				switch (operation){
+				case "insertar":
+					int pos = Integer.parseInt(temp[1]);
+					Integer x = Integer.parseInt(temp[2]);
+					System.out.println(insertar(pos, x));
+					break;
+				case "consultar":
+					pos = Integer.parseInt(temp[1]);
+					System.out.println(consultar(pos));
+					break;
+				case "eliminar":
+					pos = Integer.parseInt(temp[1]);
+					System.out.println(eliminar(pos));
+					break;
+				case "buscar":
+					int value = Integer.parseInt(temp[1]);
+					System.out.println(buscar(value));
+					break;
+				case "costo":
+					System.out.println("costo: " + costos[0]+ " " + costos[1]);
+				default:
+					break;
+				}
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ds;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class Main {
+
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(bf.readLine()), N, k;
+
+		for(int i=0; i<T; i++) {
+			ArrayList<Integer> max = new ArrayList<Integer>();
+			System.out.println("Caso #" + (i+1) + ":");
+			String[] entrada = bf.readLine().split(" ");
+			N = Integer.parseInt(entrada[0]);
+			k = Integer.parseInt(entrada[1]);
+			if(k > N) {
+				k = N;
+			}
+			int[] P = new int[N];
+			int[] K = new int[k];
+			entrada = bf.readLine().split(" ");
+			//Lleno matriz de cartas
+			for(int j=0; j<N; j++) {
+				P[j] = Integer.parseInt(entrada[j]);
+			}
+			//Inicializo matriz de jugadores
+			for(int j=0; j<k; j++) {
+				K[j] = 0;
+			}
+			//Lleno matriz de jugadores
+			int h = 0, e = N-1;
+			for(int j=0; j<N/k; j++) {
+				for(int l=0; l<k; l++) {
+					if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+						K[l] += P[h];
+						h++;
+					}
+					else {//si la carta de la derecha es mayor o igual, la toma
+						K[l] += P[e];
+						e--;
+					}
+				}
+			}
+			//Busco quien tiene la suma mayor
+
+			int mayor = K[0];
+			for (int m = 0; m < K.length; m++){
+				if(K[m] > mayor){
+					mayor = K[m];
+				}
+			}
+			for (int m = 0; m < K.length; m++){
+				if(K[m] == mayor){
+					max.add(m);
+				}
+			}
+			for(int m=0; m < max.size(); m++) {
+				System.out.print((max.get(m)+1) + " ");
+			}
+			System.out.println("");
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class Main {
+
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(bf.readLine()), N, k;
+
+		for(int i=0; i<T; i++) {
+			ArrayList<Integer> max = new ArrayList<Integer>();
+			System.out.println("Caso #" + (i+1) + ":");
+			String[] entrada = bf.readLine().split(" ");
+			N = Integer.parseInt(entrada[0]);
+			k = Integer.parseInt(entrada[1]);
+			if(k > N) {
+				k = N;
+			}
+			int[] P = new int[N];
+			int[] K = new int[k];
+			entrada = bf.readLine().split(" ");
+			//Lleno matriz de cartas
+			for(int j=0; j<N; j++) {
+				P[j] = Integer.parseInt(entrada[j]);
+			}
+			//Inicializo matriz de jugadores
+			for(int j=0; j<k; j++) {
+				K[j] = 0;
+			}
+			//Lleno matriz de jugadores
+			int h = 0, e = N-1;
+			for(int j=0; j<N/k; j++) {
+				for(int l=0; l<k; l++) {
+					if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+						K[l] += P[h];
+						h++;
+					}
+					else {//si la carta de la derecha es mayor o igual, la toma
+						K[l] += P[e];
+						e--;
+					}
+				}
+			}
+			//Busco quien tiene la suma mayor
+
+			int mayor = K[0];
+			for (int m = 0; m < K.length; m++){
+				if(K[m] > mayor){
+					mayor = K[m];
+				}
+			}
+			for (int m = 0; m < K.length; m++){
+				if(K[m] == mayor){
+					max.add(m);
+				}
+			}
+			for(int m=0; m < max.size(); m++) {
+				System.out.print((max.get(m)+1) + " ");
+			}
+			System.out.println("");
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Niñas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas niñas cumplen sus requisistos
+        int cont = 0, parejas= 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                parejas++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Ninas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas ninas cumplen sus requisistos
+        int cont = 0, parejas= 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                parejas++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Ninas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas ninas cumplen sus requisistos
+        int cont = 0, parejas= 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                parejas++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Ninas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas ninas cumplen sus requisistos
+        int cont = 0, parejas= 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                parejas++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaC {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Ninas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas ninas cumplen sus requisistos
+        int cont = 0, parejas= 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                parejas++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaC {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Ninas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas ninas cumplen sus requisistos
+        int cont = 0, parejas= 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                parejas++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(parejas);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaA {
+	
+	static boolean dontExist(BinarySearchTree<Integer> tree, int a, int b){
+		if((tree.contains(a) == false) || (tree.contains(b) == false)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	static int ancestor(BinarySearchTree<Integer> tree, int a, int b){
+		int ancestor = 0;
+		if(dontExist(tree, a, b)){
+			ancestor = -1;
+		}else{
+			ArrayList<Integer> wayA = tree.way(a);
+			ArrayList<Integer> wayB = tree.way(b);
+			for(int i=wayA.size()-1; i>=0; i--){
+				for(int j = wayB.size()-1; j >= 0; j--){
+					if(wayA.get(i) == wayB.get(j)){
+						ancestor = wayA.get(i);
+						break;
+					}
+				}
+				if(ancestor != 0){
+					break;	
+				}
+			}
+		}
+		return ancestor;
+	}
+	static int distance(BinarySearchTree<Integer> tree, int a, int b){
+		int distance = 0;
+		if(dontExist(tree, a, b)){
+			distance = -1;
+		}else{
+			ArrayList<Integer> wayA = tree.way(a);
+			ArrayList<Integer> wayB = tree.way(b);
+			for(int i = wayA.size()-1; i >= 0; i--){
+				for(int j = wayB.size()-1; j >= 0; j--){
+					if(wayA.get(i) == wayB.get(j)){
+						distance = (wayA.size()-i)+(wayB.size()-j)-2;
+						break;
+					}
+				}
+				if(distance != 0){
+					break;
+				}	
+			}
+		}
+		return distance;
+	}
+
+	public static void main(String[] args) throws IOException 
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int cases = Integer.parseInt(br.readLine());
+		for(int i=0; i<cases; i++){
+			System.out.println("Caso #" + (i+1) + ":");
+			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
+			int operations = Integer.parseInt(br.readLine());
+			for(int j=0; j<operations; j++){
+				String[] input = br.readLine().split(" ");
+				if(input[0].equals("agregar")){
+					tree.insert(Integer.parseInt(input[1]));
+				}else if(input[0].equals("distancia")){
+					System.out.println("distancia: " + distance(tree, Integer.parseInt(input[1]), Integer.parseInt(input[2])));
+				}
+				else if(input[0].equals("ancestro")){
+					System.out.println("ancestro: " + ancestor(tree, Integer.parseInt(input[1]), Integer.parseInt(input[2])));
+				}
+			}
+		}
+	}
+	// BinarySearchTree class
+	//
+	// CONSTRUCTION: with no initializer
+	//
+	// ******************PUBLIC OPERATIONS*********************
+	// void insert( x )       --> Insert x
+	// void remove( x )       --> Remove x
+	// boolean contains( x )  --> Return true if x is present
+	// Comparable findMin( )  --> Return smallest item
+	// Comparable findMax( )  --> Return largest item
+	// boolean isEmpty( )     --> Return true if empty; else false
+	// void makeEmpty( )      --> Remove all items
+	// void printTree( )      --> Print tree in sorted order
+	// ******************ERRORS********************************
+	// Throws UnderflowException as appropriate
+
+	public static class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+		/**
+		 * Construct the tree.
+		 */
+		public BinarySearchTree( )
+		{
+			root = null;
+		}
+
+		/**
+		 * Insert into the tree; duplicates are ignored.
+		 * @param x the item to insert.
+		 */
+		public void insert( Integer x )
+		{
+			root = insert( x, root );
+		}
+
+		/**
+		 * Remove from the tree. Nothing is done if x is not found.
+		 * @param x the item to remove.
+		 */
+		public void remove( Integer x )
+		{
+			root = remove( x, root );
+		}
+
+		/**
+		 * Find the smallest item in the tree.
+		 * @return smallest item or null if empty.
+		 */
+		public Integer findMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+			return findMin( root ).element;
+		}
+
+		/**
+		 * Find the largest item in the tree.
+		 * @return the largest item of null if empty.
+		 */
+		public Integer findMax( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+			return findMax( root ).element;
+		}
+
+		/**
+		 * Find an item in the tree.
+		 * @param x the item to search for.
+		 * @return true if not found.
+		 */
+		public boolean contains( Integer x )
+		{
+			return contains( x, root );
+		}
+
+		/**
+		 * Make the tree logically empty.
+		 */
+		public void makeEmpty( )
+		{
+			root = null;
+		}
+
+		/**
+		 * Test if the tree is logically empty.
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty( )
+		{
+			return root == null;
+		}
+
+		/**
+		 * Print the tree contents in sorted order.
+		 */
+		public void printTree( )
+		{
+			if( isEmpty( ) )
+				System.out.println( "Empty tree" );
+			else
+				printTree( root );
+		}
+
+		/**
+		 * Internal method to insert into a subtree.
+		 * @param x the item to insert.
+		 * @param t the node that roots the subtree.
+		 * @return the new root of the subtree.
+		 */
+		private BinaryNode<Integer> insert( Integer x, BinaryNode<Integer> t )
+		{
+			if( t == null )
+				return new BinaryNode<>( x, null, null );
+
+			int compareResult = x.compareTo( t.element );
+
+			if( compareResult < 0 )
+				t.left = insert( x, t.left );
+			else if( compareResult > 0 )
+				t.right = insert( x, t.right );
+			else
+				;  // Duplicate; do nothing
+			return t;
+		}
+
+		/**
+		 * Internal method to remove from a subtree.
+		 * @param x the item to remove.
+		 * @param t the node that roots the subtree.
+		 * @return the new root of the subtree.
+		 */
+		private BinaryNode<Integer> remove( Integer x, BinaryNode<Integer> t )
+		{
+			if( t == null )
+				return t;   // Item not found; do nothing
+
+			int compareResult = x.compareTo( t.element );
+
+			if( compareResult < 0 )
+				t.left = remove( x, t.left );
+			else if( compareResult > 0 )
+				t.right = remove( x, t.right );
+			else if( t.left != null && t.right != null ) // Two children
+			{
+				t.element = findMin( t.right ).element;
+				t.right = remove( t.element, t.right );
+			}
+			else
+				t = ( t.left != null ) ? t.left : t.right;
+			return t;
+		}
+
+		/**
+		 * Internal method to find the smallest item in a subtree.
+		 * @param t the node that roots the subtree.
+		 * @return node containing the smallest item.
+		 */
+		private BinaryNode<Integer> findMin( BinaryNode<Integer> t )
+		{
+			if( t == null )
+				return null;
+			else if( t.left == null )
+				return t;
+			return findMin( t.left );
+		}
+
+		/**
+		 * Internal method to find the largest item in a subtree.
+		 * @param t the node that roots the subtree.
+		 * @return node containing the largest item.
+		 */
+		private BinaryNode<Integer> findMax( BinaryNode<Integer> t )
+		{
+			if( t != null )
+				while( t.right != null )
+					t = t.right;
+
+			return t;
+		}
+
+		/**
+		 * Internal method to find an item in a subtree.
+		 * @param x is item to search for.
+		 * @param t the node that roots the subtree.
+		 * @return node containing the matched item.
+		 */
+		private boolean contains( Integer x, BinaryNode<Integer> t )
+		{
+			if( t == null )
+				return false;
+
+			int compareResult = x.compareTo( t.element );
+
+			if( compareResult < 0 )
+				return contains( x, t.left );
+			else if( compareResult > 0 )
+				return contains( x, t.right );
+			else
+				return true;    // Match
+		}
+
+		/**
+		 * Internal method to print a subtree in sorted order.
+		 * @param t the node that roots the subtree.
+		 */
+		private void printTree( BinaryNode<Integer> t )
+		{
+			if( t != null )
+			{
+				printTree( t.left );
+				System.out.println( t.element );
+				printTree( t.right );
+			}
+		}
+
+		/**
+		 * Internal method to compute height of a subtree.
+		 * @param t the node that roots the subtree.
+		 */
+		@SuppressWarnings("unused")
+		private int height( BinaryNode<Integer> t )
+		{
+			if( t == null )
+				return -1;
+			else
+				return 1 + Math.max( height( t.left ), height( t.right ) );    
+		}
+
+		// Basic node stored in unbalanced binary search trees
+		@SuppressWarnings("hiding")
+		private class BinaryNode<Integer>
+		{
+			BinaryNode( Integer theElement, BinaryNode<Integer> lt, BinaryNode<Integer> rt )
+			{
+				element  = theElement;
+				left     = lt;
+				right    = rt;
+			}
+
+			Integer element;            // The data in the node
+			BinaryNode<Integer> left;   // Left child
+			BinaryNode<Integer> right;  // Right child
+		}
+
+		private ArrayList<Integer> way(int x, BinaryNode<Integer> t)
+		{
+			ArrayList<Integer> a = new ArrayList<Integer>();
+			BinaryNode<Integer> c = t;
+			a.add(c.element);
+			do
+			{
+				if(x < c.element)
+				{
+					c = c.left;
+				}
+				else if(x > c.element)
+				{
+					c = c.right;
+				}
+				a.add(c.element);
+			}while(x != c.element);
+			return a;
+		}
+
+		public ArrayList<Integer> way(int x)
+		{
+			return way(x, root);
+		}
+
+		/** The tree root. */
+		private BinaryNode<Integer> root;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

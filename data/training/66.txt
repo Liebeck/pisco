@@ -1,0 +1,3470 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;		
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		int[] max = new int[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			
+			int j=0;
+			int[] resultados = new int[t-1];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Dos {
+
+	public static void main(String[] args) {		
+		
+		  int n;
+		  int[][] matriz;
+		  int[] row;
+		  int[] col;
+		  int gana;
+		  int a=0;
+		  Scanner sc = new Scanner(System.in);
+		
+		  while(sc.hasNext()){
+			  n = sc.nextInt();
+			  matriz = new int[n][n];
+			  row = new int[n];
+			  col = new int[n];
+			  gana = 0;
+			  for (int i = 0; i < matriz.length; i++) {
+				  for (int j = 0; j < matriz.length; j++) {
+					matriz[i][j] = sc.nextInt();
+				}			  
+			}
+			  for (int i = 0; i < matriz.length; i++) {
+				  for (int j = 0; j < matriz.length; j++) {
+					  row[i] += matriz[i][j];					  		
+				}				
+			}
+			  for (int i = 0; i < matriz.length; i++) {
+				  for (int j = 0; j < matriz.length; j++) {
+					  col[i] += matriz[j][i];					  		
+				}				
+			}
+			  for (int i = 0; i < row.length; i++) {
+				for (int j = 0; j < col.length; j++) {
+					if(row[i] < col[j]) gana++;
+				}
+			}
+			  a++;
+			  System.out.println("Case #" +a+":");
+			  System.out.println(gana);
+		  }		  
+		  sc.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Tres {
+
+	public static void main(String[] args) {
+		int t,n;
+		int i=1;
+		int j;
+		int u;
+		int[][] equipos;
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		
+		while(i<=t){
+			sc.hasNext();
+			n = sc.nextInt();			
+			equipos = new int[n][2];
+			j=0;
+			u=0;
+			while(j<n){
+				equipos[j][0] = sc.nextInt();
+				equipos[j][1] = sc.nextInt();
+				j++;				
+			}
+			for (int k = 0; k < equipos.length; k++) {
+				for (int l = 0; l < equipos.length; l++) {
+					if(l == k) continue;
+					if (equipos[k][0] == equipos[l][1])	u++;					
+				}
+			}
+			System.out.println("Case #"+ i +":");
+			System.out.println(u);
+			
+			i++;			
+		}
+		sc.close();
+
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+		int j=0;		
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		int[] max = new int[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			
+			
+			int[] resultados = new int[t-1];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+		int j=0;		
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		int[] max = new int[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			
+			
+			int[] resultados = new int[t-1];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+		int j=0;		
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		int[] max = new int[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			
+			
+			int[] resultados = new int[t];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+				
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		int[] max = new int[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			int j=0;
+			
+			int[] resultados = new int[t];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+				
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		int[] max = new int[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			int j=0;
+			
+			long[] resultados = new long[t-1];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+				
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		long[] max = new long[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
+		for (int a = 0; a < entrada.length; a++) {
+			int j=0;
+			
+			long[] resultados = new long[t-1];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Uno {
+
+	public static void main(String[] args) {
+		
+		int t;
+		int i=0;
+				
+		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+		
+		int[] entrada = new int[t];
+		long[] max = new long[t];
+		
+		while(i<t){
+			entrada[i] = sc.nextInt();
+			i++;
+		}
+
+		for (int a = 0; a < entrada.length; a++) {
+			int j=0;
+			
+			long[] resultados = new long[t-1];
+			
+			for (int b = 0; b < entrada.length; b++) {				
+				if (b == a) {
+					continue;
+				}else {
+					resultados[j] = entrada[a]*entrada[b];
+					j++;
+				}				
+				
+			}
+			
+			Arrays.sort(resultados);
+			max[a] = resultados[resultados.length-1];
+		}
+		
+		Arrays.sort(max);
+		System.out.println(max[max.length-1]);
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Cuatro {
+
+	public static void main(String[] args) {
+		int t;
+		int n;		
+		int cerezas;
+		int half;
+		int row;
+		int col;
+		boolean flag;
+		char[][] chocolate;		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+				
+		for (int s = 0; s < t; s++) {
+			n = sc.nextInt();
+			chocolate = new char[n][n];
+			cerezas =0;
+			half = 0;
+			flag = false;
+			row = 0;
+			col = 0;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				  for (int j = 0; j < chocolate.length; j++) {
+					chocolate[i][j] = sc.next().charAt(0);
+				}			  
+			}			
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				for (int j = 0; j < chocolate.length; j++) {
+					if(chocolate[i][j] == '#')
+						cerezas++;	
+					
+				}				
+			}
+			//System.out.println(cerezas);			
+			if(cerezas%2 != 0){
+				System.out.println("NO");
+				continue;
+			}
+			
+			half = cerezas/2;
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if(chocolate[i][j] == '#')
+						  c++;
+					  
+				}
+				  row += c;
+				  if (row == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}				  
+			}
+			
+			if (flag) 
+				continue;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if (chocolate[j][i] == '#') {
+						  c++;						  
+					}					  		
+				}
+				  col += c;
+				  if (col == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}	
+			}			
+			
+			if (!flag) 
+				System.out.println("NO");
+			
+			
+		}
+		
+		sc.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Seis {
+
+	public static void main(String[] args) {
+		
+		int t, a, b, c, d, e;
+		int good = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		a = sc.nextInt();
+		b = sc.nextInt();
+		c = sc.nextInt();
+		d = sc.nextInt();
+		e = sc.nextInt();
+		
+		sc.close();
+		
+		if(a == t)
+			good++;
+		if(b == t)
+			good++;
+		if(c == t)
+			good++;
+		if(d == t)
+			good++;
+		if(e == t)
+			good++;
+		
+		System.out.println(good);
+		
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Cuatro {
+
+	public static void main(String[] args) {
+		int t;
+		int n;		
+		int cerezas;
+		int half;
+		int row;
+		int col;
+		boolean flag;
+		char[][] chocolate;		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+				
+		for (int s = 0; s < t; s++) {
+			n = sc.nextInt();
+			chocolate = new char[n][n];
+			cerezas =0;
+			half = 0;
+			flag = false;
+			row = 0;
+			col = 0;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				  for (int j = 0; j < chocolate.length; j++) {
+					chocolate[i][j] = sc.next().charAt(0);
+				}			  
+			}			
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				for (int j = 0; j < chocolate.length; j++) {
+					if(chocolate[i][j] == '#')
+						cerezas++;	
+					
+				}				
+			}
+			//System.out.println(cerezas);			
+			if(cerezas%2 != 0){
+				System.out.println("NO");
+				continue;
+			}
+			
+			half = cerezas/2;
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if(chocolate[i][j] == '#')
+						  c++;
+					  
+				}
+				  row += c;
+				  if (row == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}				  
+			}
+			
+			if (flag) 
+				continue;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if (chocolate[j][i] == '#') {
+						  c++;						  
+					}					  		
+				}
+				  col += c;
+				  if (col == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}	
+			}			
+			
+			if (!flag) 
+				System.out.println("NO");
+			
+			
+		}
+		
+		sc.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Cuatro {
+
+	public static void main(String[] args) {
+		int t;
+		int n;		
+		int cerezas;
+		int half;
+		int row;
+		int col;
+		boolean flag;
+		char[][] chocolate;		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+				
+		for (int s = 0; s < t; s++) {
+			n = sc.nextInt();
+			chocolate = new char[n][n];
+			cerezas =0;
+			half = 0;
+			flag = false;
+			row = 0;
+			col = 0;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				  for (int j = 0; j < chocolate.length; j++) {
+					chocolate[i][j] = sc.next().charAt(0);
+				}			  
+			}			
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				for (int j = 0; j < chocolate.length; j++) {
+					if(chocolate[i][j] == '#'){
+                                            	cerezas++;	
+                                        }
+					
+					
+				}				
+			}
+			//System.out.println(cerezas);			
+			if(cerezas%2 != 0){
+				System.out.println("NO");
+				continue;
+			}
+			
+			half = cerezas/2;
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if(chocolate[i][j] == '#')
+						  c++;
+					  
+				}
+				  row += c;
+				  if (row == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}				  
+			}
+			
+			if (flag){
+                            continue;
+                        } 				
+			
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if (chocolate[j][i] == '#') {
+						  c++;						  
+					}					  		
+				}
+				  col += c;
+				  if (col == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}	
+			}			
+			
+			if (!flag){
+                            	System.out.println("NO");
+                        }
+			
+			
+			
+		}
+		
+		sc.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Cuatro {
+
+	public static void main(String[] args) {
+		int t;
+		int n;		
+		int cerezas;
+		int half;
+		int row;
+		int col;
+		boolean flag;
+		char[][] chocolate;		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+				
+		for (int s = 0; s < t; s++) {
+			n = sc.nextInt();
+			chocolate = new char[n][n];
+			cerezas =0;
+			half = 0;
+			flag = false;
+			row = 0;
+			col = 0;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				  for (int j = 0; j < chocolate.length; j++) {
+					chocolate[i][j] = sc.next().charAt(0);
+				}			  
+			}			
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				for (int j = 0; j < chocolate.length; j++) {
+					if(chocolate[i][j] == '#'){
+                                            	cerezas++;	
+                                        }
+					
+					
+				}				
+			}
+				
+			if(cerezas%2 != 0){
+				System.out.println("NO");
+				continue;
+			}
+			
+			half = cerezas/2;
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if(chocolate[i][j] == '#')
+						  c++;
+					  
+				}
+				  row += c;
+				  if (row == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}				  
+			}
+			
+			if (flag){
+                            continue;
+                        } 				
+			
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if (chocolate[j][i] == '#') {
+						  c++;						  
+					}					  		
+				}
+				  col += c;
+				  if (col == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}	
+			}			
+			
+			if (!flag){
+                            	System.out.println("NO");
+                        }
+			
+			
+			
+		}
+		
+		sc.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Cuatro {
+
+	public static void main(String[] args) {
+		int t;
+		int n;		
+		int cerezas;
+		int half;
+		int row;
+		int col;
+		boolean flag;
+		char[][] chocolate;		
+		Scanner sc = new Scanner(System.in);
+		t = sc.nextInt();
+				
+		for (int s = 0; s < t; s++) {
+			n = sc.nextInt();
+			chocolate = new char[n][n];
+			cerezas =0;
+			half = 0;
+			flag = false;
+			row = 0;
+			col = 0;
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				  for (int j = 0; j < chocolate.length; j++) {
+					chocolate[i][j] = sc.next().charAt(0);
+				}			  
+			}			
+			
+			for (int i = 0; i < chocolate.length; i++) {
+				for (int j = 0; j < chocolate.length; j++) {
+					if(chocolate[i][j] == '#'){
+                                            	cerezas++;	
+                                        }
+					
+					
+				}				
+			}
+				
+			if(cerezas%2 != 0){
+				System.out.println("NO");
+				continue;
+			}
+			
+			half = cerezas/2;
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if(chocolate[i][j] == '#')
+						  c++;
+					  
+				}
+				  row += c;
+				  if (row == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}				  
+			}
+			
+			if (flag){
+                            continue;
+                        } 				
+			
+			for (int i = 0; i < chocolate.length; i++) {
+					int c=0;
+				  for (int j = 0; j < chocolate.length; j++) {
+					  if (chocolate[j][i] == '#') {
+						  c++;						  
+					}					  		
+				}
+				  col += c;
+				  if (col == half) {
+					  flag = true;
+					  	System.out.println("YES");
+					  break;
+				}	
+			}			
+			
+			if (!flag){
+                            	System.out.println("NO");
+                        }
+			
+			
+			
+		}
+		
+		sc.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+public class problema1{
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a,j,i;
+        BigInteger mayor=new BigInteger("0"),valor;
+        a = sc.nextInt();
+        BigInteger [] cadena = new BigInteger[a];
+        for(i=0;i<a;i++){
+            cadena[i]=sc.nextBigInteger();
+        }
+        for(i=0;i<a;i++){
+            for(j=0;j<a;j++){
+                if(cadena[i]!=cadena[j]){
+                    valor=cadena[i].multiply(cadena[j]);
+                    int resultado=valor.compareTo(mayor);
+                    if(resultado==1){
+                    mayor=valor;
+                    }
+                }
+            }
+        }
+        System.out.println(mayor);
+   }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		int case =0;
+        int t = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
+        
+            
+        for (int i = 0; i < t; i++){
+            case++;
+            int n=0;
+            int k=0;
+            int head=0;
+            int tail=0;
+            String cantidades [] = new String[2];
+            ArrayList cards = new ArrayList();
+            
+            String cantidad = sc.nextLine();
+            StringTokenizer st = new StringTokenizer(cantidad);
+            
+            int a = 0;
+				while(st.hasMoreTokens()){
+					cantidades[a] = st.nextToken();
+					a++;
+				}
+            
+            n= Integer.parseInt(cantidades[0]);
+            k= Integer.parseInt(cantidades[1]);
+            
+            cantidad = sc.nextLine();
+            String ncards [] = cantidad.split(" ");
+            
+            int [] players = new int [k]; 
+            int [] win = new int [k];
+            
+            if(1<=n && n<= 100000 && 1<=k && k<=100000){
+                
+                
+                for (int j = 0; j < n; j++) {
+                    int we = Integer.parseInt(ncards[j]);                
+                    if(1<=we && we<=1000 ){
+                        cards.add(we);
+                        tail++;
+                    }
+                }
+                
+                int l = 0;
+                    for (int j = 0; j < cards.size(); j++) {                    
+                    
+                        int a = (int) cards.get(head);
+                        int z = (int) cards.get(tail-1);
+                        if(a>z){
+                           players [l]=a + players [l];
+                           head++; 
+                        }
+                        else if (a<z){
+                            players [l]=z + players [l];
+                            tail--;
+                        }else{
+                            players [l]=z + players [l];
+                            tail--;
+                        }
+                        l++;
+                        if(l==k){
+                        l=0;
+                        }   
+                    }
+            }
+            k =0;
+            n=0;
+            for (int j = 0; j < players.length; j++) {
+                if(players[j]>k){
+                    k=players[j];
+                }                
+            }
+            for (int j = 0; j < players.length; j++) {
+                if(players[j]==k){
+                win[n]= j;
+                n++;
+                }                
+            }
+            
+            System.out.println("Caso #"+case+":");
+            for (int j = 0; j < n; j++) {
+                if(j==(n-1)){
+                System.out.print((win[j]+1));
+                }else{
+                System.out.print((win[j]+1)+" ");
+                }
+            }
+            System.out.println();
+        
+            
+            
+            
+        }
+        
+        
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+public class PuntoB {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        if (0<t && t<1000){
+            int case =0;
+        for (int i = 0; i < t; i++) {
+            case++;
+            int n=0;
+            int k=0;
+            int head=0;
+            int tail=0;
+            ArrayList cards = new ArrayList();
+            
+            String quantity = sc.nextLine();
+            String nqnt [] = quantity.split(" ");
+            n= Integer.parseInt(nqnt[0]);
+            k= Integer.parseInt(nqnt[1]);
+            
+            quantity = sc.nextLine();
+            String ncards [] = quantity.split(" ");
+            
+            int [] players = new int [k]; 
+            int [] win = new int [k];
+            
+            if(1<=n && n<= 100000 && 1<=k && k<=100000){
+                
+                
+                for (int j = 0; j < n; j++) {
+                    int index = Integer.parseInt(ncards[j]);                
+                    if(1<=index && index<=1000 ){
+                        cards.add(index);
+                        tail++;
+                    }
+                }
+                
+                int l = 0;
+                    for (int j = 0; j < cards.size(); j++) {                    
+                    
+                        int a = (int) cards.get(head);
+                        int z = (int) cards.get(tail-1);
+                        if(a>z){
+                           players [l]=a + players [l];
+                           head++; 
+                        }
+                        else if (a<z){
+                            players [l]=z + players [l];
+                            tail--;
+                        }else{
+                            players [l]=z + players [l];
+                            tail--;
+                        }
+                        l++;
+                        if(l==k){
+                        l=0;
+                        }   
+                    }
+            }
+            k =0;
+            n=0;
+            for (int j = 0; j < players.length; j++) {
+                if(players[j]>k){
+                    k=players[j];
+                }                
+            }
+            for (int j = 0; j < players.length; j++) {
+                if(players[j]==k){
+                win[n]= j;
+                n++;
+                }                
+            }
+            
+            System.out.println("Caso #"+case+":");
+            for (int j = 0; j < n; j++) {
+                if(j==(n-1)){
+                System.out.print((win[j]+1));
+                }else{
+                System.out.print((win[j]+1)+" ");
+                }
+            }
+            System.out.println();
+            
+            
+            
+            
+        }
+        }
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class PuntoB {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        if (0<t && t<1000){
+            int case =0;
+        for (int i = 0; i < t; i++) {
+            case++;
+            int n=0;
+            int k=0;
+            int head=0;
+            int tail=0;
+            ArrayList cards = new ArrayList();
+            
+            String quantity = sc.nextLine();
+            String nqnt [] = quantity.split(" ");
+            n= Integer.parseInt(nqnt[0]);
+            k= Integer.parseInt(nqnt[1]);
+            
+            quantity = sc.nextLine();
+            String ncards [] = quantity.split(" ");
+            
+            int [] play = new int [k]; 
+            int [] win = new int [k];
+            
+            if(1<=n && n<= 100000 && 1<=k && k<=100000){
+                
+                
+                for (int j = 0; j < n; j++) {
+                    int index = Integer.parseInt(ncards[j]);                
+                    if(1<=index && index<=1000 ){
+                        cards.add(index);
+                        tail++;
+                    }
+                }
+                
+                int l = 0;
+                    for (int j = 0; j < cards.size(); j++) {                    
+                    
+                        int a = (int) cards.get(head);
+                        int z = (int) cards.get(tail-1);
+                        if(a>z){
+                           play [l]=a + play [l];
+                           head++; 
+                        }
+                        else if (a<z){
+                            play [l]=z + play [l];
+                            tail--;
+                        }else{
+                            play [l]=z + play [l];
+                            tail--;
+                        }
+                        l++;
+                        if(l==k){
+                        l=0;
+                        }   
+                    }
+            }
+            k =0;
+            n=0;
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]>k){
+                    k=play[j];
+                }                
+            }
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]==k){
+                win[n]= j;
+                n++;
+                }                
+            }
+            
+            System.out.println("Caso #"+case+":");
+            for (int j = 0; j < n; j++) {
+                if(j==(n-1)){
+                System.out.print((win[j]+1));
+                }else{
+                System.out.print((win[j]+1)+" ");
+                }
+            }
+            System.out.println();
+            
+            
+            
+            
+        }
+        }
+        
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class PuntoB {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        if (0<t && t<1000){
+            int case =0;
+        for (int i = 0; i < t; i++) {
+            case++;
+            int n=0;
+            int k=0;
+            int head=0;
+            int tail=0;
+            ArrayList cards = new ArrayList();
+            
+            String quantity = sc.nextLine();
+            String nqnt [] = quantity.split(" ");
+            n= Integer.parseInt(nqnt[0]);
+            k= Integer.parseInt(nqnt[1]);
+            
+            quantity = sc.nextLine();
+            String ncards [] = quantity.split(" ");
+            
+            int [] play = new int [k]; 
+            int [] win = new int [k];
+            
+            if(1<=n && n<= 100000 && 1<=k && k<=100000){
+                
+                
+                for (int j = 0; j < n; j++) {
+                    int index = Integer.parseInt(ncards[j]);                
+                    if(1<=index && index<=1000 ){
+                        cards.add(index);
+                        tail++;
+                    }
+                }
+                
+                int l = 0;
+                    for (int j = 0; j < cards.size(); j++) {                    
+                    
+                        int a = (int) cards.get(head);
+                        int z = (int) cards.get(tail-1);
+                        if(a>z){
+                           play [l]=a + play [l];
+                           head++; 
+                        }
+                        else if (a<z){
+                            play [l]=z + play [l];
+                            tail--;
+                        }else{
+                            play [l]=z + play [l];
+                            tail--;
+                        }
+                        l++;
+                        if(l==k){
+                        l=0;
+                        }   
+                    }
+            }
+            k =0;
+            n=0;
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]>k){
+                    k=play[j];
+                }                
+            }
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]==k){
+                win[n]= j;
+                n++;
+                }                
+            }
+            
+            System.out.println("Caso #"+case+":");
+            for (int j = 0; j < n; j++) {
+                if(j==(n-1)){
+                System.out.print((win[j]+1));
+                }else{
+                System.out.print((win[j]+1)+" ");
+                }
+            }
+            System.out.println();
+            
+            
+            
+            
+        }
+        }
+        
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntoC;
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+import puntoA.ArrayLinearList;
+import puntoA.LinearList;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		LinearList arr = new ArrayLinearList();
+		String[] cmd;
+		String sntc;
+			
+		int a, t, j, c;	
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner cad = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		
+		for (int i = 0; i < t; i++){			
+			j = 0;
+			
+			c = sc.nextInt();			
+			
+			while(j < c){
+				
+				sntc = cad.nextLine();
+				
+				StringTokenizer st = new StringTokenizer(sntc);
+				cmd = new String[3];
+				a = 0;
+				
+				while(st.hasMoreTokens()){
+					cmd[a] = st.nextToken();
+					a++;
+				}					
+				
+				/*for (int k = 0; k < cmd.length; k++) {
+					System.out.print(cmd[k] +" ");
+				}	
+				System.out.println();*/
+				// cmd1.equals(cmd[0])
+				
+				
+					
+										
+				}
+				
+				j++;
+			}
+			
+		}
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class PuntoB {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        if (0<t && t<1000){
+            int case =0;
+        for (int i = 0; i < t; i++) {
+            case++;
+            int n=0;
+            int k=0;
+            int head=0;
+            int tail=0;
+            ArrayList cards = new ArrayList();
+            
+            String quantity = sc.nextLine();
+            String nqnt [] = quantity.split(" ");
+            n= Integer.parseInt(nqnt[0]);
+            k= Integer.parseInt(nqnt[1]);
+            
+            quantity = sc.nextLine();
+            String ncards [] = quantity.split(" ");
+            
+            int [] play = new int [k]; 
+            int [] win = new int [k];
+            
+            if(1<=n && n<= 100000 && 1<=k && k<=100000){
+                
+                
+                for (int j = 0; j < n; j++) {
+                    int index = Integer.parseInt(ncards[j]);                
+                    if(1<=index && index<=1000 ){
+                        cards.add(index);
+                        tail++;
+                    }
+                }
+                
+                int l = 0;
+                    for (int j = 0; j < cards.size(); j++) {                    
+                    
+                        int a = (int) cards.get(head);
+                        int z = (int) cards.get(tail-1);
+                        if(a>z){
+                           play [l]=a + play [l];
+                           head++; 
+                        }
+                        else if (a<z){
+                            play [l]=z + play [l];
+                            tail--;
+                        }else{
+                            play [l]=z + play [l];
+                            tail--;
+                        }
+                        l++;
+                        if(l==k){
+                        l=0;
+                        }   
+                    }
+            }
+            k =0;
+            n=0;
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]>k){
+                    k=play[j];
+                }                
+            }
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]==k){
+                win[n]= j;
+                n++;
+                }                
+            }
+            
+            System.out.println("Caso #"+case+":");
+            for (int j = 0; j < n; j++) {
+                if(j==(n-1)){
+                System.out.print((win[j]+1));
+                }else{
+                System.out.print((win[j]+1)+" ");
+                }
+            }
+            System.out.println();
+            
+            
+            
+            
+        }
+        }
+        
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class PuntoB {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        if (0<t && t<1000){
+            int kas =0;
+        for (int i = 0; i < t; i++) {
+            kas++;
+            int n=0;
+            int k=0;
+            int head=0;
+            int tail=0;
+            ArrayList cards = new ArrayList();
+            
+            String quantity = sc.nextLine();
+            String nqnt [] = quantity.split(" ");
+            n= Integer.parseInt(nqnt[0]);
+            k= Integer.parseInt(nqnt[1]);
+            
+            quantity = sc.nextLine();
+            String ncards [] = quantity.split(" ");
+            
+            int [] play = new int [k]; 
+            int [] win = new int [k];
+            
+            if(1<=n && n<= 100000 && 1<=k && k<=100000){
+                
+                
+                for (int j = 0; j < n; j++) {
+                    int index = Integer.parseInt(ncards[j]);                
+                    if(1<=index && index<=1000 ){
+                        cards.add(index);
+                        tail++;
+                    }
+                }
+                
+                int l = 0;
+                    for (int j = 0; j < cards.size(); j++) {                    
+                    
+                        int a = (int) cards.get(head);
+                        int z = (int) cards.get(tail-1);
+                        if(a>z){
+                           play [l]=a + play [l];
+                           head++; 
+                        }
+                        else if (a<z){
+                            play [l]=z + play [l];
+                            tail--;
+                        }else{
+                            play [l]=z + play [l];
+                            tail--;
+                        }
+                        l++;
+                        if(l==k){
+                        l=0;
+                        }   
+                    }
+            }
+            k =0;
+            n=0;
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]>k){
+                    k=play[j];
+                }                
+            }
+            for (int j = 0; j < play.length; j++) {
+                if(play[j]==k){
+                win[n]= j;
+                n++;
+                }                
+            }
+            
+            System.out.println("Caso #"+kas+":");
+            for (int j = 0; j < n; j++) {
+                if(j==(n-1)){
+                System.out.print((win[j]+1));
+                }else{
+                System.out.print((win[j]+1)+" ");
+                }
+            }
+            System.out.println();
+            
+            
+            
+            
+        }
+        }
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+import puntoA.ArrayLinearList;
+import puntoA.LinearList;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		LinearList arr = new ArrayLinearList();
+		String[] cmd;
+		
+			
+		int a, t, j, c;	
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner cad = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		
+
+			j = 0;
+			
+			String linea = cad.nextLine();
+			String parts [] = linea.split(" ");
+            int nums [] = new int[t]
+            for (int l = 0; l < parts.size(); l++){			
+            	nums[l] = Integer.parseInt(parts[l]);
+            }
+           
+			int m = sc.nextInt();			
+			
+			while(j < m){
+				
+				
+				
+				
+				/*for (int k = 0; k < cmd.length; k++) {
+					System.out.print(cmd[k] +" ");
+				}	
+				System.out.println();*/
+				// cmd1.equals(cmd[0])
+				
+				
+					
+										
+				}
+				
+				j++;
+			
+			
+		}
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+import puntoA.ArrayLinearList;
+import puntoA.LinearList;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		LinearList arr = new ArrayLinearList();
+		String[] cmd;
+		
+			
+		int a, t, j, c;	
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner cad = new Scanner(System.in);
+		
+		t = sc.nextInt();
+		
+
+			j = 0;
+			
+			String linea = cad.nextLine();
+			String parts [] = linea.split(" ");
+            int nums [] = new int[t]
+            for (int l = 0; l < parts.size(); l++){			
+            	nums[l] = Integer.parseInt(parts[l]);
+            }
+           
+			int m = sc.nextInt();			
+			
+			while(j < m){
+				
+				
+				
+				
+				/*for (int k = 0; k < cmd.length; k++) {
+					System.out.print(cmd[k] +" ");
+				}	
+				System.out.println();*/
+				// cmd1.equals(cmd[0])
+				
+				
+					
+										
+				}
+				
+				j++;
+			
+			
+		}
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.Scanner;
+
+
+public class MainTA {
+	
+	private static class BinaryTree {
+		
+		TNode root;
+		
+		public BinaryTree(){
+			
+			root = null;
+		}
+		public void addNode(int d){
+			
+			TNode nyu = new TNode(d);
+			if(root == null)
+				root = nyu;
+			else{
+				
+				TNode aux = root;
+				TNode dad;
+				
+				while (true) {
+					dad = aux;
+					
+					if (d < aux.data) {
+						
+						aux = aux.Lson;					
+						if (aux == null) {
+							dad.Lson = nyu;
+							
+							return; // sirve para finalizar la ejecucion de un metodo cuando es tipo void
+						}
+					} else{ // si no es menor es mayor/igual
+						
+						aux = aux.Rson;
+						if (aux == null) {
+							dad.Rson = nyu;
+							
+							return;
+						}
+					}
+				}
+			}
+		}
+		public boolean vacio(){
+			
+			return root == null;
+		}
+		public void inOrden(TNode r){
+			
+			if (r != null) {
+				// IRD
+				inOrden(r.Lson); // I
+				System.out.print(r.data + ", "); // R			
+				inOrden(r.Rson); // D			
+			}
+		}
+		public void preOrden(TNode r){
+			
+			if (r != null) {
+				// RID
+				System.out.print(r.data + ", "); // R
+				preOrden(r.Lson); // I						
+				preOrden(r.Rson); // D			
+			}
+		}
+		public void postOrden(TNode r){
+			
+			if (r != null) {
+				// IDR			
+				postOrden(r.Lson); // I						
+				postOrden(r.Rson); // D
+				System.out.print(r.data + ", "); // R
+			}
+		}
+		public TNode nodeSearch(int d){		
+			
+				TNode tmp = root;
+				
+				while (tmp.data != d) {
+					
+					if(d < tmp.data)
+						tmp = tmp.Lson;
+					else
+						tmp = tmp.Rson;
+					if(tmp == null)
+						return null;			
+				}
+				return tmp;		
+		}
+		public int path(TNode fork, int d){
+			
+			TNode tmp = fork;
+			int c = 0;
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					c++;
+				} else{
+					tmp = tmp.Rson;
+					c++;
+				}
+				if(tmp == null)
+					return -1;			
+			}
+			return c;
+		}
+		@SuppressWarnings("unused")
+		public Queue history(int d){
+			
+			Queue rec = new Queue();
+			TNode tmp = root;
+			rec.add(tmp.data);
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					rec.add(tmp.data);
+				}
+				else{
+					tmp = tmp.Rson;
+					rec.add(tmp.data);
+				}
+				if(tmp == null)
+					return null;			
+			}
+			return rec;
+		}
+		@SuppressWarnings("unused")
+		public int common(int d, Queue elf){
+			
+			Stack com = new Stack();
+			TNode tmp = root;
+			com.push(elf.remove());
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					if(!elf.isEmpty() && elf.remove() == tmp.data){
+						com.push(tmp.data);
+					}
+				} else{
+					tmp = tmp.Rson;
+					if(!elf.isEmpty() && elf.remove() == tmp.data){
+						com.push(tmp.data);
+					}
+				}
+				if(tmp == null)
+					return -1;			
+			}
+			return com.pop();
+		}
+		public int parent(int u, int v){
+			if(nodeSearch(u) != null && nodeSearch(v) != null){
+				Queue first = history(u);
+				if(first.isEmpty()) return -1;
+				else{
+					int n = common(v, first);
+					if(n == -1) return -1;
+					else return n;			
+				}
+			} else return -1;			
+		}
+		public boolean delete(int d){
+			
+			TNode tmp = root;
+			TNode dad = root;
+			boolean isLson = true;
+			
+			while (tmp.data != d) {
+				dad = tmp;
+				if(d < tmp.data){
+					
+					isLson = true;
+					tmp = tmp.Lson;
+				} else{
+					
+					isLson = false;
+					tmp = tmp.Rson;
+				}
+				if(tmp == null)
+					return false;
+			} // end of while
+			if (tmp.Lson == null  &&  tmp.Rson == null) { // si es un Nodo hoja		
+				if(tmp == root) // si es raiz sin hijos
+					root = null;
+				// elimina al hijo desde el padre
+				else if(isLson) 
+					dad.Lson = null;
+				else
+					dad.Rson = null;
+			} else if(tmp.Rson == null){ // solo tiene hijo izquierdo	
+				if(tmp == root)
+					root = tmp.Lson; 
+				else if(isLson)
+					dad.Lson = tmp.Lson;
+				else
+					dad.Rson = tmp.Lson;
+			} else if(tmp.Lson == null){ // solo tiene hijo derecho
+				if(tmp == root)
+					root = tmp.Rson; 
+				else if(isLson)
+					dad.Lson = tmp.Rson;
+				else
+					dad.Rson = tmp.Lson;			
+			} else{ // tons tiene los dos hijos 
+				
+				TNode rep = getReplace(tmp);
+				if (tmp == root) {
+					
+					root = rep;
+				} else if(isLson){
+					dad.Lson = rep;
+				} else{
+					dad.Rson = rep;
+				}
+				rep.Lson = tmp.Lson;
+			}
+			return true;
+		}
+		public static TNode getReplace(TNode repNode){
+			
+			TNode replaceDad = repNode;
+			TNode replace = repNode;
+			TNode tmp = repNode.Rson;
+			while (tmp != null) {
+				
+				replaceDad = replace;
+				replace = tmp;
+				tmp = tmp.Lson;
+			}
+			if (replace != repNode.Rson) {
+				replaceDad.Lson = replace.Rson; // reacomodar enlaces
+				replace.Rson = repNode.Rson;
+			}
+			System.out.println("el nodo reemplazo es: " + replace);
+			return replace;
+		}
+	}
+	private static class TNode {
+		
+		int data;	
+		TNode Lson, Rson;
+		
+		public TNode(int d){
+			
+			this.data = d;		
+			this.Lson = null;
+			this.Rson = null;
+		}	
+	}
+	private static class Queue {
+		
+		QueueNode start, end;
+		int size;
+		
+		public Queue(){
+			
+			start = end = null;
+			size = 0;
+		}
+		public boolean isEmpty(){
+			
+			return start == null;
+		}
+		public void add(int value){
+			
+			QueueNode nyu = new QueueNode(value);
+			if(isEmpty())
+				start = nyu;
+			else
+				end.next = nyu;
+			
+			end = nyu;
+			size++;
+		}
+		public int remove(){
+			
+			int aux = start.data;
+			start = start.next;
+			size--;
+			return aux;
+		}
+		public int qFirst(){
+			
+			return start.data;
+		}
+		public int qSize(){
+			
+			return size;
+		}
+		
+	}
+	private static class QueueNode {
+		
+		int data;
+		QueueNode next;
+		
+		public QueueNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+	private static class Stack {
+		
+		private StackNode top;
+		int size;
+		
+		public Stack(){
+			
+			top = null;
+			size = 0;		
+		}
+		public boolean isEmpty(){
+			
+			return top == null;
+		}
+		public void push(int value){
+			
+			StackNode nyu = new StackNode(value);
+			nyu.next = top;
+			top = nyu;
+			size++;
+		}
+		public int pop(){
+			
+			int aux = top.data;
+			top = top.next;
+			size--;
+			return aux;
+		}
+		public int stackTop(){
+			
+			return top.data;
+		}
+		public int stackSize(){
+			
+			return size;
+		}
+		public void clean(){
+			
+			while(!isEmpty()){			
+				pop();
+			}
+		}
+	}
+	private static class StackNode {
+		
+		int data;
+		StackNode next;
+		
+		public StackNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		BinaryTree BT = new BinaryTree();
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Caso #" + i + ":");			
+			int q = sc.nextInt();
+			sc.nextLine();
+			for (int j = 0; j < q; j++) {				
+				String line = sc.nextLine();				
+				String[] part = line.split(" ");
+				// #1. agregar x
+				if (part[0].equals("agregar")) {
+					//System.out.println(part[0] +" "+ part[1]);
+					BT.addNode(Integer.parseInt(part[1]));
+				// #2. distancia entre x, y				
+				} else if (part[0].equals("distancia")) {
+					//System.out.println(part[0] +" "+ part[1] +" "+ part[2]);	
+					if(!BT.vacio()){
+						int ant = BT.parent(Integer.parseInt(part[1]), Integer.parseInt(part[2]));
+						if(ant != -1){
+							if(Integer.parseInt(part[1]) == ant){
+								// el camino esta en linea
+								System.out.println("distancia: " + BT.path(BT.nodeSearch(ant), Integer.parseInt(part[2])));
+							} else if(Integer.parseInt(part[2]) == ant){
+								System.out.println("distancia: " + BT.path(BT.nodeSearch(ant), Integer.parseInt(part[1])));
+							}
+							else{
+								// hay bifurcacion
+								int cam = BT.path(BT.nodeSearch(ant), Integer.parseInt(part[1])) + 
+										  BT.path(BT.nodeSearch(ant), Integer.parseInt(part[2]));
+								System.out.println("distancia: " + cam);
+							}
+						} else
+							System.out.println("distancia: " + ant);
+					} else
+						System.out.println("distancia: -1");
+				// #3. ancestro de u y v
+				} else if (part[0].equals("ancestro")) {
+					//System.out.println(part[0] +" "+ part[1] +" "+ part[2]);
+					System.out.println("ancestro: " + BT.parent(Integer.parseInt(part[1]), Integer.parseInt(part[2]))); 
+				} else continue;				
+			}
+		}
+		sc.close();
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.Scanner;
+
+public class MainTB {
+	private static class Queue {
+		
+		QueueNode start, end;
+		int size;
+		
+		public Queue(){
+			
+			start = end = null;
+			size = 0;
+		}
+		public boolean isEmpty(){
+			
+			return start == null;
+		}
+		public void add(int value){
+			
+			QueueNode nyu = new QueueNode(value);
+			if(isEmpty())
+				start = nyu;
+			else
+				end.next = nyu;
+			
+			end = nyu;
+			size++;
+		}
+		public int remove(){
+			
+			int aux = start.data;
+			start = start.next;
+			size--;
+			return aux;
+		}
+		public int qFirst(){
+			
+			return start.data;
+		}
+		public int qSize(){
+			
+			return size;
+		}
+		
+	}
+	private static class QueueNode {
+		
+		int data;
+		QueueNode next;
+		
+		public QueueNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+
+
+
+	public static void main(String[] args) {
+		
+		Queue DK = new Queue();
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		
+		for (int i = 0; i < t; i++) {
+			
+			boolean first = true;
+			boolean rev = false;
+			int r = 0;
+			int n = 0;
+			int c = 0;
+			
+			int q = sc.nextInt();
+			sc.nextLine();			
+			for (int j = 0; j < q; j++) {
+				
+				String line = sc.nextLine();
+				String[] part = line.split(" ");
+				
+				if(first){
+					DK.add(Integer.parseInt(part[0]));
+					for (int k = part.length - 1; k > 0; k--) 
+						DK.add(Integer.parseInt(part[k]));
+					r = part.length - 1;					
+					first = false;
+				} else{
+					if(rev){
+						for (int k = part.length - 1; k > 0; k--) 
+							DK.add(Integer.parseInt(part[k]));
+						r += part.length - 1;
+						c++;						
+						if(c == n){
+							c = 0;
+							n = 0;
+							rev = false;
+						}
+					} else{
+						for (int k = 1; k < part.length; k++) 
+							DK.add(Integer.parseInt(part[k]));
+						n += part.length - 1;
+						c++;
+						if(c == r){
+							c = 0;
+							r = 0;
+							rev = true;
+						}
+					}
+				}				
+			}
+			while (!DK.isEmpty()) {
+				System.out.print(DK.remove() + " ");
+			}
+		}
+		sc.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.Scanner;
+
+import ptoE.Queue;
+import ptoE.QueueNode;
+import ptoE.Stack;
+import ptoE.StackNode;
+import ptoE.TNode;
+
+public class MainTE {
+	private static class BinaryTree {
+		
+		TNode root;
+		private int c = 0;
+		public BinaryTree(){
+			
+			root = null;
+		}
+		public void addNode(int d){
+			
+			TNode nyu = new TNode(d);
+			if(root == null)
+				root = nyu;
+			else{
+				
+				TNode aux = root;
+				TNode dad;
+				
+				while (true) {
+					dad = aux;
+					
+					if (d < aux.data) {
+						
+						aux = aux.Lson;					
+						if (aux == null) {
+							dad.Lson = nyu;
+							
+							return; // sirve para finalizar la ejecucion de un metodo cuando es tipo void
+						}
+					} else{ // si no es menor es mayor/igual
+						
+						aux = aux.Rson;
+						if (aux == null) {
+							dad.Rson = nyu;
+							
+							return;
+						}
+					}
+				}
+			}
+		}
+		public boolean vacio(){
+			
+			return root == null;
+		}
+		public void inOrden(TNode r){
+			
+			if (r != null) {
+				// IRD
+				inOrden(r.Lson); // I
+				System.out.print(r.data + ", "); // R			
+				inOrden(r.Rson); // D			
+			}
+		}
+		public void preOrden(TNode r){
+			
+			if (r != null) {
+				// RID
+				System.out.print(r.data + ", "); // R
+				preOrden(r.Lson); // I						
+				preOrden(r.Rson); // D			
+			}
+		}
+		public void postOrden(TNode r){
+			
+			if (r != null) {
+				// IDR			
+				postOrden(r.Lson); // I						
+				postOrden(r.Rson); // D
+				System.out.print(r.data + ", "); // R
+			}
+		}
+		public void desc(TNode r){
+		
+		if (r != null) {
+			// RID		
+			//System.out.print(r.data + ", "); // R
+			conta();
+			desc(r.Lson); // I						
+			desc(r.Rson); // D			
+			}	
+		}
+		public void conta(){
+			c++;
+		}
+		public int recup(){
+			return c;
+		}
+		public void reset(){
+			c = 0;
+		}
+		public TNode nodeSearch(int d){
+			
+			TNode tmp = root;
+			
+			while (tmp.data != d) {
+				
+				if(d < tmp.data)
+					tmp = tmp.Lson;
+				else
+					tmp = tmp.Rson;
+				if(tmp == null)
+					return null;			
+			}
+			return tmp;
+		}
+		public int path(TNode fork, int d){
+			
+			TNode tmp = fork;
+			int c = 0;
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					c++;
+				} else{
+					tmp = tmp.Rson;
+					c++;
+				}
+				if(tmp == null)
+					return -1;			
+			}
+			return c;
+		}
+		@SuppressWarnings("unused")
+		public Queue history(int d){
+			
+			Queue rec = new Queue();
+			TNode tmp = root;
+			rec.add(tmp.data);
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					rec.add(tmp.data);
+				}
+				else{
+					tmp = tmp.Rson;
+					rec.add(tmp.data);
+				}
+				if(tmp == null)
+					return null;			
+			}
+			return rec;
+		}
+		@SuppressWarnings("unused")
+		public int common(int d, Queue elf){
+			
+			Stack com = new Stack();
+			TNode tmp = root;
+			com.push(elf.remove());
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					if(!elf.isEmpty() && elf.remove() == tmp.data){
+						com.push(tmp.data);
+					}
+				} else{
+					tmp = tmp.Rson;
+					if(!elf.isEmpty() && elf.remove() == tmp.data){
+						com.push(tmp.data);
+					}
+				}
+				if(tmp == null)
+					return -1;			
+			}
+			return com.pop();
+		}
+		public int parent(int u, int v){
+			if(nodeSearch(u) != null && nodeSearch(v) != null){
+				Queue first = history(u);
+				if(first.isEmpty()) return -1;
+				else{
+					int n = common(v, first);
+					if(n == -1) return -1;
+					else return n;			
+				}
+			} else return -1;
+		}
+		public boolean delete(int d){
+			
+			TNode tmp = root;
+			TNode dad = root;
+			boolean isLson = true;
+			
+			while (tmp.data != d) {
+				dad = tmp;
+				if(d < tmp.data){
+					
+					isLson = true;
+					tmp = tmp.Lson;
+				} else{
+					
+					isLson = false;
+					tmp = tmp.Rson;
+				}
+				if(tmp == null)
+					return false;
+			} // end of while
+			if (tmp.Lson == null  &&  tmp.Rson == null) { // si es un Nodo hoja		
+				if(tmp == root) // si es raiz sin hijos
+					root = null;
+				// elimina al hijo desde el padre
+				else if(isLson) 
+					dad.Lson = null;
+				else
+					dad.Rson = null;
+			} else if(tmp.Rson == null){ // solo tiene hijo izquierdo	
+				if(tmp == root)
+					root = tmp.Lson; 
+				else if(isLson)
+					dad.Lson = tmp.Lson;
+				else
+					dad.Rson = tmp.Lson;
+			} else if(tmp.Lson == null){ // solo tiene hijo derecho
+				if(tmp == root)
+					root = tmp.Rson; 
+				else if(isLson)
+					dad.Lson = tmp.Rson;
+				else
+					dad.Rson = tmp.Lson;			
+			} else{ // tons tiene los dos hijos 
+				
+				TNode rep = getReplace(tmp);
+				if (tmp == root) {
+					
+					root = rep;
+				} else if(isLson){
+					dad.Lson = rep;
+				} else{
+					dad.Rson = rep;
+				}
+				rep.Lson = tmp.Lson;
+			}
+			return true;
+		}
+		public static TNode getReplace(TNode repNode){
+			
+			TNode replaceDad = repNode;
+			TNode replace = repNode;
+			TNode tmp = repNode.Rson;
+			while (tmp != null) {
+				
+				replaceDad = replace;
+				replace = tmp;
+				tmp = tmp.Lson;
+			}
+			if (replace != repNode.Rson) {
+				replaceDad.Lson = replace.Rson; // reacomodar enlaces
+				replace.Rson = repNode.Rson;
+			}
+			System.out.println("el nodo reemplazo es: " + replace);
+			return replace;
+		}
+	}
+	private static class TNode {
+		
+		int data;	
+		TNode Lson, Rson;
+		
+		public TNode(int d){
+			
+			this.data = d;		
+			this.Lson = null;
+			this.Rson = null;
+		}	
+	}
+	private static class Queue {
+		
+		QueueNode start, end;
+		int size;
+		
+		public Queue(){
+			
+			start = end = null;
+			size = 0;
+		}
+		public boolean isEmpty(){
+			
+			return start == null;
+		}
+		public void add(int value){
+			
+			QueueNode nyu = new QueueNode(value);
+			if(isEmpty())
+				start = nyu;
+			else
+				end.next = nyu;
+			
+			end = nyu;
+			size++;
+		}
+		public int remove(){
+			
+			int aux = start.data;
+			start = start.next;
+			size--;
+			return aux;
+		}
+		public int qFirst(){
+			
+			return start.data;
+		}
+		public int qSize(){
+			
+			return size;
+		}
+		
+	}
+	private static class QueueNode {
+		
+		int data;
+		QueueNode next;
+		
+		public QueueNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+	private static class Stack {
+		
+		private StackNode top;
+		int size;
+		
+		public Stack(){
+			
+			top = null;
+			size = 0;		
+		}
+		public boolean isEmpty(){
+			
+			return top == null;
+		}
+		public void push(int value){
+			
+			StackNode nyu = new StackNode(value);
+			nyu.next = top;
+			top = nyu;
+			size++;
+		}
+		public int pop(){
+			
+			int aux = top.data;
+			top = top.next;
+			size--;
+			return aux;
+		}
+		public int stackTop(){
+			
+			return top.data;
+		}
+		public int stackSize(){
+			
+			return size;
+		}
+		public void clean(){
+			
+			while(!isEmpty()){			
+				pop();
+			}
+		}
+	}
+	private static class StackNode {
+		
+		int data;
+		StackNode next;
+		
+		public StackNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		BinaryTree BT = new BinaryTree();
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Caso #" + i + ":");			
+			int q = sc.nextInt();
+			sc.nextLine();
+			for (int j = 0; j < q; j++) {
+				
+				String line = sc.nextLine();
+				String[] part = line.split(" ");
+				// agregar x
+				if (part[0].equals("agregar")) {
+					//System.out.println(part[0] +" "+ part[1]);
+					BT.addNode(Integer.parseInt(part[1]));
+					// distancia entre x, y				
+				} else if (part[0].equals("distancia")) {
+					//System.out.println(part[0] +" "+ part[1] +" "+ part[2]);
+					if(!BT.vacio()){
+						int ant = BT.parent(Integer.parseInt(part[1]), Integer.parseInt(part[2]));
+						if(ant != -1){
+							if(Integer.parseInt(part[1]) == ant){
+								// el camino esta en linea
+								System.out.println("distancia: " + BT.path(BT.nodeSearch(ant), Integer.parseInt(part[2])));
+							} else if(Integer.parseInt(part[2]) == ant){
+								System.out.println("distancia: " + BT.path(BT.nodeSearch(ant), Integer.parseInt(part[1])));
+							}
+							else{
+								// hay bifurcacion
+								int cam = BT.path(BT.nodeSearch(ant), Integer.parseInt(part[1])) + 
+										  BT.path(BT.nodeSearch(ant), Integer.parseInt(part[2]));
+								System.out.println("distancia: " + cam);
+							}
+						} else
+							System.out.println("distancia: " + ant);
+					} else
+						System.out.println("distancia: -1");
+					// ancestro de u y v
+				} else if (part[0].equals("ancestro")) {
+					//System.out.println(part[0] +" "+ part[1] +" "+ part[2]);
+					System.out.println("ancestro: " + BT.parent(Integer.parseInt(part[1]), Integer.parseInt(part[2]))); 
+				} else if (part[0].equals("contar")) {
+					//System.out.println("sapbee");
+					//BT.preOrden(BT.nodeSearch(Integer.parseInt(part[1])));
+					BT.desc(BT.nodeSearch(Integer.parseInt(part[1])));
+					System.out.println("contar: " + (BT.recup()-1));
+					BT.reset();
+				}
+				else continue;				
+			}
+		}
+		sc.close();
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.Scanner;
+
+
+public class MainTE {
+	private static class BinaryTree {
+		
+		TNode root;
+		private int c = 0;
+		public BinaryTree(){
+			
+			root = null;
+		}
+		public void addNode(int d){
+			
+			TNode nyu = new TNode(d);
+			if(root == null)
+				root = nyu;
+			else{
+				
+				TNode aux = root;
+				TNode dad;
+				
+				while (true) {
+					dad = aux;
+					
+					if (d < aux.data) {
+						
+						aux = aux.Lson;					
+						if (aux == null) {
+							dad.Lson = nyu;
+							
+							return; // sirve para finalizar la ejecucion de un metodo cuando es tipo void
+						}
+					} else{ // si no es menor es mayor/igual
+						
+						aux = aux.Rson;
+						if (aux == null) {
+							dad.Rson = nyu;
+							
+							return;
+						}
+					}
+				}
+			}
+		}
+		public boolean vacio(){
+			
+			return root == null;
+		}
+		public void inOrden(TNode r){
+			
+			if (r != null) {
+				// IRD
+				inOrden(r.Lson); // I
+				System.out.print(r.data + ", "); // R			
+				inOrden(r.Rson); // D			
+			}
+		}
+		public void preOrden(TNode r){
+			
+			if (r != null) {
+				// RID
+				System.out.print(r.data + ", "); // R
+				preOrden(r.Lson); // I						
+				preOrden(r.Rson); // D			
+			}
+		}
+		public void postOrden(TNode r){
+			
+			if (r != null) {
+				// IDR			
+				postOrden(r.Lson); // I						
+				postOrden(r.Rson); // D
+				System.out.print(r.data + ", "); // R
+			}
+		}
+		public void desc(TNode r){
+		
+		if (r != null) {
+			// RID		
+			//System.out.print(r.data + ", "); // R
+			conta();
+			desc(r.Lson); // I						
+			desc(r.Rson); // D			
+			}	
+		}
+		public void conta(){
+			c++;
+		}
+		public int recup(){
+			return c;
+		}
+		public void reset(){
+			c = 0;
+		}
+		public TNode nodeSearch(int d){
+			
+			TNode tmp = root;
+			
+			while (tmp.data != d) {
+				
+				if(d < tmp.data)
+					tmp = tmp.Lson;
+				else
+					tmp = tmp.Rson;
+				if(tmp == null)
+					return null;			
+			}
+			return tmp;
+		}
+		public int path(TNode fork, int d){
+			
+			TNode tmp = fork;
+			int c = 0;
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					c++;
+				} else{
+					tmp = tmp.Rson;
+					c++;
+				}
+				if(tmp == null)
+					return -1;			
+			}
+			return c;
+		}
+		@SuppressWarnings("unused")
+		public Queue history(int d){
+			
+			Queue rec = new Queue();
+			TNode tmp = root;
+			rec.add(tmp.data);
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					rec.add(tmp.data);
+				}
+				else{
+					tmp = tmp.Rson;
+					rec.add(tmp.data);
+				}
+				if(tmp == null)
+					return null;			
+			}
+			return rec;
+		}
+		@SuppressWarnings("unused")
+		public int common(int d, Queue elf){
+			
+			Stack com = new Stack();
+			TNode tmp = root;
+			com.push(elf.remove());
+			while (tmp.data != d) {
+				
+				if(d < tmp.data){
+					tmp = tmp.Lson;
+					if(!elf.isEmpty() && elf.remove() == tmp.data){
+						com.push(tmp.data);
+					}
+				} else{
+					tmp = tmp.Rson;
+					if(!elf.isEmpty() && elf.remove() == tmp.data){
+						com.push(tmp.data);
+					}
+				}
+				if(tmp == null)
+					return -1;			
+			}
+			return com.pop();
+		}
+		public int parent(int u, int v){
+			if(nodeSearch(u) != null && nodeSearch(v) != null){
+				Queue first = history(u);
+				if(first.isEmpty()) return -1;
+				else{
+					int n = common(v, first);
+					if(n == -1) return -1;
+					else return n;			
+				}
+			} else return -1;
+		}
+		public boolean delete(int d){
+			
+			TNode tmp = root;
+			TNode dad = root;
+			boolean isLson = true;
+			
+			while (tmp.data != d) {
+				dad = tmp;
+				if(d < tmp.data){
+					
+					isLson = true;
+					tmp = tmp.Lson;
+				} else{
+					
+					isLson = false;
+					tmp = tmp.Rson;
+				}
+				if(tmp == null)
+					return false;
+			} // end of while
+			if (tmp.Lson == null  &&  tmp.Rson == null) { // si es un Nodo hoja		
+				if(tmp == root) // si es raiz sin hijos
+					root = null;
+				// elimina al hijo desde el padre
+				else if(isLson) 
+					dad.Lson = null;
+				else
+					dad.Rson = null;
+			} else if(tmp.Rson == null){ // solo tiene hijo izquierdo	
+				if(tmp == root)
+					root = tmp.Lson; 
+				else if(isLson)
+					dad.Lson = tmp.Lson;
+				else
+					dad.Rson = tmp.Lson;
+			} else if(tmp.Lson == null){ // solo tiene hijo derecho
+				if(tmp == root)
+					root = tmp.Rson; 
+				else if(isLson)
+					dad.Lson = tmp.Rson;
+				else
+					dad.Rson = tmp.Lson;			
+			} else{ // tons tiene los dos hijos 
+				
+				TNode rep = getReplace(tmp);
+				if (tmp == root) {
+					
+					root = rep;
+				} else if(isLson){
+					dad.Lson = rep;
+				} else{
+					dad.Rson = rep;
+				}
+				rep.Lson = tmp.Lson;
+			}
+			return true;
+		}
+		public static TNode getReplace(TNode repNode){
+			
+			TNode replaceDad = repNode;
+			TNode replace = repNode;
+			TNode tmp = repNode.Rson;
+			while (tmp != null) {
+				
+				replaceDad = replace;
+				replace = tmp;
+				tmp = tmp.Lson;
+			}
+			if (replace != repNode.Rson) {
+				replaceDad.Lson = replace.Rson; // reacomodar enlaces
+				replace.Rson = repNode.Rson;
+			}
+			System.out.println("el nodo reemplazo es: " + replace);
+			return replace;
+		}
+	}
+	private static class TNode {
+		
+		int data;	
+		TNode Lson, Rson;
+		
+		public TNode(int d){
+			
+			this.data = d;		
+			this.Lson = null;
+			this.Rson = null;
+		}	
+	}
+	private static class Queue {
+		
+		QueueNode start, end;
+		int size;
+		
+		public Queue(){
+			
+			start = end = null;
+			size = 0;
+		}
+		public boolean isEmpty(){
+			
+			return start == null;
+		}
+		public void add(int value){
+			
+			QueueNode nyu = new QueueNode(value);
+			if(isEmpty())
+				start = nyu;
+			else
+				end.next = nyu;
+			
+			end = nyu;
+			size++;
+		}
+		public int remove(){
+			
+			int aux = start.data;
+			start = start.next;
+			size--;
+			return aux;
+		}
+		public int qFirst(){
+			
+			return start.data;
+		}
+		public int qSize(){
+			
+			return size;
+		}
+		
+	}
+	private static class QueueNode {
+		
+		int data;
+		QueueNode next;
+		
+		public QueueNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+	private static class Stack {
+		
+		private StackNode top;
+		int size;
+		
+		public Stack(){
+			
+			top = null;
+			size = 0;		
+		}
+		public boolean isEmpty(){
+			
+			return top == null;
+		}
+		public void push(int value){
+			
+			StackNode nyu = new StackNode(value);
+			nyu.next = top;
+			top = nyu;
+			size++;
+		}
+		public int pop(){
+			
+			int aux = top.data;
+			top = top.next;
+			size--;
+			return aux;
+		}
+		public int stackTop(){
+			
+			return top.data;
+		}
+		public int stackSize(){
+			
+			return size;
+		}
+		public void clean(){
+			
+			while(!isEmpty()){			
+				pop();
+			}
+		}
+	}
+	private static class StackNode {
+		
+		int data;
+		StackNode next;
+		
+		public StackNode(int d){
+			
+			data = d;
+			next = null;
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		BinaryTree BT = new BinaryTree();
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Caso #" + i + ":");			
+			int q = sc.nextInt();
+			sc.nextLine();
+			for (int j = 0; j < q; j++) {
+				
+				String line = sc.nextLine();
+				String[] part = line.split(" ");
+				// agregar x
+				if (part[0].equals("agregar")) {
+					//System.out.println(part[0] +" "+ part[1]);
+					BT.addNode(Integer.parseInt(part[1]));
+					// distancia entre x, y				
+				} else if (part[0].equals("distancia")) {
+					//System.out.println(part[0] +" "+ part[1] +" "+ part[2]);
+					if(!BT.vacio()){
+						int ant = BT.parent(Integer.parseInt(part[1]), Integer.parseInt(part[2]));
+						if(ant != -1){
+							if(Integer.parseInt(part[1]) == ant){
+								// el camino esta en linea
+								System.out.println("distancia: " + BT.path(BT.nodeSearch(ant), Integer.parseInt(part[2])));
+							} else if(Integer.parseInt(part[2]) == ant){
+								System.out.println("distancia: " + BT.path(BT.nodeSearch(ant), Integer.parseInt(part[1])));
+							}
+							else{
+								// hay bifurcacion
+								int cam = BT.path(BT.nodeSearch(ant), Integer.parseInt(part[1])) + 
+										  BT.path(BT.nodeSearch(ant), Integer.parseInt(part[2]));
+								System.out.println("distancia: " + cam);
+							}
+						} else
+							System.out.println("distancia: " + ant);
+					} else
+						System.out.println("distancia: -1");
+					// ancestro de u y v
+				} else if (part[0].equals("ancestro")) {
+					//System.out.println(part[0] +" "+ part[1] +" "+ part[2]);
+					System.out.println("ancestro: " + BT.parent(Integer.parseInt(part[1]), Integer.parseInt(part[2]))); 
+				} else if (part[0].equals("contar")) {
+					//System.out.println("sapbee");
+					//BT.preOrden(BT.nodeSearch(Integer.parseInt(part[1])));
+					BT.desc(BT.nodeSearch(Integer.parseInt(part[1])));
+					System.out.println("contar: " + (BT.recup()-1));
+					BT.reset();
+				}
+				else continue;				
+			}
+		}
+		sc.close();
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

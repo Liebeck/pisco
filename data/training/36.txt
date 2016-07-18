@@ -1,0 +1,1367 @@
+
+import java.util.Scanner;
+import java.io.*;
+
+public class Pinkie {
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int rep = in.nextInt();
+        in.nextLine();
+        while(rep>0){ 
+        int w=0;
+        int m;
+        String sentence = in.nextLine();
+        m=sentence.length();
+        int tam=m+1;
+        char [] wbw=  new char [tam];
+        wbw=sentence.toCharArray();
+        for (int i=0; i<m;i++){
+            if(wbw[i]=='B'){
+                if(i<=2&&i!=0&&i!=1||i>2){
+                if(wbw[i-1]=='W'){
+                    w++;
+                    wbw[i-1]='O';
+                }
+                if(wbw[i-2]=='W'){
+                    w++;
+                    wbw[i-2]='O';
+                }
+                }else 
+                if(i<=1&&i!=0){
+                    if(wbw[i-1]=='W'){
+                    w++;
+                    wbw[i-1]='O';
+                }
+                }    
+                if(i<=tam-2&&i!=tam-3&&i!=tam-2){
+                if(wbw[i+2]=='W'){
+                    w++;
+                    wbw[i+2]='O';
+                }
+                if(wbw[i+1]=='W'){
+                    w++;
+                    wbw[i+1]='O';
+                }
+                }else
+                if(i<=tam-1&&i!=tam-2){
+                if(wbw[i+1]=='W'){
+                        w++;
+                   wbw[i+1]='O';
+                    }
+                }
+            }
+        }
+        System.out.print(w);
+        rep--;
+    }
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+import java.io.*;
+
+public class Pinkie {
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int rep = in.nextInt();
+        //in.nextLine();
+        while(rep>0){ 
+        int w=0;
+        int m;
+        String sentence = in.nextLine();
+        m=sentence.length();
+        int tam=m+1;
+        char [] wbw=  new char [tam];
+        wbw=sentence.toCharArray();
+        for (int i=0; i<m;i++){
+            if(wbw[i]=='B'){
+                if(i<=2&&i!=0&&i!=1||i>2){
+                if(wbw[i-1]=='W'){
+                    w++;
+                    wbw[i-1]='O';
+                }
+                if(wbw[i-2]=='W'){
+                    w++;
+                    wbw[i-2]='O';
+                }
+                }else 
+                if(i<=1&&i!=0){
+                    if(wbw[i-1]=='W'){
+                    w++;
+                    wbw[i-1]='O';
+                }
+                }    
+                if(i<=tam-2&&i!=tam-3&&i!=tam-2){
+                if(wbw[i+2]=='W'){
+                    w++;
+                    wbw[i+2]='O';
+                }
+                if(wbw[i+1]=='W'){
+                    w++;
+                    wbw[i+1]='O';
+                }
+                }else
+                if(i<=tam-1&&i!=tam-2){
+                if(wbw[i+1]=='W'){
+                        w++;
+                   wbw[i+1]='O';
+                    }
+                }
+            }
+        }
+        System.out.print(w);
+        rep--;
+    }
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1);
+    }
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package pinkie;
+import java.util.Scanner;
+import java.io.*;
+
+public class Pinkie {
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int rep = in.nextInt();
+        in.nextLine();
+        while(rep>0){ 
+        int w=0;
+        int m;
+        String sentence = in.nextLine();
+        m=sentence.length();
+        int tam=m+1;
+        char [] wbw=  new char [tam];
+        wbw=sentence.toCharArray();
+        for (int i=0; i<m;i++){
+            if(wbw[i]=='B'){
+                if(i<=2&&i!=0&&i!=1||i>2){
+                if(wbw[i-1]=='W'){
+                    w++;
+                    wbw[i-1]='O';
+                }
+                if(wbw[i-2]=='W'){
+                    w++;
+                    wbw[i-2]='O';
+                }
+                }else 
+                if(i<=1&&i!=0){
+                    if(wbw[i-1]=='W'){
+                    w++;
+                    wbw[i-1]='O';
+                }
+                }    
+                if(i<=tam-2&&i!=tam-3&&i!=tam-2){
+                if(wbw[i+2]=='W'){
+                    w++;
+                    wbw[i+2]='O';
+                }
+                if(wbw[i+1]=='W'){
+                    w++;
+                    wbw[i+1]='O';
+                }
+                }else
+                if(i<=tam-1&&i!=tam-2){
+                if(wbw[i+1]=='W'){
+                        w++;
+                   wbw[i+1]='O';
+                    }
+                }
+            }
+        }
+        System.out.print(w+"\n");
+        rep--;
+    }
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        //in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        //in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1=-100000;
+        //int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        //in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        //int mayor1=-100000;
+        //int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        //in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        int mayor1=0;
+//int mayor1=-100000;
+        //int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        //in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        
+        int mayor1=-100000;
+        //int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        
+        int mayor1=-100000;
+        //int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        
+        int mayor1=-1000000000;
+        //int mayor1= num [0]*num [1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        
+        //int mayor1=-1000000000;
+        int mayor1= num[0]*num[1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        //int mayor1=-1000000000;
+        long mayor1= num[0]*num[1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        int [] num = new int[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        
+        long mayor1=-1000000000;
+        //long mayor1= num[0]*num[1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package diva;
+import java.util.Scanner;
+
+public class Diva {
+
+    public static void main(String[] args) {
+        int m;
+        Scanner in = new Scanner(System.in);
+        m=in.nextInt();
+        in.nextLine(); 
+        long [] num = new long[m];
+        for (int i=0; i<m; i++){
+            num[i]= in.nextInt();
+        }
+        
+        long mayor1=-1000000000;
+        //long mayor1= num[0]*num[1];
+          for (int i=0;i<=m-2;i++){
+          for (int h=i+1;h<=m-1; h++){
+              if((num[i]*num[h])>mayor1){
+                  mayor1=num[i]*num[h];
+              }
+             }         
+          }
+        System.out.print(mayor1+"\n");
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES");
+    }else System.out.print("NO\n");
+        }  
+    }
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES");
+    }else System.out.print("NO\n");
+        }  
+    }
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES");
+    }else System.out.print("NO\n");
+        }  
+    rep--;
+    }
+    
+    
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES");
+    }else System.out.print("NO\n");
+     rep--;   
+     }  
+    
+    }
+    
+    
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES\n");
+    }else System.out.print("NO\n");
+     rep--;   
+     }  
+    
+    }
+    
+    
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES\n");
+    }else System.out.print("NO\n");
+    if (tam_b==1){
+        parte=true;
+    }
+     rep--;   
+     }  
+    } 
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+     if (tam_b==1){
+        parte=true;
+    }
+    if(parte==true){
+        System.out.print("YES\n");
+    }else System.out.print("NO\n");
+    
+     rep--;   
+     }  
+    } 
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     int x=tam_b;
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+     if (x==1){
+        parte=true;
+    }
+    if(parte==true){
+        System.out.print("YES\n");
+    }else System.out.print("NO\n");
+    
+     rep--;   
+     }  
+    } 
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     int x=tam_b;
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES\t");
+    }else System.out.print("NO\t");
+    
+     rep--;   
+     }  
+    } 
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package prod;
+
+import java.util.Scanner;
+
+public class Prod {
+
+    public static void main(String[] args) {
+     Scanner in = new Scanner (System.in);
+     int rep = in.nextInt();
+     //in.nextLine();
+     while(rep>0){
+     int tam_b=in.nextInt();
+     int x=tam_b;
+     in.nextLine();
+     
+     int tam_cad;
+     int tam_cv, cerezas=0,cerezafil=0,cerezacol=0;
+     
+     boolean parte=false;
+     
+     int cereza=0;
+     char [][] matriz = new char [tam_b][tam_b];
+     char [] prueba = new char [tam_b];
+     
+     tam_b=tam_b+1;
+     
+     for (int l=0; l<tam_b-1;l++){
+         String cadena = in.nextLine();
+          tam_cad=cadena.length();
+          tam_cv=tam_cad+1;
+         prueba = cadena.toCharArray();
+         matriz [l] = prueba;
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezas++;
+             }
+         }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [fil][col]=='#'){
+                 cerezafil++;
+             }
+         }
+         if (cerezas/2==cerezafil){
+                 parte = true;
+             }
+     }
+     
+     for (int fil=0;fil<tam_b-1;fil++){
+         for (int col=0;col<tam_b-1;col++){
+             if(matriz [col][fil]=='#'){
+                 cerezacol++;
+             }
+             }
+          if(cerezas/2==cerezacol){
+                 parte=true;
+             }
+     }
+    if(parte==true){
+        System.out.print("YES\t");
+    }else System.out.print("NO\t");
+    
+     rep--;   
+     }  
+    } 
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,7182 @@
+import java.util.Scanner;
+
+
+public class ProblemaA {
+	
+	public static void main(String []args){
+			int number = sc.nextInt();
+		    int[] cadena= new int [number];
+		    for (int i =0;i<number;i++){
+		    	cadena[i]=sc.nextInt();
+		    	cadena[i]=Math.abs(cadena[i]);
+		    }
+		    for (int j=0 ;j<number;j++){
+		    	int key=cadena[j];
+		    	int i =j;
+		    	while (i>0 && cadena[i-1]<key){
+		    		cadena[i]=cadena[i-1];
+		    		i--;
+		    	}
+		    	cadena[i]=key;
+		    }
+		    System.out.println(cadena[0]*cadena[1]);
+
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaA {
+	
+	public static void main(String []args){
+			int number = sc.nextInt();
+		    Long[] cadena= new Long [number];
+		    for (int i =0;i<number;i++){
+		    	cadena[i]=sc.nextLong();
+		    	cadena[i]=Math.abs(cadena[i]);
+		    }
+
+		    for (int j=0 ;j<number;j++){
+		    	Long key=cadena[j];
+		    	int i =j;
+		    	while (i>0 && cadena[i-1]<key){
+		    		cadena[i]=cadena[i-1];
+		    		i--;
+		    	}
+		    	cadena[i]=key;
+		    }
+
+		    System.out.println(cadena[0]*cadena[1]);
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaA {
+
+	public static void main(String []args){
+			int number = sc.nextInt();
+		    Long[] cadena= new Long [number];
+		    for (int i =0;i<number;i++){
+		    	cadena[i]=sc.nextLong();
+		    }
+		    Long mayor =cadena[0];
+		    for (int i=0 ;i<number;i++){
+		    		mayor=loop(cadena,mayor, number,i);
+		    	}
+		    System.out.println(mayor);
+	}
+	public static Long loop(Long cadena[],Long mayor, int tam,int j){
+		for (int i =0;i<tam;i++){
+			if (cadena[j] * cadena[i]>mayor && cadena[i] != cadena[j]){
+				mayor= cadena[j]*cadena[i];
+			}
+		}
+		return mayor;
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaB {
+	public static void main(String [] args){
+		int cont=1;
+		while (sc.hasNext()){
+			int number = sc.nextInt();
+			int square =0;
+			int board [][]= new int [number][number];
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					board[i][j]= sc.nextInt();
+				}
+			}
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					 if (rows(board,i,number)<colum(board,j,number)){
+						 square ++;
+					 }
+				}
+			}
+			System.out.println("Case #"+cont+":");
+			System.out.println(square);
+			cont++;
+		}
+	}
+
+	private static long colum(int[][] board, int j,int tam) {
+		long sum=0;
+		for (int i =0;i<tam;i++){
+			 sum+=board[j][i];
+			}
+		return sum;
+	}
+
+	private static long rows(int[][] board, int i, int tam) {
+		long sum=0;
+		for (int j =0;j<tam;j++){
+			 sum+=board[j][i];
+			}
+		return sum;
+	}
+
+	public static final Scanner sc = new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaB {
+	public static void main(String [] args){
+		int cont=1;
+		while (sc.hasNext()){
+			int number = sc.nextInt();
+			int square =0;
+			int board [][]= new int [number][number];
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					board[i][j]= sc.nextInt();
+				}
+			}
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					 if (rows(board,i,number)<colum(board,j,number)){
+						 square ++;
+					 }
+				}
+			}
+			System.out.println("Case #"+cont+":");
+			System.out.println(square);
+			cont++;
+		}
+	}
+
+	private static long colum(int[][] board, int j,int tam) {
+		long sum=0;
+		for (int i =0;i<tam;i++){
+			 sum+=board[j][i];
+			}
+		return sum;
+	}
+
+	private static long rows(int[][] board, int i, int tam) {
+		long sum=0;
+		for (int j =0;j<tam;j++){
+			 sum+=board[j][i];
+			}
+		return sum;
+	}
+
+	public static final Scanner sc = new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class ProblemaC {
+	public static void main (String [] args){
+		int count=1;
+		int T = sc.nextInt();
+		while (T>0){
+			int cont =0;
+			int nTeams = sc.nextInt();
+			int [] teamL = new int [nTeams];
+			int [] teamV = new int [nTeams];
+			for (int i =0;i<nTeams;i++){
+				teamL[i]=sc.nextInt();
+				teamV[i]=sc.nextInt();
+			}
+			for (int i =0;i<nTeams;i++){ //Visitors 
+				for (int j =0;j<nTeams;j++){ //Local
+					if (teamV[i]==teamL[j]){
+						cont++;
+					}
+				}
+			}
+			System.out.print("\nCase #"+count+":");
+			System.out.print("\n"+cont);
+			count++;
+			T--;
+		}
+	}
+public static final Scanner sc = new Scanner (System.in);
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package javaapplication1;
+import java.util.Scanner;
+
+public class JavaApplication1 {
+	public static void main (String [] args){
+		int count=1;
+		int T = sc.nextInt();
+		while (T>0){
+			int cont =0;
+			int nTeams = sc.nextInt();
+			int [] teamL = new int [nTeams];
+			int [] teamV = new int [nTeams];
+			for (int i =0;i<nTeams;i++){
+				teamL[i]=sc.nextInt();
+				teamV[i]=sc.nextInt();
+			}
+			for (int i =0;i<nTeams;i++){ //Visitors 
+				for (int j =0;j<nTeams;j++){ //Local
+					if (teamV[i]==teamL[j]){
+						cont++;
+					}
+				}
+			}
+			System.out.print("\nCase #"+count+":");
+			System.out.print("\n"+cont);
+			count++;
+			T--;
+		}
+	}
+public static final Scanner sc = new Scanner (System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class ProblemaC {
+	public static void main (String [] args){
+		int count=1;
+		int T = sc.nextInt();
+		while (T>0){
+			int cont =0;
+			int nTeams = sc.nextInt();
+			int [] teamL = new int [nTeams];
+			int [] teamV = new int [nTeams];
+			for (int i =0;i<nTeams;i++){
+				teamL[i]=sc.nextInt();
+				teamV[i]=sc.nextInt();
+			}
+			for (int i =0;i<nTeams;i++){ //Visitors 
+				for (int j =0;j<nTeams;j++){ //Local
+					if (teamV[i]==teamL[j]){
+						cont++;
+					}
+				}
+			}
+			System.out.print("Case #"+count+":");
+			System.out.print("\n"+cont);
+			count++;
+			T--;
+		}
+	}
+public static final Scanner sc = new Scanner (System.in);
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class ProblemaC {
+	public static void main (String [] args){
+		int count=1;
+		int T = sc.nextInt();
+		while (T>0){
+			int cont =0;
+			int nTeams = sc.nextInt();
+			int [] teamL = new int [nTeams];
+			int [] teamV = new int [nTeams];
+			for (int i =0;i<nTeams;i++){
+				teamL[i]=sc.nextInt();
+				teamV[i]=sc.nextInt();
+			}
+			for (int i =0;i<nTeams;i++){ //Visitors 
+				for (int j =0;j<nTeams;j++){ //Local
+					if (teamV[i]==teamL[j]){
+						cont++;
+					}
+				}
+			}
+			System.out.print("Case #"+count+":");
+			System.out.println("\n"+cont);
+			count++;
+			T--;
+		}
+	}
+public static final Scanner sc = new Scanner (System.in);
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class ProblemaC {
+	public static void main (String [] args){
+		int count=1;
+		int T = sc.nextInt();
+		while (T>0){
+			int cont =0;
+			int nTeams = sc.nextInt();
+			int [] teamL = new int [nTeams];
+			int [] teamV = new int [nTeams];
+			for (int i =0;i<nTeams;i++){
+				teamL[i]=sc.nextInt();
+				teamV[i]=sc.nextInt();
+			}
+			for (int i =0;i<nTeams;i++){ //Visitors 
+				for (int j =0;j<nTeams;j++){ //Local
+					if (teamV[i]==teamL[j]){
+						cont++;
+					}
+				}
+			}
+			System.out.println("Case #"+count+":");
+			System.out.println(cont);
+			count++;
+			T--;
+		}
+	}
+public static final Scanner sc = new Scanner (System.in);
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaB {
+	public static void main(String [] args){
+		int cont=1;
+		while (sc.hasNextLine()){
+			int number = sc.nextInt();
+			int square =0;
+			int board [][]= new int [number][number];
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					board[i][j]= sc.nextInt();
+				}
+			}
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					 if (rows(board,i,number)<colum(board,j,number)){
+						 square ++;
+					 }
+				}
+			}
+			System.out.print("Case #"+cont+":");
+			System.out.println("\n"+square);
+			cont++;
+		}
+        
+	}
+        public static int rows(int board[][],int i, int number){
+            int sum=0;
+            for (int j =0;j<number;j++){
+                sum+=board[j][i];
+            }
+            return sum;
+        }
+        public static int colum(int board[][],int i, int number){
+            int sum=0;
+            for (int j =0;j<number;j++){
+                sum+=board[i][j];
+            }
+            return sum;
+        }
+        public static final Scanner sc = new Scanner (System.in);
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaB {
+	public static void main(String [] args){
+		int cont=1;
+		while (sc.hasNextLine()){
+			int number = sc.nextInt();
+			int square =0;
+			int board [][]= new int [number][number];
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					board[i][j]= sc.nextInt();
+				}
+			}
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					 if (rows(board,i,number)<colum(board,j,number)){
+						 square ++;
+					 }
+				}
+			}
+			System.out.print("Case #"+cont+":");
+			System.out.println("\n"+square);
+			cont++;
+		}
+        
+	}
+        public static int rows(int board[][],int i, int number){
+            int sum=0;
+            for (int j =0;j<number;j++){
+                sum+=board[j][i];
+            }
+            return sum;
+        }
+        public static int colum(int board[][],int i, int number){
+            int sum=0;
+            for (int j =0;j<number;j++){
+                sum+=board[i][j];
+            }
+            return sum;
+        }
+        public static final Scanner sc = new Scanner (System.in);
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class ProblemaB {
+
+	public static void main(String [] args){
+		int cont=1;
+		while (sc.hasNext()){	
+			int number = sc.nextInt();
+			int square =0;
+			int board [][]= new int [number][number];
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					board[i][j]= sc.nextInt();
+				}
+			}
+			for (int i =0;i<number;i++){
+				for (int j =0;j<number;j++){
+					 if (rows(board,i,number)<colum(board,j,number)){
+						 square ++;
+					 }
+				}
+			}
+			System.out.print("Case #"+cont+":");
+			System.out.println("\n"+square);
+			cont++;
+		}
+	}
+
+	private static long rows(int[][] board, int j,int tam) {
+		long sum=0;
+		for (int i =0;i<tam;i++){
+			 sum+=board[j][i];
+			}
+		return sum;
+	}
+
+	private static long colum(int[][] board, int i, int tam) {
+		long sum=0;
+		for (int j =0;j<tam;j++){
+			 sum+=board[j][i];
+			}
+		return sum;
+	}
+
+	public static final Scanner sc = new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaC {
+	public static void main (String [] args){
+		int count=1;
+		int T = sc.nextInt();
+		while (T>0){
+			int cont =0;
+			int nTeams = sc.nextInt();
+			int [] teamL = new int [nTeams];
+			int [] teamV = new int [nTeams];
+			for (int i =0;i<nTeams;i++){
+				teamL[i]=sc.nextInt();
+				teamV[i]=sc.nextInt();
+			}
+			for (int i =0;i<nTeams;i++){ //Visitors 
+				for (int j =0;j<nTeams;j++){ //Local
+					if (teamV[i]==teamL[j] && i!=j){
+						cont++;
+					}
+				}
+			}
+			System.out.print("\nCase #"+count+":");
+			System.out.print("\n"+cont);
+			count++;
+			T--;
+		}
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaD {
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		while(T>0){
+			int N = sc.nextInt();
+			String barra []= new String [N+1];
+			int filas []= new int [N];
+			int columnas[]= new int [N];
+			boolean fil=false;
+			boolean colum = false;
+			for (int i =0;i<N+1;i++){
+				barra[i]=sc.nextLine();
+			}
+			
+			char cerezas[][]= new char[N][N];
+			for (int i =0;i<N;i++)
+				for (int j =0;j<barra[i+1].length();j++){
+					cerezas[i][j]=barra[i+1].charAt(j);
+				}
+			for (int i =0;i<N;i++)
+				for (int j =0;j<N;j++)
+					if (cerezas[i][j]=='#')
+						filas[i]+=1;
+			for (int i =0;i<N;i++)
+				for (int j =0;j<N;j++)
+					if (cerezas[j][i]=='#')
+						columnas[i]+=1;
+		    for (int i =0;i<N;i++)
+		        if (cFilas(filas,i)==cFila1(filas,N,i)){
+		            fil=true;
+		            break;
+		        }else{
+		            fil=false;
+		        }
+		    for (int i=0;i<N;i++)
+		        if (cFilas(columnas,i)==cFila1(columnas,N,i)){
+		            colum=true;
+		            break;
+				}else{
+		            colum=false;
+		        }
+		    if (fil==true || colum==true){
+		        System.out.println("YES");
+		    }else{
+		    	System.out.println("NO");
+		    }
+		}	
+	}
+	public static int cFilas(int filas[],int N){
+	    int cont =0;
+	    int i=0;
+	    while (i<=N){
+	        cont+=filas[i];
+	        i+=1;
+	    }
+	    return cont;
+	}
+	public static int cFila1(int filas[],int N,int i){
+	    int cont=1;
+	    while(i+1<N){
+	        cont+=filas[i+1];
+	        i+=1;
+		}
+	    return cont-1;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Rumm {
+	public static void main(String [] args){
+		int t = sc.nextInt();
+		while (t>0){
+			int cont =0;
+			int a = sc.nextInt();
+			String [] tile = new String [a];
+			for (int i =0;i<a;i++){
+				tile[i]=sc.next();
+			}
+			for (int i =0;i<a-1;i++){
+				if (tile[i].charAt(1)==tile[i+1].charAt(1)){
+					System.out.println("jajaja");
+					cont++;
+				}
+			}
+			
+			if (cont>=2){
+				System.out.println("YES");
+			}else{
+				System.out.println("NO");
+			}
+			t--;
+		}
+	}
+	public static final Scanner sc= new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Tea {
+	public static void main (String[] args){
+		int cont=0;
+		int te= sc.nextInt();
+		for (int i =0;i<5;i++)
+			if (Integer.parseInt(sc.next())==te){
+				cont++;
+			}
+		System.out.println(cont);
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaD {
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		while(T>0){
+			int N = sc.nextInt();
+			String barra []= new String [N+1];
+			int filas []= new int [N];
+			int columnas[]= new int [N];
+			boolean fil=false;
+			boolean colum = false;
+			for (int i =0;i<N+1;i++){
+				barra[i]=sc.nextLine();
+			}
+			
+			char cerezas[][]= new char[N][N];
+			for (int i =0;i<N;i++)
+				for (int j =0;j<barra[i+1].length();j++){
+					cerezas[i][j]=barra[i+1].charAt(j);
+				}
+			for (int i =0;i<N;i++)
+				for (int j =0;j<N;j++)
+					if (cerezas[i][j]=='#')
+						filas[i]+=1;
+			for (int i =0;i<N;i++)
+				for (int j =0;j<N;j++)
+					if (cerezas[j][i]=='#')
+						columnas[i]+=1;
+		    for (int i =0;i<N;i++)
+		        if (cFilas(filas,i)==cFila1(filas,N,i)){
+		            fil=true;
+		            break;
+		        }else{
+		            fil=false;
+		        }
+		    for (int i=0;i<N;i++)
+		        if (cFilas(columnas,i)==cFila1(columnas,N,i)){
+		            colum=true;
+		            break;
+				}else{
+		            colum=false;
+		        }
+		    if (fil==true || colum==true){
+		        System.out.println("YES");
+		    }else{
+		    	System.out.println("NO");
+		    }
+                    T-=1;
+		}	
+	}
+	public static int cFilas(int filas[],int N){
+	    int cont =0;
+	    int i=0;
+	    while (i<=N){
+	        cont+=filas[i];
+	        i+=1;
+	    }
+	    return cont;
+	}
+	public static int cFila1(int filas[],int N,int i){
+	    int cont=1;
+	    while(i+1<N){
+	        cont+=filas[i+1];
+	        i+=1;
+		}
+	    return cont-1;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Rumm {
+	public static void main(String [] args){
+		int t = sc.nextInt();
+		while (t>0){
+			int cont =0;
+			int a = sc.nextInt();
+			String [] tile = new String [a];
+			for (int i =0;i<a;i++){
+				tile[i]=sc.next();
+			}
+			for (int i =0;i<a-1;i++){
+				if (tile[i].charAt(1)==tile[i+1].charAt(1)){
+					cont++;
+				}
+			}
+			
+			if (cont>=2){
+				System.out.println("YES");
+			}else{
+				System.out.println("NO");
+			}
+			t--;
+		}
+	}
+	public static final Scanner sc= new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Rumm {
+	public static void main(String [] args){
+		int t = sc.nextInt();
+		while (t>0){
+			int cont =0;
+			int a = sc.nextInt();
+			String [] tile = new String [a];
+			for (int i =0;i<a;i++){
+				tile[i]=sc.next();
+			}
+			for (int i =0;i<a-1;i++){
+                            String aux = tile[i].charAt(0)+"";
+                            String aux1 = tile[i+1].charAt(0)+"";
+				if (tile[i].charAt(1)==tile[i+1].charAt(1)&& Integer.parseInt(aux)+1==Integer.parseInt(aux1)){
+					cont++;
+				}
+			}
+			
+			if (cont>=2){
+				System.out.println("YES");
+			}else{
+				System.out.println("NO");
+			}
+			t--;
+		}
+	}
+	public static final Scanner sc= new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Rumm {
+	public static void main(String [] args){
+		int t = sc.nextInt();
+		while (t>0){
+			int cont =0;
+			int a = sc.nextInt();
+			String [] tile = new String [a];
+			for (int i =0;i<a;i++){
+				tile[i]=sc.next();
+			}
+                        tile = sort(tile,a);
+			for (int i =0;i<a-1;i++){
+                            String aux = tile[i].charAt(0)+"";
+                            String aux1 = tile[i+1].charAt(0)+"";
+				if (tile[i].charAt(1)==tile[i+1].charAt(1)&& Integer.parseInt(aux)+1==Integer.parseInt(aux1)){
+					cont++;
+				}
+			}
+			
+			if (cont>=2){
+				System.out.println("YES");
+			}else{
+				System.out.println("NO");
+			}
+			t--;
+		}
+	}
+        public static String [] sort(String [] tile, int a){
+            int key=0;
+            String key1=null;
+            int j=0;
+            for (int i =1;i<a;i++){
+                key = Integer.parseInt(""+tile[i].charAt(0));
+                key1= tile[i];
+                j=i;
+                while(j>0 && Integer.parseInt(""+tile[j-1].charAt(0))>key){
+                    tile[j]= tile[j-1];
+                    j--;                    
+                }
+                tile[j]=key1;
+            }
+                
+            return tile;
+        }
+	public static final Scanner sc= new Scanner(System.in);
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int major=0;
+		int i=0;
+		int mayor=0;
+		while(i<T){
+			Lista numeros=new Lista();
+			int N = sc.nextInt();
+			int K = sc.nextInt();
+			int players[]= new int[K];
+			for (int j=0;j<N;j++){
+				numeros.insertNext(sc.nextInt());
+			}
+			int j=0;
+			while (!numeros.isEmpty()){
+					if(numeros.getFirst()>numeros.getLast()){
+						major= numeros.getFirst();
+						numeros.deleteFirst();
+					}else{
+						major= numeros.getLast();
+ 						numeros.deleteLast();
+					}
+					players[j]+=major;
+					j++;
+					if (j==K){
+						j=0;
+					}
+					
+				}
+			Lista ganadores = new Lista();
+			mayor= mayor(players,K);
+			for (int k=0;k<K;k++){
+				if (players[k]>=mayor){
+                    mayor= players[k];
+					ganadores.insertNext(k+1);
+				}
+			}
+                        System.out.println("Caso #"+ (i+1)+":");
+			for (int k =0;k<ganadores.lenght();k++){
+				System.out.print(ganadores.getDataNodo(k)+" ");
+			}
+			i++;
+		}
+	}
+	public static int mayor (int players[],int tam){
+		int mayor =0;
+		for (int i =0;i<tam;i++){
+			if (mayor<players[i]){
+				mayor =players[i];
+			}
+		}
+		return mayor;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+public class Nodo {
+	
+	public Nodo(){
+		super();
+		setNext(null);
+	}
+	public Nodo (int data){
+		super();
+		setNext(null);
+		setData(data);
+	}
+	public Nodo(int data, Nodo next){
+		super();
+		setNext(next);
+		setData(data);
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public Nodo getNext() {
+		return next;
+	}
+	public void setNext(Nodo next) {
+		this.next = next;
+	}
+	
+	private int data;
+	private Nodo next;
+}
+public final class Lista {
+	//Attributes
+	private Nodo primero;
+	private Nodo ultimo;
+
+	
+	//Constructor
+	public Lista(){
+		super();
+		primero=null;
+		ultimo=null;
+	}
+	public Lista(Nodo Primero){
+		super();
+		this.primero = Primero; 
+		setUltimo(Primero);
+	}
+	// Methods
+	public Nodo getPrimero() {
+		return primero;
+	}
+	public void setPrimero(Nodo primero) {
+		this.primero = primero;
+	}
+	public void setUltimo(Nodo ultimo){
+		this.ultimo=ultimo;
+	}
+	public Nodo getUltimo() {
+		return ultimo;
+	}
+	public boolean isEmpty(){
+            return primero == null;
+	}
+	public int lenght(){
+		int cont=0;
+		Nodo aux=primero;
+		while(aux !=null){
+			aux=aux.getNext();
+			cont++;
+		}
+		return cont;
+	}
+        public Nodo buscar(int x){
+            Nodo aux=getPrimero();
+            while (aux != null)
+            if (aux.getData()==x){
+                return aux;
+            }else{
+                aux= aux.getNext();
+            }
+            return null;
+        }
+	public Nodo insertTail(Nodo N){ 
+            Nodo aux = new Nodo();
+            aux =getPrimero();
+            if (isEmpty()){
+                setPrimero(N);
+                getPrimero().setNext(null);
+                ultimo=primero;
+                return this.getPrimero();
+            }
+            while(aux.getNext()!=null){
+                aux=aux.getNext();
+            }
+            Nodo newNodo = new Nodo();
+            newNodo.setData(N.getData());
+            newNodo.setNext(null);
+            aux.setNext(newNodo);
+            setUltimo(newNodo);
+            return getPrimero();
+	}
+	public void insertHead(Nodo N){
+                if (isEmpty()){
+                    setPrimero(N);
+                    setUltimo(N);
+                }else{
+                    N.setNext(getPrimero());
+                }
+	}
+	public void deleteFirst(){
+		setPrimero(primero.getNext()); 
+	
+	}
+	public Nodo deleteLast() {
+        Nodo aux = new Nodo();
+        aux=getPrimero();
+        if(isEmpty()) {
+            return getPrimero();
+        }
+        if(primero == ultimo) {
+            primero = null;
+            ultimo = null;
+            return getPrimero();
+        }
+            while(aux.getNext() != ultimo) {
+                aux = aux.getNext();
+            }
+            aux.setNext(null);
+            setUltimo(aux);
+        return getPrimero(); 
+	}
+	public int getFirst(){
+		return getPrimero().getData();
+	}
+	public int getLast(){
+		return getUltimo().getData();
+	}
+	public void insertNext(int N){
+		Nodo newNodo = new Nodo(N);
+		insertTail(newNodo);
+	}
+	public int getDataNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux.getData();
+			}               
+			aux=aux.getNext();
+                        j++;
+		}
+		return -1;
+	}
+ 	public Nodo getNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux;
+			}
+			aux=aux.getNext();
+			j++;
+		}
+		return null;
+	}
+
+}			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int major=0;
+		int i=0;
+		int mayor=0;
+		while(i<T){
+			Lista numeros=new Lista();
+			int N = sc.nextInt();
+			int K = sc.nextInt();
+			int players[]= new int[K];
+			for (int j=0;j<N;j++){
+				numeros.insertNext(sc.nextInt());
+			}
+			int j=0;
+			while (!numeros.isEmpty()){
+					if(numeros.getFirst()>numeros.getLast()){
+						major= numeros.getFirst();
+						numeros.deleteFirst();
+					}else{
+						major= numeros.getLast();
+ 						numeros.deleteLast();
+					}
+					players[j]+=major;
+					j++;
+					if (j==K){
+						j=0;
+					}
+					
+				}
+			Lista ganadores = new Lista();
+			mayor= mayor(players,K);
+			for (int k=0;k<K;k++){
+				if (players[k]>=mayor){
+                    mayor= players[k];
+					ganadores.insertNext(k+1);
+				}
+			}
+                        System.out.println("Caso #"+ (i+1)+":");
+			for (int k =0;k<ganadores.lenght();k++){
+				System.out.print(ganadores.getDataNodo(k)+" ");
+			}
+			i++;
+		}
+	}
+	public static int mayor (int players[],int tam){
+		int mayor =0;
+		for (int i =0;i<tam;i++){
+			if (mayor<players[i]){
+				mayor =players[i];
+			}
+		}
+		return mayor;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+ class Lista {
+	//Attributes
+	private Nodo primero;
+	private Nodo ultimo;
+
+	
+	//Constructor
+	public Lista(){
+		super();
+		primero=null;
+		ultimo=null;
+	}
+	public Lista(Nodo Primero){
+		super();
+		this.primero = Primero; 
+		setUltimo(Primero);
+	}
+	// Methods
+	public Nodo getPrimero() {
+		return primero;
+	}
+	public void setPrimero(Nodo primero) {
+		this.primero = primero;
+	}
+	public void setUltimo(Nodo ultimo){
+		this.ultimo=ultimo;
+	}
+	public Nodo getUltimo() {
+		return ultimo;
+	}
+	public boolean isEmpty(){
+            return primero == null;
+	}
+	public int lenght(){
+		int cont=0;
+		Nodo aux=primero;
+		while(aux !=null){
+			aux=aux.getNext();
+			cont++;
+		}
+		return cont;
+	}
+        public Nodo buscar(int x){
+            Nodo aux=getPrimero();
+            while (aux != null)
+            if (aux.getData()==x){
+                return aux;
+            }else{
+                aux= aux.getNext();
+            }
+            return null;
+        }
+	public Nodo insertTail(Nodo N){ 
+            Nodo aux = new Nodo();
+            aux =getPrimero();
+            if (isEmpty()){
+                setPrimero(N);
+                getPrimero().setNext(null);
+                ultimo=primero;
+                return this.getPrimero();
+            }
+            while(aux.getNext()!=null){
+                aux=aux.getNext();
+            }
+            Nodo newNodo = new Nodo();
+            newNodo.setData(N.getData());
+            newNodo.setNext(null);
+            aux.setNext(newNodo);
+            setUltimo(newNodo);
+            return getPrimero();
+	}
+	public void insertHead(Nodo N){
+                if (isEmpty()){
+                    setPrimero(N);
+                    setUltimo(N);
+                }else{
+                    N.setNext(getPrimero());
+                }
+	}
+	public void deleteFirst(){
+		setPrimero(primero.getNext()); 
+	
+	}
+	public Nodo deleteLast() {
+        Nodo aux = new Nodo();
+        aux=getPrimero();
+        if(isEmpty()) {
+            return getPrimero();
+        }
+        if(primero == ultimo) {
+            primero = null;
+            ultimo = null;
+            return getPrimero();
+        }
+            while(aux.getNext() != ultimo) {
+                aux = aux.getNext();
+            }
+            aux.setNext(null);
+            setUltimo(aux);
+        return getPrimero(); 
+	}
+	public int getFirst(){
+		return getPrimero().getData();
+	}
+	public int getLast(){
+		return getUltimo().getData();
+	}
+	public void insertNext(int N){
+		Nodo newNodo = new Nodo(N);
+		insertTail(newNodo);
+	}
+	public int getDataNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux.getData();
+			}               
+			aux=aux.getNext();
+                        j++;
+		}
+		return -1;
+	}
+ 	public Nodo getNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux;
+			}
+			aux=aux.getNext();
+			j++;
+		}
+		return null;
+	}
+
+}
+ class Nodo {
+	
+	public Nodo(){
+		super();
+		setNext(null);
+	}
+	public Nodo (int data){
+		super();
+		setNext(null);
+		setData(data);
+	}
+	public Nodo(int data, Nodo next){
+		super();
+		setNext(next);
+		setData(data);
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public Nodo getNext() {
+		return next;
+	}
+	public void setNext(Nodo next) {
+		this.next = next;
+	}
+	
+	private int data;
+	private Nodo next;
+}			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int major=0;
+		int i=0;
+		int mayor=0;
+		while(i<T){
+			Lista numeros=new Lista();
+			int N = sc.nextInt();
+			int K = sc.nextInt();
+			int players[]= new int[K];
+			for (int j=0;j<N;j++){
+				numeros.insertNext(sc.nextInt());
+			}
+			int j=0;
+			while (!numeros.isEmpty()){
+					if(numeros.getFirst()>numeros.getLast()){
+						major= numeros.getFirst();
+						numeros.deleteFirst();
+					}else{
+						major= numeros.getLast();
+ 						numeros.deleteLast();
+					}
+					players[j]+=major;
+					j++;
+					if (j==K){
+						j=0;
+					}
+					
+				}
+			Lista ganadores = new Lista();
+			mayor= mayor(players,K);
+			for (int k=0;k<K;k++){
+				if (players[k]>=mayor){
+                    mayor= players[k];
+					ganadores.insertNext(k+1);
+				}
+			}
+                        System.out.println("Caso #"+ (i+1)+":");
+			for (int k =0;k<ganadores.lenght();k++){
+				System.out.print(ganadores.getDataNodo(k)+" ");
+			}
+			i++;
+		}
+	}
+	public static int mayor (int players[],int tam){
+		int mayor =0;
+		for (int i =0;i<tam;i++){
+			if (mayor<players[i]){
+				mayor =players[i];
+			}
+		}
+		return mayor;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+ class Lista {
+	//Attributes
+	private Nodo primero;
+	private Nodo ultimo;
+
+	
+	//Constructor
+	public Lista(){
+		super();
+		primero=null;
+		ultimo=null;
+	}
+	public Lista(Nodo Primero){
+		super();
+		this.primero = Primero; 
+		setUltimo(Primero);
+	}
+	// Methods
+	public Nodo getPrimero() {
+		return primero;
+	}
+	public void setPrimero(Nodo primero) {
+		this.primero = primero;
+	}
+	public void setUltimo(Nodo ultimo){
+		this.ultimo=ultimo;
+	}
+	public Nodo getUltimo() {
+		return ultimo;
+	}
+	public boolean isEmpty(){
+            return primero == null;
+	}
+	public int lenght(){
+		int cont=0;
+		Nodo aux=primero;
+		while(aux !=null){
+			aux=aux.getNext();
+			cont++;
+		}
+		return cont;
+	}
+        public Nodo buscar(int x){
+            Nodo aux=getPrimero();
+            while (aux != null)
+            if (aux.getData()==x){
+                return aux;
+            }else{
+                aux= aux.getNext();
+            }
+            return null;
+        }
+	public Nodo insertTail(Nodo N){ 
+            Nodo aux = new Nodo();
+            aux =getPrimero();
+            if (isEmpty()){
+                setPrimero(N);
+                getPrimero().setNext(null);
+                ultimo=primero;
+                return this.getPrimero();
+            }
+            while(aux.getNext()!=null){
+                aux=aux.getNext();
+            }
+            Nodo newNodo = new Nodo();
+            newNodo.setData(N.getData());
+            newNodo.setNext(null);
+            aux.setNext(newNodo);
+            setUltimo(newNodo);
+            return getPrimero();
+	}
+	public void insertHead(Nodo N){
+                if (isEmpty()){
+                    setPrimero(N);
+                    setUltimo(N);
+                }else{
+                    N.setNext(getPrimero());
+                }
+	}
+	public void deleteFirst(){
+		setPrimero(primero.getNext()); 
+	
+	}
+	public Nodo deleteLast() {
+        Nodo aux = new Nodo();
+        aux=getPrimero();
+        if(isEmpty()) {
+            return getPrimero();
+        }
+        if(primero == ultimo) {
+            primero = null;
+            ultimo = null;
+            return getPrimero();
+        }
+            while(aux.getNext() != ultimo) {
+                aux = aux.getNext();
+            }
+            aux.setNext(null);
+            setUltimo(aux);
+        return getPrimero(); 
+	}
+	public int getFirst(){
+		return getPrimero().getData();
+	}
+	public int getLast(){
+		return getUltimo().getData();
+	}
+	public void insertNext(int N){
+		Nodo newNodo = new Nodo(N);
+		insertTail(newNodo);
+	}
+	public int getDataNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux.getData();
+			}               
+			aux=aux.getNext();
+                        j++;
+		}
+		return -1;
+	}
+ 	public Nodo getNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux;
+			}
+			aux=aux.getNext();
+			j++;
+		}
+		return null;
+	}
+
+}
+ class Nodo {
+	
+	public Nodo(){
+		super();
+		setNext(null);
+	}
+	public Nodo (int data){
+		super();
+		setNext(null);
+		setData(data);
+	}
+	public Nodo(int data, Nodo next){
+		super();
+		setNext(next);
+		setData(data);
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public Nodo getNext() {
+		return next;
+	}
+	public void setNext(Nodo next) {
+		this.next = next;
+	}
+	
+	private int data;
+	private Nodo next;
+}			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.StringTokenizer;
+public class ProblemaC {
+	public static void main (String [] args){
+		int N = sc.nextInt();
+		int cualBus[]= new int [N];
+		for (int i=0;i<N;i++){
+			cualBus[i]=sc.nextInt();
+		}
+		int M =sc.nextInt()+1;
+		Lista ninas []= new Lista[M];
+		for (int i =0;i<M;i++){
+			ninas[i]= new Lista();
+		}
+		String ninasS[]=new String[M];
+		for (int i =0;i<M;i++){
+			ninasS[i]= sc.nextLine();
+		}
+		for (int i=0;i<M;i++){
+			fillList(ninasS[i],ninas,i);
+		}
+		boolean yes = false;
+		int cont =0;
+		for (int j =0;j<M;j++){
+			for (int i =0;i<N;i++){
+				if (!ninas[j].buscarData(cualBus[i])){
+					yes=false;
+					break;
+				}else{
+					yes=true;
+				}
+			}
+			if (yes==true)
+				cont++;
+		}
+		System.out.println(cont);
+		
+	}
+	public static void fillList(String line,Lista[]ninas, int i){
+		StringTokenizer tokens = new StringTokenizer(line);
+		while(tokens.hasMoreTokens()){
+			ninas[i].insertNext(Integer.parseInt(tokens.nextToken(" ")));
+		}
+	}
+
+	public static final Scanner sc = new Scanner (System.in);
+}
+class Nodo {
+	
+	public Nodo(){
+		super();
+		setNext(null);
+	}
+	public Nodo (int data){
+		super();
+		setNext(null);
+		setData(data);
+	}
+	public Nodo(int data, Nodo next){
+		super();
+		setNext(next);
+		setData(data);
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public Nodo getNext() {
+		return next;
+	}
+	public void setNext(Nodo next) {
+		this.next = next;
+	}
+	
+	private int data;
+	private Nodo next;
+}
+class Lista {
+	//Attributes
+	private Nodo primero;
+	private Nodo ultimo;
+
+	
+	//Constructor
+	public Lista(){
+		super();
+		primero=null;
+		ultimo=null;
+	}
+	public Lista(Nodo Primero){
+		super();
+		this.primero = Primero; 
+		setUltimo(Primero);
+	}
+	// Methods
+	public Nodo getPrimero() {
+		return primero;
+	}
+	public void setPrimero(Nodo primero) {
+		this.primero = primero;
+	}
+	public void setUltimo(Nodo ultimo){
+		this.ultimo=ultimo;
+	}
+	public Nodo getUltimo() {
+		return ultimo;
+	}
+	public boolean isEmpty(){
+            return primero == null;
+	}
+	public int lenght(){
+		int cont=0;
+		Nodo aux=primero;
+		while(aux !=null){
+			aux=aux.getNext();
+			cont++;
+		}
+		return cont;
+	}
+        public Nodo buscar(int x){
+            Nodo aux=getPrimero();
+            while (aux != null)
+            if (aux.getData()==x){
+                return aux;
+            }else{
+                aux= aux.getNext();
+            }
+            return null;
+        }
+        public boolean buscarData(int x){
+            Nodo aux=getPrimero();
+            while (aux != null)
+            if (aux.getData()==x){
+                return true;
+            }else{
+                aux= aux.getNext();
+            }
+            return false;
+        }
+	public Nodo insertTail(Nodo N){ 
+            Nodo aux = new Nodo();
+            aux =getPrimero();
+            if (isEmpty()){
+                setPrimero(N);
+                getPrimero().setNext(null);
+                ultimo=primero;
+                return this.getPrimero();
+            }
+            while(aux.getNext()!=null){
+                aux=aux.getNext();
+            }
+            Nodo newNodo = new Nodo();
+            newNodo.setData(N.getData());
+            newNodo.setNext(null);
+            aux.setNext(newNodo);
+            setUltimo(newNodo);
+            return getPrimero();
+	}
+	public void insertHead(Nodo N){
+                if (isEmpty()){
+                    setPrimero(N);
+                    setUltimo(N);
+                }else{
+                    N.setNext(getPrimero());
+                }
+	}
+	public void deleteFirst(){
+		setPrimero(primero.getNext()); 
+	
+	}
+	public Nodo deleteLast() {
+        Nodo aux = new Nodo();
+        aux=getPrimero();
+        if(isEmpty()) {
+            return getPrimero();
+        }
+        if(primero == ultimo) {
+            primero = null;
+            ultimo = null;
+            return getPrimero();
+        }
+            while(aux.getNext() != ultimo) {
+                aux = aux.getNext();
+            }
+            aux.setNext(null);
+            setUltimo(aux);
+        return getPrimero(); 
+	}
+	public int getFirst(){
+		return getPrimero().getData();
+	}
+	public int getLast(){
+		return getUltimo().getData();
+	}
+	public void insertNext(int N){
+		Nodo newNodo = new Nodo(N);
+		insertTail(newNodo);
+	}
+	public int getDataNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux.getData();
+			}               
+			aux=aux.getNext();
+                        j++;
+		}
+		return -1;
+	}
+ 	public Nodo getNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux;
+			}
+			aux=aux.getNext();
+			j++;
+		}
+		return null;
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int major=0;
+		int i=0;
+		int mayor=0;
+		while(i<T){
+			Lista numeros=new Lista();
+			int N = sc.nextInt();
+			int K = sc.nextInt();
+			int players[]= new int[K];
+			for (int j=0;j<N;j++){
+				numeros.insertNext(sc.nextInt());
+			}
+			int j=0;
+			while (!numeros.isEmpty()){
+					if(numeros.getFirst()>numeros.getLast()){
+						major= numeros.getFirst();
+						numeros.deleteFirst();
+					}else{
+						major= numeros.getLast();
+ 						numeros.deleteLast();
+					}
+					players[j]+=major;
+					j++;
+					if (j==K){
+						j=0;
+					}
+					
+				}
+			Lista ganadores = new Lista();
+			mayor= mayor(players,K);
+			for (int k=0;k<K;k++){
+				if (players[k]>=mayor){
+                    mayor= players[k];
+					ganadores.insertNext(k+1);
+				}
+			}
+            System.out.println("Caso #"+ (i+1)+":");
+			for (int k =0;k<ganadores.lenght();k++){
+				System.out.print(ganadores.getDataNodo(k)+" ");
+			}
+			System.out.println();
+			i++;
+		}
+	}
+	public static int mayor (int players[],int tam){
+		int mayor =0;
+		for (int i =0;i<tam;i++){
+			if (mayor<players[i]){
+				mayor =players[i];
+			}
+		}
+		return mayor;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+ class Lista {
+	//Attributes
+	private Nodo primero;
+	private Nodo ultimo;
+
+	
+	//Constructor
+	public Lista(){
+		super();
+		primero=null;
+		ultimo=null;
+	}
+	public Lista(Nodo Primero){
+		super();
+		this.primero = Primero; 
+		setUltimo(Primero);
+	}
+	// Methods
+	public Nodo getPrimero() {
+		return primero;
+	}
+	public void setPrimero(Nodo primero) {
+		this.primero = primero;
+	}
+	public void setUltimo(Nodo ultimo){
+		this.ultimo=ultimo;
+	}
+	public Nodo getUltimo() {
+		return ultimo;
+	}
+	public boolean isEmpty(){
+            return primero == null;
+	}
+	public int lenght(){
+		int cont=0;
+		Nodo aux=primero;
+		while(aux !=null){
+			aux=aux.getNext();
+			cont++;
+		}
+		return cont;
+	}
+        public Nodo buscar(int x){
+            Nodo aux=getPrimero();
+            while (aux != null)
+            if (aux.getData()==x){
+                return aux;
+            }else{
+                aux= aux.getNext();
+            }
+            return null;
+        }
+	public Nodo insertTail(Nodo N){ 
+            Nodo aux = new Nodo();
+            aux =getPrimero();
+            if (isEmpty()){
+                setPrimero(N);
+                getPrimero().setNext(null);
+                ultimo=primero;
+                return this.getPrimero();
+            }
+            while(aux.getNext()!=null){
+                aux=aux.getNext();
+            }
+            Nodo newNodo = new Nodo();
+            newNodo.setData(N.getData());
+            newNodo.setNext(null);
+            aux.setNext(newNodo);
+            setUltimo(newNodo);
+            return getPrimero();
+	}
+	public void insertHead(Nodo N){
+                if (isEmpty()){
+                    setPrimero(N);
+                    setUltimo(N);
+                }else{
+                    N.setNext(getPrimero());
+                }
+	}
+	public void deleteFirst(){
+		setPrimero(primero.getNext()); 
+	
+	}
+	public Nodo deleteLast() {
+        Nodo aux = new Nodo();
+        aux=getPrimero();
+        if(isEmpty()) {
+            return getPrimero();
+        }
+        if(primero == ultimo) {
+            primero = null;
+            ultimo = null;
+            return getPrimero();
+        }
+            while(aux.getNext() != ultimo) {
+                aux = aux.getNext();
+            }
+            aux.setNext(null);
+            setUltimo(aux);
+        return getPrimero(); 
+	}
+	public int getFirst(){
+		return getPrimero().getData();
+	}
+	public int getLast(){
+		return getUltimo().getData();
+	}
+	public void insertNext(int N){
+		Nodo newNodo = new Nodo(N);
+		insertTail(newNodo);
+	}
+	public int getDataNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux.getData();
+			}               
+			aux=aux.getNext();
+                        j++;
+		}
+		return -1;
+	}
+ 	public Nodo getNodo(int i){
+		int j=0;
+		Nodo aux = primero;
+		while (aux != null){
+			if (j==i){
+				return aux;
+			}
+			aux=aux.getNext();
+			j++;
+		}
+		return null;
+	}
+
+}
+ class Nodo {
+	
+	public Nodo(){
+		super();
+		setNext(null);
+	}
+	public Nodo (int data){
+		super();
+		setNext(null);
+		setData(data);
+	}
+	public Nodo(int data, Nodo next){
+		super();
+		setNext(next);
+		setData(data);
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public Nodo getNext() {
+		return next;
+	}
+	public void setNext(Nodo next) {
+		this.next = next;
+	}
+	
+	private int data;
+	private Nodo next;
+}			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ProblemA{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			int Q =sc.nextInt();
+			System.out.println("Caso #"+(caso+1)+":");
+			ArbolB tree = new ArbolB();
+			while (Q+1>0){
+				String linea =sc.nextLine();
+				String [] line = linea.split(" ");
+				
+				switch (line[0]){
+				case "agregar":
+					tree.insertar(Integer.parseInt(line[1]));
+					break;
+				case "distancia":
+					System.out.println("distancia: "+tree.distancia(Integer.parseInt(line[1]), Integer.parseInt(line[2])));
+					break;
+				case "ancestro":
+					System.out.println("ancestro: "+tree.ancestro(Integer.parseInt(line[1]), Integer.parseInt(line[2])));
+					break;
+				}
+				
+				Q--;
+			}
+			caso++;
+		}
+		
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+class ArbolB{
+	private class NodoArbol{
+		NodoArbol der;
+		NodoArbol izq;
+		int id;
+		public NodoArbol(int x){
+			id= x;
+			der = null;
+			izq = null;
+		}
+	}
+	
+	NodoArbol raiz;
+	
+	public void insertar (int x){
+		NodoArbol aux = new NodoArbol (x);
+        if (raiz == null)
+            raiz = aux;
+        else
+        {
+            NodoArbol anterior = null, reco;
+            reco = raiz;
+            while (reco != null)
+            {
+                anterior = reco;
+                if (x < reco.id)
+                    reco = reco.izq;
+                else
+                    reco = reco.der;
+            }
+            if (x < anterior.id)
+                anterior.izq = aux;
+            else
+                anterior.der = aux;
+        }
+		
+	}
+	public  List<NodoArbol> path( NodoArbol root, int node ){
+	    
+	    Stack<NodoArbol> fringe = new Stack<>();
+	    fringe.add(root);
+	    NodoArbol current = null;
+	    List<NodoArbol> path = new ArrayList<>();
+	    while( !fringe.isEmpty() ){
+	        current = fringe.pop();
+	        path.add( current );
+	        if( current.id == node ) break;
+	        
+	        if( current.id > node && current.izq != null )
+	            fringe.add( current.izq );
+	        
+	        if( current.id < node && current.der != null )
+	            fringe.add( current.der );
+	    }
+	    
+	    return path;
+	}
+	public  NodoArbol ancestro(NodoArbol root,int v1,int v2){
+	    List<NodoArbol> pathV1 = path( root, v1 );
+	    List<NodoArbol> pathV2 = path( root, v2 );
+		if (!existe(v1) || !existe(v2)){
+			return null;
+		}
+	    
+	    int n = Math.min( pathV1.size() - 1, pathV2.size() - 1 );
+	    for(int i=n; i>=0; --i){
+	        if( pathV1.get(i).id == pathV2.get(i).id )
+	            return pathV1.get(i);
+	    }
+	    
+	    //Bad tree
+	    return root;
+	}
+	public int ancestro(int v1,int v2){
+		NodoArbol aux = ancestro (raiz,v1,v2);
+		if (aux== null){
+			return -1;
+		}else{
+			return aux.id;
+		}
+	}
+	public boolean existe (int nodo){
+		NodoArbol aux = raiz;
+		while (aux != null){
+			if (aux.id>nodo){
+				aux = aux.izq;
+			}
+			else if (aux.id<nodo){
+				aux=aux.der;
+			}
+			else if (aux.id ==nodo){
+				return true;
+			}
+		}
+		return false;
+	}
+	public int distancia (int nodo1, int nodo2){
+		if (!existe(nodo1) || !existe(nodo2)){
+			return -1;
+		}
+		NodoArbol aux = ancestro (raiz,nodo1,nodo2);
+		List<NodoArbol> dis1 = path(aux,nodo1);
+		List<NodoArbol> dis2 = path(aux,nodo2);
+		
+		return (dis1.size()-1)+(dis2.size()-1);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+public class Nario {
+	public static void main (String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			ArbolNario kingkong = new ArbolNario();
+			int Q = sc.nextInt();
+			String linea = sc.nextLine();
+			for (int i =0;i<Q;i++){
+				String [] token = sc.nextLine().split(" ");
+				kingkong.insertar(Integer.parseInt(token[0]));
+				for (int j =1;j<token.length;j++){
+					kingkong.insertar(Integer.parseInt(token[j]),Integer.parseInt(token[0]));
+				}
+			}
+			System.out.println("Caso #"+ Integer.toString(caso +1)+ ":" );
+			String [] p =kingkong.prueba();
+			System.out.print(p[0]+" ");
+			boolean dir = false;
+			for (int i=1;i<p.length;i++){
+			if (dir){
+				System.out.print(p[i]); 
+			}else{
+				imprimir1(p[i]);
+			}
+			dir=!dir;
+			}
+			System.out.println();
+					caso++;
+		}
+	}
+	public static void imprimir1(String  p){
+		String [] sep = p.split(" ");
+		for (int i = sep.length-1;i>=0;i--){
+			System.out.print(sep[i]+" ");
+		}
+		
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+class ArbolNario{
+	private class NodoN{
+		public NodoN(int x){
+			hijos = new ArrayList<NodoN>();
+			dato = x;
+		}
+		public int altura(){
+			if( hijos == null )
+				return 1;
+			else{
+				int maxAltura = 0;
+				for( NodoN f : hijos ){
+				NodoN hijo = f;
+				int auxAltura = hijo.altura();
+				if( auxAltura > maxAltura )
+				maxAltura = auxAltura;
+				}
+				return maxAltura + 1;
+			}
+		}
+		List<NodoN> hijos;
+		int dato;
+	}
+	public void insertar (int num){
+		if (root == null){
+			NodoN aux = new NodoN(num);
+			root = aux;
+		}else{
+			if (!buscar(num))
+			root.hijos.add(new NodoN(num));
+		}
+	}
+
+	public String[] prueba (){
+		int tam =root.altura();
+		String [] nivel= new String [tam];
+	       Queue<List<NodoN>> q = new LinkedList();
+		// Nivel 0
+		if (root != null){
+		nivel[0]= ""+root.dato;
+		}
+		// nivel 1
+		nivel [1]="";
+		if (root.hijos != null){
+		for (NodoN f: root.hijos){
+			nivel[1]+=f.dato+" ";
+			if (f.hijos != null)
+				q.add(f.hijos);
+		}}
+		//
+		for (int i =2; i<tam;i++){
+			nivel[i]="";
+			int cont = q.size();
+			while (cont>0){
+				List<NodoN> aux = q.poll();
+				for (NodoN f: aux){
+					if (f !=null){
+					nivel[i]+=f.dato+" ";
+					if (f.hijos!=null)
+						q.add(f.hijos);
+					}
+				}
+				cont--;
+			}
+			
+		}
+		return nivel;
+	}
+	private boolean buscar(int num) {
+		Queue <List<NodoN>> cola = new LinkedList();
+		if (root.dato ==num){
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.poll()){
+				if (f.dato== num){
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	public void insertar (int x,int num){ //Insertar en la raiz
+		if (root == null){
+			NodoN aux = new NodoN(x);
+			root = aux;
+		}else{
+			if (!insertar1(num,x))
+			root.hijos.add(new NodoN(x));
+		}
+	}
+	public int altura(){
+		return root.altura();
+	}
+	public boolean insertar1(int num,int x) { // Inserta un hijo al  nodo con valor num
+		Queue<List<NodoN>> cola = new LinkedList();
+		if (root.dato ==num){
+			root.hijos.add(new NodoN(x));
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.poll()){
+				if (f.dato== num){
+					f.hijos.add(new NodoN(x));
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	NodoN root;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ejemplo5;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ArbolG {
+		public static void main (String [] args){
+			int T = sc.nextInt();
+			int caso =0;
+			while (caso<T){
+				Arbol ab= new Arbol();
+				int n = sc.nextInt();
+				int [] pesos = new int [n];
+				for (int i =0;i<n;i++){
+					pesos[i]= sc.nextInt();
+				}
+				ab.insertar(1, pesos[0]);
+				for (int i=0;i<n-1;i++){
+					int a = sc.nextInt();
+					int b = sc.nextInt();
+					ab.insertar(b, pesos[b-1], a);
+				}
+				System.out.println ("Caso #"+(caso+1)+":");
+				System.out.println(ab.posOrder());
+				caso++;
+			}
+		}
+		public static final Scanner sc= new Scanner (System.in);
+}
+class Arbol{
+	class Ndo{
+		Ndo der;
+		Ndo izq;
+		int id;
+		int peso;
+		public Ndo(int i, int peso){
+			id =i;
+			this.peso =peso;
+			der=null;
+			izq= null;
+		}
+		public boolean hoja (){
+			return (this.der == null && this.izq == null);
+		}
+		public int peso(){
+			int b = 0;
+			if (hoja()){
+				return this.peso;
+			}
+			if (this.izq != null){
+				b+= this.izq.peso();
+			}
+			if (this.der != null){
+				b+= this.der.peso();
+			}
+				return b + this.peso ;
+		}
+	}
+	Ndo raiz;
+	int size;
+	public Arbol (int x,int peso){
+		Ndo aux = new Ndo (x,peso);
+		raiz = aux;
+	}
+	public Arbol (){
+		raiz = null;
+	}
+	public void insertar(int x, int peso, int i){
+		Ndo aux = buscar (i,raiz);
+		if (aux != null){
+			if (aux.der == null){
+				aux.der = new Ndo (x,peso);
+				size++;
+			}else if (aux.izq == null){
+				aux.izq = new Ndo (x,peso);
+				size++;
+			}
+		}	
+	}
+	public void insertar(int x, int peso){
+		if (raiz == null){
+			raiz = new Ndo (x,peso);
+		}
+	}
+	public Ndo buscar(int i, Ndo n) {
+		if (n == null)
+			return null;
+		if (n.id == i)
+			return n;
+		Ndo aux = buscar (i, n.der);
+		Ndo aux1 = buscar (i, n.izq);
+		return aux !=null ? aux : 
+			   aux1 != null ? aux1: null;
+	}
+	public int posOrder (){
+		Queue<Ndo> q = new LinkedList();
+		q.add(raiz);
+		int pp= raiz.peso();
+		int diferencia = pp;
+		while (!q.isEmpty()){
+			Ndo u = q.poll();
+			if (u.der != null){
+				q.add(u.der);
+			}
+			if (u.izq != null){
+				q.add(u.izq);
+			}
+			diferencia = Math.min(Math.abs(pp-2*u.peso()), diferencia);
+		}
+		return diferencia;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ejemplo5;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ArbolGrafo{
+	public static void main (String [] args){
+		int q = sc.nextInt();
+		sc.nextLine();
+		while (q>0){
+			String [] p = sc.nextLine().split(" ");
+			int a =Integer.parseInt(p[1]), b= Integer.parseInt(p[2]);
+			switch (p[0]){
+			case "crear":
+				if (!revisar (a)){ 
+						arboles.add(new AvlTree<Integer>(a,b));
+				}
+				break;
+			case "insertar":
+				AvlTree<Integer> aux3 = getArbol(a);
+				if (aux3 != null){
+					aux3.insert(b);
+				}
+			break;
+			case "ocurrencia":
+				AvlTree<Integer> aux = getArbol(a);
+				if (aux != null)
+				System.out.println("ocurrencia: "+(aux.ocurrencia(b)+1));
+			break;
+			case "unir":
+				AvlTree<Integer> temp = getArbol(a);
+				AvlTree<Integer> aux1 = deleteArbol(b);
+				if (temp != null && aux1 !=null)
+				temp.inOrder(aux1.root);
+				break;
+			case "contiene":
+				AvlTree<Integer> c = getArbol(a);
+				AvlTree<Integer> d = getArbol(b);
+				if (c != null && d != null)
+					System.out.println("contiene: "+ (c.contiene(d) ? "Yes" : "No"));
+				break;
+			}
+			q--;
+		}
+			
+	}
+	public static boolean revisar(int a) {
+		for ( AvlTree<Integer> f: arboles){
+			if (f.id==a){
+				return true;
+			}
+		}
+		return false;
+	}
+	public static AvlTree<Integer> getArbol(int a){
+		for (AvlTree<Integer> f: arboles){
+			if (f.id ==a){
+				return f;
+			}
+		}
+		return null;
+	}
+	public static AvlTree<Integer> deleteArbol(int a){
+		for (int f =0;f<arboles.size();f++){
+			if (arboles.get(f).id ==a){
+				return arboles.remove(f);
+			}
+		}
+		return null;
+	}
+	public static final Scanner sc = new Scanner(System.in);
+	static List <AvlTree<Integer>> arboles = new ArrayList<AvlTree<Integer>>();
+}
+class AvlTree<AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the tree.
+     */
+    public AvlTree( )
+    {
+        root = null;
+    }
+
+	public AvlTree (int a, AnyType x)
+    {
+    	AvlNode <AnyType> aux = new AvlNode<AnyType>(x);
+    	size++;
+    	root = aux;
+    	this.id=a;
+    }
+    /**
+     * Insert into the tree; duplicates are ignored.
+     * @param x the item to insert.
+     */
+	public boolean contiene(AvlTree<AnyType> d) {
+		AvlNode<AnyType> aux = root;
+		 while (aux != null){
+			 int compareResult = aux.element.compareTo( d.root.element );
+			 if (compareResult >0){
+				 aux = aux.left;
+			 }
+			 if (compareResult <0){
+				 aux= aux.right;
+			 }
+			 if (compareResult ==0){
+				 return evaluar(d.root, aux)==d.size ? true : false;
+
+			 }
+		 }
+		 return false;
+	}
+	private int evaluar(AvlNode<AnyType> root, AvlNode<AnyType> aux) {
+		int b=0;
+		if (root == null || aux ==null){
+			return 0;
+		}
+		if (root.esHoja() && aux != null){
+			return (aux.element.compareTo(root.element)==0) ?  1 : 0;
+		}
+		if (aux.right != null)	
+		b+=evaluar(root.right,aux.right);
+		
+		b+= (aux.element.compareTo(root.element)==0) ?  1 : 0;
+		
+		if (aux.left != null)
+			b+=evaluar(root.left, aux.left);
+		return b;
+	}
+		
+
+	public void inOrder(AvlNode<AnyType> root) {
+		if (root == null){
+			return;
+		}
+		if (root.esHoja()){
+			insert(root.element,root.ocurrencia);
+			root.ocurrencia = -1;
+		}
+		inOrder(root.right);
+		insert(root.element,root.ocurrencia);
+		inOrder(root.left);
+	}
+    public void insert( AnyType x )
+    {
+        root = insert( x, root );
+    }
+    public void insert (AnyType x, int i){
+    	root = insert(x,root,i);
+    }
+    /**
+     * Remove from the tree. Nothing is done if x is not found.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        root = remove( x, root );
+    }
+
+       
+    /**
+     * Internal method to remove from a subtree.
+     * @param x the item to remove.
+     * @param t the node that roots the subtree.
+     * @return the new root of the subtree.
+     */
+    private AvlNode<AnyType> remove( AnyType x, AvlNode<AnyType> t )
+    {
+        if( t == null )
+            return t;   // Item not found; do nothing
+            
+        int compareResult = x.compareTo( t.element );
+            
+        if( compareResult < 0 )
+            t.left = remove( x, t.left );
+        else if( compareResult > 0 )
+            t.right = remove( x, t.right );
+        else if( t.left != null && t.right != null ) // Two children
+        {
+            t.element = findMin( t.right ).element;
+            t.right = remove( t.element, t.right );
+        }
+        else
+            t = ( t.left != null ) ? t.left : t.right;
+        	size--;
+        return balance( t );
+    }
+    
+    /**
+     * Find the smallest item in the tree.
+     * @return smallest item or null if empty.
+     */
+    public AnyType findMin( )
+    {
+        if( isEmpty( ) )
+            ;
+        return findMin( root ).element;
+    }
+
+    /**
+     * Find the largest item in the tree.
+     * @return the largest item of null if empty.
+     */
+    public AnyType findMax( )
+    {
+        if( isEmpty( ) )
+            ;
+        return findMax( root ).element;
+    }
+
+    /**
+     * Find an item in the tree.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        return contains( x, root );
+    }
+
+    /**
+     * Make the tree logically empty.
+     */
+    public void makeEmpty( )
+    {
+        root = null;
+        size=0;
+    }
+
+    /**
+     * Test if the tree is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return root == null;
+    }
+
+    /**
+     * Print the tree contents in sorted order.
+     */
+    public void printTree( )
+    {
+        if( isEmpty( ) )
+            System.out.println( "Empty tree" );
+        else
+            printTree( root );
+    }
+
+    private static final int ALLOWED_IMBALANCE = 1;
+    
+    // Assume t is either balanced or within one of being balanced
+    private AvlNode<AnyType> balance( AvlNode<AnyType> t )
+    {
+        if( t == null )
+            return t;
+        
+        if( height( t.left ) - height( t.right ) > ALLOWED_IMBALANCE )
+            if( height( t.left.left ) >= height( t.left.right ) )
+                t = rotateWithLeftChild( t );
+            else
+                t = doubleWithLeftChild( t );
+        else
+        if( height( t.right ) - height( t.left ) > ALLOWED_IMBALANCE )
+            if( height( t.right.right ) >= height( t.right.left ) )
+                t = rotateWithRightChild( t );
+            else
+                t = doubleWithRightChild( t );
+
+        t.height = Math.max( height( t.left ), height( t.right ) ) + 1;
+        return t;
+    }
+    
+    public void checkBalance( )
+    {
+        checkBalance( root );
+    }
+    
+    public int ocurrencia (AnyType x){
+        AvlNode<AnyType> t = root;
+        int compareResult = 0;
+        while (t != null){
+        	compareResult = x.compareTo( t.element );
+        if( compareResult < 0 )
+            t = t.left;
+        else if( compareResult > 0 )
+            t=t.right;
+        else
+        	return t.ocurrencia;
+        }
+        return -1;
+    }
+    
+    private int checkBalance( AvlNode<AnyType> t )
+    {
+        if( t == null )
+            return -1;
+        
+        if( t != null )
+        {
+            int hl = checkBalance( t.left );
+            int hr = checkBalance( t.right );
+            if( Math.abs( height( t.left ) - height( t.right ) ) > 1 || height( t.left ) != hl || height( t.right ) != hr )
+                ;
+        }
+        
+        return height( t );
+    }
+    
+    
+    /**
+     * Internal method to insert into a subtree.
+     * @param x the item to insert.
+     * @param t the node that roots the subtree.
+     * @return the new root of the subtree.
+     */
+    private AvlNode<AnyType> insert( AnyType x, AvlNode<AnyType> t )
+    {
+        if( t == null ){
+        	size++;
+            return new AvlNode<>( x, null, null );
+        }
+        
+        int compareResult = x.compareTo( t.element );
+        
+        if( compareResult < 0 )
+            t.left = insert( x, t.left );
+        else if( compareResult > 0 )
+            t.right = insert( x, t.right );
+        else
+           t.ocurrencia++;
+        return balance( t );
+    }
+    private AvlNode<AnyType> insert( AnyType x, AvlNode<AnyType> t, int i )
+    {
+        if( t == null ){
+        	size++;
+        	return new AvlNode<>( x, null, null,i );
+        }
+        
+        int compareResult = x.compareTo( t.element );
+        
+        if( compareResult < 0 )
+            t.left = insert( x, t.left,i );
+        else if( compareResult > 0 )
+            t.right = insert( x, t.right,i );
+        else
+           t.ocurrencia+= i+1;
+        return balance( t );
+    }
+
+    /**
+     * Internal method to find the smallest item in a subtree.
+     * @param t the node that roots the tree.
+     * @return node containing the smallest item.
+     */
+    private AvlNode<AnyType> findMin( AvlNode<AnyType> t )
+    {
+        if( t == null )
+            return t;
+
+        while( t.left != null )
+            t = t.left;
+        return t;
+    }
+
+    /**
+     * Internal method to find the largest item in a subtree.
+     * @param t the node that roots the tree.
+     * @return node containing the largest item.
+     */
+    private AvlNode<AnyType> findMax( AvlNode<AnyType> t )
+    {
+        if( t == null )
+            return t;
+
+        while( t.right != null )
+            t = t.right;
+        return t;
+    }
+
+    /**
+     * Internal method to find an item in a subtree.
+     * @param x is item to search for.
+     * @param t the node that roots the tree.
+     * @return true if x is found in subtree.
+     */
+    private boolean contains( AnyType x, AvlNode<AnyType> t )
+    {
+        while( t != null )
+        {
+            int compareResult = x.compareTo( t.element );
+            
+            if( compareResult < 0 )
+                t = t.left;
+            else if( compareResult > 0 )
+                t = t.right;
+            else
+                return true;    // Match
+        }
+
+        return false;   // No match
+    }
+
+    /**
+     * Internal method to print a subtree in sorted order.
+     * @param t the node that roots the tree.
+     */
+    private void printTree( AvlNode<AnyType> t )
+    {
+        if( t != null )
+        {
+            printTree( t.left );
+            System.out.println( t.element );
+            printTree( t.right );
+        }
+    }
+
+    /**
+     * Return the height of node t, or -1, if null.
+     */
+    private int height( AvlNode<AnyType> t )
+    {
+        return t == null ? -1 : t.height;
+    }
+
+    /**
+     * Rotate binary tree node with left child.
+     * For AVL trees, this is a single rotation for case 1.
+     * Update heights, then return new root.
+     */
+    private AvlNode<AnyType> rotateWithLeftChild( AvlNode<AnyType> k2 )
+    {
+        AvlNode<AnyType> k1 = k2.left;
+        k2.left = k1.right;
+        k1.right = k2;
+        k2.height = Math.max( height( k2.left ), height( k2.right ) ) + 1;
+        k1.height = Math.max( height( k1.left ), k2.height ) + 1;
+        return k1;
+    }
+
+    /**
+     * Rotate binary tree node with right child.
+     * For AVL trees, this is a single rotation for case 4.
+     * Update heights, then return new root.
+     */
+    private AvlNode<AnyType> rotateWithRightChild( AvlNode<AnyType> k1 )
+    {
+        AvlNode<AnyType> k2 = k1.right;
+        k1.right = k2.left;
+        k2.left = k1;
+        k1.height = Math.max( height( k1.left ), height( k1.right ) ) + 1;
+        k2.height = Math.max( height( k2.right ), k1.height ) + 1;
+        return k2;
+    }
+
+    /**
+     * Double rotate binary tree node: first left child
+     * with its right child; then node k3 with new left child.
+     * For AVL trees, this is a double rotation for case 2.
+     * Update heights, then return new root.
+     */
+    private AvlNode<AnyType> doubleWithLeftChild( AvlNode<AnyType> k3 )
+    {
+        k3.left = rotateWithRightChild( k3.left );
+        return rotateWithLeftChild( k3 );
+    }
+
+    /**
+     * Double rotate binary tree node: first right child
+     * with its left child; then node k1 with new right child.
+     * For AVL trees, this is a double rotation for case 3.
+     * Update heights, then return new root.
+     */
+    private AvlNode<AnyType> doubleWithRightChild( AvlNode<AnyType> k1 )
+    {
+        k1.right = rotateWithLeftChild( k1.right );
+        return rotateWithRightChild( k1 );
+    }
+    private static class AvlNode<AnyType>
+    {
+            // Constructors
+        AvlNode( AnyType x )
+        {
+            this( x, null, null );
+        }
+
+        public boolean esHoja() {
+			return (this.left== null && this.right== null);
+		}
+
+		AvlNode( AnyType theElement, AvlNode<AnyType> left, AvlNode<AnyType> right )
+        {
+            element  = theElement;
+            this.left     = left;
+            this.right    = right;
+            height   = 0;
+        }
+		AvlNode( AnyType theElement, AvlNode<AnyType> left, AvlNode<AnyType> right, int i )
+        {
+            element  = theElement;
+            this.left     = left;
+            this.right    = right;
+            height   = 0;
+            ocurrencia =i;
+        }
+
+        AnyType           element;      
+        AvlNode<AnyType>  left;         
+        AvlNode<AnyType>  right;        
+        int               height; 
+        int 			  ocurrencia;
+    }
+
+ 
+    AvlNode<AnyType> root;
+    int id;
+    int size;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BinHeap1 {
+	
+public static void main (String [] args){
+	int n = sc.nextInt();
+	MaxHeap<Integer> bn = new MaxHeap<Integer>(n);
+	for (int i =0;i<n;i++){
+		int []producto =new int [3];
+		bn.put(sc.nextInt());
+		if (i<2){
+			System.out.println(-1);
+		}
+		else{
+			producto[0]=bn.removeMax();
+			producto[1]=bn.removeMax();
+			producto[2]=bn.removeMax();
+			System.out.println(producto[0]*producto[1]*producto[2]);
+		}
+		bn.put(producto[0]);
+		bn.put(producto[1]);
+		bn.put(producto[2]);
+	}
+
+}
+public static final Scanner sc = new Scanner(System.in);
+}
+
+class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+	public static final int DEFAULT_SIZE = 10;
+
+	AnyType[] heap;
+	int size;
+
+	@SuppressWarnings("unchecked")
+	public MaxHeap(int initialCapacity) {
+		if (initialCapacity < 1)
+			throw new IllegalArgumentException("initialCapacity must be >= 1");
+		heap = (AnyType[]) new Comparable[initialCapacity + 1];
+		size = 0;
+	}
+
+	public MaxHeap() {
+		this(DEFAULT_SIZE);
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public AnyType getMax() {
+		if (isEmpty())
+			return null;
+		return heap[1];
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public void put(AnyType theElement) {
+		if (size == heap.length - 1) {
+			AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+			System.arraycopy(heap, 1, newHeap, 1, size);
+			heap = newHeap;
+		}
+		int currentNode = ++size;
+		for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2)
+			heap[currentNode] = heap[currentNode / 2];
+		heap[currentNode] = theElement;
+	}
+
+	public AnyType removeMax() {
+		if (size == 0)
+			return null;
+		AnyType maxElement = heap[1];
+		AnyType lastElement = heap[size--];
+		int currentNode = 1, child = 2;
+		for (; child <= size; currentNode = child, child *= 2) {
+			if (child < size && heap[child].compareTo(heap[child + 1]) < 0)
+				child++;
+			if (lastElement.compareTo(heap[child]) >= 0)
+				break;
+			heap[currentNode] = heap[child];
+		}
+		heap[currentNode] = lastElement;
+		return maxElement;
+	}
+
+	public String toString() {
+		return Arrays.toString(heap);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Impresora {
+	
+public static void main (String [] args){
+	int T = sc.nextInt();
+	while (T>0){
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int resultado=1 ;
+		MaxHeap<Integer> imp = new MaxHeap<Integer>(n);
+		for (int i =0;i<n;i++){
+			int a = sc.nextInt();
+			imp.put(a,i);
+		}
+		for (int i =0;i<n;i++){
+			if (imp.removeMax().pos==m){
+				System.out.println(resultado);
+				break;
+			}else{
+				resultado++;
+			}
+		}
+		T--;
+	}
+}
+public static final Scanner sc = new Scanner(System.in);
+
+}
+class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+	public static final int DEFAULT_SIZE = 10;
+
+	@SuppressWarnings("hiding")
+	public class Dato<AnyType extends Comparable<? super AnyType>>{
+		AnyType dato;
+		int pos;
+		public Dato(AnyType dato, int pos) {
+			super();
+			this.dato = dato;
+			this.pos = pos;
+		}
+	}
+
+	Dato<AnyType>[] heap;
+	int size;
+	@SuppressWarnings("unchecked")
+	public MaxHeap(int initialCapacity) {
+		if (initialCapacity < 1)
+			throw new IllegalArgumentException("initialCapacity must be >= 1");
+		heap = new Dato[initialCapacity+1];
+		size = 0;
+	}
+
+	public MaxHeap() {
+		this(DEFAULT_SIZE);
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public AnyType getMax() {
+		if (isEmpty())
+			return null;
+		return heap[1].dato;
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public void put(AnyType theElement, int i) {
+		Dato <AnyType> d = new Dato<AnyType>(theElement,i);
+		if (size == heap.length - 1) {
+			Dato<AnyType>[] newHeap = (Dato[]) new Comparable[2 * heap.length];
+			System.arraycopy(heap, 1, newHeap, 1, size);
+			heap = newHeap;
+		}
+		int currentNode = ++size;
+		for (; currentNode != 1 && heap[currentNode / 2].dato.compareTo(theElement) < 0; currentNode /= 2)
+			heap[currentNode] = heap[currentNode / 2];
+		heap[currentNode] = d;
+	}
+
+	public Dato<AnyType> removeMax() {
+		if (size == 0)
+			return null;
+		Dato<AnyType> maxElement = heap[1];
+		Dato<AnyType> lastElement = heap[size--];
+		int currentNode = 1, child = 2;
+		for (; child <= size; currentNode = child, child *= 2) {
+			if (child < size && heap[child].dato.compareTo(heap[child + 1].dato) < 0)
+				child++;
+			if (lastElement.dato.compareTo(heap[child].dato) >= 0)
+				break;
+			heap[currentNode] = heap[child];
+		}
+		heap[currentNode] = lastElement;
+		return maxElement;
+	}
+
+	public String toString() {
+		return Arrays.toString(heap);
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ProblemA{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			int Q =sc.nextInt();
+			System.out.println("Caso #"+(caso+1)+":");
+			ArbolB tree = new ArbolB();
+			while (Q+1>0){
+				String linea =sc.nextLine();
+				String [] line = linea.split(" ");
+				
+				switch (line[0]){
+				case "agregar":
+					tree.insertar(Integer.parseInt(line[1]));
+					break;
+				case "distancia":
+					System.out.println("distancia: "+tree.distancia(Integer.parseInt(line[1]), Integer.parseInt(line[2])));
+					break;
+				case "ancestro":
+					System.out.println("ancestro: "+tree.ancestro(Integer.parseInt(line[1]), Integer.parseInt(line[2])));
+					break;
+				}
+				
+				Q--;
+			}
+			caso++;
+		}
+		
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+class ArbolB{
+	private class NodoArbol{
+		NodoArbol der;
+		NodoArbol izq;
+		int id;
+		public NodoArbol(int x){
+			id= x;
+			der = null;
+			izq = null;
+		}
+	}
+	
+	NodoArbol raiz;
+	
+	public void insertar (int x){
+		NodoArbol aux = new NodoArbol (x);
+        if (raiz == null)
+            raiz = aux;
+        else
+        {
+            NodoArbol anterior = null, reco;
+            reco = raiz;
+            while (reco != null)
+            {
+                anterior = reco;
+                if (x < reco.id)
+                    reco = reco.izq;
+                else
+                    reco = reco.der;
+            }
+            if (x < anterior.id)
+                anterior.izq = aux;
+            else
+                anterior.der = aux;
+        }
+		
+	}
+	public  List<NodoArbol> path( NodoArbol root, int node ){
+	    
+	    Stack<NodoArbol> fringe = new Stack<>();
+	    fringe.add(root);
+	    NodoArbol current = null;
+	    List<NodoArbol> path = new ArrayList<>();
+	    while( !fringe.isEmpty() ){
+	        current = fringe.pop();
+	        path.add( current );
+	        if( current.id == node ) break;
+	        
+	        if( current.id > node && current.izq != null )
+	            fringe.add( current.izq );
+	        
+	        if( current.id < node && current.der != null )
+	            fringe.add( current.der );
+	    }
+	    
+	    return path;
+	}
+	public  NodoArbol ancestro(NodoArbol root,int v1,int v2){
+	    List<NodoArbol> pathV1 = path( root, v1 );
+	    List<NodoArbol> pathV2 = path( root, v2 );
+		if (!existe(v1) || !existe(v2)){
+			return null;
+		}
+	    
+	    int n = Math.min( pathV1.size() - 1, pathV2.size() - 1 );
+	    for(int i=n; i>=0; --i){
+	        if( pathV1.get(i).id == pathV2.get(i).id )
+	            return pathV1.get(i);
+	    }
+	    
+	    //Bad tree
+	    return root;
+	}
+	public int ancestro(int v1,int v2){
+		NodoArbol aux = ancestro (raiz,v1,v2);
+		if (aux== null){
+			return -1;
+		}else{
+			return aux.id;
+		}
+	}
+	public boolean existe (int nodo){
+		NodoArbol aux = raiz;
+		while (aux != null){
+			if (aux.id>nodo){
+				aux = aux.izq;
+			}
+			else if (aux.id<nodo){
+				aux=aux.der;
+			}
+			else if (aux.id ==nodo){
+				return true;
+			}
+		}
+		return false;
+	}
+	public int distancia (int nodo1, int nodo2){
+		if (!existe(nodo1) || !existe(nodo2)){
+			return -1;
+		}
+		NodoArbol aux = ancestro (raiz,nodo1,nodo2);
+		List<NodoArbol> dis1 = path(aux,nodo1);
+		List<NodoArbol> dis2 = path(aux,nodo2);
+		
+		return (dis1.size()-1)+(dis2.size()-1);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+public class Nario {
+	public static void main (String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			ArbolNario kingkong = new ArbolNario();
+			int Q = sc.nextInt();
+			String linea = sc.nextLine();
+			for (int i =0;i<Q;i++){
+				String [] token = sc.nextLine().split(" ");
+				kingkong.insertar(Integer.parseInt(token[0]));
+				for (int j =1;j<token.length;j++){
+					kingkong.insertar(Integer.parseInt(token[j]),Integer.parseInt(token[0]));
+				}
+			}
+			System.out.println("Caso #"+ Integer.toString(caso +1)+ ":" );
+			String [] p =kingkong.prueba();
+			System.out.print(p[0]+" ");
+			boolean dir = false;
+			for (int i=1;i<p.length;i++){
+			if (dir){
+				System.out.print(p[i]); 
+			}else{
+				imprimir1(p[i]);
+			}
+			dir=!dir;
+			}
+			System.out.println();
+					caso++;
+		}
+	}
+	public static void imprimir1(String  p){
+		String [] sep = p.split(" ");
+		for (int i = sep.length-1;i>=0;i--){
+			System.out.print(sep[i]+" ");
+		}
+		
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+class ArbolNario{
+	private class NodoN{
+		public NodoN(int x){
+			hijos = new ArrayList<NodoN>();
+			dato = x;
+		}
+		public int altura(){
+			if( hijos == null )
+				return 1;
+			else{
+				int maxAltura = 0;
+				for( NodoN f : hijos ){
+				NodoN hijo = f;
+				int auxAltura = hijo.altura();
+				if( auxAltura > maxAltura )
+				maxAltura = auxAltura;
+				}
+				return maxAltura + 1;
+			}
+		}
+		List<NodoN> hijos;
+		int dato;
+	}
+	public void insertar (int num){
+		if (root == null){
+			NodoN aux = new NodoN(num);
+			root = aux;
+		}else{
+			if (!buscar(num))
+			root.hijos.add(new NodoN(num));
+		}
+	}
+
+	public String[] prueba (){
+		int tam =root.altura();
+		String [] nivel= new String [tam];
+	       Queue<List<NodoN>> q = new LinkedList();
+		// Nivel 0
+		if (root != null){
+		nivel[0]= ""+root.dato;
+		}
+		// nivel 1
+		nivel [1]="";
+		if (root.hijos != null){
+		for (NodoN f: root.hijos){
+			nivel[1]+=f.dato+" ";
+			if (f.hijos != null)
+				q.add(f.hijos);
+		}}
+		//
+		for (int i =2; i<tam;i++){
+			nivel[i]="";
+			int cont = q.size();
+			while (cont>0){
+				List<NodoN> aux = q.poll();
+				for (NodoN f: aux){
+					if (f !=null){
+					nivel[i]+=f.dato+" ";
+					if (f.hijos!=null)
+						q.add(f.hijos);
+					}
+				}
+				cont--;
+			}
+			
+		}
+		return nivel;
+	}
+	private boolean buscar(int num) {
+		Queue <List<NodoN>> cola = new LinkedList();
+		if (root.dato ==num){
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.poll()){
+				if (f.dato== num){
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	public void insertar (int x,int num){ //Insertar en la raiz
+		if (root == null){
+			NodoN aux = new NodoN(x);
+			root = aux;
+		}else{
+			if (!insertar1(num,x))
+			root.hijos.add(new NodoN(x));
+		}
+	}
+	public int altura(){
+		return root.altura();
+	}
+	public boolean insertar1(int num,int x) { // Inserta un hijo al  nodo con valor num
+		Queue<List<NodoN>> cola = new LinkedList();
+		if (root.dato ==num){
+			root.hijos.add(new NodoN(x));
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.poll()){
+				if (f.dato== num){
+					f.hijos.add(new NodoN(x));
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	NodoN root;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ArbolG {
+		public static void main (String [] args){
+			int T = sc.nextInt();
+			int caso =0;
+			while (caso<T){
+				Arbol ab= new Arbol();
+				int n = sc.nextInt();
+				int [] pesos = new int [n];
+				for (int i =0;i<n;i++){
+					pesos[i]= sc.nextInt();
+				}
+				ab.insertar(1, pesos[0]);
+				for (int i=0;i<n-1;i++){
+					int a = sc.nextInt();
+					int b = sc.nextInt();
+					ab.insertar(b, pesos[b-1], a);
+				}
+				System.out.println ("Caso #"+(caso+1)+":");
+				System.out.println(ab.posOrder());
+				caso++;
+			}
+		}
+		public static final Scanner sc= new Scanner (System.in);
+}
+class Arbol{
+	class Ndo{
+		Ndo der;
+		Ndo izq;
+		int id;
+		int peso;
+		public Ndo(int i, int peso){
+			id =i;
+			this.peso =peso;
+			der=null;
+			izq= null;
+		}
+		public boolean hoja (){
+			return (this.der == null && this.izq == null);
+		}
+		public int peso(){
+			int b = 0;
+			if (hoja()){
+				return this.peso;
+			}
+			if (this.izq != null){
+				b+= this.izq.peso();
+			}
+			if (this.der != null){
+				b+= this.der.peso();
+			}
+				return b + this.peso ;
+		}
+	}
+	Ndo raiz;
+	int size;
+	public Arbol (int x,int peso){
+		Ndo aux = new Ndo (x,peso);
+		raiz = aux;
+	}
+	public Arbol (){
+		raiz = null;
+	}
+	public void insertar(int x, int peso, int i){
+		Ndo aux = buscar (i,raiz);
+		if (aux != null){
+			if (aux.der == null){
+				aux.der = new Ndo (x,peso);
+				size++;
+			}else if (aux.izq == null){
+				aux.izq = new Ndo (x,peso);
+				size++;
+			}
+		}	
+	}
+	public void insertar(int x, int peso){
+		if (raiz == null){
+			raiz = new Ndo (x,peso);
+		}
+	}
+	public Ndo buscar(int i, Ndo n) {
+		if (n == null)
+			return null;
+		if (n.id == i)
+			return n;
+		Ndo aux = buscar (i, n.der);
+		Ndo aux1 = buscar (i, n.izq);
+		return aux !=null ? aux : 
+			   aux1 != null ? aux1: null;
+	}
+	public int posOrder (){
+		Queue<Ndo> q = new LinkedList();
+		q.add(raiz);
+		int pp= raiz.peso();
+		int diferencia = pp;
+		while (!q.isEmpty()){
+			Ndo u = q.poll();
+			if (u.der != null){
+				q.add(u.der);
+			}
+			if (u.izq != null){
+				q.add(u.izq);
+			}
+			diferencia = Math.min(Math.abs(pp-2*u.peso()), diferencia);
+		}
+		return diferencia;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BinHeap1 {
+	
+public static void main (String [] args){
+	int n = sc.nextInt();
+	MaxHeap<Integer> bn = new MaxHeap<Integer>(n);
+	for (int i =0;i<n;i++){
+		int []producto =new int [3];
+		bn.put(sc.nextInt());
+		if (i<2){
+			System.out.println(-1);
+		}
+		else{
+			producto[0]=bn.removeMax();
+			producto[1]=bn.removeMax();
+			producto[2]=bn.removeMax();
+			System.out.println(producto[0]*producto[1]*producto[2]);
+		}
+		bn.put(producto[0]);
+		bn.put(producto[1]);
+		bn.put(producto[2]);
+	}
+
+}
+public static final Scanner sc = new Scanner(System.in);
+}
+
+class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+	public static final int DEFAULT_SIZE = 10;
+
+	AnyType[] heap;
+	int size;
+
+	@SuppressWarnings("unchecked")
+	public MaxHeap(int initialCapacity) {
+		if (initialCapacity < 1)
+			throw new IllegalArgumentException("initialCapacity must be >= 1");
+		heap = (AnyType[]) new Comparable[initialCapacity + 1];
+		size = 0;
+	}
+
+	public MaxHeap() {
+		this(DEFAULT_SIZE);
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public AnyType getMax() {
+		if (isEmpty())
+			return null;
+		return heap[1];
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public void put(AnyType theElement) {
+		if (size == heap.length - 1) {
+			AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+			System.arraycopy(heap, 1, newHeap, 1, size);
+			heap = newHeap;
+		}
+		int currentNode = ++size;
+		for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2)
+			heap[currentNode] = heap[currentNode / 2];
+		heap[currentNode] = theElement;
+	}
+
+	public AnyType removeMax() {
+		if (size == 0)
+			return null;
+		AnyType maxElement = heap[1];
+		AnyType lastElement = heap[size--];
+		int currentNode = 1, child = 2;
+		for (; child <= size; currentNode = child, child *= 2) {
+			if (child < size && heap[child].compareTo(heap[child + 1]) < 0)
+				child++;
+			if (lastElement.compareTo(heap[child]) >= 0)
+				break;
+			heap[currentNode] = heap[child];
+		}
+		heap[currentNode] = lastElement;
+		return maxElement;
+	}
+
+	public String toString() {
+		return Arrays.toString(heap);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ProblemA{
+	public static void main(String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			int Q =sc.nextInt();
+			System.out.println("Caso #"+(caso+1)+":");
+			ArbolB tree = new ArbolB();
+			while (Q+1>0){
+				String linea =sc.nextLine();
+				String [] line = linea.split(" ");
+				
+				switch (line[0]){
+				case "agregar":
+					tree.insertar(Integer.parseInt(line[1]));
+					break;
+				case "distancia":
+					System.out.println("distancia: "+tree.distancia(Integer.parseInt(line[1]), Integer.parseInt(line[2])));
+					break;
+				case "ancestro":
+					System.out.println("ancestro: "+tree.ancestro(Integer.parseInt(line[1]), Integer.parseInt(line[2])));
+					break;
+				}
+				
+				Q--;
+			}
+			caso++;
+		}
+		
+	}
+	public static final Scanner sc = new Scanner (System.in);
+}
+class ArbolB{
+	private class NodoArbol{
+		NodoArbol der;
+		NodoArbol izq;
+		int id;
+		public NodoArbol(int x){
+			id= x;
+			der = null;
+			izq = null;
+		}
+	}
+	
+	NodoArbol raiz;
+	
+	public void insertar (int x){
+		NodoArbol aux = new NodoArbol (x);
+        if (raiz == null)
+            raiz = aux;
+        else
+        {
+            NodoArbol anterior = null, reco;
+            reco = raiz;
+            while (reco != null)
+            {
+                anterior = reco;
+                if (x < reco.id)
+                    reco = reco.izq;
+                else
+                    reco = reco.der;
+            }
+            if (x < anterior.id)
+                anterior.izq = aux;
+            else
+                anterior.der = aux;
+        }
+		
+	}
+	public  List<NodoArbol> path( NodoArbol root, int node ){
+	    
+	    Stack<NodoArbol> fringe = new Stack<>();
+	    fringe.add(root);
+	    NodoArbol current = null;
+	    List<NodoArbol> path = new ArrayList<>();
+	    while( !fringe.isEmpty() ){
+	        current = fringe.pop();
+	        path.add( current );
+	        if( current.id == node ) break;
+	        
+	        if( current.id > node && current.izq != null )
+	            fringe.add( current.izq );
+	        
+	        if( current.id < node && current.der != null )
+	            fringe.add( current.der );
+	    }
+	    
+	    return path;
+	}
+	public  NodoArbol ancestro(NodoArbol root,int v1,int v2){
+		if (!existe(v1) || !existe(v2)){
+			return null;
+		}
+	    List<NodoArbol> pathV1 = path( root, v1 );
+	    List<NodoArbol> pathV2 = path( root, v2 );
+	    
+	    int n = Math.min( pathV1.size() - 1, pathV2.size() - 1 );
+	    for(int i=n; i>=0; --i){
+	        if( pathV1.get(i).id == pathV2.get(i).id )
+	            return pathV1.get(i);
+	    }
+	    
+	    //Bad tree
+	    return root;
+	}
+	public int ancestro(int v1,int v2){
+		NodoArbol aux = ancestro (raiz,v1,v2);
+		if (aux== null){
+			return -1;
+		}else{
+			return aux.id;
+		}
+	}
+	public boolean existe (int nodo){
+		NodoArbol aux = raiz;
+		while (aux != null){
+			if (aux.id>nodo){
+				aux = aux.izq;
+			}
+			else if (aux.id<nodo){
+				aux=aux.der;
+			}
+			else if (aux.id ==nodo){
+				return true;
+			}
+		}
+		return false;
+	}
+	public int distancia (int nodo1, int nodo2){
+		if (!existe(nodo1) || !existe(nodo2)){
+			return -1;
+		}
+		NodoArbol aux = ancestro (raiz,nodo1,nodo2);
+		List<NodoArbol> dis1 = path(aux,nodo1);
+		List<NodoArbol> dis2 = path(aux,nodo2);
+		
+		return (dis1.size()-1)+(dis2.size()-1);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+public class Nario {
+	public static void main (String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			ArbolNario kingkong = new ArbolNario();
+			int Q = sc.nextInt();
+			String linea = sc.nextLine();
+			for (int i =0;i<Q;i++){
+				String [] token = sc.nextLine().split(" ");
+				kingkong.insertar(Integer.parseInt(token[0]));
+				for (int j =1;j<token.length;j++){
+					kingkong.insertar(Integer.parseInt(token[j]),Integer.parseInt(token[0]));
+				}
+			}
+			System.out.println("Caso #"+ Integer.toString(caso +1)+ ":" );
+			String [] p =kingkong.prueba1();
+			
+			
+			System.out.print(p[0]+" ");
+			boolean dir = false;
+			for (int i=1;i<p.length;i++){
+			if (dir){
+				System.out.print(p[i]); 
+			}else{
+				imprimir1(p[i]);
+			}
+			dir=!dir;
+			}
+			System.out.println();
+			caso++;
+		}
+	}
+	public static void imprimir1(String p){
+		String [] sep = p.split(" ");
+		for (int i = sep.length-1;i>=0;i--){
+			System.out.print(sep[i]+" ");
+		}
+		
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+class ArbolNario{
+	private class NodoN{
+		public NodoN(int x){
+			hijos = new ArrayList<NodoN>();
+			dato = x;
+		}
+		public int altura(){
+			if( hijos == null )
+				return 1;
+			else{
+				int maxAltura = 0;
+				for( NodoN f : hijos ){
+				NodoN hijo = f;
+				int auxAltura = hijo.altura();
+				if( auxAltura > maxAltura )
+				maxAltura = auxAltura;
+				}
+				return maxAltura + 1;
+			}
+		}
+		List<NodoN> hijos;
+		int dato;
+	}
+	public void insertar (int num){
+		if (root == null){
+			NodoN aux = new NodoN(num);
+			root = aux;
+		}else{
+			if (!buscar(num))
+			root.hijos.add(new NodoN(num));
+		}
+	}
+	public String[] prueba1 (){
+		int tam =root.altura();
+		String [] nivel= new String [tam];
+	    Queue<List<NodoN>> q = new LinkedList();
+	    nivel[0]=""+root.dato;
+	       q.add(root.hijos);
+		for (int i =1; i<tam;i++){
+			nivel[i]="";
+			int cont = q.size();
+			while (cont>0){
+				List<NodoN> aux = q.poll();
+					for (NodoN f: aux){
+						if (f !=null){
+						nivel[i]+=f.dato+" ";
+						if (f.hijos!=null)
+							q.add(f.hijos);
+						}
+					}
+				cont--;
+			}
+			
+		}
+		return nivel;
+	}
+	private boolean buscar(int num) {
+		Queue <List<NodoN>> cola = new LinkedList();
+		if (root.dato ==num){
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.poll()){
+				if (f.dato== num){
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	public void insertar (int x,int num){ //Insertar en la raiz
+		if (root == null){
+			NodoN aux = new NodoN(x);
+			root = aux;
+		}else{
+			if (!insertar1(num,x))
+			root.hijos.add(new NodoN(x));
+		}
+	}
+	public int altura(){
+		return root.altura();
+	}
+	public boolean insertar1(int num,int x) { // Inserta un hijo al  nodo con valor num
+		Queue<List<NodoN>> cola = new LinkedList();
+		if (root.dato ==num){
+			root.hijos.add(new NodoN(x));
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.poll()){
+				if (f.dato== num){
+					f.hijos.add(new NodoN(x));
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	NodoN root;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+public class Nario {
+	public static void main (String [] args){
+		int T = sc.nextInt();
+		int caso = 0;
+		while (caso<T){
+			ArbolNario kingkong = new ArbolNario();
+			int Q = sc.nextInt();
+			String linea = sc.nextLine();
+			for (int i =0;i<Q;i++){
+				String [] token = sc.nextLine().split(" ");
+				kingkong.insertar(Integer.parseInt(token[0]));
+				for (int j =1;j<token.length;j++){
+					kingkong.insertar(Integer.parseInt(token[j]),Integer.parseInt(token[0]));
+				}
+			}
+			System.out.println("Caso #"+ Integer.toString(caso +1)+ ":" );
+			String [] p =kingkong.prueba1();
+			
+			
+			System.out.print(p[0]+" ");
+			boolean dir = false;
+			for (int i=1;i<p.length;i++){
+			if (dir){
+				System.out.print(p[i]); 
+			}else{
+				imprimir1(p[i]);
+			}
+			dir=!dir;
+			}
+			System.out.println();
+			caso++;
+		}
+	}
+	public static void imprimir1(String p){
+		String [] sep = p.split(" ");
+		for (int i = sep.length-1;i>=0;i--){
+			System.out.print(sep[i]+" ");
+		}
+		
+	}
+	public static final Scanner sc = new Scanner(System.in);
+}
+class ArbolNario{
+	private class NodoN{
+		public NodoN(int x){
+			hijos = new ArrayList<NodoN>();
+			dato = x;
+		}
+		public int altura(){
+			if( hijos == null )
+				return 1;
+			else{
+				int maxAltura = 0;
+				for( NodoN f : hijos ){
+				NodoN hijo = f;
+				int auxAltura = hijo.altura();
+				if( auxAltura > maxAltura )
+				maxAltura = auxAltura;
+				}
+				return maxAltura + 1;
+			}
+		}
+		List<NodoN> hijos;
+		int dato;
+	}
+	public void insertar (int num){
+		if (root == null){
+			NodoN aux = new NodoN(num);
+			root = aux;
+		}else{
+			if (!buscar(num))
+			root.hijos.add(new NodoN(num));
+		}
+	}
+	public String[] prueba1 (){
+		int tam =root.altura();
+		String [] nivel= new String [tam];
+	    Col<List<NodoN>> q = new Col<List<NodoN>>();
+	    nivel[0]=""+root.dato;
+	       q.add(root.hijos);
+		for (int i =1; i<tam;i++){
+			nivel[i]="";
+			int cont = q.size();
+			while (cont>0){
+				List<NodoN> aux = q.remove();
+					for (NodoN f: aux){
+						if (f !=null){
+						nivel[i]+=f.dato+" ";
+						if (f.hijos!=null)
+							q.add(f.hijos);
+						}
+					}
+				cont--;
+			}
+			
+		}
+		return nivel;
+	}
+	private boolean buscar(int num) {
+		Col <List<NodoN>> cola = new Col<List<NodoN>>();
+		if (root.dato ==num){
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.remove()){
+				if (f.dato== num){
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	public void insertar (int x,int num){ //Insertar en la raiz
+		if (root == null){
+			NodoN aux = new NodoN(x);
+			root = aux;
+		}else{
+			if (!insertar1(num,x))
+			root.hijos.add(new NodoN(x));
+		}
+	}
+	public int altura(){
+		return root.altura();
+	}
+	public boolean insertar1(int num,int x) { // Inserta un hijo al  nodo con valor num
+		Col<List<NodoN>> cola = new Col<List<NodoN>> ();
+		if (root.dato ==num){
+			root.hijos.add(new NodoN(x));
+			return true;
+		}else{
+		cola.add(root.hijos);
+		while (!cola.isEmpty()){
+			for (NodoN f: cola.remove()){
+				if (f.dato== num){
+					f.hijos.add(new NodoN(x));
+					return true;
+				}
+				if (f.hijos != null)
+				cola.add(f.hijos);
+			}
+		}
+		}
+		return false;
+	}
+	NodoN root;
+}
+class Nod<Item>{
+	public Nod(Nod<Item> next, Item data) {
+		super();
+		this.next = next;
+		this.data = data;
+	}
+	public Nod<Item> getNext() {
+		return next;
+	}
+	public void setNext(Nod<Item> next) {
+		this.next = next;
+	}
+	public Item getData() {
+		return data;
+	}
+	public void setData(Item data) {
+		this.data = data;
+	}
+	private Nod next;
+	private Item data;
+}
+class Col<Item>{
+	
+	public Col(){
+		this.head=null;
+	}
+	public int size() {
+		return size;
+	}
+	public Item remove(){
+		if (head != null){
+			Item aux = head.getData();
+			head=head.getNext();
+			size--;
+			return aux;
+		}else{
+			return null;
+		}
+		
+	}
+	public boolean isEmpty(){
+		return head==null;
+	}
+	public Nod<Item> add(Item data){
+		Nod<Item> newNodo=new Nod<Item>(null,data);
+		if (head ==null){
+			head=newNodo;
+			size++;
+			return newNodo;
+		}
+		Nod<Item> temp=head;
+		while (temp.getNext() != null){
+			temp = temp.getNext();
+		}
+		temp.setNext(newNodo);
+		size++;
+		return head;
+	}
+	private Nod<Item> head;
+	private int size;
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BinHeap1 {
+	
+public static void main (String [] args){
+	int n = sc.nextInt();
+	MaxHeap<Integer> bn = new MaxHeap<Integer>(n);
+	for (int i =0;i<n;i++){
+		int []producto =new int [3];
+		bn.put(sc.nextInt());
+		if (i<2){
+			System.out.println(-1);
+		}
+		else{
+			producto[0]=bn.removeMax();
+			producto[1]=bn.removeMax();
+			producto[2]=bn.removeMax();
+			System.out.println(producto[0]*producto[1]*producto[2]);
+		}
+		bn.put(producto[0]);
+		bn.put(producto[1]);
+		bn.put(producto[2]);
+	}
+
+}
+public static final Scanner sc = new Scanner(System.in);
+}
+
+class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+	public static final int DEFAULT_SIZE = 10;
+
+	AnyType[] heap;
+	int size;
+
+	@SuppressWarnings("unchecked")
+	public MaxHeap(int initialCapacity) {
+		if (initialCapacity < 1)
+			throw new IllegalArgumentException("initialCapacity must be >= 1");
+		heap = (AnyType[]) new Comparable[initialCapacity + 1];
+		size = 0;
+	}
+
+	public MaxHeap() {
+		this(DEFAULT_SIZE);
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public AnyType getMax() {
+		if (isEmpty())
+			return null;
+		return heap[1];
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public void put(AnyType theElement) {
+		if (size == heap.length - 1) {
+			AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+			System.arraycopy(heap, 1, newHeap, 1, size);
+			heap = newHeap;
+		}
+		int currentNode = ++size;
+		for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2)
+			heap[currentNode] = heap[currentNode / 2];
+		heap[currentNode] = theElement;
+	}
+
+	public AnyType removeMax() {
+		if (size == 0)
+			return null;
+		AnyType maxElement = heap[1];
+		AnyType lastElement = heap[size--];
+		int currentNode = 1, child = 2;
+		for (; child <= size; currentNode = child, child *= 2) {
+			if (child < size && heap[child].compareTo(heap[child + 1]) < 0)
+				child++;
+			if (lastElement.compareTo(heap[child]) >= 0)
+				break;
+			heap[currentNode] = heap[child];
+		}
+		heap[currentNode] = lastElement;
+		return maxElement;
+	}
+
+	public String toString() {
+		return Arrays.toString(heap);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+a= int(sys.stdin.readline())
+if a%3 ==0 and a %5 ==0:
+    print "FuzzBuzz"
+elif a%3==0:
+    print "Fuzz"
+elif a%5==0:
+    print "Buzz"
+else:
+    print a
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+a= int(sys.stdin.readline())
+if a%3 ==0 and a %5 ==0:
+    print "FuzzBuzz"
+elif a%3==0:
+    print "Fuzz"
+elif a%5==0:
+    print "Buzz"
+else:
+    print a
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+L=sys.stdin.readlines()
+for i in xrange(len(L)):
+    n=int(L[i])
+if n%3 ==0 and n%5 ==0:
+    print "FuzzBuzz"
+elif n%3==0:
+    print "Fuzz"
+elif n%5==0:
+    print "Buzz"
+else:
+    print n
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+L=sys.stdin.readlines()
+for i in xrange(len(L)):
+    n=int(L[i])
+    if n%3 ==0 and n%5 ==0:
+        print "FuzzBuzz"
+    elif n%3==0:
+        print "Fuzz"
+    elif n%5==0:
+        print "Buzz"
+    else:
+        print n
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int (sys.stdin.readline().strip())
+while(T>0):
+
+            num1, num2 = map(int, sys.stdin.readline().split(" "))
+            print num1 + num2
+            T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int (sys.stdin.readline().strip())
+s=1
+while(T>0):
+
+    n =int (sys.stdin.readline().strip())
+    for i in n:
+                    n[i] = map(int, sys.stdin.readline().split(" "))
+                    s=n[i]*s
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int (sys.stdin.readline().strip())
+s=1
+while(T>0):
+
+    n =int (sys.stdin.readline().strip())
+    for i in n:
+                    n[i] = map(int, sys.stdin.readline().split(" "))
+                    s=n[i]*s
+    print s
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    cont=0
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+        for j in xrange(N):
+            words=m[i]
+            if words[j]=="#":
+                cont+=1
+    print (cont)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    numero_columnas=0
+    numero_filas=0
+    mayor=0
+    cont=0
+    m = [[]*N for i in range(N)]
+
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+    for j in xrange(N):
+        for k in xrange(N):
+            if m[j][k]=="#":
+                cont+=1
+        if cont>mayor:
+            mayor=cont
+            numero_columna=k
+    mayor=0
+    for j in xrange(N):
+        for k in xrange(N):
+                if m[k][j]=="#":
+                    cont+=1
+        if cont>mayor:
+                mayor=cont
+                numero_fila=k
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    numero_columnas=0
+    numero_filas=0
+    mayor=0
+    cont=0
+    m = [[]*N for i in range(N)]
+
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+    for j in xrange(N):
+        for k in xrange(N):
+            if m[j][k]=="#":
+                cont+=1
+        if cont>mayor:
+            mayor=cont
+            numero_columna=k
+    mayor=0
+    for j in xrange(N):
+        for k in xrange(N):
+                if m[k][j]=="#":
+                    cont+=1
+        if cont>mayor:
+                mayor=cont
+                numero_fila=k
+    print ( numero_columnas,numero_filas)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    columna = columna(m,N)
+    fila =fila(m,N)
+    T-=1
+    print (columna+1,fila+1)
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    columna = columna(m,N)
+    fila =fila(m,N)
+    T-=1
+    print (columna+1,fila+1)
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    columna = columna(m,N)
+    fila =fila(m,N)
+    print (columna+1,fila+1)
+    T-=1
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    colum = columna(m,N)
+    fil =fila(m,N)
+    print (colum+1,fil+1)
+    T-=1
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    colum = columna(m,N)
+    fil =fila(m,N)
+    print (colum+1,fil+1)
+    T-=1
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    colum = columna(m,N)
+    fil =fila(m,N)
+    print (colum+1,fil+1)
+    T-=1
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+
+def columna(m,N):
+    cont=0
+    colum=0
+    mayor=0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[i][j] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            colum=i
+    return colum
+def fila(m,N):
+    cont=0
+    mayor=0
+    fila =0
+    for i in range (N):
+        cont=0
+        for j in range(N):
+            if m[j][i] =="#":
+                cont +=1
+        if cont>mayor:
+            mayor=cont
+            fila=i
+
+    return fila
+
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    for i in range(N):
+        m[i] = list(sys.stdin.readline().strip())
+    colum = columna(m,N)
+    fil = fila(m,N)
+    print colum+1,fil+1
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def cerezas(m,N):
+    cont=0
+    for i in range (N):
+        if m[i]=="#":
+            cont+=1
+    return cont
+T = int( sys.stdin.readline().strip())
+while(T>0):
+    N=int( sys.stdin.readline().strip())
+    cont =0
+    for i in range(N):
+        m=list(sys.stdin.readline().strip())
+        cont =cont+cerezas(m,N)
+    print (cont)
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def cFilas(filas,N):
+    cont =0
+    i=0
+    while (i<=N):
+        cont+=filas[i]
+        i+=1
+    return cont
+def cFila1(filas,N,i):
+    cont=1
+    while(i+1<N):
+        cont+=filas[i+1]
+        i+=1
+    return cont-1
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    N= int (sys.stdin.readline().strip())
+    columnas =[]
+    filas=[]
+    fil=False
+    colum=False
+    for i in range(N):
+        filas.insert(i,0)
+        columnas.insert(i,0)
+    m=[[]*N for i in range(N)]
+    for i in range(N):
+        m[i]=list(sys.stdin.readline().strip())
+    for i in range(N):
+       for j in range (N):
+           if m[i][j]=="#":
+                filas[i]=filas[i]+1
+    for i in range(N):
+       for j in range (N):
+           if m[j][i]=="#":
+                columnas[i] +=1
+    for i in range (N):
+        if cFilas(filas,i)==cFila1(filas,N,i):
+            fil=True
+            break
+        else:
+            fil=False
+    for i in range(N):
+        if cFilas(columnas,i)==cFila1(columnas,N,i):
+            colum=True
+            break
+        else:
+            colum=False
+    if fil==True or colum==True:
+        print ("YES")
+    else:
+        print("NO")
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def misterio1( n, cont):
+    cont+=1
+    s = 0
+    cont+=1
+    i = 1
+    cont+=1
+    while ( i < n ):
+        cont+=1
+        j = i
+        cont+=1
+        while ( j <= n ):
+            cont+=1
+            k = 2
+            cont+=1
+            while ( k <= j ):
+                cont+=1
+                s += 2
+                cont+=1
+                k += 1
+                cont+=1
+            cont+=1
+            j += 1
+            cont+=1
+        cont+=1
+        i += 1
+        cont+=1
+    return cont+1
+def misterio2(n,cont):
+    cont+=1
+    x = 1
+    cont+=1
+    i = 0
+    cont+=1
+    while i < n*n:
+        cont+=1
+        i += 1
+        cont+=1
+        x = x*2
+        cont+=1
+    return cont+1
+T= int(sys.stdin.readline().strip())
+while (T>0):
+    a,b =map(int, sys.stdin.readline().strip().split(" "))
+    if a ==1:
+        print(misterio1(b,0))
+    if a==2:
+        print(misterio2(b,0))
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def hacerConFormula( n ,cont):
+    cont+=1
+    i = 0
+    cont+=1
+    while i < n:
+        cont+=1
+        j = 0
+        cont+=1
+        while j < n:
+            cont+=1
+            xd = j
+            cont+=1
+            while xd > 0:
+                cont+=1
+                xd = xd-1
+                cont+=1
+            cont+=1
+            j = j + 1
+            cont+=1
+        cont+=1
+        i = i + 1
+        cont+=1
+    return cont+1
+T=int (sys.stdin.readline().strip())
+a=[]
+while (T>0):
+    a = int (sys.stdin.readline().strip())
+    print(hacerConFormula(a,0))
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print (*rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+# your code goes here
+import sys
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print " ".join(rta)
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    #   print (*rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    #   print (*rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+        print (rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#sys.getrecursionlimit()
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    if inicio ==fin and numeros [inicio]>elemento:
+        return 0
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print (*rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#sys.getrecursionlimit()
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    if inicio ==fin and numeros [inicio]>elemento:
+        return 0
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print (rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#sys.getrecursionlimit()
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    if inicio ==fin and numeros [inicio]>elemento:
+        return 0
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print " ".join(rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#sys.getrecursionlimit()
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    if inicio ==fin and numeros [inicio]>elemento:
+        return 0
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print (*rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#sys.getrecursionlimit()
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    if inicio ==fin and numeros [inicio]>elemento:
+        return 0
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    rta=[]
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        rta.append(busqueda(aInt,i))
+    print (*rta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#sys.getrecursionlimit()
+def busquedaBinaria(numeros,inicio,fin,elemento):
+
+    if inicio ==fin and numeros[inicio]<=elemento :
+        return 1
+    if inicio ==fin and numeros [inicio]>elemento:
+        return 0
+    centro=((fin-inicio)//2)+inicio
+    if elemento<numeros[centro]:
+        return busquedaBinaria(numeros,inicio,centro,elemento)
+    elif elemento>=numeros[centro] and numeros[centro+1]>elemento:
+        return centro+1
+    if elemento>=numeros[centro] and centro+1>=fin:
+        return centro+2
+    else:
+        return busquedaBinaria(numeros,centro+1,fin,elemento)
+
+
+def busqueda(numeros,elemento):
+
+    if numeros== None or numeros==[]:
+        return 0
+    else:
+        return busquedaBinaria(numeros,0,len(numeros)-1,elemento)
+
+T = int (sys.stdin.readline().strip())
+while (T>0):
+    cont=0
+    m,n = map(int,sys.stdin.readline().strip().split(" "))
+    a=[]
+    b=[]
+    aInt=[]
+    bInt=[]
+    respuesta =""
+    a=list(sys.stdin.readline().strip().split(" "))
+    b=list(sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        aInt.append(int(a[i]))
+    for i in range (n):
+        bInt.append(int(b[i]))
+    aInt.sort()
+    for i in bInt:
+        respuesta+= str((busqueda(aInt,i)))+" "
+    print (respuesta)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+import math
+
+L = sys.stdin.readlines()
+for i in xrange(len(L)):
+    print (L[i])
+    words = L[i].split()
+    line=words[0]
+    nodes=words[1]
+    if (line == "chain"):
+        print (str(nodes-1)+"\n")
+    if (line=="ring"):
+        print (str(nodes)+"\n")
+    if (line=="grid"):
+        f= math.sqrt(nodes)
+        c = f
+        m= f*(c-1)+c*(f-1)
+        print (str(m)+"\n")
+    if (line=="complete"):
+        print (str(nodes*(nodes-1)/2)+"\n")
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+import math
+
+L = sys.stdin.readlines()
+for i in xrange(len(L)):
+    words = L[i].split()
+    line=words[0]
+    nodes=int(words[1])
+    if (line == "chain"):
+        print (nodes-1)
+    if (line=="ring"):
+        print (nodes)
+    if (line=="grid"):
+        f= math.sqrt(nodes)
+        c = f
+        m= f*(c-1)+c*(f-1)
+        print (int(m))
+    if (line=="complete"):
+        print (nodes*(nodes-1)/2)
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+T= int (sys.stdin.readline().strip())
+while (T>0):
+    a = sys.stdin.readline().strip()
+    words=a.split(" ")
+    nodes= len(words)
+    cont=0
+    for i in words:
+        cont+=int(i)
+    if cont== 2*(nodes-1):
+        print ("Arbol")
+    else:
+        print("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+T= int (sys.stdin.readline().strip())
+while (T>0):
+    a = sys.stdin.readline().strip()
+    words=a.split(" ")
+    nodes= len(words)
+    cont=0
+    for i in words:
+        cont+=int(i)
+    if cont== 2*(nodes-1):
+        print ("Arbol")
+    else:
+        print("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+L = sys.stdin.readlines()
+for i in xrange(len(L)):
+    if i % 3 == 0 and i%5 == 0:
+        print ("FuzzBuzz")
+    elif i%3 == 0:
+        print ("Fuzz")
+    elif i % 5 == 0:
+        print ("Buzz")
+    else:
+        print i
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+
+def BFS(G,node):
+    parent = {}
+    marked = {}
+    distance={}
+    openlist=[]
+    openlist.append(node)
+    parent[node] = None
+    distance[node] = 0
+    while len(openlist)>0:
+        current = openlist.pop(0)
+        marked[current] = True
+        for neighbor in G[current]:
+            if neighbor not in parent:
+                parent[neighbor] = current
+            if neighbor not in marked:
+                marked[neighbor] = True
+                distance[neighbor] = distance[current] + 1
+                openlist.append(neighbor)
+##    print "Para el nodo:",node
+##    print "Parent:",parent
+##    print "Marked:",marked
+##    print "Distance:",distance
+##    print "Mayor Nodo",max(distance)
+##    print "Mayor distancia",max(distance.values())
+##    print ""
+    return max(distance.values())
+
+def median(M):
+    M.sort()
+    l = len(M) / 2
+    return M[l]
+
+
+
+def test():
+    T = 2
+    case = []
+    case.append([[(0,1),(1,2)]])
+    case.append([[(0,1),(1,2)],
+               [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)],
+               [(0,1),(0,2),(0,3),(1,4),(1,5),(1,6),(2,7),(2,8),
+                (2,9),(3,10),(3,11),(3,12)]])
+    
+    while T > 1:
+        for c in case:
+            print "para el caso:",c
+            print ""
+            AllG = []
+            if len(c) > 1:
+                for i in c:
+                    G = {}
+                    for u,v in i:
+                        make_link(G,u,v)
+                    d = []
+                    print "G:",G
+                    for u in G:
+                        df = BFS(G,u)
+                        d.append(df)
+                    AllG.append(max(d))
+                theMedian = median(AllG)
+            
+            elif len(c) == 1:
+                G = {}
+                for j in c:
+                    for u,v in j:
+                        make_link(G,u,v)
+                    d = []
+                    print "G:",G
+                    for u in G:
+                        df = BFS(G,u)
+                        d.append(df)
+                    AllG.append(max(d))
+                theMedian = median(AllG)
+            
+            print "The Median is:",theMedian
+            print ""
+            print ""
+        T -= 1    
+
+#test()
+
+T = int(sys.stdin.readline())
+while T:
+    n = int(sys.stdin.readline())
+    AllG = []
+    while n:
+        G = {}
+        v_e = sys.stdin.readline().split()
+        v = int(v_e[0])
+        e = int(v_e[1])
+        while e:
+            e_e = sys.stdin.readline().split()
+            make_link(G,int(e_e[0]),int(e_e[1]))
+            e -= 1
+        d = []
+        for u in G:
+            df = BFS(G,u)
+            d.append(df)
+        AllG.append(max(d))
+
+        n -= 1
+    theMedian = median(AllG)
+    
+    T -= 1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+
+    grade = list(sys.stdin.readline().strip().split(" "))
+    cont=0
+
+    for i in grade:
+        cont += int(i)
+
+    if cont/2 ==len(grade)-1:
+        print ("Arbol")
+
+    else:
+        print ("No arbol")
+
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+
+    grade = list(sys.stdin.readline().strip().split(" "))
+    cont=0
+
+    for i in grade:
+        cont += int(i)
+
+    if cont/2 ==len(grade)-1:
+        print ("Arbol")
+
+    else:
+        print ("No arbol")
+
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade = list(sys.stdin.readline().strip().split(" "))
+    cont=0
+    for i in grade:
+        cont += int(i)
+    if cont/2 ==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade = (sys.stdin.readline().strip().split(" "))
+    cont=0
+    for i in grade:
+        cont += int(i)
+    if cont/2 ==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade =input().split(" ")# sys.stdin.readline().strip().split(" ")
+    cont=0
+    for i in grade:
+        cont += int(i)
+    if cont/2==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade =sys.stdin.readline().strip().split(" ")
+    cont=0
+    #for i in grade:
+       # cont += int(i)
+    #if cont/2==len(grade)-1:
+     #   print ("Arbol")
+    #else:
+    print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade =sys.stdin.readline().strip().split(" ")
+    cont=0
+    #for i in grade:
+       # cont += int(i)
+    if cont/2==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade =list(sys.stdin.readline().strip().split(" "))
+    cont=0
+    for i in range (len(grade)):
+        cont += int(grade[i])
+    if cont/2==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade =list(sys.stdin.readline().strip().split(" "))
+    cont=0
+    i = 0
+    while (i<len(grade)):
+        cont += int(grade[i])
+        i+=1
+    if cont/2==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+
+while (T>0):
+    grade =sys.stdin.readline().strip().split(" ")
+    lista=[]
+    cont=0
+    i=0
+    while (i<len(grade)):
+        lista.append(int(grade[i]))
+        i+=1
+    cont = sum(lista)
+    if cont/2==len(lista)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+while (T>0):
+    grade = list(sys.stdin.readline().strip().split(" "))
+    cont=0
+    for i in grade:
+        cont += int(i)
+    if cont/2 ==len(grade)-1:
+        print "Arbol"
+    else:
+        print "No arbol"
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int(sys.stdin.readline().strip())
+while (T>0):
+    grade = list(sys.stdin.readline().strip().split(" "))
+    cont=0
+    for i in range( len(grade)):
+        cont += int(grade[i])
+    if cont/2 ==len(grade)-1:
+        print ("Arbol")
+    else:
+        print ("No arbol")
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def kn (v):
+    return v*(v-1)/2
+N,M= map(int, sys.stdin.readline().strip().split(" "))
+print (kn(N)-kn(M)-1)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def kn (v):
+    return v*(v-1)/2
+N,M= map(int, sys.stdin.readline().strip().split(" "))
+print (kn(N)-kn(M)-1)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def kn (v):
+    return v*(v-1)/2
+N,M= map(int, sys.stdin.readline().strip().split(" "))
+L= (sys.stdin.readlines())
+print (kn(N)-kn(M)-1)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+def connected_components(G):
+    nodo=[]
+    color = {}
+    for v in G:
+        color[v] = 'white'
+    count = 0
+    for v in G:
+        if color[v] == 'white':
+            count += 1
+            nodo.append(v)
+            DFS_Visit(G, v, color)
+    return count,nodo
+def kn (nodes):
+    return nodes*(nodes-1)/2
+N,M = map (int,sys.stdin.readline().strip().split(" "))
+
+G1 = {}
+edges1 = []
+rta=()
+color={}
+nodes=[]
+sumk=0
+for i in range (N):
+    G1[i] = {}
+for i in range (M):
+    a,b = map(int,sys.stdin.readline().strip().split(" "))
+    tup=(a,b)
+    edges1.append(tup)
+for v1, v2 in edges1:
+    make_link(G1, v1, v2)
+for v in G1:
+    color[v] = 'white'
+
+rta= connected_components(G1)
+for i in rta[1]:
+    nodes.append(DFS_Visit(G1, i, color))
+for i in nodes:
+    sumk+=kn(i)
+print (int(kn(N)-sumk))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+def connected_components(G):
+    nodo=[]
+    color = {}
+    for v in G:
+        color[v] = 'white'
+    count = 0
+    for v in G:
+        if color[v] == 'white':
+            count += 1
+            nodo.append(v)
+            DFS_Visit(G, v, color)
+    return count,nodo
+
+def kn (nodes):
+    return nodes*(nodes-1)/2
+
+N,M = map (int,sys.stdin.readline().strip().split(" "))
+G1 = {}
+edges1 = []
+rta=()
+color={}
+nodes=[]
+sumk=0
+
+for i in range (N):
+    G1[i] = {}
+
+for i in range (M):
+    a,b = map(int,sys.stdin.readline().strip().split(" "))
+    tup=(a,b)
+    edges1.append(tup)
+
+for v1, v2 in edges1:
+    make_link(G1, v1, v2)
+
+for v in G1:
+    color[v] = 'white'
+
+rta= connected_components(G1)
+for i in rta[1]:
+    nodes.append(DFS_Visit(G1, i, color))
+
+for i in nodes:
+    sumk+=kn(i)
+
+print (int(kn(N)-sumk))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(100000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+def connected_components(G):
+    nodo=[]
+    color = {}
+    for v in G:
+        color[v] = 'white'
+    count = 0
+    for v in G:
+        if color[v] == 'white':
+            count += 1
+            nodo.append(v)
+            DFS_Visit(G, v, color)
+    return count,nodo
+
+def kn (nodes):
+    return nodes*(nodes-1)/2
+
+N,M = map (int,sys.stdin.readline().strip().split(" "))
+G1 = {}
+edges1 = []
+rta=()
+color={}
+nodes=[]
+sumk=0
+
+for i in range (N):
+    G1[i] = {}
+
+for i in range (M):
+    a,b = map(int,sys.stdin.readline().strip().split(" "))
+    tup=(a,b)
+    edges1.append(tup)
+
+for v1, v2 in edges1:
+    make_link(G1, v1, v2)
+
+for v in G1:
+    color[v] = 'white'
+
+rta= connected_components(G1)
+for i in rta[1]:
+    nodes.append(DFS_Visit(G1, i, color))
+
+for i in nodes:
+    sumk+=kn(i)
+
+print (int(kn(N)-sumk))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit( MAX_LIMIT )
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit( 10000000 )
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit( 1000000000 )
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(sys.maxsize)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+def connected_components(G):
+    nodo=[]
+    color = {}
+    for v in G:
+        color[v] = 'white'
+    count = 0
+    for v in G:
+        if color[v] == 'white':
+            count += 1
+            nodo.append(v)
+            DFS_Visit(G, v, color)
+    return count,nodo
+
+def kn (nodes):
+    return nodes*(nodes-1)/2
+
+N,M = map (int,sys.stdin.readline().strip().split(" "))
+G1 = {}
+edges1 = []
+rta=()
+color={}
+nodes=[]
+sumk=0
+
+for i in range (N):
+    G1[i] = {}
+
+for i in range (M):
+    a,b = map(int,sys.stdin.readline().strip().split(" "))
+    tup=(a,b)
+    edges1.append(tup)
+
+for v1, v2 in edges1:
+    make_link(G1, v1, v2)
+
+for v in G1:
+    color[v] = 'white'
+
+rta= connected_components(G1)
+for i in rta[1]:
+    nodes.append(DFS_Visit(G1, i, color))
+
+for i in nodes:
+    sumk+=kn(i)
+
+print (int(kn(N)-sumk))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(30000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+def connected_components(G):
+    nodo=[]
+    color = {}
+    for v in G:
+        color[v] = 'white'
+    count = 0
+    for v in G:
+        if color[v] == 'white':
+            count += 1
+            nodo.append(v)
+            DFS_Visit(G, v, color)
+    return count,nodo
+
+def kn (nodes):
+    return nodes*(nodes-1)/2
+
+N,M = map (int,sys.stdin.readline().strip().split(" "))
+G1 = {}
+edges1 = []
+rta=()
+color={}
+nodes=[]
+sumk=0
+
+for i in range (N):
+    G1[i] = {}
+
+for i in range (M):
+    a,b = map(int,sys.stdin.readline().strip().split(" "))
+    tup=(a,b)
+    edges1.append(tup)
+
+for v1, v2 in edges1:
+    make_link(G1, v1, v2)
+
+for v in G1:
+    color[v] = 'white'
+
+rta= connected_components(G1)
+for i in rta[1]:
+    nodes.append(DFS_Visit(G1, i, color))
+
+for i in nodes:
+    sumk+=kn(i)
+
+print (int(kn(N)-sumk))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(30000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(100000000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(1000000000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(MAX_LIMIT)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(30000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(29999)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(30001)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(sys.getrecursionlimit())
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=0
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(1000000)
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def DFS_Visit(G, node, color):
+    color[node] = 'gray'
+    total_marked = 1
+    for neighbor in G[node]:
+        if color[neighbor] == 'white':
+            total_marked += DFS_Visit(G, neighbor, color)
+    color[node] = 'black'
+    return total_marked
+
+T= int(sys.stdin.readline().strip())
+
+while T>0:
+    edges1=[]
+    G1={}
+    color={}
+    amigos=0
+    n,m= map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        a,b = map(int,sys.stdin.readline().strip().split(" "))
+        tup=(a,b)
+        edges1.append(tup)
+    s,p = map(int,sys.stdin.readline().split(" "))
+    for i in range (n):
+        G1[i] = {}
+    for v1, v2 in edges1:
+        make_link(G1, v1, v2)
+    for v in G1:
+        color[v] = 'white'
+    amigos=DFS_Visit(G1, s, color)
+    print ((n-amigos)*p)
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+posX = [1, 1, 1, 0, -1, -1, -1, 0]
+posY = [-1, 0, 1, 1, 1, 0, -1, -1]
+T = int(sys.stdin.readline().strip())
+
+
+def DFS(a, b):
+    x = 0
+    y = 0
+    visited[a][b] = 1
+    for i in range(8):
+        x = a + posX[i]
+        y = b + posY[i]
+        if x >= 0 and x < f and y >= 0 and y < c and visited[x][y] == 0:
+            visited[x][y] = 1
+            if grid[x][y] == '@':
+                DFS(x, y)
+
+
+while (T > 0):
+    f, c = map(int, sys.stdin.readline().strip().split(" "))
+    Lineas =[]
+    for i in range (f):
+        Lineas.append(sys.stdin.readline().strip())
+    grid = [None] * f
+    visited = [None] * f
+    for i in range(f):
+        grid[i] = [None] * c
+        visited[i] = [None] * c
+    cont = 0
+    lin = 0
+    while lin < f:
+        row = 0
+        colum = 0
+        for i in Lineas:
+            colum = 0
+            for j in i:
+                grid[row][colum] = j
+                visited[row][colum]=0
+                colum += 1
+            row += 1
+        lin += 1
+    for i in range(f):
+        for j in range(c):
+            if visited[i][j] == 0:
+                visited[i][j] = 1
+                if grid[i][j] == '@':
+                    cont += 1
+                    DFS(i, j)
+    print(cont)
+    T -= 1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(1000000)
+posX = [1, 1, 1, 0, -1, -1, -1, 0]
+posY = [-1, 0, 1, 1, 1, 0, -1, -1]
+T = int(sys.stdin.readline().strip())
+
+
+def DFS(a, b):
+    x = 0
+    y = 0
+    visited[a][b] = 1
+    for i in range(8):
+        x = a + posX[i]
+        y = b + posY[i]
+        if x >= 0 and x < f and y >= 0 and y < c and visited[x][y] == 0:
+            visited[x][y] = 1
+            if grid[x][y] == '@':
+                DFS(x, y)
+
+
+while (T > 0):
+    f, c = map(int, sys.stdin.readline().strip().split(" "))
+    Lineas =[]
+    for i in range (f):
+        Lineas.append(sys.stdin.readline().strip())
+    grid = [None] * f
+    visited = [None] * f
+    for i in range(f):
+        grid[i] = [None] * c
+        visited[i] = [None] * c
+    cont = 0
+    lin = 0
+    while lin < f:
+        row = 0
+        colum = 0
+        for i in Lineas:
+            colum = 0
+            for j in i:
+                grid[row][colum] = j
+                visited[row][colum]=0
+                colum += 1
+            row += 1
+        lin += 1
+    for i in range(f):
+        for j in range(c):
+            if visited[i][j] == 0:
+                visited[i][j] = 1
+                if grid[i][j] == '@':
+                    cont += 1
+                    DFS(i, j)
+    print(cont)
+    T -= 1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+sys.setrecursionlimit(1000000)
+posX = [1, 1, 1, 0, -1, -1, -1, 0]
+posY = [-1, 0, 1, 1, 1, 0, -1, -1]
+T = int(sys.stdin.readline().strip())
+
+
+def DFS(a, b):
+    x = 0
+    y = 0
+    visited[a][b] = 1
+    for i in range(8):
+        x = a + posX[i]
+        y = b + posY[i]
+        if x >= 0 and x < f and y >= 0 and y < c and visited[x][y] == 0:
+            visited[x][y] = 1
+            if grid[x][y] == '@':
+                DFS(x, y)
+
+
+while (T > 0):
+    f, c = map(int, sys.stdin.readline().strip().split(" "))
+    Lineas =[]
+    grid = [None] * f
+    visited = [None] * f
+    for i in range (f):
+        Lineas.append(sys.stdin.readline().strip())
+        grid[i] = [None] * c
+        visited[i] = [None] * c
+    cont = 0
+    row = 0
+    colum = 0
+    for i in Lineas:
+        colum = 0
+        for j in i:
+            grid[row][colum] = j
+            visited[row][colum]=0
+            colum += 1
+        row += 1
+    for i in range(f):
+        for j in range(c):
+            if visited[i][j] == 0:
+                visited[i][j] = 1
+                if grid[i][j] == '@':
+                    cont += 1
+                    DFS(i, j)
+    print(cont)
+    T -= 1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def make_link(G,nodo1,nodo2):
+    if nodo1 not in G:
+        G[nodo1]={}
+    (G[nodo1])[nodo2]=1
+    if nodo2 not in G:
+        G[nodo2]={}
+    (G[nodo2])[nodo1]=1
+    return G
+T= int (sys.stdin.readline().strip())
+while (T>0):
+    n,m = map(int,sys.stdin.readline().strip().split(" "))
+    G={}
+    maximo =0
+    max=0
+    edges=[]
+    for i in range (m):
+        a,b = map(int, sys.stdin.readline().strip().split(" "))
+        make_link(G,a,b)
+    maximo=len(G[0])
+    for i in range (1,n):
+        if len(G[i])>maximo:
+            maximo=len(G[i])
+            max =i
+    print(str(max)+" "+ str(maximo))
+    T-=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def make_link(G,u,v):
+    if u not in G:
+        G[u]={}
+    (G[u])[v]=1
+    if v not in G:
+        G[v]={}
+    (G[v])[u]=1
+    return G
+def DFS (G, u, color, parent):
+    color [u]= 'gray'
+    rta=1
+    for neighbor in G[u]:
+        if color[neighbor] == 'white':
+            parent[neighbor] = u
+            rta+= DFS(G,neighbor,color,parent)
+    color[u]='black'
+    return rta
+def path(G, v1, v2):
+    color = {}
+    parent = {}
+    for v in G:
+        color[v] = 'white'
+        parent[v] = None
+    DFS(G, v1, color, parent)
+    node = v2
+    pathlist =0
+    while node <> None:
+        node = parent[node]
+        if node <> None:
+            pathlist +=1
+    return pathlist
+T = int (sys.stdin.readline().strip())
+while(T>0):
+    G={}
+    nodoCentral=0
+    centralDepht=100
+    tempDepht=0
+    n,m = map(int, sys.stdin.readline().strip().split(" "))
+    for i in range(m):
+        u,v = map(int,sys.stdin.readline().strip().split(" "))
+        make_link(G,u,v)
+    for j in range (n):
+        tempDepht =0
+        for i in range (n):
+           tempDepht += path(G,j,i)
+        if tempDepht < centralDepht:
+            centralDepht= tempDepht
+            nodoCentral = j
+    print (nodoCentral)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def make_link(G,u,v):
+    if u not in G:
+        G[u]={}
+    (G[u])[v]=1
+    if v not in G:
+        G[v]={}
+    (G[v])[u]=1
+    return G
+def DFS (G, u, color, parent):
+    color [u]= 'gray'
+    rta=1
+    for neighbor in G[u]:
+        if color[neighbor] == 'white':
+            parent[neighbor] = u
+            rta+= DFS(G,neighbor,color,parent)
+    color[u]='black'
+    return rta
+def path(G, v1, v2):
+    color = {}
+    parent = {}
+    for v in G:
+        color[v] = 'white'
+        parent[v] = None
+    DFS(G, v1, color, parent)
+    node = v2
+    pathlist =0
+    while node <> None:
+        node = parent[node]
+        if node <> None:
+            pathlist +=1
+    return pathlist
+T = int (sys.stdin.readline().strip())
+while(T>0):
+    G={}
+    nodoCentral=0
+    centralDepht=100
+    tempDepht=0
+    n,m = map(int, sys.stdin.readline().strip().split(" "))
+    for i in range(m):
+        u,v = map(int,sys.stdin.readline().strip().split(" "))
+        make_link(G,u,v)
+    for j in range (n):
+        tempDepht =0
+        for i in range (n):
+           tempDepht += path(G,j,i)
+        if tempDepht < centralDepht:
+            centralDepht= tempDepht
+            nodoCentral = j
+        if tempDepht == centralDepht:
+            if j<nodoCentral:
+                nodoCentral =j
+    print (nodoCentral)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def make_link(G,u,v):
+    if u not in G:
+        G[u]={}
+    (G[u])[v]=1
+    if v not in G:
+        G[v]={}
+    (G[v])[u]=1
+    return G
+def DFS (G, u, color, parent):
+    color [u]= 'gray'
+    rta=1
+    for neighbor in G[u]:
+        if color[neighbor] == 'white':
+            parent[neighbor] = u
+            rta+= DFS(G,neighbor,color,parent)
+    color[u]='black'
+    return rta
+def path(G, v1, v2):
+    color = {}
+    parent = {}
+    for v in G:
+        color[v] = 'white'
+        parent[v] = None
+    DFS(G, v1, color, parent)
+    node = v2
+    pathlist =0
+    while node <> None:
+        node = parent[node]
+        if node <> None:
+            pathlist +=1
+    return pathlist
+T = int (sys.stdin.readline().strip())
+while(T>0):
+    G={}
+    nodoCentral=0
+    centralDepht=0
+    tempDepht=0
+    n,m = map(int, sys.stdin.readline().strip().split(" "))
+    for i in range(m):
+        u,v = map(int,sys.stdin.readline().strip().split(" "))
+        make_link(G,u,v)
+    for i in range (n):
+           centralDepht += path(G,0,i)
+    for j in range (1,n):
+        tempDepht =0
+        for i in range (n):
+           tempDepht += path(G,j,i)
+        if tempDepht < centralDepht:
+            centralDepht= tempDepht
+            nodoCentral = j
+        if tempDepht == centralDepht:
+            if j<nodoCentral:
+                nodoCentral =j
+    print (nodoCentral)
+    T-=1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+F =int (sys.stdin.readline().strip())
+T=0
+while(T<F):
+    ruta=[]
+    estaciones=[]
+    rta=""
+    rta1=""
+    n,m = map(int,sys.stdin.readline().strip().split(" "))
+    for i in range (m):
+        ruta.append(sys.stdin.readline().strip().split(" "))
+    for i in range (n):
+        estaciones.append(0)
+    estaciones.append(0)
+    for i in ruta:
+        i[0]=0
+        for j in i:
+          estaciones[int(j)]+=1
+    for i in range (1, n+1):
+        if estaciones[i]>=2:
+            rta+=str(estaciones[i])+" "
+            rta1+=str(i)+" "
+    print "Caso "+str(T+1)+":"
+    print rta1
+    print rta
+    T+=1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,5030 @@
+package A_MayorMenorIgual;
+import java.io.File;
+import java.util.Scanner;
+
+public class MayorMenorIgual {
+	
+	public static int increment (int n){
+		return ++n;
+	}
+	
+	public static int[] readInts( String s ) {
+		String lines[] = s.split(" ");
+		int arr[] = new int[lines.length];
+		for ( int i = 0; i < arr.length; i++ ) {
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}
+
+	public static void main(String[] args) throws Exception {
+		int moreThan = 0;
+		int lessThan = 0;
+		int equalsTo = 0;
+
+		Scanner scan;
+		File f = new File("A_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int numberOfCases = Integer.parseInt(scan.nextLine()); 
+		for (int i = 1; i <= numberOfCases; i++){
+			moreThan = 0;
+			lessThan = 0;
+			equalsTo = 0;
+
+			int totalOfNumbers = Integer.parseInt(scan.nextLine());
+				int setOfNumbers[] = readInts(scan.nextLine());
+				for (int x = 0; x < setOfNumbers.length; x ++){
+					for(int xx = 0; xx < setOfNumbers.length; xx ++ ){
+						if(x != xx){
+							if (setOfNumbers[x] > setOfNumbers[xx]){
+								moreThan++;
+							}else if (setOfNumbers[x] < setOfNumbers[xx]){
+								lessThan++;
+							}else if(setOfNumbers[x] == setOfNumbers[xx]){
+								equalsTo++;
+							}
+						}
+					}
+				}
+				System.out.println("Case #"+i+":");
+				System.out.println(moreThan);
+				System.out.println(lessThan);
+				System.out.println(equalsTo);
+		}
+		scan.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package C_ColorsPermutacion;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class ColorsPermutacion {
+	
+	static int global = 0;
+	static String pre[] = new String [120];
+
+	private static void permutation(String prefix, String str){
+        int n = str.length();
+        if (n == 0){
+        	if (add(prefix,global))
+        	System.out.println(prefix);
+        	global++;
+        }
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), 
+            str.substring(0, i) + str.substring(i+1));
+        }
+    }
+	
+	private static boolean add(String prefix, int y) {
+		boolean print = true;
+		pre[(y)] = prefix;
+		for (int i = 0 ; i < (y) ; i++){
+			if (pre[y].equals(pre[i])){
+				print = false;
+			}
+		}
+		return print;
+	}
+
+	
+	public static void main(String[] args) throws Exception{
+		
+		Scanner scan;
+		File f = new File("C_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int j = 0; j < numberOfCases; j++){
+			int numberOfRocs = Integer.parseInt(scan.nextLine());
+			String s[] = scan.nextLine().split(" ");
+			String colors = "";
+		for (int i = 0; i < numberOfRocs; i++ ){
+			colors += s[i];
+		}
+		System.out.println("Case #"+(j+1)+":");
+		permutation("", colors);
+		
+		}
+		scan.close();
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package D_LocalVisitorUniform;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class LocalVisitorUniform {
+	
+	public static void main(String[] args) throws Exception {
+		Scanner scan;
+		File f = new File("D_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < numberOfCases; i++){
+			int teams = Integer.parseInt(scan.nextLine());
+			int local[] = new int[teams];
+			int visitant[] = new int[teams];
+			for (int j = 0; j < teams; j++){
+				String s[] = scan.nextLine().split(" ");
+				int colorLocal = Integer.parseInt(s[0]);			
+				int colorVisitant = Integer.parseInt(s[1]);
+				local [j] = colorLocal;
+				visitant[j] = colorVisitant;
+			}
+			
+			int changeUniform = 0;
+			for (int l = 0; l < teams; l++){
+				for (int v = 0; v < teams; v++){
+					if( l != v){
+						if (local [l] == visitant [v]){
+							changeUniform++;
+						}
+					}
+				}
+			}
+			System.out.println("Case #"+(i+1)+":");
+			System.out.println(changeUniform); 
+		}
+	scan.close();
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package B_WinnerBlock;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class WinnerBlock {
+
+	public static void main(String[] args) throws Exception{
+		
+		Scanner scan;
+		File f = new File("B_1.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		
+		int dimension = Integer.parseInt(scan.nextLine());
+		int matrix[][] = new int[dimension][dimension];
+		
+		//LLENAR MATRIZ
+		for (int x = 0; x < matrix.length; x++) {
+			  for (int y = 0; y < matrix[x].length; y++) {
+			    matrix[x][y] = scan.nextInt();
+			  }
+			}
+		
+		//PARA IMPRIMIR MATRIZ
+		/*for (int i = 0; i < matrix.length; i++) {
+		    for (int j = 0; j < matrix.length; j++) {
+		        System.out.print(matrix[i][j] + " ");
+		    }
+		    System.out.print("\n");
+		}*/
+
+		int winnerBlock = 0;
+		int arrayCol [] = new int [dimension];
+		int arrayRow [] = new int [dimension];
+		for (int row = 0; row < matrix.length; row++) {
+			int sumRow = 0;
+			int sumCol = 0;
+	        for (int column = 0; column < matrix[row].length; column++) {
+	        	sumRow += matrix [row][column];
+	        	sumCol += matrix [column][row];
+	        }
+	        arrayRow[row] = sumRow;
+	        arrayCol[row] = sumCol;
+		}
+		
+		for (int row = 0; row < matrix.length; row++) {
+	        for (int column = 0; column < matrix[row].length; column++) {
+	        	if( arrayRow[row] > arrayCol[column]){
+	        		winnerBlock++;
+	        	}
+	        }
+		}
+        System.out.println(winnerBlock);
+		
+		scan.close();
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.util.Scanner;
+
+public class a {
+	
+	static int global = 0;
+	static String pre[] = new String [720];
+
+	private static void permutation(String prefix, String str){
+        int n = str.length();
+        if (n == 0){
+        	if (add(prefix,global))
+        	System.out.println(prefix);
+        	global++;
+        }
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), 
+            str.substring(0, i) + str.substring(i+1));
+        }
+    }
+	
+	private static boolean add(String prefix, int y) {
+		boolean print = true;
+		pre[(y)] = prefix;
+		for (int i = 0 ; i < (y) ; i++){
+			if (pre[y].equals(pre[i])){
+				print = false;
+			}
+		}
+		return print;
+	}
+
+	
+	public static void main(String[] args) throws Exception{
+		
+		Scanner scan;
+		File f = new File("C_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int j = 0; j < numberOfCases; j++){
+			int numberOfRocs = Integer.parseInt(scan.nextLine());
+			String s[] = scan.nextLine().split(" ");
+			String colors = "";
+		for (int i = 0; i < numberOfRocs; i++ ){
+			colors += s[i];
+		}
+		System.out.println("Case #"+(j+1)+":");
+		permutation("", colors);
+		
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.util.Scanner;
+
+public class a {
+	
+	static int global = 0;
+	static String pre[] = new String [750];
+
+	private static void permutation(String prefix, String str){
+        int n = str.length();
+        if (n == 0){
+        	if (add(prefix,global))
+        	System.out.println(prefix);
+        	global++;
+        }
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), 
+            str.substring(0, i) + str.substring(i+1));
+        }
+    }
+	
+	private static boolean add(String prefix, int y) {
+		boolean print = true;
+		pre[(y)] = prefix;
+		for (int i = 0 ; i < (y) ; i++){
+			if (pre[y].equals(pre[i])){
+				print = false;
+			}
+		}
+		return print;
+	}
+
+	
+	public static void main(String[] args) throws Exception{
+		
+		Scanner scan;
+		File f = new File("C_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int j = 0; j < numberOfCases; j++){
+			int numberOfRocs = Integer.parseInt(scan.nextLine());
+			String s[] = scan.nextLine().split(" ");
+			String colors = "";
+		for (int i = 0; i < numberOfRocs; i++ ){
+			colors += s[i];
+		}
+		System.out.println("Case #"+(j+1)+":");
+		permutation("", colors);
+		
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.util.Scanner;
+
+public class B {
+
+	public static void main(String[] args) throws Exception {
+
+		Scanner scan;
+		File f = new File("B_1");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+		int cont=1;
+		while (scan.hasNext()) {
+			int dimension = scan.nextInt();
+			int matrix[][] = new int[dimension][dimension];
+
+			for (int x = 0; x < matrix.length; x++) {
+				for (int y = 0; y < matrix[x].length; y++) {
+					matrix[x][y] = scan.nextInt();
+				}
+			}
+
+			int winnerBlock = 0;
+			int arrayCol[] = new int[dimension];
+			int arrayRow[] = new int[dimension];
+			for (int row = 0; row < matrix.length; row++) {
+				int sumRow = 0;
+				int sumCol = 0;
+				for (int column = 0; column < matrix[row].length; column++) {
+					sumRow += matrix[row][column];
+					sumCol += matrix[column][row];
+				}
+				arrayRow[row] = sumRow;
+				arrayCol[row] = sumCol;
+			}
+
+			for (int row = 0; row < matrix.length; row++) {
+				for (int column = 0; column < matrix[row].length; column++) {
+					if (arrayRow[row] > arrayCol[column]) {
+						winnerBlock++;
+					}
+				}
+			}
+			System.out.println("Case #"+(cont++)+":");	
+			System.out.println(winnerBlock);
+		}
+		scan.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.util.Scanner;
+
+public class a {
+	
+	static int global = 0;
+	static String pre[] = new String [750];
+
+	private static void permutation(String prefix, String str){
+        int n = str.length();
+        if (n == 0){
+        	if (add(prefix,global))
+        	System.out.println(prefix);
+        	global++;
+        }
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), 
+            str.substring(0, i) + str.substring(i+1));
+        }
+    }
+	
+	private static boolean add(String prefix, int y) {
+		boolean print = true;
+		pre[(y)] = prefix;
+		for (int i = 0 ; i < (y) ; i++){
+			if (pre[y].equals(pre[i])){
+				print = false;
+			}
+		}
+		return print;
+	}
+
+	
+	public static void main(String[] args) throws Exception{
+		
+		Scanner scan;
+		File f = new File("C_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int j = 0; j < numberOfCases; j++){
+			int numberOfRocs = Integer.parseInt(scan.nextLine());
+			String s[] = scan.nextLine().split(" ");
+			String colors = "";
+		for (int i = 0; i < numberOfRocs; i++ ){
+			colors += s[i];
+		}
+		global = 0;
+		System.out.println("Case #"+(j+1)+":");
+		permutation("", colors);
+		
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.util.Scanner;
+
+public class B {
+
+	public static void main(String[] args) throws Exception {
+
+		Scanner scan;
+		File f = new File("B_2.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+
+		int cont=1;
+		while (scan.hasNext()) {
+			int dimension = scan.nextInt();
+			int matrix[][] = new int[dimension][dimension];
+
+			for (int x = 0; x < matrix.length; x++) {
+				for (int y = 0; y < matrix[x].length; y++) {
+					matrix[x][y] = scan.nextInt();
+				}
+			}
+
+			int winnerBlock = 0;
+			int arrayCol[] = new int[dimension];
+			int arrayRow[] = new int[dimension];
+			for (int row = 0; row < matrix.length; row++) {
+				int sumRow = 0;
+				int sumCol = 0;
+				for (int column = 0; column < matrix[row].length; column++) {
+					sumRow += matrix[row][column];
+					sumCol += matrix[column][row];
+				}
+				arrayRow[row] = sumRow;
+				arrayCol[row] = sumCol;
+			}
+
+			for (int row = 0; row < matrix.length; row++) {
+				for (int column = 0; column < matrix[row].length; column++) {
+					if (arrayRow[row] < arrayCol[column]) {
+						winnerBlock++;
+					}
+				}
+			}
+			System.out.println("Case #"+(cont++)+":");	
+			System.out.println(winnerBlock);
+		}
+		scan.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.util.Scanner;
+
+
+public class E {
+
+	public static int[] readInts( String s ) {
+		String lines[] = s.split(" ");
+		int arr[] = new int[lines.length];
+		for ( int i = 0; i < arr.length; i++ ) {
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}
+	
+	public static void main(String[] args) throws Exception {
+		
+		Scanner scan;
+		File f = new File("B_2a.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int j = 0; j < numberOfCases; j++){
+			int cont = 0;
+			int size = Integer.parseInt(scan.nextLine());
+			int numbers[] = readInts(scan.nextLine());
+			for (int i = 0; i < size; i++){
+				
+				if ((numbers[i] == 0) || (numbers[i] == 0 && numbers[i+1] == 0) ){
+					cont++;
+				}
+			}
+			System.out.println(cont);
+		}
+		scan.close();
+	}
+	
+	
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package pokemon;
+
+import java.io.File;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class Pokemon_v1 {
+	
+	public static Scanner sc;
+	
+	public static void main( String [ ] args ) throws Exception
+    {
+		File f = new File("A_2.txt");
+		if (f.exists()) {
+			sc = new Scanner(f);
+		} else {
+			sc = new Scanner(System.in);
+		}
+		
+		Hashtable<Integer, Integer> food = new Hashtable<>();
+		
+		int numberOfCases = Integer.parseInt(sc.nextLine());
+		int numberOfPonds = 0;
+		int fd = 0;
+		int poke = 0;
+		int content = 0;
+		int missing = 0;
+		
+		for ( int i = 1 ; i <= numberOfCases ; i ++){
+			
+			numberOfPonds = Integer.parseInt( sc.nextLine() );
+			
+			for ( int j = 0 ; j < numberOfPonds ; j ++) {
+				String s[] = sc.nextLine().split(" ");
+				fd = Integer.parseInt( s[0] );
+				poke = Integer.parseInt( s[1] );
+				
+				if ( !food.containsKey( fd )){
+					food.put( fd, 1 );
+				}else{
+					content = food.get( fd );
+					food.put( fd, ++content );
+				}
+				
+				if (food.containsKey( poke )){
+					content = food.get( poke );
+					
+					if ( content >= 1 ){
+						food.put( poke, --content );
+					}else{
+						missing++;
+					}
+				}else{
+					missing++;
+				}
+				
+			}
+			System.out.println( "Case #"+i+":" );
+			System.out.println( missing );
+		}
+		
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package pokemon;
+
+
+import java.io.File;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Pokemon_v2 {
+	
+	public static Scanner sc;
+	
+	public static void main( String [ ] args ) throws Exception
+    {
+		File f = new File("D_1.txt");
+		if (f.exists()) {
+			sc = new Scanner(f);
+		} else {
+			sc = new Scanner(System.in);
+		}
+		
+		Hashtable<Integer, Integer> food = new Hashtable<>();
+		TreeMap<Integer, Integer> auxiliar = new TreeMap<>();  
+		
+		int numberOfCases = 0;
+		numberOfCases = Integer.parseInt(sc.nextLine());
+		int numberOfPonds = 0;
+		int fd = 0;
+		int poke = 0;
+		int content = 0;
+		int missing = 0;
+		int cMax = 0;
+		int cMin = 0;
+		int max = 0;
+		int min = 1000000;
+		int aux  = 0;
+		
+		for ( int i = 1 ; i <= numberOfCases ; i ++){
+			
+			System.out.println("Case #" + i + ":");
+			
+			numberOfPonds = Integer.parseInt( sc.nextLine() );
+			
+			for ( int j = 0 ; j < numberOfPonds ; j ++) {
+				String s[] = sc.nextLine().split(" ");
+				fd = Integer.parseInt( s[0] );
+				poke = Integer.parseInt( s[1] );
+				
+				if ( !food.containsKey( fd )){
+					food.put( fd, 1 );
+				}else{
+					content = food.get( fd );
+					food.put( fd, ++content );
+				}
+				
+				if (food.containsKey( poke )){
+					content = food.get( poke );
+					
+					if ( content >= 1 ){
+						food.put( poke, --content );
+					}else{
+						missing++;
+						if(auxiliar.containsKey(poke)){
+                            content = auxiliar.get(poke);
+                            auxiliar.put(poke, ++content);
+                        }else{
+                        	auxiliar.put(poke, 1);
+                        }
+					}
+				}else{
+					missing++;
+					if(auxiliar.containsKey(poke)){
+                        content = auxiliar.get(poke);
+                        auxiliar.put(poke, ++content);
+                    }else{
+                    	auxiliar.put(poke, 1);
+                    }
+				}
+				
+			}
+			
+			if ( auxiliar.size() == 0 )
+				System.out.println("-1");
+			else{
+				
+				for ( Map.Entry<Integer, Integer> c : auxiliar.entrySet()){
+					 
+					aux = c.getValue();
+					
+					if ( aux > max ){
+						max = aux;
+						cMax = c.getKey();
+					}
+					
+					if ( aux < min ){
+						min = aux;
+						cMin = c.getKey();
+					}
+				}
+				
+				System.out.println(max + " " + cMax);
+				System.out.println(min + " " + cMin);
+			}
+			
+			food.clear();
+			auxiliar.clear();
+			max = 0;
+			cMax = 0;
+			
+		}
+		
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package president;
+
+import java.io.File;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class President {
+	
+	public static Scanner sc;
+	
+	 public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+	    {
+	        /**
+	         * Construct the binary heap.
+	         */
+	        public BinaryHeap( )
+	        {
+	            this( DEFAULT_CAPACITY );
+	        }
+
+	        /**
+	         * Construct the binary heap.
+	         * @param capacity the capacity of the binary heap.
+	         */
+	        public BinaryHeap( int capacity )
+	        {
+	            currentSize = 0;
+	            array = (AnyType[]) new Comparable[ capacity + 1 ];
+	        }
+
+	        /**
+	         * Construct the binary heap given an array of items.
+	         * @param items
+	         */
+	        public BinaryHeap( AnyType [ ] items )
+	        {
+	                currentSize = items.length;
+	                array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	                int i = 1;
+	                for( AnyType item : items )
+	                    array[ i++ ] = item;
+	                buildHeap( );
+	        }
+
+	        /**
+	         * Insert into the priority queue, maintaining heap order.
+	         * Duplicates are allowed.
+	         * @param x the item to insert.
+	         */
+	        public void insert( AnyType x )
+	        {
+	            if( currentSize == array.length - 1 )
+	                enlargeArray( array.length * 2 + 1 );
+
+	                // Percolate up
+	            int hole = ++currentSize;
+	            for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	                array[ hole ] = array[ hole / 2 ];
+	            array[ hole ] = x;
+	        }
+	        
+	        /**
+	         * 
+	         * @return size of Binary Heap
+	         */
+	        public int size(){
+	            return currentSize;
+	        }        
+	        
+	        private void enlargeArray( int newSize )
+	        {
+	                AnyType [] old = array;
+	                array = (AnyType []) new Comparable[ newSize ];
+	                for( int i = 0; i < old.length; i++ )
+	                    array[ i ] = old[ i ];        
+	        }
+
+	        /**
+	         * Find the smallest item in the priority queue.
+	         * @return the smallest item, or throw an UnderflowException if empty.
+	         * @throws java.lang.Exception
+	         */
+	        public AnyType findMin( ) throws Exception
+	        {
+	            if( isEmpty( ) )
+	                throw new Exception( );
+	            return array[ 1 ];
+	        }
+
+	        /**
+	         * Remove the smallest item from the priority queue.
+	         * @return the smallest item, or throw an UnderflowException if empty.
+	         * @throws java.lang.Exception
+	         */
+	        public AnyType deleteMin( ) throws Exception
+	        {
+	            if( isEmpty( ) )
+	                throw new Exception( );
+
+	            AnyType minItem = findMin( );
+	            array[ 1 ] = array[ currentSize-- ];
+	            percolateDown( 1 );
+
+	            return minItem;
+	        }
+
+	        /**
+	         * Establish heap order property from an arbitrary
+	         * arrangement of items. Runs in linear time.
+	         */
+	        private void buildHeap( )
+	        {
+	            for( int i = currentSize / 2; i > 0; i-- )
+	                percolateDown( i );
+	        }
+
+	        /**
+	         * Test if the priority queue is logically empty.
+	         * @return true if empty, false otherwise.
+	         */
+	        public boolean isEmpty( )
+	        {
+	            return currentSize == 0;
+	        }
+
+	        /**
+	         * Make the priority queue logically empty.
+	         */
+	        public void makeEmpty( )
+	        {
+	            currentSize = 0;
+	        }
+
+	        private static final int DEFAULT_CAPACITY = 10;
+
+	        private int currentSize;      // Number of elements in heap
+	        private AnyType [ ] array; // The heap array
+
+	        /**
+	         * Internal method to percolate down in the heap.
+	         * @param hole the index at which the percolate begins.
+	         */
+	        private void percolateDown( int hole )
+	        {
+	            int child;
+	            AnyType tmp = array[ hole ];
+
+	            for( ; hole * 2 <= currentSize; hole = child )
+	            {
+	                child = hole * 2;
+	                if( child != currentSize &&
+	                        array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                    child++;
+	                if( array[ child ].compareTo( tmp ) < 0 )
+	                    array[ hole ] = array[ child ];
+	                else
+	                    break;
+	            }
+	            array[ hole ] = tmp;
+	        }
+	    }
+	 
+	 public static class Candidate{
+	        String party;
+	        int votes;
+	        
+	        public Candidate( String party, int votes ){
+	            this.party = party;
+	            this.votes = votes;
+	        }
+	    }
+	 
+	 public static void main( String [ ] args ) throws Exception
+	    {
+			File f = new File("A_2.txt");
+			if (f.exists()) {
+				sc = new Scanner(f);
+			} else {
+				sc = new Scanner(System.in);
+			}
+			
+			int numberOfCases = Integer.parseInt(sc.nextLine());
+			 int win = 0;
+			
+			for ( int i= 1 ; i <= numberOfCases ; i++ ){
+				System.out.println("Case #" + i +":");
+				
+				TreeMap<String, Candidate> elections = new TreeMap<>();
+				
+				int numberOfCandidates = Integer.parseInt(sc.nextLine());
+				
+				
+				for ( int j = 0; j < numberOfCandidates; j++ ) {
+	                String s[] = sc.nextLine().split(" "); 
+	                String candidateName = s[0];
+	                String candidateParty = s[1];
+	                
+	                Candidate candidate = new Candidate (candidateParty, 0);
+	                elections.put(candidateName, candidate);
+	            }
+				
+				int numberOfVotes = Integer.parseInt(sc.nextLine());
+
+				for ( int j = 0; j < numberOfVotes; j++ ) {
+	                String vote = sc.nextLine();
+	                
+	                if(elections.containsKey(vote)){
+	                    Candidate candidate = elections.get(vote);
+	                    candidate.votes++;
+	                }
+	            }
+				
+				 BinaryHeap<String> winner = new BinaryHeap<>();
+				 
+				 for(Entry<String, Candidate> entry : elections.entrySet()){
+		                Candidate candidate = entry.getValue();
+		                
+		                if( candidate.votes == win)
+		                    winner.insert(candidate.party);
+		                
+		                if( candidate.votes > win){
+		                    win = candidate.votes;
+		                    winner.makeEmpty();
+		                    winner.insert(candidate.party);
+		                }
+		            }
+				 
+				 while(winner.size()>0)
+		                System.out.println(winner.deleteMin());
+				 
+				// elections.clear();
+			}
+	    }
+	 
+	 
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package friends;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Friends {
+
+public static Scanner sc;
+
+public static String toString( TreeMap<Integer, String> tm, String name){
+    
+    StringBuilder sb = new StringBuilder();
+    
+    for(Entry<Integer, String> entry : tm.entrySet()){
+        if(entry.getValue() == name)
+            sb.append( " " + entry.getKey()  );
+    }
+    return new String( sb );
+}
+	
+	public static void main( String [ ] args ) throws Exception
+    {
+		File f = new File("A_2.txt");
+		if (f.exists()) {
+			sc = new Scanner(f);
+		} else {
+			sc = new Scanner(System.in);
+		}
+		
+	
+		int norma = 0;
+		int mario = 0;
+		int pipe = 0;
+		int n = 0;
+		int m = 0;
+		int p = 0;
+		
+		
+		int numberOfCases = Integer.parseInt(sc.nextLine());
+		
+		for ( int i= 1 ; i <= numberOfCases ; i++ ){
+			
+			System.out.println("Case #" + i + ":");
+            String s[] = sc.nextLine().split(" ");
+            
+            
+            n = Integer.parseInt(s[0]);
+            m = Integer.parseInt(s[1]);
+            p = Integer.parseInt(s[2]);  
+            
+            HashSet<Integer> rep = new HashSet<>();
+            TreeMap<Integer, String> col = new TreeMap<>();
+
+         //NORMA
+            s = sc.nextLine().split(" ");
+            
+            for ( int j = 0; j < n; j++ ){
+                int problem  = Integer.parseInt(s[j]);//
+                norma++;
+                col.put(problem, "Norma");
+            }
+            
+            
+         //MARIO
+            s = sc.nextLine().split(" ");
+            
+            for (int j = 0; j < m; j++){
+                int problem = Integer.parseInt(s[j]);
+                if(col.containsKey ( problem )){
+                    norma--;
+                    rep.add( problem );
+                    col.remove( problem );
+                }
+                else{
+                    col.put(problem, "Mario");
+                    mario++;
+                }
+            }
+           
+          //PIPE
+            s = sc.nextLine().split(" ");
+            
+            for (int j = 0; j < p; j++){
+                int problem = Integer.parseInt(s[j]);//
+                if(rep.contains(problem))
+                    ;
+                else if(col.containsKey(problem)){
+                    if("Norma".equals(col.get(problem)))
+                        norma--;
+                    else
+                        mario--;
+                    
+                    rep.add(problem);
+                    col.remove(problem);
+                }
+                else{
+                    col.put(problem, "Pipe");
+                    pipe++;
+                }
+            }
+            
+            if(norma >= mario && norma >= pipe)
+                System.out.println("Norma " + norma + toString(col, "Norma"));
+            if(mario >= norma && mario >= pipe)
+                System.out.println("Mario " + mario + toString(col, "Mario"));
+            if(pipe >= norma && pipe >= mario)
+                System.out.println("Pipe " + pipe + toString(col, "Pipe"));
+            
+            
+            rep.clear();
+            col.clear();
+            norma = 0;
+            mario = 0;
+            pipe = 0;
+        }
+		
+		
+    }	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package pokemon;
+
+import java.io.File;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class Pokemon_v1 {
+	
+	public static Scanner sc;
+	
+	public static void main( String [ ] args ) throws Exception
+    {
+		File f = new File("B_2.txt");
+		if (f.exists()) {
+			sc = new Scanner(f);
+		} else {
+			sc = new Scanner(System.in);
+		}
+		
+		Hashtable<Integer, Integer> food = new Hashtable<>();
+		
+		int numberOfCases = Integer.parseInt(sc.nextLine());
+		int numberOfPonds = 0;
+		int fd = 0;
+		int poke = 0;
+		int content = 0;
+		int missing = 0;
+		
+		for ( int i = 1 ; i <= numberOfCases ; i ++){
+			
+			numberOfPonds = Integer.parseInt( sc.nextLine() );
+			
+			for ( int j = 0 ; j < numberOfPonds ; j ++) {
+				String s[] = sc.nextLine().split(" ");
+				fd = Integer.parseInt( s[0] );
+				poke = Integer.parseInt( s[1] );
+				
+				if ( !food.containsKey( fd )){
+					food.put( fd, 1 );
+				}else{
+					content = food.get( fd );
+					food.put( fd, ++content );
+				}
+				
+				if (food.containsKey( poke )){
+					content = food.get( poke );
+					
+					if ( content >= 1 ){
+						food.put( poke, --content );
+					}else{
+						missing++;
+					}
+				}else{
+					missing++;
+				}
+				
+			}
+			System.out.println( "Case #"+i+":" );
+			System.out.println( missing );
+			
+			missing = 0;
+			food.clear();
+		}
+		
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package pokemon;
+
+
+import java.io.File;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Pokemon_v2 {
+	
+	public static Scanner sc;
+	
+	public static void main( String [ ] args ) throws Exception
+    {
+		File f = new File("D_1.txt");
+		if (f.exists()) {
+			sc = new Scanner(f);
+		} else {
+			sc = new Scanner(System.in);
+		}
+		
+		Hashtable<Integer, Integer> food = new Hashtable<>();
+		TreeMap<Integer, Integer> auxiliar = new TreeMap<>();  
+		
+		int numberOfCases = 0;
+		numberOfCases = Integer.parseInt(sc.nextLine());
+		int numberOfPonds = 0;
+		int fd = 0;
+		int poke = 0;
+		int content = 0;
+		int missing = 0;
+		int cMax = 0;
+		int cMin = 0;
+		int max = 0;
+		int min = 1000000;
+		int aux  = 0;
+		
+		for ( int i = 1 ; i <= numberOfCases ; i ++){
+			
+			System.out.println("Case #" + i + ":");
+			
+			numberOfPonds = Integer.parseInt( sc.nextLine() );
+			
+			for ( int j = 0 ; j < numberOfPonds ; j ++) {
+				String s[] = sc.nextLine().split(" ");
+				fd = Integer.parseInt( s[0] );
+				poke = Integer.parseInt( s[1] );
+				
+				if ( !food.containsKey( fd )){
+					food.put( fd, 1 );
+				}else{
+					content = food.get( fd );
+					food.put( fd, ++content );
+				}
+				
+				if (food.containsKey( poke )){
+					content = food.get( poke );
+					
+					if ( content >= 1 ){
+						food.put( poke, --content );
+					}else{
+						missing++;
+						if(auxiliar.containsKey(poke)){
+                            content = auxiliar.get(poke);
+                            auxiliar.put(poke, ++content);
+                        }else{
+                        	auxiliar.put(poke, 1);
+                        }
+					}
+				}else{
+					missing++;
+					if(auxiliar.containsKey(poke)){
+                        content = auxiliar.get(poke);
+                        auxiliar.put(poke, ++content);
+                    }else{
+                    	auxiliar.put(poke, 1);
+                    }
+				}
+				
+			}
+			
+			if ( auxiliar.size() == 0 )
+				System.out.println("-1");
+			else{
+				
+				for ( Map.Entry<Integer, Integer> c : auxiliar.entrySet()){
+					 
+					aux = c.getValue();
+					
+					if ( aux > max ){
+						max = aux;
+						cMax = c.getKey();
+					}
+					
+					if ( aux < min ){
+						min = aux;
+						cMin = c.getKey();
+					}
+				}
+				
+				System.out.println(max + " " + cMax);
+				System.out.println(min + " " + cMin);
+			}
+			
+			food.clear();
+			auxiliar.clear();
+			max = 0;
+			cMax = 0;
+			missing = 0;
+			food.clear();
+		}
+		
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package president;
+
+import java.io.File;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class President {
+	
+	public static Scanner sc;
+	
+	 public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+	    {
+	        /**
+	         * Construct the binary heap.
+	         */
+	        public BinaryHeap( )
+	        {
+	            this( DEFAULT_CAPACITY );
+	        }
+
+	        /**
+	         * Construct the binary heap.
+	         * @param capacity the capacity of the binary heap.
+	         */
+	        public BinaryHeap( int capacity )
+	        {
+	            currentSize = 0;
+	            array = (AnyType[]) new Comparable[ capacity + 1 ];
+	        }
+
+	        /**
+	         * Construct the binary heap given an array of items.
+	         * @param items
+	         */
+	        public BinaryHeap( AnyType [ ] items )
+	        {
+	                currentSize = items.length;
+	                array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	                int i = 1;
+	                for( AnyType item : items )
+	                    array[ i++ ] = item;
+	                buildHeap( );
+	        }
+
+	        /**
+	         * Insert into the priority queue, maintaining heap order.
+	         * Duplicates are allowed.
+	         * @param x the item to insert.
+	         */
+	        public void insert( AnyType x )
+	        {
+	            if( currentSize == array.length - 1 )
+	                enlargeArray( array.length * 2 + 1 );
+
+	                // Percolate up
+	            int hole = ++currentSize;
+	            for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	                array[ hole ] = array[ hole / 2 ];
+	            array[ hole ] = x;
+	        }
+	        
+	        /**
+	         * 
+	         * @return size of Binary Heap
+	         */
+	        public int size(){
+	            return currentSize;
+	        }        
+	        
+	        private void enlargeArray( int newSize )
+	        {
+	                AnyType [] old = array;
+	                array = (AnyType []) new Comparable[ newSize ];
+	                for( int i = 0; i < old.length; i++ )
+	                    array[ i ] = old[ i ];        
+	        }
+
+	        /**
+	         * Find the smallest item in the priority queue.
+	         * @return the smallest item, or throw an UnderflowException if empty.
+	         * @throws java.lang.Exception
+	         */
+	        public AnyType findMin( ) throws Exception
+	        {
+	            if( isEmpty( ) )
+	                throw new Exception( );
+	            return array[ 1 ];
+	        }
+
+	        /**
+	         * Remove the smallest item from the priority queue.
+	         * @return the smallest item, or throw an UnderflowException if empty.
+	         * @throws java.lang.Exception
+	         */
+	        public AnyType deleteMin( ) throws Exception
+	        {
+	            if( isEmpty( ) )
+	                throw new Exception( );
+
+	            AnyType minItem = findMin( );
+	            array[ 1 ] = array[ currentSize-- ];
+	            percolateDown( 1 );
+
+	            return minItem;
+	        }
+
+	        /**
+	         * Establish heap order property from an arbitrary
+	         * arrangement of items. Runs in linear time.
+	         */
+	        private void buildHeap( )
+	        {
+	            for( int i = currentSize / 2; i > 0; i-- )
+	                percolateDown( i );
+	        }
+
+	        /**
+	         * Test if the priority queue is logically empty.
+	         * @return true if empty, false otherwise.
+	         */
+	        public boolean isEmpty( )
+	        {
+	            return currentSize == 0;
+	        }
+
+	        /**
+	         * Make the priority queue logically empty.
+	         */
+	        public void makeEmpty( )
+	        {
+	            currentSize = 0;
+	        }
+
+	        private static final int DEFAULT_CAPACITY = 10;
+
+	        private int currentSize;      // Number of elements in heap
+	        private AnyType [ ] array; // The heap array
+
+	        /**
+	         * Internal method to percolate down in the heap.
+	         * @param hole the index at which the percolate begins.
+	         */
+	        private void percolateDown( int hole )
+	        {
+	            int child;
+	            AnyType tmp = array[ hole ];
+
+	            for( ; hole * 2 <= currentSize; hole = child )
+	            {
+	                child = hole * 2;
+	                if( child != currentSize &&
+	                        array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                    child++;
+	                if( array[ child ].compareTo( tmp ) < 0 )
+	                    array[ hole ] = array[ child ];
+	                else
+	                    break;
+	            }
+	            array[ hole ] = tmp;
+	        }
+	    }
+	 
+	 public static class Candidate{
+	        String party;
+	        int votes;
+	        
+	        public Candidate( String party, int votes ){
+	            this.party = party;
+	            this.votes = votes;
+	        }
+	    }
+	 
+	 public static void main( String [ ] args ) throws Exception
+	    {
+			File f = new File("D_2.txt");
+			if (f.exists()) {
+				sc = new Scanner(f);
+			} else {
+				sc = new Scanner(System.in);
+			}
+			
+			int numberOfCases = Integer.parseInt(sc.nextLine());
+			 int win = 0;
+			
+			for ( int i= 1 ; i <= numberOfCases ; i++ ){
+				System.out.println("Case #" + i +":");
+				
+				TreeMap<String, Candidate> elections = new TreeMap<>();
+				BinaryHeap<String> winner = new BinaryHeap<>();
+				
+				int numberOfCandidates = Integer.parseInt(sc.nextLine());
+				
+				
+				for ( int j = 0; j < numberOfCandidates; j++ ) {
+	                String s[] = sc.nextLine().split(" "); 
+	                String candidateName = s[0];
+	                String candidateParty = s[1];
+	                
+	                Candidate candidate = new Candidate (candidateParty, 0);
+	                elections.put(candidateName, candidate);
+	            }
+				
+				int numberOfVotes = Integer.parseInt(sc.nextLine());
+
+				for ( int j = 0; j < numberOfVotes; j++ ) {
+	                String vote = sc.nextLine();
+	                
+	                if(elections.containsKey(vote)){
+	                    Candidate candidate = elections.get(vote);
+	                    candidate.votes++;
+	                }
+	            }
+				
+				 
+				 for(Entry<String, Candidate> entry : elections.entrySet()){
+		                Candidate candidate = entry.getValue();
+		                
+		                if( candidate.votes == win){
+		                	winner.insert(candidate.party);
+		                	
+		                }
+		                    
+		                if( candidate.votes > win){
+		                    win = candidate.votes;
+		                    winner.makeEmpty();
+		                    winner.insert(candidate.party);
+		                }
+		            }
+				 
+				 while(winner.size() > 0)
+		                System.out.println(winner.deleteMin());
+				 
+				win = 0;
+			}
+	    }
+	 
+	 
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package hashFunction;
+
+import java.io.File;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+
+public class HashFunction {
+	
+	public static Scanner sc;
+	
+	public static class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    @SuppressWarnings("unused")
+		private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    public void push (AnyType x){
+	    	add(0,x);
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	    
+	    public AnyType top ()
+	    {
+	    	return get (0); 
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    public AnyType pop(){
+	    	return remove (0);
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	   
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private static class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+	
+	public static class MyArrayList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty ArrayList.
+	     */
+	    public MyArrayList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    /**
+	     * Returns true if this collection is empty.
+	     * @return true if this collection is empty.
+	     */ 
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        if( idx < 0 || idx >= size( ) )
+	            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+	        return theItems[ idx ];    
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        if( idx < 0 || idx >= size( ) )
+	            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+	        AnyType old = theItems[ idx ];    
+	        theItems[ idx ] = newVal;
+	        
+	        return old;    
+	    }
+
+	    @SuppressWarnings("unchecked")
+	    public void ensureCapacity( int newCapacity )
+	    {
+	        if( newCapacity < theSize )
+	            return;
+
+	        AnyType [ ] old = theItems;
+	        theItems = (AnyType []) new Object[ newCapacity ];
+	        for( int i = 0; i < size( ); i++ )
+	            theItems[ i ] = old[ i ];
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the specified index.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        if( theItems.length == size( ) )
+	            ensureCapacity( size( ) * 2 + 1 );
+
+	        for( int i = theSize; i > idx; i-- )
+	            theItems[ i ] = theItems[ i - 1 ];
+
+	        theItems[ idx ] = x;
+	        theSize++;  
+	    }
+	      
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        AnyType removedItem = theItems[ idx ];
+	        
+	        for( int i = idx; i < size( ) - 1; i++ )
+	            theItems[ i ] = theItems[ i + 1 ];
+	        theSize--;    
+	        
+	        return removedItem;
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void doClear( )
+	    {
+	        theSize = 0;
+	        ensureCapacity( DEFAULT_CAPACITY );
+	    }
+	    
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new ArrayListIterator( );
+	    }
+
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	            StringBuilder sb = new StringBuilder( "[ " );
+
+	            for( AnyType x : this )
+	                sb.append( x + " " );
+	            sb.append( "]" );
+
+	            return new String( sb );
+	    }
+	    
+	    /**
+	     * This is the implementation of the ArrayListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyArrayList.
+	     */
+	    private class ArrayListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private int current = 0;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current < size( );
+	        }
+	        
+	        
+	        public AnyType next( )
+	        {
+	            if( !hasNext( ) ) 
+	                throw new java.util.NoSuchElementException( ); 
+	                  
+	            okToRemove = true;    
+	            return theItems[ current++ ];
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyArrayList.this.remove( --current );
+	            okToRemove = false;
+	        }
+	    }
+	    
+	    private static final int DEFAULT_CAPACITY = 10;
+	    
+	    private AnyType [ ] theItems;
+	    private int theSize;
+	}
+	
+	public static void main( String [ ] args ) throws Exception
+    {
+		File f = new File("B_23.txt");
+		if (f.exists()) {
+			sc = new Scanner(f);
+		} else {
+			sc = new Scanner(System.in);
+		}
+		
+		int numberOfCases = 0;
+		int numberOfNumbers = 0;
+		int numberOfFunctions = 0;
+		int numbers [];
+		int functions = 0;
+		int mod = 0;
+		
+		MyArrayList<Integer> theNum = new MyArrayList<>();
+		MyArrayList<Integer> theFunc = new MyArrayList<>();
+		Hashtable<Integer, MyLinkedList<Integer>> module = new Hashtable<>();
+		
+		numberOfCases = Integer.parseInt(sc.nextLine());
+		
+		for ( int i = 1 ; i <= numberOfCases ; i ++){
+			String s[] = sc.nextLine().split(" ");
+			numberOfNumbers = Integer.parseInt( s[0] );
+			numberOfFunctions = Integer.parseInt( s[1] );
+			
+			String so[] = sc.nextLine().split(" ");
+			
+			for ( int j = 0 ; j < numberOfNumbers ; j++ ){
+				
+				theNum.add(Integer.parseInt( so[j] ));
+				System.out.println(theNum.toString());
+			}
+			
+			String sf[] = sc.nextLine().split(" ");
+			
+			for ( int k = 0; k < numberOfFunctions ; k++){
+				
+				theFunc.add(Integer.parseInt( sf[k] ));
+				System.out.println(theFunc.toString());
+			}
+			
+			for ( int m = 0 ; m < theFunc.size() ; m++){
+				for ( int n = 0 ; n < theNum.size() ; n++ ){
+					mod = theNum.get(n) % theFunc.get(m);
+					
+					if ( module.containsKey(mod)){
+						module.get(mod).add(theNum.get(n));
+					}else{
+						MyLinkedList<Integer> numbs = new MyLinkedList<>();
+						numbs.add(theNum.get(n));
+						module.put(mod, numbs);
+					}
+				}
+			}
+			
+			
+			
+		}
+		
+		
+    }
+	
+	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+/*
+EJEMPLO DE INPUT
+5 9
+1 2 7
+1 4 2
+2 3 1
+2 4 2
+3 5 4
+4 2 3
+4 3 8
+4 5 5
+5 3 5
+1
+*/
+import java.util.*;
+
+public class DJ {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vértices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vértice inicial a vértice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vértices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//función de inicialización
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vértices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vértice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo será el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vértice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vértice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo)
+	    		count++;
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+//	    print( destino );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h< (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		System.out.printf("%d" , count);
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+/*
+EJEMPLO DE INPUT
+5 9
+1 2 7
+1 4 2
+2 3 1
+2 4 2
+3 5 4
+4 2 3
+4 3 8
+4 5 5
+5 3 5
+1
+*/
+import java.util.*;
+
+public class DJ {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//función de inicialización
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo será el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo)
+	    		count++;
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+//	    print( destino );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h< (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		System.out.printf("%d" , count);
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+/*
+EJEMPLO DE INPUT
+5 9
+1 2 7
+1 4 2
+2 3 1
+2 4 2
+3 5 4
+4 2 3
+4 3 8
+4 5 5
+5 3 5
+1
+*/
+import java.util.*;
+
+public class DJ {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//función de inicialización
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo sera el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo)
+	    		count++;
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+//	    print( destino );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h< (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		System.out.printf("%d" , count);
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+/*
+EJEMPLO DE INPUT
+5 9
+1 2 7
+1 4 2
+2 3 1
+2 4 2
+3 5 4
+4 2 3
+4 3 8
+4 5 5
+5 3 5
+1
+*/
+import java.util.*;
+
+public class DJ {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//funcion de inicializacion
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo sera el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo)
+	    		count++;
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+//	    print( destino );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h< (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		System.out.printf("%d" , count);
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package conejita;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class PbGrafo {
+	
+	public static Scanner sc;
+	public static ArrayList<ArrayList<Integer>> grafo;
+	public static Hashtable<Integer, ArrayList<Integer>> grafos;
+
+	public static void main(String [ ] args)throws FileNotFoundException
+	{
+		ArrayList<ArrayList<Integer>> listAdy = new ArrayList<>();
+		grafo = listAdy;
+		Hashtable<Integer, ArrayList<Integer>> listAd = new Hashtable<Integer, ArrayList<Integer>>();
+		grafos = listAd;
+		File f = new File("C.in");
+		if(f.exists()){
+			sc = new Scanner(f);
+		}else{
+			sc = new Scanner(System.in);
+		}
+		
+		int t = Integer.parseInt(sc.nextLine());
+		for (int i = 0; i < t; i++) {
+			HashSet<Integer> nums = new HashSet<>();
+			boolean boleano = true;
+			
+			System.out.println("Test #"+ (i+1) + ":");
+			String s[] = sc.nextLine().split(" ");
+			int N = Integer.parseInt(s[0]);
+			int M = Integer.parseInt(s[1]);
+			for (int j = 0; j < M; j++) {
+				
+				String k[] = sc.nextLine().split(" ");
+				int tema = Integer.parseInt(k[0]);
+				int relacion = Integer.parseInt(k[1]);
+				
+				if(!grafos.containsKey(tema)){
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					relaciones.add(relacion);
+					grafos.put(tema, relaciones);
+				}else{
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					relaciones = grafos.get(tema);
+					relaciones.add(relacion);
+					grafos.put(tema, relaciones);
+					nums.add(tema);				
+					
+				}	
+			}
+			
+			//parte logica
+			Iterator it = nums.iterator();
+			while (it.hasNext()){
+				ArrayList<Integer> prob = new ArrayList<Integer>();
+				//System.out.println("Value: "+it.next() + " ");  
+				prob = grafos.get(it.next());
+//				System.out.println(prob.get(0) + "  " + prob.get(1)+ "  " + prob.size());
+				
+				for (int l = 0 ; l < prob.size()-1 ; l++){
+					ArrayList<Integer> util = new ArrayList<>();
+					util = grafos.get(prob.get(l));
+//					System.out.println("aqui  " + util + prob.get(l));
+					if (util != null){
+						if (util.contains(prob.get(l+1))){
+							boleano = false;
+						}
+					}
+					
+				}
+		    }
+			if (!boleano){
+				System.out.println("Deberia empezar a estudiar");
+			}else{
+			}
+			
+//			System.out.println(grafos.toString());
+//			System.out.println(grafos.values());
+//			System.out.println(nums.toString());
+			grafos.clear();
+			nums.clear();
+				
+		}
+
+			
+			
+
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+/*
+EJEMPLO DE INPUT
+5 9
+1 2 7
+1 4 2
+2 3 1
+2 4 2
+3 5 4
+4 2 3
+4 3 8
+4 5 5
+5 3 5
+1
+*/
+import java.util.*;
+
+public class DJ {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//funcion de inicializacion
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo sera el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo)
+	    		count++;
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+//	    print( destino );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h< (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		System.out.printf(count);
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package conejita;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class PbGrafo {
+	
+	public static Scanner sc;
+	public static ArrayList<ArrayList<Integer>> grafo;
+	public static Hashtable<Integer, ArrayList<Integer>> grafos;
+
+	public static void main(String [ ] args)throws FileNotFoundException
+	{
+		ArrayList<ArrayList<Integer>> listAdy = new ArrayList<>();
+		grafo = listAdy;
+		Hashtable<Integer, ArrayList<Integer>> listAd = new Hashtable<Integer, ArrayList<Integer>>();
+		grafos = listAd;
+		File f = new File("C.in");
+		if(f.exists()){
+			sc = new Scanner(f);
+		}else{
+			sc = new Scanner(System.in);
+		}
+		
+		int t = Integer.parseInt(sc.nextLine());
+		for (int i = 0; i < t; i++) {
+			HashSet<Integer> nums = new HashSet<>();
+			boolean boleano = true;
+			
+			System.out.println("Case #"+ (i+1) + ":");
+			String s[] = sc.nextLine().split(" ");
+			int N = Integer.parseInt(s[0]);
+			int M = Integer.parseInt(s[1]);
+			for (int j = 0; j < M; j++) {
+				
+				String k[] = sc.nextLine().split(" ");
+				int tema = Integer.parseInt(k[0]);
+				int relacion = Integer.parseInt(k[1]);
+				
+				if(!grafos.containsKey(tema)){
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					relaciones.add(relacion);
+					grafos.put(tema, relaciones);
+				}else{
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					relaciones = grafos.get(tema);
+					relaciones.add(relacion);
+					grafos.put(tema, relaciones);
+					nums.add(tema);				
+					
+				}	
+			}
+			
+			//parte logica
+			Iterator it = nums.iterator();
+			while (it.hasNext()){
+				ArrayList<Integer> prob = new ArrayList<Integer>();
+				//System.out.println("Value: "+it.next() + " ");  
+				prob = grafos.get(it.next());
+//				System.out.println(prob.get(0) + "  " + prob.get(1)+ "  " + prob.size());
+				
+				for (int l = 0 ; l < prob.size()-1 ; l++){
+					ArrayList<Integer> util = new ArrayList<>();
+					util = grafos.get(prob.get(l));
+//					System.out.println("aqui  " + util + prob.get(l));
+					if (util != null){
+						if (util.contains(prob.get(l+1))){
+							boleano = false;
+						}
+					}
+					
+				}
+		    }
+			if (!boleano){
+				System.out.println("Deberia empezar a estudiar");
+			}else{
+			}
+			
+//			System.out.println(grafos.toString());
+//			System.out.println(grafos.values());
+//			System.out.println(nums.toString());
+			grafos.clear();
+			nums.clear();
+				
+		}
+
+			
+			
+
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+/*
+EJEMPLO DE INPUT
+5 9
+1 2 7
+1 4 2
+2 3 1
+2 4 2
+3 5 4
+4 2 3
+4 3 8
+4 5 5
+5 3 5
+1
+*/
+import java.util.*;
+
+public class DJ {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//funcion de inicializacion
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo sera el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo)
+	    		count++;
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+//	    print( destino );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h< (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		System.out.println(count);
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+
+import java.util.*;
+
+public class DJ2 {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vértices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	static boolean boleano= true;
+	static ArrayList<Integer> ratones = new ArrayList<Integer>();;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vértice inicial a vértice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vértices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//función de inicialización
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vértices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        //System.out.println("imprimeme");
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	   //System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+       if(boleano){
+    	   ratones.add(destino);
+	    //System.out.println( destino ); //terminada la recursion imprimo los vertices recorridos
+       boleano = false;
+       }
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vértice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo será el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vértice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vértice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo){
+	    	    //System.out.println( previo[global] );
+	    		boleano = true;
+	    		count++;
+	    	}
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+	    print( global );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h < (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		for (int r = 0 ; r < ratones.size() ; r ++){ 
+			System.out.printf( "%d " , ratones.get(r));
+		}
+		
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		ratones.clear();
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+
+import java.util.*;
+
+public class DJ2 {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	static boolean boleano= true;
+	static ArrayList<Integer> ratones = new ArrayList<Integer>();;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//funcion de inicializacion
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        //System.out.println("imprimeme");
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	   //System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+       if(boleano){
+    	   ratones.add(destino);
+	    //System.out.println( destino ); //terminada la recursion imprimo los vertices recorridos
+       boleano = false;
+       }
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo será el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo){
+	    	    //System.out.println( previo[global] );
+	    		boleano = true;
+	    		count++;
+	    	}
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+	    print( global );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h < (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		for (int r = 0 ; r < ratones.size() ; r ++){ 
+			System.out.printf( "%d " , ratones.get(r));
+		}
+		
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		ratones.clear();
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+
+import java.util.*;
+
+public class DJ2 {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	static boolean boleano= true;
+	static ArrayList<Integer> ratones = new ArrayList<Integer>();;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//funcion de inicializacion
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        //System.out.println("imprimeme");
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	   //System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+       if(boleano){
+    	   ratones.add(destino);
+	    //System.out.println( destino ); //terminada la recursion imprimo los vertices recorridos
+       boleano = false;
+       }
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo sera el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo){
+	    	    //System.out.println( previo[global] );
+	    		boleano = true;
+	    		count++;
+	    	}
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+	    print( global );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*2;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h < (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		for (int r = 0 ; r < ratones.size() ; r ++){ 
+			System.out.printf( "\n", "%d " , ratones.get(r));
+		}
+		
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		ratones.clear();
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/****************************************************
+ ***Algoritmo: Dijkstra (One Source Shortest Path)
+ ***Tipo: Grafos
+ ***Autor: Jhosimar George Arias Figueroa
+ ****************************************************/
+package conejita;
+
+import java.util.*;
+
+public class DJ2 {
+	
+	//similar a los defines de C++
+	static final int MAX = 10005;  //maximo numero de vertices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int global = 0;
+	static int tiempo = 0;
+	static int count = 0;
+	static boolean boleano= true;
+	static ArrayList<Integer> ratones = new ArrayList<Integer>();;
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady = new ArrayList< List< Node > >(); //lista de adyacencia
+	static int distancia[ ] = new int[ MAX ];          //distancia[ u ] distancia de vertice inicial a vertice con ID = u
+	static boolean visitado[ ] = new boolean[ MAX ];   //para vertices visitados
+	static PriorityQueue< Node > Q = new PriorityQueue<Node>(); //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[] = new int[ MAX ];              //para la impresion de caminos
+	
+	//funcion de inicializacion
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vertices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion( int actual , int adyacente , int peso ){
+	    //Si la distancia del origen al vertice actual + peso de su arista es menor a la distancia del origen al vertice adyacente
+	    if( distancia[ actual ] + peso < distancia[ adyacente ] ){
+	        distancia[ adyacente ] = distancia[ actual ] + peso;  //relajamos el vertice actualizando la distancia
+	        previo[ adyacente ] = actual;                         //a su vez actualizamos el vertice previo
+	        //System.out.println("imprimeme");
+	        Q.add( new Node( adyacente , distancia[ adyacente ] ) ); //agregamos adyacente a la cola de prioridad
+	    }
+	}
+
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	   //System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+       if(boleano){
+    	   ratones.add(destino);
+	    //System.out.println( destino ); //terminada la recursion imprimo los vertices recorridos
+       boleano = false;
+       }
+	}
+
+	
+	static void dijkstra( int inicial ){
+	    init(); //inicializamos nuestros arreglos
+	    Q.add( new Node( inicial , 0 ) ); //Insertamos el vertice inicial en la Cola de Prioridad
+	    distancia[ inicial ] = 0;      //Este paso es importante, inicializamos la distancia del inicial como 0
+	    int actual , adyacente , peso;
+	    while( !Q.isEmpty() ){                   //Mientras cola no este vacia
+	        actual = Q.element().first;            //Obtengo de la cola el nodo con menor peso, en un comienzo sera el inicial
+	        Q.remove();                           //Sacamos el elemento de la cola
+	        if( visitado[ actual ] ) continue; //Si el vertice actual ya fue visitado entonces sigo sacando elementos de la cola
+	        visitado[ actual ] = true;         //Marco como visitado el vertice actual
+
+	        for( int i = 0 ; i < ady.get( actual ).size() ; ++i ){ //reviso sus adyacentes del vertice actual
+	            adyacente = ady.get( actual ).get( i ).first;   //id del vertice adyacente
+	            peso = ady.get( actual ).get( i ).second;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+	            if( !visitado[ adyacente ] ){        //si el vertice adyacente no fue visitado
+	                relajacion( actual , adyacente , peso ); //realizamos el paso de relajacion
+	            }
+	        }
+	    }
+
+
+	    //System.out.printf( "Distancias mas cortas iniciando en vertice %d\n" , inicial );
+	    
+//	    for( int i = 0 ; i <= V ; ++i ){
+	    
+	    	if (distancia[global] <= tiempo){
+	    	    //System.out.println( previo[global] );
+	    		boleano = true;
+	    		count++;
+	    	}
+	    	//System.out.printf("Vertice %d , distancia mas corta = %d\n" , global , distancia[ global ] );
+//	    }
+
+//	    System.out.println("\n**************Impresion de camino mas corto**************");
+//	    System.out.printf("Ingrese vertice destino: ");
+//	    int destino;
+//	    destino = sc.nextInt();
+	    print( global );
+//	    System.out.printf("\n");
+	}
+	
+	
+	public static void main(String[] args) {
+		int E , origen, destino , peso , inicial, numcases;
+		numcases = sc.nextInt();
+		
+		for (int l = 0 ; l < numcases ; l++){
+		V = sc.nextInt();
+		global = sc.nextInt();
+		tiempo = sc.nextInt();
+		E = sc.nextInt();
+		
+		V = V*4;
+		
+		for( int i = 0 ; i < V ; ++i ) 
+			ady.add(new ArrayList<Node>()) ; //inicializamos lista de adyacencia
+		for( int i = 0 ; i < E ; ++i ){
+			origen = sc.nextInt();
+			destino = sc.nextInt(); 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );    //grafo diridigo
+			//ady.get( destino ).add( new Node( destino , peso ) ); //no dirigido
+		}
+		//System.out.print("Ingrese el vertice inicial: ");
+		
+		//mi
+		for (int h = 0 ; h < (ady.size()) ; h++){
+			dijkstra( h );
+			
+			//System.out.println("cambiamos");
+		}
+		
+		System.out.println("Case #"+(l+1)+":");
+		for (int r = 0 ; r < ratones.size() ; r ++){ 
+			System.out.printf( "%d " , ratones.get(r));
+		}
+		
+//	    inicial = sc.nextInt();
+//	    dijkstra( inicial );
+		
+		ady.clear();
+		Q.clear();
+		count = 0;
+		ratones.clear();
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
+//package conejita;
+
+public class EjercicioB {
+
+	static class graph {
+
+		class Nodo /*implements Comparable<Nodo>*/ {
+			Integer inDegree;
+			Integer topNum=0;
+
+			/**
+			 * @param v
+			 * @param w
+			 * @param weight
+			 */
+			public Nodo( Integer w) {
+				this.inDegree = w;
+			}
+
+			/*@Override
+			public int compareTo(Nodo o) {
+				if (weight == o.weight) {
+					return v - o.v;
+				}
+				return weight - o.weight;
+			}*/
+
+		}
+
+		ArrayList<ArrayList<Integer>> graf;
+
+		public graph() {
+			graf = new ArrayList<ArrayList<Integer>>();
+
+		}
+
+		public void add(int v, int w) {
+			graf.get(v).add(w);
+		}
+
+		public int BFS(int source) {
+			Queue<Integer> q = new LinkedList<Integer>();
+			int number = 0;
+			q.add(source);
+			int dist[] = new int[graf.size()];
+			boolean vis[] = new boolean[graf.size()];
+			dist[source] = 0;
+			vis[source] = true;
+			while (!q.isEmpty()) {
+				int current = q.poll();
+				for (int i = 0; i < graf.get(current).size(); i++) {
+					int neigh = graf.get(current).get(i);
+					if (vis[neigh] == false) {
+						number++;
+						q.add(neigh);
+						dist[neigh] = dist[current] + 1;
+						vis[neigh] = true;
+					}
+				}
+			}
+
+			return number;
+		}
+
+		public int outDegree(int v) {
+			return graf.get(v).size();
+		}
+
+		public int inDegree(int v) {
+			int a = 0;
+			for (int i = 0; i < graf.size(); i++) {
+				if (graf.get(i).contains(v)) {
+					a++;
+				}
+			}
+
+			return a;
+		}
+		
+		public boolean conectVW(int v, int w) {
+
+			for (int i = 0; i < graf.get(v).size(); i++) {
+				if (graf.get(v).get(i) == w)
+					return true;
+			}
+			return false;
+		}
+
+		
+		public void sort() {
+			
+			PriorityQueue<Integer> order = new PriorityQueue<Integer>();
+			Nodo[] topics = new Nodo[graf.size()];
+			int counter = 0;
+			
+			for(int i=0; i<graf.size();i++){
+				topics[ i ]= new Nodo(inDegree( i ));
+			}
+
+			for (int i = 0; i < graf.size(); i++) {
+				if (topics[i].inDegree == 0) {
+					order.add(i);
+					counter++;
+				}
+			}
+		
+
+			if (counter > 1) { 				
+				return;
+			}
+
+
+
+			while (!order.isEmpty()) {
+				int variable = 0;
+				Integer v = order.remove();
+				 topics[v].topNum=++counter;
+
+				
+
+				for (int i = 0; i < graf.get(v).size(); i++) {
+					if (--topics[graf.get(v).get(i)].inDegree == 0) {
+						order.add(graf.get(v).get(i));
+						variable++; // Para proyecto 7.
+					}
+				}
+
+
+				if (variable > 1) {
+					return;
+				}
+
+			}
+
+			System.out.println("Deberia empezar a estudiar"); 
+
+		}
+
+	}
+	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("P7");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int numberOfCases = Integer.parseInt(scan.nextLine());
+		for (int i = 1; i <= numberOfCases; i++) {
+			
+			graph subject = new graph();
+			
+			
+			System.out.println("Case #" + (i) + ":");
+			
+			String s[] = scan.nextLine().split(" ");
+			int numberOfTopics = Integer.parseInt(s[0]);
+			int relations = Integer.parseInt(s[1]);
+
+			for (int j = 0; j < numberOfTopics; j++) {
+				ArrayList<Integer> tema = new ArrayList<Integer>();
+				subject.graf.add(tema);
+			}
+
+			for (int k = 0; k < relations; k++) {
+				String pre[] = scan.nextLine().split(" ");
+				int v = Integer.parseInt(pre[0]);
+				int w = Integer.parseInt(pre[1]);
+				subject.add(v, w);
+			}
+
+			subject.sort();
+			
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package conejita;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class PaGrafo {
+	
+	public static Scanner sc;
+	public static ArrayList<ArrayList<Integer>> grafo;
+	public static Hashtable<Integer, ArrayList<Integer>> grafos;
+	public static HashSet<Integer> nums = new HashSet<>();
+
+	
+	public static HashSet<Integer> estacionesFinales (int estacion){
+		ArrayList<Integer> est = new ArrayList<Integer>();
+		est = grafos.get(estacion);
+		HashSet<Integer> numses = new HashSet<>();
+		
+		   for (int u = 0 ; u < est.size() ; u++){
+			   int entrada = est.get(u);
+			   if (!nums.contains(entrada)){
+				   nums.add(entrada);
+				   estacionesFinales(entrada);
+				   
+			   }
+		   }
+
+		   //System.out.println(nums);
+		return nums;
+	}
+//	static void print( int destino ){
+//	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+//	        print( previo[ destino ] );  //recursivamente sigo explorando
+//	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+//	}
+
+	public static void main(String [ ] args)throws FileNotFoundException
+	{
+		ArrayList<ArrayList<Integer>> listAdy = new ArrayList<>();
+		grafo = listAdy;
+		Hashtable<Integer, ArrayList<Integer>> listAd = new Hashtable<Integer, ArrayList<Integer>>();
+		grafos = listAd;
+		File f = new File("C.in");
+		if(f.exists()){
+			sc = new Scanner(f);
+		}else{
+			sc = new Scanner(System.in);
+		}
+		
+		int t = Integer.parseInt(sc.nextLine());
+		for (int i = 0; i < t; i++) {
+			
+			
+			System.out.println("Case #"+ (i+1) + ":");
+			String s[] = sc.nextLine().split(" ");
+			int N = Integer.parseInt(s[0]);
+			int M = Integer.parseInt(s[1]);
+			for (int j = 0; j < M; j++) {
+				
+				String k[] = sc.nextLine().split(" ");
+				int estacionA = Integer.parseInt(k[0]);
+				int estacionB = Integer.parseInt(k[1]);
+				
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					ArrayList<Integer> relaciones2 = new ArrayList<Integer>();
+					
+					if(!grafos.containsKey(estacionA)){
+						grafos.put(estacionA, relaciones);
+					}
+					if(!grafos.containsKey(estacionB)){
+						grafos.put(estacionB, relaciones2);
+					}
+					relaciones = grafos.get(estacionA);
+					relaciones.add(estacionB);
+					
+					relaciones2 = grafos.get(estacionB);
+					relaciones2.add(estacionA);
+					
+					grafos.put(estacionA, relaciones);	
+					
+					grafos.put(estacionB, relaciones2);
+					
+					
+			}
+			int finalstation = Integer.parseInt(sc.nextLine());
+			
+			estacionesFinales(finalstation);
+			
+			
+			
+			
+			//System.out.println(grafos.toString());
+			System.out.println((nums.size()-1));
+			//System.out.println(nums);
+			grafos.clear();
+			nums.clear();
+				
+		}
+
+			
+			
+
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
+//package conejita;
+
+public class EjercicioD {
+
+	static class MyGraph {
+
+		class Nodo /*implements Comparable<Nodo>*/ {
+			Integer inDegree;
+			Integer topNum=0;
+
+			/**
+			 * @param v
+			 * @param w
+			 * @param weight
+			 */
+			public Nodo( Integer w) {
+				this.inDegree = w;
+			}
+
+		}
+
+		ArrayList<ArrayList<Integer>> graf;
+
+		public MyGraph() {
+			graf = new ArrayList<ArrayList<Integer>>();
+
+		}
+
+		public void add(int v, int w) {
+			graf.get(v).add(w);
+		}
+
+		public int BFS(int source) {
+			Queue<Integer> q = new LinkedList<Integer>();
+			int number = 0;
+			q.add(source);
+			int dist[] = new int[graf.size()];
+			boolean vis[] = new boolean[graf.size()];
+			dist[source] = 0;
+			vis[source] = true;
+			while (!q.isEmpty()) {
+				int current = q.poll();
+				for (int i = 0; i < graf.get(current).size(); i++) {
+					int neigh = graf.get(current).get(i);
+					if (vis[neigh] == false) {
+						number++;
+						q.add(neigh);
+						dist[neigh] = dist[current] + 1;
+						vis[neigh] = true;
+					}
+				}
+			}
+
+			return number;
+		}
+
+		public int outDegree(int v) {
+			return graf.get(v).size();
+		}
+
+		public int inDegree(int v) {
+			int a = 0;
+			for (int i = 0; i < graf.size(); i++) {
+				if (graf.get(i).contains(v)) {
+					a++;
+				}
+			}
+
+			return a;
+		}
+		
+		public boolean conectVW(int v, int w) {
+
+			for (int i = 0; i < graf.get(v).size(); i++) {
+				if (graf.get(v).get(i) == w)
+					return true;
+			}
+			return false;
+		}
+
+		
+		public void sort() {
+			PriorityQueue<Integer> order = new PriorityQueue<Integer>();
+			Nodo[] topics = new Nodo[graf.size()];
+			int counter = 0;
+			
+			for(int i=0; i<graf.size();i++){
+				topics[ i ]= new Nodo(inDegree( i ));
+			}
+
+			for (int i = 0; i < graf.size(); i++) {
+				if (topics[i].inDegree == 0) {
+					order.add(i);
+					counter++;
+				}
+			}
+		
+
+			if (counter > 1) { 
+															
+				return;
+			}
+			
+
+			while (!order.isEmpty()) {
+				Integer v = order.remove();
+				//System.out.print(v+" ");
+				 topics[v].topNum=++counter;
+
+				int ctr = 0;
+
+				for (int i = 0; i < graf.get(v).size(); i++) {
+					if (--topics[graf.get(v).get(i)].inDegree == 0) {
+						order.add(graf.get(v).get(i));
+						ctr++; 
+					}
+				}
+
+				
+
+				if (ctr > 1) {
+					return;
+				}
+
+			
+			}
+
+			
+
+			System.out.println("Deberia empezar a estudiar"); 
+
+			
+		}
+
+	}
+	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("P7");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int cases = Integer.parseInt(scan.nextLine());
+		for (int test = 0; test < cases; test++) {
+			System.out.println("Case #" + (test + 1) + ":");
+			MyGraph materia = new MyGraph();
+			String lines[] = scan.nextLine().split(" ");
+			int N = Integer.parseInt(lines[0]);
+			int M = Integer.parseInt(lines[1]);
+
+			for (int i = 0; i < N; i++) {
+				ArrayList<Integer> tema = new ArrayList<Integer>();
+				materia.graf.add(tema);
+			}
+
+			for (int i = 0; i < M; i++) {
+				String pre[] = scan.nextLine().split(" ");
+				int v = Integer.parseInt(pre[0]);
+				int w = Integer.parseInt(pre[1]);
+				materia.add(v, w);
+			}
+
+			materia.sort();
+			
+			System.out.println();
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class EjercicioD {
+
+	static class MyGraph {
+
+		class Nodo /*implements Comparable<Nodo>*/ {
+			Integer inDegree;
+			Integer topNum=0;
+
+			/**
+			 * @param v
+			 * @param w
+			 * @param weight
+			 */
+			public Nodo( Integer w) {
+				this.inDegree=w;
+			}
+
+
+		}
+
+		ArrayList<ArrayList<Integer>> graf;
+
+		public MyGraph() {
+			graf = new ArrayList<ArrayList<Integer>>();
+
+		}
+
+		public void add(int v, int w) {
+			graf.get(v).add(w);
+		}
+
+		public int BFS(int source) {
+			Queue<Integer> q = new LinkedList<Integer>();
+			int number = 0;
+			q.add(source);
+			int dist[] = new int[graf.size()];
+			boolean vis[] = new boolean[graf.size()];
+			dist[source] = 0;
+			vis[source] = true;
+			while (!q.isEmpty()) {
+				int current = q.poll();
+				for (int i = 0; i < graf.get(current).size(); i++) {
+					int neigh = graf.get(current).get(i);
+					if (vis[neigh] == false) {
+						number++;
+						q.add(neigh);
+						dist[neigh] = dist[current] + 1;
+						vis[neigh] = true;
+					}
+				}
+			}
+
+			return number;
+		}
+
+		public boolean conectVW(int v, int w) {
+
+			for (int i = 0; i < graf.get(v).size(); i++) {
+				if (graf.get(v).get(i) == w)
+					return true;
+			}
+			return false;
+		}
+
+		public int outDegree(int v) {
+			return graf.get(v).size();
+		}
+
+		public int inDegree(int v) {
+			int a = 0;
+			for (int i = 0; i < graf.size(); i++) {
+				if (graf.get(i).contains(v)) {
+					a++;
+				}
+			}
+
+			return a;
+		}
+
+		public void topSort() {
+			PriorityQueue<Integer> orden = new PriorityQueue<Integer>();
+			Nodo[] topics=new Nodo[graf.size()];
+			int counter = 0;
+			
+			for(int i=0; i<graf.size();i++){
+				topics[i]= new Nodo(inDegree(i));
+			}
+
+			for (int i = 0; i < graf.size(); i++) {
+				if (topics[i].inDegree == 0) {
+					orden.add(i);
+					counter++; 
+				}
+			}
+	
+
+			while (!orden.isEmpty()) {
+				Integer v = orden.remove();
+				System.out.print(v+" ");
+				 topics[v].topNum=++counter;
+
+				int ctr = 0;
+
+				for (int i = 0; i < graf.get(v).size(); i++) {
+					if (--topics[graf.get(v).get(i)].inDegree == 0) {
+						orden.add(graf.get(v).get(i));
+						ctr++; 
+					}
+				}
+
+				
+			}
+
+
+		}
+
+	}
+	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("hj");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int cases = Integer.parseInt(scan.nextLine());
+		for (int test = 0; test < cases; test++) {
+			System.out.println("Case #" + (test + 1) + ":");
+			MyGraph materia = new MyGraph();
+			String lines[] = scan.nextLine().split(" ");
+			int N = Integer.parseInt(lines[0]);
+			int M = Integer.parseInt(lines[1]);
+
+			for (int i = 0; i < N; i++) {
+				ArrayList<Integer> tema = new ArrayList<Integer>();
+				materia.graf.add(tema);
+			}
+
+			for (int i = 0; i < M; i++) {
+				String pre[] = scan.nextLine().split(" ");
+				int v = Integer.parseInt(pre[0]);
+				int w = Integer.parseInt(pre[1]);
+				materia.add(v, w);
+			}
+
+			materia.topSort();
+			
+			System.out.println();
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
+//package conejita;
+
+public class subjects {
+
+	static class MyGraph {
+
+		class Nodo /*implements Comparable<Nodo>*/ {
+			Integer inDegree;
+			Integer topNum=0;
+
+			/**
+			 * @param v
+			 * @param w
+			 * @param weight
+			 */
+			public Nodo( Integer w) {
+				this.inDegree = w;
+			}
+
+			/*@Override
+			public int compareTo(Nodo o) {
+				if (weight == o.weight) {
+					return v - o.v;
+				}
+				return weight - o.weight;
+			}*/
+
+		}
+
+		ArrayList<ArrayList<Integer>> graf;
+
+		public MyGraph() {
+			graf = new ArrayList<ArrayList<Integer>>();
+
+		}
+
+		public void add(int v, int w) {
+			graf.get(v).add(w);
+		}
+
+		public int BFS(int source) {
+			Queue<Integer> q = new LinkedList<Integer>();
+			int number = 0;
+			q.add(source);
+			int dist[] = new int[graf.size()];
+			boolean vis[] = new boolean[graf.size()];
+			dist[source] = 0;
+			vis[source] = true;
+			while (!q.isEmpty()) {
+				int current = q.poll();
+				for (int i = 0; i < graf.get(current).size(); i++) {
+					int neigh = graf.get(current).get(i);
+					if (vis[neigh] == false) {
+						number++;
+						q.add(neigh);
+						dist[neigh] = dist[current] + 1;
+						vis[neigh] = true;
+					}
+				}
+			}
+
+			return number;
+		}
+
+		public int outDegree(int v) {
+			return graf.get(v).size();
+		}
+
+		public int inDegree(int v) {
+			int a = 0;
+			for (int i = 0; i < graf.size(); i++) {
+				if (graf.get(i).contains(v)) {
+					a++;
+				}
+			}
+
+			return a;
+		}
+		
+		public boolean conectVW(int v, int w) {
+
+			for (int i = 0; i < graf.get(v).size(); i++) {
+				if (graf.get(v).get(i) == w)
+					return true;
+			}
+			return false;
+		}
+
+		
+		public void sort() {
+			PriorityQueue<Integer> order = new PriorityQueue<Integer>();
+			Nodo[] topics = new Nodo[graf.size()];
+			int counter = 0;
+			
+			for(int i=0; i<graf.size();i++){
+				topics[ i ]= new Nodo(inDegree( i ));
+			}
+
+			for (int i = 0; i < graf.size(); i++) {
+				if (topics[i].inDegree == 0) {
+					order.add(i);
+					counter++; // proyecto 7.
+				}
+			}
+			// ////////////////////////////////////////
+
+			
+
+			// ////////////////////////////////////////
+
+			while (!order.isEmpty()) {
+				Integer v = order.remove();
+				//System.out.print(v+" ");
+				 topics[v].topNum=++counter;
+
+				int ctr = 0;
+
+				for (int i = 0; i < graf.get(v).size(); i++) {
+					if (--topics[graf.get(v).get(i)].inDegree == 0) {
+						order.add(graf.get(v).get(i));
+						ctr++; // Para proyecto 7.
+					}
+				}
+
+				// //////////////////////////////////////////
+
+				if (ctr > 1) {
+																	// proyecto
+																	// 7.
+					return;
+					}
+
+				// //////////////////////////////////////////
+			}
+
+			// /////////////////////////////////////////////
+
+			System.out.println("Deberia empezar a estudiar"); // /Solo para el
+																// proyecto 7.
+
+			// /////////////////////////////////////////////
+	}
+
+	}
+	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("P7");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int cases = Integer.parseInt(scan.nextLine());
+		for (int test = 0; test < cases; test++) {
+			System.out.println("Case #" + (test + 1) + ":");
+			MyGraph materia = new MyGraph();
+			String lines[] = scan.nextLine().split(" ");
+			int N = Integer.parseInt(lines[0]);
+			int M = Integer.parseInt(lines[1]);
+
+			for (int i = 0; i < N; i++) {
+				ArrayList<Integer> tema = new ArrayList<Integer>();
+				materia.graf.add(tema);
+			}
+
+			for (int i = 0; i < M; i++) {
+				String pre[] = scan.nextLine().split(" ");
+				int v = Integer.parseInt(pre[0]);
+				int w = Integer.parseInt(pre[1]);
+				materia.add(v, w);
+			}
+
+			materia.sort();
+			
+			System.out.println();
+		}
+	}
+
+}
+	
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class EjercicioB {
+	
+	public static Scanner sc;
+	public static ArrayList<ArrayList<Integer>> grafo;
+	public static Hashtable<Integer, ArrayList<Integer>> grafos;
+	public static HashSet<Integer> nums = new HashSet<>();
+
+	
+	public static HashSet<Integer> estacionesFinales (int estacion){
+		ArrayList<Integer> est = new ArrayList<Integer>();
+		est = grafos.get(estacion);
+		HashSet<Integer> numses = new HashSet<>();
+		
+			if (est != null ){
+			
+		
+		   for (int u = 0 ; u < est.size() ; u++){
+			   int entrada = est.get(u);
+			   if (!nums.contains(entrada)){
+				   nums.add(entrada);
+				   estacionesFinales(entrada);
+				   
+			   }
+		   }
+		   
+
+		   //System.out.println(nums);
+		
+			}
+			return nums;
+	}
+//	static void print( int destino ){
+//	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+//	        print( previo[ destino ] );  //recursivamente sigo explorando
+//	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+//	}
+
+	public static void main(String [ ] args)throws FileNotFoundException
+	{
+		ArrayList<ArrayList<Integer>> listAdy = new ArrayList<>();
+		grafo = listAdy;
+		Hashtable<Integer, ArrayList<Integer>> listAd = new Hashtable<Integer, ArrayList<Integer>>();
+		grafos = listAd;
+		File f = new File("C.in");
+		if(f.exists()){
+			sc = new Scanner(f);
+		}else{
+			sc = new Scanner(System.in);
+		}
+		
+		int t = Integer.parseInt(sc.nextLine());
+		for (int i = 0; i < t; i++) {
+			
+			
+			System.out.println("Case #"+ (i+1) + ":");
+			String s[] = sc.nextLine().split(" ");
+			int N = Integer.parseInt(s[0]);
+			int M = Integer.parseInt(s[1]);
+			for (int j = 0; j < M; j++) {
+				
+				String k[] = sc.nextLine().split(" ");
+				int estacionA = Integer.parseInt(k[0]);
+				int estacionB = Integer.parseInt(k[1]);
+				
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					ArrayList<Integer> relaciones2 = new ArrayList<Integer>();
+					
+					if(!grafos.containsKey(estacionA)){
+						grafos.put(estacionA, relaciones);
+					}
+					if(!grafos.containsKey(estacionB)){
+						grafos.put(estacionB, relaciones2);
+					}
+					relaciones = grafos.get(estacionA);
+					relaciones.add(estacionB);
+					
+					relaciones2 = grafos.get(estacionB);
+					relaciones2.add(estacionA);
+					
+					grafos.put(estacionA, relaciones);	
+					
+					grafos.put(estacionB, relaciones2);
+					
+					
+			}
+			int finalstation = Integer.parseInt(sc.nextLine());
+			
+			estacionesFinales(finalstation);
+			
+			
+			
+			
+			//System.out.println(grafos.toString());
+			System.out.println((nums.size()-1));
+			//System.out.println(nums);
+			grafos.clear();
+			nums.clear();
+				
+		}
+
+			
+			
+
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class EjercicioB {
+	
+	public static Scanner sc;
+	public static ArrayList<ArrayList<Integer>> grafo;
+	public static Hashtable<Integer, ArrayList<Integer>> grafos;
+	public static HashSet<Integer> nums = new HashSet<>();
+
+	
+	public static HashSet<Integer> estacionesFinales (int estacion){
+		ArrayList<Integer> est = new ArrayList<Integer>();
+		est = grafos.get(estacion);
+		HashSet<Integer> numses = new HashSet<>();
+		
+		
+			if (est != null){
+				
+			
+		
+		   for (int u = 0 ; u < est.size() ; u++){
+			   int entrada = est.get(u);
+			   if (!nums.contains(entrada)){
+				   nums.add(entrada);
+				   estacionesFinales(entrada);
+				   
+			   }
+		   }
+	}
+
+		   //System.out.println(nums);
+		
+			
+			return nums;
+	}
+//	static void print( int destino ){
+//	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+//	        print( previo[ destino ] );  //recursivamente sigo explorando
+//	    //System.out.printf(c , destino );        //terminada la recursion imprimo los vertices recorridos
+//	}
+
+	public static void main(String [ ] args)throws FileNotFoundException
+	{
+		ArrayList<ArrayList<Integer>> listAdy = new ArrayList<>();
+		grafo = listAdy;
+		Hashtable<Integer, ArrayList<Integer>> listAd = new Hashtable<Integer, ArrayList<Integer>>();
+		grafos = listAd;
+		File f = new File("C.in");
+		if(f.exists()){
+			sc = new Scanner(f);
+		}else{
+			sc = new Scanner(System.in);
+		}
+		
+		int t = Integer.parseInt(sc.nextLine());
+		for (int i = 0; i < t; i++) {
+			
+			
+			System.out.println("Case #"+ (i+1) + ":");
+			String s[] = sc.nextLine().split(" ");
+			int N = Integer.parseInt(s[0]);
+			int M = Integer.parseInt(s[1]);
+			for (int j = 0; j < M; j++) {
+				
+				String k[] = sc.nextLine().split(" ");
+				int estacionA = Integer.parseInt(k[0]);
+				int estacionB = Integer.parseInt(k[1]);
+				
+					ArrayList<Integer> relaciones = new ArrayList<Integer>();
+					ArrayList<Integer> relaciones2 = new ArrayList<Integer>();
+					
+					if(!grafos.containsKey(estacionA)){
+						grafos.put(estacionA, relaciones);
+					}
+					if(!grafos.containsKey(estacionB)){
+						grafos.put(estacionB, relaciones2);
+					}
+					relaciones = grafos.get(estacionA);
+					relaciones.add(estacionB);
+					
+					relaciones2 = grafos.get(estacionB);
+					relaciones2.add(estacionA);
+					
+					grafos.put(estacionA, relaciones);	
+					
+					grafos.put(estacionB, relaciones2);
+					
+					
+			}
+			int finalstation = Integer.parseInt(sc.nextLine());
+			
+			estacionesFinales(finalstation);
+			
+			
+			
+			
+			//System.out.println(grafos.toString());
+			if (nums.size() != 0){
+				System.out.println((nums.size()-1));
+			}else{
+				System.out.println(0);
+			}
+			
+			//System.out.println(nums);
+			grafos.clear();
+			nums.clear();
+				
+		}
+
+
+
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

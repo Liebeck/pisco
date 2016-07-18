@@ -1,0 +1,471 @@
+import java.util.Scanner;
+
+public class EntradaPA {
+	//entrada problema A usando Scanner
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Cuantos números tiene la lista:");
+		int n = Integer.parseInt(scan.nextLine());
+		//System.out.print("Introduzca los números separados por espacio:");			
+			long arr[] = readInts(scan.nextLine());
+			arr=new long[n];    
+	        
+	        for(int f=0;f<arr.length;f++) {
+	            System.out.print("Ingrese elemento:");
+	            arr[f]=scan.nextInt();
+	            if(arr[f]<-1000000000 || arr[f]>1000000000  ){
+	            	System.out.println("numero no valido");            	
+	            }else {
+	            
+	            }
+	        }
+	        for(double t: arr ){
+	            System.out.print(t+" ");
+	        }
+		
+		
+	}
+
+	public static long[] readInts(String cad) {
+		String lines[] = cad.split(" ");
+		long arr[] = new long[lines.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto;
+
+/**
+ *
+ */
+import java.util.Scanner;
+
+
+public class Proyecto {
+	//entrada problema A usando Scanner
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Cuantos numeros tiene la lista:");
+		int n = Integer.parseInt(scan.nextLine());			
+			long arr[] = readInts(scan.nextLine());
+			arr=new long[n];    
+	        
+	        for(int f=0;f<arr.length;f++) {
+	            System.out.print("Ingrese elemento:");
+	            arr[f]=scan.nextInt();
+	            if(arr[f]<-1000000000 || arr[f]>1000000000  ){
+	            	System.out.println("numero no valido");            	
+	            }else {
+	            
+	            }
+	        }
+	        for(double t: arr ){
+	            System.out.print(t+" ");
+	        }
+		
+		
+	}
+
+	public static long[] readInts(String cad) {
+		String lines[] = cad.split(" ");
+		long arr[] = new long[lines.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}	
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ *
+ */
+public class EntradaPD {
+    public static void main(String[] args) throws IOException {
+		BufferedReader in;
+		File f = new File("entradaD.txt");
+		if (f.exists()) {
+			in = new BufferedReader(new FileReader(f));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+                System.out.println("Ingrese cantida casos de pueba");
+		String line = in.readLine();
+		int N = Integer.parseInt(line);
+		for (int t = 0; t < N; t++) {
+                        System.out.println("linea");
+			int s = Integer.parseInt(in.readLine());
+                        
+			char array[][] = new char[s][s];
+			for (int i = 0; i < s; i++) {
+                                int cont=0;
+				array[i] = in.readLine().toCharArray();// lee una fila completa     
+                                if (array[i][i] == '#' ){
+                                cont = + 1;
+                                if (cont % 2 == 0){
+                                   System.out.println("YES");
+                                }
+                                  
+                                }
+                        
+                        }
+                                             
+                       } 
+                        
+		}
+}
+	
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		int numcp = scan.nextInt();
+		
+		for (int i=1; i<= numcp;i++){
+			int n = scan.nextInt();		
+			int[] arr =new int[n] ;
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			//input= in.readLine();
+			//t=Integer.parseInt(input);
+			String cadena;
+
+		//	for (int j = 0; j < arr.length ; j++){
+				cadena= in.readLine();
+				String[] split = cadena.split("\\s");
+				Contabilizador contabilizador = new Contabilizador();
+				contabilizador.contabiliza(split);
+				Map<String, Long> ocurrencias = contabilizador.getOcurrencias();
+				Iterator<String> it = ocurrencias.keySet().iterator();
+				String key = null;
+				System.out.println("caso #" + i);
+				while(it.hasNext()) {
+					key = it.next();
+					System.out.println("key: " + key + " value: " + ocurrencias.get(key));
+				}
+			//}
+		}
+		
+	}
+	
+	public static class Contabilizador {
+		 
+	    private Map<String, Long> ocurrencias; //Map porque son... UNICODE!
+	 
+	    public Contabilizador() {
+	 
+	        ocurrencias = new LinkedHashMap<String, Long>();
+	 
+	    }
+	 //String linea
+	    public void contabiliza(String[] arr) {
+	 
+	        for(int i=0;i<arr.length;i++) {
+	 
+	            if(null == ocurrencias.get(""+arr[i])) {
+	 
+	                ocurrencias.put(""+arr[i],1L);
+	 
+	            }else {
+	 
+	                Long valor = ocurrencias.get(""+arr[i]);
+	                valor++;
+	                ocurrencias.put(""+arr[i],valor);
+	            }
+	 
+	        }
+	 
+	    }
+	 
+	    public Map<String, Long> getOcurrencias() {
+	 
+	        return ocurrencias;
+	 
+	    }
+	 
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		int numcp = scan.nextInt();
+		
+		for (int i=1; i<= numcp;i++){
+			int n = scan.nextInt();		
+			int[] arr =new int[n] ;
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			String cadena;
+				cadena= in.readLine();
+				String[] split = cadena.split(" ");
+				Contabilizador contabilizador = new Contabilizador();
+				contabilizador.contabiliza(split);
+				Map<String, Long> ocurrencias = contabilizador.getOcurrencias();
+				Iterator<String> it = ocurrencias.keySet().iterator();
+				String key = null;
+				System.out.println("caso #" + i);
+				while(it.hasNext()) {
+					key = it.next();
+					System.out.println("key: " + key + " value: " + ocurrencias.get(key));
+				}
+			//}
+		}
+		
+	}
+	
+	public static class Contabilizador {
+		 
+	    private Map<String, Long> ocurrencias; //Map porque son... UNICODE!
+	 
+	    public Contabilizador() {
+	 
+	        ocurrencias = new LinkedHashMap<String, Long>();
+	 
+	    }
+	    public void contabiliza(String[] arr) {
+	 
+	        for(int i=0;i<arr.length;i++) {
+	 
+	            if(null == ocurrencias.get(""+arr[i])) {
+	 
+	                ocurrencias.put(""+arr[i],1L);
+	 
+	            }else {
+	 
+	                Long valor = ocurrencias.get(""+arr[i]);
+	                valor++;
+	                ocurrencias.put(""+arr[i],valor);
+	            }
+	 
+	        }
+	 
+	    }
+	 
+	    public Map<String, Long> getOcurrencias() {
+	 
+	        return ocurrencias;
+	 
+	    }
+	 
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		int numcp = scan.nextInt();
+		
+		for (int i=1; i<= numcp;i++){
+			int n = scan.nextInt();		
+			int[] arr =new int[n] ;
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			String cadena;
+				cadena= in.readLine();
+				String[] split = cadena.split(" ");
+				Contabilizador contabilizador = new Contabilizador();
+				contabilizador.contabiliza(split);
+				Map<String, Long> ocurrencias = contabilizador.getOcurrencias();
+				Iterator<String> it = ocurrencias.keySet().iterator();
+				String key = null;
+				System.out.println("caso #" + i);
+				while(it.hasNext()) {
+					key = it.next();
+					System.out.println(key +" "+ ocurrencias.get(key));
+				}
+			//}
+		}
+		
+	}
+	
+	public static class Contabilizador {
+		 
+	    private Map<String, Long> ocurrencias; 
+	 
+	    public Contabilizador() {
+	 
+	        ocurrencias = new LinkedHashMap<String, Long>();
+	 
+	    }
+	    public void contabiliza(String[] arr) {
+	 
+	        for(int i=0;i<arr.length-1;i++) {
+	 
+	            if(null == ocurrencias.get(""+arr[i])) {
+	 
+	                ocurrencias.put(""+arr[i],1L);
+	 
+	            }else {
+	 
+	                Long valor = ocurrencias.get(""+arr[i]);
+	                valor++;
+	                ocurrencias.put(""+arr[i],valor);
+	            }
+	 
+	        }
+	 
+	    }
+	 
+	    public Map<String, Long> getOcurrencias() {
+	 
+	        return ocurrencias;
+	 
+	    }
+	 
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Pila
+{
+	private int tope,max;
+	private String pila[];
+
+	public Pila(int m)
+	{
+		max=m;
+		pila=new String[max];
+		tope=0; 
+	}
+
+	//Metodo que agrega un dato
+	private void Agregar(String n)
+	{
+		if(tope<max)
+		{
+			pila[tope]=n;
+			tope++;
+		}
+	}
+
+	private void Atender()
+	{
+		if(tope>0)
+		{
+			tope--;
+		}
+	}
+
+
+	//Buscar dato
+	private boolean Buscar(String dato)
+	{
+		boolean encontrado=false;
+		if(!Vacia())
+		{
+			for(int a=(tope-1);a>=0;a--)
+			{
+				if(pila[a].equals(dato)) encontrado=true;
+			}
+		}
+		return encontrado;
+	}
+
+	//si esta vacia
+	private boolean Vacia()
+	{
+		if(pila==null) return true;
+		else return false;
+	}
+
+
+	public static void main(String arg[])
+	{
+		int t;
+		String dato;
+		t=12000;
+		int k=1;
+		Scanner scan = new Scanner(System.in);;
+		Pila pilita=new Pila(t);
+		int n = Integer.parseInt(scan.nextLine());
+		for (int h = 0; h < n; t++) {
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			for (int i = 0; i < Q; i++) {
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+				// tipo de comando
+				String type = line[0];
+				if (type.equals("agregar ")) {
+					dato = line[1] ;
+					pilita.Agregar(dato);
+				} else if (type.equals("atender")) {
+					pilita.Atender();
+				} else if (type.equals("existe")) {
+					dato = line[1] ;
+					System.out.println("Caso #" +(k++));
+					if(pilita.Buscar(dato)) 
+						System.out.println("SI");
+					else System.out.println("NO");
+				}
+
+			}
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

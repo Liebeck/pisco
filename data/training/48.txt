@@ -1,0 +1,4670 @@
+package laboratorio_1;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class A{
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		while (scan.hasNextInt()){
+			BigInteger may=BigInteger.ZERO;
+			BigInteger[] numbers=new BigInteger[scan.nextInt()];
+			for(int a=0;a<numbers.length; a++){
+				numbers[a]=scan.nextBigInteger();
+			}
+			for(int i=0; i<numbers.length-1;i++){
+				for(int j=i+1; j<numbers.length;j++){
+					if(may.compareTo(numbers[i].multiply(numbers[j]))==-1){
+						may=numbers[i].multiply(numbers[j]);
+					}
+				}
+				
+			}
+			System.out.println(may);
+			
+		}
+		scan.close();
+		
+	
+				
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio_1;
+
+import java.util.Scanner;
+
+public class B{
+	public static void main(String[] args) {
+		Scanner scan =new Scanner(System.in);
+		int a=1;
+		while(scan.hasNextInt()){
+			int win=0;
+			int N=scan.nextInt();
+			int[][] tablero =new int[N][N];
+			int sum_row =0;
+			int sum_column=0;
+			
+			for(int i=0; i<tablero.length;i++){
+				for(int j=0;j<tablero[i].length ;j++){
+					tablero[i][j]=scan.nextInt();	
+				}
+			}
+			for(int i=0; i<tablero.length;i++){
+				for(int j=0; j<tablero.length;j++){
+					sum_row+=tablero[i][j];
+				}for(int k=0; k<tablero.length;k++){
+					for(int l=0; l<tablero.length;l++){
+						sum_column+=tablero[l][k];
+					}
+					if(sum_row<sum_column){
+						win++;
+					}
+					sum_column=0;
+					
+					}
+				sum_row =0;
+				}
+			System.out.println("Case #"+a+":" );
+			a++;
+			System.out.println(win);
+			
+				
+		
+				
+			}
+			
+			
+			
+			
+		
+		scan.close();
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio_1;
+
+import java.util.Scanner;
+
+public class C{
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		int n =scan.nextInt(); //prueba
+		for(int i=0; i<n; i++){
+			int equipos =scan.nextInt(); //equipos
+			int[][] color= new int[equipos][2];
+			for(int j=0; j<color.length;j++){	
+				for(int k=0; k<color[j].length;k++){
+					color[j][k]=scan.nextInt();
+				}
+			//	System.out.println();
+			}
+			
+			int count =0;
+			for(int j=0;j<color.length;j++){
+				for(int k=j+1;k<color.length;k++){
+					if(color[j][0]==color[k][1]){
+						count++;
+					}
+					if(color[j][1]==color[k][0]){
+						count++;
+					}
+				}
+			}
+			/*for(int j=0;j<color.length;j++){
+				for(int k=j+1;k<color.length;k++){
+					if(color[j][1]==color[k][0]){
+						count++;
+					}
+					
+				}
+			}*/
+			System.out.println("Case #"+(i+1)+":");
+			System.out.println(count);
+
+			
+		}
+		scan.close();
+ 	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio_1;
+
+import java.util.Scanner;
+
+public class D{
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int Case = scan.nextInt();
+		int count =0;
+		for(int i=0; i<Case; i++){
+			int N= scan.nextInt();
+			char [][] chocolate = new char[N][N];	
+			for(int j=0; j<chocolate.length;j++){
+				String line=scan.next();
+				for(int k=0; k<chocolate[j].length;k++){
+					chocolate[j][k]=line.charAt(k);
+				}
+			}
+			int row=0;
+			int col=0;
+			boolean d=true;
+			for(int j=0; j<chocolate.length-1;j++){
+				int col_2=0;
+				int row_2=0;
+				for(int k=0;k<chocolate[j].length;k++){
+					if(chocolate[j][k]=='#'){	
+						row++;
+					}
+					if(chocolate[k][j]=='#'){
+						col++;		
+					}
+				}
+				for(int k=j+1;k<chocolate.length;k++){
+					for(int a=0 ;a<chocolate[k].length;a++){
+						if(chocolate[k][a]=='#'){
+							row_2++;
+						}
+						if(chocolate[a][k]=='#'){
+							col_2++;		
+						}		
+					}}
+				if((col==col_2|| row==row_2)&&(col!=0 || row!=0)){
+						System.out.println("YES");
+						d=false;
+						j=chocolate.length;
+					
+				}else if(j==chocolate.length-2 && d==true){
+					System.out.println("NO");
+					
+				}
+				
+				
+			}
+			
+			
+		}
+		scan.close();
+	
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio_1;
+
+import java.util.Scanner;
+
+public class D{
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int Case = scan.nextInt();
+		int count =0;
+		for(int i=0; i<Case; i++){
+			int N= scan.nextInt();
+			char [][] chocolate = new char[N][N];	
+			for(int j=0; j<chocolate.length;j++){
+				String line=scan.next();
+				for(int k=0; k<chocolate[j].length;k++){
+					chocolate[j][k]=line.charAt(k);
+				}
+			}
+			int row=0;
+			int col=0;
+			boolean d=true;
+			for(int j=0; j<chocolate.length-1;j++){
+				int col_2=0;
+				int row_2=0;
+				for(int k=0;k<chocolate[j].length;k++){
+					if(chocolate[j][k]=='#'){	
+						row++;
+					}
+					if(chocolate[k][j]=='#'){
+						col++;		
+					}
+				}
+				for(int k=j+1;k<chocolate.length;k++){
+					for(int a=0 ;a<chocolate[k].length;a++){
+						if(chocolate[k][a]=='#'){
+							row_2++;
+						}
+						if(chocolate[a][k]=='#'){
+							col_2++;		
+						}		
+					}}
+				if((col==col_2|| row==row_2)&&(col!=0 || row!=0)){
+						System.out.println("YES");
+						d=false;
+						j=chocolate.length;
+					
+				}else if(j==chocolate.length-2 && d==true){
+					System.out.println("NO");
+					
+				}
+				
+				
+			}
+			
+			
+		}
+		scan.close();
+	
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ */
+public class F {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int ganador=scan.nextInt();
+        int[] array= new int[5];
+        int count=0;
+        for(int i=0; i< array.length; i++){
+            array[i]=scan.nextInt();
+            if(array[i]==ganador){
+            count++;
+           }
+        }
+        System.out.println(count);
+        
+       
+    }
+    
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio_1;
+
+import java.util.Scanner;
+
+public class D {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int Case = scan.nextInt();
+		int count =0;
+		
+		for(int i=0; i<Case; i++){
+			int N= scan.nextInt();
+			int total=0;;
+			int[] colA=  new int[N];
+			int[] rowA=  new int[N];
+			char [][] chocolate = new char[N][N];	
+			for(int j=0; j<chocolate.length;j++){
+				String line=scan.next();
+				int row=0;
+				for(int k=0; k<chocolate[j].length;k++){
+					chocolate[j][k]=line.charAt(k);
+					if(chocolate[j][k]=='#'){
+						row++;
+						total++;
+						colA[k]++;
+					}
+				}
+				rowA[j]=row;
+			}
+			
+			//System.out.println("Total: "+total +" "+ chocolate.length );
+			if(total%2!=0){
+				System.out.println("NO");
+			}else if((total==8 && chocolate.length==3)){
+				System.out.println("NO");
+			}else{
+				int a_row=0;
+				int a_col=0;
+				int j=0;
+				boolean a= true;
+				while(j<colA.length){
+					a_row+=rowA[j];
+					a_col+=colA[j];
+					int acumuladoF=0;
+					int acumuladoC=0;
+					for(int k=j+1; k<colA.length;k++){
+						acumuladoF+=rowA[k];
+						acumuladoC+=colA[k];
+					}
+					if(acumuladoF==a_row|| acumuladoC==a_col){
+						System.out.println("YES");
+						a=false;
+						break;
+					}
+					j++;
+				}if(a==true){
+				System.out.println("NO");
+				}
+			}
+			
+			
+		}
+		scan.close();
+	
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.awt.RenderingHints.Key;
+import java.awt.event.KeyEvent;
+
+public class C {
+	public static void main(String[] args) {
+		int cantidad=0;
+		int candidatas;
+		int aciertos;
+		Scanner scan = new Scanner(System.in);
+		int capacidad=scan.nextInt();
+		if(capacidad>0){
+
+			String[] cualidad =new String[capacidad];
+			for(int i=0;i<capacidad;i++){
+				cualidad[i]=scan.next();
+			}
+			candidatas=scan.nextInt();
+			scan.nextLine();
+
+			for(int i=0;i<candidatas;i++){
+				aciertos=0;
+				ArrayList mujer=new ArrayList();
+				String[] line=scan.nextLine().split(" ");
+				if(line.length>=capacidad){
+					for(int j=0;j<line.length;j++){
+						mujer.add(line[j]);
+					}
+					for(int j=0;j<cualidad.length;j++){
+						if(mujer.indexOf(cualidad[j])!=-1){
+							aciertos++;
+						}
+					}
+					if(aciertos==capacidad){
+						cantidad++;
+					}	
+				}
+
+			}
+			System.out.println(cantidad);
+
+		}
+		scan.close();
+ 
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class B {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		int casosPrueba=scan.nextInt();
+		for(int p=0;p<casosPrueba;p++){
+			int cartas=scan.nextInt();
+			int player=scan.nextInt();
+			int a=0, b=1,jugador=0, jugador1=0, prob=0;
+			LinkedList<Integer> qq = new LinkedList<>();
+			int []jugadorArray =new int[player];
+			for(int i = 0 ; i<cartas; i++){
+				qq.add(scan.nextInt());
+			}
+			while(qq.isEmpty()==false){
+				if(qq.isEmpty()){
+					break;	
+				}else{
+					//System.out.println("Jugador "+ jugador);
+					if(qq.getLast()>=qq.getFirst()){
+						a=qq.getLast();
+						qq.removeLast();
+					}else{
+						a=qq.getFirst();
+						qq.removeFirst();
+					}
+					jugadorArray[jugador]+=a;
+					if(jugadorArray[jugador]>b){
+						b=jugadorArray[jugador];
+						prob=0;
+						jugador1=jugador;
+					}else if(b==jugadorArray[jugador]){
+						prob++;
+					}
+					jugador++;
+					if(jugador>=player){
+						jugador=0;
+					}
+
+				}
+
+			}
+			System.out.println("Caso #"+(p+1)+":");	
+			if(prob==0 && player!=2){
+				//System.out.println("Player :"+player);
+				System.out.print((jugador1+1));	
+			}else{
+				//System.out.println("entre");
+				for(int i=0;i<jugadorArray.length;i++){					
+					if(jugadorArray[i]==b){
+						System.out.print((i+1)+" ");		
+					}
+				}
+			}
+			System.out.println();
+
+
+
+
+		}
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class A {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int casos =scan.nextInt();
+		Lista list;
+		list =new Lista();
+		int inserts=0;
+		int acumulado = 0;
+		for(int t=0; t<casos;t++){
+			System.out.println("Caso #"+(t+1)+":");
+			int comandos= scan.nextInt();
+			for(int comand=0; comand<comandos;comand++){
+				String operacion=scan.next();
+				//System.out.println("OPERACIONES..-");
+				if(operacion.equals("insertar")){
+					int number=scan.nextInt();
+					int pos=scan.nextInt();
+					if(inserts==0){
+						if(pos==0){	
+							inserts++;
+						}
+					}else{
+						if(pos<=inserts){
+							acumulado+=(inserts-pos);
+							inserts++;
+
+						}
+					}
+					if(pos==0){
+						list.insertarCabezaLista(number);
+						//System.out.println(list.acumulado);
+						System.out.println("insertar: posicion valida");
+
+					}else{
+						try{
+							list.insertarLista(list.buscarPosicion(pos), number);
+							System.out.println("insertar: posicion valida");
+							//System.out.println(list.acumulado);
+						}catch (Exception e) {
+							// TODO: handle exception
+							System.out.println("insertar: posicion invalida");
+							list.acumulado--;
+						}
+
+
+					}
+					//System.out.println("ca"+acumulado);
+					//list.visualizar();
+
+
+				}else if(operacion.equals("consultar")){
+					int pos=scan.nextInt();
+					try{
+						Nodo a=list.buscarPosicion(pos).enlace;
+						if(a==null){
+							System.out.println("consulta: no encontrado");
+						}else{
+							System.out.println("consulta: "+a.getDato());
+
+						}
+
+					}catch(Exception e){
+						System.out.println("consulta: no encontrado");
+						list.acumulado--;
+					}
+					//System.out.println(a.dato);
+				}else if(operacion.equals("eliminar")){
+					int pos=scan.nextInt();
+					Nodo a=list.buscarPosicion(pos).enlace;
+
+					if(a==null){
+						System.out.println("eliminar: posicion invalida");
+
+					}else{
+						if(inserts>0 && pos<=inserts){
+							//	System.out.println(inserts+" oins");
+							acumulado+=(inserts-pos-1);
+							inserts--;
+						}
+						list.eliminar(a.getDato());
+						System.out.println("eliminar: posicion valida");
+
+
+					}
+
+
+				}else if(operacion.equals("buscar")){
+					int number=scan.nextInt();
+					if(list.buscarLista(number)==null){
+						System.out.println("no existe numero");
+						acumulado+=(list.acbrowse+1);
+					}else{
+						System.out.println("buscar: "+(list.acbrowse));
+						//System.out.println("acumulado: "+(list.acumulado));
+						acumulado+=(list.acbrowse+1);
+					}
+					//acumulado+=list.acbrowse;
+
+				}else if(operacion.equals("costo")){
+					System.out.println("costo: "+acumulado+" "+list.acumulado);
+				}
+			}
+		}
+
+	}
+}
+class Nodo {
+	int dato;
+	Nodo enlace;
+	public Nodo(int x){
+		dato=x;
+		enlace=null;
+	}
+	public	Nodo(int x, Nodo n){
+		dato=x;
+		enlace=n;
+	}
+	public int getDato(){
+		return dato;
+	}
+	public Nodo getEnlace(){
+		return enlace;
+	}
+	public	void setEnlace (Nodo enlace){
+		this.enlace=enlace;
+	}
+
+
+}
+class Lista{
+	int acumulado=0;
+	int acbrowse=-1;
+	protected Nodo  primero;
+	public Lista(){
+		primero=null;
+	}
+	private int leerEntero() {
+		return 0;	
+	}		
+	public Lista crearLista(){
+		int x;
+		primero=null;
+		do{
+			x=leerEntero();
+			if(x!=-1){
+				primero=new Nodo(x,primero);
+			}
+
+		}while(x!=-1);
+		return this;
+
+
+	}
+	public Lista insertarCabezaLista(int entrada)
+	{
+		Nodo nuevo ;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = primero;
+		primero = nuevo;
+		return this;
+	}
+	public void visualizar()
+	{
+		Nodo n;
+		int k = 0;
+		n = primero;
+		while (n != null)
+		{
+			System.out.print(n.dato + " ");
+			n = n.enlace;
+			k++;
+			System.out.print( (k%15 != 0 ? " " : "\n"));
+		}
+	}
+	public Lista insertarUltimo(Nodo ultimo, int entrada)
+	{
+		ultimo.enlace = new Nodo(entrada);
+		ultimo = ultimo.enlace;
+		return this;
+	} 
+	public Nodo buscarLista(int destino)
+	{
+		Nodo indice;
+		acbrowse=-1;
+		for (indice = primero; indice!= null; indice = indice.enlace){
+			acumulado++;
+			acbrowse++;
+			//System.out.println("ac"+acbrowse);
+			if (destino == indice.dato) // (destino.equals(indice.dato))
+				return indice;
+		}
+		return null;
+	}	
+	public Nodo buscarPosicion(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  // posición ha de ser mayor que 0
+			return null;
+		}
+		if(i==1 && posicion!=0){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+
+		}
+
+		return indice;
+	}
+	public int buscarPosicionInt(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  // posición ha de ser mayor que 0
+			return (Integer) null;
+		}
+		if(i==1){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+		}
+
+		return indice.dato;
+	}
+	public Lista insertarLista(int testigo, int entrada)
+	{
+		Nodo nuevo, anterior;
+		anterior = buscarPosicion(testigo);
+		if (anterior != null)
+		{
+			nuevo = new Nodo(entrada);
+			nuevo.enlace = anterior.enlace;
+			anterior.enlace = nuevo;
+		}
+		return this;
+	}
+	public Lista insertarLista(Nodo anterior, int entrada)
+	{
+		Nodo nuevo;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = anterior.enlace;
+		anterior.enlace = nuevo;
+		return this;
+	}
+	public void eliminar (int entrada)
+	{
+		Nodo actual, anterior;
+		boolean encontrado;
+		actual = primero;
+		anterior = null;
+		encontrado = false;
+		// búsqueda del nodo y del anterior
+		while ((actual != null) && (!encontrado))
+		{
+			encontrado = (actual.dato == entrada);
+			//con objetos: actual.dato.equals(entrada)
+			if (!encontrado)
+			{
+				anterior = actual;
+				actual = actual.enlace;
+			}
+		}
+		// Enlace del nodo anterior con el siguiente
+		if (actual != null)
+		{
+			// Distingue entre que el nodo sea el cabecera,
+			// o del resto de la lista
+			if (actual == primero)
+			{
+				primero = actual.enlace;
+			}
+			else
+			{
+				anterior.enlace = actual.enlace;
+			}
+			actual = null; // no es necesario al ser una variable local
+		}
+	}
+
+
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class A {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int casos =scan.nextInt();
+		Lista list;
+		list =new Lista();
+		int inserts=0;
+		int acumulado = 0;
+		for(int t=0; t<casos;t++){
+			System.out.println("Caso #"+(t+1)+":");
+			int comandos= scan.nextInt();
+			for(int comand=0; comand<comandos;comand++){
+				String operacion=scan.next();
+				//System.out.println("OPERACIONES..-");
+				if(operacion.equals("insertar")){
+					int number=scan.nextInt();
+					int pos=scan.nextInt();
+					if(inserts==0){
+						if(pos==0){	
+							inserts++;
+						}
+					}else{
+						if(pos<=inserts){
+							acumulado+=(inserts-pos);
+							inserts++;
+
+						}
+					}
+					if(pos==0){
+						list.insertarCabezaLista(number);
+						//System.out.println(list.acumulado);
+						System.out.println("insertar: posicion valida");
+
+					}else{
+						try{
+							list.insertarLista(list.buscarPosicion(pos), number);
+							System.out.println("insertar: posicion valida");
+							//System.out.println(list.acumulado);
+						}catch (Exception e) {
+							// TODO: handle exception
+							System.out.println("insertar: posicion invalida");
+							list.acumulado--;
+						}
+
+
+					}
+					//System.out.println("ca"+acumulado);
+					//list.visualizar();
+
+
+				}else if(operacion.equals("consultar")){
+					int pos=scan.nextInt();
+					try{
+						Nodo a=list.buscarPosicion(pos).enlace;
+						if(a==null){
+							System.out.println("consulta: no encontrado");
+						}else{
+							System.out.println("consulta: "+a.getDato());
+
+						}
+
+					}catch(Exception e){
+						System.out.println("consulta: no encontrado");
+						list.acumulado--;
+					}
+					//System.out.println(a.dato);
+				}else if(operacion.equals("eliminar")){
+					int pos=scan.nextInt();
+					Nodo a=list.buscarPosicion(pos).enlace;
+
+					if(a==null){
+						System.out.println("eliminar: posicion invalida");
+
+					}else{
+						if(inserts>0 && pos<=inserts){
+							//	System.out.println(inserts+" oins");
+							acumulado+=(inserts-pos-1);
+							inserts--;
+						}
+						list.eliminar(a.getDato());
+						System.out.println("eliminar: posicion valida");
+
+
+					}
+
+
+				}else if(operacion.equals("buscar")){
+					int number=scan.nextInt();
+					if(list.buscarLista(number)==null){
+						System.out.println("no existe numero");
+						acumulado+=(list.acbrowse+1);
+					}else{
+						System.out.println("buscar: "+(list.acbrowse));
+						//System.out.println("acumulado: "+(list.acumulado));
+						acumulado+=(list.acbrowse+1);
+					}
+					//acumulado+=list.acbrowse;
+
+				}else if(operacion.equals("costo")){
+					System.out.println("costo: "+acumulado+" "+list.acumulado);
+				}
+			}
+		}
+
+	}
+}
+class Nodo {
+	int dato;
+	Nodo enlace;
+	public Nodo(int x){
+		dato=x;
+		enlace=null;
+	}
+	public	Nodo(int x, Nodo n){
+		dato=x;
+		enlace=n;
+	}
+	public int getDato(){
+		return dato;
+	}
+	public Nodo getEnlace(){
+		return enlace;
+	}
+	public	void setEnlace (Nodo enlace){
+		this.enlace=enlace;
+	}
+
+
+}
+class Lista{
+	int acumulado=0;
+	int acbrowse=-1;
+	protected Nodo  primero;
+	public Lista(){
+		primero=null;
+	}
+	private int leerEntero() {
+		return 0;	
+	}		
+	public Lista crearLista(){
+		int x;
+		primero=null;
+		do{
+			x=leerEntero();
+			if(x!=-1){
+				primero=new Nodo(x,primero);
+			}
+
+		}while(x!=-1);
+		return this;
+
+
+	}
+	public Lista insertarCabezaLista(int entrada)
+	{
+		Nodo nuevo ;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = primero;
+		primero = nuevo;
+		return this;
+	}
+	public void visualizar()
+	{
+		Nodo n;
+		int k = 0;
+		n = primero;
+		while (n != null)
+		{
+			System.out.print(n.dato + " ");
+			n = n.enlace;
+			k++;
+			System.out.print( (k%15 != 0 ? " " : "\n"));
+		}
+	}
+	public Lista insertarUltimo(Nodo ultimo, int entrada)
+	{
+		ultimo.enlace = new Nodo(entrada);
+		ultimo = ultimo.enlace;
+		return this;
+	} 
+	public Nodo buscarLista(int destino)
+	{
+		Nodo indice;
+		acbrowse=-1;
+		for (indice = primero; indice!= null; indice = indice.enlace){
+			acumulado++;
+			acbrowse++;
+			//System.out.println("ac"+acbrowse);
+			if (destino == indice.dato) // (destino.equals(indice.dato))
+				return indice;
+		}
+		return null;
+	}	
+	public Nodo buscarPosicion(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  // posición ha de ser mayor que 0
+			return null;
+		}
+		if(i==1 && posicion!=0){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+
+		}
+
+		return indice;
+	}
+	public int buscarPosicionInt(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  // posición ha de ser mayor que 0
+			return (Integer) null;
+		}
+		if(i==1){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+		}
+
+		return indice.dato;
+	}
+	public Lista insertarLista(int testigo, int entrada)
+	{
+		Nodo nuevo, anterior;
+		anterior = buscarPosicion(testigo);
+		if (anterior != null)
+		{
+			nuevo = new Nodo(entrada);
+			nuevo.enlace = anterior.enlace;
+			anterior.enlace = nuevo;
+		}
+		return this;
+	}
+	public Lista insertarLista(Nodo anterior, int entrada)
+	{
+		Nodo nuevo;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = anterior.enlace;
+		anterior.enlace = nuevo;
+		return this;
+	}
+	public void eliminar (int entrada)
+	{
+		Nodo actual, anterior;
+		boolean encontrado;
+		actual = primero;
+		anterior = null;
+		encontrado = false;
+		// búsqueda del nodo y del anterior
+		while ((actual != null) && (!encontrado))
+		{
+			encontrado = (actual.dato == entrada);
+			//con objetos: actual.dato.equals(entrada)
+			if (!encontrado)
+			{
+				anterior = actual;
+				actual = actual.enlace;
+			}
+		}
+		// Enlace del nodo anterior con el siguiente
+		if (actual != null)
+		{
+			// Distingue entre que el nodo sea el cabecera,
+			// o del resto de la lista
+			if (actual == primero)
+			{
+				primero = actual.enlace;
+			}
+			else
+			{
+				anterior.enlace = actual.enlace;
+			}
+			actual = null; // no es necesario al ser una variable local
+		}
+	}
+
+
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class A {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int casos =scan.nextInt();
+		Lista list;
+		list =new Lista();
+		int inserts=0;
+		int acumulado = 0;
+		for(int t=0; t<casos;t++){
+			System.out.println("Caso #"+(t+1)+":");
+			int comandos= scan.nextInt();
+			for(int comand=0; comand<comandos;comand++){
+				String operacion=scan.next();
+				//System.out.println("OPERACIONES..-");
+				if(operacion.equals("insertar")){
+					int number=scan.nextInt();
+					int pos=scan.nextInt();
+					if(inserts==0){
+						if(pos==0){	
+							inserts++;
+						}
+					}else{
+						if(pos<=inserts){
+							acumulado+=(inserts-pos);
+							inserts++;
+
+						}
+					}
+					if(pos==0){
+						list.insertarCabezaLista(number);
+						//System.out.println(list.acumulado);
+						System.out.println("insertar: posicion valida");
+
+					}else{
+						try{
+							list.insertarLista(list.buscarPosicion(pos), number);
+							System.out.println("insertar: posicion valida");
+							//System.out.println(list.acumulado);
+						}catch (Exception e) {
+							// TODO: handle exception
+							System.out.println("insertar: posicion invalida");
+							list.acumulado--;
+						}
+
+
+					}
+					//System.out.println("ca"+acumulado);
+					//list.visualizar();
+
+
+				}else if(operacion.equals("consultar")){
+					int pos=scan.nextInt();
+					try{
+						Nodo a=list.buscarPosicion(pos).enlace;
+						if(a==null){
+							System.out.println("consulta: no encontrado");
+						}else{
+							System.out.println("consulta: "+a.getDato());
+
+						}
+
+					}catch(Exception e){
+						System.out.println("consulta: no encontrado");
+						list.acumulado--;
+					}
+					//System.out.println(a.dato);
+				}else if(operacion.equals("eliminar")){
+					int pos=scan.nextInt();
+					Nodo a=list.buscarPosicion(pos).enlace;
+
+					if(a==null){
+						System.out.println("eliminar: posicion invalida");
+
+					}else{
+						if(inserts>0 && pos<=inserts){
+							//	System.out.println(inserts+" oins");
+							acumulado+=(inserts-pos-1);
+							inserts--;
+						}
+						list.eliminar(a.getDato());
+						System.out.println("eliminar: posicion valida");
+
+
+					}
+
+
+				}else if(operacion.equals("buscar")){
+					int number=scan.nextInt();
+					if(list.buscarLista(number)==null){
+						System.out.println("no existe numero");
+						acumulado+=(list.acbrowse+1);
+					}else{
+						System.out.println("buscar: "+(list.acbrowse));
+						//System.out.println("acumulado: "+(list.acumulado));
+						acumulado+=(list.acbrowse+1);
+					}
+					//acumulado+=list.acbrowse;
+
+				}else if(operacion.equals("costo")){
+					System.out.println("costo: "+acumulado+" "+list.acumulado);
+				}
+			}
+		}
+
+	}
+}
+class Nodo {
+	int dato;
+	Nodo enlace;
+	public Nodo(int x){
+		dato=x;
+		enlace=null;
+	}
+	public	Nodo(int x, Nodo n){
+		dato=x;
+		enlace=n;
+	}
+	public int getDato(){
+		return dato;
+	}
+	public Nodo getEnlace(){
+		return enlace;
+	}
+	public	void setEnlace (Nodo enlace){
+		this.enlace=enlace;
+	}
+
+
+}
+class Lista{
+	int acumulado=0;
+	int acbrowse=-1;
+	protected Nodo  primero;
+	public Lista(){
+		primero=null;
+	}
+	private int leerEntero() {
+		return 0;	
+	}		
+	public Lista crearLista(){
+		int x;
+		primero=null;
+		do{
+			x=leerEntero();
+			if(x!=-1){
+				primero=new Nodo(x,primero);
+			}
+
+		}while(x!=-1);
+		return this;
+
+
+	}
+	public Lista insertarCabezaLista(int entrada)
+	{
+		Nodo nuevo ;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = primero;
+		primero = nuevo;
+		return this;
+	}
+	public void visualizar()
+	{
+		Nodo n;
+		int k = 0;
+		n = primero;
+		while (n != null)
+		{
+			System.out.print(n.dato + " ");
+			n = n.enlace;
+			k++;
+			System.out.print( (k%15 != 0 ? " " : "\n"));
+		}
+	}
+	public Lista insertarUltimo(Nodo ultimo, int entrada)
+	{
+		ultimo.enlace = new Nodo(entrada);
+		ultimo = ultimo.enlace;
+		return this;
+	} 
+	public Nodo buscarLista(int destino)
+	{
+		Nodo indice;
+		acbrowse=-1;
+		for (indice = primero; indice!= null; indice = indice.enlace){
+			acumulado++;
+			acbrowse++;
+			//System.out.println("ac"+acbrowse);
+			if (destino == indice.dato) // (destino.equals(indice.dato))
+				return indice;
+		}
+		return null;
+	}	
+	public Nodo buscarPosicion(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  
+			return null;
+		}
+		if(i==1 && posicion!=0){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+
+		}
+
+		return indice;
+	}
+	public int buscarPosicionInt(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  
+			return (Integer) null;
+		}
+		if(i==1){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+		}
+
+		return indice.dato;
+	}
+	public Lista insertarLista(int testigo, int entrada)
+	{
+		Nodo nuevo, anterior;
+		anterior = buscarPosicion(testigo);
+		if (anterior != null)
+		{
+			nuevo = new Nodo(entrada);
+			nuevo.enlace = anterior.enlace;
+			anterior.enlace = nuevo;
+		}
+		return this;
+	}
+	public Lista insertarLista(Nodo anterior, int entrada)
+	{
+		Nodo nuevo;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = anterior.enlace;
+		anterior.enlace = nuevo;
+		return this;
+	}
+	public void eliminar (int entrada)
+	{
+		Nodo actual, anterior;
+		boolean encontrado;
+		actual = primero;
+		anterior = null;
+		encontrado = false;
+		// búsqueda del nodo y del anterior
+		while ((actual != null) && (!encontrado))
+		{
+			encontrado = (actual.dato == entrada);
+			//con objetos: actual.dato.equals(entrada)
+			if (!encontrado)
+			{
+				anterior = actual;
+				actual = actual.enlace;
+			}
+		}
+		// Enlace del nodo anterior con el siguiente
+		if (actual != null)
+		{
+			// Distingue entre que el nodo sea el cabecera
+			// o del resto de la lista
+			if (actual == primero)
+			{
+				primero = actual.enlace;
+			}
+			else
+			{
+				anterior.enlace = actual.enlace;
+			}
+			actual = null; // no es necesario al ser una variable local
+		}
+	}
+
+
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class A {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int casos =scan.nextInt();
+		Lista list;
+		list =new Lista();
+		int inserts=0;
+		int acumulado = 0;
+		for(int t=0; t<casos;t++){
+			System.out.println("Caso #"+(t+1)+":");
+			int comandos= scan.nextInt();
+			for(int comand=0; comand<comandos;comand++){
+				String operacion=scan.next();
+				//System.out.println("OPERACIONES..-");
+				if(operacion.equals("insertar")){
+					int number=scan.nextInt();
+					int pos=scan.nextInt();
+					if(inserts==0){
+						if(pos==0){	
+							inserts++;
+						}
+					}else{
+						if(pos<=inserts){
+							acumulado+=(inserts-pos);
+							inserts++;
+
+						}
+					}
+					if(pos==0){
+						list.insertarCabezaLista(number);
+						//System.out.println(list.acumulado);
+						System.out.println("insertar: posicion valida");
+
+					}else{
+						try{
+							list.insertarLista(list.buscarPosicion(pos), number);
+							System.out.println("insertar: posicion valida");
+							//System.out.println(list.acumulado);
+						}catch (Exception e) {
+							// TODO: handle exception
+							System.out.println("insertar: posicion invalida");
+							list.acumulado--;
+						}
+
+
+					}
+					//System.out.println("ca"+acumulado);
+					//list.visualizar();
+
+
+				}else if(operacion.equals("consultar")){
+					int pos=scan.nextInt();
+					try{
+						Nodo a=list.buscarPosicion(pos).enlace;
+						if(a==null){
+							System.out.println("consulta: no encontrado");
+						}else{
+							System.out.println("consulta: "+a.getDato());
+
+						}
+
+					}catch(Exception e){
+						System.out.println("consulta: no encontrado");
+						list.acumulado--;
+					}
+					//System.out.println(a.dato);
+				}else if(operacion.equals("eliminar")){
+					int pos=scan.nextInt();
+					Nodo a=list.buscarPosicion(pos).enlace;
+
+					if(a==null){
+						System.out.println("eliminar: posicion invalida");
+
+					}else{
+						if(inserts>0 && pos<=inserts){
+							//	System.out.println(inserts+" oins");
+							acumulado+=(inserts-pos-1);
+							inserts--;
+						}
+						list.eliminar(a.getDato());
+						System.out.println("eliminar: posicion valida");
+
+
+					}
+
+
+				}else if(operacion.equals("buscar")){
+					int number=scan.nextInt();
+					if(list.buscarLista(number)==null){
+						System.out.println("no existe numero");
+						acumulado+=(list.acbrowse+1);
+					}else{
+						System.out.println("buscar: "+(list.acbrowse));
+						//System.out.println("acumulado: "+(list.acumulado));
+						acumulado+=(list.acbrowse+1);
+					}
+					//acumulado+=list.acbrowse;
+
+				}else if(operacion.equals("costo")){
+					System.out.println("costo: "+acumulado+" "+list.acumulado);
+				}
+			}
+		}
+
+	}
+}
+class Nodo {
+	int dato;
+	Nodo enlace;
+	public Nodo(int x){
+		dato=x;
+		enlace=null;
+	}
+	public	Nodo(int x, Nodo n){
+		dato=x;
+		enlace=n;
+	}
+	public int getDato(){
+		return dato;
+	}
+	public Nodo getEnlace(){
+		return enlace;
+	}
+	public	void setEnlace (Nodo enlace){
+		this.enlace=enlace;
+	}
+
+
+}
+class Lista{
+	int acumulado=0;
+	int acbrowse=-1;
+	protected Nodo  primero;
+	public Lista(){
+		primero=null;
+	}
+	private int leerEntero() {
+		return 0;	
+	}		
+	public Lista crearLista(){
+		int x;
+		primero=null;
+		do{
+			x=leerEntero();
+			if(x!=-1){
+				primero=new Nodo(x,primero);
+			}
+
+		}while(x!=-1);
+		return this;
+
+
+	}
+	public Lista insertarCabezaLista(int entrada)
+	{
+		Nodo nuevo ;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = primero;
+		primero = nuevo;
+		return this;
+	}
+	public void visualizar()
+	{
+		Nodo n;
+		int k = 0;
+		n = primero;
+		while (n != null)
+		{
+			System.out.print(n.dato + " ");
+			n = n.enlace;
+			k++;
+			System.out.print( (k%15 != 0 ? " " : "\n"));
+		}
+	}
+	public Lista insertarUltimo(Nodo ultimo, int entrada)
+	{
+		ultimo.enlace = new Nodo(entrada);
+		ultimo = ultimo.enlace;
+		return this;
+	} 
+	public Nodo buscarLista(int destino)
+	{
+		Nodo indice;
+		acbrowse=-1;
+		for (indice = primero; indice!= null; indice = indice.enlace){
+			acumulado++;
+			acbrowse++;
+			//System.out.println("ac"+acbrowse);
+			if (destino == indice.dato) // (destino.equals(indice.dato))
+				return indice;
+		}
+		return null;
+	}	
+	public Nodo buscarPosicion(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  
+			return null;
+		}
+		if(i==1 && posicion!=0){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+
+		}
+
+		return indice;
+	}
+	public int buscarPosicionInt(int posicion){
+		Nodo indice;
+		int i=1;
+		if (posicion < 0){  
+			return (Integer) null;
+		}
+		if(i==1){
+			acumulado++;
+		}
+		indice = primero;
+		for (i = 1 ;(i < posicion); i++){
+			//System.out.println("acumulado: "+ acumulado);
+			indice = indice.enlace;
+			acumulado++;
+		}
+
+		return indice.dato;
+	}
+	public Lista insertarLista(int testigo, int entrada)
+	{
+		Nodo nuevo, anterior;
+		anterior = buscarPosicion(testigo);
+		if (anterior != null)
+		{
+			nuevo = new Nodo(entrada);
+			nuevo.enlace = anterior.enlace;
+			anterior.enlace = nuevo;
+		}
+		return this;
+	}
+	public Lista insertarLista(Nodo anterior, int entrada)
+	{
+		Nodo nuevo;
+		nuevo = new Nodo(entrada);
+		nuevo.enlace = anterior.enlace;
+		anterior.enlace = nuevo;
+		return this;
+	}
+	public void eliminar (int entrada)
+	{
+		Nodo actual, anterior;
+		boolean encontrado;
+		actual = primero;
+		anterior = null;
+		encontrado = false;
+		// busqueda del nodo y del anterior
+		while ((actual != null) && (!encontrado))
+		{
+			encontrado = (actual.dato == entrada);
+			//con objetos: actual.dato.equals(entrada)
+			if (!encontrado)
+			{
+				anterior = actual;
+				actual = actual.enlace;
+			}
+		}
+		// Enlace del nodo anterior con el siguiente
+		if (actual != null)
+		{
+			// Distingue entre que el nodo sea el cabecera
+			// o del resto de la lista
+			if (actual == primero)
+			{
+				primero = actual.enlace;
+			}
+			else
+			{
+				anterior.enlace = actual.enlace;
+			}
+			actual = null; // no es necesario al ser una variable local
+		}
+	}
+
+
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class D {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int prueba =scan.nextInt();
+		for(int i=0; i<prueba;i++){
+			int cubiculos =scan.nextInt();
+			String[][] cu=new String[cubiculos][];
+			scan.nextLine();
+			double[] cadencia = new double[cubiculos];
+			for(int j=0;j<cubiculos;j++){
+				int casilleros = scan.nextInt();
+				cu[j]=new String[casilleros];
+				//System.out.println("FILA: c["+j+"]  "+cu[j].length);
+			}
+			int operaciones = scan.nextInt();
+			double menor=1;
+			int d=0;
+			int opCount=0;
+			int opCount2=0;
+			int casillaMenor = 0;
+			boolean sal=false;
+			int k = 0;
+			int enc=0;	
+			System.out.println("Caso#"+(i+1));
+			for(int j=0; j<operaciones;j++){
+				//System.out.println("operacion :"+j);
+				scan.nextLine();
+				String operacion=scan.next();
+
+				if(operacion.equals("ingresar")){
+
+					String Nombre =scan.next();
+					String Apellido =scan.next();
+					String cc=scan.next();
+					//System.out.println("nom: "+Nombre+" apellido:"+Apellido+" cc."+cc);{
+					if(sal==false ){
+						if(opCount2==0 && d<=2){
+							System.out.println("Entredd");
+							casillaMenor=indiceMenor(cadencia);
+							
+							if(cu[casillaMenor][opCount2]!=null && opCount2<cu[casillaMenor].length){
+								opCount2++;
+								cu[casillaMenor][opCount2]=Nombre+" "+cc;
+								cadencia[casillaMenor]+=(1/(double)cu[casillaMenor].length);
+								System.out.println((opCount+1)+" "+ (opCount2+1));
+								opCount2--;
+								
+							}else{
+								cu[casillaMenor][opCount2]=Nombre+" "+cc;
+								cadencia[casillaMenor]+=(1/(double)cu[casillaMenor].length);
+								System.out.println((opCount+1)+" "+ (opCount2+1));
+								
+								
+							}
+							opCount++;
+							if(opCount>=cu.length){
+								System.out.println("up");
+								System.out.println("Count2"+opCount2);
+								opCount2++;
+								
+								
+							}
+							
+							
+						}else{
+							casillaMenor=indiceMenor(cadencia);
+							if(cu[casillaMenor][opCount2]!=null){
+								opCount2++;	
+							}
+							cu[casillaMenor][opCount2]=Nombre+" "+cc;
+							System.out.println((casillaMenor+1)+" "+ (opCount2+1));
+							opCount2--;
+							cadencia[casillaMenor]+=(1/(double)cu[casillaMenor].length);
+							d--;
+						}
+
+
+
+					}else{
+						cu[k][enc]=Nombre+" "+cc;
+						cadencia[k]+=(1/(double)cu[k].length);
+						System.out.println((k+1)+" "+(enc+1));
+						d=0;
+						sal=false;
+					}
+					//busqueda menor;
+
+
+				}
+
+
+
+				else if(operacion.equals("salir")){
+					String cc=scan.next();
+					//System.out.println("entre"+i);
+					for(int c=0;c<cu.length;c++){
+						int t=0;
+						while(t<cu[c].length){
+							if(cu[c][t]!=null){
+								if(cu[c][t].contains(cc) ){
+									System.out.println("esta");
+									String [] a=cu[c][t].split(" ");
+									for(int m=0;m<cadencia.length;m++){
+										System.out.print(cadencia[m]+" ");
+
+									}
+									System.out.println();
+									cadencia[c]-=(1/(double)cu[c].length);
+									for(int m=0;m<cadencia.length;m++){
+										System.out.print(cadencia[m]+" ");
+
+									}
+									if(sal==false){
+										sal=true;
+									}else{
+										sal=false;
+									}
+									d++;
+									k=c;
+									enc=t;
+									c=cu.length;
+									casillaMenor=indiceMenor(cadencia);
+									break;
+
+								}else{									
+								}
+
+
+							}
+							t++;
+
+
+
+
+						}
+
+					}
+
+
+
+				}
+			}
+		}
+
+
+	}
+	public static int indiceMenor(double a[]){
+		int indice = 0;
+		double b=1;
+
+		for(int i=0; i<a.length;i++){
+			//System.out.print (a[i]+ " ");
+
+			if(a[i]<b){
+
+				b=a[i];
+				indice=i;
+			}
+
+		}
+		return indice;
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+public class ProblemaA {
+	public static void main(String[] args) {
+
+		ArbolBinario arbol = new ArbolBinario(raiz)
+
+	}
+
+
+	public static class Nodo{
+		private  static int dato;
+		private Nodo nodoIzquierdo;
+		private Nodo nodoDerecho;
+		public Nodo(int valor){
+			dato = valor;
+			nodoDerecho = nodoIzquierdo = null;
+		}
+
+		public Nodo(Nodo ramaIzqui , Object valor, Nodo derecho){
+			this(dato);
+			nodoIzquierdo = ramaIzqui;
+			nodoDerecho = derecho;
+
+		}
+		public int valorNodo(){
+			return dato;
+		}
+		public Nodo subIzquierdo(){
+			return nodoIzquierdo;
+		}
+		public Nodo subDerecho(){
+			return nodoDerecho;
+		}
+		public void nuevoValor(int i){
+			dato  = i;
+
+		}
+		public void ramaIzquierda(Nodo n){
+			nodoIzquierdo = n;
+		}
+		public void ramaDerecha(Nodo n){
+			nodoDerecho= n;
+		}
+
+		public void visitar() {
+			// TODO Auto-generated method stub
+
+		}
+	}
+	public static class ArbolBinario {
+		protected Nodo raiz;
+		public ArbolBinario(){
+			raiz = null;
+		}
+		public ArbolBinario(Nodo raiz){
+			this.raiz = raiz;
+		}
+		public Nodo raizArbol(){
+			return raiz;
+		}
+		boolean esVacio(){
+			return raiz== null;
+		}
+		public int numeroNodos(Nodo Raiz){
+			if (raiz == null) return 0;
+			else
+				return 1 +numeroNodos(raiz.subDerecho())+numeroNodos(raiz.subDerecho()); 
+		}
+		public static Nodo nuevoArbol(Nodo ramaIzqda, Object dato, Nodo ramaDrcha)
+		{
+			return new Nodo(ramaIzqda, dato, ramaDrcha);
+		}
+
+		public void recorridoPreOrden(Nodo r){
+			if (r != null)
+			{
+				System.out.println(r.dato);
+				recorridoPreOrden (r.subIzquierdo());
+				recorridoPreOrden (r.subDerecho());
+			}
+		}
+		// Recorrido de un árbol binario en inorden
+		public static void inorden(Nodo r)
+		{
+			if (r != null)
+			{
+				inorden(r.subIzquierdo());
+				System.out.println(r.dato);
+				inorden(r.subDerecho());
+			}
+		}
+		// Recorrido de un árbol binario en postorden
+		public static void postorden(Nodo r)
+		{
+			if (r != null)
+			{
+				postorden (r.subIzquierdo());
+				postorden (r.subDerecho());
+				System.out.println(r.dato);
+			}
+		}
+		public Nodo buscar(Object buscado)
+		{
+			Comparable dato;
+			dato = (Comparador) buscado;
+			if (raiz == null)
+				return null;
+			else
+				return localizar(raizArbol(), dato);
+		}
+		protected Nodo localizar(Nodo raizSub, Comparador buscado)
+		{
+			if (raizSub == null)
+				return null;
+			else if (buscado.igualQue(raizSub.valorNodo()))
+				return raiz;
+			else if (buscado.menorQue(raizSub.valorNodo()))
+				return localizar(raizSub.subarbolIzdo(), buscado);
+			else
+				return localizar (raizSub.subarbolDcho(), buscado);
+		}
+	}
+	public class Comparador(Object ){
+		
+		
+	}
+
+
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+// BinarySearchTree class
+//
+// CONSTRUCTION: with no initializer
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the compareTo method.
+ */
+public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+{
+	/**
+	 * Construct the tree.
+	 */
+	public BinarySearchTree( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Insert into the tree; duplicates are ignored.
+	 * @param x the item to insert.
+	 */
+	public void insert( AnyType x )
+	{
+		root = insert( x, root );
+	}
+
+	/**
+	 * Remove from the tree. Nothing is done if x is not found.
+	 * @param x the item to remove.
+	 */
+	public void remove( AnyType x )
+	{
+		root = remove( x, root );
+	}
+
+	/**f
+	 * Find the smallest item in the tree.
+	 * @return smallest item or null if empty.
+	 */
+	public AnyType findMin( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMin( root ).element;
+	}
+
+	/**
+	 * Find the largest item in the tree.
+	 * @return the largest item of null if empty.
+	 */
+	public AnyType findMax( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMax( root ).element;
+	}
+
+	/**
+	 * Find an item in the tree.
+	 * @param x the item to search for.
+	 * @return true if not found.
+	 */
+	public boolean contains( AnyType x )
+	{
+		return contains( x, root );
+	}
+	public BinaryNode<AnyType> ancestro( AnyType x ,AnyType y )
+	{
+		return ancestro( x, y , root );
+	}
+
+
+	/**
+	 * Make the tree logically empty.
+	 */
+	public void makeEmpty( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Test if the tree is logically empty.
+	 * @return true if empty, false otherwise.
+	 */
+	public boolean isEmpty( )
+	{
+		return root == null;
+	}
+
+	/**
+	 * Print the tree contents in sorted order.
+	 */
+	public void printTree( )
+	{
+		if( isEmpty( ) )
+			System.out.println( "Empty tree" );
+		else
+			printTree( root );
+	}
+
+	/**
+	 * Internal method to insert into a subtree.
+	 * @param x the item to insert.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return new BinaryNode<AnyType>( x, null, null );
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = insert( x, t.left );
+		else if( compareResult > 0 )
+			t.right = insert( x, t.right );
+		else
+			;  // Duplicate; do nothing
+		return t;
+	}
+
+	/**
+	 * Internal method to remove from a subtree.
+	 * @param x the item to remove.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return t;   // Item not found; do nothing
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = remove( x, t.left );
+		else if( compareResult > 0 )
+			t.right = remove( x, t.right );
+		else if( t.left != null && t.right != null ) // Two children
+		{
+			t.element = findMin( t.right ).element;
+			t.right = remove( t.element, t.right );
+		}
+		else
+			t = ( t.left != null ) ? t.left : t.right;
+		return t;
+	}
+
+	/**
+	 * Internal method to find the smallest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the smallest item.
+	 */
+	private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return null;
+		else if( t.left == null )
+			return t;
+		return findMin( t.left );
+	}
+
+	
+	/**
+	 * Internal method t
+
+o find the largest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the largest item.
+	 */
+	private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+			while( t.right != null )
+				t = t.right;
+
+		return t;
+	}
+
+	/**
+	 * Internal method to find an item in a subtree.
+	 * @param x is item to search for.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the matched item.
+	 */
+	private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return false;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return contains( x, t.left );
+		else if( compareResult > 0 )
+			return contains( x, t.right );
+		else
+			return true;    // Match
+	}
+	private BinaryNode<AnyType> ancestro( AnyType x,AnyType y ,  BinaryNode<AnyType> t )
+	{
+		if(t!=null){
+			int compareResultX = x.compareTo( t.element );
+			int compareResultY = y.compareTo( t.element );
+
+			if(compareResultX < 0  && compareResultY > 0  ) return t;
+			if(compareResultX == 0 || compareResultY == 0   ) return t;
+			if(compareResultX < 0 && compareResultY < 0) return ancestro(x, y ,t.left);
+			if(compareResultX > 0 && compareResultY > 0) return ancestro(x, y ,t.right);
+
+		}
+				return null;
+
+	}
+	public Integer distanciaA( AnyType x, BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+
+		int compare = x.compareTo(t.element);
+
+		if(compare < 0  ){
+			return 1 + distanciaA(x, t.left);
+		}else if(compare >0){
+			return 1 +distanciaB(x,t.right);
+		}else{
+			return  0;
+		}
+
+
+	}
+	public Integer distanciaB( AnyType x,  BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+		int compare = x.compareTo(t.element);
+		if(compare > 0  ){
+			return 1 + distanciaB(x, t.right);
+		}else if(compare < 0){
+			return  1 + distanciaA(x, t.left);
+		}else{
+			return  0;
+		}
+
+
+	}
+
+
+
+	/**
+	 * Internal method to print a subtree in sorted order.
+	 * @param t the node that roots the subtree.
+	 */
+	private void printTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			printTree( t.left );
+			System.out.println( t.element );
+			printTree( t.right );
+		}
+	}
+
+
+	/**
+	 * Internal method to compute height of a subtree.
+	 * @param t the node that roots the subtree.
+	 */
+	private int height( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return -1;
+		else
+			return 1 + Math.max( height( t.left ), height( t.right ) );    
+	}
+
+	// Basic node stored in unbalanced binary search trees
+	private static class BinaryNode<AnyType>
+	{
+		// Constructors
+		BinaryNode( AnyType theElement )
+		{
+			this( theElement, null, null );
+		}
+
+		BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+		{
+			element  = theElement;
+			left     = lt;
+			right    = rt;
+		}
+
+		AnyType element;            // The data in the node
+		BinaryNode<AnyType> left;   // Left child
+		BinaryNode<AnyType> right;  // Right child
+	}
+
+
+	/** The tree root. */
+	private BinaryNode<AnyType> root;
+
+
+	// Test program
+	public static void main( String [ ] args ) throws Exception
+	{
+		Scanner scan = new Scanner(System.in);
+		int casos = scan.nextInt();
+		BinarySearchTree<Integer> t = new BinarySearchTree<Integer>( );
+		
+		for(int j = 0 ; j < casos ;j++){
+			t.makeEmpty();
+			int comando  = scan.nextInt();
+			
+			System.out.println("Caso #"+(j+1)+":");
+			for(int i = 0 ; i < comando ; i ++){
+				String  co = scan.next();
+				switch (co){
+				case "agregar" :
+					t.insert(scan.nextInt());
+					break;
+				case 	"distancia"  :
+					int a  = scan.nextInt();
+					int b = scan.nextInt();
+					if(a > b){
+						int m = a;
+						a = b;
+						b = m;
+					}
+					if (t.contains(a) == false || t.contains(b) == false){
+						System.out.println("distancia: "+-1);
+						break;
+					}
+					int c = t.distanciaB(a, t.ancestro(a, b)) +t.distanciaA( b, t.ancestro(a,b));
+					System.out.println("distancia: "+c);
+					break;
+				case "ancestro" :
+					
+					int d  = scan.nextInt();
+					int e = scan.nextInt();
+					if(d > e){
+						int m = d;
+						d = e;
+						e = m;
+					}
+					if (t.contains(d) == false || t.contains(e) == false){
+						System.out.println("ancestro: "+-1);
+						break;
+					}
+						System.out.println("ancestro: "+t.ancestro(d, e).element);
+					break;
+				}
+
+			}
+
+		}
+		//int c = t.distanciaB(40, t.ancestro(40, 50)) +t.distanciaA( 50, t.ancestro(40,50));
+		//System.out.println( "Checking... (no more output means success)find " + t.contains(7)  );
+		//System.out.println(t.ancestro(10,70 ).element +" <= ANCESTRO COMUN" +c );
+
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Uva;
+
+import java.util.Scanner;
+
+
+
+
+// BinarySearchTree class
+//
+// CONSTRUCTION: with no initializer
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the compareTo method.
+ */
+public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+{
+	/**
+	 * Construct the tree.
+	 */
+	public BinarySearchTree( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Insert into the tree; duplicates are ignored.
+	 * @param x the item to insert.
+	 */
+	public void insert( AnyType x )
+	{
+		root = insert( x, root );
+	}
+
+	/**
+	 * Remove from the tree. Nothing is done if x is not found.
+	 * @param x the item to remove.
+	 */
+	public void remove( AnyType x )
+	{
+		root = remove( x, root );
+	}
+
+	/**f
+	 * Find the smallest item in the tree.
+	 * @return smallest item or null if empty.
+	 */
+	public AnyType findMin( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMin( root ).element;
+	}
+
+	/**
+	 * Find the largest item in the tree.
+	 * @return the largest item of null if empty.
+	 */
+	public AnyType findMax( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMax( root ).element;
+	}
+	
+	public  BinaryNode<AnyType> find(AnyType p ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return  find( root, p );
+	}
+
+	/**
+	 * Find an item in the tree.
+	 * @param x the item to search for.
+	 * @return true if not found.
+	 */
+	public boolean contains( AnyType x )
+	{
+		return contains( x, root );
+	}
+	public BinaryNode<AnyType> ancestro( AnyType x ,AnyType y )
+	{
+		return ancestro( x, y , root );
+	}
+
+
+	/**
+	 * Make the tree logically empty.
+	 */
+	public void makeEmpty( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Test if the tree is logically empty.
+	 * @return true if empty, false otherwise.
+	 */
+	public boolean isEmpty( )
+	{
+		return root == null;
+	}
+
+	/**
+	 * Print the tree contents in sorted order.
+	 */
+	public void printTree( )
+	{
+		if( isEmpty( ) )
+			System.out.println( "Empty tree" );
+		else
+			printTree( root );
+	}
+	
+
+	/**
+	 * Internal method to insert into a subtree.
+	 * @param x the item to insert.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return new BinaryNode<AnyType>( x, null, null );
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = insert( x, t.left );
+		else if( compareResult > 0 )
+			t.right = insert( x, t.right );
+		else
+			;  // Duplicate; do nothing
+		return t;
+	}
+
+	/**
+	 * Internal method to remove from a subtree.
+	 * @param x the item to remove.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return t;   // Item not found; do nothing
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = remove( x, t.left );
+		else if( compareResult > 0 )
+			t.right = remove( x, t.right );
+		else if( t.left != null && t.right != null ) // Two children
+		{
+			t.element = findMin( t.right ).element;
+			t.right = remove( t.element, t.right );
+		}
+		else
+			t = ( t.left != null ) ? t.left : t.right;
+		return t;
+	}
+
+	/**
+	 * Internal method to find the smallest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the smallest item.
+	 */
+	private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return null;
+		else if( t.left == null )
+			return t;
+		return findMin( t.left );
+	}
+	private BinaryNode<AnyType> find( BinaryNode<AnyType> t , AnyType p  )
+	{
+		if( t == null )
+			return null;
+		int a = p.compareTo(t.element);
+		if(t.element.equals(p)) return t;
+		if(a > 0) return find(t.left, p);
+		if(a < 0) return find(t.right , p);
+
+		return null;
+	}
+
+
+	/**
+	 * Internal method t
+
+o find the largest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the largest item.
+	 */
+	private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+			while( t.right != null )
+				t = t.right;
+
+		return t;
+	}
+
+	/**
+	 * Internal method to find an item in a subtree.
+	 * @param x is item to search for.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the matched item.
+	 */
+	private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return false;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return contains( x, t.left );
+		else if( compareResult > 0 )
+			return contains( x, t.right );
+		else
+			return true;    // Match
+	}
+	private BinaryNode<AnyType> ancestro( AnyType x,AnyType y ,  BinaryNode<AnyType> t )
+	{
+		if(t!=null){
+			int compareResultX = x.compareTo( t.element );
+			int compareResultY = y.compareTo( t.element );
+
+			if(compareResultX < 0  && compareResultY > 0  ) return t;
+			if(compareResultX == 0 || compareResultY == 0   ) return t;
+			if(compareResultX < 0 && compareResultY < 0) return ancestro(x, y ,t.left);
+			if(compareResultX > 0 && compareResultY > 0) return ancestro(x, y ,t.right);
+
+		}
+		return null;
+
+	}
+	public Integer distanciaA( AnyType x, BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+
+		int compare = x.compareTo(t.element);
+
+		if(compare < 0  ){
+			return 1 + distanciaA(x, t.left);
+		}else if(compare >0){
+			return 1 + distanciaB(x,t.right);
+		}else{
+			return  0;
+		}
+
+
+
+	}
+	public Integer distanciaB( AnyType x,  BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+		int compare = x.compareTo(t.element);
+		if(compare > 0  ){
+			return 1 + distanciaB(x, t.right);
+		}else if(compare < 0){
+			return  1 + distanciaA(x, t.left);
+		}else{
+			return  0;
+		}
+
+
+	}
+
+
+
+	/**
+	 * Internal method to print a subtree in sorted order.
+	 * @param t the node that roots the subtree.
+	 */
+	private void printTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			printTree( t.left );
+			System.out.println( t.element );
+			printTree( t.right );
+		}
+	}
+
+	public int CountTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			return 1 + CountTree( t.left ) + CountTree( t.right) ;
+			
+		}
+		
+		return 0;
+	}
+
+
+	/**
+	 * Internal method to compute height of a subtree.
+	 * @param t the node that roots the subtree.
+	 */
+	private int height( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return -1;
+		else
+			return 1 + Math.max( height( t.left ), height( t.right ) );    
+	}
+
+	// Basic node stored in unbalanced binary search trees
+	private static class BinaryNode<AnyType>
+	{
+		// Constructors
+		BinaryNode( AnyType theElement )
+		{
+			this( theElement, null, null );
+		}
+
+		BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+		{
+			element  = theElement;
+			left     = lt;
+			right    = rt;
+		}
+
+		AnyType element;            // The data in the node
+		BinaryNode<AnyType> left;   // Left child
+		BinaryNode<AnyType> right;  // Right child
+	}
+
+
+	/** The tree root. */
+	private BinaryNode<AnyType> root;
+
+
+	// Test program
+	public static void main( String [ ] args ) throws Exception
+	{
+		Scanner scan = new Scanner(System.in);
+		int casos = scan.nextInt();
+		BinarySearchTree<Integer> t = new BinarySearchTree<Integer>( );
+		for(int j = 0 ; j < casos ;j++){
+			t.makeEmpty();
+			int comando  = scan.nextInt();
+			System.out.println("Caso #"+(j+1)+":");
+			for(int i = 0 ; i < comando ; i ++){
+				
+				String  co = scan.next();
+				System.out.println(co);
+				switch (co){
+				case "agregar" :
+					t.insert(scan.nextInt());
+					break;
+				case 	"distancia"  :
+					int a  = scan.nextInt();
+					int b = scan.nextInt();
+					if(a > b){
+						int m = a;
+						a = b;
+						b = m;
+					}
+					if (t.contains(a) == false || t.contains(b) == false){
+						System.out.println("distancia: "+-1);
+						break;
+					}
+					int c = t.distanciaB(a, t.ancestro(a, b)) +t.distanciaA( b, t.ancestro(a,b));
+					System.out.println("distancia: "+c);
+					break;
+				case "ancestro" :
+
+					int d  = scan.nextInt();
+					int e = scan.nextInt();
+					if(d > e){
+						int m = d;
+						d = e;
+						e = m;
+					}
+					if (t.contains(d) == false || t.contains(e) == false){
+						System.out.println("ancestro: "+-1);
+						break;
+					}
+					System.out.println("ancestro: "+t.ancestro(d, e).element);
+					break;
+				case "contar":
+						int f = scan.nextInt();
+						if(t.contains(f) == false){
+							System.out.println("contar :" + -1);
+						}
+						System.out.println(t.CountTree(t.find(f)));
+					
+					break;
+				}
+
+			}
+			
+
+		}
+		//int c = t.distanciaB(40, t.ancestro(40, 50)) +t.distanciaA( 50, t.ancestro(40,50));
+		//System.out.println( "Checking... (no more output means success)find " + t.contains(7)  );
+		//System.out.println(t.ancestro(10,70 ).element +" <= ANCESTRO COMUN" +c );
+
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Uva;
+
+import java.util.Scanner;
+
+
+
+
+// BinarySearchTree class
+//
+// CONSTRUCTION: with no initializer
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the compareTo method.
+ */
+public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+{
+	/**
+	 * Construct the tree.
+	 */
+	public BinarySearchTree( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Insert into the tree; duplicates are ignored.
+	 * @param x the item to insert.
+	 */
+	public void insert( AnyType x )
+	{
+		root = insert( x, root );
+	}
+
+	/**
+	 * Remove from the tree. Nothing is done if x is not found.
+	 * @param x the item to remove.
+	 * 
+	 */
+	public void remove( AnyType x )
+	{
+		root = remove( x, root );
+	}
+
+	/**f
+	 * Find the smallest item in the tree.
+	 * @return smallest item or null if empty.
+	 */
+	public AnyType findMin( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMin( root ).element;
+	}
+
+	/**
+	 * Find the largest item in the tree.
+	 * @return the largest item of null if empty.
+	 */
+	public AnyType findMax( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMax( root ).element;
+	}
+	
+	public  BinaryNode<AnyType> find(AnyType p ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return  findS( root, p );
+	}
+
+	/**
+	 * Find an item in the tree.
+	 * @param x the item to search for.
+	 * @return true if not found.
+	 */
+	public boolean contains( AnyType x )
+	{
+		return contains( x, root );
+	}
+	public BinaryNode<AnyType> ancestro( AnyType x ,AnyType y )
+	{
+		return ancestro( x, y , root );
+	}
+
+
+	/**
+	 * Make the tree logically empty.
+	 */
+	public void makeEmpty( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Test if the tree is logically empty.
+	 * @return true if empty, false otherwise.
+	 */
+	public boolean isEmpty( )
+	{
+		return root == null;
+	}
+
+	/**
+	 * Print the tree contents in sorted order.
+	 */
+	public void printTree( )
+	{
+		if( isEmpty( ) )
+			System.out.println( "Empty tree" );
+		else
+			printTree( root );
+	}
+	
+
+	/**
+	 * Internal method to insert into a subtree.
+	 * @param x the item to insert.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return new BinaryNode<AnyType>( x, null, null );
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = insert( x, t.left );
+		else if( compareResult > 0 )
+			t.right = insert( x, t.right );
+		else
+			;  // Duplicate; do nothing
+		return t;
+	}
+
+	/**
+	 * Internal method to remove from a subtree.
+	 * @param x the item to remove.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return t;   // Item not found; do nothing
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = remove( x, t.left );
+		else if( compareResult > 0 )
+			t.right = remove( x, t.right );
+		else if( t.left != null && t.right != null ) // Two children
+		{
+			t.element = findMin( t.right ).element;
+			t.right = remove( t.element, t.right );
+		}
+		else
+			t = ( t.left != null ) ? t.left : t.right;
+		return t;
+	}
+
+	/**
+	 * Internal method to find the smallest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the smallest item.
+	 */
+	private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return null;
+		else if( t.left == null )
+			return t;
+		return findMin( t.left );
+	}
+	private BinaryNode<AnyType> findS( BinaryNode<AnyType> t , AnyType x  )
+	{
+		if( t == null )
+			return null;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return findS( t.left, x );
+		else if( compareResult > 0 )
+			return findS( t.right, x );
+		else
+			return t;    // Match	}
+
+	}
+	/**
+	 * Internal method t
+
+o find the largest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the largest item.
+	 */
+	private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+			while( t.right != null )
+				t = t.right;
+
+		return t;
+	}
+
+	/**
+	 * Internal method to find an item in a subtree.
+	 * @param x is item to search for.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the matched item.
+	 */
+	private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return false;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return contains( x, t.left );
+		else if( compareResult > 0 )
+			return contains( x, t.right );
+		else
+			return true;    // Match
+	}
+	private BinaryNode<AnyType> ancestro( AnyType x,AnyType y ,  BinaryNode<AnyType> t )
+	{
+		if(t!=null){
+			int compareResultX = x.compareTo( t.element );
+			int compareResultY = y.compareTo( t.element );
+
+			if(compareResultX < 0  && compareResultY > 0  ) return t;
+			if(compareResultX == 0 || compareResultY == 0   ) return t;
+			if(compareResultX < 0 && compareResultY < 0) return ancestro(x, y ,t.left);
+			if(compareResultX > 0 && compareResultY > 0) return ancestro(x, y ,t.right);
+
+		}
+		return null;
+
+	}
+	public Integer distanciaA( AnyType x, BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+
+		int compare = x.compareTo(t.element);
+
+		if(compare < 0  ){
+			return 1 + distanciaA(x, t.left);
+		}else if(compare >0){
+			return 1 + distanciaB(x,t.right);
+		}else{
+			return  0;
+		}
+
+
+
+	}
+	public Integer distanciaB( AnyType x,  BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+		int compare = x.compareTo(t.element);
+		if(compare > 0  ){
+			return 1 + distanciaB(x, t.right);
+		}else if(compare < 0){
+			return  1 + distanciaA(x, t.left);
+		}else{
+			return  0;
+		}
+
+
+	}
+
+
+
+	/**
+	 * Internal method to print a subtree in sorted order.
+	 * @param t the node that roots the subtree.
+	 */
+	private void printTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			printTree( t.left );
+			System.out.println( t.element );
+			printTree( t.right );
+		}
+	}
+
+	public int CountTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			return 1 + CountTree( t.left ) + CountTree( t.right) ;
+			
+		}
+		
+		return 0;
+	}
+
+
+	/**
+	 * Internal method to compute height of a subtree.
+	 * @param t the node that roots the subtree.
+	 */
+	private int height( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return -1;
+		else
+			return 1 + Math.max( height( t.left ), height( t.right ) );    
+	}
+
+	// Basic node stored in unbalanced binary search trees
+	private static class BinaryNode<AnyType>
+	{
+		// Constructors
+		BinaryNode( AnyType theElement )
+		{
+			this( theElement, null, null );
+		}
+
+		BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+		{
+			element  = theElement;
+			left     = lt;
+			right    = rt;
+		}
+
+		AnyType element;            // The data in the node
+		BinaryNode<AnyType> left;   // Left child
+		BinaryNode<AnyType> right;  // Right child
+	}
+
+
+	/** The tree root. */
+	private BinaryNode<AnyType> root;
+
+
+	// Test program
+	public static void main( String [ ] args ) throws Exception
+	{
+		Scanner scan = new Scanner(System.in);
+		int casos = scan.nextInt();
+		BinarySearchTree<Integer> t = new BinarySearchTree<Integer>( );
+		for(int j = 0 ; j < casos ;j++){
+			t.makeEmpty();
+			int comando  = scan.nextInt();
+			System.out.println("Caso #"+(j+1)+":");
+			for(int i = 0 ; i < comando ; i ++){
+				
+				String  co = scan.nextLine();
+				System.out.println(co);
+				String[] aux = co.split(" ");
+				switch (aux[0]){
+				case "agregar" :
+					t.insert(Integer.parseInt(aux[1]));
+					break;
+				case 	"distancia"  :
+					int a  = Integer.parseInt(aux[1]);
+					int b = Integer.parseInt(aux[2]);
+					if(a > b){
+						int m = a;
+						a = b;
+						b = m;
+					}
+					if (t.contains(a) == false || t.contains(b) == false){
+						System.out.println("distancia: "+-1);
+						break;
+					}
+					int c = t.distanciaB(a, t.ancestro(a, b)) +t.distanciaA( b, t.ancestro(a,b));
+					System.out.println("distancia: "+c);
+					break;
+				case "ancestro" :
+
+					int d  = Integer.parseInt(aux[1]);
+					int e = Integer.parseInt(aux[2]);
+					if(d > e){
+						int m = d;
+						d = e;
+						e = m;
+					}
+					if (t.contains(d) == false || t.contains(e) == false){
+						System.out.println("ancestro: "+-1);
+						break;
+					}
+					System.out.println("ancestro: "+t.ancestro(d, e).element);
+					break;
+				case "contar":
+					
+						int f = Integer.parseInt(aux[1]);
+						
+						System.out.println("find + " +  t.find(f).element);
+						if(t.contains(f) == false){
+							System.out.println("contar :" + -1);
+							break;
+						}
+						System.out.println("contar :"+(t.CountTree(t.find(f))-1));
+					
+					break;
+				}
+
+			}
+			
+
+		}
+		//int c = t.distanciaB(40, t.ancestro(40, 50)) +t.distanciaA( 50, t.ancestro(40,50));
+		//System.out.println( "Checking... (no more output means success)find " + t.contains(7)  );
+		//System.out.println(t.ancestro(10,70 ).element +" <= ANCESTRO COMUN" +c );
+
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Uva;
+
+import java.util.Scanner;
+
+
+
+
+// BinarySearchTree class
+//
+// CONSTRUCTION: with no initializer
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the compareTo method.
+ */
+public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+{
+	/**
+	 * Construct the tree.
+	 */
+	public BinarySearchTree( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Insert into the tree; duplicates are ignored.
+	 * @param x the item to insert.
+	 */
+	public void insert( AnyType x )
+	{
+		root = insert( x, root );
+	}
+
+	/**
+	 * Remove from the tree. Nothing is done if x is not found.
+	 * @param x the item to remove.
+	 * 
+	 */
+	public void remove( AnyType x )
+	{
+		root = remove( x, root );
+	}
+
+	/**f
+	 * Find the smallest item in the tree.
+	 * @return smallest item or null if empty.
+	 */
+	public AnyType findMin( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMin( root ).element;
+	}
+
+	/**
+	 * Find the largest item in the tree.
+	 * @return the largest item of null if empty.
+	 */
+	public AnyType findMax( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMax( root ).element;
+	}
+	
+	public  BinaryNode<AnyType> find(AnyType p ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return  findS( root, p );
+	}
+
+	/**
+	 * Find an item in the tree.
+	 * @param x the item to search for.
+	 * @return true if not found.
+	 */
+	public boolean contains( AnyType x )
+	{
+		return contains( x, root );
+	}
+	public BinaryNode<AnyType> ancestro( AnyType x ,AnyType y )
+	{
+		return ancestro( x, y , root );
+	}
+
+
+	/**
+	 * Make the tree logically empty.
+	 */
+	public void makeEmpty( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Test if the tree is logically empty.
+	 * @return true if empty, false otherwise.
+	 */
+	public boolean isEmpty( )
+	{
+		return root == null;
+	}
+
+	/**
+	 * Print the tree contents in sorted order.
+	 */
+	public void printTree( )
+	{
+		if( isEmpty( ) )
+			System.out.println( "Empty tree" );
+		else
+			printTree( root );
+	}
+	
+
+	/**
+	 * Internal method to insert into a subtree.
+	 * @param x the item to insert.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return new BinaryNode<AnyType>( x, null, null );
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = insert( x, t.left );
+		else if( compareResult > 0 )
+			t.right = insert( x, t.right );
+		else
+			;  // Duplicate; do nothing
+		return t;
+	}
+
+	/**
+	 * Internal method to remove from a subtree.
+	 * @param x the item to remove.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return t;   // Item not found; do nothing
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = remove( x, t.left );
+		else if( compareResult > 0 )
+			t.right = remove( x, t.right );
+		else if( t.left != null && t.right != null ) // Two children
+		{
+			t.element = findMin( t.right ).element;
+			t.right = remove( t.element, t.right );
+		}
+		else
+			t = ( t.left != null ) ? t.left : t.right;
+		return t;
+	}
+
+	/**
+	 * Internal method to find the smallest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the smallest item.
+	 */
+	private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return null;
+		else if( t.left == null )
+			return t;
+		return findMin( t.left );
+	}
+	private BinaryNode<AnyType> findS( BinaryNode<AnyType> t , AnyType x  )
+	{
+		if( t == null )
+			return null;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return findS( t.left, x );
+		else if( compareResult > 0 )
+			return findS( t.right, x );
+		else
+			return t;    // Match	}
+
+	}
+	/**
+	 * Internal method t
+
+o find the largest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the largest item.
+	 */
+	private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+			while( t.right != null )
+				t = t.right;
+
+		return t;
+	}
+
+	/**
+	 * Internal method to find an item in a subtree.
+	 * @param x is item to search for.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the matched item.
+	 */
+	private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return false;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return contains( x, t.left );
+		else if( compareResult > 0 )
+			return contains( x, t.right );
+		else
+			return true;    // Match
+	}
+	private BinaryNode<AnyType> ancestro( AnyType x,AnyType y ,  BinaryNode<AnyType> t )
+	{
+		if(t!=null){
+			int compareResultX = x.compareTo( t.element );
+			int compareResultY = y.compareTo( t.element );
+
+			if(compareResultX < 0  && compareResultY > 0  ) return t;
+			if(compareResultX == 0 || compareResultY == 0   ) return t;
+			if(compareResultX < 0 && compareResultY < 0) return ancestro(x, y ,t.left);
+			if(compareResultX > 0 && compareResultY > 0) return ancestro(x, y ,t.right);
+
+		}
+		return null;
+
+	}
+	public Integer distanciaA( AnyType x, BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+
+		int compare = x.compareTo(t.element);
+
+		if(compare < 0  ){
+			return 1 + distanciaA(x, t.left);
+		}else if(compare >0){
+			return 1 + distanciaB(x,t.right);
+		}else{
+			return  0;
+		}
+
+
+
+	}
+	public Integer distanciaB( AnyType x,  BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+		int compare = x.compareTo(t.element);
+		if(compare > 0  ){
+			return 1 + distanciaB(x, t.right);
+		}else if(compare < 0){
+			return  1 + distanciaA(x, t.left);
+		}else{
+			return  0;
+		}
+
+
+	}
+
+
+
+	/**
+	 * Internal method to print a subtree in sorted order.
+	 * @param t the node that roots the subtree.
+	 */
+	private void printTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			printTree( t.left );
+			System.out.println( t.element );
+			printTree( t.right );
+		}
+	}
+
+	public int CountTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			return 1 + CountTree( t.left ) + CountTree( t.right) ;
+			
+		}
+		
+		return 0;
+	}
+
+
+	/**
+	 * Internal method to compute height of a subtree.
+	 * @param t the node that roots the subtree.
+	 */
+	private int height( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return -1;
+		else
+			return 1 + Math.max( height( t.left ), height( t.right ) );    
+	}
+
+	// Basic node stored in unbalanced binary search trees
+	private static class BinaryNode<AnyType>
+	{
+		// Constructors
+		BinaryNode( AnyType theElement )
+		{
+			this( theElement, null, null );
+		}
+
+		BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+		{
+			element  = theElement;
+			left     = lt;
+			right    = rt;
+		}
+
+		AnyType element;            // The data in the node
+		BinaryNode<AnyType> left;   // Left child
+		BinaryNode<AnyType> right;  // Right child
+	}
+
+
+	/** The tree root. */
+	private BinaryNode<AnyType> root;
+
+
+	// Test program
+	public static void main( String [ ] args ) throws Exception
+	{
+		Scanner scan = new Scanner(System.in);
+		int casos = Integer.parseInt(scan.nextLine());
+		BinarySearchTree<Integer> t = new BinarySearchTree<Integer>( );
+		for(int j = 0 ; j < casos ;j++){
+			t.makeEmpty();
+			int comando  = Integer.parseInt(scan.nextLine());
+			System.out.println("Caso #"+(j+1)+":");
+			for(int i = 0 ; i < comando ; i ++){
+				
+				String  co = scan.nextLine();
+				System.out.println(co);
+				String[] aux = co.split(" ");
+				switch (aux[0]){
+				case "agregar" :
+					t.insert(Integer.parseInt(aux[1]));
+					break;
+				case 	"distancia"  :
+					int a  = Integer.parseInt(aux[1]);
+					int b = Integer.parseInt(aux[2]);
+					if(a > b){
+						int m = a;
+						a = b;
+						b = m;
+					}
+					if (t.contains(a) == false || t.contains(b) == false){
+						System.out.println("distancia: "+-1);
+						break;
+					}
+					int c = t.distanciaB(a, t.ancestro(a, b)) +t.distanciaA( b, t.ancestro(a,b));
+					System.out.println("distancia: "+c);
+					break;
+				case "ancestro" :
+
+					int d  = Integer.parseInt(aux[1]);
+					int e = Integer.parseInt(aux[2]);
+					if(d > e){
+						int m = d;
+						d = e;
+						e = m;
+					}
+					if (t.contains(d) == false || t.contains(e) == false){
+						System.out.println("ancestro: "+-1);
+						break;
+					}
+					System.out.println("ancestro: "+t.ancestro(d, e).element);
+					break;
+				case "contar":
+					
+						int f = Integer.parseInt(aux[1]);
+						
+						//System.out.println("find + " +  t.find(f).element);
+						if(t.contains(f) == false){
+							System.out.println("contar: " + -1);
+							break;
+						}
+						System.out.println("contar: "+(t.CountTree(t.find(f))-1));
+					
+					break;
+				}
+
+			}
+			
+
+		}
+		//int c = t.distanciaB(40, t.ancestro(40, 50)) +t.distanciaA( 50, t.ancestro(40,50));
+		//System.out.println( "Checking... (no more output means success)find " + t.contains(7)  );
+		//System.out.println(t.ancestro(10,70 ).element +" <= ANCESTRO COMUN" +c );
+
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package Uva;
+
+import java.util.Scanner;
+
+
+
+
+// BinarySearchTree class
+//
+// CONSTRUCTION: with no initializer
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+// ******************ERRORS********************************
+// Throws UnderflowException as appropriate
+
+/**
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the compareTo method.
+ */
+public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+{
+	/**
+	 * Construct the tree.
+	 */
+	public BinarySearchTree( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Insert into the tree; duplicates are ignored.
+	 * @param x the item to insert.
+	 */
+	public void insert( AnyType x )
+	{
+		root = insert( x, root );
+	}
+
+	/**
+	 * Remove from the tree. Nothing is done if x is not found.
+	 * @param x the item to remove.
+	 * 
+	 */
+	public void remove( AnyType x )
+	{
+		root = remove( x, root );
+	}
+
+	/**f
+	 * Find the smallest item in the tree.
+	 * @return smallest item or null if empty.
+	 */
+	public AnyType findMin( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMin( root ).element;
+	}
+
+	/**
+	 * Find the largest item in the tree.
+	 * @return the largest item of null if empty.
+	 */
+	public AnyType findMax( ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return findMax( root ).element;
+	}
+	
+	public  BinaryNode<AnyType> find(AnyType p ) throws Exception
+	{
+		if( isEmpty( ) )
+			throw new Exception( );
+		return  findS( root, p );
+	}
+
+	/**
+	 * Find an item in the tree.
+	 * @param x the item to search for.
+	 * @return true if not found.
+	 */
+	public boolean contains( AnyType x )
+	{
+		return contains( x, root );
+	}
+	public BinaryNode<AnyType> ancestro( AnyType x ,AnyType y )
+	{
+		return ancestro( x, y , root );
+	}
+
+
+	/**
+	 * Make the tree logically empty.
+	 */
+	public void makeEmpty( )
+	{
+		root = null;
+	}
+
+	/**
+	 * Test if the tree is logically empty.
+	 * @return true if empty, false otherwise.
+	 */
+	public boolean isEmpty( )
+	{
+		return root == null;
+	}
+
+	/**
+	 * Print the tree contents in sorted order.
+	 */
+	public void printTree( )
+	{
+		if( isEmpty( ) )
+			System.out.println( "Empty tree" );
+		else
+			printTree( root );
+	}
+	
+
+	/**
+	 * Internal method to insert into a subtree.
+	 * @param x the item to insert.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return new BinaryNode<AnyType>( x, null, null );
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = insert( x, t.left );
+		else if( compareResult > 0 )
+			t.right = insert( x, t.right );
+		else
+			;  // Duplicate; do nothing
+		return t;
+	}
+
+	/**
+	 * Internal method to remove from a subtree.
+	 * @param x the item to remove.
+	 * @param t the node that roots the subtree.
+	 * @return the new root of the subtree.
+	 */
+	private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return t;   // Item not found; do nothing
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			t.left = remove( x, t.left );
+		else if( compareResult > 0 )
+			t.right = remove( x, t.right );
+		else if( t.left != null && t.right != null ) // Two children
+		{
+			t.element = findMin( t.right ).element;
+			t.right = remove( t.element, t.right );
+		}
+		else
+			t = ( t.left != null ) ? t.left : t.right;
+		return t;
+	}
+
+	/**
+	 * Internal method to find the smallest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the smallest item.
+	 */
+	private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return null;
+		else if( t.left == null )
+			return t;
+		return findMin( t.left );
+	}
+	private BinaryNode<AnyType> findS( BinaryNode<AnyType> t , AnyType x  )
+	{
+		if( t == null )
+			return null;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return findS( t.left, x );
+		else if( compareResult > 0 )
+			return findS( t.right, x );
+		else
+			return t;    // Match	}
+
+	}
+	/**
+	 * Internal method t
+
+o find the largest item in a subtree.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the largest item.
+	 */
+	private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+			while( t.right != null )
+				t = t.right;
+
+		return t;
+	}
+
+	/**
+	 * Internal method to find an item in a subtree.
+	 * @param x is item to search for.
+	 * @param t the node that roots the subtree.
+	 * @return node containing the matched item.
+	 */
+	private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return false;
+
+		int compareResult = x.compareTo( t.element );
+
+		if( compareResult < 0 )
+			return contains( x, t.left );
+		else if( compareResult > 0 )
+			return contains( x, t.right );
+		else
+			return true;    // Match
+	}
+	private BinaryNode<AnyType> ancestro( AnyType x,AnyType y ,  BinaryNode<AnyType> t )
+	{
+		if(t!=null){
+			int compareResultX = x.compareTo( t.element );
+			int compareResultY = y.compareTo( t.element );
+
+			if(compareResultX < 0  && compareResultY > 0  ) return t;
+			if(compareResultX == 0 || compareResultY == 0   ) return t;
+			if(compareResultX < 0 && compareResultY < 0) return ancestro(x, y ,t.left);
+			if(compareResultX > 0 && compareResultY > 0) return ancestro(x, y ,t.right);
+
+		}
+		return null;
+
+	}
+	public Integer distanciaA( AnyType x, BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+
+		int compare = x.compareTo(t.element);
+
+		if(compare < 0  ){
+			return 1 + distanciaA(x, t.left);
+		}else if(compare >0){
+			return 1 + distanciaB(x,t.right);
+		}else{
+			return  0;
+		}
+
+
+
+	}
+	public Integer distanciaB( AnyType x,  BinaryNode<AnyType> t )
+	{
+
+		if(t == null ) return 0;
+
+		int compare = x.compareTo(t.element);
+		if(compare > 0  ){
+			return 1 + distanciaB(x, t.right);
+		}else if(compare < 0){
+			return  1 + distanciaA(x, t.left);
+		}else{
+			return  0;
+		}
+
+
+	}
+
+
+
+	/**
+	 * Internal method to print a subtree in sorted order.
+	 * @param t the node that roots the subtree.
+	 */
+	private void printTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			printTree( t.left );
+			System.out.println( t.element );
+			printTree( t.right );
+		}
+	}
+
+	public int CountTree( BinaryNode<AnyType> t )
+	{
+		if( t != null )
+		{
+			return 1 + CountTree( t.left ) + CountTree( t.right) ;
+			
+		}
+		
+		return 0;
+	}
+
+
+	/**
+	 * Internal method to compute height of a subtree.
+	 * @param t the node that roots the subtree.
+	 */
+	private int height( BinaryNode<AnyType> t )
+	{
+		if( t == null )
+			return -1;
+		else
+			return 1 + Math.max( height( t.left ), height( t.right ) );    
+	}
+
+	// Basic node stored in unbalanced binary search trees
+	private static class BinaryNode<AnyType>
+	{
+		// Constructors
+		BinaryNode( AnyType theElement )
+		{
+			this( theElement, null, null );
+		}
+
+		BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+		{
+			element  = theElement;
+			left     = lt;
+			right    = rt;
+		}
+
+		AnyType element;            // The data in the node
+		BinaryNode<AnyType> left;   // Left child
+		BinaryNode<AnyType> right;  // Right child
+	}
+
+
+	/** The tree root. */
+	private BinaryNode<AnyType> root;
+
+
+	// Test program
+	public static void main( String [ ] args ) throws Exception
+	{
+		Scanner scan = new Scanner(System.in);
+		int casos = Integer.parseInt(scan.nextLine());
+		BinarySearchTree<Integer> t = new BinarySearchTree<Integer>( );
+		for(int j = 0 ; j < casos ;j++){
+			t.makeEmpty();
+			int comando  = Integer.parseInt(scan.nextLine());
+			System.out.println("Caso #"+(j+1)+":");
+			for(int i = 0 ; i < comando ; i ++){
+				
+				String  co = scan.nextLine();
+				System.out.println(co);
+				String[] aux = co.split(" ");
+				switch (aux[0]){
+				case "agregar" :
+					t.insert(Integer.parseInt(aux[1]));
+					break;
+				case 	"distancia"  :
+					int a  = Integer.parseInt(aux[1]);
+					int b = Integer.parseInt(aux[2]);
+					if(a > b){
+						int m = a;
+						a = b;
+						b = m;
+					}
+					if (t.contains(a) == false || t.contains(b) == false){
+						System.out.println("distancia: "+-1);
+						break;
+					}
+					int c = t.distanciaB(a, t.ancestro(a, b)) +t.distanciaA( b, t.ancestro(a,b));
+					System.out.println("distancia: "+c);
+					break;
+				case "ancestro" :
+
+					int d  = Integer.parseInt(aux[1]);
+					int e = Integer.parseInt(aux[2]);
+					if(d > e){
+						int m = d;
+						d = e;
+						e = m;
+					}
+					if (t.contains(d) == false || t.contains(e) == false){
+						System.out.println("ancestro: "+-1);
+						break;
+					}
+					System.out.println("ancestro: "+t.ancestro(d, e).element);
+					break;
+				case "contar":
+					
+						int f = Integer.parseInt(aux[1]);
+						
+						//System.out.println("find + " +  t.find(f).element);
+						if(t.contains(f) == false){
+							System.out.println("contar: " + -1);
+							break;
+						}
+						System.out.println("contar: "+(t.CountTree(t.find(f))-1));
+					
+					break;
+				}
+
+			}
+			
+
+		}
+		//int c = t.distanciaB(40, t.ancestro(40, 50)) +t.distanciaA( 50, t.ancestro(40,50));
+		//System.out.println( "Checking... (no more output means success)find " + t.contains(7)  );
+		//System.out.println(t.ancestro(10,70 ).element +" <= ANCESTRO COMUN" +c );
+
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.TreeMap;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+public class problemaB {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int casos = scan.nextInt();
+		for(int i = 0 ; i < casos ; i ++  ){
+			System.out.println("Caso #" + (1+i) + ":");
+			int cantidad = scan.nextInt();
+			HashMap<Integer ,  Integer> table1 = new HashMap<Integer ,Integer>();
+			HashMap<Integer ,  Integer> table2 = new HashMap<Integer , Integer>();
+			table1.clear();
+			table2.clear();
+			int [] veces = new int[cantidad];
+			for(int j = 0 ; j < cantidad  ; j ++ ){
+					int  a = scan.nextInt();
+					if( table1.containsValue(a) == false){
+						table2.put( a , j  );
+						table1.put( j , a  );
+						veces[j] = 1;
+					}else{
+						int b = (table2.get(a));
+						veces[b] = veces[b] + 1;
+					}
+			}
+			TreeMap<Integer , Integer> map = new TreeMap<>(table1);
+			Set cv  = map.keySet();
+			Iterator it = cv.iterator();
+			while(it.hasNext()){
+				int clave = (int) it.next();
+				System.out.println(table1.get(clave) +" " + veces[clave] );
+
+				
+			}
+
+			
+			
+		}
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+
+public class ProblemaC {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String pruebas =""+ scan.nextLine();
+		long mils =  System.currentTimeMillis();
+		for(int i = 0; i < Integer.parseInt(pruebas) ; i++){
+			String conexiones = ""+scan.nextLine();
+			String[] co = new String[Integer.parseInt(conexiones)];
+			co[1] = "";
+			co[0] = "";
+			QuickUnionWC union = new QuickUnionWC(Integer.parseInt(conexiones)*2);
+			HashMap<String,Integer> table = new HashMap<String,Integer>();
+			System.out.println("Caso #" + (i+1) + ":");
+			for(int j = 0 ; j < Integer.parseInt(conexiones); j++){
+				co = scan.nextLine().split(" ");
+				if(table.containsKey(co[0]) == false) table.put(co[0], 2*j);
+				if(table.containsKey(co[1]) == false) table.put(co[1], 2*j+1);
+				int a = table.get(co[0]);
+				int b = table.get(co[1]);
+			//	System.out.println(co[0] + "  : " + a + " ." +union.tSize(a) );
+			//	System.out.println(co[1] + "  : " + b + " ." + union.tSize(b)  );
+				union.union(a, b);
+				System.out.println(Math.max( union.tSize(a) , union.tSize(b)));
+			}
+			
+		}
+
+		long mils2 =  System.currentTimeMillis();
+		System.out.println(mils2-mils);
+		scan.close();
+	}
+
+	public static class QuickUnionWC{
+		private int[] id;
+		private int count;
+		private int[] sz;
+
+
+
+		public QuickUnionWC(int N){
+			count = N;
+			id = new int[N];
+			sz= new int[N];
+			for (int i = 0;  i < N ; i++){
+				id[i] = i; 
+				sz[i]=1;
+
+			}
+
+		}
+		private int  find (int i ){
+			while (i != id[i]) {
+				id[i] = id[id[i]];
+				i = id[i];
+			}
+			return i;
+		}
+		public boolean find (int p, int q){
+			return find(p) == find(q);
+		}
+		public void union (int p , int q){
+			int i =  find(p) , j = find(q);
+			if( i == j ) return;
+			if (sz[i] < sz[j] ){
+				id[i] = j;
+				sz[j] += sz[i];
+			}else{
+				id[j] = i;
+				sz[i] += sz[j];
+			}
+			count--;
+		}
+		public int  tSize(int i){
+			return sz[find(i)];
+		}
+		public void  print(){
+			System.out.println("size :");
+			for(int i = 0; i < sz.length; i++){
+
+				System.out.print(sz[i] +" ");
+			}
+			System.out.println();
+			System.out.println("id :");
+			for(int i = 0; i < sz.length; i++){
+				System.out.print(id[i] +" ");
+			}
+			System.out.println();
+			System.out.println("i :" );
+			for(int i = 0; i < sz.length; i++){
+				System.out.print (i +" ");
+			}
+		}
+		public int  printMin(){
+			int v = count+1;
+			for(int i = 0; i < sz.length; i++){
+				int p = find(i);
+				if(sz[p] < v && sz[p] !=1) v = sz[p] ;	
+			}
+			return v;
+		}
+		public int  printMax(){
+			int v = 0;
+			for(int i = 0; i < sz.length; i++){
+				if(sz[i] > v ) v = sz[i];	
+			}
+			return v;
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package heap;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Aheaps {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		long ini = System.currentTimeMillis();
+		BigInteger max = BigInteger.ZERO;
+		BigInteger prod = BigInteger.ZERO;
+		BigInteger mayor =BigInteger.ZERO;
+		BigInteger medio =  BigInteger.ZERO;
+		BigInteger  menor  = BigInteger.ZERO;
+		//BigInteger aux[] = new BigInteger.ZERO;  [3];
+		BigInteger  [] arreglo = new BigInteger [n];
+		for(int i = 0; i < n ; i++){
+			arreglo[i] = scan.nextBigInteger();
+			
+			if( ( medio.compareTo(arreglo[i])  == 0   || medio.compareTo(arreglo[i]) == -1)&&
+					( mayor.compareTo(arreglo[i]) == 1 )){
+				menor = medio;
+				medio = arreglo[i];
+				
+			}
+			if( mayor.compareTo( arreglo[i]) == 0  || mayor.compareTo( arreglo[i]) ==  -1 ){
+				menor = medio;
+				medio = mayor;
+				mayor  = arreglo[i];
+			}
+			/*if( medio <= arreglo[i] && mayor > arreglo[i] ){
+				menor = medio;
+				medio = arreglo[i];
+				
+			}
+			if(mayor  <= arreglo[i] ){
+				menor = medio;
+				medio = mayor;
+				mayor  = arreglo[i];
+			}
+			*/
+		/*	if(medio  <  arreglo[i]   && mayor > arreglo[i]){
+				menor = medio;
+				medio = arreglo[i];
+			}
+			*/
+			if(menor.compareTo(arreglo[i])   == -1    && medio.compareTo(arreglo[i]) == 1 ){
+					menor = arreglo[i];
+			}
+			if( i < 2){
+				System.out.println(-1);
+			}else{
+				//aux[0] = arreglo[i-2];
+				//aux[1] = arreglo[i-1];
+				//aux[2] = arreglo[i];
+				/*for(int j = 0 ; j < 3 ; j++){
+					if(mayor < aux[j] ){
+						menor = medio;
+						medio = mayor;
+						mayor = aux[j]; 
+					}
+					if(medio  <  aux[j]   && mayor > aux[j]){
+						menor = medio;
+						medio = aux[j];	
+					}
+					if(menor   <  aux[j]   && medio > aux[j]){
+							menor = aux[j];
+					}
+				}
+				*/
+				 prod =   mayor.multiply(medio).multiply(menor);
+				if(max .compareTo(prod) == -1){
+					 max = prod;
+				}
+			//	System.out.println(mayor +" " + medio  +  " "+ menor +"arreglo " + arreglo[i] );
+				System.out.println(prod);
+			}
+			
+		}
+		long f = System.currentTimeMillis();
+		//System.out.println("time " + (f-ini));
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SegmentTree {
+// punto C de heaps
+    private Node[] heap;
+    private int[] array;
+    private int size;
+
+    /**
+     * Time-Complexity:  O(n*log(n))
+     *
+     * @param array the Initialization array
+     */
+    public SegmentTree(int[] array) {
+        this.array = Arrays.copyOf(array, array.length);
+        //The max size of this array is about 2 * 2 ^ log2(n) + 1
+        size = (int) (2 * Math.pow(2.0, Math.floor((Math.log((double) array.length) / Math.log(2.0)) + 1)));
+        heap = new Node[size];
+        build(1, 0, array.length);
+    }
+
+
+    public int size() {
+        return array.length;
+    }
+
+    //Initialize the Nodes of the Segment tree
+    private void build(int v, int from, int size) {
+        heap[v] = new Node();
+        heap[v].from = from;
+        heap[v].to = from + size - 1;
+
+        if (size == 1) {
+            heap[v].sum = array[from];
+            heap[v].min = array[from];
+            heap[v].prod = BigInteger.valueOf(array[from]);
+
+        } else {
+            //Build childs
+            build(2 * v, from, size / 2);
+            build(2 * v + 1, from + size / 2, size - size / 2);
+
+            heap[v].sum = heap[2 * v].sum + heap[2 * v + 1].sum;
+            //min = min of the children
+            heap[v].min = Math.min(heap[2 * v].min, heap[2 * v + 1].min);
+          //  System.out.println(heap[2 * v].prod);
+           // System.out.println(heap[2 * v+1].prod);
+            BigInteger a = (heap[2 * v].prod);
+            BigInteger b = (heap[2 * v + 1].prod);
+            heap[v].prod = a.multiply(b);
+        }
+    }
+
+    /**
+     * Range Sum Query
+     *
+     * Time-Complexity: O(log(n))
+     */
+    public int RSQ(int from, int to) {
+        return RSQ(1, from, to);
+      
+    }
+
+    private int RSQ(int v, int from, int to) {
+        Node n = heap[v];
+
+        //If you did a range update that contained this node, you can infer the Sum without going down the tree
+        if (n.pendingVal != null && contains(n.from, n.to, from, to)) {
+            return (to - from + 1) * n.pendingVal;
+        }
+
+        if (contains(from, to, n.from, n.to)) {
+            return heap[v].sum;
+        }
+
+        if (intersects(from, to, n.from, n.to)) {
+            propagate(v);
+            int leftSum = RSQ(2 * v, from, to);
+            int rightSum = RSQ(2 * v + 1, from, to);
+
+            return leftSum + rightSum;
+        }
+        
+     
+        return 0;
+    }
+    public BigInteger RSM(int from, int to) {
+        return RSM(1, from, to);
+    }
+
+    private BigInteger RSM(int v, int from, int to) {
+        Node n = heap[v];
+
+        //If you did a range update that contained this node, you can infer the Sum without going down the tree
+        if (n.pendingVal != null && contains(n.from, n.to, from, to)) {
+            return	BigInteger.valueOf( (to - from + 1) * n.pendingVal);
+        }
+
+        if (contains(from, to, n.from, n.to)) {
+            return heap[v].prod;
+        }
+
+        if (intersects(from, to, n.from, n.to)) {
+            propagate(v);
+            BigInteger leftProd = RSM(2 * v, from, to);
+            BigInteger rightProd = RSM(2 * v + 1, from, to);
+
+            return leftProd.multiply(rightProd);
+            	}
+
+        return BigInteger.ONE;
+    }
+    /**
+     * Range Min Query
+     * 
+     * Time-Complexity: O(log(n))
+     */
+    public int RMinQ(int from, int to) {
+        return RMinQ(1, from, to);
+    }
+
+    private int RMinQ(int v, int from, int to) {
+        Node n = heap[v];
+
+
+        //If you did a range update that contained this node, you can infer the Min value without going down the tree
+        if (n.pendingVal != null && contains(n.from, n.to, from, to)) {
+            return n.pendingVal;
+        }
+
+        if (contains(from, to, n.from, n.to)) {
+            return heap[v].min;
+        }
+
+        if (intersects(from, to, n.from, n.to)) {
+            propagate(v);
+            int leftMin = RMinQ(2 * v, from, to);
+            int rightMin = RMinQ(2 * v + 1, from, to);
+
+            return Math.min(leftMin, rightMin);
+        }
+
+        return Integer.MAX_VALUE;
+    }
+
+
+    /**
+     * Range Update Operation.
+     * With this operation you can update either one position or a range of positions with a given number.
+     * The update operations will update the less it can to update the whole range (Lazy Propagation).
+     * The values will be propagated lazily from top to bottom of the segment tree.
+     * This behavior is really useful for updates on portions of the array
+     * <p/>
+     * Time-Complexity: O(log(n))
+     *
+     * @param from
+     * @param to
+     * @param value
+     */
+    public void update(int from, int to, int value) {
+        update(1, from, to, value);
+    }
+
+    private void update(int v, int from, int to, int value) {
+
+        //The Node of the heap tree represents a range of the array with bounds: [n.from, n.to]
+        Node n = heap[v];
+
+        /**
+         * If the updating-range contains the portion of the current Node  We lazily update it.
+         * This means We do NOT update each position of the vector, but update only some temporal
+         * values into the Node; such values into the Node will be propagated down to its children only when they need to.
+         */
+        if (contains(from, to, n.from, n.to)) {
+            change(n, value);
+        }
+
+        
+        
+        if (n.size() == 1) return;
+
+        if (intersects(from, to, n.from, n.to)) {
+            /**
+             * Before keeping going down to the tree We need to propagate the
+             * the values that have been temporally/lazily saved into this Node to its children
+             * So that when We visit them the values  are properly updated
+             */
+            propagate(v);
+
+            update(2 * v, from, to, value);
+            update(2 * v + 1, from, to, value);
+
+            n.sum = heap[2 * v].sum + heap[2 * v + 1].sum;
+            n.min = Math.min(heap[2 * v].min, heap[2 * v + 1].min);
+            BigInteger a = (heap[2 * v].prod);
+            BigInteger b = (heap[2 * v + 1].prod);
+            n.prod =a.multiply(b);
+        }
+    }
+
+    //Propagate temporal values to children
+    private void propagate(int v) {
+        Node n = heap[v];
+
+        if (n.pendingVal != null) {
+            change(heap[2 * v], n.pendingVal);
+            change(heap[2 * v + 1], n.pendingVal);
+            n.pendingVal = null; //unset the pending propagation value
+        }
+    }
+
+    //Save the temporal values that will be propagated lazily
+    private void change(Node n, int value) {
+        n.pendingVal = value;
+        n.sum = n.size() * value;
+        n.min = value;
+        n.prod =  BigInteger.valueOf(n.size()).multiply(BigInteger.valueOf(value));       
+        
+        
+        array[n.from] = value;
+
+    }
+
+    //Test if the range1 contains range2
+    private boolean contains(int from1, int to1, int from2, int to2) {
+        return from2 >= from1 && to2 <= to1;
+    }
+
+    //check inclusive intersection, test if range1[from1, to1] intersects range2[from2, to2]
+    private boolean intersects(int from1, int to1, int from2, int to2) {
+        return from1 <= from2 && to1 >= from2   //  (.[..)..] or (.[...]..)
+                || from1 >= from2 && from1 <= to2; // [.(..]..) or [..(..)..
+    }
+
+    //The Node class represents a partition range of the array.
+    static class Node {
+        int sum;
+        int min;
+        BigInteger prod = BigInteger.ONE;
+        //Here We store the value that will be propagated lazily
+        Integer pendingVal = null;
+        int from;
+        int to;
+
+        int size() {
+            return to - from + 1;
+        }
+
+    }
+
+    /**
+     * Read the following commands:
+     * init n v     Initializes the array of size n with all v's
+     * set a b c... Initializes the array  with [a, b, c ...]
+     * rsq a b      Range Sum Query for the range [a, b]
+     * rmq a b      Range Min Query for the range [a, b]
+     * up  a b v    Update the [a,b] portion of the array with value v.
+     * exit
+     * <p/>
+     * Example:
+     * <<init
+     * <<set 1 2 3 4 5 6
+     * <<rsq 1 3
+     * >>Sum from 1 to 3 = 6
+     * <<rmq 1 3
+     * >>Min from 1 to 3 = 1
+     * <<input up 1 3
+     * >>[3,2,3,4,5,6]
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+
+    	
+        Scanner scan =  new Scanner(System.in);
+        //String cmd = "cmp";
+        int casos = scan.nextInt();
+        for(int i = 0; i < casos; i++ ){
+        	System.out.println("Caso #" + (i+1) +":");
+        	SegmentTree st = null;
+            int elementos = scan.nextInt();
+            int rondas = scan.nextInt();
+            scan.nextLine();
+          //  System.out.println(elementos);
+          //  System.out.println(rondas);
+            String [] arrayInt = new String[elementos] ;
+             arrayInt =scan.nextLine().split(" ");
+            int num [] = new int[elementos];
+            for(int r = 0; r < arrayInt.length; r++){
+            	num[r] = Integer.parseInt(arrayInt[r]);
+            	//System.out.println(num[r]);
+            }
+            st = new SegmentTree(num);
+            for(int j = 0 ; j < rondas; j++){
+            	String comand = scan.next();
+            	//System.out.println(comand +" comand");
+            	switch(comand){
+            		case "cambio":
+            			int pos = scan.nextInt();
+            			int x = scan.nextInt();
+            			st.update(pos-1, pos-1, x);
+            			break;
+            		case  "multiplicar":
+            			int from = scan.nextInt();
+            			int to = scan.nextInt();
+            			//System.out.println(st.RSM(from-1, to-1));
+            			if(st.RSM(from-1, to-1).compareTo(BigInteger.ZERO)> 0){
+            				System.out.println("+");
+            			}else if(st.RSM(from-1, to-1).compareTo(BigInteger.ZERO) < 0 ){
+            				System.out.println("-");
+            			}else{
+            				System.out.println(0);
+            			}
+            	}
+            	scan.nextLine();
+            }
+        }
+        System.out.close();
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,3169 @@
+package laboratorio1;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P1 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        long arr[] = new long[n];
+        long arr2, mx = 0;
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+
+                arr2 = (arr[i] * arr[j]);
+                if (arr2 > mx) {
+                    mx = arr2;
+                }
+            }
+
+        }
+
+        System.out.println(mx);
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio1;
+
+import java.util.Scanner;
+
+
+public class P3 {
+
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        
+        for (int i = 0; i < t; i++) {
+            
+            int n=sc.nextInt();
+            int a[] = new int[n],b[] = new int [n];
+            int result=0;
+            
+            for (int j = 0; j < n; j++) {
+                
+                a[j]=sc.nextInt();
+                b[j]=sc.nextInt();
+            }
+            for (int j = 0; j < n; j++) {
+                for (int k = j+1; k < n; k++) {
+                    if(a[j]==b[k]) {
+                       result++;
+                    }
+                    if(a[k]==b[j] ) {
+                       result++;
+                    }
+                }
+            }
+             System.out.println("Case #"+(i+1)+":");
+             System.out.println(result);
+        }
+
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio1;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P2 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cnt = 0;
+        while(sc.hasNext()) {
+            cnt++;
+            int n = sc.nextInt();
+            int w = 0;
+            int num[][] = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    num[i][j] = sc.nextInt();
+                }
+
+            }
+            int[] sumCol = new int[n];
+            int[] sumFil = new int[n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    sumFil[i] += num[i][j];
+                }
+                for (int k = 0; k < n; k++) {
+                    sumCol[i] += num[k][i];
+                }
+            }
+            System.out.println("Case #" + (cnt) + ":");
+            for (int i = 0; i < n; i++) {
+                
+                for (int j = 0; j < n; j++) {
+
+                    if (sumFil[i] < sumCol[j]) {
+                        w++;
+                    }
+
+                }
+                
+            }
+            System.out.println(w);
+        }
+        
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio2;
+
+import java.util.Scanner;
+
+public class P_C {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        MyArrayList<Integer> x = new MyArrayList<>(n);
+        int max = 10010;
+        boolean[] arr = new boolean[max];
+        for (int i = 0; i < max; i++) {
+            arr[i] = false;
+        }
+        for (int i = 0; i < n; i++) {
+            x.add(i, sc.nextInt());
+            arr[x.get(i)] = true;
+        }
+
+        int m = sc.nextInt();
+        sc.nextLine();
+
+        int res = 0;
+        for (int i = 0; i < m; i++) {
+
+            String line = sc.nextLine();
+            String[] all = line.split(" ");
+            MyArrayList<Integer> x2 = new MyArrayList<>(all.length);
+            int cont = 0;
+            for (int j = 0; j < all.length; j++) {
+                x2.add(j, Integer.parseInt(all[j]));
+                if (arr[x2.get(j)] == true) {
+                    cont++;
+                }
+            }
+            if (cont == n) {
+                res++;
+
+            }
+        }
+        System.out.println(res);
+    }
+
+}
+
+class MyArrayList<T extends Object> {
+
+    protected T[] element; //arreglo de elementos
+    protected int size; // numero de elementos del arreglo
+
+    public MyArrayList(int capacidadInicial) {
+        if (capacidadInicial < 1) {
+            throw new IllegalArgumentException("Error");
+        }
+        element = (T[]) (new Object[capacidadInicial]);
+        size = 0;
+    }
+
+    public MyArrayList() {
+        this(10);
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    void checkIndice(int indice) {
+        if (indice < 0 || indice >= size) {
+            throw new IndexOutOfBoundsException("Indice = " + indice + " size = " + size);
+        }
+
+    }
+
+    public T get(int indice) {
+        checkIndice(indice);
+        return element[indice];
+    }
+
+    public int indexOf(T theElement) {
+
+        for (int i = 0; i < size; i++) {
+
+            if (element[i].equals(theElement)) {
+                return i;
+            }
+        }
+        return -1;//no encontrado
+
+    }
+
+    public T remove(int index) {
+        checkIndice(index);
+        T removedElement = element[index];
+        for (int i = index + 1; i < size; i++) {
+            element[i - 1] = element[i];
+        }
+        element[--size] = null;
+        return removedElement;
+    }
+
+    public void add(int indice, T theElement) {
+        if (indice < 0 || indice > size) {
+            throw new IndexOutOfBoundsException("Indice = " + indice + " size = " + size);
+        }
+
+        if (size == element.length) {
+            T[] nelem = (T[]) (new Object[2 * size]);
+            for (int i = 0; i < size; i++) {
+                nelem[i] = element[i];
+            }
+            element = nelem;
+        }
+
+        for (int i = size - 1; i >= indice; i--) {
+            element[i + 1] = element[i];
+        }
+        element[indice] = theElement;
+        size++;
+    }
+
+    public String toString() {
+        StringBuffer s = new StringBuffer("[");
+// put elements into the buffer
+        for (int i = 0; i < size; i++) {
+            if (element[i] == null) {
+                s.append("null, ");
+            } else {
+                s.append(element[i].toString() + ", ");
+            }
+        }
+        if (size > 0) {
+            s.delete(s.length() - 2, s.length());
+        }
+        s.append("]");
+// create equivalent String
+        return new String(s);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio2;
+
+import java.util.Scanner;
+
+public class P_B {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            int n= sc.nextInt();
+            int k= sc.nextInt();
+            // n cartas, k personas
+            MyDoubleLinkedList<Integer> x = new MyDoubleLinkedList<>(n);//lista enlazada doble
+            for (int j = 0; j < n; j++) {
+                x.addTail(j);
+            }
+                       
+            for (int j = 0; j < T; j++) {
+                System.out.println("Caso #" + (j+1) + ":");
+                System.out.println(x);//imprimir lista enlazada doble
+            }
+
+        }
+            
+    }
+
+}
+
+class MyDoubleLinkedList<T extends Object> {
+
+    class ChainNode {
+
+        T element;
+        ChainNode next;
+        ChainNode prev;
+// package visible constructors
+
+        ChainNode(T element) {
+            this.element = element;
+        }
+
+        ChainNode(T element, ChainNode next, ChainNode prev) {
+            this.element = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+
+    protected ChainNode firstNode, lastNode;
+    protected int size;
+
+    public MyDoubleLinkedList(int initialCapacity) {
+    }
+
+    public MyDoubleLinkedList() {
+        this(0);
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("index = " + index + "  size = " + size);
+        }
+    }
+
+    public T get(int index) {
+        checkIndex(index);
+        ChainNode currentNode = firstNode;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode.element;
+    }
+
+    public T getTail(int index) {
+        checkIndex(index);
+        ChainNode currentNode = lastNode;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.prev;
+        }
+        return currentNode.element;
+    }
+
+    public void add(T element) {
+        ChainNode nNode = new ChainNode(element);
+        if (size == 0) {
+
+            lastNode = nNode;
+            firstNode = nNode;
+        } else {
+            firstNode.prev = nNode;
+            nNode.next = firstNode;
+            firstNode = nNode;
+        }
+        size++;
+    }
+
+    public void addTail(T element) {
+        ChainNode nNode = new ChainNode(element);
+        if (size == 0) {
+            lastNode = nNode;
+            firstNode = nNode;
+
+        } else {
+            lastNode.next = nNode;
+            nNode.prev = lastNode;
+            lastNode = nNode;
+        }
+        size++;
+    }
+
+    public T remove(int index) {
+        checkIndex(index);
+        T removedElement;
+        if (index == 0) // remove first node
+        {
+            removedElement = firstNode.element;
+            firstNode = firstNode.next;
+            firstNode.prev = null;
+            size--;
+            return removedElement;
+        } else if (index == size) {
+            removedElement = lastNode.element;
+            lastNode = lastNode.prev;
+            lastNode.next = null;
+            size--;
+            return removedElement;
+        }
+
+        ChainNode currentNode = firstNode;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next.prev = currentNode.prev;
+        currentNode.prev.next = currentNode.next;
+        size--;
+        currentNode.prev = null;
+        currentNode.next = null;
+
+        return currentNode.element;
+    }
+
+    public String toString() {
+        StringBuffer s = new StringBuffer("[");
+// put elements into the buffer
+        ChainNode currentNode = firstNode;
+        while (currentNode != null) {
+            if (currentNode.element == null) {
+                s.append("null, ");
+            } else {
+                s.append(currentNode.element.toString() + ", ");
+            }
+            currentNode = currentNode.next;
+        }
+        // remove last ", "
+        if (size > 0) {
+            s.delete(s.length() - 2, s.length());
+        }
+        s.append("]");
+// create equivalent String
+        return new String(s);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio2;
+
+import java.util.Scanner;
+
+public class P_B {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            int k = sc.nextInt();
+            // n cartas, k personas
+            MyDoubleLinkedList<Integer> x = new MyDoubleLinkedList<>(n);//lista enlazada doble
+            for (int j = 0; j < n; j++) {
+                x.addTail(sc.nextInt());
+
+            }
+            System.out.println("Caso #" + (T + 1) + ":");
+            System.out.println(x + " ");//imprimir lista enlazada doble
+
+        }
+
+    }
+
+}
+
+class MyDoubleLinkedList<T extends Object> {
+
+    class ChainNode {
+
+        T element;
+        ChainNode next;
+        ChainNode prev;
+// package visible constructors
+
+        ChainNode(T element) {
+            this.element = element;
+        }
+
+        ChainNode(T element, ChainNode next, ChainNode prev) {
+            this.element = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+
+    protected ChainNode firstNode, lastNode;
+    protected int size;
+
+    public MyDoubleLinkedList(int initialCapacity) {
+    }
+
+    public MyDoubleLinkedList() {
+        this(0);
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("index = " + index + "  size = " + size);
+        }
+    }
+
+    public T get(int index) {
+        checkIndex(index);
+        ChainNode currentNode = firstNode;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode.element;
+    }
+
+    public T getTail(int index) {
+        checkIndex(index);
+        ChainNode currentNode = lastNode;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.prev;
+        }
+        return currentNode.element;
+    }
+
+    public void add(T element) {
+        ChainNode nNode = new ChainNode(element);
+        if (size == 0) {
+
+            lastNode = nNode;
+            firstNode = nNode;
+        } else {
+            firstNode.prev = nNode;
+            nNode.next = firstNode;
+            firstNode = nNode;
+        }
+        size++;
+    }
+
+    public void addTail(T element) {
+        ChainNode nNode = new ChainNode(element);
+        if (size == 0) {
+            lastNode = nNode;
+            firstNode = nNode;
+
+        } else {
+            lastNode.next = nNode;
+            nNode.prev = lastNode;
+            lastNode = nNode;
+        }
+        size++;
+    }
+
+    public T remove(int index) {
+        checkIndex(index);
+        T removedElement;
+        if (index == 0) // remove first node
+        {
+            removedElement = firstNode.element;
+            firstNode = firstNode.next;
+            firstNode.prev = null;
+            size--;
+            return removedElement;
+        } else if (index == size) {
+            removedElement = lastNode.element;
+            lastNode = lastNode.prev;
+            lastNode.next = null;
+            size--;
+            return removedElement;
+        }
+
+        ChainNode currentNode = firstNode;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next.prev = currentNode.prev;
+        currentNode.prev.next = currentNode.next;
+        size--;
+        currentNode.prev = null;
+        currentNode.next = null;
+
+        return currentNode.element;
+    }
+
+    public String toString() {
+        StringBuffer s = new StringBuffer("[");
+// put elements into the buffer
+        ChainNode currentNode = firstNode;
+        while (currentNode != null) {
+            if (currentNode.element == null) {
+                s.append("null, ");
+            } else {
+                s.append(currentNode.element.toString() + ", ");
+            }
+            currentNode = currentNode.next;
+        }
+        // remove last ", "
+        if (size > 0) {
+            s.delete(s.length() - 2, s.length());
+        }
+        s.append("]");
+// create equivalent String
+        return new String(s);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio2;
+
+import java.util.Scanner;
+
+
+public class P_D {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt(); //n cubiculos
+            
+            for (int j = 0; j < n; j++) {
+                int k = sc.nextInt(); //k casilleros
+            }
+            
+            int p=sc.nextInt();
+            for (int j = 0; j < 10; j++) {
+                String c = sc.nextLine();
+            }
+            
+            
+            for (int j = 0; j < T; j++) {
+                System.out.println("Caso #"+j+":");
+                
+            }
+
+        }
+    }
+    
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package lab2;
+
+import java.util.Scanner;
+
+
+public class P_B {
+      
+    public static void main(String[] args) {
+    
+        Scanner sc = new Scanner(System.in);
+    
+        int t = sc.nextInt();
+        int res;
+    
+        for (int i =0; i < t;i++){
+            int n=sc.nextInt();
+            int k=sc.nextInt();
+            
+            int[] arr= new int [n];
+            for (int j = 0; j < n; j++) {
+                
+                arr[j]=sc.nextInt();
+            }
+              int cont1=0, cont2=(n-1); 
+              int [] arrsol;
+            while(cont1<=cont2 || cont2>=cont1){
+                if (arr[cont1]>arr[cont2]) {
+                    
+                }
+                
+            }
+            
+            
+            System.out.println("Caso");
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        String comando;
+        int n1, n2, sol;
+        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            System.out.println("Caso #"+(i+1)+":");
+            int q = sc.nextInt();
+            for (int j = 0; j < q; j++) {
+                comando = sc.next();
+                switch (comando) {
+                    case "agregar":
+                        n1 = sc.nextInt();
+                        tree.insert(n1);
+                        break;
+
+                    case "distancia":
+                        
+                        n1 = sc.nextInt();
+                        n2 = sc.nextInt();
+                        if (tree.contains(n1)==false||tree.contains(n2)==false) {
+                            System.out.println("distancia: -1");
+                        }else{
+                        sol= (tree.depth(n1)-tree.depth(tree.LCAncestor(n1, n2).element))+
+                                (tree.depth(n2)-tree.depth(tree.LCAncestor(n1, n2).element));
+                        System.out.println("distancia: "+sol);
+                        }
+                        break;
+                    
+                    case "ancestro":
+                        n1 = sc.nextInt();
+                        n2 = sc.nextInt();
+                        if (tree.contains(n1)==false||tree.contains(n2)==false) {
+                            System.out.println("ancestro: -1");
+                        }else
+                        System.out.println("ancestro: "+tree.LCAncestor(n1, n2).element);
+                }
+                
+            }
+
+        }
+    }
+
+    static class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
+
+        /**
+         * Construct the tree.
+         */
+        public BinarySearchTree() {
+            root = null;
+        }
+        
+        public int depth(AnyType value) {
+            BinaryNode<AnyType> node = this.root;
+            int depth = 0;
+            
+            while(node.element.compareTo(value) != 0) {
+                depth++;
+                if(node.element.compareTo(value) > 0) {
+                    node = node.left;
+                } else {
+                    node = node.right;
+                }
+            }
+            
+            return depth;
+        }
+        public BinaryNode<AnyType> LCAncestor (AnyType val1, AnyType val2){
+            BinaryNode<AnyType> node = this.root;
+            boolean v =true;
+            while(v){
+                if (val1.compareTo(node.element) > 0 && val2.compareTo(node.element) > 0) {
+                    node = node.right;
+                }else if (val1.compareTo(node.element) < 0 && val2.compareTo(node.element) < 0){
+                    node = node.left;
+                }else{
+                    v=false;
+                }  
+            }
+            return node;
+        }
+
+        /**
+         * Insert into the tree; duplicates are ignored.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            root = insert(x, root);
+        }
+
+        /**
+         * Remove from the tree. Nothing is done if x is not found.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            root = remove(x, root);
+        }
+
+        /**
+         * Find the smallest item in the tree.
+         *
+         * @return smallest item or null if empty.
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMin(root).element;
+        }
+
+        /**
+         * Find the largest item in the tree.
+         *
+         * @return the largest item of null if empty.
+         */
+        public AnyType findMax() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMax(root).element;
+        }
+
+        /**
+         * Find an item in the tree.
+         *
+         * @param x the item to search for.
+         * @return true if not found.
+         */
+        public boolean contains(AnyType x) {
+            return contains(x, root);
+        }
+
+        /**
+         * Make the tree logically empty.
+         */
+        public void makeEmpty() {
+            root = null;
+        }
+
+        /**
+         * Test if the tree is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        /**
+         * Print the tree contents in sorted order.
+         */
+        public void printTree() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTree(root);
+            }
+        }
+
+        /**
+         * Internal method to insert into a subtree.
+         *
+         * @param x the item to insert.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        public BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return new BinaryNode<>(x, null, null);
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right);
+            } else
+            ;  // Duplicate; do nothing
+            return t;
+        }
+
+        /**
+         * Internal method to remove from a subtree.
+         *
+         * @param x the item to remove.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return t;   // Item not found; do nothing
+            }
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = remove(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = remove(x, t.right);
+            } else if (t.left != null && t.right != null) // Two children
+            {
+                t.element = findMin(t.right).element;
+                t.right = remove(t.element, t.right);
+            } else {
+                t = (t.left != null) ? t.left : t.right;
+            }
+            return t;
+        }
+
+        /**
+         * Internal method to find the smallest item in a subtree.
+         *
+         * @param t the node that roots the subtree.
+         * @return node containing the smallest item.
+         */
+        private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
+            if (t == null) {
+                return null;
+            } else if (t.left == null) {
+                return t;
+            }
+            return findMin(t.left);
+        }
+
+        /**
+         * Internal method to find the largest item in a subtree.
+         *
+         * @param t the node that roots the subtree.
+         * @return node containing the largest item.
+         */
+        private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+            if (t != null) {
+                while (t.right != null) {
+                    t = t.right;
+                }
+            }
+
+            return t;
+        }
+
+        /**
+         * Internal method to find an item in a subtree.
+         *
+         * @param x is item to search for.
+         * @param t the node that roots the subtree.
+         * @return node containing the matched item.
+         */
+        private boolean contains(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return false;
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                return contains(x, t.left);
+            } else if (compareResult > 0) {
+                return contains(x, t.right);
+            } else {
+                return true;    // Match
+            }
+        }
+
+        /**
+         * Internal method to print a subtree in sorted order.
+         *
+         * @param t the node that roots the subtree.
+         */
+        private void printTree(BinaryNode<AnyType> t) {
+            if (t != null) {
+                printTree(t.left);
+                System.out.println(t.element);
+                printTree(t.right);
+            }
+        }
+
+        /**
+         * Internal method to compute height of a subtree.
+         *
+         * @param t the node that roots the subtree.
+         */
+        private int height(BinaryNode<AnyType> t) {
+            if (t == null) {
+                return -1;
+            } else {
+                return 1 + Math.max(height(t.left), height(t.right));
+            }
+        }
+
+        // Basic node stored in unbalanced binary search trees
+        private static class BinaryNode<AnyType> {
+
+            // Constructors
+            BinaryNode(AnyType theElement) {
+                this(theElement, null, null);
+            }
+
+            BinaryNode(AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt) {
+                element = theElement;
+                left = lt;
+                right = rt;
+            }
+
+            AnyType element;            // The data in the node
+            BinaryNode<AnyType> left;   // Left child
+            BinaryNode<AnyType> right;  // Right child 
+        }
+        /**
+         * The tree root.
+         */
+        private BinaryNode<AnyType> root;
+
+//        private AnyType returnRNode() {
+//            return (AnyType) root.right;
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        String comando;
+        int n1, n2, sol;
+        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            System.out.println("Caso #"+(i+1)+":");
+            int q = sc.nextInt();
+            for (int j = 0; j < q; j++) {
+                comando = sc.next();
+                switch (comando) {
+                    case "agregar":
+                        n1 = sc.nextInt();
+                        tree.insert(n1);
+                        break;
+
+                    case "distancia":
+                        
+                        n1 = sc.nextInt();
+                        n2 = sc.nextInt();
+                        if (tree.contains(n1)==false||tree.contains(n2)==false) {
+                            System.out.println("distancia: -1");
+                        }else{
+                        sol= (tree.depth(n1)-tree.depth(tree.LCAncestor(n1, n2).element))+
+                                (tree.depth(n2)-tree.depth(tree.LCAncestor(n1, n2).element));
+                        System.out.println("distancia: "+sol);
+                        }
+                        break;
+                    
+                    case "ancestro":
+                        n1 = sc.nextInt();
+                        n2 = sc.nextInt();
+                        if (tree.contains(n1)==false||tree.contains(n2)==false) {
+                            System.out.println("ancestro: -1");
+                        }else
+                        System.out.println("ancestro: "+tree.LCAncestor(n1, n2).element);
+                }
+                
+            }
+
+        }
+    }
+
+    static class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
+
+        /**
+         * Construct the tree.
+         */
+        public BinarySearchTree() {
+            root = null;
+        }
+        
+        public int depth(AnyType value) {
+            BinaryNode<AnyType> node = this.root;
+            int depth = 0;
+            
+            while(node.element.compareTo(value) != 0) {
+                depth++;
+                if(node.element.compareTo(value) > 0) {
+                    node = node.left;
+                } else {
+                    node = node.right;
+                }
+            }
+            
+            return depth;
+        }
+        public BinaryNode<AnyType> LCAncestor (AnyType val1, AnyType val2){
+            BinaryNode<AnyType> node = this.root;
+            boolean v =true;
+            while(v){
+                if (val1.compareTo(node.element) > 0 && val2.compareTo(node.element) > 0) {
+                    node = node.right;
+                }else if (val1.compareTo(node.element) < 0 && val2.compareTo(node.element) < 0){
+                    node = node.left;
+                }else{
+                    v=false;
+                }  
+            }
+            return node;
+        }
+
+        /**
+         * Insert into the tree; duplicates are ignored.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            root = insert(x, root);
+        }
+
+        /**
+         * Remove from the tree. Nothing is done if x is not found.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            root = remove(x, root);
+        }
+
+        /**
+         * Find the smallest item in the tree.
+         *
+         * @return smallest item or null if empty.
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMin(root).element;
+        }
+
+        /**
+         * Find the largest item in the tree.
+         *
+         * @return the largest item of null if empty.
+         */
+        public AnyType findMax() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMax(root).element;
+        }
+
+        /**
+         * Find an item in the tree.
+         *
+         * @param x the item to search for.
+         * @return true if not found.
+         */
+        public boolean contains(AnyType x) {
+            return contains(x, root);
+        }
+
+        /**
+         * Make the tree logically empty.
+         */
+        public void makeEmpty() {
+            root = null;
+        }
+
+        /**
+         * Test if the tree is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        /**
+         * Print the tree contents in sorted order.
+         */
+        public void printTree() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTree(root);
+            }
+        }
+
+        /**
+         * Internal method to insert into a subtree.
+         *
+         * @param x the item to insert.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        public BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return new BinaryNode<>(x, null, null);
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right);
+            } else
+            ;  // Duplicate; do nothing
+            return t;
+        }
+
+        /**
+         * Internal method to remove from a subtree.
+         *
+         * @param x the item to remove.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return t;   // Item not found; do nothing
+            }
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = remove(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = remove(x, t.right);
+            } else if (t.left != null && t.right != null) // Two children
+            {
+                t.element = findMin(t.right).element;
+                t.right = remove(t.element, t.right);
+            } else {
+                t = (t.left != null) ? t.left : t.right;
+            }
+            return t;
+        }
+
+        /**
+         * Internal method to find the smallest item in a subtree.
+         *
+         * @param t the node that roots the subtree.
+         * @return node containing the smallest item.
+         */
+        private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
+            if (t == null) {
+                return null;
+            } else if (t.left == null) {
+                return t;
+            }
+            return findMin(t.left);
+        }
+
+        /**
+         * Internal method to find the largest item in a subtree.
+         *
+         * @param t the node that roots the subtree.
+         * @return node containing the largest item.
+         */
+        private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+            if (t != null) {
+                while (t.right != null) {
+                    t = t.right;
+                }
+            }
+
+            return t;
+        }
+
+        /**
+         * Internal method to find an item in a subtree.
+         *
+         * @param x is item to search for.
+         * @param t the node that roots the subtree.
+         * @return node containing the matched item.
+         */
+        private boolean contains(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return false;
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                return contains(x, t.left);
+            } else if (compareResult > 0) {
+                return contains(x, t.right);
+            } else {
+                return true;    // Match
+            }
+        }
+
+        /**
+         * Internal method to print a subtree in sorted order.
+         *
+         * @param t the node that roots the subtree.
+         */
+        private void printTree(BinaryNode<AnyType> t) {
+            if (t != null) {
+                printTree(t.left);
+                System.out.println(t.element);
+                printTree(t.right);
+            }
+        }
+
+        /**
+         * Internal method to compute height of a subtree.
+         *
+         * @param t the node that roots the subtree.
+         */
+        private int height(BinaryNode<AnyType> t) {
+            if (t == null) {
+                return -1;
+            } else {
+                return 1 + Math.max(height(t.left), height(t.right));
+            }
+        }
+
+        // Basic node stored in unbalanced binary search trees
+        private static class BinaryNode<AnyType> {
+
+            // Constructors
+            BinaryNode(AnyType theElement) {
+                this(theElement, null, null);
+            }
+
+            BinaryNode(AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt) {
+                element = theElement;
+                left = lt;
+                right = rt;
+            }
+
+            AnyType element;            // The data in the node
+            BinaryNode<AnyType> left;   // Left child
+            BinaryNode<AnyType> right;  // Right child 
+        }
+        /**
+         * The tree root.
+         */
+        private BinaryNode<AnyType> root;
+
+//        private AnyType returnRNode() {
+//            return (AnyType) root.right;
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio7;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, Integer> Lista = new HashMap<Integer, Integer>();
+        LinkedList<Integer> result = new LinkedList<>();
+        int T = sc.nextInt();
+        int num, cont = 1;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            for (int j = 0; j < n; j++) {
+                num = sc.nextInt();
+                if (Lista.containsKey(num) == false) {
+                    Lista.put(num, 1);
+                    result.add(num);
+                } else {
+                    cont = Lista.get(num) + 1;
+                    Lista.put(num, cont);
+                }
+            }
+            System.out.println("Caso #" + (i + 1));
+            for (Integer key : result) {
+                System.out.println(key + " " + Lista.get(key));
+            }
+            Lista.clear();
+            result.clear();
+        }
+        
+            
+        
+
+//        for (Integer key : Lista.keySet()) {
+//            System.out.println("k:" + key + " " + Lista.get(key) + " - ");
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio6;
+
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class ProblemaA {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        MaxHeap m = new MaxHeap<>(n);
+        for (int i = 0; i < n; i++) {
+            m.put(sc.nextInt());
+            if (i < 2) {
+                System.out.println("-1");
+                //System.out.print(m.heap[i]);
+            } else {
+                
+                System.out.println("" + ((int) m.heap[1] * (int) m.heap[2] * (int) m.heap[3]));
+
+            }
+            
+
+        }
+        
+        System.out.println(m.size());
+        for (int i = 1; i <= n; i++) {
+            System.out.print("" + ((int) m.heap[i]) + " ");
+            
+        }
+    }
+
+    static class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+	public static final int DEFAULT_SIZE = 10;
+
+	AnyType[] heap;
+	int size;
+
+	@SuppressWarnings("unchecked")
+	public MaxHeap(int initialCapacity) {
+		if (initialCapacity < 1)
+			throw new IllegalArgumentException("initialCapacity must be >= 1");
+		heap = (AnyType[]) new Comparable[initialCapacity + 1];
+		size = 0;
+	}
+
+	public MaxHeap() {
+		this(DEFAULT_SIZE);
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public AnyType getMax() {
+		if (isEmpty())
+			return null;
+		return heap[1];
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public void put(AnyType theElement) {
+		if (size == heap.length - 1) {
+			AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+			System.arraycopy(heap, 1, newHeap, 1, size);
+			heap = newHeap;
+		}
+		int currentNode = ++size;
+		for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2)
+			heap[currentNode] = heap[currentNode / 2];
+		heap[currentNode] = theElement;
+	}
+
+	public AnyType removeMax() {
+		if (size == 0)
+			return null;
+		AnyType maxElement = heap[1];
+		AnyType lastElement = heap[size--];
+		int currentNode = 1, child = 2;
+		for (; child <= size; currentNode = child, child *= 2) {
+			if (child < size && heap[child].compareTo(heap[child + 1]) < 0)
+				child++;
+			if (lastElement.compareTo(heap[child]) >= 0)
+				break;
+			heap[currentNode] = heap[child];
+		}
+		heap[currentNode] = lastElement;
+		return maxElement;
+	}
+
+	public String toString() {
+		return Arrays.toString(heap);
+	}
+        class Pair implements Comparable<Pair>{
+            
+            int x, y;
+            @Override
+            public int compareTo(MaxHeap<AnyType>.Pair o){
+                if (x !=o.x) {
+                    if (x<o.x) {
+                        return -1;
+                        
+                    }return 1;
+ 
+                }
+                if (y > o.y) {
+                    return -1;
+                }return 1;
+            }
+            
+        }
+
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        String comando;
+        int n1, n2, sol;
+        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            System.out.println("Caso #"+(i+1)+":");
+            int q = sc.nextInt();
+            for (int j = 0; j < q; j++) {
+                comando = sc.next();
+                switch (comando) {
+                    case "agregar":
+                        n1 = sc.nextInt();
+                        tree.insert(n1);
+                        break;
+
+                    case "distancia":
+                        
+                        n1 = sc.nextInt();
+                        n2 = sc.nextInt();
+                        if (tree.contains(n1)==false||tree.contains(n2)==false) {
+                            System.out.println("distancia: -1");
+                        }else{
+                        sol= (tree.depth(n1)-tree.depth(tree.LCAncestor(n1, n2).element))+
+                                (tree.depth(n2)-tree.depth(tree.LCAncestor(n1, n2).element));
+                        System.out.println("distancia: "+sol);
+                        }
+                        break;
+                    
+                    case "ancestro":
+                        n1 = sc.nextInt();
+                        n2 = sc.nextInt();
+                        if (tree.contains(n1)==false||tree.contains(n2)==false) {
+                            System.out.println("ancestro: -1");
+                        }else
+                        System.out.println("ancestro: "+tree.LCAncestor(n1, n2).element);
+                }
+              
+            } tree.makeEmpty();
+
+        }
+    }
+
+    static class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
+
+        /**
+         * Construct the tree.
+         */
+        public BinarySearchTree() {
+            root = null;
+        }
+        
+        public int depth(AnyType value) {
+            BinaryNode<AnyType> node = this.root;
+            int depth = 0;
+            
+            while(node.element.compareTo(value) != 0) {
+                depth++;
+                if(node.element.compareTo(value) > 0) {
+                    node = node.left;
+                } else {
+                    node = node.right;
+                }
+            }
+            
+            return depth;
+        }
+        public BinaryNode<AnyType> LCAncestor (AnyType val1, AnyType val2){
+            BinaryNode<AnyType> node = this.root;
+            boolean v =true;
+            while(v){
+                if (val1.compareTo(node.element) > 0 && val2.compareTo(node.element) > 0) {
+                    node = node.right;
+                }else if (val1.compareTo(node.element) < 0 && val2.compareTo(node.element) < 0){
+                    node = node.left;
+                }else{
+                    v=false;
+                }  
+            }
+            return node;
+        }
+
+        /**
+         * Insert into the tree; duplicates are ignored.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            root = insert(x, root);
+        }
+
+        /**
+         * Remove from the tree. Nothing is done if x is not found.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            root = remove(x, root);
+        }
+
+        /**
+         * Find the smallest item in the tree.
+         *
+         * @return smallest item or null if empty.
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMin(root).element;
+        }
+
+        /**
+         * Find the largest item in the tree.
+         *
+         * @return the largest item of null if empty.
+         */
+        public AnyType findMax() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMax(root).element;
+        }
+
+        /**
+         * Find an item in the tree.
+         *
+         * @param x the item to search for.
+         * @return true if not found.
+         */
+        public boolean contains(AnyType x) {
+            return contains(x, root);
+        }
+
+        /**
+         * Make the tree logically empty.
+         */
+        public void makeEmpty() {
+            root = null;
+        }
+
+        /**
+         * Test if the tree is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        /**
+         * Print the tree contents in sorted order.
+         */
+        public void printTree() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTree(root);
+            }
+        }
+
+        /**
+         * Internal method to insert into a subtree.
+         *
+         * @param x the item to insert.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        public BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return new BinaryNode<>(x, null, null);
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right);
+            } else
+            ;  // Duplicate; do nothing
+            return t;
+        }
+
+        /**
+         * Internal method to remove from a subtree.
+         *
+         * @param x the item to remove.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return t;   // Item not found; do nothing
+            }
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = remove(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = remove(x, t.right);
+            } else if (t.left != null && t.right != null) // Two children
+            {
+                t.element = findMin(t.right).element;
+                t.right = remove(t.element, t.right);
+            } else {
+                t = (t.left != null) ? t.left : t.right;
+            }
+            return t;
+        }
+
+        /**
+         * Internal method to find the smallest item in a subtree.
+         *
+         * @param t the node that roots the subtree.
+         * @return node containing the smallest item.
+         */
+        private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
+            if (t == null) {
+                return null;
+            } else if (t.left == null) {
+                return t;
+            }
+            return findMin(t.left);
+        }
+
+        /**
+         * Internal method to find the largest item in a subtree.
+         *
+         * @param t the node that roots the subtree.
+         * @return node containing the largest item.
+         */
+        private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+            if (t != null) {
+                while (t.right != null) {
+                    t = t.right;
+                }
+            }
+
+            return t;
+        }
+
+        /**
+         * Internal method to find an item in a subtree.
+         *
+         * @param x is item to search for.
+         * @param t the node that roots the subtree.
+         * @return node containing the matched item.
+         */
+        private boolean contains(AnyType x, BinaryNode<AnyType> t) {
+            if (t == null) {
+                return false;
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                return contains(x, t.left);
+            } else if (compareResult > 0) {
+                return contains(x, t.right);
+            } else {
+                return true;    // Match
+            }
+        }
+
+        /**
+         * Internal method to print a subtree in sorted order.
+         *
+         * @param t the node that roots the subtree.
+         */
+        private void printTree(BinaryNode<AnyType> t) {
+            if (t != null) {
+                printTree(t.left);
+                System.out.println(t.element);
+                printTree(t.right);
+            }
+        }
+
+        /**
+         * Internal method to compute height of a subtree.
+         *
+         * @param t the node that roots the subtree.
+         */
+        private int height(BinaryNode<AnyType> t) {
+            if (t == null) {
+                return -1;
+            } else {
+                return 1 + Math.max(height(t.left), height(t.right));
+            }
+        }
+
+        // Basic node stored in unbalanced binary search trees
+        private static class BinaryNode<AnyType> {
+
+            // Constructors
+            BinaryNode(AnyType theElement) {
+                this(theElement, null, null);
+            }
+
+            BinaryNode(AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt) {
+                element = theElement;
+                left = lt;
+                right = rt;
+            }
+
+            AnyType element;            // The data in the node
+            BinaryNode<AnyType> left;   // Left child
+            BinaryNode<AnyType> right;  // Right child 
+        }
+        /**
+         * The tree root.
+         */
+        private BinaryNode<AnyType> root;
+
+//        private AnyType returnRNode() {
+//            return (AnyType) root.right;
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio6;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        MaxHeap m = new MaxHeap<>(n);
+        int a[] = new int[4];
+        int b[] = new int[n - 2];
+        for (int i = 0; i < n; i++) {
+            m.put(sc.nextInt());
+            if (i < 2) {
+                System.out.println("-1");
+//                System.out.println("::-:" + Arrays.toString(a) + ":-::");
+//                System.out.println("::-:" + Arrays.toString(b) + ":-::");
+//                System.out.println(":-:-:" + m + ":-:-: \n");
+            } else if (i == 2) {
+//                System.out.println(":-:-:" + m + ":-:-:");
+
+                for (int j = 0; j < a.length - 1; j++) {
+                    a[j] = (int) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length - 1; j++) {
+                    m.put(a[j]);
+                }
+
+                b[0] = a[0] * a[1] * a[2];
+//                System.out.println("::-:" + Arrays.toString(a) + ":-::");
+//                System.out.println("::-:" + Arrays.toString(b) + ":-::");
+//                System.out.println(":-:-:" + m + ":-:-: \n");
+            } else if (i > 2){
+//                System.out.println(":-:-:" + m + ":-:-:");
+                for (int j = 0; j < a.length; j++) {
+                    a[j] = (int) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length; j++) {
+                    m.put(a[j]);
+                }
+                b[i-2] = a[0] * a[1] * a[2];
+//                System.out.println("::-:" + Arrays.toString(a) + ":-::");
+//                System.out.println("::-:" + Arrays.toString(b) + ":-::");
+//                System.out.println(":-:-:" + m + ":-:-: \n");
+            }
+        }
+        for (int i = 0; i < b.length; i++) {
+            System.out.println("" + b[i] + "");
+        }
+
+    }
+
+    static class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+        public static final int DEFAULT_SIZE = 10;
+
+        AnyType[] heap;
+        int size;
+
+        @SuppressWarnings("unchecked")
+        public MaxHeap(int initialCapacity) {
+            if (initialCapacity < 1) {
+                throw new IllegalArgumentException("initialCapacity must be >= 1");
+            }
+            heap = (AnyType[]) new Comparable[initialCapacity + 1];
+            size = 0;
+        }
+
+        public MaxHeap() {
+            this(DEFAULT_SIZE);
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public AnyType getMax() {
+            if (isEmpty()) {
+                return null;
+            }
+            return heap[1];
+        }
+
+        @SuppressWarnings({"unchecked"})
+        public void put(AnyType theElement) {
+            if (size == heap.length - 1) {
+                AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+                System.arraycopy(heap, 1, newHeap, 1, size);
+                heap = newHeap;
+            }
+            int currentNode = ++size;
+            for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2) {
+                heap[currentNode] = heap[currentNode / 2];
+            }
+            heap[currentNode] = theElement;
+        }
+
+        public AnyType removeMax() {
+            if (size == 0) {
+                return null;
+            }
+            AnyType maxElement = heap[1];
+            AnyType lastElement = heap[size--];
+            int currentNode = 1, child = 2;
+            for (; child <= size; currentNode = child, child *= 2) {
+                if (child < size && heap[child].compareTo(heap[child + 1]) < 0) {
+                    child++;
+                }
+                if (lastElement.compareTo(heap[child]) >= 0) {
+                    break;
+                }
+                heap[currentNode] = heap[child];
+            }
+            heap[currentNode] = lastElement;
+            return maxElement;
+        }
+
+        public String toString() {
+            return Arrays.toString(heap);
+        }
+
+        public void makeEmpty() {
+            size = 0;
+        }
+
+        class Pair implements Comparable<Pair> {
+
+            int x, y;
+
+            @Override
+            public int compareTo(MaxHeap<AnyType>.Pair o) {
+                if (x != o.x) {
+                    if (x < o.x) {
+                        return -1;
+
+                    }
+                    return 1;
+
+                }
+                if (y > o.y) {
+                    return -1;
+                }
+                return 1;
+            }
+
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio7;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, Integer> Lista = new HashMap<Integer, Integer>();
+        LinkedList<Integer> result = new LinkedList<>();
+        int T = sc.nextInt();
+        int num, cont = 1;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            for (int j = 0; j < n; j++) {
+                num = sc.nextInt();
+                if (Lista.containsKey(num) == false) {
+                    Lista.put(num, 1);
+                    result.add(num);
+                } else {
+                    cont = Lista.get(num) + 1;
+                    Lista.put(num, cont);
+                }
+            }
+            System.out.println("Caso #" + (i + 1));
+            for (Integer key : result) {
+                System.out.println(key + " " + Lista.get(key));
+            }
+            Lista.clear();
+            result.clear();
+        }
+        
+            
+        
+
+//        for (Integer key : Lista.keySet()) {
+//            System.out.println("k:" + key + " " + Lista.get(key) + " - ");
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio6;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        MaxHeap m = new MaxHeap<>(n);
+        int a[] = new int[4];
+        int b[] = new int[n - 2];
+        for (int i = 0; i < n; i++) {
+            m.put(sc.nextInt());
+            if (i < 2) {
+                System.out.println("-1");
+
+            } else if (i == 2) {
+                
+                for (int j = 0; j < a.length - 1; j++) {
+                    a[j] = (int) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length - 1; j++) {
+                    m.put(a[j]);
+                }
+
+                b[0] = a[0] * a[1] * a[2];
+
+            } else if (i > 2){
+
+                for (int j = 0; j < a.length; j++) {
+                    a[j] = (int) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length; j++) {
+                    m.put(a[j]);
+                }
+                b[i-2] = a[0] * a[1] * a[2];
+
+            }
+        }
+        for (int i = 0; i < b.length; i++) {
+            System.out.println("" + b[i] + "");
+        }
+
+    }
+
+    static class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+        public static final int DEFAULT_SIZE = 10;
+
+        AnyType[] heap;
+        int size;
+
+        @SuppressWarnings("unchecked")
+        public MaxHeap(int initialCapacity) {
+            if (initialCapacity < 1) {
+                throw new IllegalArgumentException("initialCapacity must be >= 1");
+            }
+            heap = (AnyType[]) new Comparable[initialCapacity + 1];
+            size = 0;
+        }
+
+        public MaxHeap() {
+            this(DEFAULT_SIZE);
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public AnyType getMax() {
+            if (isEmpty()) {
+                return null;
+            }
+            return heap[1];
+        }
+
+        @SuppressWarnings({"unchecked"})
+        public void put(AnyType theElement) {
+            if (size == heap.length - 1) {
+                AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+                System.arraycopy(heap, 1, newHeap, 1, size);
+                heap = newHeap;
+            }
+            int currentNode = ++size;
+            for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2) {
+                heap[currentNode] = heap[currentNode / 2];
+            }
+            heap[currentNode] = theElement;
+        }
+
+        public AnyType removeMax() {
+            if (size == 0) {
+                return null;
+            }
+            AnyType maxElement = heap[1];
+            AnyType lastElement = heap[size--];
+            int currentNode = 1, child = 2;
+            for (; child <= size; currentNode = child, child *= 2) {
+                if (child < size && heap[child].compareTo(heap[child + 1]) < 0) {
+                    child++;
+                }
+                if (lastElement.compareTo(heap[child]) >= 0) {
+                    break;
+                }
+                heap[currentNode] = heap[child];
+            }
+            heap[currentNode] = lastElement;
+            return maxElement;
+        }
+
+        public String toString() {
+            return Arrays.toString(heap);
+        }
+
+        public void makeEmpty() {
+            size = 0;
+        }
+
+        class Pair implements Comparable<Pair> {
+
+            int x, y;
+
+            @Override
+            public int compareTo(MaxHeap<AnyType>.Pair o) {
+                if (x != o.x) {
+                    if (x < o.x) {
+                        return -1;
+
+                    }
+                    return 1;
+
+                }
+                if (y > o.y) {
+                    return -1;
+                }
+                return 1;
+            }
+
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaB {
+
+    public static void main(String[] args) throws IOException {
+        Scanner in = new Scanner(new File("B-in.txt"));
+        PrintWriter out = new PrintWriter(new File("B-Out.txt"));
+        int t, size;
+        String lineS;
+        Integer element, aux;
+        NTree<Integer> arbol;
+        ArrayList<Integer> childs;
+        t = in.nextInt();
+        for (int n = 1; n <= t; n++) {
+            size = in.nextInt();
+            arbol = new NTree(size);
+            for (int i = 0; i < size; i++) {
+                element = in.nextInt();
+                lineS = in.nextLine();
+                Scanner line = new Scanner(lineS);
+                childs = new ArrayList<>();
+                while (line.hasNext()) {
+                    childs.add(line.nextInt());
+                }
+                if (childs.size() == 0) {
+                    arbol.addChilds(element, null);
+                } else {
+                    arbol.addChilds(element, childs);
+                }
+            }
+            out.append("Caso #" + n + ":\n" + arbol.levelO() + "\n");
+        }
+        out.flush();
+        out.close();
+
+    }
+
+    static class NTree<T> {
+
+        class NNode<T> {
+
+            T element;
+            int addr;
+            ArrayList<Integer> childs;
+
+            public NNode(T e, int i) {
+                element = e;
+                addr = i;
+                childs = null;
+            }
+
+            public void addChild(Integer i) {
+                if (childs == null) {
+                    childs = new ArrayList<Integer>();
+                }
+                childs.add(i);
+            }
+
+            public int getAddr() {
+                return addr;
+            }
+
+            @Override
+            public String toString() {
+                return element.toString() + " i : " + addr + " childs:= " + childs;
+            }
+        }
+
+        NNode<T>[] tree;
+
+        @SuppressWarnings("unchecked")
+        public NTree(int size) {
+            tree = new NNode[size];
+        }
+
+        public int addNode(T element) {
+            int aux = searchI(element);
+            if (tree[aux] == null) {
+                tree[aux] = new NNode<T>(element, aux);
+            }
+            return aux;
+        }
+
+        public int searchI(T e) {
+            int i = 0;
+            while (i < tree.length) {
+                if (tree[i] == null) {
+                    return i;
+                } else {
+                    if (tree[i].element.equals(e)) {
+                        return i;
+                    }
+                }
+                i++;
+            }
+            return i;
+        }
+
+        public NNode<T> search(T e) {
+            for (int i = 0; tree[i] != null && i < tree.length; i++) {
+                if (tree[i].element == e) {
+                    return tree[i];
+                }
+            }
+            return null;
+        }
+
+        public void addChildsN(NNode<T> p, ArrayList<T> h) {
+            if (h != null) {
+                for (T o : h) {
+                    p.addChild(addNode(o));
+                }
+            }
+        }
+
+        public void addChilds(T p, ArrayList<T> h) {
+            int aux = addNode(p);
+            addChildsN(tree[aux], h);
+        }
+
+        public void printA() {
+            for (int i = 0; i < tree.length; i++) {
+                System.out.println("I= " + i + " e= " + tree[i]);
+            }
+        }
+
+        public String levelO() {
+            int n = 0, p = 0, e = 1, l = 1;
+            LinkedList<NNode<T>> q = new LinkedList<NNode<T>>();
+            LinkedList<T> ele = new LinkedList<T>();
+            StringBuffer resp = new StringBuffer();
+            NNode<T> aux = tree[0];
+            q.add(aux);
+            q.add(null);
+            while (!q.isEmpty()) {
+                aux = q.poll();
+
+                if (aux == null) {
+                    n++;
+                    if (e == n) {
+                        if (l % 2 == 0) {
+                            while (!ele.isEmpty()) {
+                                resp.append(ele.pollLast() + " ");
+                            }
+                        } else {
+                            while (!ele.isEmpty()) {
+                                resp.append(ele.pollFirst() + " ");
+                            }
+                        }
+                        l++;
+                        e = p;
+                        n = 0;
+                        p = 0;
+                    }
+                    continue;
+                }
+                ele.add(aux.element);
+                p++;
+                if (aux.childs != null) {
+                    for (Integer o : aux.childs) {
+                        q.add(tree[o]);;
+                    }
+                    q.add(null);
+                }
+            }
+            if (l % 2 == 0) {
+                while (!ele.isEmpty()) {
+                    resp.append(ele.pollLast() + " ");
+                }
+            } else {
+                while (!ele.isEmpty()) {
+                    resp.append(ele.pollFirst() + " ");
+                }
+            }
+
+            return new String(resp);
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio7;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, Integer> Lista = new HashMap<Integer, Integer>();
+        LinkedList<Integer> result = new LinkedList<>();
+        int T = sc.nextInt();
+        int num, cont = 1;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            for (int j = 0; j < n; j++) {
+                num = sc.nextInt();
+                if (Lista.containsKey(num) == false) {
+                    Lista.put(num, 1);
+                    result.add(num);
+                } else {
+                    cont = Lista.get(num) + 1;
+                    Lista.put(num, cont);
+                }
+            }
+            System.out.println("Caso #" + (i + 1));
+            for (Integer key : result) {
+                System.out.println(key + " " + Lista.get(key));
+            }
+            Lista.clear();
+            result.clear();
+        }
+        
+            
+        
+
+//        for (Integer key : Lista.keySet()) {
+//            System.out.println("k:" + key + " " + Lista.get(key) + " - ");
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio7;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) throws IOException{
+        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, Integer> Lista = new HashMap<>();
+        LinkedList<Integer> result = new LinkedList<>();
+        int T = sc.nextInt();
+        int num, cont;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            for (int j = 0; j < n; j++) {
+                num = sc.nextInt();
+                if (Lista.containsKey(num) == false) {
+                    Lista.put(num, 1);
+                    result.add(num);
+                } else {
+                    cont = Lista.get(num) + 1;
+                    Lista.put(num, cont);
+                }
+            }
+            System.out.println("Caso #" + (i + 1));
+            for (Integer key : result) {
+                System.out.println(key + " " + Lista.get(key));
+            }
+            Lista.clear();
+            result.clear();
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.*;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            int n = sc.nextInt();
+            HashMap<Integer, ArrayList<Integer>> g = new HashMap<>();
+
+            for (int j = 0; j < n; j++) {
+                int head = sc.nextInt();
+                g.put(head, new ArrayList<Integer>());
+                String other[] = sc.nextLine().split(" ");
+                for (int k = 0; k < other.length; k++) {
+                    if (other[k].equals("")) {
+                        continue;
+                    }
+                    g.get(head).add(Integer.parseInt(other[k]));
+                }
+            }
+
+            System.out.println("Caso #" + i + ":");
+            LinkedList<Integer> left = new LinkedList<>();
+            LinkedList<Integer> right = new LinkedList<>();
+            left.push(1);
+            boolean l = true;
+
+            while (!left.isEmpty() || !right.isEmpty()) {
+                int u;
+                if (l) {
+                    u = left.pop();
+                } else {
+                    u = right.pop();
+                }
+                System.out.print(u + " ");
+
+                if (l) {
+                    for (int j = 0; j < g.get(u).size(); j++) {
+                        int v = g.get(u).get(j);
+                        right.push(v);
+                    }
+                } else {
+                    for (int j = g.get(u).size()-1; j>=0 ; j--) {
+                        int v = g.get(u).get(j);
+                        left.push(v);
+                    }
+                }
+                if (l && left.isEmpty() || !l && right.isEmpty()) {
+                    l = !l;
+                }
+                
+            }
+            System.out.println();
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.*;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            int n = sc.nextInt();
+            HashMap<Integer, ArrayList<Integer>> g = new HashMap<>();
+
+            for (int j = 0; j < n; j++) {
+                int head = sc.nextInt();
+                g.put(head, new ArrayList<Integer>());
+                String other[] = sc.nextLine().split(" ");
+                for (int k = 0; k < other.length; k++) {
+                    if (other[k].equals("")) {
+                        continue;
+                    }
+                    g.get(head).add(Integer.parseInt(other[k]));
+                }
+            }
+
+            System.out.println("Caso #" + i + ":");
+            LinkedList<Integer> left = new LinkedList<>();
+            LinkedList<Integer> right = new LinkedList<>();
+            left.push(1);
+            boolean l = true;
+
+            while (!left.isEmpty() || !right.isEmpty()) {
+                int u;
+                if (l) {
+                    u = left.pop();
+                } else {
+                    u = right.pop();
+                }
+                System.out.print(u + " ");
+
+                if (l) {
+                    for (int j = 0; j < g.get(u).size(); j++) {
+                        int v = g.get(u).get(j);
+                        right.push(v);
+                    }
+                } else {
+                    for (int j = g.get(u).size()-1; j>=0 ; j--) {
+                        int v = g.get(u).get(j);
+                        left.push(v);
+                    }
+                }
+                if (l && left.isEmpty() || !l && right.isEmpty()) {
+                    l = !l;
+                }
+                
+            }
+            System.out.println();
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProblemaC {
+
+    static long sum, ans;
+    static long[] pesos;
+    static ArrayList<ArrayList<Integer>> grafos;
+
+    static long go(int u, int p) {
+        long sumHijos = pesos[u];
+        for (Integer v : grafos.get(u)) {
+            if (v == p) {
+                continue;
+            }
+            sumHijos += go(v, u);
+        }
+        ans = Math.min(ans, Math.abs((sum - sumHijos) - sumHijos));
+        return sumHijos;
+    }
+
+    public static void main(String[] args) {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            n = sc.nextInt();
+
+            grafos = new ArrayList<>();
+            for (int j = 0; j <= n; j++) {
+                grafos.add(new ArrayList<Integer>());
+            }
+            
+            pesos = new long[n + 1];
+            sum = 0; //suma de nodos
+            ans = Long.MAX_VALUE; //respuesta
+            for (int j = 1; j <= n; j++) { //guardar pesos
+                pesos[j] = sc.nextLong();
+                sum += pesos[i];
+            }
+            
+            int a, b;
+            for (int j = 1; j < n; j++) { //arbol
+                a = sc.nextInt();
+                b = sc.nextInt();
+                grafos.get(a).add(b); //conexion de ab
+                grafos.get(b).add(a);//conexion de ba
+
+            }
+            go(1,-1);
+            
+            System.out.println("Caso #"+(i)+": \n"+ ans);
+
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio6;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        MaxHeap m = new MaxHeap<>(n);
+        long a[] = new long[4];
+        long b[] = new long[n - 2];
+        for (int i = 0; i < n; i++) {
+            m.put(sc.nextInt());
+            if (i < 2) {
+                System.out.println("-1");
+
+            } else if (i == 2) {
+                
+                for (int j = 0; j < a.length - 1; j++) {
+                    a[j] = (long) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length - 1; j++) {
+                    m.put(a[j]);
+                }
+
+                b[0] = a[0] * a[1] * a[2];
+
+            } else if (i > 2){
+
+                for (int j = 0; j < a.length; j++) {
+                    a[j] = (long) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length; j++) {
+                    m.put(a[j]);
+                }
+                b[i-2] = a[0] * a[1] * a[2];
+
+            }
+        }
+        for (int i = 0; i < b.length; i++) {
+            System.out.println("" + b[i] + "");
+        }
+
+    }
+
+    static class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+        public static final int DEFAULT_SIZE = 10;
+
+        AnyType[] heap;
+        int size;
+
+        @SuppressWarnings("unchecked")
+        public MaxHeap(int initialCapacity) {
+            if (initialCapacity < 1) {
+                throw new IllegalArgumentException("initialCapacity must be >= 1");
+            }
+            heap = (AnyType[]) new Comparable[initialCapacity + 1];
+            size = 0;
+        }
+
+        public MaxHeap() {
+            this(DEFAULT_SIZE);
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public AnyType getMax() {
+            if (isEmpty()) {
+                return null;
+            }
+            return heap[1];
+        }
+
+        @SuppressWarnings({"unchecked"})
+        public void put(AnyType theElement) {
+            if (size == heap.length - 1) {
+                AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+                System.arraycopy(heap, 1, newHeap, 1, size);
+                heap = newHeap;
+            }
+            int currentNode = ++size;
+            for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2) {
+                heap[currentNode] = heap[currentNode / 2];
+            }
+            heap[currentNode] = theElement;
+        }
+
+        public AnyType removeMax() {
+            if (size == 0) {
+                return null;
+            }
+            AnyType maxElement = heap[1];
+            AnyType lastElement = heap[size--];
+            int currentNode = 1, child = 2;
+            for (; child <= size; currentNode = child, child *= 2) {
+                if (child < size && heap[child].compareTo(heap[child + 1]) < 0) {
+                    child++;
+                }
+                if (lastElement.compareTo(heap[child]) >= 0) {
+                    break;
+                }
+                heap[currentNode] = heap[child];
+            }
+            heap[currentNode] = lastElement;
+            return maxElement;
+        }
+
+        public String toString() {
+            return Arrays.toString(heap);
+        }
+
+        public void makeEmpty() {
+            size = 0;
+        }
+
+        class Pair implements Comparable<Pair> {
+
+            int x, y;
+
+            @Override
+            public int compareTo(MaxHeap<AnyType>.Pair o) {
+                if (x != o.x) {
+                    if (x < o.x) {
+                        return -1;
+
+                    }
+                    return 1;
+
+                }
+                if (y > o.y) {
+                    return -1;
+                }
+                return 1;
+            }
+
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio6;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        MaxHeap m = new MaxHeap<>(n);
+        long a[] = new long[4];
+        long b[] = new long[n - 2];
+        for (int i = 0; i < n; i++) {
+            m.put(sc.nextLong());
+            if (i < 2) {
+                System.out.println("-1");
+
+            } else if (i == 2) {
+                
+                for (int j = 0; j < a.length - 1; j++) {
+                    a[j] = (long) m.removeMax(); 
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length - 1; j++) {
+                    m.put(a[j]);
+                }
+
+                b[0] = a[0] * a[1] * a[2];
+
+            } else if (i > 2){
+
+                for (int j = 0; j < a.length; j++) {
+                    a[j] = (long) m.removeMax();
+                }
+                m.makeEmpty();
+                for (int j = 0; j < a.length; j++) {
+                    m.put(a[j]);
+                }
+                b[i-2] = a[0] * a[1] * a[2];
+
+            }
+        }
+        for (int i = 0; i < b.length; i++) {
+            System.out.println("" + b[i] + "");
+        }
+
+    }
+
+    static class MaxHeap<AnyType extends Comparable<? super AnyType>> {
+
+        public static final int DEFAULT_SIZE = 10;
+
+        AnyType[] heap;
+        int size;
+
+        @SuppressWarnings("unchecked")
+        public MaxHeap(int initialCapacity) {
+            if (initialCapacity < 1) {
+                throw new IllegalArgumentException("initialCapacity must be >= 1");
+            }
+            heap = (AnyType[]) new Comparable[initialCapacity + 1];
+            size = 0;
+        }
+
+        public MaxHeap() {
+            this(DEFAULT_SIZE);
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public AnyType getMax() {
+            if (isEmpty()) {
+                return null;
+            }
+            return heap[1];
+        }
+
+        @SuppressWarnings({"unchecked"})
+        public void put(AnyType theElement) {
+            if (size == heap.length - 1) {
+                AnyType[] newHeap = (AnyType[]) new Comparable[2 * heap.length];
+                System.arraycopy(heap, 1, newHeap, 1, size);
+                heap = newHeap;
+            }
+            int currentNode = ++size;
+            for (; currentNode != 1 && heap[currentNode / 2].compareTo(theElement) < 0; currentNode /= 2) {
+                heap[currentNode] = heap[currentNode / 2];
+            }
+            heap[currentNode] = theElement;
+        }
+
+        public AnyType removeMax() {
+            if (size == 0) {
+                return null;
+            }
+            AnyType maxElement = heap[1];
+            AnyType lastElement = heap[size--];
+            int currentNode = 1, child = 2;
+            for (; child <= size; currentNode = child, child *= 2) {
+                if (child < size && heap[child].compareTo(heap[child + 1]) < 0) {
+                    child++;
+                }
+                if (lastElement.compareTo(heap[child]) >= 0) {
+                    break;
+                }
+                heap[currentNode] = heap[child];
+            }
+            heap[currentNode] = lastElement;
+            return maxElement;
+        }
+
+        public String toString() {
+            return Arrays.toString(heap);
+        }
+
+        public void makeEmpty() {
+            size = 0;
+        }
+
+        class Pair implements Comparable<Pair> {
+
+            int x, y;
+
+            @Override
+            public int compareTo(MaxHeap<AnyType>.Pair o) {
+                if (x != o.x) {
+                    if (x < o.x) {
+                        return -1;
+
+                    }
+                    return 1;
+
+                }
+                if (y > o.y) {
+                    return -1;
+                }
+                return 1;
+            }
+
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio7;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) throws IOException{
+        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, Integer> Lista = new HashMap<>();
+        LinkedList<Integer> result = new LinkedList<>();
+        int T = sc.nextInt();
+        int num, cont;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            for (int j = 0; j < n; j++) {
+                num = sc.nextInt();
+                if (Lista.containsKey(num) == false) {
+                    Lista.put(num, 1);
+                    result.add(num);
+                } else {
+                    cont = Lista.get(num) + 1;
+                    Lista.put(num, cont);
+                }
+            }
+            System.out.println("Caso #" + (i + 1)+":");
+            for (Integer key : result) {
+                System.out.println(key + " " + Lista.get(key));
+            }
+            Lista.clear();
+            result.clear();
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio6;
+
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+
+public class ProblemaB {
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        int t = sc.nextInt();
+        for (int i = 1; i <=t; i++) {
+            int n=sc.nextInt();
+            int pos=sc.nextInt();
+            
+            LinkedList<Integer> q = new LinkedList<>();
+            PriorityQueue<Integer> mayor = new PriorityQueue<>();
+            for (int j = 0; j < n; j++) {
+                int aux = sc.nextInt(); //prioridad
+                q.offer(aux);
+                q.offer(j);
+                mayor.add(-aux);
+            }
+            int ans=0;
+            while(true){
+                int elem = q.poll();
+                int p = q.poll();
+                
+                if (-mayor.peek() == elem) {
+                    mayor.poll();
+                    ans++;
+                    if (p == pos) {
+                        break;
+                    }
+                }else{
+                    q.offer(elem);
+                    q.offer(p);
+                }
+            }
+            System.out.println(ans);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio5;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProblemaC {
+
+    static long sum, ans;
+    static long[] pesos;
+    static ArrayList<ArrayList<Integer>> grafos;
+
+    static long go(int u, int p) {
+        long sumHijos = pesos[u];
+        for (Integer v : grafos.get(u)) {
+            if (v == p) {
+                continue;
+            }
+            sumHijos += go(v, u);
+        }
+        ans = Math.min(ans, Math.abs((sum - sumHijos) - sumHijos));
+        return sumHijos;
+    }
+
+    public static void main(String[] args) {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        for (int i = 1; i <= t; i++) {
+            n = sc.nextInt();
+
+            grafos = new ArrayList<>();
+            for (int j = 0; j <= n; j++) {
+                grafos.add(new ArrayList<Integer>());
+            }
+            
+            pesos = new long[n + 1];
+            sum = 0; //suma de nodos
+            ans = Long.MAX_VALUE; //respuesta
+            for (int j = 1; j <= n; j++) { //guardar pesos
+                pesos[j] = sc.nextLong();
+                sum += pesos[i];
+            }
+            
+            int a, b;
+            for (int j = 1; j < n; j++) { //arbol
+                a = sc.nextInt();
+                b = sc.nextInt();
+                grafos.get(a).add(b); //conexion de ab
+                grafos.get(b).add(a);//conexion de ba
+
+            }
+            go(1,-1);
+            
+            System.out.println("Caso #"+(i)+": \n"+ ans);
+
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio7;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, Integer> Lista = new HashMap<Integer, Integer>();
+        LinkedList<Integer> result = new LinkedList<>();
+        int T = sc.nextInt();
+        int num, cont = 1;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            for (int j = 0; j < n; j++) {
+                num = sc.nextInt();
+                if (Lista.containsKey(num) == false) {
+                    Lista.put(num, 1);
+                    result.add(num);
+                } else {
+                    cont = Lista.get(num) + 1;
+                    Lista.put(num, cont);
+                }
+            }
+            System.out.println("Caso #" + (i + 1));
+            for (Integer key : result) {
+                System.out.println(key + " " + Lista.get(key));
+            }
+            Lista.clear();
+            result.clear();
+        }
+        
+            
+        
+
+//        for (Integer key : Lista.keySet()) {
+//            System.out.println("k:" + key + " " + Lista.get(key) + " - ");
+//        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

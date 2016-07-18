@@ -1,0 +1,4934 @@
+package p01a;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class P01A {
+
+    public static void main(String[] args) {
+
+        int n;
+        Scanner in = new Scanner(System.in);
+        try {
+
+            n = in.nextInt();
+
+            for (int m = 1; m <= n; m++) {
+                int x = 0, y = 0, z = 0;
+                int k = 0;
+                k = in.nextInt();
+
+                ArrayList<Integer> nums = new ArrayList<>();
+
+                for (int l = 0; l < k; l++) {
+                    nums.add(in.nextInt());
+                }
+
+                for (int i = 0; i < k; i++) {
+                    for (int j = 0; j < k; j++) {
+                        if (i != j) {
+                            if (nums.get(i) > nums.get(j)) {
+                                x++;
+                            } else if (nums.get(i) < nums.get(j)) {
+                                y++;
+                            } else {
+                                z++;
+                            }
+                        }
+                    }
+                }
+
+                System.out.println("Case #" + m + ":");
+                System.out.println(x);
+                System.out.println(y);
+                System.out.println(z);
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p01b;
+
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class P01B {
+
+    public static void main(String[] args) {
+
+        int n, m = 0;
+        Scanner in = new Scanner(System.in);
+        try {
+            
+            do {
+                n = in.nextInt();
+                m++;
+                int w = 0;
+
+                Integer[][] board = new Integer[n][n];
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        board[i][j] = in.nextInt();
+
+                    }
+                }
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        int r = 0, c = 0;
+                        for (int p = 0; p < n; p++) {
+                            r = r + board[i][p];
+                        }
+                        for (int p = 0; p < n; p++) {
+                            c = c + board[p][j];
+                        }
+                        if (r < c) {
+                            w++;
+                        }
+                    }
+                }
+                System.out.println("Case #" + m + ":");
+                System.out.println(w);
+            }
+            while (in.hasNext());
+
+        } catch (InputMismatchException e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p01c;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class P01C {
+
+    public static void main(String[] args) {
+
+        int t;
+        Scanner in = new Scanner(System.in);
+        Reader read = new InputStreamReader(System.in);
+        try {
+
+            t = in.nextInt();
+
+            for (int s = 1; s <= t; s++) {
+                int n = in.nextInt();
+                char[] piedras = new char[n];
+                for (int i = 0; i < n; i++) {
+
+                    try {
+                        char c = (char) read.read();
+                        read.skip(1);
+                        piedras[i] = c;
+                    } catch (IOException ex) {
+                        Logger.getLogger(P01C.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                System.out.println("Case #" + s + ":");
+                do {
+                    System.out.println(piedras);
+                } while (nextPermute(piedras));
+
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public static boolean nextPermute(char[] piedras) {
+        if (piedras.length == 1) {
+            return false;
+        }
+        int k = piedras.length - 2;
+        while (piedras[k] >= piedras[k + 1]) {
+            k--;
+            if (k < 0) {
+                return false;
+            }
+        }
+        int l = piedras.length - 1;
+        while (piedras[k] >= piedras[l]) {
+            l--;
+        }
+        swap(piedras, k, l);
+        int length = piedras.length - (k + 1);
+        for (int i = 0; i < length / 2; i++) {
+            swap(piedras, k + 1 + i, piedras.length - i - 1);
+        }
+        return true;
+    }
+
+    public static void swap(char[] data, int k, int l) {
+        char ck = data[k], cl = data[l];
+        data[k] = cl;
+        data[l] = ck;
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p01d;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class P01D {
+
+    public static void main(String[] args) {
+        int t;
+        Scanner in = new Scanner(System.in);
+        try {
+
+            t = in.nextInt();
+
+            for (int m = 1; m <= t; m++) {
+                int x = 0;
+                int n = 0;
+                n = in.nextInt();
+
+                ArrayList<Integer> clrL = new ArrayList<>();
+                ArrayList<Integer> clrV = new ArrayList<>();
+
+                for (int l = 0; l < n; l++) {
+                    clrL.add(in.nextInt());
+                    clrV.add(in.nextInt());
+                }
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        if (i != j) {
+                            if (clrL.get(i) == clrV.get(j)) {
+                                x++;
+                            }
+                        }
+                    }
+                }
+
+                System.out.println("Case #" + m + ":");
+                System.out.println(x);
+
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p01c;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class P01C {
+
+    public static void main(String[] args) {
+
+        int t;
+        Scanner in = new Scanner(System.in);
+        Reader read = new InputStreamReader(System.in);
+        try {
+
+            t = in.nextInt();
+
+            for (int s = 1; s <= t; s++) {
+                int n = in.nextInt();
+                char[] piedras = new char[n];
+                for (int i = 0; i < n; i++) {
+
+                    try {
+                        char c = (char) read.read();
+                        read.skip(1);
+                        piedras[i] = c;
+                    } catch (IOException ex) {
+                        Logger.getLogger(P01C.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                System.out.println("Case #" + s + ":");
+                do {
+                    System.out.println(piedras);
+                } while (nextPermute(piedras));
+
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public static boolean nextPermute(char[] piedras) {
+        if (piedras.length == 1) {
+            return false;
+        }
+        int k = piedras.length - 2;
+        while (piedras[k] >= piedras[k + 1]) {
+            k--;
+            if (k < 0) {
+                return false;
+            }
+        }
+        int l = piedras.length - 1;
+        while (piedras[k] >= piedras[l]) {
+            l--;
+        }
+        swap(piedras, k, l);
+        int length = piedras.length - (k + 1);
+        for (int i = 0; i < length / 2; i++) {
+            swap(piedras, k + 1 + i, piedras.length - i - 1);
+        }
+        return true;
+    }
+
+    public static void swap(char[] data, int k, int l) {
+        char ck = data[k], cl = data[l];
+        data[k] = cl;
+        data[l] = ck;
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p01c;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class P01C {
+
+    public static void main(String[] args) {
+
+        int t;
+        Scanner in = new Scanner(System.in);
+        try {
+
+            t = in.nextInt();
+
+            for (int s = 1; s <= t; s++) {
+                int n = in.nextInt();
+                String str = in.nextLine();
+                str= in.nextLine();
+                char[] piedras = new char[n];
+                piedras = readChar(str, n);
+                System.out.println("Case #" + s + ":");
+                do {
+                    System.out.println(piedras);
+                } while (nextPermute(piedras));
+
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(e);
+        }
+
+    }
+    
+    public static char[] readChar(String string, int n)
+    {
+        char[] chars = new char[n];
+        String[] split = string.split(" ");
+        for (int i=0; i<chars.length; i++)
+        {
+            chars[i]=split[i].charAt(0);
+        }
+        return chars;
+    }
+
+    public static boolean nextPermute(char[] piedras) {
+        if (piedras.length == 1) {
+            return false;
+        }
+        int k = piedras.length - 2;
+        while (piedras[k] >= piedras[k + 1]) {
+            k--;
+            if (k < 0) {
+                return false;
+            }
+        }
+        int l = piedras.length - 1;
+        while (piedras[k] >= piedras[l]) {
+            l--;
+        }
+        swap(piedras, k, l);
+        int length = piedras.length - (k + 1);
+        for (int i = 0; i < length / 2; i++) {
+            swap(piedras, k + 1 + i, piedras.length - i - 1);
+        }
+        return true;
+    }
+
+    public static void swap(char[] data, int k, int l) {
+        char ck = data[k], cl = data[l];
+        data[k] = cl;
+        data[l] = ck;
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p01e;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P01E {
+
+    public static void main(String[] args) {
+        int t;
+        Scanner in = new Scanner(System.in);
+        t = in.nextInt();
+
+        for (int m = 1; m <= t; m++) {
+            int n = 0;
+            int max = 0;
+            int id = 0;
+            n = in.nextInt();
+            in.nextLine();
+            ArrayList<Integer> nums = readInts(in.nextLine(), n);
+            ArrayList<ArrayList<Integer>> nams = new ArrayList<>();
+            
+            System.out.println(nums);
+
+            
+            nams.add(nums);
+
+            for (int i = 0; i < n; i++) {
+                for (int j = i; j < n; j++) {
+                    
+                    for (int k = i; k <= j; k++) {
+                        int x = nums.get(k);
+                        nams.get(id).set(k, flip(x));
+                    }
+                    System.out.println(nums);
+                    if (max<count(nams.get(id))){
+                        max = count(nams.get(id));
+                    }
+                    id++;
+                }
+            }
+            System.out.println(max);
+            
+            
+
+        }
+
+    }
+
+    public static int flip(int n) {
+        int x = 1 - n;
+        return x;
+    }
+
+    public static ArrayList<Integer> readInts(String s, int n) {
+        String split[] = s.split(" ");
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            arr.add(Integer.parseInt(split[i]));
+        }
+        return arr;
+    }
+
+    public static int count(ArrayList<Integer> nums) {
+        int cantidad = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums.get(i) == 1) {
+                cantidad++;
+            }
+        }
+
+        return cantidad;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package p01e;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P01E {
+
+    public static void main(String[] args) {
+        int t;
+        Scanner in = new Scanner(System.in);
+        t = in.nextInt();
+
+        for (int m = 1; m <= t; m++) {
+            int n = 0;
+            int max = 0;
+            int id = 0;
+            n = in.nextInt();
+            in.nextLine();
+            ArrayList<Integer> nums = readInts(in.nextLine(), n);
+            ArrayList<ArrayList<Integer>> nams = new ArrayList<>();
+            
+            System.out.println(nums);
+
+            
+            nams.add(nums);
+
+            for (int i = 0; i < n; i++) {
+                for (int j = i; j < n; j++) {
+                    
+                    for (int k = i; k <= j; k++) {
+                        int x = nums.get(k);
+                        nams.get(id).set(k, flip(x));
+                    }
+                    System.out.println(nums);
+                    if (max<count(nams.get(id))){
+                        max = count(nams.get(id));
+                    }
+                    id++;
+                }
+            }
+            System.out.println(max);
+            
+            
+
+        }
+
+    }
+
+    public static int flip(int n) {
+        int x = 1 - n;
+        return x;
+    }
+
+    public static ArrayList<Integer> readInts(String s, int n) {
+        String split[] = s.split(" ");
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            arr.add(Integer.parseInt(split[i]));
+        }
+        return arr;
+    }
+
+    public static int count(ArrayList<Integer> nums) {
+        int cantidad = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums.get(i) == 1) {
+                cantidad++;
+            }
+        }
+
+        return cantidad;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06a;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] limits = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(limits[0]);
+            Integer M = Integer.parseInt(limits[1]);
+
+            String[] nms = in.nextLine().split(" ");
+
+            int[] nums = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                Integer toAdd = Integer.parseInt(nms[i]);
+                nums[i] = toAdd;
+            }
+
+            String[] mds = in.nextLine().split(" ");
+
+            int[] mods = new int[M];
+            int minColls = 0;
+            int minK = 0;
+            int minJ = 0;
+
+            for (int i = 0; i < M; i++) {
+                Integer toAdd = Integer.parseInt(mds[i]);
+                mods[i] = toAdd;
+            }
+
+            ArrayList<SeparateChainingHashTable<Integer>> tables = new ArrayList<>();
+
+            for (int j = 0; j < M; j++) {
+
+                SeparateChainingHashTable<Integer> table = new SeparateChainingHashTable<>(mods[j]);
+                tables.add(table);
+
+                for (int i = 0; i < N; i++) {
+                    table.insert(nums[i]);
+                }
+
+                int colls = table.CountCollisions();
+
+                if (j == 0) {
+                    minColls = colls;
+                    minK = mods[j];
+                    minJ = j;
+                } else {
+                    if (colls < minColls) {
+                        minColls = colls;
+                        minK = mods[j];
+                        minJ = j;
+                    } else if (colls == minColls) {
+                        if (mods[j] < minK) {
+                            minColls = colls;
+                            minK = mods[j];
+                            minJ = j;
+                        }
+                    }
+                }
+            }
+
+            SeparateChainingHashTable<Integer> minTable = tables.get(minJ);
+            List<Integer>[] minLists = minTable.getTheLists();
+            List<List<Integer>> copyMinList = new ArrayList();
+
+            for (List<Integer> minList : minLists) {
+                minList.sort(null);
+                copyMinList.add(minList);
+            }
+
+            
+            Comparator comp = new Comparator<LinkedList<Integer>>() {
+                public int compare(LinkedList<Integer> o1, LinkedList<Integer> o2) {                    
+                    int x1, x2;
+                    if (o1.isEmpty()) {
+                        x1 = 0;
+                    } else {
+                        x1 = o1.get(0);
+                    }
+                    if (o2.isEmpty()) {
+                        x2 = 0;
+                    } else {
+                        x2 = o2.get(0);
+                    }
+                    return x1 - x2;
+
+                }
+            };
+
+            Collections.sort(copyMinList, comp);
+
+            System.out.println("Case #" + m + ":");
+
+            System.out.println(minK);
+            System.out.println(minColls);
+            for (List<Integer> lst : copyMinList) {
+                if (lst.size() > 1) {
+                    ListIterator it = lst.listIterator(1);
+                    System.out.print(lst.get(0));
+                    while (it.hasNext()) {
+                        System.out.print(" " + it.next());                        
+                    }
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+    /**
+     * Separate chaining table implementation of hash tables. Note that all
+     * "matching" is based on the equals method.
+     *
+     * @param <AnyType>
+     */
+    public static class SeparateChainingHashTable<AnyType> {
+
+        public int CountCollisions() {
+
+            int Collisions = 0;
+            for (int i = 0; i < theLists.length; i++) {
+                if (!theLists[i].isEmpty()) {
+                    Collisions = Collisions + theLists[i].size() - 1;
+                }
+            }
+
+            return Collisions;
+        }
+
+        /**
+         * Construct the hash table.
+         */
+        public SeparateChainingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size approximate table size.
+         */
+        public SeparateChainingHashTable(int size) {
+            theLists = new LinkedList[size];
+            //theLists = new LinkedList[nextPrime(size)];
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<>();
+            }
+        }
+
+        /**
+         * Insert into the hash table. If the item is already present, then do
+         * nothing.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            //if (!whichList.contains(x)) {
+                whichList.add(x);
+                currentSize++;
+                /*// Rehash; see Section 5.5
+                 if (++currentSize > theLists.length) {
+                 rehash();
+                 }*/
+            //}
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            if (whichList.contains(x)) {
+                whichList.remove(x);
+                currentSize--;
+            }
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            return whichList.contains(x);
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i].clear();
+            }
+            currentSize = 0;
+        }
+
+        /**
+         * A hash routine for String objects.
+         *
+         * @param key the String to hash.
+         * @param tableSize the size of the hash table.
+         * @return the hash value.
+         */
+        public static int hash(String key, int tableSize) {
+            int hashVal = 0;
+
+            for (int i = 0; i < key.length(); i++) {
+                hashVal = 37 * hashVal + key.charAt(i);
+            }
+
+            hashVal %= tableSize;
+            if (hashVal < 0) {
+                hashVal += tableSize;
+            }
+
+            return hashVal;
+        }
+
+        private void rehash() {
+            List<AnyType>[] oldLists = theLists;
+
+            // Create new double-sized, empty table
+            theLists = new List[nextPrime(2 * theLists.length)];
+            for (int j = 0; j < theLists.length; j++) {
+                theLists[j] = new LinkedList<>();
+            }
+
+            // Copy table over
+            currentSize = 0;
+            for (List<AnyType> list : oldLists) {
+                for (AnyType item : list) {
+                    insert(item);
+                }
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= theLists.length;
+            if (hashVal < 0) {
+                hashVal += theLists.length;
+            }
+
+            return hashVal;
+        }
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * The array of Lists.
+         */
+        private List<AnyType>[] theLists;
+        private int currentSize;
+
+        public List<AnyType>[] getTheLists() {
+            return theLists;
+        }
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+            ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06b;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06B {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            Integer N = Integer.parseInt(in.nextLine());
+            HashMap<Integer, Integer> bag = new HashMap<>();
+            int counter = 0;
+
+            for (int i = 0; i < N; i++) {
+                String[] pond = in.nextLine().split(" ");
+                Integer berry = Integer.parseInt(pond[0]);
+                Integer pkmn = Integer.parseInt(pond[1]);
+
+                int pickedBerry;
+                if (bag.containsKey(berry)) {
+                    pickedBerry = bag.get(berry) + 1;
+                } else {
+                    pickedBerry = 1;
+                }
+
+                bag.put(berry, pickedBerry);
+
+                int neededBerry;
+                if (bag.containsKey(pkmn)) {
+                    if (bag.get(pkmn) == 0) {
+                        neededBerry = 0;
+                        counter++;
+                    } else {
+                        neededBerry = bag.get(pkmn) - 1;
+                    }
+
+                } else {
+                    neededBerry = 0;
+                    counter++;
+                }
+
+                bag.put(pkmn, neededBerry);
+
+            }
+
+            System.out.println("Case #" + m + ":");
+            System.out.println(counter);
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06c;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06C {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] nums = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(nums[0]);
+            Integer M = Integer.parseInt(nums[1]);
+            Integer P = Integer.parseInt(nums[2]);
+
+            HashMap<Integer, Character> BS = new HashMap<>();
+            String[] Nprobs = in.nextLine().split(" ");
+            String[] Mprobs = in.nextLine().split(" ");
+            String[] Pprobs = in.nextLine().split(" ");
+
+            for (int i = 0; i < N; i++) {
+                Integer prob = Integer.parseInt(Nprobs[i]);
+                if (BS.containsKey(prob)) {
+                    BS.put(prob, 'X');
+                } else {
+                    BS.put(prob, 'N');
+                }
+            }
+            for (int i = 0; i < M; i++) {
+                Integer prob = Integer.parseInt(Mprobs[i]);
+                if (BS.containsKey(prob)) {
+                    BS.put(prob, 'X');
+                } else {
+                    BS.put(prob, 'M');
+                }
+            }
+            for (int i = 0; i < P; i++) {
+                Integer prob = Integer.parseInt(Pprobs[i]);
+                if (BS.containsKey(prob)) {
+                    BS.put(prob, 'X');
+                } else {
+                    BS.put(prob, 'P');
+                }
+            }
+            
+            ArrayList<Integer> uniqueN = new ArrayList<>();
+            ArrayList<Integer> uniqueM = new ArrayList<>();
+            ArrayList<Integer> uniqueP = new ArrayList<>();
+
+            for (Map.Entry<Integer, Character> entry : BS.entrySet()) {
+                Integer prblm = entry.getKey();
+                Character value = entry.getValue();
+                
+                switch (value) {
+                    
+                    case 'N':
+                        uniqueN.add(prblm);
+                        break;
+                    case 'M':
+                        uniqueM.add(prblm);
+                        break;
+                    case 'P':
+                        uniqueP.add(prblm);
+                        break;
+                    default :                        
+                        break;
+                }
+            }
+            
+            int NS = uniqueN.size();
+            int MS = uniqueM.size();
+            int PS = uniqueP.size();
+            int max = Math.max(NS, Math.max(MS, PS));          
+
+
+            System.out.println("Case #" + m + ":");
+            if (NS == max) {
+                uniqueN.sort(null);
+                System.out.print("Norma " + NS);
+                for (Integer asd : uniqueN) {
+                    System.out.print(" " + asd);
+                }
+                System.out.println();
+            }
+            if (MS == max) {
+                uniqueM.sort(null);
+                System.out.print("Mario " + MS);
+                for (Integer asd : uniqueM) {
+                    System.out.print(" " + asd);
+                }
+                System.out.println();
+            }
+            if (PS == max) {
+                uniqueP.sort(null);
+                System.out.print("Pipe " + PS);
+                for (Integer asd : uniqueP) {
+                    System.out.print(" " + asd);
+                }
+                System.out.println();
+            }
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06d;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06D {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            Integer N = Integer.parseInt(in.nextLine());
+            HashMap<String, String> candidates = new HashMap<>();
+            HashMap<String, Integer> votes = new HashMap<>();
+            int winrarVotes = 0;
+            ArrayList<String> winrars = new ArrayList<>();
+            ArrayList<String> winrarsParties = new ArrayList<>();
+
+            for (int i = 0; i < N; i++) {
+                String[] candidate = in.nextLine().split(" ");
+                candidates.put(candidate[0], candidate[1]);
+                votes.put(candidate[0], 0);
+            }
+
+            Integer Q = Integer.parseInt(in.nextLine());
+
+            for (int i = 0; i < Q; i++) {
+                String vote = in.nextLine();
+                if (votes.containsKey(vote)) {
+                    int newCount = votes.get(vote) + 1;
+                    votes.put(vote, newCount);
+                }
+            }
+
+            for (Map.Entry<String, Integer> entry : votes.entrySet()) {
+
+                if (entry.getValue() == winrarVotes) {
+                    winrars.add(entry.getKey());
+                } else if (entry.getValue() > winrarVotes) {
+                    winrarVotes = entry.getValue();
+                    winrars.clear();
+                    winrars.add(entry.getKey());
+                }
+
+            }
+
+            for (String winrar : winrars) {
+                String party = candidates.get(winrar);
+                winrarsParties.add(party);
+            }
+            winrarsParties.sort(null);
+
+            System.out.println("Case #" + m + ":");
+            for (String winParty : winrarsParties) {
+                System.out.println(winParty);
+            }
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06a;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] limits = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(limits[0]);
+            Integer M = Integer.parseInt(limits[1]);
+
+            String[] nms = in.nextLine().split(" ");
+
+            int[] nums = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                Integer toAdd = Integer.parseInt(nms[i]);
+                nums[i] = toAdd;
+            }
+
+            String[] mds = in.nextLine().split(" ");
+
+            int[] mods = new int[M];
+            int minColls = 0;
+            int minK = 0;
+            int minJ = 0;
+
+            for (int i = 0; i < M; i++) {
+                Integer toAdd = Integer.parseInt(mds[i]);
+                mods[i] = toAdd;
+            }
+
+            ArrayList<SeparateChainingHashTable<Integer>> tables = new ArrayList<>();
+
+            for (int j = 0; j < M; j++) {
+
+                SeparateChainingHashTable<Integer> table = new SeparateChainingHashTable<>(mods[j]);
+                tables.add(table);
+
+                for (int i = 0; i < N; i++) {
+                    table.insert(nums[i]);
+                }
+
+                int colls = table.CountCollisions();
+
+                if (j == 0) {
+                    minColls = colls;
+                    minK = mods[j];
+                    minJ = j;
+                } else {
+                    if (colls < minColls) {
+                        minColls = colls;
+                        minK = mods[j];
+                        minJ = j;
+                    } else if (colls == minColls) {
+                        if (mods[j] < minK) {
+                            minColls = colls;
+                            minK = mods[j];
+                            minJ = j;
+                        }
+                    }
+                }
+            }
+
+            SeparateChainingHashTable<Integer> minTable = tables.get(minJ);
+            List<Integer>[] minLists = minTable.getTheLists();
+            List<List<Integer>> copyMinList = new ArrayList();
+
+            for (List<Integer> minList : minLists) {
+                Collections.sort(minList);                
+                copyMinList.add(minList);
+            }
+
+            
+            Comparator comp = new Comparator<LinkedList<Integer>>() {
+                public int compare(LinkedList<Integer> o1, LinkedList<Integer> o2) {                    
+                    int x1, x2;
+                    if (o1.isEmpty()) {
+                        x1 = 0;
+                    } else {
+                        x1 = o1.get(0);
+                    }
+                    if (o2.isEmpty()) {
+                        x2 = 0;
+                    } else {
+                        x2 = o2.get(0);
+                    }
+                    return x1 - x2;
+
+                }
+            };
+
+            Collections.sort(copyMinList, comp);
+
+            System.out.println("Case #" + m + ":");
+
+            System.out.println(minK);
+            System.out.println(minColls);
+            for (List<Integer> lst : copyMinList) {
+                if (lst.size() > 1) {
+                    ListIterator it = lst.listIterator(1);
+                    System.out.print(lst.get(0));
+                    while (it.hasNext()) {
+                        System.out.print(" " + it.next());                        
+                    }
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+    /**
+     * Separate chaining table implementation of hash tables. Note that all
+     * "matching" is based on the equals method.
+     *
+     * @param <AnyType>
+     */
+    public static class SeparateChainingHashTable<AnyType> {
+
+        public int CountCollisions() {
+
+            int Collisions = 0;
+            for (int i = 0; i < theLists.length; i++) {
+                if (!theLists[i].isEmpty()) {
+                    Collisions = Collisions + theLists[i].size() - 1;
+                }
+            }
+
+            return Collisions;
+        }
+
+        /**
+         * Construct the hash table.
+         */
+        public SeparateChainingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size approximate table size.
+         */
+        public SeparateChainingHashTable(int size) {
+            theLists = new LinkedList[size];
+            //theLists = new LinkedList[nextPrime(size)];
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<>();
+            }
+        }
+
+        /**
+         * Insert into the hash table. If the item is already present, then do
+         * nothing.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            //if (!whichList.contains(x)) {
+                whichList.add(x);
+                currentSize++;
+                /*// Rehash; see Section 5.5
+                 if (++currentSize > theLists.length) {
+                 rehash();
+                 }*/
+            //}
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            if (whichList.contains(x)) {
+                whichList.remove(x);
+                currentSize--;
+            }
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            return whichList.contains(x);
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i].clear();
+            }
+            currentSize = 0;
+        }
+
+        /**
+         * A hash routine for String objects.
+         *
+         * @param key the String to hash.
+         * @param tableSize the size of the hash table.
+         * @return the hash value.
+         */
+        public static int hash(String key, int tableSize) {
+            int hashVal = 0;
+
+            for (int i = 0; i < key.length(); i++) {
+                hashVal = 37 * hashVal + key.charAt(i);
+            }
+
+            hashVal %= tableSize;
+            if (hashVal < 0) {
+                hashVal += tableSize;
+            }
+
+            return hashVal;
+        }
+
+        private void rehash() {
+            List<AnyType>[] oldLists = theLists;
+
+            // Create new double-sized, empty table
+            theLists = new List[nextPrime(2 * theLists.length)];
+            for (int j = 0; j < theLists.length; j++) {
+                theLists[j] = new LinkedList<>();
+            }
+
+            // Copy table over
+            currentSize = 0;
+            for (List<AnyType> list : oldLists) {
+                for (AnyType item : list) {
+                    insert(item);
+                }
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= theLists.length;
+            if (hashVal < 0) {
+                hashVal += theLists.length;
+            }
+
+            return hashVal;
+        }
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * The array of Lists.
+         */
+        private List<AnyType>[] theLists;
+        private int currentSize;
+
+        public List<AnyType>[] getTheLists() {
+            return theLists;
+        }
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+            ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06e;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+/**
+ *
+ */
+public class P06E {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            Integer N = Integer.parseInt(in.nextLine());
+            HashMap<Integer, Integer> bag = new HashMap<>();
+            TreeMap<Integer, Integer> ndd = new TreeMap<>();
+            int counter = 0;
+
+            for (int i = 0; i < N; i++) {
+                String[] pond = in.nextLine().split(" ");
+                Integer berry = Integer.parseInt(pond[0]);
+                Integer pkmn = Integer.parseInt(pond[1]);
+
+                int pickedBerry;
+                if (bag.containsKey(berry)) {
+                    pickedBerry = bag.get(berry) + 1;
+                } else {
+                    pickedBerry = 1;
+                }
+
+                bag.put(berry, pickedBerry);
+
+                int neededBerry;
+                if (bag.containsKey(pkmn)) {
+                    if (bag.get(pkmn) == 0) {
+                        neededBerry = 0;
+                        counter++;
+                        if (ndd.containsKey(pkmn)) {
+                            int crnt = ndd.get(pkmn) + 1;
+                            ndd.put(pkmn, crnt);
+                        }   else {
+                            ndd.put(pkmn, 1);
+                        }
+                    } else {
+                        neededBerry = bag.get(pkmn) - 1;
+                    }
+
+                } else {
+                    neededBerry = 0;
+                    counter++;
+                    if (ndd.containsKey(pkmn)) {
+                            int crnt = ndd.get(pkmn) + 1;
+                            ndd.put(pkmn, crnt);
+                        }   else {
+                            ndd.put(pkmn, 1);
+                        }
+                }
+
+                bag.put(pkmn, neededBerry);
+
+            }
+
+            System.out.println("Case #" + m + ":");
+            System.out.println(counter);
+            for (Map.Entry<Integer, Integer> entry : ndd.entrySet()) {
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            }
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06c;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06C {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] nums = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(nums[0]);
+            Integer M = Integer.parseInt(nums[1]);
+            Integer P = Integer.parseInt(nums[2]);
+
+            HashMap<Integer, Character> BS = new HashMap<>();
+            String[] Nprobs = in.nextLine().split(" ");
+            String[] Mprobs = in.nextLine().split(" ");
+            String[] Pprobs = in.nextLine().split(" ");
+
+            for (int i = 0; i < N; i++) {
+                Integer prob = Integer.parseInt(Nprobs[i]);
+                if (BS.containsKey(prob)) {
+                    BS.put(prob, 'X');
+                } else {
+                    BS.put(prob, 'N');
+                }
+            }
+            for (int i = 0; i < M; i++) {
+                Integer prob = Integer.parseInt(Mprobs[i]);
+                if (BS.containsKey(prob)) {
+                    BS.put(prob, 'X');
+                } else {
+                    BS.put(prob, 'M');
+                }
+            }
+            for (int i = 0; i < P; i++) {
+                Integer prob = Integer.parseInt(Pprobs[i]);
+                if (BS.containsKey(prob)) {
+                    BS.put(prob, 'X');
+                } else {
+                    BS.put(prob, 'P');
+                }
+            }
+            
+            ArrayList<Integer> uniqueN = new ArrayList<>();
+            ArrayList<Integer> uniqueM = new ArrayList<>();
+            ArrayList<Integer> uniqueP = new ArrayList<>();
+
+            for (Map.Entry<Integer, Character> entry : BS.entrySet()) {
+                Integer prblm = entry.getKey();
+                Character value = entry.getValue();
+                
+                switch (value) {
+                    
+                    case 'N':
+                        uniqueN.add(prblm);
+                        break;
+                    case 'M':
+                        uniqueM.add(prblm);
+                        break;
+                    case 'P':
+                        uniqueP.add(prblm);
+                        break;
+                    default :                        
+                        break;
+                }
+            }
+            
+            int NS = uniqueN.size();
+            int MS = uniqueM.size();
+            int PS = uniqueP.size();
+            int max = Math.max(NS, Math.max(MS, PS));          
+
+
+            System.out.println("Case #" + m + ":");
+            if (NS == max) {
+                Collections.sort(uniqueN);
+                System.out.print("Norma " + NS);
+                for (Integer asd : uniqueN) {
+                    System.out.print(" " + asd);
+                }
+                System.out.println();
+            }
+            if (MS == max) {
+                Collections.sort(uniqueM);
+                System.out.print("Mario " + MS);
+                for (Integer asd : uniqueM) {
+                    System.out.print(" " + asd);
+                }
+                System.out.println();
+            }
+            if (PS == max) {
+                Collections.sort(uniqueP);
+                System.out.print("Pipe " + PS);
+                for (Integer asd : uniqueP) {
+                    System.out.print(" " + asd);
+                }
+                System.out.println();
+            }
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06d;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06D {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            Integer N = Integer.parseInt(in.nextLine());
+            HashMap<String, String> candidates = new HashMap<>();
+            HashMap<String, Integer> votes = new HashMap<>();
+            int winrarVotes = 0;
+            ArrayList<String> winrars = new ArrayList<>();
+            ArrayList<String> winrarsParties = new ArrayList<>();
+
+            for (int i = 0; i < N; i++) {
+                String[] candidate = in.nextLine().split(" ");
+                candidates.put(candidate[0], candidate[1]);
+                votes.put(candidate[0], 0);
+            }
+
+            Integer Q = Integer.parseInt(in.nextLine());
+
+            for (int i = 0; i < Q; i++) {
+                String vote = in.nextLine();
+                if (votes.containsKey(vote)) {
+                    int newCount = votes.get(vote) + 1;
+                    votes.put(vote, newCount);
+                }
+            }
+
+            for (Map.Entry<String, Integer> entry : votes.entrySet()) {
+
+                if (entry.getValue() == winrarVotes) {
+                    winrars.add(entry.getKey());
+                } else if (entry.getValue() > winrarVotes) {
+                    winrarVotes = entry.getValue();
+                    winrars.clear();
+                    winrars.add(entry.getKey());
+                }
+
+            }
+
+            for (String winrar : winrars) {
+                String party = candidates.get(winrar);
+                winrarsParties.add(party);
+            }
+            Collections.sort(winrarsParties);
+
+            System.out.println("Case #" + m + ":");
+            for (String winParty : winrarsParties) {
+                System.out.println(winParty);
+            }
+        }
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06a;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] limits = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(limits[0]);
+            Integer M = Integer.parseInt(limits[1]);
+
+            String[] nms = in.nextLine().split(" ");
+
+            int[] nums = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                Integer toAdd = Integer.parseInt(nms[i]);
+                nums[i] = toAdd;
+            }
+
+            String[] mds = in.nextLine().split(" ");
+
+            int[] mods = new int[M];
+            int minColls = 0;
+            int minK = 0;
+            int minJ = 0;
+
+            for (int i = 0; i < M; i++) {
+                Integer toAdd = Integer.parseInt(mds[i]);
+                mods[i] = toAdd;
+            }
+
+            ArrayList<SeparateChainingHashTable<Integer>> tables = new ArrayList<>();
+
+            for (int j = 0; j < M; j++) {
+
+                SeparateChainingHashTable<Integer> table = new SeparateChainingHashTable<>(mods[j]);
+                tables.add(table);
+
+                for (int i = 0; i < N; i++) {
+                    table.insert(nums[i]);
+                }
+
+                int colls = table.CountCollisions();
+
+                if (j == 0) {
+                    minColls = colls;
+                    minK = mods[j];
+                    minJ = j;
+                } else {
+                    if (colls < minColls) {
+                        minColls = colls;
+                        minK = mods[j];
+                        minJ = j;
+                    } else if (colls == minColls) {
+                        if (mods[j] < minK) {
+                            minColls = colls;
+                            minK = mods[j];
+                            minJ = j;
+                        }
+                    }
+                }
+            }
+            
+            List<Integer>[] minLists = tables.get(minJ).getTheLists();
+            List<List<Integer>> copyMinList = new ArrayList();
+
+            for (List<Integer> minList : minLists) {
+                Collections.sort(minList);                
+                copyMinList.add(minList);
+            }
+
+            
+            Comparator comp = new Comparator<LinkedList<Integer>>() {
+                public int compare(LinkedList<Integer> o1, LinkedList<Integer> o2) {                    
+                    int x1, x2;
+                    if (o1.isEmpty()) {
+                        x1 = 0;
+                    } else {
+                        x1 = o1.get(0);
+                    }
+                    if (o2.isEmpty()) {
+                        x2 = 0;
+                    } else {
+                        x2 = o2.get(0);
+                    }
+                    return x1 - x2;
+
+                }
+            };
+
+            Collections.sort(copyMinList, comp);
+
+            System.out.println("Case #" + m + ":");
+
+            System.out.println(minK);
+            System.out.println(minColls);
+            for (List<Integer> lst : copyMinList) {
+                if (lst.size() > 1) {
+                    ListIterator it = lst.listIterator(1);
+                    System.out.print(lst.get(0));
+                    while (it.hasNext()) {
+                        System.out.print(" " + it.next());                        
+                    }
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+    /**
+     * Separate chaining table implementation of hash tables. Note that all
+     * "matching" is based on the equals method.
+     *
+     * @param <AnyType>
+     */
+    public static class SeparateChainingHashTable<AnyType> {
+
+        public int CountCollisions() {
+
+            int Collisions = 0;
+            for (int i = 0; i < theLists.length; i++) {
+                if (!theLists[i].isEmpty()) {
+                    Collisions = Collisions + theLists[i].size() - 1;
+                }
+            }
+
+            return Collisions;
+        }
+
+        /**
+         * Construct the hash table.
+         */
+        public SeparateChainingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size approximate table size.
+         */
+        public SeparateChainingHashTable(int size) {
+            theLists = new LinkedList[size];
+            //theLists = new LinkedList[nextPrime(size)];
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<>();
+            }
+        }
+
+        /**
+         * Insert into the hash table. If the item is already present, then do
+         * nothing.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            //if (!whichList.contains(x)) {
+                whichList.add(x);
+                currentSize++;
+                /*// Rehash; see Section 5.5
+                 if (++currentSize > theLists.length) {
+                 rehash();
+                 }*/
+            //}
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            if (whichList.contains(x)) {
+                whichList.remove(x);
+                currentSize--;
+            }
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            return whichList.contains(x);
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i].clear();
+            }
+            currentSize = 0;
+        }
+
+        /**
+         * A hash routine for String objects.
+         *
+         * @param key the String to hash.
+         * @param tableSize the size of the hash table.
+         * @return the hash value.
+         */
+        public static int hash(String key, int tableSize) {
+            int hashVal = 0;
+
+            for (int i = 0; i < key.length(); i++) {
+                hashVal = 37 * hashVal + key.charAt(i);
+            }
+
+            hashVal %= tableSize;
+            if (hashVal < 0) {
+                hashVal += tableSize;
+            }
+
+            return hashVal;
+        }
+
+        private void rehash() {
+            List<AnyType>[] oldLists = theLists;
+
+            // Create new double-sized, empty table
+            theLists = new List[nextPrime(2 * theLists.length)];
+            for (int j = 0; j < theLists.length; j++) {
+                theLists[j] = new LinkedList<>();
+            }
+
+            // Copy table over
+            currentSize = 0;
+            for (List<AnyType> list : oldLists) {
+                for (AnyType item : list) {
+                    insert(item);
+                }
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= theLists.length;
+            if (hashVal < 0) {
+                hashVal += theLists.length;
+            }
+
+            return hashVal;
+        }
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * The array of Lists.
+         */
+        private List<AnyType>[] theLists;
+        private int currentSize;
+
+        public List<AnyType>[] getTheLists() {
+            return theLists;
+        }
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+            ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06a;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] limits = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(limits[0]);
+            Integer M = Integer.parseInt(limits[1]);
+
+            String[] nms = in.nextLine().split(" ");
+
+            int[] nums = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                Integer toAdd = Integer.parseInt(nms[i]);
+                nums[i] = toAdd;
+            }
+
+            String[] mds = in.nextLine().split(" ");
+
+            int[] mods = new int[M];
+            int minColls = 0;
+            int minK = 0;
+            int minJ = 0;
+
+            for (int i = 0; i < M; i++) {
+                Integer toAdd = Integer.parseInt(mds[i]);
+                mods[i] = toAdd;
+            }
+
+            ArrayList<SeparateChainingHashTable<Integer>> tables = new ArrayList<>();
+
+            for (int j = 0; j < M; j++) {
+
+                SeparateChainingHashTable<Integer> table = new SeparateChainingHashTable<>(mods[j]);
+                tables.add(table);
+
+                for (int i = 0; i < N; i++) {
+                    table.fakeInsert(nums[i]);
+                }
+
+                int colls = table.CountCollisions();
+
+                if (j == 0) {
+                    minColls = colls;
+                    minK = mods[j];
+                    minJ = j;
+                } else {
+                    if (colls < minColls) {
+                        minColls = colls;
+                        minK = mods[j];
+                        minJ = j;
+                    } else if (colls == minColls) {
+                        if (mods[j] < minK) {
+                            minColls = colls;
+                            minK = mods[j];
+                            minJ = j;
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < N; i++) {
+                tables.get(minJ).insert(nums[i]);
+            }
+
+            List<Integer>[] minLists = tables.get(minJ).getTheLists();
+            List<List<Integer>> copyMinList = new ArrayList();
+
+            for (List<Integer> minList : minLists) {
+                Collections.sort(minList);
+                copyMinList.add(minList);
+            }
+
+            Comparator comp = new Comparator<LinkedList<Integer>>() {
+                public int compare(LinkedList<Integer> o1, LinkedList<Integer> o2) {
+                    int x1, x2;
+                    if (o1.isEmpty()) {
+                        x1 = 0;
+                    } else {
+                        x1 = o1.get(0);
+                    }
+                    if (o2.isEmpty()) {
+                        x2 = 0;
+                    } else {
+                        x2 = o2.get(0);
+                    }
+                    return x1 - x2;
+
+                }
+            };
+
+            Collections.sort(copyMinList, comp);
+
+            System.out.println("Case #" + m + ":");
+
+            System.out.println(minK);
+            System.out.println(minColls);
+            for (List<Integer> lst : copyMinList) {
+                if (lst.size() > 1) {
+                    ListIterator it = lst.listIterator(1);
+                    System.out.print(lst.get(0));
+                    while (it.hasNext()) {
+                        System.out.print(" " + it.next());
+                    }
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+    /**
+     * Separate chaining table implementation of hash tables. Note that all
+     * "matching" is based on the equals method.
+     *
+     * @param <AnyType>
+     */
+    public static class SeparateChainingHashTable<AnyType> {
+
+        public int CountCollisions() {
+
+            int Collisions = 0;
+            for (int i = 0; i < fakeList.length; i++) {
+                if (fakeList[i] != 0) {
+                    Collisions = Collisions + fakeList[i] - 1;
+                }
+            }
+
+            return Collisions;
+        }
+
+        /**
+         * Construct the hash table.
+         */
+        public SeparateChainingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size approximate table size.
+         */
+        public SeparateChainingHashTable(int size) {
+            theLists = new LinkedList[size];
+            fakeList = new Integer[size];
+            //theLists = new LinkedList[nextPrime(size)];
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<>();
+                fakeList[i] = 0;
+            }
+        }
+
+        /**
+         * Insert into the hash table. If the item is already present, then do
+         * nothing.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            //if (!whichList.contains(x)) {
+            whichList.add(x);
+            currentSize++;
+            /*// Rehash; see Section 5.5
+             if (++currentSize > theLists.length) {
+             rehash();
+             }*/
+            //}
+        }
+
+        public void fakeInsert(AnyType x) {
+            //if (!whichList.contains(x)) {
+            fakeList[myhash(x)]++;
+
+            /*// Rehash; see Section 5.5
+             if (++currentSize > theLists.length) {
+             rehash();
+             }*/
+            //}
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            if (whichList.contains(x)) {
+                whichList.remove(x);
+                currentSize--;
+            }
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            return whichList.contains(x);
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i].clear();
+            }
+            currentSize = 0;
+        }
+
+        /**
+         * A hash routine for String objects.
+         *
+         * @param key the String to hash.
+         * @param tableSize the size of the hash table.
+         * @return the hash value.
+         */
+        public static int hash(String key, int tableSize) {
+            int hashVal = 0;
+
+            for (int i = 0; i < key.length(); i++) {
+                hashVal = 37 * hashVal + key.charAt(i);
+            }
+
+            hashVal %= tableSize;
+            if (hashVal < 0) {
+                hashVal += tableSize;
+            }
+
+            return hashVal;
+        }
+
+        private void rehash() {
+            List<AnyType>[] oldLists = theLists;
+
+            // Create new double-sized, empty table
+            theLists = new List[nextPrime(2 * theLists.length)];
+            for (int j = 0; j < theLists.length; j++) {
+                theLists[j] = new LinkedList<>();
+            }
+
+            // Copy table over
+            currentSize = 0;
+            for (List<AnyType> list : oldLists) {
+                for (AnyType item : list) {
+                    insert(item);
+                }
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= theLists.length;
+            if (hashVal < 0) {
+                hashVal += theLists.length;
+            }
+
+            return hashVal;
+        }
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * The array of Lists.
+         */
+        private List<AnyType>[] theLists;
+        private Integer[] fakeList;
+        private int currentSize;
+
+        public List<AnyType>[] getTheLists() {
+            return theLists;
+        }
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+            ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06a;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] limits = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(limits[0]);
+            Integer M = Integer.parseInt(limits[1]);
+
+            String[] nms = in.nextLine().split(" ");
+
+            int[] nums = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                Integer toAdd = Integer.parseInt(nms[i]);
+                nums[i] = toAdd;
+            }
+
+            String[] mds = in.nextLine().split(" ");
+
+            int[] mods = new int[M];
+            int minColls = 0;
+            int minK = 0;
+
+            for (int i = 0; i < M; i++) {
+                Integer toAdd = Integer.parseInt(mds[i]);
+                mods[i] = toAdd;
+            }
+
+            SeparateChainingHashTable<Integer> table;
+
+            for (int j = 0; j < M; j++) {
+
+                table = new SeparateChainingHashTable<>(mods[j]);
+
+                for (int i = 0; i < N; i++) {
+                    table.fakeInsert(nums[i]);
+                }
+
+                int colls = table.CountCollisions();
+
+                if (j == 0) {
+                    minColls = colls;
+                    minK = mods[j];
+                } else {
+                    if (colls < minColls) {
+                        minColls = colls;
+                        minK = mods[j];
+                    } else if (colls == minColls) {
+                        if (mods[j] < minK) {
+                            minColls = colls;
+                            minK = mods[j];
+                        }
+                    }
+                }
+            }
+
+            table = new SeparateChainingHashTable<>(minK);
+
+            for (int i = 0; i < N; i++) {
+                table.insert(nums[i]);
+            }
+
+            List<Integer>[] minLists = table.getTheLists();
+            List<List<Integer>> copyMinList = new ArrayList();
+
+            for (List<Integer> minList : minLists) {
+                if (minList.size() > 1) {
+                    Collections.sort(minList);
+                    copyMinList.add(minList);
+                }
+
+            }
+
+            Comparator comp = new Comparator<LinkedList<Integer>>() {
+                public int compare(LinkedList<Integer> o1, LinkedList<Integer> o2) {
+                    int x1, x2;
+                    if (o1.isEmpty()) {
+                        x1 = 0;
+                    } else {
+                        x1 = o1.get(0);
+                    }
+                    if (o2.isEmpty()) {
+                        x2 = 0;
+                    } else {
+                        x2 = o2.get(0);
+                    }
+                    return x1 - x2;
+
+                }
+            };
+
+            Collections.sort(copyMinList, comp);
+
+            System.out.println("Case #" + m + ":");
+
+            System.out.println(minK);
+            System.out.println(minColls);
+            for (List<Integer> lst : copyMinList) {
+
+                ListIterator it = lst.listIterator(1);
+                System.out.print(lst.get(0));
+                while (it.hasNext()) {
+                    System.out.print(" " + it.next());
+                }
+                System.out.println();
+            }
+        }
+
+    }
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+    /**
+     * Separate chaining table implementation of hash tables. Note that all
+     * "matching" is based on the equals method.
+     *
+     * @param <AnyType>
+     */
+    public static class SeparateChainingHashTable<AnyType> {
+
+        public int CountCollisions() {
+
+            int Collisions = 0;
+            for (int i = 0; i < fakeList.length; i++) {
+                if (fakeList[i] != 0) {
+                    Collisions = Collisions + fakeList[i] - 1;
+                }
+            }
+
+            return Collisions;
+        }
+
+        /**
+         * Construct the hash table.
+         */
+        public SeparateChainingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size approximate table size.
+         */
+        public SeparateChainingHashTable(int size) {
+            theLists = new LinkedList[size];
+            fakeList = new Integer[size];
+            //theLists = new LinkedList[nextPrime(size)];
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<>();
+                fakeList[i] = 0;
+            }
+        }
+
+        /**
+         * Insert into the hash table. If the item is already present, then do
+         * nothing.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            //if (!whichList.contains(x)) {
+            whichList.add(x);
+            currentSize++;
+            /*// Rehash; see Section 5.5
+             if (++currentSize > theLists.length) {
+             rehash();
+             }*/
+            //}
+        }
+
+        public void fakeInsert(AnyType x) {
+            //if (!whichList.contains(x)) {
+            fakeList[myhash(x)]++;
+
+            /*// Rehash; see Section 5.5
+             if (++currentSize > theLists.length) {
+             rehash();
+             }*/
+            //}
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            if (whichList.contains(x)) {
+                whichList.remove(x);
+                currentSize--;
+            }
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            return whichList.contains(x);
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i].clear();
+            }
+            currentSize = 0;
+        }
+
+        /**
+         * A hash routine for String objects.
+         *
+         * @param key the String to hash.
+         * @param tableSize the size of the hash table.
+         * @return the hash value.
+         */
+        public static int hash(String key, int tableSize) {
+            int hashVal = 0;
+
+            for (int i = 0; i < key.length(); i++) {
+                hashVal = 37 * hashVal + key.charAt(i);
+            }
+
+            hashVal %= tableSize;
+            if (hashVal < 0) {
+                hashVal += tableSize;
+            }
+
+            return hashVal;
+        }
+
+        private void rehash() {
+            List<AnyType>[] oldLists = theLists;
+
+            // Create new double-sized, empty table
+            theLists = new List[nextPrime(2 * theLists.length)];
+            for (int j = 0; j < theLists.length; j++) {
+                theLists[j] = new LinkedList<>();
+            }
+
+            // Copy table over
+            currentSize = 0;
+            for (List<AnyType> list : oldLists) {
+                for (AnyType item : list) {
+                    insert(item);
+                }
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= theLists.length;
+            if (hashVal < 0) {
+                hashVal += theLists.length;
+            }
+
+            return hashVal;
+        }
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * The array of Lists.
+         */
+        private List<AnyType>[] theLists;
+        private Integer[] fakeList;
+        private int currentSize;
+
+        public List<AnyType>[] getTheLists() {
+            return theLists;
+        }
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+            ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p06a;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P06A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] limits = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(limits[0]);
+            Integer M = Integer.parseInt(limits[1]);
+
+            String[] nms = in.nextLine().split(" ");
+
+            int[] nums = new int[N];
+
+            for (int i = 0; i < N; i++) {
+                Integer toAdd = Integer.parseInt(nms[i]);
+                nums[i] = toAdd;
+            }
+
+            String[] mds = in.nextLine().split(" ");
+
+            int[] mods = new int[M];
+            int minColls = 0;
+            int minK = 0;
+
+            for (int i = 0; i < M; i++) {
+                Integer toAdd = Integer.parseInt(mds[i]);
+                mods[i] = toAdd;
+            }
+
+            SeparateChainingHashTable<Integer> table;
+
+            for (int j = 0; j < M; j++) {                
+                
+                HashMap<Integer, Integer> collisions = new HashMap<>();
+
+                for (int i = 0; i < N; i++) {
+                    
+                    int hashi = nums[i] % mods[j];
+                    
+                    if (collisions.containsKey(hashi)) {
+                        int newV = collisions.get(hashi) + 1;
+                        collisions.put(hashi, newV);
+                    } else {
+                        collisions.put(hashi, 1);
+                    }
+                }
+
+                int colls = 0;
+                
+                for (Map.Entry<Integer, Integer> entry : collisions.entrySet()) {
+                    int current = entry.getValue() - 1;
+                    colls = colls + current;
+                }
+
+                if (j == 0) {
+                    minColls = colls;
+                    minK = mods[j];
+                } else {
+                    if (colls < minColls) {
+                        minColls = colls;
+                        minK = mods[j];
+                    } else if (colls == minColls) {
+                        if (mods[j] < minK) {
+                            minColls = colls;
+                            minK = mods[j];
+                        }
+                    }
+                }
+            }
+
+            table = new SeparateChainingHashTable<>(minK);
+
+            for (int i = 0; i < N; i++) {
+                table.insert(nums[i]);
+            }
+
+            List<Integer>[] minLists = table.getTheLists();
+            List<List<Integer>> copyMinList = new ArrayList();
+
+            for (List<Integer> minList : minLists) {
+                if (minList.size() > 1) {
+                    Collections.sort(minList);
+                    copyMinList.add(minList);
+                }
+
+            }
+
+            Comparator comp = new Comparator<LinkedList<Integer>>() {
+                public int compare(LinkedList<Integer> o1, LinkedList<Integer> o2) {
+                    int x1, x2;
+                    if (o1.isEmpty()) {
+                        x1 = 0;
+                    } else {
+                        x1 = o1.get(0);
+                    }
+                    if (o2.isEmpty()) {
+                        x2 = 0;
+                    } else {
+                        x2 = o2.get(0);
+                    }
+                    return x1 - x2;
+
+                }
+            };
+
+            Collections.sort(copyMinList, comp);
+
+            System.out.println("Case #" + m + ":");
+
+            System.out.println(minK);
+            System.out.println(minColls);
+            for (List<Integer> lst : copyMinList) {
+
+                ListIterator it = lst.listIterator(1);
+                System.out.print(lst.get(0));
+                while (it.hasNext()) {
+                    System.out.print(" " + it.next());
+                }
+                System.out.println();
+            }
+        }
+
+    }
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+    /**
+     * Separate chaining table implementation of hash tables. Note that all
+     * "matching" is based on the equals method.
+     *
+     * @param <AnyType>
+     */
+    public static class SeparateChainingHashTable<AnyType> {
+
+        public int CountCollisions() {
+
+            int Collisions = 0;
+            for (int i = 0; i < fakeList.length; i++) {
+                if (fakeList[i] != 0) {
+                    Collisions = Collisions + fakeList[i] - 1;
+                }
+            }
+
+            return Collisions;
+        }
+
+        /**
+         * Construct the hash table.
+         */
+        public SeparateChainingHashTable() {
+            this(DEFAULT_TABLE_SIZE);
+        }
+
+        /**
+         * Construct the hash table.
+         *
+         * @param size approximate table size.
+         */
+        public SeparateChainingHashTable(int size) {
+            theLists = new LinkedList[size];
+            fakeList = new Integer[size];
+            //theLists = new LinkedList[nextPrime(size)];
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<>();
+                fakeList[i] = 0;
+            }
+        }
+        
+        
+
+        /**
+         * Insert into the hash table. If the item is already present, then do
+         * nothing.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            //if (!whichList.contains(x)) {
+            whichList.add(x);
+            currentSize++;
+            /*// Rehash; see Section 5.5
+             if (++currentSize > theLists.length) {
+             rehash();
+             }*/
+            //}
+        }
+
+        public void fakeInsert(AnyType x) {
+            //if (!whichList.contains(x)) {
+            fakeList[myhash(x)]++;
+
+            /*// Rehash; see Section 5.5
+             if (++currentSize > theLists.length) {
+             rehash();
+             }*/
+            //}
+        }
+
+        /**
+         * Remove from the hash table.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            if (whichList.contains(x)) {
+                whichList.remove(x);
+                currentSize--;
+            }
+        }
+
+        /**
+         * Find an item in the hash table.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(AnyType x) {
+            List<AnyType> whichList = theLists[myhash(x)];
+            return whichList.contains(x);
+        }
+
+        /**
+         * Make the hash table logically empty.
+         */
+        public void makeEmpty() {
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i].clear();
+            }
+            currentSize = 0;
+        }
+
+        /**
+         * A hash routine for String objects.
+         *
+         * @param key the String to hash.
+         * @param tableSize the size of the hash table.
+         * @return the hash value.
+         */
+        public static int hash(String key, int tableSize) {
+            int hashVal = 0;
+
+            for (int i = 0; i < key.length(); i++) {
+                hashVal = 37 * hashVal + key.charAt(i);
+            }
+
+            hashVal %= tableSize;
+            if (hashVal < 0) {
+                hashVal += tableSize;
+            }
+
+            return hashVal;
+        }
+
+        private void rehash() {
+            List<AnyType>[] oldLists = theLists;
+
+            // Create new double-sized, empty table
+            theLists = new List[nextPrime(2 * theLists.length)];
+            for (int j = 0; j < theLists.length; j++) {
+                theLists[j] = new LinkedList<>();
+            }
+
+            // Copy table over
+            currentSize = 0;
+            for (List<AnyType> list : oldLists) {
+                for (AnyType item : list) {
+                    insert(item);
+                }
+            }
+        }
+
+        private int myhash(AnyType x) {
+            int hashVal = x.hashCode();
+
+            hashVal %= theLists.length;
+            if (hashVal < 0) {
+                hashVal += theLists.length;
+            }
+
+            return hashVal;
+        }
+
+        private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /**
+         * The array of Lists.
+         */
+        private List<AnyType>[] theLists;
+        private Integer[] fakeList;
+        private int currentSize;
+
+        public List<AnyType>[] getTheLists() {
+            return theLists;
+        }
+
+        /**
+         * Internal method to find a prime number at least as large as n.
+         *
+         * @param n the starting number (must be positive).
+         * @return a prime number larger than or equal to n.
+         */
+        @SuppressWarnings("empty-statement")
+        private static int nextPrime(int n) {
+            if (n % 2 == 0) {
+                n++;
+            }
+
+            for (; !isPrime(n); n += 2)
+            ;
+
+            return n;
+        }
+
+        /**
+         * Internal method to test if a number is prime. Not an efficient
+         * algorithm.
+         *
+         * @param n the number to test.
+         * @return the result of the test.
+         */
+        private static boolean isPrime(int n) {
+            if (n == 2 || n == 3) {
+                return true;
+            }
+
+            if (n == 1 || n % 2 == 0) {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p07a;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P07A {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] design = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(design[0]);
+            Integer M = Integer.parseInt(design[1]);
+
+            Graph METRO = new Graph(N);
+
+            for (int lines = 0; lines < M; lines++) {
+                String[] line = in.nextLine().split(" ");
+                Integer v = Integer.parseInt(line[0]);
+                Integer w = Integer.parseInt(line[1]);
+                METRO.addEdge(v, w);
+            }
+            
+            Integer S = Integer.parseInt(in.nextLine());
+            
+            BreadthFirstPaths BFS = new BreadthFirstPaths(METRO, S);
+            
+            int ANS = BFS.Network();
+            
+            System.out.println("Case #" + m + ":");
+            System.out.println(ANS);
+            
+            
+            
+
+        }
+    }
+
+    public static class MyQueue<AnyType> {
+
+        public MyQueue() {
+            theItems = new LinkedList<>();
+        }
+
+        public int size() {
+            return theItems.size();
+        }
+
+        public void enqueue(AnyType x) {
+            theItems.add(x);
+        }
+
+        public AnyType dequeue() {
+            return theItems.remove(0);
+        }
+
+        public AnyType peek() {
+            return theItems.get(0);
+        }
+
+        public boolean isEmpty() {
+            return theItems.isEmpty();
+        }
+
+        private LinkedList<AnyType> theItems;
+
+    }
+    
+    
+
+/** 
+ *  Modified graph implementation using adjacency list on a HashMap. 
+ *  Original by:
+ */
+    public static class Graph {
+
+        private static final String NEWLINE = System.getProperty("line.separator");
+
+        private final int V;
+        private int E;
+        private HashMap<Integer, LinkedList<Integer>> adj;
+
+        /**
+         * Initializes an empty graph with <tt>V</tt> vertices and 0 edges.
+         * param V the number of vertices
+         *
+         * @param V number of vertices
+         * @throws IllegalArgumentException if <tt>V</tt> < 0
+         */
+        public Graph(int V) {
+            if (V < 0) {
+                throw new IllegalArgumentException("Number of vertices must be nonnegative");
+            }
+            this.V = V;
+            this.E = 0;
+            adj = new HashMap<>();
+            for (int v = 0; v < V; v++) {
+                LinkedList<Integer> list = new LinkedList<>();
+                adj.put(v, list);
+            }
+        }
+
+        /**
+         * Returns the number of vertices in this graph.
+         *
+         * @return the number of vertices in this graph
+         */
+        public int V() {
+            return V;
+        }
+
+        /**
+         * Returns the number of edges in this graph.
+         *
+         * @return the number of edges in this graph
+         */
+        public int E() {
+            return E;
+        }
+
+        // throw an IndexOutOfBoundsException unless 0 <= v < V
+        private void validateVertex(int v) {
+            if (v < 0 || v >= V) {
+                throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V - 1));
+            }
+        }
+
+        /**
+         * Adds the undirected edge v-w to this graph.
+         *
+         * @param v one vertex in the edge
+         * @param w the other vertex in the edge
+         * @throws IndexOutOfBoundsException unless both 0 <= v < V and 0 <= w <
+         * V
+         */
+        public void addEdge(int v, int w) {
+            validateVertex(v);
+            validateVertex(w);
+            E++;
+            adj.get(v).add(w);
+            adj.get(w).add(v);
+        }
+
+        /**
+         * Returns the vertices adjacent to vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public LinkedList<Integer> adj(int v) {
+            validateVertex(v);
+            return adj.get(v);
+        }
+
+        /**
+         * Returns the degree of vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return the degree of vertex <tt>v</tt>
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public int degree(int v) {
+            validateVertex(v);
+            return adj.get(v).size();
+        }
+
+    }
+/** 
+ *  Modified BFS algorithm, removed unnecessary code.
+ *  Original by:
+ */
+    public static class BreadthFirstPaths {
+
+        private static final int INFINITY = Integer.MAX_VALUE;
+        private boolean[] marked;  // marked[v] = is there an s-v path
+        private int[] edgeTo;      // edgeTo[v] = previous edge on shortest s-v path
+        private int[] distTo;      // distTo[v] = number of edges shortest s-v path
+
+        public boolean[] getMarked() {
+            return marked;
+        }
+        
+        public int Network() {
+        
+            int count = 0;
+            for (int i = 0; i < marked.length; i++) {
+                if (marked[i]) {
+                    count++;
+                }
+            }
+            return count-1;
+        }
+
+                
+        
+        /**
+         * Computes the shortest path between the source vertex <tt>s</tt>
+         * and every other vertex in the graph <tt>G</tt>.
+         *
+         * @param G the graph
+         * @param s the source vertex
+         */
+        public BreadthFirstPaths(Graph G, int s) {
+            marked = new boolean[G.V()];
+            distTo = new int[G.V()];
+            edgeTo = new int[G.V()];
+            bfs(G, s);
+
+            assert check(G, s);
+        }
+
+        /**
+         * Computes the shortest path between any one of the source vertices in
+         * <tt>sources</tt>
+         * and every other vertex in graph <tt>G</tt>.
+         *
+         * @param G the graph
+         * @param sources the source vertices
+         */
+        public BreadthFirstPaths(Graph G, Iterable<Integer> sources) {
+            marked = new boolean[G.V()];
+            distTo = new int[G.V()];
+            edgeTo = new int[G.V()];
+            for (int v = 0; v < G.V(); v++) {
+                distTo[v] = INFINITY;
+            }
+            bfs(G, sources);
+        }
+
+        // breadth-first search from a single source
+        private void bfs(Graph G, int s) {
+            MyQueue<Integer> q = new MyQueue<Integer>();
+            for (int v = 0; v < G.V(); v++) {
+                distTo[v] = INFINITY;
+            }
+            distTo[s] = 0;
+            marked[s] = true;
+            q.enqueue(s);
+
+            while (!q.isEmpty()) {
+                int v = q.dequeue();
+                for (int w : G.adj(v)) {
+                    if (!marked[w]) {
+                        edgeTo[w] = v;
+                        distTo[w] = distTo[v] + 1;
+                        marked[w] = true;
+                        q.enqueue(w);
+                    }
+                }
+            }
+        }
+
+        // breadth-first search from multiple sources
+        private void bfs(Graph G, Iterable<Integer> sources) {
+            MyQueue<Integer> q = new MyQueue<Integer>();
+            for (int s : sources) {
+                marked[s] = true;
+                distTo[s] = 0;
+                q.enqueue(s);
+            }
+            while (!q.isEmpty()) {
+                int v = q.dequeue();
+                for (int w : G.adj(v)) {
+                    if (!marked[w]) {
+                        edgeTo[w] = v;
+                        distTo[w] = distTo[v] + 1;
+                        marked[w] = true;
+                        q.enqueue(w);
+                    }
+                }
+            }
+        }
+
+        /**
+         * Is there a path between the source vertex <tt>s</tt> (or sources) and
+         * vertex <tt>v</tt>?
+         *
+         * @param v the vertex
+         * @return <tt>true</tt> if there is a path, and <tt>false</tt>
+         * otherwise
+         */
+        public boolean hasPathTo(int v) {
+            return marked[v];
+        }
+
+        /**
+         * Returns the number of edges in a shortest path between the source
+         * vertex <tt>s</tt>
+         * (or sources) and vertex <tt>v</tt>?
+         *
+         * @param v the vertex
+         * @return the number of edges in a shortest path
+         */
+        public int distTo(int v) {
+            return distTo[v];
+        }
+
+        
+
+        // check optimality conditions for single source
+        private boolean check(Graph G, int s) {
+
+            // check that the distance of s = 0
+            if (distTo[s] != 0) {                
+                return false;
+            }
+
+        // check that for each edge v-w dist[w] <= dist[v] + 1
+            // provided v is reachable from s
+            for (int v = 0; v < G.V(); v++) {
+                for (int w : G.adj(v)) {
+                    if (hasPathTo(v) != hasPathTo(w)) {
+                        return false;
+                    }
+                    if (hasPathTo(v) && (distTo[w] > distTo[v] + 1)) {
+                        return false;
+                    }
+                }
+            }
+
+        // check that v = edgeTo[w] satisfies distTo[w] + distTo[v] + 1
+            // provided v is reachable from s
+            for (int w = 0; w < G.V(); w++) {
+                if (!hasPathTo(w) || w == s) {
+                    continue;
+                }
+                int v = edgeTo[w];
+                if (distTo[w] != distTo[v] + 1) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p07b;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P07B {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] tasks = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(tasks[0]);
+            Integer M = Integer.parseInt(tasks[1]);
+
+            Graph study = new Graph(N);
+
+            for (int lines = 0; lines < M; lines++) {
+                String[] line = in.nextLine().split(" ");
+                Integer v = Integer.parseInt(line[0]);
+                Integer w = Integer.parseInt(line[1]);
+                study.addEdge(v, w);
+            }
+
+            String ans;
+            if (checkEM(study)) {
+                ans = "Deberia empezar a estudiar";
+            } else {
+            }
+
+            System.out.println("Case #" + m + ":");
+            System.out.println(ans);
+
+        }
+    }
+
+    private static boolean checkEM(Graph G) {
+
+        if (!G.checkHeads() || !G.checkTails()) {
+            return false;
+        }
+
+        for (int v = 0; v < G.V(); v++) {
+
+            if (G.inDegree(v) == 0) {
+
+                G.adj(v).removeFirst();
+                G.adj(v).addFirst(-1);
+
+                for (int i = 1; i < G.adj(v).size(); i++) {
+
+                    int w = G.adj(v).get(i);
+                    int wI = G.adj(w).removeFirst() - 1;
+                    G.adj(w).addFirst(wI);
+
+                }
+                break;
+            }
+            if (v == G.V() - 1) {
+                return true;
+            }
+            
+        }
+
+        return checkEM(G);
+    }
+
+    public static class MyQueue<AnyType> {
+
+        public MyQueue() {
+            theItems = new LinkedList<>();
+        }
+
+        public int size() {
+            return theItems.size();
+        }
+
+        public void enqueue(AnyType x) {
+            theItems.add(x);
+        }
+
+        public AnyType dequeue() {
+            return theItems.remove(0);
+        }
+
+        public AnyType peek() {
+            return theItems.get(0);
+        }
+
+        public boolean isEmpty() {
+            return theItems.isEmpty();
+        }
+
+        private LinkedList<AnyType> theItems;
+
+    }
+
+    /**
+     * Modified graph implementation using adjacency list on a HashMap, directed
+     * graph. First node on each list has the inDegree of that node. Original
+     * by:
+     *
+     */
+    public static class Graph {
+
+        private static final String NEWLINE = System.getProperty("line.separator");
+
+        private final int V;
+        private int E;
+        private HashMap<Integer, LinkedList<Integer>> adj;
+
+        /**
+         * Initializes an empty graph with <tt>V</tt> vertices and 0 edges.
+         * param V the number of vertices
+         *
+         * @param V number of vertices
+         * @throws IllegalArgumentException if <tt>V</tt> < 0
+         */
+        public Graph(int V) {
+            if (V < 0) {
+                throw new IllegalArgumentException("Number of vertices must be nonnegative");
+            }
+            this.V = V;
+            this.E = 0;
+            adj = new HashMap<>();
+            for (int v = 0; v < V; v++) {
+                LinkedList<Integer> list = new LinkedList<>();
+                list.add(0);
+                adj.put(v, list);
+            }
+        }
+
+        /**
+         * Returns the number of vertices in this graph.
+         *
+         * @return the number of vertices in this graph
+         */
+        public int V() {
+            return V;
+        }
+
+        /**
+         * Returns the number of edges in this graph.
+         *
+         * @return the number of edges in this graph
+         */
+        public int E() {
+            return E;
+        }
+
+        // throw an IndexOutOfBoundsException unless 0 <= v < V
+        private void validateVertex(int v) {
+            if (v < 0 || v >= V) {
+                throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V - 1));
+            }
+        }
+
+        /**
+         * Adds the directed edge v-w to this graph.
+         *
+         * @param v one vertex in the edge
+         * @param w the other vertex in the edge
+         * @throws IndexOutOfBoundsException unless both 0 <= v < V and 0 <= w <
+         * V
+         */
+        public void addEdge(int v, int w) {
+            validateVertex(v);
+            validateVertex(w);
+            E++;
+            int wI = adj.get(w).removeFirst() + 1;
+            adj.get(w).addFirst(wI);
+            adj.get(v).add(w);
+        }
+
+        /**
+         * Returns the vertices adjacent to vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public LinkedList<Integer> adj(int v) {
+            validateVertex(v);
+            return adj.get(v);
+        }
+
+        /**
+         * Returns the degree of vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return the degree of vertex <tt>v</tt>
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public int inDegree(int v) {
+            validateVertex(v);
+            return adj.get(v).getFirst();
+        }
+
+        public int outDegree(int v) {
+            validateVertex(v);
+            return adj.get(v).size() - 1;
+        }
+
+        /**
+         *
+         * @return true if only one start node (inDegree = 0)
+         */
+        public boolean checkHeads() {
+
+            boolean n = false;
+
+            for (int v = 0; v < V; v++) {
+                if (inDegree(v) == 0) {
+                    if (!n) {
+                        n = true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        /**
+         *
+         * @return true if only one end node (outDegree = 0)
+         */
+        public boolean checkTails() {
+
+            boolean n = false;
+
+            for (int v = 0; v < V; v++) {
+                if (outDegree(v) == 0) {
+                    if (!n) {
+                        n = true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p07c;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+/**
+ *
+ */
+public class P07C {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] design = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(design[0]);
+            Integer E = Integer.parseInt(design[1]);
+            Integer Time = Integer.parseInt(design[2]);
+
+            EdgeWeightedDigraph LAB = new EdgeWeightedDigraph(N);
+
+            Integer M = Integer.parseInt(in.nextLine());
+
+            for (int lines = 0; lines < M; lines++) {
+                String[] line = in.nextLine().split(" ");
+                Integer v = Integer.parseInt(line[0]);
+                Integer w = Integer.parseInt(line[1]);
+                Integer t = Integer.parseInt(line[2]);
+                DirectedEdge path = new DirectedEdge(v, w, t);
+                LAB.addEdge(path);
+            }
+
+            
+            int counter = 0;
+            for (int v = 0; v < LAB.V(); v++) {
+                DijkstraSP Times = new DijkstraSP(LAB, v);
+                if (Times.distTo(E) <= Time) {
+                    counter++;
+                }
+            }
+
+            System.out.println("Case #" + m + ":");
+            System.out.println(counter);
+
+        }
+    }
+    /**
+     *  PriorityQueue By:
+     *
+     * @param <Key> the generic type of key on this priority queue
+     */
+    public static class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
+
+        private int maxN;        // maximum number of elements on PQ
+        private int N;           // number of elements on PQ
+        private int[] pq;        // binary heap using 1-based indexing
+        private int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
+        private Key[] keys;      // keys[i] = priority of i
+
+        /**
+         * Initializes an empty indexed priority queue with indices between
+         * <tt>0</tt>
+         * and <tt>maxN - 1</tt>.
+         *
+         * @param maxN the keys on this priority queue are index from <tt>0</tt>
+         * <tt>maxN - 1</tt>
+         * @throws IllegalArgumentException if <tt>maxN</tt> &lt; <tt>0</tt>
+         */
+        public IndexMinPQ(int maxN) {
+            if (maxN < 0) {
+                throw new IllegalArgumentException();
+            }
+            this.maxN = maxN;
+            keys = (Key[]) new Comparable[maxN + 1];    // make this of length maxN??
+            pq = new int[maxN + 1];
+            qp = new int[maxN + 1];                   // make this of length maxN??
+            for (int i = 0; i <= maxN; i++) {
+                qp[i] = -1;
+            }
+        }
+
+        /**
+         * Returns true if this priority queue is empty.
+         *
+         * @return <tt>true</tt> if this priority queue is empty;
+         * <tt>false</tt> otherwise
+         */
+        public boolean isEmpty() {
+            return N == 0;
+        }
+
+        /**
+         * Is <tt>i</tt> an index on this priority queue?
+         *
+         * @param i an index
+         * @return <tt>true</tt> if <tt>i</tt> is an index on this priority
+         * queue;
+         * <tt>false</tt> otherwise
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         */
+        public boolean contains(int i) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            return qp[i] != -1;
+        }
+
+        /**
+         * Returns the number of keys on this priority queue.
+         *
+         * @return the number of keys on this priority queue
+         */
+        public int size() {
+            return N;
+        }
+
+        /**
+         * Associates key with index <tt>i</tt>.
+         *
+         * @param i an index
+         * @param key the key to associate with index <tt>i</tt>
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @throws IllegalArgumentException if there already is an item
+         * associated with index <tt>i</tt>
+         */
+        public void insert(int i, Key key) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            if (contains(i)) {
+                throw new IllegalArgumentException("index is already in the priority queue");
+            }
+            N++;
+            qp[i] = N;
+            pq[N] = i;
+            keys[i] = key;
+            swim(N);
+        }
+
+        /**
+         * Returns an index associated with a minimum key.
+         *
+         * @return an index associated with a minimum key
+         * @throws NoSuchElementException if this priority queue is empty
+         */
+        public int minIndex() {
+            if (N == 0) {
+                throw new NoSuchElementException("Priority queue underflow");
+            }
+            return pq[1];
+        }
+
+        /**
+         * Returns a minimum key.
+         *
+         * @return a minimum key
+         * @throws NoSuchElementException if this priority queue is empty
+         */
+        public Key minKey() {
+            if (N == 0) {
+                throw new NoSuchElementException("Priority queue underflow");
+            }
+            return keys[pq[1]];
+        }
+
+        /**
+         * Removes a minimum key and returns its associated index.
+         *
+         * @return an index associated with a minimum key
+         * @throws NoSuchElementException if this priority queue is empty
+         */
+        public int delMin() {
+            if (N == 0) {
+                throw new NoSuchElementException("Priority queue underflow");
+            }
+            int min = pq[1];
+            exch(1, N--);
+            sink(1);
+            qp[min] = -1;            // delete
+            keys[pq[N + 1]] = null;    // to help with garbage collection
+            pq[N + 1] = -1;            // not needed
+            return min;
+        }
+
+        /**
+         * Returns the key associated with index <tt>i</tt>.
+         *
+         * @param i the index of the key to return
+         * @return the key associated with index <tt>i</tt>
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @throws NoSuchElementException no key is associated with index
+         * <tt>i</tt>
+         */
+        public Key keyOf(int i) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            if (!contains(i)) {
+                throw new NoSuchElementException("index is not in the priority queue");
+            } else {
+                return keys[i];
+            }
+        }
+
+        /**
+         * Change the key associated with index <tt>i</tt> to the specified
+         * value.
+         *
+         * @param i the index of the key to change
+         * @param key change the key assocated with index <tt>i</tt> to this key
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @throws NoSuchElementException no key is associated with index
+         * <tt>i</tt>
+         */
+        public void changeKey(int i, Key key) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            if (!contains(i)) {
+                throw new NoSuchElementException("index is not in the priority queue");
+            }
+            keys[i] = key;
+            swim(qp[i]);
+            sink(qp[i]);
+        }
+
+        /**
+         * Change the key associated with index <tt>i</tt> to the specified
+         * value.
+         *
+         * @param i the index of the key to change
+         * @param key change the key assocated with index <tt>i</tt> to this key
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @deprecated Replaced by {@link #changeKey(int, Key)}.
+         */
+        public void change(int i, Key key) {
+            changeKey(i, key);
+        }
+
+        /**
+         * Decrease the key associated with index <tt>i</tt> to the specified
+         * value.
+         *
+         * @param i the index of the key to decrease
+         * @param key decrease the key assocated with index <tt>i</tt> to this
+         * key
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @throws IllegalArgumentException if key &ge; key associated with
+         * index <tt>i</tt>
+         * @throws NoSuchElementException no key is associated with index
+         * <tt>i</tt>
+         */
+        public void decreaseKey(int i, Key key) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            if (!contains(i)) {
+                throw new NoSuchElementException("index is not in the priority queue");
+            }
+            if (keys[i].compareTo(key) <= 0) {
+                throw new IllegalArgumentException("Calling decreaseKey() with given argument would not strictly decrease the key");
+            }
+            keys[i] = key;
+            swim(qp[i]);
+        }
+
+        /**
+         * Increase the key associated with index <tt>i</tt> to the specified
+         * value.
+         *
+         * @param i the index of the key to increase
+         * @param key increase the key assocated with index <tt>i</tt> to this
+         * key
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @throws IllegalArgumentException if key &le; key associated with
+         * index <tt>i</tt>
+         * @throws NoSuchElementException no key is associated with index
+         * <tt>i</tt>
+         */
+        public void increaseKey(int i, Key key) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            if (!contains(i)) {
+                throw new NoSuchElementException("index is not in the priority queue");
+            }
+            if (keys[i].compareTo(key) >= 0) {
+                throw new IllegalArgumentException("Calling increaseKey() with given argument would not strictly increase the key");
+            }
+            keys[i] = key;
+            sink(qp[i]);
+        }
+
+        /**
+         * Remove the key associated with index <tt>i</tt>.
+         *
+         * @param i the index of the key to remove
+         * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt;
+         * <tt>maxN</tt>
+         * @throws NoSuchElementException no key is associated with index
+         * <t>i</tt>
+         */
+        public void delete(int i) {
+            if (i < 0 || i >= maxN) {
+                throw new IndexOutOfBoundsException();
+            }
+            if (!contains(i)) {
+                throw new NoSuchElementException("index is not in the priority queue");
+            }
+            int index = qp[i];
+            exch(index, N--);
+            swim(index);
+            sink(index);
+            keys[i] = null;
+            qp[i] = -1;
+        }
+
+        /**
+         * *************************************************************************
+         * General helper functions.
+         * *************************************************************************
+         */
+        private boolean greater(int i, int j) {
+            return keys[pq[i]].compareTo(keys[pq[j]]) > 0;
+        }
+
+        private void exch(int i, int j) {
+            int swap = pq[i];
+            pq[i] = pq[j];
+            pq[j] = swap;
+            qp[pq[i]] = i;
+            qp[pq[j]] = j;
+        }
+
+        /**
+         * *************************************************************************
+         * Heap helper functions.
+         * *************************************************************************
+         */
+        private void swim(int k) {
+            while (k > 1 && greater(k / 2, k)) {
+                exch(k, k / 2);
+                k = k / 2;
+            }
+        }
+
+        private void sink(int k) {
+            while (2 * k <= N) {
+                int j = 2 * k;
+                if (j < N && greater(j, j + 1)) {
+                    j++;
+                }
+                if (!greater(k, j)) {
+                    break;
+                }
+                exch(k, j);
+                k = j;
+            }
+        }
+
+        /**
+         * *************************************************************************
+         * Iterators.
+         * *************************************************************************
+         */
+        /**
+         * Returns an iterator that iterates over the keys on the priority queue
+         * in ascending order. The iterator doesn't implement <tt>remove()</tt>
+         * since it's optional.
+         *
+         * @return an iterator that iterates over the keys in ascending order
+         */
+        public Iterator<Integer> iterator() {
+            return new HeapIterator();
+        }
+
+        private class HeapIterator implements Iterator<Integer> {
+
+            // create a new pq
+            private IndexMinPQ<Key> copy;
+
+            // add all elements to copy of heap
+            // takes linear time since already in heap order so no keys move
+            public HeapIterator() {
+                copy = new IndexMinPQ<Key>(pq.length - 1);
+                for (int i = 1; i <= N; i++) {
+                    copy.insert(pq[i], keys[pq[i]]);
+                }
+            }
+
+            public boolean hasNext() {
+                return !copy.isEmpty();
+            }
+
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+
+            public Integer next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                return copy.delMin();
+            }
+        }
+    }
+
+    /**
+     * Dijkstra by:
+     *
+     */
+    public static class DijkstraSP {
+
+        private double[] distTo;          // distTo[v] = distance  of shortest s->v path
+        private DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on shortest s->v path
+        private IndexMinPQ<Double> pq;    // priority queue of vertices
+
+        /**
+         * Computes a shortest-paths tree from the source vertex <tt>s</tt> to
+         * every other vertex in the edge-weighted digraph <tt>G</tt>.
+         *
+         * @param G the edge-weighted digraph
+         * @param s the source vertex
+         * @throws IllegalArgumentException if an edge weight is negative
+         * @throws IllegalArgumentException unless 0 &le; <tt>s</tt> &le;
+         * <tt>V</tt> - 1
+         */
+        public DijkstraSP(EdgeWeightedDigraph G, int s) {
+            for (DirectedEdge e : G.edges()) {
+                if (e.weight() < 0) {
+                    throw new IllegalArgumentException("edge " + e + " has negative weight");
+                }
+            }
+
+            distTo = new double[G.V()];
+            edgeTo = new DirectedEdge[G.V()];
+            for (int v = 0; v < G.V(); v++) {
+                distTo[v] = Double.POSITIVE_INFINITY;
+            }
+            distTo[s] = 0.0;
+
+            // relax vertices in order of distance from s
+            pq = new IndexMinPQ<Double>(G.V());
+            pq.insert(s, distTo[s]);
+            while (!pq.isEmpty()) {
+                int v = pq.delMin();
+                for (DirectedEdge e : G.adj(v)) {
+                    relax(e);
+                }
+            }
+
+            // check optimality conditions
+            assert check(G, s);
+        }
+
+        // relax edge e and update pq if changed
+        private void relax(DirectedEdge e) {
+            int v = e.from(), w = e.to();
+            if (distTo[w] > distTo[v] + e.weight()) {
+                distTo[w] = distTo[v] + e.weight();
+                edgeTo[w] = e;
+                if (pq.contains(w)) {
+                    pq.decreaseKey(w, distTo[w]);
+                } else {
+                    pq.insert(w, distTo[w]);
+                }
+            }
+        }
+
+        /**
+         * Returns the length of a shortest path from the source vertex
+         * <tt>s</tt> to vertex <tt>v</tt>.
+         *
+         * @param v the destination vertex
+         * @return the length of a shortest path from the source vertex
+         * <tt>s</tt> to vertex <tt>v</tt>;
+         * <tt>Double.POSITIVE_INFINITY</tt> if no such path
+         */
+        public double distTo(int v) {
+            return distTo[v];
+        }
+
+        /**
+         * Returns true if there is a path from the source vertex <tt>s</tt> to
+         * vertex <tt>v</tt>.
+         *
+         * @param v the destination vertex
+         * @return <tt>true</tt> if there is a path from the source vertex
+         * <tt>s</tt> to vertex <tt>v</tt>; <tt>false</tt> otherwise
+         */
+        public boolean hasPathTo(int v) {
+            return distTo[v] < Double.POSITIVE_INFINITY;
+        }
+
+        /**
+         * Returns a shortest path from the source vertex <tt>s</tt> to vertex
+         * <tt>v</tt>.
+         *
+         * @param v the destination vertex
+         * @return a shortest path from the source vertex <tt>s</tt> to vertex
+         * <tt>v</tt>
+         * as an iterable of edges, and <tt>null</tt> if no such path
+         */
+        public Iterable<DirectedEdge> pathTo(int v) {
+            if (!hasPathTo(v)) {
+                return null;
+            }
+            Stack<DirectedEdge> path = new Stack<DirectedEdge>();
+            for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
+                path.push(e);
+            }
+            return path;
+        }
+
+        // check optimality conditions:
+        // (i) for all edges e:            distTo[e.to()] <= distTo[e.from()] + e.weight()
+        // (ii) for all edge e on the SPT: distTo[e.to()] == distTo[e.from()] + e.weight()
+        private boolean check(EdgeWeightedDigraph G, int s) {
+
+            // check that edge weights are nonnegative
+            for (DirectedEdge e : G.edges()) {
+                if (e.weight() < 0) {
+                    System.err.println("negative edge weight detected");
+                    return false;
+                }
+            }
+
+            // check that distTo[v] and edgeTo[v] are consistent
+            if (distTo[s] != 0.0 || edgeTo[s] != null) {
+                System.err.println("distTo[s] and edgeTo[s] inconsistent");
+                return false;
+            }
+            for (int v = 0; v < G.V(); v++) {
+                if (v == s) {
+                    continue;
+                }
+                if (edgeTo[v] == null && distTo[v] != Double.POSITIVE_INFINITY) {
+                    System.err.println("distTo[] and edgeTo[] inconsistent");
+                    return false;
+                }
+            }
+
+            // check that all edges e = v->w satisfy distTo[w] <= distTo[v] + e.weight()
+            for (int v = 0; v < G.V(); v++) {
+                for (DirectedEdge e : G.adj(v)) {
+                    int w = e.to();
+                    if (distTo[v] + e.weight() < distTo[w]) {
+                        System.err.println("edge " + e + " not relaxed");
+                        return false;
+                    }
+                }
+            }
+
+            // check that all edges e = v->w on SPT satisfy distTo[w] == distTo[v] + e.weight()
+            for (int w = 0; w < G.V(); w++) {
+                if (edgeTo[w] == null) {
+                    continue;
+                }
+                DirectedEdge e = edgeTo[w];
+                int v = e.from();
+                if (w != e.to()) {
+                    return false;
+                }
+                if (distTo[v] + e.weight() != distTo[w]) {
+                    System.err.println("edge " + e + " on shortest path not tight");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
+
+    /**
+     * Weighted GRaph by:
+     *
+     */
+    public static class EdgeWeightedDigraph {
+
+        private final int V;                // number of vertices in this digraph
+        private int E;                      // number of edges in this digraph
+        private HashMap<Integer, LinkedList<DirectedEdge>> adj;    // adj[v] = adjacency list for vertex v
+        private int[] indegree;             // indegree[v] = indegree of vertex v
+
+        /**
+         * Initializes an empty edge-weighted digraph with <tt>V</tt> vertices
+         * and 0 edges.
+         *
+         * @param V the number of vertices
+         * @throws IllegalArgumentException if <tt>V</tt> < 0
+         */
+        public EdgeWeightedDigraph(int V) {
+            if (V < 0) {
+                throw new IllegalArgumentException("Number of vertices in a Digraph must be nonnegative");
+            }
+            this.V = V;
+            this.E = 0;
+            this.indegree = new int[V];
+            adj = new HashMap<>();
+            for (int v = 0; v < V; v++) {
+                LinkedList<DirectedEdge> list = new LinkedList<>();
+                adj.put(v, list);
+            }
+        }
+
+        /**
+         * Returns the number of vertices in this edge-weighted digraph.
+         *
+         * @return the number of vertices in this edge-weighted digraph
+         */
+        public int V() {
+            return V;
+        }
+
+        /**
+         * Returns the number of edges in this edge-weighted digraph.
+         *
+         * @return the number of edges in this edge-weighted digraph
+         */
+        public int E() {
+            return E;
+        }
+
+        // throw an IndexOutOfBoundsException unless 0 <= v < V
+        private void validateVertex(int v) {
+            if (v < 0 || v >= V) {
+                throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V - 1));
+            }
+        }
+
+        /**
+         * Adds the directed edge <tt>e</tt> to this edge-weighted digraph.
+         *
+         * @param e the edge
+         * @throws IndexOutOfBoundsException unless endpoints of edge are
+         * between 0 and V-1
+         */
+        public void addEdge(DirectedEdge e) {
+            int v = e.from();
+            int w = e.to();
+            validateVertex(v);
+            validateVertex(w);
+            adj.get(v).add(e);
+            indegree[w]++;
+            E++;
+        }
+
+        /**
+         * Returns the directed edges incident from vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return the directed edges incident from vertex <tt>v</tt> as an
+         * Iterable
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public Iterable<DirectedEdge> adj(int v) {
+            validateVertex(v);
+            return adj.get(v);
+        }
+
+        /**
+         * Returns the number of directed edges incident from vertex <tt>v</tt>.
+         * This is known as the <em>outdegree</em> of vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return the outdegree of vertex <tt>v</tt>
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public int outdegree(int v) {
+            validateVertex(v);
+            return adj.get(v).size();
+        }
+
+        /**
+         * Returns the number of directed edges incident to vertex <tt>v</tt>.
+         * This is known as the <em>indegree</em> of vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return the indegree of vertex <tt>v</tt>
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public int indegree(int v) {
+            validateVertex(v);
+            return indegree[v];
+        }
+
+        /**
+         * Returns all directed edges in this edge-weighted digraph. To iterate
+         * over the edges in this edge-weighted digraph, use foreach notation:
+         * <tt>for (DirectedEdge e : G.edges())</tt>.
+         *
+         * @return all edges in this edge-weighted digraph, as an iterable
+         */
+        public Iterable<DirectedEdge> edges() {
+            LinkedList<DirectedEdge> list = new LinkedList<DirectedEdge>();
+            for (int v = 0; v < V; v++) {
+                for (DirectedEdge e : adj(v)) {
+                    list.add(e);
+                }
+            }
+            return list;
+        }
+
+    }
+
+    /**
+     */
+    public static class DirectedEdge {
+
+        private final int v;
+        private final int w;
+        private final double weight;
+
+        /**
+         * Initializes a directed edge from vertex <tt>v</tt> to vertex
+         * <tt>w</tt> with the given <tt>weight</tt>.
+         *
+         * @param v the tail vertex
+         * @param w the head vertex
+         * @param weight the weight of the directed edge
+         * @throws IndexOutOfBoundsException if either <tt>v</tt> or <tt>w</tt>
+         * is a negative integer
+         * @throws IllegalArgumentException if <tt>weight</tt> is <tt>NaN</tt>
+         */
+        public DirectedEdge(int v, int w, double weight) {
+            if (v < 0) {
+                throw new IndexOutOfBoundsException("Vertex names must be nonnegative integers");
+            }
+            if (w < 0) {
+                throw new IndexOutOfBoundsException("Vertex names must be nonnegative integers");
+            }
+            if (Double.isNaN(weight)) {
+                throw new IllegalArgumentException("Weight is NaN");
+            }
+            this.v = v;
+            this.w = w;
+            this.weight = weight;
+        }
+
+        /**
+         * Returns the tail vertex of the directed edge.
+         *
+         * @return the tail vertex of the directed edge
+         */
+        public int from() {
+            return v;
+        }
+
+        /**
+         * Returns the head vertex of the directed edge.
+         *
+         * @return the head vertex of the directed edge
+         */
+        public int to() {
+            return w;
+        }
+
+        /**
+         * Returns the weight of the directed edge.
+         *
+         * @return the weight of the directed edge
+         */
+        public double weight() {
+            return weight;
+        }
+
+        /**
+         * Returns a string representation of the directed edge.
+         *
+         * @return a string representation of the directed edge
+         */
+        public String toString() {
+            return v + "->" + w + " " + String.format("%5.2f", weight);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p07d;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class P07D {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Integer n = Integer.parseInt(in.nextLine());
+
+        for (int m = 1; m <= n; m++) {
+
+            String[] tasks = in.nextLine().split(" ");
+            Integer N = Integer.parseInt(tasks[0]);
+            Integer M = Integer.parseInt(tasks[1]);
+
+            Graph study = new Graph(N);
+
+            for (int lines = 0; lines < M; lines++) {
+                String[] line = in.nextLine().split(" ");
+                Integer v = Integer.parseInt(line[0]);
+                Integer w = Integer.parseInt(line[1]);
+                study.addEdge(v, w);
+            }
+
+            ArrayList<String> anss = new ArrayList<>();
+            String ans = checkEM(study);
+
+            System.out.println("Case #" + m + ":");
+            System.out.println(ans);
+
+        }
+    }
+
+    private static String checkEM(Graph G) {
+
+        String ans = "";
+        
+        for (int v = 0; v < G.V(); v++) {
+
+            if (G.inDegree(v) == 0) {
+
+                G.adj(v).removeFirst();
+                G.adj(v).addFirst(-1);
+                ans = ans + v + " ";
+
+                for (int i = 1; i < G.adj(v).size(); i++) {
+
+                    int w = G.adj(v).get(i);
+                    int wI = G.adj(w).removeFirst() - 1;
+                    G.adj(w).addFirst(wI);
+
+                }
+                break;
+            }
+            if (v == G.V() - 1) {
+                return ans;
+            }
+            
+        }      
+        
+        return ans + checkEM(G);
+    }
+
+    public static class MyQueue<AnyType> {
+
+        public MyQueue() {
+            theItems = new LinkedList<>();
+        }
+
+        public int size() {
+            return theItems.size();
+        }
+
+        public void enqueue(AnyType x) {
+            theItems.add(x);
+        }
+
+        public AnyType dequeue() {
+            return theItems.remove(0);
+        }
+
+        public AnyType peek() {
+            return theItems.get(0);
+        }
+
+        public boolean isEmpty() {
+            return theItems.isEmpty();
+        }
+
+        private LinkedList<AnyType> theItems;
+
+    }
+
+    /**
+     * Modified graph implementation using adjacency list on a HashMap, directed
+     * graph. First node on each list has the inDegree of that node. Original
+     * by:
+     *
+     */
+    public static class Graph {
+
+        private static final String NEWLINE = System.getProperty("line.separator");
+
+        private final int V;
+        private int E;
+        private HashMap<Integer, LinkedList<Integer>> adj;
+
+        /**
+         * Initializes an empty graph with <tt>V</tt> vertices and 0 edges.
+         * param V the number of vertices
+         *
+         * @param V number of vertices
+         * @throws IllegalArgumentException if <tt>V</tt> < 0
+         */
+        public Graph(int V) {
+            if (V < 0) {
+                throw new IllegalArgumentException("Number of vertices must be nonnegative");
+            }
+            this.V = V;
+            this.E = 0;
+            adj = new HashMap<>();
+            for (int v = 0; v < V; v++) {
+                LinkedList<Integer> list = new LinkedList<>();
+                list.add(0);
+                adj.put(v, list);
+            }
+        }
+
+        /**
+         * Returns the number of vertices in this graph.
+         *
+         * @return the number of vertices in this graph
+         */
+        public int V() {
+            return V;
+        }
+
+        /**
+         * Returns the number of edges in this graph.
+         *
+         * @return the number of edges in this graph
+         */
+        public int E() {
+            return E;
+        }
+
+        // throw an IndexOutOfBoundsException unless 0 <= v < V
+        private void validateVertex(int v) {
+            if (v < 0 || v >= V) {
+                throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V - 1));
+            }
+        }
+
+        /**
+         * Adds the directed edge v-w to this graph.
+         *
+         * @param v one vertex in the edge
+         * @param w the other vertex in the edge
+         * @throws IndexOutOfBoundsException unless both 0 <= v < V and 0 <= w <
+         * V
+         */
+        public void addEdge(int v, int w) {
+            validateVertex(v);
+            validateVertex(w);
+            E++;
+            int wI = adj.get(w).removeFirst() + 1;
+            adj.get(w).addFirst(wI);
+            adj.get(v).add(w);
+        }
+
+        /**
+         * Returns the vertices adjacent to vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public LinkedList<Integer> adj(int v) {
+            validateVertex(v);
+            return adj.get(v);
+        }
+
+        /**
+         * Returns the degree of vertex <tt>v</tt>.
+         *
+         * @param v the vertex
+         * @return the degree of vertex <tt>v</tt>
+         * @throws IndexOutOfBoundsException unless 0 <= v < V
+         */
+        public int inDegree(int v) {
+            validateVertex(v);
+            return adj.get(v).getFirst();
+        }
+
+        public int outDegree(int v) {
+            validateVertex(v);
+            return adj.get(v).size() - 1;
+        }
+
+        /**
+         *
+         * @return true if only one start node (inDegree = 0)
+         */
+        public boolean checkHeads() {
+
+            boolean n = false;
+
+            for (int v = 0; v < V; v++) {
+                if (inDegree(v) == 0) {
+                    if (!n) {
+                        n = true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        /**
+         *
+         * @return true if only one end node (outDegree = 0)
+         */
+        public boolean checkTails() {
+
+            boolean n = false;
+
+            for (int v = 0; v < V; v++) {
+                if (outDegree(v) == 0) {
+                    if (!n) {
+                        n = true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

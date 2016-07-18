@@ -1,0 +1,2525 @@
+import java.io.*;
+import java.util.*;
+
+
+public class ProblemaA {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("p1.txt");
+		if(f.exists()){
+			scan = new Scanner(f);
+		}else{
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		
+		for(int i=0;i<n;i++){
+			System.out.println("case "+(i+1)+":");
+			int k = Integer.parseInt(scan.nextLine());
+			String numeros = scan.nextLine();
+			char[ ] arr = new char[k];
+			int aux=0;
+			for (int j = 0; j < numeros.length(); j++) {
+				if (numeros.charAt(j)!=' '){
+					arr[aux]=(numeros.charAt(j));
+					aux++;
+				}
+			}
+			int mayor=0;
+			int menor=0;
+			int igual=0;
+			for (int j = 0; j < k; j++) {
+				int aux1=arr[j];
+				for (int j2 = 0; j2 < k; j2++) {
+					int aux2=arr[j2];
+					if(aux1>aux2)
+						mayor++;	
+					else if(aux1<aux2)
+						menor++;
+					else if (aux1==aux2)
+						igual++;
+				}
+			}
+			System.out.println(mayor);
+			System.out.println(menor);
+			System.out.println(igual-k);
+			
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+public class ProblemaC {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File f = new File("p1.txt");
+		if(f.exists()){
+			scan = new Scanner(f);
+		}else{
+			scan = new Scanner(System.in);
+		}
+		int t=Integer.parseInt(scan.nextLine());
+		//int t=scan.nextInt();
+		
+		for (int i=0;i<t;i++){
+			System.out.println("Case "+(i+1)+ ":");
+			int N=Integer.parseInt(scan.nextLine());
+			String chars = scan.nextLine();
+			char [] piedras =new char[N];
+			int k=0;
+			for (int j = 0; j < chars.length(); j++) {
+				if (chars.charAt(j)!=' '){
+					piedras[k]=chars.charAt(j);
+					k++;
+				}
+			}
+						
+			for (int j = 0; j < N; j++) {
+				
+					System.out.print(piedras[j]);
+					for (int l = 0; l < N; l++) {
+						if (l!=j) {
+							System.out.print(piedras[l]);
+						}
+					}
+					System.out.println();
+				
+			}
+		}
+	
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+
+
+public class ProblemaA {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("p1.txt");
+		if(f.exists()){
+			scan = new Scanner(f);
+		}else{
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		
+		for(int i=0;i<n;i++){
+			System.out.println("Case #"+(i+1)+":");
+			int k = Integer.parseInt(scan.nextLine());
+			String numeros = scan.nextLine();
+			String [] arraynumeros= numeros.split(" ");
+			int[ ] arr = new int[k];
+			int aux=0;
+			for (int j = 0; j < arraynumeros.length; j++) {
+				arr[aux]=Integer.parseInt(arraynumeros[j]);
+				aux++;
+				
+			}
+			int mayor=0;
+			int menor=0;
+			int igual=0;
+			for (int j = 0; j < k; j++) {
+				int aux1=arr[j];
+				for (int j2 = 0; j2 < k; j2++) {
+					int aux2=arr[j2];
+					if(aux1>aux2)
+						mayor++;	
+					else if(aux1<aux2)
+						menor++;
+					else if (aux1==aux2)
+						igual++;
+				}
+			}
+			System.out.println(mayor);
+			System.out.println(menor);
+			System.out.println(igual-k);
+			
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+
+public class ProblemaE {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File f = new File("p1.txt");
+		if(f.exists()){
+			scan = new Scanner(f);
+		}else{
+			scan = new Scanner(System.in);
+		}
+		int T=Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			System.out.println("Case "+(i+1)+ ":");
+			int N=Integer.parseInt(scan.nextLine());
+			String cerosyunos = scan.nextLine();
+			char[ ] arr = new char[N];
+			int aux=0;
+			for (int j = 0; j < cerosyunos.length(); j++) {
+				if (cerosyunos.charAt(j)!=' '){
+					arr[aux]=(cerosyunos.charAt(j));
+					aux++;
+				}
+			}
+			int aux1=0;
+			for (int j = 0; j < T; j++) {
+				int aux2=arr[j];
+				if(aux2!=0)
+					aux1++;
+				
+			}System.out.println(aux1);
+			
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("A_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine());
+		
+		String numeros = scan.nextLine();
+		String [] arraynumeros= numeros.split(" ");
+		long[ ] arr = new long[arraynumeros.length];
+		int tamano=0;
+		for (int i = arr.length-1; i >0; i--) {
+			tamano=tamano+i;
+		}
+		long [] aux=new long[tamano];
+		int k=0;
+		for (int j = 0; j < arraynumeros.length; j++) {
+			arr[j]=Integer.parseInt(arraynumeros[j]);
+		}
+		
+		for (int n = 0; n < arr.length; n++) {
+			if (n!=arr.length-1) {
+				for (int m = n+1; m < arr.length; m++) {
+					aux[k]=arr[n]*arr[m];
+					k++;
+				}
+			}
+		}
+		
+		long mayor=aux[0];
+		for (int i = 0; i < k; i++) {
+			if (mayor<aux[i]) {
+				mayor=aux[i];
+			}
+		}
+		System.out.println(mayor);
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("b_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int T = Integer.parseInt(scan.nextLine());
+        int contador=0;
+        for (int i = 0; i < T; i++) {
+            String line = scan.nextLine();//cadena de cada caso
+            char[]cadena=new char[line.length()];
+            for (int j = 0; j < line.length(); j++) {
+			cadena[j]=line.charAt(j);
+			}
+            for (int j = 0; j < cadena.length; j++) {
+				if (cadena[j]=='W') {
+					if (j==0) {
+						if (cadena[j+1]=='B') {
+							contador++;
+						}
+						else if (cadena[j+2]=='B') {
+							contador++;
+						}
+						
+						
+					}
+					if (j==1) {
+						if (cadena[j-1]=='B') {
+							contador++;
+						}
+
+						else if (j<cadena.length-1 && cadena[j+1]=='B') {
+							contador++;
+						}
+						else if (j<cadena.length-2 && cadena[j+2]=='B') {
+							contador++;
+						}
+						
+						
+					}
+					if (j>=2) {
+						if (j<cadena.length-1 && cadena[j+1]=='B') {
+							contador++;	
+						}
+						else if (j<cadena.length-2 && cadena[j+2]=='B') {
+							contador++;
+						}	
+						else if (cadena[j-1]=='B') {
+							contador++;
+						}
+						else if (cadena[j-2]=='B') {
+							contador++;
+						}	
+					}
+				}
+			}
+            System.out.println(contador);
+            contador=0;
+        }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaC {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("C_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int aux=0;
+		int sub=0;
+		int T = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			int N = Integer.parseInt(scan.nextLine());
+			String S=scan.nextLine();
+			char[]cadena=new char[N];
+	        for (int j = 0; j < N; j++) {
+			cadena[j]=S.charAt(j);
+			}
+	        sub=N;
+	        for (int j = 0; j <N; j++) {
+	        		
+	        	if (j<N-1 && cadena[j]==cadena[j+1]) {
+	        		sub++;
+	        		if (j<N-2&& cadena[j+1]<cadena[j+2]) {
+						sub++;
+					}
+	        	}
+	        	if (j<N-1 && cadena[j]<cadena[j+1]) {
+	        		sub++;	
+				}
+	        	if (j<N-2 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]) {
+	        		sub++;	
+				}
+	        	if (j<N-2 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]) {
+	        		sub++;	
+				}
+	        	if (j<N-3 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]) {
+	        		sub++;	
+				}
+	        	if (j<N-3 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]) {
+	        		sub++;	
+				}
+	        	if (j<N-4 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]) {
+	        		sub++;	
+				}
+	        	if (j<N-4 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]) {
+	        		sub++;	
+				}
+	        	if (j<N-5 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]&&cadena[j+4]==cadena[j+5]) {
+	        		sub++;	
+				}
+	        	if (j<N-5 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]&&cadena[j+4]<cadena[j+5]) {
+	        		sub++;	
+				}
+	        	if (j<N-6 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]&&cadena[j+4]==cadena[j+5]&&cadena[j+5]==cadena[j+6]) {
+	        		sub++;	
+				}
+	        	if (j<N-6 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]&&cadena[j+4]<cadena[j+5]&&cadena[j+5]<cadena[j+6]) {
+	        		sub++;	
+				}
+	        	if (j<N-7 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]&&cadena[j+4]==cadena[j+5]&&cadena[j+5]==cadena[j+6]&&cadena[j+6]==cadena[j+7]) {
+	        		sub++;	
+				}
+	        	if (j<N-7 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]&&cadena[j+4]<cadena[j+5]&&cadena[j+5]<cadena[j+6]&&cadena[j+6]<cadena[j+7]) {
+	        		sub++;	
+	        	}
+	        	if (j<N-8 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]&&cadena[j+4]==cadena[j+5]&&cadena[j+5]==cadena[j+6]&&cadena[j+6]==cadena[j+7]&&cadena[j+7]==cadena[j+8]) {
+	        		sub++;	
+				}
+	        	if (j<N-8 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]&&cadena[j+4]<cadena[j+5]&&cadena[j+5]<cadena[j+6]&&cadena[j+6]<cadena[j+7]&&cadena[j+7]<cadena[j+8]) {
+	        		sub++;	
+	        	}
+	        	if (j<N-9 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]&&cadena[j+4]==cadena[j+5]&&cadena[j+5]==cadena[j+6]&&cadena[j+6]==cadena[j+7]&&cadena[j+7]==cadena[j+8]&&cadena[j+8]==cadena[j+9]) {
+	        		sub++;	
+				}
+	        	if (j<N-9 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]&&cadena[j+4]<cadena[j+5]&&cadena[j+5]<cadena[j+6]&&cadena[j+6]<cadena[j+7]&&cadena[j+7]<cadena[j+8]&&cadena[j+8]<cadena[j+9]) {
+	        		sub++;	
+	        	}
+	        	if (j<N-10 && cadena[j]==cadena[j+1]&& cadena[j+1]==cadena[j+2]&& cadena[j+2]==cadena[j+3]&&cadena[j+3]==cadena[j+4]&&cadena[j+4]==cadena[j+5]&&cadena[j+5]==cadena[j+6]&&cadena[j+6]==cadena[j+7]&&cadena[j+7]==cadena[j+8]&&cadena[j+8]==cadena[j+9]&&cadena[j+9]==cadena[j+10]) {
+	        		sub++;	
+				}
+	        	if (j<N-10 && cadena[j]<cadena[j+1]&& cadena[j+1]<cadena[j+2]&& cadena[j+2]<cadena[j+3]&&cadena[j+3]<cadena[j+4]&&cadena[j+4]<cadena[j+5]&&cadena[j+5]<cadena[j+6]&&cadena[j+6]<cadena[j+7]&&cadena[j+7]<cadena[j+8]&&cadena[j+8]<cadena[j+9]&&cadena[j+9]<cadena[j+10]) {
+	        		sub++;	
+	        	}
+				
+			}
+	        
+	        
+		System.out.println(sub);	
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaD {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("D_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int contador=0;
+		int part1=0;
+		int part2=0;
+		int T = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < T; t++) {
+			int N = Integer.parseInt(scan.nextLine());
+			char array[][] = new char[N][N];
+			for (int i = 0; i < N; i++) {
+				String cadena=scan.nextLine();
+				array[i] = cadena.toCharArray();// lee una fila completa
+			}
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j <N; j++) {
+					if (array[i][j]=='#') {
+					contador++;
+					}
+				}
+			} //System.out.println(contador);
+			if (contador%2!=0) {
+				System.out.println("NO");
+				contador=0; part1=0;	part2=0;
+			}	
+			else if (contador%2==0) {
+				for (int i = 0; i < N; i++) {
+					for (int j = 0; j <N; j++) {
+						if (i==0) {
+							if (array[i][j]=='#') {
+								part1++;
+							}
+							if (array[j][i]=='#') {
+								part2++;
+							}
+						}		
+					}	
+				}
+				//System.out.println(part1+" "+part2);
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=1) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=2) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=3) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=4) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=5) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=6) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=7) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=8) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				while(part1!=contador/2 || part2!=contador/2){
+					part1=0;
+					part2=0;
+					for (int i = 0; i < N; i++) {
+						for (int j = 0; j <N; j++) {
+							if (i<=9) {
+								if (array[i][j]=='#') {
+									part1++;
+								}
+								if (array[j][i]=='#') {
+									part2++;
+								}
+							}		
+						}	
+					}
+					break;
+				}
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				
+				else System.out.println("NO"); contador=0; part1=0;	part2=0;
+			}
+		//contador=0;
+		}
+		
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("b_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int T = Integer.parseInt(scan.nextLine());
+        int contador=0;
+        for (int i = 0; i < T; i++) {
+            String line = scan.nextLine();//cadena de cada caso
+            char[]cadena=new char[line.length()];
+            for (int j = 0; j < line.length(); j++) {
+			cadena[j]=line.charAt(j);
+			}
+            for (int j = 0; j < cadena.length; j++) {
+				if (cadena[j]=='W') {
+					if (j==0) {
+						if (cadena[j+1]=='B' && j<cadena.length-1) {
+							contador++;
+						}
+						else if (cadena[j+2]=='B'&& j<cadena.length-2) {
+							contador++;
+						}
+						
+						
+					}
+					if (j==1) {
+						if (cadena[j-1]=='B') {
+							contador++;
+						}
+
+						else if (j<cadena.length-1 && cadena[j+1]=='B') {
+							contador++;
+						}
+						else if (j<cadena.length-2 && cadena[j+2]=='B') {
+							contador++;
+						}
+						
+						
+					}
+					if (j>=2) {
+						if (j<cadena.length-1 && cadena[j+1]=='B') {
+							contador++;	
+						}
+						else if (j<cadena.length-2 && cadena[j+2]=='B') {
+							contador++;
+						}	
+						else if (cadena[j-1]=='B') {
+							contador++;
+						}
+						else if (cadena[j-2]=='B') {
+							contador++;
+						}	
+					}
+				}
+			}
+            System.out.println(contador);
+            contador=0;
+        }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("b_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int T = Integer.parseInt(scan.nextLine());
+        int contador=0;
+        for (int i = 0; i < T; i++) {
+            String line = scan.nextLine();//cadena de cada caso
+            char[]cadena=new char[line.length()];
+            for (int j = 0; j < line.length(); j++) {
+			cadena[j]=line.charAt(j);
+			}
+            for (int j = 0; j < cadena.length; j++) {
+				if (cadena[j]=='W') {
+					if (j==0) {
+						if (j<cadena.length-1&&cadena[j+1]=='B') {
+							contador++;
+						}
+						else if (j<cadena.length-2&&cadena[j+2]=='B') {
+							contador++;
+						}
+						
+						
+					}
+					if (j==1) {
+						if (cadena[j-1]=='B') {
+							contador++;
+						}
+
+						else if (j<cadena.length-1 && cadena[j+1]=='B') {
+							contador++;
+						}
+						else if (j<cadena.length-2 && cadena[j+2]=='B') {
+							contador++;
+						}
+						
+						
+					}
+					if (j>=2) {
+						if (j<cadena.length-1 && cadena[j+1]=='B') {
+							contador++;	
+						}
+						else if (j<cadena.length-2 && cadena[j+2]=='B') {
+							contador++;
+						}	
+						else if (cadena[j-1]=='B') {
+							contador++;
+						}
+						else if (cadena[j-2]=='B') {
+							contador++;
+						}	
+					}
+				}
+			}
+            System.out.println(contador);
+            contador=0;
+        }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaD2 {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("D_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int contador=0;
+		int part1=0;
+		int part2=0;
+		int k=1;
+		int T = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < T; t++) {
+			int N = Integer.parseInt(scan.nextLine());
+			char array[][] = new char[N][N];
+			for (int i = 0; i < N; i++) {
+				String cadena=scan.nextLine();
+				array[i] = cadena.toCharArray();// lee una fila completa
+			}
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j <N; j++) {
+					if (array[i][j]=='#') {
+					contador++;
+					}
+				}
+			} //System.out.println(contador);
+			if (contador%2!=0) {
+				System.out.println("NO");
+				contador=0; part1=0;	part2=0;
+			}	
+			else if (contador%2==0) {
+				for (int i = 0; i < N; i++) {
+					for (int j = 0; j <N; j++) {
+						if (i==0) {
+							if (array[i][j]=='#') {
+								part1++;
+							}
+							if (array[j][i]=='#') {
+								part2++;
+							}
+						}		
+					}	
+				}
+				
+				if (part1==contador/2||part2==contador/2) {
+					System.out.println("YES");
+					contador=0;
+					part1=0;
+					part2=0;
+					continue;
+				}
+				for (k=1 ;  k < N;k++) {
+					
+					while(part1!=contador/2 || part2!=contador/2){
+						part1=0;
+						part2=0;
+						for (int i = 0; i < N; i++) {
+							for (int j = 0; j <N; j++) {
+								if (i<=k) {
+									if (array[i][j]=='#') {
+										part1++;
+									}
+									if (array[j][i]=='#') {
+										part2++;
+									}
+								}		
+							}	
+						}
+						break;
+					}
+					if (part1==contador/2||part2==contador/2) {
+						System.out.println("YES");
+						contador=0;
+						part1=0;
+						part2=0;
+						break;
+					}
+					else if(k==N-1){
+					System.out.println("NO"); contador=0; part1=0;	part2=0;
+					}
+					
+				}
+			
+			}
+			
+			else System.out.println("NO"); contador=0; part1=0;	part2=0;
+		//contador=0;
+		}
+		
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ProblemaE {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File file = new File("E_2.txt");
+		if (file.exists()) {
+			scan = new Scanner(file);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int contador=0;
+		int part1=0;
+		int part2=0;
+		int k=1;
+		int T = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < T; t++) {
+			int N = Integer.parseInt(scan.nextLine());
+			char array[][] = new char[N][N];
+			for (int i = 0; i < N; i++) {
+				String cadena=scan.nextLine();
+				array[i] = cadena.toCharArray();// lee una fila completa
+			}
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j <N; j++) {
+					if (array[i][j]=='#') {
+					contador++;
+					}
+				}
+			} //System.out.println(contador);
+			if (contador%2!=0) {
+				System.out.println(0+" "+0);
+				contador=0; part1=0;	part2=0;
+			}	
+			else if (contador%2==0) {
+				for (int i = 0; i < N; i++) {
+					for (int j = 0; j <N; j++) {
+						if (i==0) {
+							if (array[i][j]=='#') {
+								part1++;
+							}
+							if (part1==contador/2) {
+								System.out.print((i+1)+" ");
+								contador=0;
+								part1=0;
+								part2=0;
+								continue;
+							}
+							if (array[j][i]=='#') {
+								part2++;
+							}
+							if (part2==contador/2) {
+								System.out.println((j+1));
+								contador=0;
+								part1=0;
+								part2=0;
+								continue;
+							}
+						}		
+					}	
+				}
+				
+				
+				
+				for (k=1 ;  k < N;k++) {
+					
+					while(part1!=contador/2 || part2!=contador/2){
+						part1=0;
+						part2=0;
+						for (int i = 0; i < N; i++) {
+							for (int j = 0; j <N; j++) {
+								if (i<=k) {
+									if (array[i][j]=='#') {
+										part1++;
+									}
+									if (part1==contador/2) {
+										System.out.print((i+1)+" ");
+										contador=0;
+										part1=0;
+										part2=0;
+										break;
+									}
+									if (array[j][i]=='#') {
+										part2++;
+									}
+									if (part2==contador/2) {
+										System.out.println((j+1));
+										contador=0;
+										part1=0;
+										part2=0;
+										break;
+									}
+								}		
+							}	
+						}
+						break;
+					}
+					
+					if(k==N-1){
+					System.out.println(0+" "+0); contador=0; part1=0;	part2=0;
+					}
+					
+				}
+			
+			}
+			
+			else System.out.println(0+" "+0); contador=0; part1=0;	part2=0;
+		//contador=0;
+		}
+		
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+
+
+public class ProblemaB {
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("B_2.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int T= Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			int []array=new int [2];
+			
+			LinkedHashMap<Integer,Integer> table = new LinkedHashMap<Integer,Integer>();
+			
+			System.out.println("Caso #"+(i+1)+":");
+			int N=Integer.parseInt(scan.nextLine());
+			String []cadena=scan.nextLine().split(" ");
+			int [] numeros=new int[cadena.length];
+			for (int j = 0; j < cadena.length; j++) {
+				numeros[j]=Integer.parseInt(cadena[j]);
+				if (table.containsKey(numeros[j])) {
+					table.put((numeros[j]),table.get((numeros[j]))+1);
+				}
+				else  {
+					table.put(numeros[j], 1);
+				}
+			}
+			
+			for (HashMap.Entry<Integer, Integer> entry : table.entrySet()) {
+				System.out.println(entry.getKey() +" " + entry.getValue() );
+			}
+			
+			
+		}
+		
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+
+import java.util.*;
+
+public class ProblemaC {
+	public static class UnionFind {
+		private int id[];
+		//private int rank[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			id = new int[n];
+			//rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				id[i] = i;
+				//rank[i] = 1;
+			}
+		}
+
+		public int find(int x) {
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public void union(int x, int y) {
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			int pid=id[x];
+			for (int i = 0; i < id.length; i++){
+
+				if (id[i] == pid){
+					id[i] = id[y];
+				}
+			}
+			
+			/*if (rank[a] < rank[b]) {
+				id[a] = b;
+			} else {
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}*/
+			cont--;
+		}
+		
+	}
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		Scanner scan;
+		File f = new File("C_2.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int T= Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			System.out.println("Caso #"+(i+1)+":");
+			int N=Integer.parseInt(scan.nextLine());
+			UnionFind uf = new UnionFind(N*2);
+			
+			HashMap<String, Integer> tabla =new HashMap<>();
+			int aux=0;
+			int contador=0;
+			for (int j = 0; j < N; j++) {
+				
+				String []cadena=scan.nextLine().split(" ");
+				
+				for (int k = 0; k < cadena.length; k++) {
+					if (tabla.containsKey(cadena[k])) {
+						
+					}
+					else{
+						tabla.put(cadena[k], aux);
+						aux++;
+					}
+				}
+				int a=tabla.get(cadena[0]);
+				int b=tabla.get(cadena[1]);
+				uf.union(a, b);
+				//System.out.println("a,b "+a+","+b);
+				int c=uf.find(tabla.get(cadena[0]));
+				contador=0;
+				//System.out.println("aa "+a);
+				for (int k = 0; k < N*2; k++) {
+					if (uf.id[k]==c) {
+						contador++;
+					} 
+					//System.out.print(uf.id[k]+" ");
+				}
+				//System.out.println();
+				System.out.println(contador);
+				
+			}
+		}
+
+	}
+	public static int[] readInts(String cad) {
+		StringTokenizer token = new StringTokenizer(cad, " ");
+		int arr[] = new int[token.countTokens()];
+		int i = 0;
+		while (token.hasMoreTokens())
+			arr[i++] = Integer.parseInt(token.nextToken());
+		return arr;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+
+
+public class ProblemaB {
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("B_2.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int T= Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			int []array=new int [2];
+			
+			LinkedHashMap<Integer,Integer> table = new LinkedHashMap<Integer,Integer>();
+			
+			System.out.println("Caso #"+(i+1)+":");
+			int N=Integer.parseInt(scan.nextLine());
+			String []cadena=scan.nextLine().split(" ");
+			int [] numeros=new int[cadena.length];
+			for (int j = 0; j < cadena.length; j++) {
+				numeros[j]=Integer.parseInt(cadena[j]);
+				if (table.containsKey(numeros[j])) {
+					table.put((numeros[j]),table.get((numeros[j]))+1);
+				}
+				else  {
+					table.put(numeros[j], 1);
+				}
+			}
+			
+			for (Map.Entry<Integer, Integer> entry : table.entrySet()) {
+				System.out.println(entry.getKey() +" " + entry.getValue() );
+			}
+			
+			
+		}
+		
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+import java.util.Map.Entry;
+import java.io.*;
+
+
+
+
+public class ProblemaA {
+
+	public static class Equipo implements Comparable<Equipo> {
+		int Numero;
+		int Problemas;
+		int Tiempo;
+		
+		
+		public Equipo (int numero, int problemas, int tiempo){
+			this.Numero=numero;
+			this.Problemas=problemas;
+			this.Tiempo=tiempo;
+			
+		}
+		@Override
+		public String toString(){
+			return Numero+" "+Problemas+" "+Tiempo;
+		}
+	
+		@Override
+		public int compareTo(Equipo otra) {
+			// TODO Auto-generated method stub
+			if (Problemas < otra.Problemas)
+				return 1;
+			else if (Problemas > otra.Problemas)
+				return -1;
+			else{
+				if (Tiempo < otra.Tiempo)
+					return -1;
+				else if (Tiempo > otra.Tiempo)
+					return 1;
+				else{
+					if (Numero < otra.Numero)
+						return -1;
+					else if (Numero > otra.Numero)
+						return 1;
+					else 
+						return 0;
+					
+				}
+				
+			}
+			
+				
+			
+		}
+		
+	}
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		Scanner scan;
+		File f = new File("A_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		/*Equipo a=new Equipo(1,2, 90);
+		Equipo b=new Equipo(2,2, 98);
+		System.out.println(b.compareTo(a));*/
+		int t = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < t; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			String []cadena=scan.nextLine().split(" ");
+			HashMap<Integer,Equipo> maraton = new HashMap<>();
+			LinkedHashMap<String,Integer> hashaux = new LinkedHashMap<>();
+			Equipo a;
+			int aux=0;
+			for (int j = 0; j < Integer.parseInt(cadena[0]); j++) {
+				a=new Equipo(j+1, 0, 0);
+				maraton.put(j+1, a);
+			}
+			
+			//System.out.println(maraton.entrySet());
+			for( int j = 0; j<Integer.parseInt(cadena[1]); j++){
+				
+				String []lineas=scan.nextLine().split(" ");
+				
+				String aux1=lineas[0]+" "+lineas[1];
+				/*if (!maraton.containsKey(lineas[0])) {
+					a=new Equipo(Integer.parseInt(lineas[0]), 0, 0);
+					maraton.put(Integer.parseInt(lineas[0]), a);
+				}*/
+				
+				
+				
+				if (hashaux.containsKey(aux1)) {
+					//System.out.println(lineas[3].equals("I"));
+					if (lineas[3].equals("I")) {
+						hashaux.put((aux1),hashaux.get((aux1))+1);
+						aux=hashaux.get((aux1))*20;
+						
+						a=maraton.get(Integer.parseInt(lineas[0]));
+						//System.out.println(a);
+						a.Tiempo=Integer.parseInt(lineas[2])+aux;
+						//System.out.println(a);
+						maraton.put(Integer.parseInt(lineas[0]),a );
+					}
+					else if (lineas[3].equals("C")) {
+						//System.out.println("no no no");
+						a=maraton.get(Integer.parseInt(lineas[0]));
+						//System.out.println(a);
+						a.Tiempo=Integer.parseInt(lineas[2])+aux;
+						a.Problemas=a.Problemas+1;
+						maraton.put(Integer.parseInt(lineas[0]),a );
+					}
+					
+					
+				}
+				if((!hashaux.containsKey(aux1))){
+					hashaux.put(lineas[0]+" "+lineas[1], 0);
+					//System.out.println("no "+lineas[3].equals("C"));
+					if (lineas[3].equals("I")) {
+						//System.out.println("no no so");
+						hashaux.put((aux1),hashaux.get((aux1))+1);
+						aux=hashaux.get((aux1))*20;
+						a=maraton.get(Integer.parseInt(lineas[0]));
+						a.Tiempo=Integer.parseInt(lineas[2])+aux;
+						
+						maraton.put(Integer.parseInt(lineas[0]),a );
+						
+					}
+					else if (lineas[3].equals("C")) {
+						//System.out.println("no no no");
+						a=maraton.get(Integer.parseInt(lineas[0]));
+						//System.out.println(a);
+						a.Tiempo=a.Tiempo+Integer.parseInt(lineas[2]);
+						a.Problemas=a.Problemas+1;
+						maraton.put(Integer.parseInt(lineas[0]),a );
+					}
+					
+					
+				}
+			}
+			//System.out.println(maraton.entrySet());
+			TreeSet<Equipo> comp=new TreeSet<>();
+			for (Map.Entry<Integer, Equipo> entry : maraton.entrySet()) {
+				
+				comp.add(entry.getValue());
+			}
+			for( Iterator it = comp.iterator(); it.hasNext();) {
+				Equipo orden = (Equipo)it.next(); 
+				System.out.println(orden);
+			}
+			
+			
+			
+			a=new Equipo(0,0,0);
+			//System.out.println(hashaux.entrySet());
+			//System.out.println(maraton.entrySet());
+		}
+
+	}
+	
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+
+
+
+
+
+public class SolveA {
+
+	public static class LinkedQueue<Item> implements Iterable<Item> { //Esta clase es creada por otra persona para uso publico
+		private int N; // number of elements on queue
+		private Node first; // beginning of queue
+		private Node last; // end of queue
+	
+		private class Node {
+			private Item item;
+			private Node next;
+		}
+	
+		public LinkedQueue() {
+			first = null;
+			last = null;
+			N = 0;
+		}
+	
+		public boolean isEmpty() {
+			return first == null;
+		}
+	
+		public int size() {
+			return N;
+		}
+	
+		public Item peek() {
+			if (isEmpty())
+				throw new NoSuchElementException("Queue underflow");
+			return first.item;
+		}
+	
+		public void offer(Item item) {
+			Node oldlast = last;
+			last = new Node();
+			last.item = item;
+			last.next = null;
+			if (isEmpty())
+				first = last;
+			else
+				oldlast.next = last;
+			N++;
+	
+		}
+	
+		public Item poll() {
+			if (isEmpty())
+				throw new NoSuchElementException("Queue underflow");
+			Item item = first.item;
+			first = first.next;
+			N--;
+			if (isEmpty())
+				last = null; 
+			return item;
+		}
+	
+		public String toString() {
+			StringBuilder s = new StringBuilder();
+			for (Item item : this)
+				s.append(item + " ");
+			return s.toString();
+		}
+	
+	
+		public Iterator<Item> iterator() {
+			return new ListIterator();
+		}
+		
+		private class ListIterator implements Iterator<Item> {
+			private Node current = first;
+	
+			public boolean hasNext() {
+				return current != null;
+			}
+	
+			public void remove() {
+				throw new UnsupportedOperationException();
+			}
+	
+			public Item next() {
+				if (!hasNext())
+					throw new NoSuchElementException();
+				Item item = current.item;
+				current = current.next;
+				return item;
+			}
+		}
+	
+	}
+
+	public static class Persona{
+		int Id;
+		/*int Grupo;
+		int Peso;*/
+		public Persona (int id){
+			this.Id=id;
+			/*this.Grupo=grupo;
+			this.Peso=peso;*/
+		}
+		@Override
+		public String toString(){
+			return Id+"";
+		}
+		
+	}
+
+	public static void main(String args[]) throws FileNotFoundException {
+		Scanner scan;
+		File f = new File("A_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++) {
+			System.out.println("Caso #" + (t + 1) + ":");
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			LinkedQueue<Integer>cola=new LinkedQueue<>();
+			LinkedHashMap<Integer,Integer> parqueadero = new LinkedHashMap<>();
+			for (int i = 0; i < Q; i++) {
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+				//Persona a =new Persona(0);											// tipo de comando
+				String type = line[0];
+				int aux1=0;
+				if (type.equals("agregar")) {
+					aux1=Integer.parseInt(line[1]);
+					//a=new Persona(aux1);
+					cola.offer(aux1);
+				} else if (type.equals("atender")) {
+					int a=cola.peek();
+					cola.poll();
+					parqueadero.put(a,1);
+					//System.out.println(parqueadero);	
+				} else if (type.equals("existe")) {	
+					
+					aux1=Integer.parseInt(line[1]);
+					
+					if (parqueadero.containsKey(aux1)) {
+						System.out.println("SI");
+					}
+					else{
+						System.out.println("NO");
+					}
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+
+import javax.swing.text.html.HTMLDocument.HTMLReader.ParagraphAction;
+
+
+
+
+
+public class SolveB {
+
+	public static class LinkedQueue<Item> implements Iterable<Item> { //Esta clase es creada por otra persona para uso publico
+		private int N; // number of elements on queue
+		private Node first; // beginning of queue
+		private Node last; // end of queue
+	
+		private class Node {
+			private Item item;
+			private Node next;
+		}
+	
+		public LinkedQueue() {
+			first = null;
+			last = null;
+			N = 0;
+		}
+	
+		public boolean isEmpty() {
+			return first == null;
+		}
+	
+		public int size() {
+			return N;
+		}
+	
+		public Item peek() {
+			if (isEmpty())
+				throw new NoSuchElementException("Queue underflow");
+			return first.item;
+		}
+	
+		public void offer(Item item) {
+			Node oldlast = last;
+			last = new Node();
+			last.item = item;
+			last.next = null;
+			if (isEmpty())
+				first = last;
+			else
+				oldlast.next = last;
+			N++;
+	
+		}
+	
+		public Item poll() {
+			if (isEmpty())
+				throw new NoSuchElementException("Queue underflow");
+			Item item = first.item;
+			first = first.next;
+			N--;
+			if (isEmpty())
+				last = null; 
+			return item;
+		}
+	
+		public String toString() {
+			StringBuilder s = new StringBuilder();
+			for (Item item : this)
+				s.append(item + " ");
+			return s.toString();
+		}
+	
+	
+		public Iterator<Item> iterator() {
+			return new ListIterator();
+		}
+		
+		private class ListIterator implements Iterator<Item> {
+			private Node current = first;
+	
+			public boolean hasNext() {
+				return current != null;
+			}
+	
+			public void remove() {
+				throw new UnsupportedOperationException();
+			}
+	
+			public Item next() {
+				if (!hasNext())
+					throw new NoSuchElementException();
+				Item item = current.item;
+				current = current.next;
+				return item;
+			}
+		}
+	
+	}
+
+	public static class Persona{
+		int Id;
+		/*int Grupo;
+		int Peso;*/
+		public Persona (int id){
+			this.Id=id;
+			/*this.Grupo=grupo;
+			this.Peso=peso;*/
+		}
+		@Override
+		public String toString(){
+			return Id+"";
+		}
+		
+	}
+
+	public static void main(String args[]) throws FileNotFoundException {
+		Scanner scan;
+		File f = new File("A_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++) {
+			System.out.println("Caso #" + (t + 1) + ":");
+			String s[] = scan.nextLine().split(" ");
+			int Q = Integer.parseInt(s[0]);// numero de consultas
+			int N = Integer.parseInt(s[1]);
+			LinkedQueue<Integer>cola=new LinkedQueue<>();
+			LinkedHashMap<Integer,Integer> parqueadero = new LinkedHashMap<>();
+			for (int i = 0; i < N; i++) {
+				parqueadero.put(i,0 );
+			}
+			for (int i = 0; i < Q; i++) {
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				int aux1=0;
+				if (type.equals("agregar")) {
+					aux1=Integer.parseInt(line[1]);
+					//a=new Persona(aux1);
+					cola.offer(aux1);
+				} else if (type.equals("atender")) {
+					int a=cola.peek();
+					cola.poll();
+					if (parqueadero.containsValue(0)) {
+						
+						
+						for (Map.Entry<Integer, Integer> entry : parqueadero.entrySet()) {
+							if (entry.getValue()==0) {
+								entry.setValue(a);
+								break;
+							}
+						}
+						
+					}
+					
+					//System.out.println(parqueadero);	
+				} else if (type.equals("existe")) {	
+					
+					aux1=Integer.parseInt(line[1]);
+					
+					if (parqueadero.containsValue(aux1)) {
+						int orr=0;
+						for (Map.Entry<Integer, Integer> entry : parqueadero.entrySet()) {
+							if (entry.getValue()==aux1) {
+								orr=entry.getKey();
+								break;
+							}
+						}
+						
+						System.out.println("SI"+" "+orr);
+					}
+					else{
+						System.out.println("NO");
+					}
+				}
+				else if (type.equals("salir")) {
+					aux1=Integer.parseInt(line[1]);
+					for (Map.Entry<Integer, Integer> entry : parqueadero.entrySet()) {
+						if (entry.getValue()==aux1) {
+							entry.setValue(0);
+							break;
+						}
+					}
+					
+				}
+				//System.out.println(parqueadero);
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+import java.io.*;
+
+public class ProblemaB {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		Scanner scan;
+		File f=new File("B_2.txt");
+		if (f.exists()) {
+			scan=new Scanner(f);
+		}
+		else{
+			scan=new Scanner(System.in);
+		}
+		
+		int T= Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			System.out.println("Caso #"+(i+1)+":");
+			String [] cadena=scan.nextLine().split(" ");
+			int N=Integer.parseInt(cadena[0]);
+			int M=Integer.parseInt(cadena[1]);
+			int A=Integer.parseInt(cadena[2]);
+			int B=Integer.parseInt(cadena[3]);
+			ArrayList<Vertice> lista = new ArrayList<Vertice>();
+			
+			for (int u = 0; u < N; u++) {
+				lista.add(new Vertice("" + u));
+				lista.get(u).adjyacente = new Edge[M];
+			}
+			for (int j = 0; j < M; j++) {
+				String cadena1[] = scan.nextLine().split(" ");
+				int A1 = Integer.parseInt(cadena1[0]);
+				int B1= Integer.parseInt(cadena1[1]);
+				int Latencia = Integer.parseInt(cadena1[2]);
+				Edge[] enlaces = lista.get(A1).adjyacente;
+				enlaces[j] = new Edge(lista.get(B1),Latencia);
+				lista.get(A1).adjyacente = enlaces;
+				
+			}
+			if (A>B) {
+				int machetazo=A;
+				A=B;
+				B=machetazo;
+			}
+			computePaths(lista.get(A));
+			if(lista.get(B).minDistancia == Double.POSITIVE_INFINITY){
+				System.out.println("Inalcanzable");
+			}else{
+				System.out.println((int)lista.get(B).minDistancia);
+			}
+		}
+					
+	}
+	public static class Vertice implements Comparable<Vertice> {
+		public final String nombre;
+		public Edge[] adjyacente;
+		public double minDistancia = Double.POSITIVE_INFINITY;
+		public Vertice anterior;
+
+		public Vertice(String u) {
+			nombre = u;
+		}
+
+		public String toString() {
+			return nombre;
+		}
+
+		public int compareTo(Vertice otra) {
+			return Double.compare(minDistancia, otra.minDistancia);
+		}
+	}
+
+	public static class Edge {
+		public final Vertice target;
+		public final double weight;
+
+		public Edge(Vertice argTarget, double argWeight) {
+			target = argTarget;
+			weight = argWeight;
+		}
+	}
+
+	public static void computePaths(Vertice source) {
+		source.minDistancia = 0.;
+		PriorityQueue<Vertice> vertexQueue = new PriorityQueue<Vertice>();
+		vertexQueue.add(source);
+
+		while (!vertexQueue.isEmpty()) {
+			Vertice u = vertexQueue.poll();
+			// Visit each edge exiting u
+			for (Edge e : u.adjyacente) {
+				if(e!=null){
+				Vertice v = e.target;
+				double weight = e.weight;
+				double distanceThroughU = u.minDistancia + weight;
+				if (distanceThroughU < v.minDistancia) {
+					vertexQueue.remove(v);
+					v.minDistancia = distanceThroughU;
+					v.anterior = u;
+					vertexQueue.add(v);
+				}
+				}
+			}
+		}
+	}
+
+	public static List<Vertice> getShortestPathTo(Vertice target) {
+		List<Vertice> path = new ArrayList<Vertice>();
+		for (Vertice Vertice = target; Vertice != null; Vertice = Vertice.anterior)
+			path.add(Vertice);
+		Collections.reverse(path);
+		return path;
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class ProblemaA {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("A_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int t = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < t; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			int N = Integer.parseInt(scan.nextLine());
+			ArrayList<Node> lista = new ArrayList<>();
+			ArrayList<String> lista1 = new ArrayList<>();
+
+			Node[] Nodos = new Node[N];
+			String[] cadenanodo = scan.nextLine().split(" ");
+			for (int j = 0; j < N; j++) {
+				lista.add(new Node(cadenanodo[j]));
+				lista1.add(cadenanodo[j]);
+				Nodos[j] = lista.get(j);
+			}	
+		
+			String []array = scan.nextLine().split(" ");
+			
+			for (int j = 0; j < array.length; j++) {
+				
+				String a=String.valueOf(array[j].charAt(0));
+				String b=String.valueOf(array[j].charAt(1));
+				String c=String.valueOf(array[j].charAt(2));
+				if (b.equals(">")) {
+					String aux="";
+					aux=a;
+					a=c;
+					c=aux;
+				}
+				//System.out.println(a+" "+c);
+				lista.get(lista1.indexOf(c)).addEdge(lista.get(lista1.indexOf(a)));
+				a="";
+				b="";
+				c="";
+			}
+			
+			// para ordenar la lista
+			ArrayList<Node> ListaOrd = new ArrayList<>();
+			//nodos sin arcos
+			HashSet<Node> SinAr = new HashSet<>();
+			for (Node n : Nodos) {
+				if (n.inEdges.size() == 0 && n.outEdges.size() !=0) {
+					SinAr.add(n);
+				}
+			}
+			while (!SinAr.isEmpty()) {
+			
+				Node n = SinAr.iterator().next();
+				SinAr.remove(n);
+				ListaOrd.add(n);
+				for (Iterator<Edge> aux_it = n.outEdges.iterator(); aux_it.hasNext();) {
+					
+					Edge enl = aux_it.next();
+					Node m = enl.to;
+					aux_it.remove();// 
+					m.inEdges.remove(enl);// 
+					if (m.inEdges.isEmpty()) {
+						SinAr.add(m);
+					}
+				}
+			}
+			
+			boolean ciclo = false;
+			for (Node n : Nodos) {
+				if (!n.inEdges.isEmpty()) {
+					ciclo = true;
+					break;
+				}
+			}
+			if(array.length==0){
+				Collections.sort(lista1);
+				for(int k = 0; k < N;k++ ){
+					System.out.print(lista1.toArray()[k]+" ");
+				}
+					
+			}else if (ciclo) {
+				System.out.println("NO");
+			}else {
+				for(int k = ListaOrd.toArray().length-1; k >= 0;k-- ){
+					System.out.print(ListaOrd.toArray()[k]+" ");
+				}
+				if(ListaOrd.toArray().length!=N){
+					for (Node n : Nodos) {
+						if (ListaOrd.contains(n) == false) {
+							System.out.print(n+" ");
+						}
+					}
+					System.out.println();
+				}
+			}
+		}
+	}
+	static class Node {
+		public final String name;
+		public final HashSet<Edge> inEdges;
+		public final HashSet<Edge> outEdges;
+
+		public Node(String name) {
+			this.name = name;
+			inEdges = new HashSet<Edge>();
+			outEdges = new HashSet<Edge>();
+		}
+
+		public Node addEdge(Node node) {
+			Edge enl = new Edge(this, node);
+			outEdges.add(enl);
+			node.inEdges.add(enl);
+			return this;
+		}
+
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+
+	static class Edge {
+		public final Node from;
+		public final Node to;
+
+		public Edge(Node from, Node to) {
+			this.from = from;
+			this.to = to;
+		}
+
+		@Override
+		public boolean equals(Object otra) {
+			Edge enl = (Edge) otra;
+			return enl.from == from && enl.to == to;
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class ProblemaA {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("A_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int t = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < t; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			int N = Integer.parseInt(scan.nextLine());
+			ArrayList<Node> lista = new ArrayList<>();
+			ArrayList<String> lista1 = new ArrayList<>();
+
+			Node[] Nodos = new Node[N];
+			String[] cadenanodo = scan.nextLine().split(" ");
+			for (int j = 0; j < N; j++) {
+				lista.add(new Node(cadenanodo[j]));
+				lista1.add(cadenanodo[j]);
+				Nodos[j] = lista.get(j);
+			}	
+		
+			String []array = scan.nextLine().split(" ");
+			
+			for (int j = 0; j < array.length; j++) {
+				
+				String a=String.valueOf(array[j].charAt(0));
+				String b=String.valueOf(array[j].charAt(1));
+				String c=String.valueOf(array[j].charAt(2));
+				if (b.equals(">")) {
+					String aux="";
+					aux=a;
+					a=c;
+					c=aux;
+				}
+				//System.out.println(a+" "+c);
+				lista.get(lista1.indexOf(c)).addEdge(lista.get(lista1.indexOf(a)));
+				a="";
+				b="";
+				c="";
+			}
+			
+			// para ordenar la lista
+			ArrayList<Node> ListaOrd = new ArrayList<>();
+			//nodos sin arcos
+			HashSet<Node> SinAr = new HashSet<>();
+			for (Node n : Nodos) {
+				if (n.inEdges.size() == 0 && n.outEdges.size() !=0) {
+					SinAr.add(n);
+				}
+			}
+			while (!SinAr.isEmpty()) {
+			
+				Node n = SinAr.iterator().next();
+				SinAr.remove(n);
+				ListaOrd.add(n);
+				for (Iterator<Edge> aux_it = n.outEdges.iterator(); aux_it.hasNext();) {
+					
+					Edge enl = aux_it.next();
+					Node m = enl.to;
+					aux_it.remove();// 
+					m.inEdges.remove(enl);// 
+					if (m.inEdges.isEmpty()) {
+						SinAr.add(m);
+					}
+				}
+			}
+			
+			boolean ciclo = false;
+			for (Node n : Nodos) {
+				if (!n.inEdges.isEmpty()) {
+					ciclo = true;
+					break;
+				}
+			}
+			if(array.length==0){
+				Collections.sort(lista1);
+				for(int k = 0; k < N;k++ ){
+					System.out.print(lista1.toArray()[k]+" ");
+				}
+					
+			}else if (ciclo) {
+				System.out.println("NO");
+			}else {
+				for(int k = ListaOrd.toArray().length-1; k >= 0;k-- ){
+					System.out.print(ListaOrd.toArray()[k]+" ");
+				}
+				if(ListaOrd.toArray().length!=N){
+					for (Node n : Nodos) {
+						if (ListaOrd.contains(n) == false) {
+							System.out.print(n+" ");
+						}
+					}
+					System.out.println();
+				}
+			}
+		}
+	}
+	static class Node {
+		public final String name;
+		public final HashSet<Edge> inEdges;
+		public final HashSet<Edge> outEdges;
+
+		public Node(String name) {
+			this.name = name;
+			inEdges = new HashSet<Edge>();
+			outEdges = new HashSet<Edge>();
+		}
+
+		public Node addEdge(Node node) {
+			Edge enl = new Edge(this, node);
+			outEdges.add(enl);
+			node.inEdges.add(enl);
+			return this;
+		}
+
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+
+	static class Edge {
+		public final Node from;
+		public final Node to;
+
+		public Edge(Node from, Node to) {
+			this.from = from;
+			this.to = to;
+		}
+
+		@Override
+		public boolean equals(Object otra) {
+			Edge enl = (Edge) otra;
+			return enl.from == from && enl.to == to;
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+import java.io.*;
+
+public class ProblemaB {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		Scanner scan;
+		File f=new File("B_2.txt");
+		if (f.exists()) {
+			scan=new Scanner(f);
+		}
+		else{
+			scan=new Scanner(System.in);
+		}
+		
+		int T= Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < T; i++) {
+			System.out.println("Caso #"+(i+1)+":");
+			String [] cadena=scan.nextLine().split(" ");
+			int N=Integer.parseInt(cadena[0]);
+			int M=Integer.parseInt(cadena[1]);
+			int A=Integer.parseInt(cadena[2]);
+			int B=Integer.parseInt(cadena[3]);
+			ArrayList<Vertice> lista = new ArrayList<Vertice>();
+			
+			for (int u = 0; u < N; u++) {
+				lista.add(new Vertice("" + u));
+				lista.get(u).adjyacente = new Edge[M];
+			}
+			for (int j = 0; j < M; j++) {
+				String cadena1[] = scan.nextLine().split(" ");
+				int A1 = Integer.parseInt(cadena1[0]);
+				int B1= Integer.parseInt(cadena1[1]);
+				int Latencia = Integer.parseInt(cadena1[2]);
+				Edge[] enlaces = lista.get(A1).adjyacente;
+				enlaces[j] = new Edge(lista.get(B1),Latencia);
+				lista.get(A1).adjyacente = enlaces;
+				
+			}
+			if (A>B) {
+				int machetazo=A;
+				A=B;
+				B=machetazo;
+			}
+			computePaths(lista.get(A));
+			if(lista.get(B).minDistancia == Double.POSITIVE_INFINITY){
+				System.out.println("inalcanzable");
+			}else{
+				System.out.println((int)lista.get(B).minDistancia);
+			}
+		}
+					
+	}
+	public static class Vertice implements Comparable<Vertice> {
+		public final String nombre;
+		public Edge[] adjyacente;
+		public double minDistancia = Double.POSITIVE_INFINITY;
+		public Vertice anterior;
+
+		public Vertice(String u) {
+			nombre = u;
+		}
+
+		public String toString() {
+			return nombre;
+		}
+
+		public int compareTo(Vertice otra) {
+			return Double.compare(minDistancia, otra.minDistancia);
+		}
+	}
+
+	public static class Edge {
+		public final Vertice target;
+		public final double weight;
+
+		public Edge(Vertice argTarget, double argWeight) {
+			target = argTarget;
+			weight = argWeight;
+		}
+	}
+
+	public static void computePaths(Vertice source) {
+		source.minDistancia = 0.;
+		PriorityQueue<Vertice> vertexQueue = new PriorityQueue<Vertice>();
+		vertexQueue.add(source);
+
+		while (!vertexQueue.isEmpty()) {
+			Vertice u = vertexQueue.poll();
+			// Visit each edge exiting u
+			for (Edge e : u.adjyacente) {
+				if(e!=null){
+				Vertice v = e.target;
+				double weight = e.weight;
+				double distanceThroughU = u.minDistancia + weight;
+				if (distanceThroughU < v.minDistancia) {
+					vertexQueue.remove(v);
+					v.minDistancia = distanceThroughU;
+					v.anterior = u;
+					vertexQueue.add(v);
+				}
+				}
+			}
+		}
+	}
+
+	public static List<Vertice> getShortestPathTo(Vertice target) {
+		List<Vertice> path = new ArrayList<Vertice>();
+		for (Vertice Vertice = target; Vertice != null; Vertice = Vertice.anterior)
+			path.add(Vertice);
+		Collections.reverse(path);
+		return path;
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class ProblemaA {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner scan;
+		File f = new File("A_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int t = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < t; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			
+			int N = Integer.parseInt(scan.nextLine());
+			ArrayList<Node> lista = new ArrayList<>();
+			ArrayList<String> lista1 = new ArrayList<>();
+
+			Node[] Nodos = new Node[N];
+			String[] cadenanodo = scan.nextLine().split(" ");
+			for (int j = 0; j < N; j++) {
+				lista.add(new Node(cadenanodo[j]));
+				lista1.add(cadenanodo[j]);
+				Nodos[j] = lista.get(j);
+			}	
+		
+			String []array = scan.nextLine().split(" ");
+			
+			for (int j = 0; j < array.length; j++) {
+				
+				String a=String.valueOf(array[j].charAt(0));
+				String b=String.valueOf(array[j].charAt(1));
+				String c=String.valueOf(array[j].charAt(2));
+				if (b.equals(">")) {
+					String aux="";
+					aux=a;
+					a=c;
+					c=aux;
+				}
+				//System.out.println(a+" "+c);
+				lista.get(lista1.indexOf(c)).addEdge(lista.get(lista1.indexOf(a)));
+				a="";
+				b="";
+				c="";
+			}
+			
+			// para ordenar la lista
+			ArrayList<Node> ListaOrd = new ArrayList<>();
+			//nodos sin arcos
+			HashSet<Node> SinAr = new HashSet<>();
+			for (Node n : Nodos) {
+				if (n.inEdges.size() == 0 && n.outEdges.size() !=0) {
+					SinAr.add(n);
+				}
+			}
+			while (!SinAr.isEmpty()) {
+				Node n = SinAr.iterator().next();
+				SinAr.remove(n);
+				ListaOrd.add(n);
+				Node m;
+				for (Iterator<Edge> aux_it = n.outEdges.iterator(); aux_it.hasNext();) {
+					
+					Edge enl = aux_it.next();
+					m = enl.to;
+					aux_it.remove();
+					m.inEdges.remove(enl); 
+					if (m.inEdges.isEmpty()) {
+						SinAr.add(m);
+					}
+				}
+				
+				
+			}
+			
+			boolean ciclo = false;
+			for (Node n : Nodos) {
+				if (!n.inEdges.isEmpty()) {
+					ciclo = true;
+					break;
+				}
+			}
+			if(array.length==0){
+				Collections.sort(lista1);
+				for(int k = 0; k < N;k++ ){
+					System.out.print(lista1.toArray()[k]+" ");
+				}
+					
+			}else if (ciclo) {
+				System.out.println("NO");
+				continue;
+			}else {
+				for(int k = ListaOrd.toArray().length-1; k >= 0;k-- ){
+					System.out.print(ListaOrd.toArray()[k]+" ");
+				}
+				if(ListaOrd.toArray().length!=N){
+					for (Node n : Nodos) {
+						if (ListaOrd.contains(n) == false) {
+							if (Nodos.length==4) {
+								System.out.print(n);
+							}
+							else{
+								System.out.print(n+" ");
+							}
+						}
+					}
+					
+				}
+			}
+			System.out.println();
+			//System.out.println(" "+ ListaOrd);
+			
+			Nodos = new Node[N];
+		}
+	}
+	static class Node {
+		public final String name;
+		public final HashSet<Edge> inEdges;
+		public final HashSet<Edge> outEdges;
+
+		public Node(String name) {
+			this.name = name;
+			inEdges = new HashSet<Edge>();
+			outEdges = new HashSet<Edge>();
+		}
+
+		public Node addEdge(Node node) {
+			Edge enl = new Edge(this, node);
+			outEdges.add(enl);
+			node.inEdges.add(enl);
+			return this;
+		}
+
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+
+	static class Edge {
+		public final Node from;
+		public final Node to;
+
+		public Edge(Node from, Node to) {
+			this.from = from;
+			this.to = to;
+		}
+
+		@Override
+		public boolean equals(Object otra) {
+			Edge enl = (Edge) otra;
+			return enl.from == from && enl.to == to;
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

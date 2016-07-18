@@ -1,0 +1,5918 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+	//System.setIn(new FileInputStream(new File("entrada.txt")));
+        File file=new File("A_1.txt");
+        Scanner sc = new Scanner(System.in);
+        
+        BigInteger max =new BigInteger("0");
+        BigInteger temp;
+        
+        int num = sc.nextInt();
+        //List<BigInteger> in=new ArrayList<>();
+        BigInteger[] in=new BigInteger[num];
+        
+        for (int x=0; x < num; x++) {
+            in[x]=sc.nextBigInteger();
+        }
+        
+        for (int x = 0; x < num; x++) {
+            for (int y = x + 1; y < num; y++) {
+                temp =in[x].multiply(in[y]);
+                if (temp.compareTo(max) > 0) {
+                    max = temp;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        File file = new File("B_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int caso = 0;
+        while (sc.hasNextLine()) {
+            caso++;
+            int tam = sc.nextInt();
+            int[][] tab = new int[tam][tam];
+
+            for (int x = 0; x < tam; x++) {
+                for (int y = 0; y < tam; y++) {
+                    tab[x][y] = sc.nextInt();
+                }
+            }
+            /*
+             System.out.println("--");
+             for(int x=0;x<tam;x++){
+             for(int y=0;y<tam;y++){
+             System.out.print(tab[x][y]+" ");
+             }
+             System.out.println("");
+             }
+             */
+            int count = 0;
+            for (int x = 0; x < tam; x++) {
+                for (int y = 0; y < tam; y++) {
+                    if (inst.isWinner(tam, x, y, tab) == true) {
+                        count++;
+                    }
+                }
+            }
+
+            System.out.println("Case #" + caso + ":\n" + count);
+
+        }
+
+    }
+
+    public boolean isWinner(int tam, int i, int j, int[][] tab) {
+        int fil = 0, col = 0;
+        for (int y = 0; y < tam; y++) {
+            fil += tab[i][y];
+        }
+        for (int x = 0; x < tam; x++) {
+            col += tab[x][j];
+        }
+        return fil < col;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        File file = new File("C_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int casos = sc.nextInt();
+        for (int c = 1; c <= casos; c++) {
+            int count = 0;
+            int teams = sc.nextInt();
+            int[][] color = new int[teams][2];
+            for (int t = 0; t < teams; t++) {
+                color[t][0] = sc.nextInt();
+                color[t][1] = sc.nextInt();
+            }
+
+            for (int local = 0; local < teams; local++) {
+                for (int guest = 0; guest < teams; guest++) {
+                    if (local == guest) {
+                        continue;
+                    }
+                    if (color[local][0] == color[guest][1]) {
+                        count++;
+                    }
+                }
+            }
+
+            System.out.println("Case #" + c + ":\n" + count);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        File file = new File("B_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int caso = 0;
+        try {
+            while (sc.hasNextLine()) {
+                caso++;
+                int tam = sc.nextInt();
+                int[][] tab = new int[tam][tam];
+
+                for (int x = 0; x < tam; x++) {
+                    for (int y = 0; y < tam; y++) {
+                        tab[x][y] = sc.nextInt();
+                    }
+                }
+                int count = 0;
+                for (int x = 0; x < tam; x++) {
+                    for (int y = 0; y < tam; y++) {
+                        if (inst.isWinner(tam, x, y, tab) == true) {
+                            count++;
+                        }
+                    }
+                }
+
+                System.out.println("Case #" + caso + ":\n" + count);
+
+            }
+        } catch (Exception e) {
+        }
+
+    }
+
+    public boolean isWinner(int tam, int i, int j, int[][] tab) {
+        int fil = 0, col = 0;
+        for (int y = 0; y < tam; y++) {
+            fil += tab[i][y];
+        }
+        for (int x = 0; x < tam; x++) {
+            col += tab[x][j];
+        }
+        return fil < col;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        //PD inst = new PD();
+        File file = new File("D_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int caso = sc.nextInt();
+
+        for (int c = 0; c < caso; c++) {
+            //'#'=35
+            //'.'=46
+            //int tam=Integer.parseInt(sc.nextLine());
+            int tam = sc.nextInt();
+            sc.nextLine();
+            char[][] choco = new char[tam][tam];
+
+            for (int x = 0; x < tam; x++) {
+                String line = sc.nextLine();
+                for (int y = 0; y < tam; y++) {
+                    choco[x][y] = line.charAt(y);
+                }
+            }
+            //arreglo lleno
+
+            boolean can = false;
+            for (int x = 0; x < tam - 1; x++) {//comparar horizontalmente
+                int str1 = 0, str2 = 0;
+                for (int col = 0; col < x + 1; col++) {//de col 0 a col x
+                    for (int i = 0; i < tam; i++) {//recorre columna
+                        if (choco[i][col] == '#') {
+                            str1++;
+                        }
+                    }
+                }
+                for (int col = x + 1; col < tam; col++) {//de col x a col tam
+                    for (int i = 0; i < tam; i++) {//recorre columna
+                        if (choco[i][col] == '#') {
+                            str2++;
+                        }
+                    }
+                }
+
+                if (str1 == str2) {
+                    //System.out.println("iguales en col " + x);
+                    //System.out.println("str1 " + str1 + " " + "str2 " + str2);
+                    can = true;
+                    break;
+                }
+            }
+            if (can == false) {
+                for (int y = 0; y < tam - 1; y++) {//comparar verticalmente
+                    int str1 = 0, str2 = 0;
+                    for (int fil = 0; fil < y + 1; fil++) {//de fil 0 a fil x
+                        for (int i = 0; i < tam; i++) {//recorre columna
+                            if (choco[fil][i] == '#') {
+                                str1++;
+                            }
+                        }
+                    }
+                    for (int fil = y + 1; fil < tam; fil++) {//de col x a col tam
+                        for (int i = 0; i < tam; i++) {//recorre columna
+                            if (choco[fil][i] == '#') {
+                                str2++;
+                            }
+                        }
+                    }
+                    if (str1 == str2) {
+                        //System.out.println("iguales en fil " + y);
+                        //System.out.println("str1 " + str1 + " " + "str2 " + str2);
+                        can = true;
+                        break;
+                    }
+                }
+            }
+            
+            //respuesta
+            if (can == true) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        //PD inst = new PD();
+        File file = new File("D_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int caso = sc.nextInt();
+
+        for (int c = 0; c < caso; c++) {
+            //'#'=35
+            //'.'=46
+            //int tam=Integer.parseInt(sc.nextLine());
+            int tam = sc.nextInt();
+            sc.nextLine();
+            char[][] choco = new char[tam][tam];
+
+            for (int x = 0; x < tam; x++) {
+                String line = sc.nextLine();
+                for (int y = 0; y < tam; y++) {
+                    choco[x][y] = line.charAt(y);
+                }
+            }
+            //arreglo lleno
+
+            boolean can = false;
+            for (int x = 0; x < tam - 1; x++) {//comparar horizontalmente
+                int str1 = 0, str2 = 0;
+                for (int col = 0; col < x + 1; col++) {//de col 0 a col x
+                    for (int i = 0; i < tam; i++) {//recorre columna
+                        if (choco[i][col] == '#') {
+                            str1++;
+                        }
+                    }
+                }
+                for (int col = x + 1; col < tam; col++) {//de col x a col tam
+                    for (int i = 0; i < tam; i++) {//recorre columna
+                        if (choco[i][col] == '#') {
+                            str2++;
+                        }
+                    }
+                }
+
+                if (str1 == str2) {
+                    //System.out.println("iguales en col " + x);
+                    //System.out.println("str1 " + str1 + " " + "str2 " + str2);
+                    can = true;
+                    break;
+                }
+            }
+            if (can == false) {
+                for (int y = 0; y < tam - 1; y++) {//comparar verticalmente
+                    int str1 = 0, str2 = 0;
+                    for (int fil = 0; fil < y + 1; fil++) {//de fil 0 a fil x
+                        for (int i = 0; i < tam; i++) {//recorre columna
+                            if (choco[fil][i] == '#') {
+                                str1++;
+                            }
+                        }
+                    }
+                    for (int fil = y + 1; fil < tam; fil++) {//de col x a col tam
+                        for (int i = 0; i < tam; i++) {//recorre columna
+                            if (choco[fil][i] == '#') {
+                                str2++;
+                            }
+                        }
+                    }
+                    if (str1 == str2) {
+                        //System.out.println("iguales en fil " + y);
+                        //System.out.println("str1 " + str1 + " " + "str2 " + str2);
+                        can = true;
+                        break;
+                    }
+                }
+            }
+            
+            //respuesta
+            if (can == true) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        //PD inst = new PD();
+        File file = new File("D_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int caso = sc.nextInt();
+
+        for (int c = 0; c < caso; c++) {
+            //'#'=35
+            //'.'=46
+            //int tam=Integer.parseInt(sc.nextLine());
+            int tam = sc.nextInt();
+            sc.nextLine();
+            char[][] choco = new char[tam][tam];
+            int[] cereza_fil = new int[tam];
+            int[] cereza_col = new int[tam];
+
+            for (int y = 0; y < tam; y++) {
+                cereza_fil[y]=0;
+                cereza_col[y]=0;
+            }
+
+            for (int x = 0; x < tam; x++) {
+                String line = sc.nextLine();
+                for (int y = 0; y < tam; y++) {
+                    choco[x][y] = line.charAt(y);
+                    if (choco[x][y]=='#') {
+                        cereza_fil[x]++;
+                        cereza_col[y]++;
+                    }
+                }
+            }
+            //arreglo lleno
+
+            boolean can = false;
+            for (int x = 0; x < tam - 1; x++) {//comparar horizontalmente
+                int str1 = 0, str2 = 0;
+                for (int col = 0; col < x + 1; col++) {//de col 0 a col x
+                    str1+=cereza_col[col];
+                }
+                for (int col = x + 1; col < tam; col++) {//de col x a col tam
+                    str2+=cereza_col[col];
+                }
+
+                if (str1 == str2) {
+                    //System.out.println("iguales en col " + x);
+                    //System.out.println("str1 " + str1 + " " + "str2 " + str2);
+                    can = true;
+                    break;
+                }
+            }
+            if (can == false) {
+                for (int y = 0; y < tam - 1; y++) {//comparar verticalmente
+                    int str1 = 0, str2 = 0;
+                    for (int fil = 0; fil < y + 1; fil++) {//de fil 0 a fil x
+                        str1+=cereza_fil[fil];
+                    }
+                    for (int fil = y + 1; fil < tam; fil++) {//de col x a col tam
+                        str2+=cereza_fil[fil];
+                    }
+                    if (str1 == str2) {
+                        //System.out.println("iguales en fil " + y);
+                        //System.out.println("str1 " + str1 + " " + "str2 " + str2);
+                        can = true;
+                        break;
+                    }
+                }
+            }
+
+            //respuesta
+            if (can == true) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        File file = new File("B_2.txt");
+        Scanner sc = new Scanner(System.in);
+        int te=sc.nextInt();
+        int[] con=new int[5];    
+        int count=0;
+        for(int x=0;x<5;x++){
+            con[x]=sc.nextInt();
+            if(con[x]==te)count++;
+        }
+        System.out.println(count);
+        }
+    }
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    BinarySearchTree arbol = new BinarySearchTree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PA/A_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            int comandos = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Caso #"+x+":");
+            
+            for (int y = 0; y < comandos; y++) {
+                //System.out.println(sc.nextLine());
+                String line = sc.nextLine();
+                String[] comando = line.split(" ");
+                switch (comando[0]) {
+                    case "agregar":
+                        arbol.insert(Integer.parseInt(comando[1]));
+                        break;
+                    case "distancia":
+                        System.out.println("distancia: "+arbol.distancia(Integer.parseInt(comando[1]), Integer.parseInt(comando[2])));
+                        break;
+                    case "ancestro":
+                        System.out.println("ancestro: "+arbol.ancestro(Integer.parseInt(comando[1]), Integer.parseInt(comando[2])));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            arbol.makeEmpty();
+            //arbol.printTree();
+            //bla.next();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class BinarySearchTree {
+
+        private BinaryNode root;
+
+        public BinarySearchTree() {
+            root = null;
+        }
+
+        public void insert(int x) {
+            root = insert(x, root, null);
+        }
+
+        public boolean contains(int x) {
+            return contains(x, root);
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void printTree() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTree2(root);
+            }
+        }
+
+        private BinaryNode insert(int x, BinaryNode t, BinaryNode parent) {
+            if (t == null) {
+                return new BinaryNode(x, null, null, parent);
+            }
+
+            int compareResult = compare(x, t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left, t);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right, t);
+            } else
+            ;  // Duplicate; do nothing
+            return t;
+        }
+
+        private boolean contains(int x, BinaryNode t) {
+            if (t == null) {
+                return false;
+            }
+
+            int compareResult = compare(x, t.element);
+
+            if (compareResult < 0) {
+                return contains(x, t.left);
+            } else if (compareResult > 0) {
+                return contains(x, t.right);
+            } else {
+                return true;    // Match
+            }
+        }
+
+        public BinaryNode search(int id) {
+            return search(id, root);
+        }
+
+        private BinaryNode search(int id, BinaryNode t) {
+            if (t != null) {
+                if (id == t.element) {
+                    return t;
+                } else if (id < t.element) {
+                    return search(id, t.left);
+                } else if (id > t.element) {
+                    return search(id, t.right);
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        }
+
+        private void printTree(BinaryNode t) {
+            if (t != null) {
+                printTree(t.left);
+                System.out.println(t.element);
+                printTree(t.right);
+            }
+        }
+
+        //levels
+        private void printTree2(BinaryNode a) {
+            Deque<BinaryNode> c = new LinkedList<>();
+
+            BinaryNode aux;
+            c.addLast(a);
+
+            while (!c.isEmpty()) {
+                aux = c.removeFirst();
+
+                System.out.print(aux.element + ",");
+
+                if (aux.left != null) {
+                    c.addLast(aux.left);
+                }
+                if (aux.right != null) {
+                    c.addLast(aux.right);
+                }
+            }
+
+        }
+
+        private int compare(int x, int y) {
+            if (x < y) {
+                return -1;
+            } else if (x > y) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        //MINIMO ANCESTRO COMOUN ENTRE DOS NODOS
+        public int ancestro(int x, int y) {
+            BinaryNode temp;
+            BinaryNode u = arbol.search(x);
+            BinaryNode v = arbol.search(y);
+            if (u == null || v == null) {
+                return -1;
+            }
+
+            //camino de u a root
+            LinkedList<BinaryNode> uPath = new LinkedList<>();
+            temp = u;
+            while (temp != null) {
+                uPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //camino de v a root
+            LinkedList<BinaryNode> vPath = new LinkedList<>();
+            temp = v;
+            while (temp != null) {
+                vPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //comparar caminos
+            for (BinaryNode uItem : uPath) {
+                for (BinaryNode vItem : vPath) {
+                    if (uItem.equals(vItem)) {
+                        return uItem.element;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        //DISTANCIA ENTRE DOS NODOS
+        public int distancia(int x, int y) {
+            BinaryNode temp, ancestro = null;
+            BinaryNode u = arbol.search(x);
+            BinaryNode v = arbol.search(y);
+            if (u == null || v == null) {
+                return -1;
+            }
+
+            //camino de u a root
+            LinkedList<BinaryNode> uPath = new LinkedList<>();
+            temp = u;
+            while (temp != null) {
+                uPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //camino de v a root
+            LinkedList<BinaryNode> vPath = new LinkedList<>();
+            temp = v;
+            while (temp != null) {
+                vPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //encontrar minimo ancestro comun
+            loop:
+            for (BinaryNode uItem : uPath) {
+                for (BinaryNode vItem : vPath) {
+                    if (uItem.equals(vItem)) {
+                        ancestro = uItem;
+                        break loop;
+                    }
+                }
+            }
+
+            //contar aristas desde minimo ancestro comun
+            if (ancestro != null) {
+                int aristas = 0;
+                temp = u;
+                while (!temp.equals(ancestro)) {
+                    aristas++;
+                    temp=temp.parent;
+                }
+                
+                temp = v;
+                while (!temp.equals(ancestro)) {
+                    aristas++;
+                    temp=temp.parent;
+                }
+                
+                return aristas;
+            }
+            
+            return -1;
+        }
+
+        // Basic node stored in unbalanced binary search trees
+        private class BinaryNode {
+
+            int element;       // The data in the node
+            BinaryNode left;   // Left child
+            BinaryNode right;  // Right child
+            BinaryNode parent;
+
+            // Constructors
+            BinaryNode(int theElement, BinaryNode parent) {
+                this(theElement, null, null, parent);
+            }
+
+            BinaryNode(int theElement, BinaryNode lt, BinaryNode rt, BinaryNode prnt) {
+                element = theElement;
+                left = lt;
+                right = rt;
+                parent = prnt;
+            }
+        }
+    }
+//------------------------------------------------------------------------------
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    BinarySearchTree arbol = new BinarySearchTree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PA/A_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            int comandos = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Caso #"+x+":");
+            
+            for (int y = 0; y < comandos; y++) {
+                //System.out.println(sc.nextLine());
+                String line = sc.nextLine();
+                String[] comando = line.split(" ");
+                switch (comando[0]) {
+                    case "agregar":
+                        arbol.insert(Integer.parseInt(comando[1]));
+                        break;
+                    case "distancia":
+                        System.out.println("distancia: "+arbol.distancia(Integer.parseInt(comando[1]), Integer.parseInt(comando[2])));
+                        break;
+                    case "ancestro":
+                        System.out.println("ancestro: "+arbol.ancestro(Integer.parseInt(comando[1]), Integer.parseInt(comando[2])));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            arbol.makeEmpty();
+            //arbol.printTree();
+            //bla.next();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class BinarySearchTree {
+
+        private BinaryNode root;
+
+        public BinarySearchTree() {
+            root = null;
+        }
+
+        public void insert(int x) {
+            root = insert(x, root, null);
+        }
+
+        public boolean contains(int x) {
+            return contains(x, root);
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void printTree() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTree2(root);
+            }
+        }
+
+        private BinaryNode insert(int x, BinaryNode t, BinaryNode parent) {
+            if (t == null) {
+                return new BinaryNode(x, null, null, parent);
+            }
+
+            int compareResult = compare(x, t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left, t);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right, t);
+            } else
+            ;  // Duplicate; do nothing
+            return t;
+        }
+
+        private boolean contains(int x, BinaryNode t) {
+            if (t == null) {
+                return false;
+            }
+
+            int compareResult = compare(x, t.element);
+
+            if (compareResult < 0) {
+                return contains(x, t.left);
+            } else if (compareResult > 0) {
+                return contains(x, t.right);
+            } else {
+                return true;    // Match
+            }
+        }
+
+        public BinaryNode search(int id) {
+            return search(id, root);
+        }
+
+        private BinaryNode search(int id, BinaryNode t) {
+            if (t != null) {
+                if (id == t.element) {
+                    return t;
+                } else if (id < t.element) {
+                    return search(id, t.left);
+                } else if (id > t.element) {
+                    return search(id, t.right);
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        }
+
+        private void printTree(BinaryNode t) {
+            if (t != null) {
+                printTree(t.left);
+                System.out.println(t.element);
+                printTree(t.right);
+            }
+        }
+
+        //levels
+        private void printTree2(BinaryNode a) {
+            Deque<BinaryNode> c = new LinkedList<>();
+
+            BinaryNode aux;
+            c.addLast(a);
+
+            while (!c.isEmpty()) {
+                aux = c.removeFirst();
+
+                System.out.print(aux.element + ",");
+
+                if (aux.left != null) {
+                    c.addLast(aux.left);
+                }
+                if (aux.right != null) {
+                    c.addLast(aux.right);
+                }
+            }
+
+        }
+
+        private int compare(int x, int y) {
+            if (x < y) {
+                return -1;
+            } else if (x > y) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        //MINIMO ANCESTRO COMOUN ENTRE DOS NODOS
+        public int ancestro(int x, int y) {
+            BinaryNode temp;
+            BinaryNode u = arbol.search(x);
+            BinaryNode v = arbol.search(y);
+            if (u == null || v == null) {
+                return -1;
+            }
+
+            //camino de u a root
+            LinkedList<BinaryNode> uPath = new LinkedList<>();
+            temp = u;
+            while (temp != null) {
+                uPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //camino de v a root
+            LinkedList<BinaryNode> vPath = new LinkedList<>();
+            temp = v;
+            while (temp != null) {
+                vPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //comparar caminos
+            for (BinaryNode uItem : uPath) {
+                for (BinaryNode vItem : vPath) {
+                    if (uItem.equals(vItem)) {
+                        return uItem.element;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        //DISTANCIA ENTRE DOS NODOS
+        public int distancia(int x, int y) {
+            BinaryNode temp, ancestro = null;
+            BinaryNode u = arbol.search(x);
+            BinaryNode v = arbol.search(y);
+            if (u == null || v == null) {
+                return -1;
+            }
+
+            //camino de u a root
+            LinkedList<BinaryNode> uPath = new LinkedList<>();
+            temp = u;
+            while (temp != null) {
+                uPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //camino de v a root
+            LinkedList<BinaryNode> vPath = new LinkedList<>();
+            temp = v;
+            while (temp != null) {
+                vPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //encontrar minimo ancestro comun
+            loop:
+            for (BinaryNode uItem : uPath) {
+                for (BinaryNode vItem : vPath) {
+                    if (uItem.equals(vItem)) {
+                        ancestro = uItem;
+                        break loop;
+                    }
+                }
+            }
+
+            //contar aristas desde minimo ancestro comun
+            if (ancestro != null) {
+                int aristas = 0;
+                temp = u;
+                while (!temp.equals(ancestro)) {
+                    aristas++;
+                    temp=temp.parent;
+                }
+                
+                temp = v;
+                while (!temp.equals(ancestro)) {
+                    aristas++;
+                    temp=temp.parent;
+                }
+                
+                return aristas;
+            }
+            
+            return -1;
+        }
+
+        // Basic node stored in unbalanced binary search trees
+        private class BinaryNode {
+
+            int element;       // The data in the node
+            BinaryNode left;   // Left child
+            BinaryNode right;  // Right child
+            BinaryNode parent;
+
+            // Constructors
+            BinaryNode(int theElement, BinaryNode parent) {
+                this(theElement, null, null, parent);
+            }
+
+            BinaryNode(int theElement, BinaryNode lt, BinaryNode rt, BinaryNode prnt) {
+                element = theElement;
+                left = lt;
+                right = rt;
+                parent = prnt;
+            }
+        }
+    }
+//------------------------------------------------------------------------------
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package PB;
+//PB
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    Tree arbol = new Tree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PB/B_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            System.out.println("Caso #" + x + ":");
+            int nodos = sc.nextInt();
+            sc.nextLine();
+
+            for (int y = 0; y < nodos; y++) {
+                //System.out.println(sc.nextLine());
+                String line = sc.nextLine();
+                String nodo[] = line.split(" ");
+
+                int parent = Integer.parseInt(nodo[0]);
+
+                LinkedList<Integer> children = new LinkedList<>();
+                for (int a = 1; a < nodo.length; a++) {
+                    children.add(Integer.parseInt(nodo[a]));
+                }
+                if (nodo.length == 1) {
+                    children = null;
+                }
+
+                arbol.insert(parent, children);
+            }
+
+            arbol.floorSeparated();
+            //arbol.printTreeLevels();
+            arbol.printTreeZigZag();
+            System.out.println("");
+            arbol.makeEmpty();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class Tree {
+
+        private TreeNode root;
+        LinkedList<LinkedList<TreeNode>> floors;
+
+        public Tree() {
+            root = null;
+        }
+
+        public void setRoot(TreeNode root) {
+            this.root = root;
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void insert(int parentVal, LinkedList<Integer> children) {
+            if (children != null) {
+                TreeNode parent = search(parentVal);
+                if (parent == null) {//primer valor(root)
+                    setRoot(new TreeNode(parentVal, null));
+                    parent = root;
+                }
+                //System.out.println("Parent: "+parent.value);Lista de nodos padres
+                for (int childVal : children) {
+                    parent.addChildren(childVal);
+                }
+            }
+        }
+
+        public TreeNode search(int id) {
+            return search(id, root);
+        }
+
+        private TreeNode search(int id, TreeNode t) {
+            if (t != null) {
+                if (t.value == id) {
+                    return t;
+                } else {
+                    for (TreeNode hijo : t.children) {
+                        TreeNode temp = search(id, hijo);
+                        if (temp != null) {
+                            return temp;
+                        }
+                    }
+                }
+            } else {
+                return null;
+            }
+            return null;
+        }
+
+        public void printTreePreorder(TreeNode t) {
+            if (t != null) {
+                System.out.print(t.value + "(" + t.depth + ") ");
+                for (TreeNode child : t.children) {
+                    printTreePreorder(child);
+                }
+            }
+        }
+
+        //after floorSeparated()
+        public void printTreeLevels() {
+            for (LinkedList<TreeNode> piso : floors) {
+                for (TreeNode nodo : piso) {
+                    System.out.print(nodo.value + " ");
+                }
+                System.out.println("");
+            }
+        }
+
+        public void printTreeZigZag() {
+            for (int x = 0; x < floors.size(); x++) {
+                LinkedList<TreeNode> piso = floors.get(x);
+                if (x % 2 == 1) {//impares al reves
+                    Collections.reverse(piso);
+                }
+                for (TreeNode nodo : piso) {
+                    System.out.print(nodo.value + " ");
+                }
+            }
+            System.out.print("\b");
+        }
+
+        public void floorSeparated() {
+            floors = new LinkedList<>();
+            floorSeparated(root);
+        }
+
+        private void floorSeparated(TreeNode actual) {
+            if (actual != null) {
+                if (floors.size() == actual.depth) {
+                    floors.add(new LinkedList<TreeNode>());
+                }
+
+                floors.get(actual.depth).add(actual);
+
+                for (TreeNode child : actual.children) {
+                    floorSeparated(child);
+                }
+            }
+        }
+
+        private class TreeNode {
+
+            int value;
+            int depth;
+            LinkedList<TreeNode> children;
+            TreeNode parent;
+
+            // Constructors
+            TreeNode(int value, TreeNode parent) {
+                this(value, new LinkedList<TreeNode>(), parent);
+            }
+
+            TreeNode(int value, LinkedList<TreeNode> children, TreeNode parent) {
+                this.value = value;
+                this.children = children;
+                this.parent = parent;
+                if (parent == null) {
+                    depth = 0;
+                } else {
+                    depth = parent.depth + 1;
+                }
+            }
+
+            public void addChildren(int value) {
+                TreeNode newChild = new TreeNode(value, this);
+                children.add(newChild);
+            }
+        }//TreeNode
+
+    }//Tree
+//------------------------------------------------------------------------------
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package PC;
+//PC
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    Tree arbol = new Tree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PC/C_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();//numero de casos de prueba
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            System.out.println("Caso #" + x + ":");
+            int nodos = sc.nextInt();//numero de nodos del arbol
+            sc.nextLine();
+
+            String line = sc.nextLine();
+            String[] val = line.split(" ");
+            int[] values = new int[nodos + 1];//ARREGLO CON VALORES PARA NODOS(1 - N)
+
+            int total = 0;//suma total de valores
+            int count = 1;
+            for (String value : val) {//pasar valores de string a int y hacer la suma del total(el arreglo tiene valores de 1 a n)
+                values[count] = Integer.parseInt(value);
+                total += values[count];
+                count++;
+            }
+
+            for (int y = 0; y < nodos - 1; y++) {//lee e inserta conexiones entre nodos
+
+                line = sc.nextLine();
+                String conn[] = line.split(" ");
+
+                int pId = Integer.parseInt(conn[0]);
+                int pValue = values[pId];
+
+                int cId = Integer.parseInt(conn[1]);
+                int cValue = values[cId];
+
+                arbol.insert(pId, pValue, cId, cValue);
+            }
+
+            /*
+             System.out.print("preorden: ");
+             arbol.printTreePreorder(arbol.root);
+             System.out.println("");
+             */
+            //Primer paso: combinar hojas menores
+            int combinar;
+            do {
+                combinar = 0;
+                combinar += arbol.merge(arbol.root, total);
+            } while (combinar >= 1);
+
+            /*
+             //--
+             //imprimir despues de primer paso
+             System.out.print("after merge: ");
+             arbol.printTreePreorder(arbol.root);
+             System.out.println("");
+             //--
+             */
+            int hojas = arbol.leafNumber(arbol.root);
+            //Segundo paso: combinar desde la raiz
+            LinkedList<Integer> segundo;
+            if (hojas >= 2) {
+                boolean s;
+                do {
+                    s = false;
+                    s = arbol.mergeRoot(total);
+                } while (s);
+                segundo = arbol.toListInorder();
+            } else {
+                segundo = arbol.toListPreorder();
+                do {
+                    combinar = 0;
+                    int suma = segundo.get(0) + segundo.get(1);
+                    if (suma <= total / 2) {
+                        segundo.removeFirst();
+                        segundo.set(0, suma);
+                        combinar++;
+                    }
+                } while (combinar >= 1);
+            }
+            /*
+             //--
+             //imprimir despues de segundo paso
+             System.out.print("after merge: ");
+             for (int a : segundo) {
+             System.out.print(a + " ");
+             }
+             System.out.println("");
+             //--
+             */
+            switch (segundo.size()) {
+                case 2:
+                    System.out.print(Math.abs((segundo.get(0) - segundo.get(1))));
+                    break;
+                case 3:
+                    int min = Math.min(segundo.get(0), segundo.get(2));
+                    int max = Math.max(segundo.get(0), segundo.get(2));
+                    int respuesta = Math.abs(max - (segundo.get(1) + min));
+                    System.out.print(respuesta);
+                    break;
+
+            }
+
+            System.out.println("");
+            arbol.makeEmpty();
+        }//for caso x
+    }//run()
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class Tree {
+
+        private TreeNode root;
+        LinkedList<Integer> lista;
+
+        public Tree() {
+            root = null;
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void setRoot(TreeNode root) {
+            this.root = root;
+        }
+
+        public LinkedList<Integer> toListPreorder() {
+            lista = new LinkedList<>();
+            toListPreorder(root);
+            return lista;
+        }
+
+        public LinkedList<Integer> toListInorder() {
+            lista = new LinkedList<>();
+            toListInorder(root);
+            return lista;
+        }
+
+        private void toListInorder(TreeNode actual) {
+            if (actual != null) {
+                toListPreorder(actual.left);
+                lista.add(actual.value);
+                toListPreorder(actual.right);
+            }
+        }
+
+        private void toListPreorder(TreeNode actual) {
+            if (actual != null) {
+                lista.add(actual.value);
+                toListPreorder(actual.left);
+                toListPreorder(actual.right);
+            }
+        }
+
+        public int height(TreeNode actual) {
+            if (actual == null) {
+                return 0;
+            } else {
+                return Math.max(height(actual.left), height(actual.right)) + 1;
+            }
+        }
+
+        public int leafNumber(TreeNode actual) {
+            if (actual.isLeaf()) {
+                return 1;
+            } else {
+                int ret = 0;
+                if (actual.left != null) {
+                    ret += leafNumber(actual.left);
+                }
+                if (actual.right != null) {
+                    ret += leafNumber(actual.right);
+                }
+                return ret;
+            }
+        }
+
+        public boolean mergeRoot(int total) {
+            boolean combinar = false;
+
+            if (root.left != null) {
+                int result = root.value + root.left.value;
+                if (result <= total / 2) {
+                    root.left.value = result;
+                    root.left.parent = null;
+                    root = root.left;
+                    combinar = true;
+                }
+            } else if (root.right != null) {
+                int result = root.value + root.right.value;
+                if (result <= total / 2) {
+                    root.right.value = result;
+                    root.right.parent = null;
+                    root = root.right;
+                    combinar = true;
+                }
+            } else {
+
+            }
+
+            return combinar;//si se quedo falso es porque no pudo combinar mas
+        }
+
+        public int merge(TreeNode actual, int total) {
+            int combinar = 0;
+            if (actual != null) {
+
+                boolean izqIsLeaf = false;
+                if (actual.left != null) {
+                    izqIsLeaf = actual.left.isLeaf();//mirar si hijo izquierdo es hoja
+                }
+                boolean derIsLeaf = false;
+                if (actual.right != null) {
+                    derIsLeaf = actual.right.isLeaf();//mirar si hijo derecho es hoja
+                }
+
+                if (!izqIsLeaf) {//si hijo izquierdo no es hoja
+                    combinar += merge(actual.left, total);
+                }
+                if (!derIsLeaf) {//si hijo derecho no es hoja
+                    combinar += merge(actual.right, total);
+                }
+
+                if (izqIsLeaf && derIsLeaf) {//si izq y der son hojas
+                    //combinar con el menor si se puede
+                    if (actual.left.value < actual.right.value) {
+                        combinar += mergeLeft(actual, total);
+                    } else {
+                        combinar += mergeRight(actual, total);
+                    }
+                }
+
+                if (izqIsLeaf && !derIsLeaf) {//si izq es hoja y derecho no
+                    //combinar con hijo izquierdo
+                    combinar += mergeLeft(actual, total);
+                }
+                if (!izqIsLeaf && derIsLeaf) {//si izq no es hoja y derecho si
+                    //combinar con hijo derecho
+                    combinar += mergeRight(actual, total);
+                }
+            }
+            return combinar;//si se quedo falso es porque recorrio todo el arbol y no pudo combinar mas
+        }
+
+        private int mergeLeft(TreeNode actual, int total) {
+            int result = actual.value + actual.left.value;
+            if (result <= total / 2) {
+                actual.value = result;
+                actual.left = null;
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        private int mergeRight(TreeNode actual, int total) {
+            int result = actual.value + actual.right.value;
+            if (result <= total / 2) {
+                actual.value = result;
+                actual.right = null;
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        public void insert(int parentId, int parentValue, int newId, int newValue) {
+            TreeNode parent = search(parentId);
+            if (parent == null) {//primer valor(root)
+                setRoot(new TreeNode(parentId, parentValue, null));
+                parent = root;
+            }
+            parent.addChildren(newId, newValue);
+        }
+
+        public TreeNode search(int id) {
+            return search(id, root);
+        }
+
+        private TreeNode search(int id, TreeNode actual) {
+            TreeNode temp;
+            if (actual != null) {
+                if (actual.id == id) {
+                    return actual;
+                } else {
+
+                    temp = search(id, actual.left);
+                    if (temp != null) {
+                        return temp;
+                    }
+                    temp = search(id, actual.right);
+                    if (temp != null) {
+                        return temp;
+                    }
+                }
+            } else {
+                return null;
+            }
+            return null;
+        }
+
+        public void printTreePreorder(TreeNode t) {
+            if (t != null) {
+                System.out.print("(" + t.id + ")" + t.value + " ");
+                printTreePreorder(t.left);
+                printTreePreorder(t.right);
+            }
+        }
+
+        private class TreeNode {
+
+            int id;
+            int value;
+            TreeNode left;
+            TreeNode right;
+            TreeNode parent;
+
+            // Constructors
+            TreeNode(int id, int value, TreeNode parent) {
+                this(id, value, null, null, parent);
+            }
+
+            TreeNode(int id, int value, TreeNode left, TreeNode right, TreeNode parent) {
+                this.id = id;
+                this.value = value;
+                this.left = left;
+                this.right = right;
+                this.parent = parent;
+            }
+
+            public boolean isLeaf() {
+                return left == null && right == null;
+            }
+
+            public void addChildren(int id, int value) {
+                TreeNode newChild = new TreeNode(id, value, this);
+                if (left == null) {
+                    left = newChild;
+                } else {
+                    right = newChild;
+                }
+            }
+        }//TreeNode
+
+    }//Tree
+//------------------------------------------------------------------------------
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package PB;
+//PB
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    Tree arbol = new Tree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PB/B_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            System.out.println("Caso #" + x + ":");
+            int nodos = sc.nextInt();
+            sc.nextLine();
+
+            for (int y = 0; y < nodos; y++) {
+                //System.out.println(sc.nextLine());
+                String line = sc.nextLine();
+                String nodo[] = line.split(" ");
+
+                int parent = Integer.parseInt(nodo[0]);
+
+                LinkedList<Integer> children = new LinkedList<>();
+                for (int a = 1; a < nodo.length; a++) {
+                    children.add(Integer.parseInt(nodo[a]));
+                }
+                if (nodo.length == 1) {
+                    children = null;
+                }
+
+                arbol.insert(parent, children);
+            }
+
+            arbol.floorSeparated();
+            //arbol.printTreeLevels();
+            arbol.printTreeZigZag();
+            System.out.println("");
+            arbol.makeEmpty();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class Tree {
+
+        private TreeNode root;
+        LinkedList<LinkedList<TreeNode>> floors;
+
+        public Tree() {
+            root = null;
+        }
+
+        public void setRoot(TreeNode root) {
+            this.root = root;
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void insert(int parentVal, LinkedList<Integer> children) {
+            if (children != null) {
+                TreeNode parent = search(parentVal);
+                if (parent == null) {//primer valor(root)
+                    setRoot(new TreeNode(parentVal, null));
+                    parent = root;
+                }
+                //System.out.println("Parent: "+parent.value);Lista de nodos padres
+                for (int childVal : children) {
+                    parent.addChildren(childVal);
+                }
+            }
+        }
+
+        public TreeNode search(int id) {
+            return search(id, root);
+        }
+
+        private TreeNode search(int id, TreeNode t) {
+            if (t != null) {
+                if (t.value == id) {
+                    return t;
+                } else {
+                    for (TreeNode hijo : t.children) {
+                        TreeNode temp = search(id, hijo);
+                        if (temp != null) {
+                            return temp;
+                        }
+                    }
+                }
+            } else {
+                return null;
+            }
+            return null;
+        }
+
+        public void printTreePreorder(TreeNode t) {
+            if (t != null) {
+                System.out.print(t.value + "(" + t.depth + ") ");
+                for (TreeNode child : t.children) {
+                    printTreePreorder(child);
+                }
+            }
+        }
+
+        //after floorSeparated()
+        public void printTreeLevels() {
+            for (LinkedList<TreeNode> piso : floors) {
+                for (TreeNode nodo : piso) {
+                    System.out.print(nodo.value + " ");
+                }
+                System.out.println("");
+            }
+        }
+
+        public void printTreeZigZag() {
+            for (int x = 0; x < floors.size(); x++) {
+                LinkedList<TreeNode> piso = floors.get(x);
+                if (x % 2 == 1) {//impares al reves
+                    Collections.reverse(piso);
+                }
+                for (TreeNode nodo : piso) {
+                    System.out.print(nodo.value + " ");
+                }
+            }
+            System.out.print("\b");
+        }
+
+        public void floorSeparated() {
+            floors = new LinkedList<>();
+            floorSeparated(root);
+        }
+
+        private void floorSeparated(TreeNode actual) {
+            if (actual != null) {
+                if (floors.size() == actual.depth) {
+                    floors.add(new LinkedList<TreeNode>());
+                }
+
+                floors.get(actual.depth).add(actual);
+
+                for (TreeNode child : actual.children) {
+                    floorSeparated(child);
+                }
+            }
+        }
+
+        private class TreeNode {
+
+            int value;
+            int depth;
+            LinkedList<TreeNode> children;
+            TreeNode parent;
+
+            // Constructors
+            TreeNode(int value, TreeNode parent) {
+                this(value, new LinkedList<TreeNode>(), parent);
+            }
+
+            TreeNode(int value, LinkedList<TreeNode> children, TreeNode parent) {
+                this.value = value;
+                this.children = children;
+                this.parent = parent;
+                if (parent == null) {
+                    depth = 0;
+                } else {
+                    depth = parent.depth + 1;
+                }
+            }
+
+            public void addChildren(int value) {
+                TreeNode newChild = new TreeNode(value, this);
+                children.add(newChild);
+            }
+        }//TreeNode
+
+    }//Tree
+//------------------------------------------------------------------------------
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PC;
+//PC
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    Tree arbol = new Tree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PC/C_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();//numero de casos de prueba
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            System.out.println("Caso #" + x + ":");
+            int nodos = sc.nextInt();//numero de nodos del arbol
+            sc.nextLine();
+
+            String line = sc.nextLine();
+            String[] val = line.split(" ");
+            int[] values = new int[nodos + 1];//ARREGLO CON VALORES PARA NODOS(1 - N)
+
+            int total = 0;//suma total de valores
+            int count = 1;
+            for (String value : val) {//pasar valores de string a int y hacer la suma del total(el arreglo tiene valores de 1 a n)
+                values[count] = Integer.parseInt(value);
+                total += values[count];
+                count++;
+            }
+
+            for (int y = 0; y < nodos - 1; y++) {//lee e inserta conexiones entre nodos
+
+                line = sc.nextLine();
+                String conn[] = line.split(" ");
+
+                int pId = Integer.parseInt(conn[0]);
+                int pValue = values[pId];
+
+                int cId = Integer.parseInt(conn[1]);
+                int cValue = values[cId];
+
+                arbol.insert(pId, pValue, cId, cValue);
+            }
+
+            /*
+             System.out.print("preorden: ");
+             arbol.printTreePreorder(arbol.root);
+             System.out.println("");
+             */
+            //Primer paso: combinar hojas menores
+            int combinar;
+            do {
+                combinar = 0;
+                combinar += arbol.merge(arbol.root, total);
+            } while (combinar >= 1);
+
+            /*
+             //--
+             //imprimir despues de primer paso
+             System.out.print("after merge: ");
+             arbol.printTreePreorder(arbol.root);
+             System.out.println("");
+             //--
+             */
+            int hojas = arbol.leafNumber(arbol.root);
+            //Segundo paso: combinar desde la raiz
+            LinkedList<Integer> segundo;
+            if (hojas >= 2) {
+                boolean s;
+                do {
+                    s = false;
+                    s = arbol.mergeRoot(total);
+                } while (s);
+                segundo = arbol.toListInorder();
+            } else {
+                segundo = arbol.toListPreorder();
+                do {
+                    combinar = 0;
+                    int suma = segundo.get(0) + segundo.get(1);
+                    if (suma <= total / 2) {
+                        segundo.removeFirst();
+                        segundo.set(0, suma);
+                        combinar++;
+                    }
+                } while (combinar >= 1);
+            }
+            /*
+             //--
+             //imprimir despues de segundo paso
+             System.out.print("after merge: ");
+             for (int a : segundo) {
+             System.out.print(a + " ");
+             }
+             System.out.println("");
+             //--
+             */
+            switch (segundo.size()) {
+                case 2:
+                    System.out.print(Math.abs((segundo.get(0) - segundo.get(1))));
+                    break;
+                case 3:
+                    int min = Math.min(segundo.get(0), segundo.get(2));
+                    int max = Math.max(segundo.get(0), segundo.get(2));
+                    int respuesta = Math.abs(max - (segundo.get(1) + min));
+                    System.out.print(respuesta);
+                    break;
+
+            }
+
+            System.out.println("");
+            arbol.makeEmpty();
+        }//for caso x
+    }//run()
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class Tree {
+
+        private TreeNode root;
+        LinkedList<Integer> lista;
+
+        public Tree() {
+            root = null;
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void setRoot(TreeNode root) {
+            this.root = root;
+        }
+
+        public LinkedList<Integer> toListPreorder() {
+            lista = new LinkedList<>();
+            toListPreorder(root);
+            return lista;
+        }
+
+        public LinkedList<Integer> toListInorder() {
+            lista = new LinkedList<>();
+            toListInorder(root);
+            return lista;
+        }
+
+        private void toListInorder(TreeNode actual) {
+            if (actual != null) {
+                toListPreorder(actual.left);
+                lista.add(actual.value);
+                toListPreorder(actual.right);
+            }
+        }
+
+        private void toListPreorder(TreeNode actual) {
+            if (actual != null) {
+                lista.add(actual.value);
+                toListPreorder(actual.left);
+                toListPreorder(actual.right);
+            }
+        }
+
+        public int height(TreeNode actual) {
+            if (actual == null) {
+                return 0;
+            } else {
+                return Math.max(height(actual.left), height(actual.right)) + 1;
+            }
+        }
+
+        public int leafNumber(TreeNode actual) {
+            if (actual.isLeaf()) {
+                return 1;
+            } else {
+                int ret = 0;
+                if (actual.left != null) {
+                    ret += leafNumber(actual.left);
+                }
+                if (actual.right != null) {
+                    ret += leafNumber(actual.right);
+                }
+                return ret;
+            }
+        }
+
+        public boolean mergeRoot(int total) {
+            boolean combinar = false;
+
+            if (root.left != null) {
+                int result = root.value + root.left.value;
+                if (result <= total / 2) {
+                    root.left.value = result;
+                    root.left.parent = null;
+                    root = root.left;
+                    combinar = true;
+                }
+            } else if (root.right != null) {
+                int result = root.value + root.right.value;
+                if (result <= total / 2) {
+                    root.right.value = result;
+                    root.right.parent = null;
+                    root = root.right;
+                    combinar = true;
+                }
+            } else {
+
+            }
+
+            return combinar;//si se quedo falso es porque no pudo combinar mas
+        }
+
+        public int merge(TreeNode actual, int total) {
+            int combinar = 0;
+            if (actual != null) {
+
+                boolean izqIsLeaf = false;
+                if (actual.left != null) {
+                    izqIsLeaf = actual.left.isLeaf();//mirar si hijo izquierdo es hoja
+                }
+                boolean derIsLeaf = false;
+                if (actual.right != null) {
+                    derIsLeaf = actual.right.isLeaf();//mirar si hijo derecho es hoja
+                }
+
+                if (!izqIsLeaf) {//si hijo izquierdo no es hoja
+                    combinar += merge(actual.left, total);
+                }
+                if (!derIsLeaf) {//si hijo derecho no es hoja
+                    combinar += merge(actual.right, total);
+                }
+
+                if (izqIsLeaf && derIsLeaf) {//si izq y der son hojas
+                    //combinar con el menor si se puede
+                    if (actual.left.value < actual.right.value) {
+                        combinar += mergeLeft(actual, total);
+                    } else {
+                        combinar += mergeRight(actual, total);
+                    }
+                }
+
+                if (izqIsLeaf && !derIsLeaf) {//si izq es hoja y derecho no
+                    //combinar con hijo izquierdo
+                    combinar += mergeLeft(actual, total);
+                }
+                if (!izqIsLeaf && derIsLeaf) {//si izq no es hoja y derecho si
+                    //combinar con hijo derecho
+                    combinar += mergeRight(actual, total);
+                }
+            }
+            return combinar;//si se quedo falso es porque recorrio todo el arbol y no pudo combinar mas
+        }
+
+        private int mergeLeft(TreeNode actual, int total) {
+            int result = actual.value + actual.left.value;
+            if (result <= total / 2) {
+                actual.value = result;
+                actual.left = null;
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        private int mergeRight(TreeNode actual, int total) {
+            int result = actual.value + actual.right.value;
+            if (result <= total / 2) {
+                actual.value = result;
+                actual.right = null;
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        public void insert(int parentId, int parentValue, int newId, int newValue) {
+            TreeNode parent = search(parentId);
+            if (parent == null) {//primer valor(root)
+                setRoot(new TreeNode(parentId, parentValue, null));
+                parent = root;
+            }
+            parent.addChildren(newId, newValue);
+        }
+
+        public TreeNode search(int id) {
+            return search(id, root);
+        }
+
+        private TreeNode search(int id, TreeNode actual) {
+            TreeNode temp;
+            if (actual != null) {
+                if (actual.id == id) {
+                    return actual;
+                } else {
+
+                    temp = search(id, actual.left);
+                    if (temp != null) {
+                        return temp;
+                    }
+                    temp = search(id, actual.right);
+                    if (temp != null) {
+                        return temp;
+                    }
+                }
+            } else {
+                return null;
+            }
+            return null;
+        }
+
+        public void printTreePreorder(TreeNode t) {
+            if (t != null) {
+                System.out.print("(" + t.id + ")" + t.value + " ");
+                printTreePreorder(t.left);
+                printTreePreorder(t.right);
+            }
+        }
+
+        private class TreeNode {
+
+            int id;
+            int value;
+            TreeNode left;
+            TreeNode right;
+            TreeNode parent;
+
+            // Constructors
+            TreeNode(int id, int value, TreeNode parent) {
+                this(id, value, null, null, parent);
+            }
+
+            TreeNode(int id, int value, TreeNode left, TreeNode right, TreeNode parent) {
+                this.id = id;
+                this.value = value;
+                this.left = left;
+                this.right = right;
+                this.parent = parent;
+            }
+
+            public boolean isLeaf() {
+                return left == null && right == null;
+            }
+
+            public void addChildren(int id, int value) {
+                TreeNode newChild = new TreeNode(id, value, this);
+                if (left == null) {
+                    left = newChild;
+                } else {
+                    right = newChild;
+                }
+            }
+        }//TreeNode
+
+    }//Tree
+//------------------------------------------------------------------------------
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PD;
+//PD
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    LinkedList<Arbol> arboles = new LinkedList<>();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PD/D_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int comandos = sc.nextInt();//numero de casos de prueba
+        sc.nextLine();
+        for (int x = 0; x < comandos; x++) {
+            String line = sc.nextLine();
+            String[] comando = line.split(" ");
+            
+            //System.out.print("["+line+"]: ");//debug
+            switch (comando[0]) {
+                case "insertar":
+                    insertar(Integer.parseInt(comando[1]), Integer.parseInt(comando[2]));
+                    break;
+
+                case "unir":
+                    unir(Integer.parseInt(comando[1]), Integer.parseInt(comando[2]));
+                    break;
+
+                case "contiene":
+                    String resp = contiene(Integer.parseInt(comando[1]), Integer.parseInt(comando[2]));
+                    if (resp != null) {
+                        System.out.println("contiene: " + resp);
+                    }
+                    break;
+
+                case "ocurrencia":
+                    int r = ocurrencia(Integer.parseInt(comando[1]), Integer.parseInt(comando[2]));
+                    if (r != -1) {
+                        System.out.println("ocurrencia: " + r);
+                    }
+                    break;
+
+                case "crear":
+                    crear(Integer.parseInt(comando[1]), Integer.parseInt(comando[2]));
+                    break;
+            }
+            //System.out.println("");//debug
+        }//for comandos
+    }//run()
+
+    //main method
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //insertar x en arbol idx
+    public boolean insertar(int idx, int x) {
+        for (Arbol a : arboles) {
+            if (a.id == idx) {
+                a.tree.insert(x, 1);
+                
+                //a.tree.printTreePre();//debug
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //insertar datos de arbol idy en arbol idx
+    public boolean unir(int idx, int idy) {
+        for (int x = 0; x < arboles.size(); x++) {
+            if (arboles.get(x).id == idx) {
+                for (int y = 0; y < arboles.size(); y++) {
+                    if (arboles.get(y).id == idy) {
+                        /*
+                         System.out.println("Arbol " + idx + " preorder:");
+                         arboles.get(x).tree.printTreePre();
+                         System.out.println("");
+                         */
+
+                        //pasar datos de arbol y a arbol x inorder(ascendente)
+                        pasar(x, arboles.get(y).tree.root);
+                        
+                        //borrar arbol idy
+                        arboles.remove(y);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public void pasar(int aIdx, AvlNode<Integer> t) {
+        if (t != null) {
+            pasar(aIdx, t.left);
+            arboles.get(aIdx).tree.insert(t.element, t.oc);
+            pasar(aIdx, t.right);
+        }
+    }
+
+    //"Yes" si idy es subarbol de idx, else "No"
+    public String contiene(int idx, int idy) {
+        AvlTree xTree = null, yTree = null;
+
+        //guardar arbol x,y
+        for (Arbol a : arboles) {
+            if (a.id == idy) {
+                yTree = a.tree;
+            }
+            if (a.id == idx) {
+                xTree = a.tree;
+            }
+        }
+
+        //si no existe alguno: omitir
+        if (xTree == null || yTree == null) {
+            return null;
+        }
+
+        //buscar nodo en x igual a raiz en y
+        AvlNode<Integer> subNodex = xTree.search(yTree.root.element);
+
+        //si la raiz de y no existe en x
+        if (subNodex == null) {
+            return "No";
+        } else {
+            boolean check = arbolIgual(subNodex, yTree.root);
+            if (check == true) {
+                return "Yes";
+            } else {
+                return "No";
+            }
+        }
+
+    }
+
+    boolean arbolIgual(AvlNode<Integer> rootx, AvlNode<Integer> rooty) {
+        if (rootx == null && rooty == null) {
+            return true;
+        }
+
+        if (rootx == null || rooty == null) {
+            return false;
+        }
+
+        //true si datos iguales e hijos iguales
+        return (rootx.element == rooty.element && rootx.oc == rooty.oc && arbolIgual(rootx.left, rooty.left) && arbolIgual(rootx.right, rooty.right));
+    }
+
+    //numero de ocurrencias de x en arbol idx
+    public int ocurrencia(int idx, int x) {
+        for (Arbol a : arboles) {//encontrar arbol con id: idx
+            if (a.id == idx) {
+                AvlNode<Integer> node = a.tree.search(x);//busca nodo con valor x
+                if (node == null) {//si no esta el valor x en el arbol
+                    return 0;
+                } else {
+                    return node.oc;
+                }
+            }
+        }
+        return -1;//si no encontro el arbol con id:idx
+    }
+
+    public boolean crear(int idx, int x) {
+        for (Arbol a : arboles) {
+            if (a.id == idx) {
+                return false;//si ya existe
+            }
+        }
+        arboles.add(new Arbol(idx));
+        insertar(idx, x);
+        return true;
+
+    }
+
+    public class Arbol {
+
+        public int id;
+        public AvlTree tree;
+
+        public Arbol(int id) {
+            this.id = id;
+            tree = new AvlTree();
+        }
+
+    }
+//------------------------------------------------------------------------------
+
+    public class AvlTree {
+
+        /**
+         * Construct the tree.
+         */
+        public AvlTree() {
+            root = null;
+        }
+
+        public LinkedList<AvlNode<Integer>> toListPreorder(AvlNode raiz) {
+            lista = new LinkedList<>();
+            toListPreorderR(raiz);
+            return lista;
+        }
+
+        private void toListPreorderR(AvlNode<Integer> actual) {
+            if (actual != null) {
+                lista.add(actual);
+                toListPreorder(actual.left);
+                toListPreorder(actual.right);
+            }
+        }
+
+        /**
+         * Insert into the tree; duplicates are ignored.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(Integer x, int oc) {
+            root = insert(x, root, oc);
+        }
+
+        /**
+         * Remove from the tree. Nothing is done if x is not found.
+         *
+         * @param x the item to remove.
+         */
+        public void remove(Integer x) {
+            root = remove(x, root);
+        }
+
+        /**
+         * Internal method to remove from a subtree.
+         *
+         * @param x the item to remove.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        private AvlNode<Integer> remove(Integer x, AvlNode<Integer> t) {
+            if (t == null) {
+                return t;   // Item not found; do nothing
+            }
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult == 0 && t.oc > 1) {
+                t.oc--;
+            } else if (compareResult < 0) {
+                t.left = remove(x, t.left);
+            } else if (compareResult > 0) {
+                t.right = remove(x, t.right);
+            } else if (t.left != null && t.right != null) // Two children
+            {
+                t.element = findMin(t.right).element;
+                t.right = remove(t.element, t.right);
+            } else {
+                t = (t.left != null) ? t.left : t.right;
+            }
+            return balance(t);
+        }
+
+        /**
+         * Find the smallest item in the tree.
+         *
+         * @return smallest item or null if empty.
+         */
+        public Integer findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMin(root).element;
+        }
+
+        /**
+         * Find the largest item in the tree.
+         *
+         * @return the largest item of null if empty.
+         */
+        public Integer findMax() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return findMax(root).element;
+        }
+
+        /**
+         * Find an item in the tree.
+         *
+         * @param x the item to search for.
+         * @return true if x is found.
+         */
+        public boolean contains(Integer x) {
+            return contains(x, root);
+        }
+
+        /**
+         * Find an item in the tree.
+         *
+         * @param x the item to search for.
+         * @return returns AvlNode that contains x.
+         */
+        public AvlNode search(Integer x) {
+            return search(x, root);
+        }
+
+        /**
+         * Make the tree logically empty.
+         */
+        public void makeEmpty() {
+            root = null;
+        }
+
+        /**
+         * Test if the tree is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        /**
+         * Print the tree contents in sorted order.
+         */
+        public void printTreePre() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTreePre(root);
+            }
+        }
+
+        public void printTreeIn() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTreeIn(root);
+            }
+        }
+
+        private static final int ALLOWED_IMBALANCE = 1;
+
+        // Assume t is either balanced or within one of being balanced
+        private AvlNode<Integer> balance(AvlNode<Integer> t) {
+            if (t == null) {
+                return t;
+            }
+
+            if (height(t.left) - height(t.right) > ALLOWED_IMBALANCE) {
+                if (height(t.left.left) >= height(t.left.right)) {
+                    t = rotateWithLeftChild(t);
+                } else {
+                    t = doubleWithLeftChild(t);
+                }
+            } else if (height(t.right) - height(t.left) > ALLOWED_IMBALANCE) {
+                if (height(t.right.right) >= height(t.right.left)) {
+                    t = rotateWithRightChild(t);
+                } else {
+                    t = doubleWithRightChild(t);
+                }
+            }
+
+            t.height = Math.max(height(t.left), height(t.right)) + 1;
+            return t;
+        }
+
+        public void checkBalance() {
+            checkBalance(root);
+        }
+
+        private int checkBalance(AvlNode<Integer> t) {
+            if (t == null) {
+                return -1;
+            }
+
+            if (t != null) {
+                int hl = checkBalance(t.left);
+                int hr = checkBalance(t.right);
+                if (Math.abs(height(t.left) - height(t.right)) > 1
+                        || height(t.left) != hl || height(t.right) != hr) {
+                    System.out.println("OOPS!!");
+                }
+            }
+
+            return height(t);
+        }
+
+        /**
+         * Internal method to insert into a subtree.
+         *
+         * @param x the item to insert.
+         * @param t the node that roots the subtree.
+         * @return the new root of the subtree.
+         */
+        private AvlNode<Integer> insert(Integer x, AvlNode<Integer> t, int oc) {
+            if (t == null) {
+                return new AvlNode<>(x, null, null, oc);
+            }
+
+            int compareResult = x.compareTo(t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left, oc);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right, oc);
+            } else {
+                t.oc += oc;
+            }
+            return balance(t);
+        }
+
+        /**
+         * Internal method to find the smallest item in a subtree.
+         *
+         * @param t the node that roots the tree.
+         * @return node containing the smallest item.
+         */
+        private AvlNode<Integer> findMin(AvlNode<Integer> t) {
+            if (t == null) {
+                return t;
+            }
+
+            while (t.left != null) {
+                t = t.left;
+            }
+            return t;
+        }
+
+        /**
+         * Internal method to find the largest item in a subtree.
+         *
+         * @param t the node that roots the tree.
+         * @return node containing the largest item.
+         */
+        private AvlNode<Integer> findMax(AvlNode<Integer> t) {
+            if (t == null) {
+                return t;
+            }
+
+            while (t.right != null) {
+                t = t.right;
+            }
+            return t;
+        }
+
+        /**
+         * Internal method to find an item in a subtree.
+         *
+         * @param x is item to search for.
+         * @param t the node that roots the tree.
+         * @return true if x is found in subtree.
+         */
+        private boolean contains(Integer x, AvlNode<Integer> t) {
+            while (t != null) {
+                int compareResult = x.compareTo(t.element);
+
+                if (compareResult < 0) {
+                    t = t.left;
+                } else if (compareResult > 0) {
+                    t = t.right;
+                } else {
+                    return true;    // Match
+                }
+            }
+
+            return false;   // No match
+        }
+
+        /**
+         * Internal method to find an item in a subtree.
+         *
+         * @param x is item to search for.
+         * @param t the node that roots the tree.
+         * @return An AvlNode if x is found in subtree, Null if not found.
+         */
+        private AvlNode search(Integer x, AvlNode<Integer> t) {
+            while (t != null) {
+                int compareResult = x.compareTo(t.element);
+
+                if (compareResult < 0) {
+                    t = t.left;
+                } else if (compareResult > 0) {
+                    t = t.right;
+                } else {
+                    return t;    // Match
+                }
+            }
+            return null;   // No match
+        }
+
+        /**
+         * Internal method to print a subtree in sorted order.
+         *
+         * @param t the node that roots the tree.
+         */
+        private void printTreePre(AvlNode<Integer> t) {
+            if (t != null) {
+                System.out.print(t.element + "(" + t.oc + ") ");
+                printTreePre(t.left);
+                printTreePre(t.right);
+            }
+        }
+
+        private void printTreeIn(AvlNode<Integer> t) {
+            if (t != null) {
+                printTreeIn(t.left);
+                System.out.print(t.element + "(" + t.oc + ") ");
+                printTreeIn(t.right);
+            }
+        }
+
+        /**
+         * Return the height of node t, or -1, if null.
+         */
+        private int height(AvlNode<Integer> t) {
+            return t == null ? -1 : t.height;
+        }
+
+        /**
+         * Rotate binary tree node with left child. For AVL trees, this is a
+         * single rotation for case 1. Update heights, then return new root.
+         */
+        private AvlNode<Integer> rotateWithLeftChild(AvlNode<Integer> k2) {
+            AvlNode<Integer> k1 = k2.left;
+            k2.left = k1.right;
+            k1.right = k2;
+            k2.height = Math.max(height(k2.left), height(k2.right)) + 1;
+            k1.height = Math.max(height(k1.left), k2.height) + 1;
+            return k1;
+        }
+
+        /**
+         * Rotate binary tree node with right child. For AVL trees, this is a
+         * single rotation for case 4. Update heights, then return new root.
+         */
+        private AvlNode<Integer> rotateWithRightChild(AvlNode<Integer> k1) {
+            AvlNode<Integer> k2 = k1.right;
+            k1.right = k2.left;
+            k2.left = k1;
+            k1.height = Math.max(height(k1.left), height(k1.right)) + 1;
+            k2.height = Math.max(height(k2.right), k1.height) + 1;
+            return k2;
+        }
+
+        /**
+         * Double rotate binary tree node: first left child with its right
+         * child; then node k3 with new left child. For AVL trees, this is a
+         * double rotation for case 2. Update heights, then return new root.
+         */
+        private AvlNode<Integer> doubleWithLeftChild(AvlNode<Integer> k3) {
+            k3.left = rotateWithRightChild(k3.left);
+            return rotateWithLeftChild(k3);
+        }
+
+        /**
+         * Double rotate binary tree node: first right child with its left
+         * child; then node k1 with new right child. For AVL trees, this is a
+         * double rotation for case 3. Update heights, then return new root.
+         */
+        private AvlNode<Integer> doubleWithRightChild(AvlNode<Integer> k1) {
+            k1.right = rotateWithLeftChild(k1.right);
+            return rotateWithRightChild(k1);
+        }
+
+        /**
+         * The tree root.
+         */
+        private AvlNode<Integer> root;
+        LinkedList<AvlNode<Integer>> lista;
+
+    }
+
+    public class AvlNode<AnyType> {
+
+        // Constructors
+        AvlNode(AnyType theElement) {
+            this(theElement, null, null, 0);
+        }
+
+        AvlNode(AnyType theElement, AvlNode<AnyType> lt, AvlNode<AnyType> rt, int oc) {
+            element = theElement;
+            left = lt;
+            right = rt;
+            height = 0;
+            this.oc = oc;
+        }
+
+        AnyType element;      // The data in the node
+        AvlNode<AnyType> left;         // Left child
+        AvlNode<AnyType> right;        // Right child
+        int height;       // Height
+        int oc;
+    }
+//------------------------------------------------------------------------------
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public void run() throws Exception {
+        File file = new File("src/PA/A_1.txt");
+        Scanner sc = new Scanner(file);
+        //Scanner sc = new Scanner(System.in);
+        int caseNum = sc.nextInt();
+        for (int caso = 0; caso < caseNum; caso++) {
+            int playerNum = sc.nextInt();
+            int commandNum = sc.nextInt();
+            sc.nextLine();
+
+            BinaryHeap<Print> bHeapPrint = new BinaryHeap<>();
+            Map<Integer, Player> hashPlayers;
+            hashPlayers = new HashMap<>();
+
+            int a = 0;
+            int b = 0;
+            int c = 0;
+            int d = 0;
+            for (int command = 0; command < commandNum; command++) {
+                int playerN, problemN, time;
+                String comando[] = sc.nextLine().split(" ");
+                playerN = Integer.parseInt(comando[0]);
+                problemN = Integer.parseInt(comando[1]);
+                time = Integer.parseInt(comando[2]);
+                String comm = comando[3];
+
+                switch (comm) {
+                    case "C":
+                        a++;
+                        Player jugadorTmp = hashPlayers.get(playerN);
+                        Player newJugador;
+                        if (jugadorTmp == null) {
+                            newJugador = new Player(problemN, time);
+                            newJugador.problemNum = 1;
+                            newJugador.time = time;
+                            hashPlayers.put(playerN, newJugador);
+                            //newjImprimir= new jImprimir(njugador,1,tiempo);
+                            //bhImprimir.insert(newjImprimir);
+                        } else {
+
+                            int problemaTmp = jugadorTmp.getp(problemN);
+
+                            if (problemaTmp == 0) {
+                                jugadorTmp.prob.put(problemN, time);
+                                jugadorTmp.problemNum++;
+                                jugadorTmp.time = jugadorTmp.time + time;
+                                //borrar de la cola e insertarlo
+
+                            } else {
+                                int tiempoTmp = jugadorTmp.prob.get(problemN);
+                                jugadorTmp.prob.remove(problemN);
+                                jugadorTmp.prob.put(problemN, time + tiempoTmp);
+                                jugadorTmp.problemNum++;
+                                jugadorTmp.time = jugadorTmp.time + time + tiempoTmp;
+                            }
+                        }
+                        break;
+
+                    case "I":
+                        b++;
+                        break;
+
+                    case "T":
+                        c++;
+                        break;
+
+                    case "R":
+                        d++;
+                        break;
+
+                    default:
+                        break;
+                }//comm switch end
+
+                if (!comm.equals("C")) {
+                    Player jugadorTmp = hashPlayers.get(playerN);
+                    Player newJugador;
+                    if (jugadorTmp == null) {
+                        newJugador = new Player(problemN, 20);
+                        hashPlayers.put(playerN, newJugador);
+                    } else {
+
+                        int problemaTmp = jugadorTmp.prob.get(problemN);
+
+                        if (problemaTmp == 0) {
+                            jugadorTmp.prob.put(problemN, 20);
+                        } else {
+                            int tiempoTmp = jugadorTmp.prob.get(problemN);
+                            jugadorTmp.prob.remove(problemN);
+                            jugadorTmp.prob.put(problemN, 20 + tiempoTmp);
+                        }
+
+                    }
+                }
+
+            }//command for end
+
+            Print printNew;
+            Iterator<Map.Entry<Integer, Player>> it = hashPlayers.entrySet().iterator();
+            while (it.hasNext()) {
+                Entry<Integer, Player> entry = it.next();
+                printNew = new Print(entry.getKey(), entry.getValue().problemNum, entry.getValue().time);
+                bHeapPrint.insert(printNew);
+            }
+            ArrayList<Print> xlist = new ArrayList<>();
+            while (!bHeapPrint.isEmpty()) {
+                xlist.add(bHeapPrint.deleteMin());
+            }
+
+            for (int y = xlist.size() - 1; y >= 0; y--) {
+                System.out.println(xlist.get(y).playerId + " " + xlist.get(y).accepted + " " + xlist.get(y).time);
+            }
+            xlist.clear();
+            System.out.println(a + " " + b + " " + c + " " + d);
+
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //----------------------------------------------------------------------------//clase BinaryHeap
+    public class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+        /**
+         * Construct the binary heap.
+         */
+        public BinaryHeap() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         */
+        public BinaryHeap(int capacity) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public BinaryHeap(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private int currentSize;      // Number of elements in heap
+        private AnyType[] array; // The heap array
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && array[child + 1].compareTo(array[child]) < 0) {
+                    child++;
+                }
+                if (array[child].compareTo(tmp) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+
+    }//BinaryHeap class end
+    //----------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------//clase Player
+    class Player {
+
+        Map<Integer, Integer> prob = new HashMap<>();
+
+        public Player(int probNum, int time) {
+            prob.put(probNum, time);
+        }
+
+        public Integer getp(int key) {
+            if (prob.containsKey(key)) {
+                return prob.get(key);
+            } else {
+                return 0;
+            }
+        }
+
+        public int problemNum;
+        public int time;
+    }//Player class end
+    //----------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------//clase Print
+    public class Print implements Comparable<Print> {
+
+        public int playerId;
+        public int accepted;
+        public int time;
+
+        public Print(int playerId, int accepted, int time) {
+            this.playerId = playerId;
+            this.accepted = accepted;
+            this.time = time;
+        }
+
+        @Override
+        public int compareTo(Print o) {
+            if (this.accepted > o.accepted) {
+                return 1;
+            } else if (this.accepted < o.accepted) {
+                return -1;
+            } else {//igual
+                if (this.time > o.time) {
+                    return -1;
+                } else if (this.time < o.time) {
+                    return 1;
+                } else {//tiempo igual
+                    if (this.playerId > o.playerId) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }
+            }
+        }
+
+    }//Print class end
+    //----------------------------------------------------------------------------
+
+}//Main class end
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PB;
+//PB
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PB/B_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner (System.in);
+
+        int casos = sc.nextInt();
+        for (int caso = 0; caso < casos; caso++) {
+            int tam = sc.nextInt();
+
+            Cola<Integer> cola = new Cola<>();
+            Map<Integer, Integer> numHash = new HashMap<>();
+
+            for (int x = 0; x < tam; x++) {
+                int number = sc.nextInt();
+                if (numHash.containsKey(number)) {
+                    int times = numHash.get(number);
+                    numHash.remove(number);
+                    numHash.put(number, times + 1);
+                } else {
+                    numHash.put(number, 1);
+                    cola.enqueue(number);
+                }
+            }
+
+            System.out.println("Caso #" + (caso + 1) + ":");
+            while (!cola.isEmpty()) {
+                int print = cola.dequeue();
+                System.out.println(print + " " + numHash.get(print));
+            }
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+    
+    //----------------------------------------------------------------------------//clase Cola
+    class Cola<AnyType> {
+
+        private int size;
+        private Node<AnyType> start;
+        private Node<AnyType> end;
+
+        public Cola() {
+            empty();
+        }
+
+        public void empty() {
+            start = new Node<>(null, null, null);
+            end = new Node<>(null, start, null);
+            start.next = end;
+
+            size = 0;
+
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        public boolean enqueue(AnyType x) {
+
+            add(size(), x);
+            return true;
+        }
+
+        private void add(int idx, AnyType x) {
+            addBefore(getNode(idx, 0, size()), x);
+        }
+
+        private void addBefore(Node<AnyType> node, AnyType data) {
+            Node<AnyType> newNode = new Node<>(data, node.prev, node);
+            newNode.prev.next = newNode;
+            node.prev = newNode;
+            size++;
+
+        }
+
+        public AnyType peek() {
+            return getNode(0).data;
+        }
+
+        private Node<AnyType> getNode(int idx) {
+            return getNode(idx, 0, size() - 1);
+        }
+
+        private Node<AnyType> getNode(int i, int lower, int upper) {
+            Node<AnyType> p;
+            if (i < lower || i > upper) {
+                throw new IndexOutOfBoundsException("getNode index: " + i + "; size: " + size());
+            }
+            if (i < size() / 2) {
+                p = start.next;
+                for (int x = 0; x < i; x++) {
+                    p = p.next;
+                }
+            } else {
+                p = end;
+                for (int x = size(); x > i; x--) {
+                    p = p.prev;
+                }
+            }
+            return p;
+        }
+
+        public AnyType dequeue() {
+            return remove(getNode(0));
+        }
+
+        private AnyType remove(Node<AnyType> node) {
+            node.next.prev = node.prev;
+            node.prev.next = node.next;
+            size--;
+            return node.data;
+        }
+
+        private class Node<AnyType> {
+
+            public Node(AnyType d, Node<AnyType> p, Node<AnyType> n) {
+                data = d;
+                prev = p;
+                next = n;
+            }
+
+            public AnyType data;
+            public Node<AnyType> prev;
+            public Node<AnyType> next;
+        }
+    }//cola class end
+}//Main class end
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PC;
+//PC
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PC/C_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        Map<String, Integer> personId;
+        Graph red;
+
+        int casos = sc.nextInt();
+        for (int caso = 1; caso <= casos; caso++) {
+            System.out.println("Caso #" + caso + ":");
+
+            personId = new HashMap<>();
+            red = new Graph(30);
+
+            int friendship = sc.nextInt();
+            sc.nextLine();
+
+            int newId = 1;
+            int person1;
+            int person2;
+            for (int conn = 0; conn < friendship; conn++) {
+                String connLine[] = sc.nextLine().split(" ");
+
+                if (personId.containsKey(connLine[0])) { //si la persona 1 ya esta en la red
+                    person1 = personId.get(connLine[0]);
+                } else {
+                    person1 = newId;
+                    personId.put(connLine[0], newId);
+                    newId++;
+                }
+
+                if (personId.containsKey(connLine[1])) { //si la persona 2 ya esta en la red
+                    person2 = personId.get(connLine[1]);
+                } else {
+                    person2 = newId;
+                    personId.put(connLine[1], newId);
+                    newId++;
+                }
+                
+                //System.out.println("|"+person1+"("+connLine[0]+"),"+person2+"("+connLine[1]+")| ");
+                red.addEdge(person1, person2);
+                System.out.println(red.netNodes(person1));
+
+            }
+        }//caso for end
+
+    }//run end
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //----------------------------------------------------------------------------
+    public class Graph {
+
+        private boolean adM[][];
+        private int vertexCount;
+
+        public Graph(int vertexCount) {
+            this.vertexCount = vertexCount;
+            adM = new boolean[vertexCount][vertexCount];
+        }
+
+        public void print(int size) {
+            System.out.print("x| ");
+            for (int y = 0; y < size; y++) {
+                System.out.print(y + " ");
+            }
+            System.out.println("");
+            for (int x = 0; x < size; x++) {
+                System.out.print(x + "| ");
+                for (int y = 0; y < size; y++) {
+                    if (adM[x][y]) {
+                        System.out.print("X ");
+                    }else{
+                        System.out.print("O ");
+                    }
+                }
+                System.out.println("");
+            }
+            System.out.println("");
+        }
+
+        public void addEdge(int i, int j) {
+            if (i >= 0 && i < vertexCount && j > 0 && j < vertexCount) {
+                adM[i][j] = true;
+                adM[j][i] = true;
+                //System.out.println("added:"+i+","+j);
+            }
+            
+            //print(10);
+        }
+
+        public void removeEdge(int i, int j) {
+            if (i >= 0 && i < vertexCount && j > 0 && j < vertexCount) {
+                adM[i][j] = false;
+                adM[j][i] = false;
+            }
+        }
+
+        public boolean isEdge(int i, int j) {
+            if (i >= 0 && i < vertexCount && j > 0 && j < vertexCount) {
+                return adM[i][j];
+            } else {
+                return false;
+            }
+        }
+
+        public int netNodes(int person) {
+            LinkedList<Integer> recorrido = new LinkedList<>();
+            return netNodes(person, recorrido);
+        }
+
+        public int netNodes(int actual, LinkedList<Integer> recorrido) {
+            recorrido.add(actual);
+            int nodes = 1;
+            for (int x = 0; x < vertexCount; x++) {
+                if (adM[actual][x] == true && !recorrido.contains(x)) {
+                    nodes += netNodes(x, recorrido);
+                }
+            }
+            return nodes;
+        }
+    }
+    //----------------------------------------------------------------------------
+}//Main class end
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PA/A_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        int arregloSize = sc.nextInt();
+        sc.nextLine();
+
+        SegmentTree<Number> sTree = new SegmentTree<>(0, arregloSize - 1);
+        String line[] = sc.nextLine().split(" ");
+
+        for (int idx = 0; idx < line.length; idx++) {//ingresar datos al segment treee
+            Number num = new Number(Integer.parseInt(line[idx]), idx);
+            sTree.set(idx, num);
+        }
+
+        if (arregloSize > 0) {
+            System.out.println(-1);
+            if (arregloSize > 1) {
+                System.out.println(-1);
+                for (int x = 2; x < arregloSize; x++) {
+                    
+                    //halla el maximo y lo vuelve -1 para hallar el siguien mas alto
+                    Number max1 = sTree.getMax(0, x);
+                    sTree.set(max1.idx, new Number(max1.value * -1, max1.idx));
+
+                    Number max2 = sTree.getMax(0, x);
+                    sTree.set(max2.idx, new Number(max2.value * -1, max2.idx));
+
+                    Number max3 = sTree.getMax(0, x);
+                    sTree.set(max3.idx, new Number(max3.value * -1, max3.idx));
+                    
+                    //respuesta
+                    System.out.println(max1.value * max2.value * max3.value);
+                    
+                    //devuelve a valores originales para siguientes calculos
+                    sTree.set(max1.idx, new Number(max1.value, max1.idx));
+                    sTree.set(max2.idx, new Number(max2.value, max2.idx));
+                    sTree.set(max3.idx, new Number(max3.value, max3.idx));
+                }//for end
+            }//if segundo dato
+        }//if primer dato
+    }//run
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //clase para representar numero entero
+    public class Number implements Comparable<Number> {
+
+        public int value;
+        public int idx;
+
+        public Number(int value, int idx) {
+            this.value = value;
+            this.idx = idx;
+        }
+
+        @Override
+        public int compareTo(Number o) {
+            if (value < o.value) {
+                return -1;
+            } else if (value > o.value) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }//clase number
+
+    //clase segmentTree
+    class SegmentTree<AnyType extends Comparable<? super AnyType>> {
+
+        int start;
+        int end;
+        SegmentTree<AnyType> leftTree, rightTree;
+        AnyType maxValue;
+
+        public SegmentTree(int start, int end) {
+            this.start = start;
+            this.end = end;
+
+            if (start == end) { //isLeaf
+                leftTree = rightTree = null;
+                return;
+            }
+            int mid = (start + end) / 2;
+            leftTree = new SegmentTree(start, mid);
+            rightTree = new SegmentTree(mid + 1, end);
+        }
+
+        public void set(int pos, AnyType value) {
+
+            if (start == end) {//if isLeaf
+                maxValue = value;
+                return;
+            }
+
+            int mid = (start + end) / 2;
+            if (pos <= mid) {//contenido en intervalo izq
+                leftTree.set(pos, value);
+            } else {//intervalo der
+                rightTree.set(pos, value);
+            }
+
+            //guarda maximo en el intervalo, despues de insertar elemento
+            if (rightTree.maxValue != null) {
+                int compareResult = leftTree.maxValue.compareTo(rightTree.maxValue);
+                if (compareResult > 0) {
+                    maxValue = leftTree.maxValue;
+                } else {
+                    maxValue = rightTree.maxValue;
+                }
+            } else {
+                maxValue = leftTree.maxValue;
+            }
+        }
+
+        public AnyType getMax(int low, int high) {
+            //si esta exactamente en el intevalo
+            if (start == low && end == high) {
+                return maxValue;
+            }
+
+            int mid = (start + end) / 2;
+            // incluido en intervalo izq
+            if (high <= mid) {
+                return leftTree.getMax(low, high);
+            }
+            // incluido en intervalo der
+            if (low > mid) {
+                return rightTree.getMax(low, high);
+            }
+
+            // si no esta totalmente incluido en algun intervalo izq o der, se divide y se halla el max 
+            AnyType leftMax = leftTree.getMax(low, mid);
+            AnyType rightMax = rightTree.getMax(mid + 1, high);
+            int compareResult = leftMax.compareTo(rightMax);
+            if (compareResult > 0) {
+                return leftMax;
+            } else {
+                return rightMax;
+            }
+        }
+    }//clase segment tree
+
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PB;
+//PB
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+    
+    public Main() {
+    }
+    
+    public void run() throws FileNotFoundException, Exception {
+        //File file = new File("src/PB/B_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        int casos = Integer.parseInt(sc.nextLine());
+        for (int x = 0; x < casos; x++) {
+            int size = sc.nextInt();
+            int pos = sc.nextInt();
+
+            BinaryHeap<Integer> bHeap = new BinaryHeap<>();
+            MyQueue<Number> cola = new MyQueue<>();
+
+            for (int y = 0; y < size; y++) {//ingresar datos a la cola
+                int prioridad = sc.nextInt();
+                bHeap.insert(prioridad);
+                Number prio = new Number(prioridad);
+                prio.own = pos == y; //marcar trabajo a calcular
+                /*
+                if (pos == y) {//marcar trabajo a calcular
+                    prio.own = true;
+                } else {
+                    prio.own = false;
+                }
+                */
+                cola.enqueue(prio);
+            }
+
+            int minutos = 0;
+            boolean print = false;
+            while (!bHeap.isEmpty()) {//si ya imprimio todo
+                int minPrio = bHeap.deleteMin();
+
+                while (true) {//mientras haya trabajo con mayor prioridad
+                    Number tmp = cola.dequeue();
+
+                    if (tmp.value == minPrio) {
+
+                        if (tmp.own == true) {
+                            print = true;
+                        }
+                        minutos++;
+                        break;
+                    } else {
+                        cola.enqueue(tmp);
+                    }
+                }
+                if (print == true) {
+                    break;
+                }
+            }
+            System.out.println(minutos);
+        }
+    }//run
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //----------------------------------------------------------------------------//clase para representar numero entero
+    public class Number implements Comparable<Number> {
+
+        public int value;
+        public boolean own;
+
+        public Number(int value, boolean e) {
+            this.value = value;
+            own = e;
+        }
+
+        public Number(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public int compareTo(Number o) {
+            if (value < o.value) {
+                return -1;
+            } else if (value > o.value) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }//number class
+    //----------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------//clase binary heap 
+    public class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+        /**
+         * Construct the binary heap.
+         */
+        public BinaryHeap() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         */
+        public BinaryHeap(int capacity) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public BinaryHeap(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; x.compareTo(array[hole / 2]) > 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            for (int i = 0; i < old.length; i++) {
+                array[i] = old[i];
+            }
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i < 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private int currentSize;      // Number of elements in heap
+        private AnyType[] array; // The heap array
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && array[child + 1].compareTo(array[child]) > 0) {
+                    child++;
+                }
+                if (array[child].compareTo(tmp) > 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }//binaryHeap class end
+    //----------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------//clase cola
+    public class MyQueue<AnyType> implements Iterable<AnyType> {
+
+        public MyQueue() {
+            makeEmpty();
+        }
+
+        private void empty() {
+            makeEmpty();
+        }
+
+        public void makeEmpty() {
+            beginMarker = new Node<>(null, null, null);
+            endMarker = new Node<>(null, beginMarker, null);
+            beginMarker.next = endMarker;
+
+            theSize = 0;
+            modCount++;
+        }
+
+        public int size() {
+            return theSize;
+        }
+
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        public boolean enqueue(AnyType x) {
+
+            add(size(), x);
+            return true;
+        }
+
+        private void add(int idx, AnyType x) {
+            addBefore(getNode(idx, 0, size()), x);
+        }
+
+        private void addBefore(Node<AnyType> p, AnyType x) {
+            Node<AnyType> newNode = new Node<>(x, p.prev, p);
+            newNode.prev.next = newNode;
+            p.prev = newNode;
+            theSize++;
+            modCount++;
+        }
+
+        public AnyType peek() {
+            return getNode(0).data;
+        }
+
+        private Node<AnyType> getNode(int idx) {
+            return getNode(idx, 0, size() - 1);
+        }
+
+        private Node<AnyType> getNode(int idx, int lower, int upper) {
+            Node<AnyType> p;
+            if (idx < lower || idx > upper) {
+                throw new IndexOutOfBoundsException("getNode index: " + idx + "; size: " + size());
+            }
+            if (idx < size() / 2) {
+                p = beginMarker.next;
+                for (int i = 0; i < idx; i++) {
+                    p = p.next;
+                }
+            } else {
+                p = endMarker;
+                for (int i = size(); i > idx; i--) {
+                    p = p.prev;
+                }
+            }
+            return p;
+        }
+
+        public AnyType dequeue() {
+            return remove(getNode(0));
+        }
+
+        private AnyType remove(Node<AnyType> p) {
+            p.next.prev = p.prev;
+            p.prev.next = p.next;
+            theSize--;
+            modCount++;
+
+            return p.data;
+        }
+
+        public String toString() {
+            StringBuilder sb = new StringBuilder("[ ");
+
+            for (AnyType x : this) {
+                sb.append(x + " ");
+            }
+            sb.append("]");
+
+            return new String(sb);
+        }
+
+        public java.util.Iterator<AnyType> iterator() {
+            return new LinkedListIterator();
+        }
+
+        private class LinkedListIterator implements java.util.Iterator<AnyType> {
+
+            private Node<AnyType> current = beginMarker.next;
+            private int expectedModCount = modCount;
+            private boolean okToRemove = false;
+
+            public boolean hasNext() {
+                return current != endMarker;
+            }
+
+            public AnyType next() {
+                if (modCount != expectedModCount) {
+                    throw new java.util.ConcurrentModificationException();
+                }
+                if (!hasNext()) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                AnyType nextItem = current.data;
+                current = current.next;
+                okToRemove = true;
+                return nextItem;
+            }
+
+            public void remove() {
+                if (modCount != expectedModCount) {
+                    throw new java.util.ConcurrentModificationException();
+                }
+                if (!okToRemove) {
+                    throw new IllegalStateException();
+                }
+
+                MyQueue.this.remove(current.prev);
+                expectedModCount++;
+                okToRemove = false;
+            }
+        }
+
+        private class Node<AnyType> {
+
+            public Node(AnyType d, Node<AnyType> p, Node<AnyType> n) {
+                data = d;
+                prev = p;
+                next = n;
+            }
+
+            public AnyType data;
+            public Node<AnyType> prev;
+            public Node<AnyType> next;
+        }
+
+        private int theSize;
+        private int modCount = 0;
+        private Node<AnyType> beginMarker;
+        private Node<AnyType> endMarker;
+    }
+    //----------------------------------------------------------------------------
+
+}//end Main class
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PA/A_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        int arregloSize = sc.nextInt();
+        sc.nextLine();
+
+        SegmentTree<Number> sTree = new SegmentTree<>(0, arregloSize - 1);
+        String line[] = sc.nextLine().split(" ");
+
+        for (int idx = 0; idx < line.length; idx++) {//ingresar datos al segment treee
+            Number num = new Number(Integer.parseInt(line[idx]), idx);
+            sTree.set(idx, num);
+        }
+
+        if (arregloSize > 0) {
+            System.out.println(-1);
+            if (arregloSize > 1) {
+                System.out.println(-1);
+                for (int x = 2; x < arregloSize; x++) {
+                    
+                    //halla el maximo y lo vuelve -1 para hallar el siguien mas alto
+                    Number max1 = sTree.getMax(0, x);
+                    sTree.set(max1.idx, new Number(max1.value * -1, max1.idx));
+
+                    Number max2 = sTree.getMax(0, x);
+                    sTree.set(max2.idx, new Number(max2.value * -1, max2.idx));
+
+                    Number max3 = sTree.getMax(0, x);
+                    sTree.set(max3.idx, new Number(max3.value * -1, max3.idx));
+                    
+                    //respuesta
+                    System.out.println(max1.value * max2.value * max3.value);
+                    
+                    //devuelve a valores originales para siguientes calculos
+                    sTree.set(max1.idx, new Number(max1.value, max1.idx));
+                    sTree.set(max2.idx, new Number(max2.value, max2.idx));
+                    sTree.set(max3.idx, new Number(max3.value, max3.idx));
+                }//for end
+            }//if segundo dato
+        }//if primer dato
+    }//run
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //clase para representar numero entero
+    public class Number implements Comparable<Number> {
+
+        public int value;
+        public int idx;
+
+        public Number(int value, int idx) {
+            this.value = value;
+            this.idx = idx;
+        }
+
+        @Override
+        public int compareTo(Number o) {
+            if (value < o.value) {
+                return -1;
+            } else if (value > o.value) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }//clase number
+
+    //clase segmentTree
+    class SegmentTree<AnyType extends Comparable<? super AnyType>> {
+
+        int start;
+        int end;
+        SegmentTree<AnyType> leftTree, rightTree;
+        AnyType maxValue;
+
+        public SegmentTree(int start, int end) {
+            this.start = start;
+            this.end = end;
+
+            if (start == end) { //isLeaf
+                leftTree = rightTree = null;
+                return;
+            }
+            int mid = (start + end) / 2;
+            leftTree = new SegmentTree(start, mid);
+            rightTree = new SegmentTree(mid + 1, end);
+        }
+
+        public void set(int pos, AnyType value) {
+
+            if (start == end) {//if isLeaf
+                maxValue = value;
+                return;
+            }
+
+            int mid = (start + end) / 2;
+            if (pos <= mid) {//contenido en intervalo izq
+                leftTree.set(pos, value);
+            } else {//intervalo der
+                rightTree.set(pos, value);
+            }
+
+            //guarda maximo en el intervalo, despues de insertar elemento
+            if (rightTree.maxValue != null) {
+                int compareResult = leftTree.maxValue.compareTo(rightTree.maxValue);
+                if (compareResult > 0) {
+                    maxValue = leftTree.maxValue;
+                } else {
+                    maxValue = rightTree.maxValue;
+                }
+            } else {
+                maxValue = leftTree.maxValue;
+            }
+        }
+
+        public AnyType getMax(int low, int high) {
+            //si esta exactamente en el intevalo
+            if (start == low && end == high) {
+                return maxValue;
+            }
+
+            int mid = (start + end) / 2;
+            // incluido en intervalo izq
+            if (high <= mid) {
+                return leftTree.getMax(low, high);
+            }
+            // incluido en intervalo der
+            if (low > mid) {
+                return rightTree.getMax(low, high);
+            }
+
+            // si no esta totalmente incluido en algun intervalo izq o der, se divide y se halla el max 
+            AnyType leftMax = leftTree.getMax(low, mid);
+            AnyType rightMax = rightTree.getMax(mid + 1, high);
+            int compareResult = leftMax.compareTo(rightMax);
+            if (compareResult > 0) {
+                return leftMax;
+            } else {
+                return rightMax;
+            }
+        }
+    }//clase segment tree
+
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PA/A_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        int arregloSize = sc.nextInt();
+        sc.nextLine();
+
+        SegmentTree<Number> sTree = new SegmentTree<>(0, arregloSize - 1);
+        String line[] = sc.nextLine().split(" ");
+
+        for (int idx = 0; idx < line.length; idx++) {//ingresar datos al segment treee
+            Number num = new Number(Integer.parseInt(line[idx]), idx);
+            sTree.set(idx, num);
+        }
+
+        if (arregloSize > 0) {
+            System.out.println(-1);
+            if (arregloSize > 1) {
+                System.out.println(-1);
+                for (int x = 2; x < arregloSize; x++) {
+                    
+                    //halla el maximo y lo vuelve -1 para hallar el siguien mas alto
+                    Number max1 = sTree.getMax(0, x);
+                    sTree.set(max1.idx, new Number(max1.value * -1, max1.idx));
+
+                    Number max2 = sTree.getMax(0, x);
+                    sTree.set(max2.idx, new Number(max2.value * -1, max2.idx));
+
+                    Number max3 = sTree.getMax(0, x);
+                    sTree.set(max3.idx, new Number(max3.value * -1, max3.idx));
+                    
+                    //respuesta
+                    System.out.println(max1.value * max2.value * max3.value);
+                    
+                    //devuelve a valores originales para siguientes calculos
+                    sTree.set(max1.idx, new Number(max1.value, max1.idx));
+                    sTree.set(max2.idx, new Number(max2.value, max2.idx));
+                    sTree.set(max3.idx, new Number(max3.value, max3.idx));
+                }//for end
+            }//if segundo dato
+        }//if primer dato
+    }//run
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //clase para representar numero entero
+    public class Number implements Comparable<Number> {
+
+        public int value;
+        public int idx;
+
+        public Number(int value, int idx) {
+            this.value = value;
+            this.idx = idx;
+        }
+
+        @Override
+        public int compareTo(Number o) {
+            if (value < o.value) {
+                return -1;
+            } else if (value > o.value) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }//clase number
+
+    //clase segmentTree
+    class SegmentTree<AnyType extends Comparable<? super AnyType>> {
+
+        int start;
+        int end;
+        SegmentTree<AnyType> leftTree, rightTree;
+        AnyType maxValue;
+
+        public SegmentTree(int start, int end) {
+            this.start = start;
+            this.end = end;
+
+            if (start == end) { //isLeaf
+                leftTree = rightTree = null;
+                return;
+            }
+            int mid = (start + end) / 2;
+            leftTree = new SegmentTree(start, mid);
+            rightTree = new SegmentTree(mid + 1, end);
+        }
+
+        public void set(int pos, AnyType value) {
+
+            if (start == end) {//if isLeaf
+                maxValue = value;
+                return;
+            }
+
+            int mid = (start + end) / 2;
+            if (pos <= mid) {//contenido en intervalo izq
+                leftTree.set(pos, value);
+            } else {//intervalo der
+                rightTree.set(pos, value);
+            }
+
+            //guarda maximo en el intervalo, despues de insertar elemento
+            if (rightTree.maxValue != null) {
+                int compareResult = leftTree.maxValue.compareTo(rightTree.maxValue);
+                if (compareResult > 0) {
+                    maxValue = leftTree.maxValue;
+                } else {
+                    maxValue = rightTree.maxValue;
+                }
+            } else {
+                maxValue = leftTree.maxValue;
+            }
+        }
+
+        public AnyType getMax(int low, int high) {
+            //si esta exactamente en el intevalo
+            if (start == low && end == high) {
+                return maxValue;
+            }
+
+            int mid = (start + end) / 2;
+            // incluido en intervalo izq
+            if (high <= mid) {
+                return leftTree.getMax(low, high);
+            }
+            // incluido en intervalo der
+            if (low > mid) {
+                return rightTree.getMax(low, high);
+            }
+
+            // si no esta totalmente incluido en algun intervalo izq o der, se divide y se halla el max 
+            AnyType leftMax = leftTree.getMax(low, mid);
+            AnyType rightMax = rightTree.getMax(mid + 1, high);
+            int compareResult = leftMax.compareTo(rightMax);
+            if (compareResult > 0) {
+                return leftMax;
+            } else {
+                return rightMax;
+            }
+        }
+    }//clase segment tree
+
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PC;
+//PC
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    SegmentTree sTree;
+    
+    public Main() {
+    }
+    
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PC/C_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner (System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 0; x < casos; x++) {
+            System.out.println("Caso #" + (1 + x) + ":");
+
+            String line = sc.nextLine();
+            String info[] = line.split(" ");
+            int elementosSize = Integer.parseInt(info[0]);
+            int numRondas = Integer.parseInt(info[1]);
+
+            sTree = new SegmentTree(0, elementosSize);
+
+            line = sc.nextLine();
+            String elementos[] = line.split(" ");
+
+            int token;
+            for (int y = 0; y < elementos.length; y++) {//ingresa valores dependiendo del signo de este
+                token = Integer.parseInt(elementos[y]);
+                if (token == 0) {
+                    sTree.set(y, 0);
+                } else if (token < 0) {
+                    sTree.set(y, -1);
+                } else {
+                    sTree.set(y, 1);
+                }
+            }
+
+            for (int ronda = 0; ronda < numRondas; ronda++) {
+                line = sc.nextLine();
+                String comando[] = line.split(" ");
+
+                switch (comando[0]) {
+                    case "cambio":
+                        token = Integer.parseInt(comando[2]);
+                        if (token == 0) {
+                            sTree.set(Integer.parseInt(comando[1]) - 1, 0);
+                        } else if (token < 0) {
+                            sTree.set(Integer.parseInt(comando[1]) - 1, -1);
+                        } else {
+                            sTree.set(Integer.parseInt(comando[1]) - 1, 1);
+                        }
+                        break;
+
+                    case "multiplicar":
+                        int start = Integer.parseInt(comando[1]) - 1;
+                        int end = Integer.parseInt(comando[2]) - 1;
+                        int producto = sTree.getProduct(start, end);//metodo para multiplicar en el rango [start,end]
+                        if (producto == 0) {
+                            System.out.println("0");
+                        } else if (producto < 0) {
+                            System.out.println("-");
+                        } else {
+                            System.out.println("+");
+                        }
+                        break;
+                    default:
+                        break;
+                }//command switch end
+
+            }//ronda for end
+        }//caso for end
+    }//run end
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //----------------------------------------------------------------------------//clase segment tree
+    public class SegmentTree {
+
+        int start, end;
+        SegmentTree leftT, rightT;
+        int data;
+
+        public SegmentTree(int start, int end) {
+            this.start = start;
+            this.end = end;
+
+            if (start == end) {
+                leftT = rightT = null;
+                return;
+            }
+            int mid = (start + end) / 2;
+            leftT = new SegmentTree(start, mid);
+            rightT = new SegmentTree(mid + 1, end);
+        }
+
+        public void set(int pos, int value) {
+
+            if (start == end) {
+                data = value;
+                return;
+            }
+            int mid = (start + end) / 2;
+            if (pos <= mid) {
+                leftT.set(pos, value);
+            } else {
+                rightT.set(pos, value);
+            }
+            data = (leftT.data * rightT.data);
+        }
+
+        //multipica valores en rango [low,high]
+        public int getProduct(int low, int high) {
+
+            if (start == low && end == high) {
+                return data;
+            }
+            int mid = (start + end) / 2;
+
+            if (high <= mid) {
+                return leftT.getProduct(low, high);
+            }
+
+            if (low > mid) {
+                return rightT.getProduct(low, high);
+            }
+
+            return (leftT.getProduct(low, mid) * rightT.getProduct(mid + 1, high));
+        }
+    }//segment tree class
+    //----------------------------------------------------------------------------
+
+}//Main class end
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PD;
+//PD
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+    
+    public Main() {
+    }
+    
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PD/D_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        String line = sc.nextLine();
+        int numCasos = Integer.parseInt(line);
+
+        for (int caso = 1; caso <= numCasos; caso++) {
+            System.out.println("Caso #" + caso + ":");
+
+            line = sc.nextLine();
+            int numCarreras = Integer.parseInt(line);
+            String promedios[][] = new String[numCarreras][];
+
+            int numEst = 0;
+            for (int carrera = 0; carrera < numCarreras; carrera++) {
+                promedios[carrera] = sc.nextLine().split(" ");
+                numEst += promedios[carrera].length;
+            }
+            SegmentTree sTree = new SegmentTree(0, numEst);
+
+            int n = 0;
+            for (int carrera = 0; carrera < numCarreras; carrera++) {//ingresar datos a segment tree
+                for (int x = 0; x < promedios[carrera].length; x++) {
+                    sTree.set(n, Float.valueOf(promedios[carrera][x]));
+                    n++;
+                }
+            }
+
+            line = sc.nextLine();
+            int qConsultas = Integer.parseInt(line);
+
+            for (int consulta_x = 0; consulta_x < qConsultas; consulta_x++) {
+                line = sc.nextLine();
+                String consulta[] = line.split(" ");
+
+                switch (consulta[0]) {
+                    case "consultar":
+                        int start = Integer.parseInt(consulta[1]);
+                        int end = Integer.parseInt(consulta[2]);
+                        float worse = sTree.getmin(start, end);
+                        float best = sTree.getmax(start, end);
+
+                        if ((best * 10) % 10 == 0) {//if best has no float point
+                            int bestInt = (int) best;
+                            if ((worse * 10) % 10 == 0) {
+                                int worseInt = (int) worse;
+                                System.out.println(bestInt + " " + worseInt);
+                            } else {
+                                System.out.println(bestInt + " " + worse);
+                            }
+                        } else if ((worse * 10) % 10 == 0) {//if worse has no float point
+                            int minI = (int) worse;
+                            System.out.println(best + " " + minI);
+                        } else {
+                            System.out.println(best + " " + worse);
+                        }
+                        break;
+
+                    case "cambiar":
+                        sTree.set(Integer.parseInt(consulta[1]), Float.valueOf(consulta[2]));
+                        break;
+                    default:
+                        break;
+
+                }//consulta switch end
+            }//consulta for end
+        }//casos for end
+    }//run end
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+}
+
+class SegmentTree {
+
+    int start, end;
+    SegmentTree leftT, rightT;
+    float minData;
+    float maxData;
+
+    public SegmentTree(int start, int end) {
+        this.start = start;
+        this.end = end;
+
+        if (start == end) {
+            leftT = rightT = null;
+            return;
+        }
+        int mid = (start + end) / 2;
+        leftT = new SegmentTree(start, mid);
+        rightT = new SegmentTree(mid + 1, end);
+    }
+
+    public void set(int id, float data) {
+        if (start == end) {
+            minData = data;
+            maxData = data;
+            return;
+        }
+        int mid = (start + end) / 2;
+        if (id <= mid) {
+            leftT.set(id, data);
+        } else {
+            rightT.set(id, data);
+        }
+
+        if (leftT.minData >= rightT.minData) {
+            minData = rightT.minData;
+        } else {
+            minData = leftT.minData;
+        }
+
+        if (leftT.maxData <= rightT.maxData) {
+            maxData = rightT.maxData;
+        } else {
+            maxData = leftT.maxData;
+        }
+
+    }
+
+    public float getmax(int low, int high) {
+
+        if (start == low && end == high) {
+            return maxData;
+        }
+        int mid = (start + end) / 2;
+
+        if (high <= mid) {
+            return leftT.getmax(low, high);
+        }
+
+        if (low > mid) {
+            return rightT.getmax(low, high);
+        }
+
+        float leftMax = leftT.getmax(low, mid);
+        float rightMax = rightT.getmax(mid + 1, high);
+        
+        if (leftMax <= rightMax) {
+            return rightMax;
+        } else {
+            return leftMax;
+        }
+        
+    }
+
+    public float getmin(int low, int high) {
+
+        if (start == low && end == high) {
+            return minData;
+        }
+        int mid = (start + end) / 2;
+
+        if (high <= mid) {
+            return leftT.getmin(low, high);
+        }
+
+        if (low > mid) {
+            return rightT.getmin(low, high);
+        }
+
+        float leftMin = leftT.getmin(low, mid);
+        float rightMin = rightT.getmin(mid + 1, high);
+
+        if (leftMin >= rightMin) {
+            return rightMin;
+        } else {
+            return leftMin;
+        }
+        
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PB;
+//PB
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PB/B_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner (System.in);
+
+        int casos = sc.nextInt();
+        for (int caso = 0; caso < casos; caso++) {
+            int tam = sc.nextInt();
+
+            Cola<Integer> cola = new Cola<>();
+            Map<Integer, Integer> numHash = new HashMap<>();
+
+            for (int x = 0; x < tam; x++) {
+                int number = sc.nextInt();
+                if (numHash.containsKey(number)) {
+                    int times = numHash.get(number);
+                    numHash.remove(number);
+                    numHash.put(number, times + 1);
+                } else {
+                    numHash.put(number, 1);
+                    cola.enqueue(number);
+                }
+            }
+
+            System.out.println("Caso #" + (caso + 1) + ":");
+            while (!cola.isEmpty()) {
+                int print = cola.dequeue();
+                System.out.println(print + " " + numHash.get(print));
+            }
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+    
+    //----------------------------------------------------------------------------//clase Cola
+    class Cola<AnyType> {
+
+        private int size;
+        private Node<AnyType> start;
+        private Node<AnyType> end;
+
+        public Cola() {
+            empty();
+        }
+
+        public void empty() {
+            start = new Node<>(null, null, null);
+            end = new Node<>(null, start, null);
+            start.next = end;
+
+            size = 0;
+
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        public boolean enqueue(AnyType x) {
+
+            add(size(), x);
+            return true;
+        }
+
+        private void add(int idx, AnyType x) {
+            addBefore(getNode(idx, 0, size()), x);
+        }
+
+        private void addBefore(Node<AnyType> node, AnyType data) {
+            Node<AnyType> newNode = new Node<>(data, node.prev, node);
+            newNode.prev.next = newNode;
+            node.prev = newNode;
+            size++;
+
+        }
+
+        public AnyType peek() {
+            return getNode(0).data;
+        }
+
+        private Node<AnyType> getNode(int idx) {
+            return getNode(idx, 0, size() - 1);
+        }
+
+        private Node<AnyType> getNode(int i, int lower, int upper) {
+            Node<AnyType> p;
+            if (i < lower || i > upper) {
+                throw new IndexOutOfBoundsException("getNode index: " + i + "; size: " + size());
+            }
+            if (i < size() / 2) {
+                p = start.next;
+                for (int x = 0; x < i; x++) {
+                    p = p.next;
+                }
+            } else {
+                p = end;
+                for (int x = size(); x > i; x--) {
+                    p = p.prev;
+                }
+            }
+            return p;
+        }
+
+        public AnyType dequeue() {
+            return remove(getNode(0));
+        }
+
+        private AnyType remove(Node<AnyType> node) {
+            node.next.prev = node.prev;
+            node.prev.next = node.next;
+            size--;
+            return node.data;
+        }
+
+        private class Node<AnyType> {
+
+            public Node(AnyType d, Node<AnyType> p, Node<AnyType> n) {
+                data = d;
+                prev = p;
+                next = n;
+            }
+
+            public AnyType data;
+            public Node<AnyType> prev;
+            public Node<AnyType> next;
+        }
+    }//cola class end
+}//Main class end
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PC;
+//PC
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PC/C_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(System.in);
+
+        Map<String, Integer> personId;
+        Graph red;
+
+        int casos = sc.nextInt();
+        for (int caso = 1; caso <= casos; caso++) {
+            System.out.println("Caso #" + caso + ":");
+
+            personId = new HashMap<>();
+            red = new Graph(30);
+
+            int friendship = sc.nextInt();
+            sc.nextLine();
+
+            int newId = 1;
+            int person1;
+            int person2;
+            for (int conn = 0; conn < friendship; conn++) {
+                String connLine[] = sc.nextLine().split(" ");
+
+                if (personId.containsKey(connLine[0])) { //si la persona 1 ya esta en la red
+                    person1 = personId.get(connLine[0]);
+                } else {
+                    person1 = newId;
+                    personId.put(connLine[0], newId);
+                    newId++;
+                }
+
+                if (personId.containsKey(connLine[1])) { //si la persona 2 ya esta en la red
+                    person2 = personId.get(connLine[1]);
+                } else {
+                    person2 = newId;
+                    personId.put(connLine[1], newId);
+                    newId++;
+                }
+                
+                //System.out.println("|"+person1+"("+connLine[0]+"),"+person2+"("+connLine[1]+")| ");
+                red.addEdge(person1, person2);
+                System.out.println(red.netNodes(person1));
+
+            }
+        }//caso for end
+
+    }//run end
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //----------------------------------------------------------------------------
+    public class Graph {
+
+        private boolean adM[][];
+        private int vertexCount;
+
+        public Graph(int vertexCount) {
+            this.vertexCount = vertexCount;
+            adM = new boolean[vertexCount][vertexCount];
+        }
+
+        public void print(int size) {
+            System.out.print("x| ");
+            for (int y = 0; y < size; y++) {
+                System.out.print(y + " ");
+            }
+            System.out.println("");
+            for (int x = 0; x < size; x++) {
+                System.out.print(x + "| ");
+                for (int y = 0; y < size; y++) {
+                    if (adM[x][y]) {
+                        System.out.print("X ");
+                    }else{
+                        System.out.print("O ");
+                    }
+                }
+                System.out.println("");
+            }
+            System.out.println("");
+        }
+
+        public void addEdge(int i, int j) {
+            if (i >= 0 && i < vertexCount && j > 0 && j < vertexCount) {
+                adM[i][j] = true;
+                adM[j][i] = true;
+                //System.out.println("added:"+i+","+j);
+            }
+            
+            //print(10);
+        }
+
+        public void removeEdge(int i, int j) {
+            if (i >= 0 && i < vertexCount && j > 0 && j < vertexCount) {
+                adM[i][j] = false;
+                adM[j][i] = false;
+            }
+        }
+
+        public boolean isEdge(int i, int j) {
+            if (i >= 0 && i < vertexCount && j > 0 && j < vertexCount) {
+                return adM[i][j];
+            } else {
+                return false;
+            }
+        }
+
+        public int netNodes(int person) {
+            LinkedList<Integer> recorrido = new LinkedList<>();
+            return netNodes(person, recorrido);
+        }
+
+        public int netNodes(int actual, LinkedList<Integer> recorrido) {
+            recorrido.add(actual);
+            int nodes = 1;
+            for (int x = 0; x < vertexCount; x++) {
+                if (adM[actual][x] == true && !recorrido.contains(x)) {
+                    nodes += netNodes(x, recorrido);
+                }
+            }
+            return nodes;
+        }
+    }
+    //----------------------------------------------------------------------------
+}//Main class end
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class Main {
+
+    public Main() {
+    }
+
+    public void run() throws Exception {
+        File file = new File("src/PA/A_1.txt");
+        Scanner sc = new Scanner(file);
+        //Scanner sc = new Scanner(System.in);
+        int caseNum = sc.nextInt();
+        for (int caso = 0; caso < caseNum; caso++) {
+            int playerNum = sc.nextInt();
+            int commandNum = sc.nextInt();
+            sc.nextLine();
+
+            BinaryHeap<Print> bHeapPrint = new BinaryHeap<>();
+            Map<Integer, Player> hashPlayers;
+            hashPlayers = new HashMap<>();
+
+            int a = 0;
+            int b = 0;
+            int c = 0;
+            int d = 0;
+            for (int command = 0; command < commandNum; command++) {
+                int playerN, problemN, time;
+                String comando[] = sc.nextLine().split(" ");
+                playerN = Integer.parseInt(comando[0]);
+                problemN = Integer.parseInt(comando[1]);
+                time = Integer.parseInt(comando[2]);
+                String comm = comando[3];
+
+                switch (comm) {
+                    case "C":
+                        a++;
+                        Player jugadorTmp = hashPlayers.get(playerN);
+                        Player newJugador;
+                        if (jugadorTmp == null) {
+                            newJugador = new Player(problemN, time);
+                            newJugador.problemNum = 1;
+                            newJugador.time = time;
+                            hashPlayers.put(playerN, newJugador);
+                            //newjImprimir= new jImprimir(njugador,1,tiempo);
+                            //bhImprimir.insert(newjImprimir);
+                        } else {
+
+                            int problemaTmp = jugadorTmp.getp(problemN);
+
+                            if (problemaTmp == 0) {
+                                jugadorTmp.prob.put(problemN, time);
+                                jugadorTmp.problemNum++;
+                                jugadorTmp.time = jugadorTmp.time + time;
+                                //borrar de la cola e insertarlo
+
+                            } else {
+                                int tiempoTmp = jugadorTmp.prob.get(problemN);
+                                jugadorTmp.prob.remove(problemN);
+                                jugadorTmp.prob.put(problemN, time + tiempoTmp);
+                                jugadorTmp.problemNum++;
+                                jugadorTmp.time = jugadorTmp.time + time + tiempoTmp;
+                            }
+                        }
+                        break;
+
+                    case "I":
+                        b++;
+                        break;
+
+                    case "T":
+                        c++;
+                        break;
+
+                    case "R":
+                        d++;
+                        break;
+
+                    default:
+                        break;
+                }//comm switch end
+
+                if (!comm.equals("C")) {
+                    Player jugadorTmp = hashPlayers.get(playerN);
+                    Player newJugador;
+                    if (jugadorTmp == null) {
+                        newJugador = new Player(problemN, 20);
+                        hashPlayers.put(playerN, newJugador);
+                    } else {
+
+                        int problemaTmp = jugadorTmp.prob.get(problemN);
+
+                        if (problemaTmp == 0) {
+                            jugadorTmp.prob.put(problemN, 20);
+                        } else {
+                            int tiempoTmp = jugadorTmp.prob.get(problemN);
+                            jugadorTmp.prob.remove(problemN);
+                            jugadorTmp.prob.put(problemN, 20 + tiempoTmp);
+                        }
+
+                    }
+                }
+
+            }//command for end
+
+            Print printNew;
+            Iterator<Map.Entry<Integer, Player>> it = hashPlayers.entrySet().iterator();
+            while (it.hasNext()) {
+                Entry<Integer, Player> entry = it.next();
+                printNew = new Print(entry.getKey(), entry.getValue().problemNum, entry.getValue().time);
+                bHeapPrint.insert(printNew);
+            }
+            ArrayList<Print> xlist = new ArrayList<>();
+            while (!bHeapPrint.isEmpty()) {
+                xlist.add(bHeapPrint.deleteMin());
+            }
+
+            for (int y = xlist.size() - 1; y >= 0; y--) {
+                System.out.println(xlist.get(y).playerId + " " + xlist.get(y).accepted + " " + xlist.get(y).time);
+            }
+            xlist.clear();
+            System.out.println(a + " " + b + " " + c + " " + d);
+
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException, Exception {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+    //----------------------------------------------------------------------------//clase BinaryHeap
+    public class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+        /**
+         * Construct the binary heap.
+         */
+        public BinaryHeap() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        /**
+         * Construct the binary heap.
+         *
+         * @param capacity the capacity of the binary heap.
+         */
+        public BinaryHeap(int capacity) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+        }
+
+        /**
+         * Construct the binary heap given an array of items.
+         *
+         * @param items
+         */
+        public BinaryHeap(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        /**
+         * Insert into the priority queue, maintaining heap order. Duplicates
+         * are allowed.
+         *
+         * @param x the item to insert.
+         */
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            // Percolate up
+            int hole = ++currentSize;
+            for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            System.arraycopy(old, 0, array, 0, old.length);
+        }
+
+        /**
+         * Find the smallest item in the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        /**
+         * Remove the smallest item from the priority queue.
+         *
+         * @return the smallest item, or throw an UnderflowException if empty.
+         * @throws java.lang.Exception
+         */
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        /**
+         * Establish heap order property from an arbitrary arrangement of items.
+         * Runs in linear time.
+         */
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        /**
+         * Test if the priority queue is logically empty.
+         *
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        /**
+         * Make the priority queue logically empty.
+         */
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private int currentSize;      // Number of elements in heap
+        private AnyType[] array; // The heap array
+
+        /**
+         * Internal method to percolate down in the heap.
+         *
+         * @param hole the index at which the percolate begins.
+         */
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize
+                        && array[child + 1].compareTo(array[child]) < 0) {
+                    child++;
+                }
+                if (array[child].compareTo(tmp) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+
+    }//BinaryHeap class end
+    //----------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------//clase Player
+    class Player {
+
+        Map<Integer, Integer> prob = new HashMap<>();
+
+        public Player(int probNum, int time) {
+            prob.put(probNum, time);
+        }
+
+        public Integer getp(int key) {
+            if (prob.containsKey(key)) {
+                return prob.get(key);
+            } else {
+                return 0;
+            }
+        }
+
+        public int problemNum;
+        public int time;
+    }//Player class end
+    //----------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------//clase Print
+    public class Print implements Comparable<Print> {
+
+        public int playerId;
+        public int accepted;
+        public int time;
+
+        public Print(int playerId, int accepted, int time) {
+            this.playerId = playerId;
+            this.accepted = accepted;
+            this.time = time;
+        }
+
+        @Override
+        public int compareTo(Print o) {
+            if (this.accepted > o.accepted) {
+                return 1;
+            } else if (this.accepted < o.accepted) {
+                return -1;
+            } else {//igual
+                if (this.time > o.time) {
+                    return -1;
+                } else if (this.time < o.time) {
+                    return 1;
+                } else {//tiempo igual
+                    if (this.playerId > o.playerId) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }
+            }
+        }
+
+    }//Print class end
+    //----------------------------------------------------------------------------
+
+}//Main class end
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+//package PB;
+//PB
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    Tree arbol = new Tree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PB/B_2.txt");
+        //File file = new File("src/PB/P5B_16-15.in");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            System.out.println("Caso #" + x + ":");
+            int nodos = sc.nextInt();
+            sc.nextLine();
+
+            for (int y = 0; y < nodos; y++) {
+                //System.out.println(sc.nextLine());
+                String line = sc.nextLine();
+                String nodo[] = line.split(" ");
+
+                int parent = Integer.parseInt(nodo[0]);
+
+                LinkedList<Integer> children = new LinkedList<>();
+                for (int a = 1; a < nodo.length; a++) {
+                    children.add(Integer.parseInt(nodo[a]));
+                }
+                if (nodo.length == 1) {
+                    children = null;
+                }
+
+                arbol.insert(parent, children);
+            }
+
+            arbol.floorSeparated();
+            //arbol.printTreeLevels();
+            arbol.printTreeZigZag();
+            System.out.println("");
+            arbol.makeEmpty();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class Tree {
+
+        private TreeNode root;
+        LinkedList<LinkedList<TreeNode>> floors;
+
+        public Tree() {
+            root = null;
+        }
+
+        public void setRoot(TreeNode root) {
+            this.root = root;
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void insert(int parentVal, LinkedList<Integer> children) {
+            if (children != null) {
+                TreeNode parent = search(parentVal);
+                if (parent == null) {//primer valor(root)
+                    setRoot(new TreeNode(parentVal, null));
+                    parent = root;
+                }
+                //System.out.println("Parent: "+parent.value);Lista de nodos padres
+                for (int childVal : children) {
+                    parent.addChildren(childVal);
+                }
+            }
+        }
+
+        public TreeNode search(int id) {
+            return search(id, root);
+        }
+
+        private TreeNode search(int id, TreeNode t) {
+            if (t != null) {
+                if (t.value == id) {
+                    return t;
+                } else {
+                    for (TreeNode hijo : t.children) {
+                        TreeNode temp = search(id, hijo);
+                        if (temp != null) {
+                            return temp;
+                        }
+                    }
+                }
+            } else {
+                return null;
+            }
+            return null;
+        }
+
+        public void printTreePreorder(TreeNode t) {
+            if (t != null) {
+                System.out.print(t.value + "(" + t.depth + ") ");
+                for (TreeNode child : t.children) {
+                    printTreePreorder(child);
+                }
+            }
+        }
+
+        //after floorSeparated()
+        public void printTreeLevels() {
+            for (LinkedList<TreeNode> piso : floors) {
+                for (TreeNode nodo : piso) {
+                    System.out.print(nodo.value + " ");
+                }
+                System.out.println("");
+            }
+        }
+
+        public void printTreeZigZag() {
+            for (int x = 0; x < floors.size(); x++) {
+                LinkedList<TreeNode> piso = floors.get(x);
+                if (x % 2 == 1) {//impares al reves
+                    Collections.reverse(piso);
+                }
+                for (TreeNode nodo : piso) {
+                    System.out.print(nodo.value + " ");
+                }
+            }
+            System.out.print("\b");
+        }
+
+        public void floorSeparated() {
+            floors = new LinkedList<>();
+            floorSeparated(root);
+        }
+
+        private void floorSeparated(TreeNode actual) {
+            if (actual != null) {
+                if (floors.size() == actual.depth) {
+                    floors.add(new LinkedList<TreeNode>());
+                }
+
+                floors.get(actual.depth).add(actual);
+
+                for (TreeNode child : actual.children) {
+                    floorSeparated(child);
+                }
+            }
+        }
+
+        private class TreeNode {
+
+            int value;
+            int depth;
+            LinkedList<TreeNode> children;
+            TreeNode parent;
+
+            // Constructors
+            TreeNode(int value, TreeNode parent) {
+                this(value, new LinkedList<TreeNode>(), parent);
+            }
+
+            TreeNode(int value, LinkedList<TreeNode> children, TreeNode parent) {
+                this.value = value;
+                this.children = children;
+                this.parent = parent;
+                if (parent == null) {
+                    depth = 0;
+                } else {
+                    depth = parent.depth + 1;
+                }
+            }
+
+            public void addChildren(int value) {
+                TreeNode newChild = new TreeNode(value, this);
+                children.add(newChild);
+            }
+        }//TreeNode
+
+    }//Tree
+//------------------------------------------------------------------------------
+}//Main
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package PA;
+//PA
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+    BinarySearchTree arbol = new BinarySearchTree();
+
+    public Main() {
+    }
+
+    public void run() throws FileNotFoundException {
+        //File file = new File("src/PA/A_2.txt");
+        //Scanner sc = new Scanner(file);
+        Scanner sc=new Scanner(System.in);
+
+        int casos = sc.nextInt();
+        sc.nextLine();
+        for (int x = 1; x <= casos; x++) {
+            int comandos = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Caso #"+x+":");
+            
+            for (int y = 0; y < comandos; y++) {
+                //System.out.println(sc.nextLine());
+                String line = sc.nextLine();
+                String[] comando = line.split(" ");
+                switch (comando[0]) {
+                    case "agregar":
+                        arbol.insert(Integer.parseInt(comando[1]));
+                        break;
+                    case "distancia":
+                        System.out.println("distancia: "+arbol.distancia(Integer.parseInt(comando[1]), Integer.parseInt(comando[2])));
+                        break;
+                    case "ancestro":
+                        System.out.println("ancestro: "+arbol.ancestro(Integer.parseInt(comando[1]), Integer.parseInt(comando[2])));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            arbol.makeEmpty();
+            //arbol.printTree();
+            //bla.next();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Main inst = new Main();
+        inst.run();
+        System.out.println("");
+    }
+
+//------------------------------------------------------------------------------
+    public class BinarySearchTree {
+
+        private BinaryNode root;
+
+        public BinarySearchTree() {
+            root = null;
+        }
+
+        public void insert(int x) {
+            root = insert(x, root, null);
+        }
+
+        public boolean contains(int x) {
+            return contains(x, root);
+        }
+
+        public void makeEmpty() {
+            root = null;
+        }
+
+        public boolean isEmpty() {
+            return root == null;
+        }
+
+        public void printTree() {
+            if (isEmpty()) {
+                System.out.println("Empty tree");
+            } else {
+                printTree2(root);
+            }
+        }
+
+        private BinaryNode insert(int x, BinaryNode t, BinaryNode parent) {
+            if (t == null) {
+                return new BinaryNode(x, null, null, parent);
+            }
+
+            int compareResult = compare(x, t.element);
+
+            if (compareResult < 0) {
+                t.left = insert(x, t.left, t);
+            } else if (compareResult > 0) {
+                t.right = insert(x, t.right, t);
+            } else
+            ;  // Duplicate; do nothing
+            return t;
+        }
+
+        private boolean contains(int x, BinaryNode t) {
+            if (t == null) {
+                return false;
+            }
+
+            int compareResult = compare(x, t.element);
+
+            if (compareResult < 0) {
+                return contains(x, t.left);
+            } else if (compareResult > 0) {
+                return contains(x, t.right);
+            } else {
+                return true;    // Match
+            }
+        }
+
+        public BinaryNode search(int id) {
+            return search(id, root);
+        }
+
+        private BinaryNode search(int id, BinaryNode t) {
+            if (t != null) {
+                if (id == t.element) {
+                    return t;
+                } else if (id < t.element) {
+                    return search(id, t.left);
+                } else if (id > t.element) {
+                    return search(id, t.right);
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        }
+
+        private void printTree(BinaryNode t) {
+            if (t != null) {
+                printTree(t.left);
+                System.out.println(t.element);
+                printTree(t.right);
+            }
+        }
+
+        //levels
+        private void printTree2(BinaryNode a) {
+            Deque<BinaryNode> c = new LinkedList<>();
+
+            BinaryNode aux;
+            c.addLast(a);
+
+            while (!c.isEmpty()) {
+                aux = c.removeFirst();
+
+                System.out.print(aux.element + ",");
+
+                if (aux.left != null) {
+                    c.addLast(aux.left);
+                }
+                if (aux.right != null) {
+                    c.addLast(aux.right);
+                }
+            }
+
+        }
+
+        private int compare(int x, int y) {
+            if (x < y) {
+                return -1;
+            } else if (x > y) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        //MINIMO ANCESTRO COMOUN ENTRE DOS NODOS
+        public int ancestro(int x, int y) {
+            BinaryNode temp;
+            BinaryNode u = arbol.search(x);
+            BinaryNode v = arbol.search(y);
+            if (u == null || v == null) {
+                return -1;
+            }
+
+            //camino de u a root
+            LinkedList<BinaryNode> uPath = new LinkedList<>();
+            temp = u;
+            while (temp != null) {
+                uPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //camino de v a root
+            LinkedList<BinaryNode> vPath = new LinkedList<>();
+            temp = v;
+            while (temp != null) {
+                vPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //comparar caminos
+            for (BinaryNode uItem : uPath) {
+                for (BinaryNode vItem : vPath) {
+                    if (uItem.equals(vItem)) {
+                        return uItem.element;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        //DISTANCIA ENTRE DOS NODOS
+        public int distancia(int x, int y) {
+            BinaryNode temp, ancestro = null;
+            BinaryNode u = arbol.search(x);
+            BinaryNode v = arbol.search(y);
+            if (u == null || v == null) {
+                return -1;
+            }
+
+            //camino de u a root
+            LinkedList<BinaryNode> uPath = new LinkedList<>();
+            temp = u;
+            while (temp != null) {
+                uPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //camino de v a root
+            LinkedList<BinaryNode> vPath = new LinkedList<>();
+            temp = v;
+            while (temp != null) {
+                vPath.add(temp);
+                temp = temp.parent;
+            }
+
+            //encontrar minimo ancestro comun
+            loop:
+            for (BinaryNode uItem : uPath) {
+                for (BinaryNode vItem : vPath) {
+                    if (uItem.equals(vItem)) {
+                        ancestro = uItem;
+                        break loop;
+                    }
+                }
+            }
+
+            //contar aristas desde minimo ancestro comun
+            if (ancestro != null) {
+                int aristas = 0;
+                temp = u;
+                while (!temp.equals(ancestro)) {
+                    aristas++;
+                    temp=temp.parent;
+                }
+                
+                temp = v;
+                while (!temp.equals(ancestro)) {
+                    aristas++;
+                    temp=temp.parent;
+                }
+                
+                return aristas;
+            }
+            
+            return -1;
+        }
+
+        // Basic node stored in unbalanced binary search trees
+        private class BinaryNode {
+
+            int element;       // The data in the node
+            BinaryNode left;   // Left child
+            BinaryNode right;  // Right child
+            BinaryNode parent;
+
+            // Constructors
+            BinaryNode(int theElement, BinaryNode parent) {
+                this(theElement, null, null, parent);
+            }
+
+            BinaryNode(int theElement, BinaryNode lt, BinaryNode rt, BinaryNode prnt) {
+                element = theElement;
+                left = lt;
+                right = rt;
+                parent = prnt;
+            }
+        }
+    }
+//------------------------------------------------------------------------------
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

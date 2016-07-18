@@ -1,0 +1,550 @@
+import java.util.Scanner;
+
+public class A{
+
+	/*
+	 * public static long factorial(long numero) { if (numero == 0) { return 1;
+	 * } else { return numero * factorial(numero - 1); } }
+	 */
+
+	public static long numeroMayor(long array[]) {
+		long mayor = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > mayor) {
+				mayor = array[i];
+			}
+		}
+		System.out.println(mayor);
+		return mayor;
+	}
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		int sizeN = input.nextInt();
+
+		int array[] = new int[sizeN];
+
+		for (int i = 0; i < sizeN; i++) {
+			int g = input.nextInt();
+			array[i] = g;
+		}
+
+		// int combinaciones = 2 * (factorial(sizeN)) / (2 * (factorial(sizeN -
+		// 2)));
+
+		int combinaciones = Math.abs(((sizeN * sizeN) - sizeN) / 2);
+		long arraymulti[] = new long[combinaciones];
+
+		int numero = 0;
+		//do {
+			for (int j = 0; j < (array.length - 1); j++) {
+				for (int k = 1; k < array.length; k++) {
+					if (j != k) {
+						int a = array[j] * array[k];
+						arraymulti[numero] = a;
+					}
+				}
+				numero++;
+			}
+		//} while (numero < arraymulti.length);
+
+		numeroMayor(arraymulti);
+
+		input.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class A{
+
+	public static long numeroMayor(long array[]) {
+		long mayor = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > mayor) {
+				mayor = array[i];
+			}
+		}
+		System.out.println(mayor);
+		return mayor;
+	}
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		int sizeN = input.nextInt();
+
+		int array[] = new int[sizeN];
+
+		for (int i = 0; i < sizeN; i++) {
+			int g = input.nextInt();
+			array[i] = g;
+		}
+
+		int combinaciones = Math.abs(((sizeN * sizeN) - sizeN) / 2);
+		long arraymulti[] = new long[combinaciones];
+
+		int numero = 0;
+		
+			for (int j = 0; j < (array.length - 1); j++) {
+				for (int k = 1; k < array.length; k++) {
+					if (j != k) {
+						int a = array[j] * array[k];
+						arraymulti[numero] = a;
+					}
+				}
+				numero++;
+			}
+
+		numeroMayor(arraymulti);
+
+		input.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B{
+
+	public static int contadorParedes(String[] array) {
+
+		int contador = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			contador = 0;
+			String letter = array[i];
+			char arrayChar[] = new char[letter.length()+ 4];
+			
+			for (int j = 0; j < letter.length(); j++) {
+				arrayChar[j+2] = letter.charAt(j);
+			}
+
+			for (int k = 2; k < arrayChar.length - 2; k++) {
+				
+				/*if (arrayChar[0] == 66 && arrayChar[1] == 87) {
+					arrayChar[1] = 0;
+					contador++;
+				}
+				if (arrayChar[0] == 66 && arrayChar[2] == 87) {
+					arrayChar[2] = 0;
+					contador++;
+				}
+				if (arrayChar[1] == 66 && arrayChar[2] == 87) {
+					arrayChar[2] = 0;
+					contador++;
+				}
+				if (arrayChar[1] == 66 && arrayChar[3] == 87) {
+					arrayChar[3] = 0;
+					contador++;
+				}
+				if (arrayChar[1] == 66 && arrayChar[0] == 87) {
+					arrayChar[0] = 0;
+					contador++;
+				}
+				if (arrayChar[arrayChar.length - 1] == 66 && arrayChar[arrayChar.length - 2] == 87) {
+					arrayChar[arrayChar.length - 2] = 0;
+					contador++;
+				}
+				if (arrayChar[arrayChar.length - 1] == 66 && arrayChar[arrayChar.length - 3] == 87) {
+					arrayChar[arrayChar.length - 3] = 0;
+					contador++;
+				}
+				if (arrayChar[arrayChar.length - 2] == 66 && arrayChar[arrayChar.length - 3] == 87) {
+					arrayChar[arrayChar.length - 3] = 0;
+					contador++;
+				}
+				if (arrayChar[arrayChar.length - 2] == 66 && arrayChar[arrayChar.length - 4] == 87) {
+					arrayChar[arrayChar.length - 4] = 0;
+					contador++;
+				}
+				if (arrayChar[arrayChar.length - 2] == 66 && arrayChar[arrayChar.length - 1] == 87) {
+					arrayChar[arrayChar.length - 1] = 0;
+					contador++;
+				}*/
+				if (arrayChar[k] == 66) {
+					if (arrayChar[k + 1] == 87) {
+						arrayChar[k + 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k + 2] == 87) {
+						arrayChar[k + 2] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 1] == 87) {
+						arrayChar[k - 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 2] == 87) {
+						arrayChar[k - 2] = 0;
+						contador++;
+					}
+				}
+			}
+			System.out.println(contador);
+		}
+		return contador;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Scanner input1 = new Scanner(System.in);
+
+		//System.out.println("casos prueba (T)");
+		int t = input.nextInt();
+
+		String arrayCode[] = new String[t];
+
+		for (int i = 0; i < t; i++) {
+			arrayCode[i] = input1.nextLine();
+		}
+
+		contadorParedes(arrayCode);
+
+		input.close();
+		input1.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B{
+
+	public static int contadorParedes(String[] array) {
+
+		int contador = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			contador = 0;
+			String letter = array[i];
+			char arrayChar[] = new char[letter.length()+ 4];
+			
+			for (int j = 0; j < letter.length(); j++) {
+				arrayChar[j+2] = letter.charAt(j);
+			}
+
+			for (int k = 2; k < arrayChar.length - 2; k++) {
+				
+				if (arrayChar[k] == 66) {
+					if (arrayChar[k + 1] == 87) {
+						arrayChar[k + 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k + 2] == 87) {
+						arrayChar[k + 2] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 1] == 87) {
+						arrayChar[k - 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 2] == 87) {
+						arrayChar[k - 2] = 0;
+						contador++;
+					}
+				}
+			}
+			System.out.println(contador);
+		}
+		return contador;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Scanner input1 = new Scanner(System.in);
+
+		int t = input.nextInt();
+
+		String arrayCode[] = new String[t];
+
+		for (int i = 0; i < t; i++) {
+			arrayCode[i] = input1.nextLine();
+		}
+
+		contadorParedes(arrayCode);
+
+		input.close();
+		input1.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Subconjuntos_Uber {
+
+	/*
+	 * public static long factorial(long numero) { if (numero == 0) { return 1;
+	 * } else { return numero * factorial(numero - 1); } }
+	 */
+
+	public static long numeroMayor(long array[]) {
+		long mayor = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > mayor) {
+				mayor = array[i];
+			}
+		}
+		System.out.println(mayor);
+		return mayor;
+	}
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		int sizeN = input.nextInt();
+
+		int array[] = new int[sizeN];
+
+		for (int i = 0; i < sizeN; i++) {
+			int g = input.nextInt();
+			array[i] = g;
+		}
+
+		// int combinaciones = 2 * (factorial(sizeN)) / (2 * (factorial(sizeN -
+		// 2)));
+
+		int combinaciones = Math.abs(((sizeN * sizeN) - sizeN) / 2);
+		long arraymulti[] = new long[combinaciones];
+
+		int numero = 0;
+		//do {
+			for (int j = 0; j < (array.length - 1); j++) {
+				for (int k = 1; k < array.length; k++) {
+					if (j != k) {
+						int a = array[j] * array[k];
+						arraymulti[numero] = a;
+					}
+				}
+				numero++;
+			}
+		//} while (numero < arraymulti.length);
+
+		numeroMayor(arraymulti);
+
+		input.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B{
+
+	public static int contadorParedes(String[] array) {
+
+		int contador = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			contador = 0;
+			String letter = array[i];
+			char arrayChar[] = new char[letter.length()+ 4];
+			
+			for (int j = 0; j < letter.length(); j++) {
+				arrayChar[j+2] = letter.charAt(j);
+			}
+
+			for (int k = 2; k < arrayChar.length - 2; k++) {
+				
+				if (arrayChar[k] == 66) {
+					if (arrayChar[k + 1] == 87) {
+						arrayChar[k + 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k + 2] == 87) {
+						arrayChar[k + 2] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 1] == 87) {
+						arrayChar[k - 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 2] == 87) {
+						arrayChar[k - 2] = 0;
+						contador++;
+					}
+				}
+			}
+			System.out.println(contador);
+		}
+		return contador;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Scanner input1 = new Scanner(System.in);
+
+		int t = input.nextInt();
+
+		String arrayCode[] = new String[t];
+
+		for (int i = 0; i < t; i++) {
+			arrayCode[i] = input1.nextLine();
+		}
+
+		contadorParedes(arrayCode);
+
+		input.close();
+		input1.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B{
+
+	public static int contadorParedes(String[] array) {
+
+		int contador = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			contador = 0;
+			String letter = array[i];
+			char arrayChar[] = new char[letter.length()+ 4];
+			
+			for (int j = 0; j < letter.length(); j++) {
+				arrayChar[j+2] = letter.charAt(j);
+			}
+
+			for (int k = 2; k < arrayChar.length - 2; k++) {
+				
+				if (arrayChar[k] == 66) {
+					if (arrayChar[k + 1] == 87) {
+						arrayChar[k + 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k + 2] == 87) {
+						arrayChar[k + 2] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 1] == 87) {
+						arrayChar[k - 1] = 0;
+						contador++;
+					}
+					if (arrayChar[k - 2] == 87) {
+						arrayChar[k - 2] = 0;
+						contador++;
+					}
+				}
+			}
+			System.out.println(contador);
+		}
+		return contador;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		int t = Integer.parseInt(input.nextLine());
+		
+		String arrayCode[] = new String[t];
+
+		for (int i = 0; i < t; i++) {
+			arrayCode[i] = input.nextLine();
+		}
+
+		contadorParedes(arrayCode);
+
+		input.close();
+
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class A {
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		int sizeN = input.nextInt();
+
+		long array[] = new long[sizeN];
+		
+		for (int i = 0; i < sizeN; i++) {
+			long g = input.nextInt();
+			array[i] = g;
+		}
+
+		Arrays.sort(array);
+		
+		long a = array[array.length-1]*array[array.length-2];
+		long b = array[0]*array[1];
+		
+		System.out.println(Math.max(a, b));
+
+		input.close();
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Subcadenas {
+
+	public static int counter(int[] array) {
+		int count1 = 0;
+		int count2 = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			count1++;
+			if (i == array.length - 1) {
+				count2 += (count1 * (count1 + 1)) / 2;
+				break;
+			}
+
+			if (array[i] > array[i + 1]) {
+				count2 += (count1 * (count1 + 1)) / 2;
+				count1 = 0;
+			}
+
+			/*
+			 * for (int j = 1; j < array.length - 1; j++) {
+			 * 
+			 * if (j != 0) { if (array[j - 1] <= array[j]&&array[j] <= array[j +
+			 * 1]) { count++;
+			 * 
+			 * } }else if (array[j] <= array[j + 1]) { count++; } }
+			 */
+		}
+		return count2;
+
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		int t = Integer.parseInt(input.nextLine());
+
+		int h = 0;
+		for (int i = 0; i < t; i++) {
+
+			int n = Integer.parseInt(input.nextLine());
+			int[] array = new int[n];
+			String letters = input.nextLine();
+
+			for (int j = 0; j < array.length; j++) {
+				array[j] = letters.charAt(j);
+			}
+
+			h = counter(array);
+			System.out.println(h);
+		}
+
+		input.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

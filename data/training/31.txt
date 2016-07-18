@@ -1,0 +1,6159 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemB 
+{
+	public static int walls (String wb)
+	{
+		int walls = 0, index = 0;
+		int [] bombs = new int [wb.length()]; 
+		for (int i = 0; i < wb.length(); i++) 
+		{
+			if (wb.charAt(i) == 'B')
+			{
+				bombs[index] = i + 1; 
+				index++;
+			}
+		}
+		if(index == 0)
+		{
+			return 0;
+		}
+		index -= 1;
+		if (wb.length() - bombs[index] > 2)
+		{
+			walls += 2;
+		}
+		else
+		{
+			walls = wb.length() - bombs[index];
+		}
+		while (index > -1)
+		{
+			if (index == 0)
+			{			
+				if (bombs[index] >= 3)
+				{
+					walls += 2;
+				}
+				else if (bombs[index] == 2)
+				{
+					walls += 1;
+				}
+			}
+			else if ((bombs[index] - bombs[index - 1] - 1) >= 4)
+			{
+				walls += 4;
+			}
+			else if ((bombs[index] - bombs[index - 1] - 1) > 0)
+			{
+				walls += bombs[index] - bombs[index - 1] - 1;
+			}
+			index--;
+		}
+		return walls;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemB");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemB"
+			System.setOut(new PrintStream(new File("src/outProblemB")));
+
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int caseTest = Integer.parseInt(scan.nextLine());
+		String[] wb = new String [caseTest]; 
+		for (int i = 0; i < caseTest; i++) 
+		{
+			wb[i] = scan.nextLine();
+		}
+		for (int i = 0; i < caseTest; i++) 
+		{
+			System.out.println(walls(wb[i]));		
+		} 
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemC 
+{
+	public static int subs (String cad)
+	{
+		int ans = cad.length();
+		boolean flag = false;
+		int length = 0;
+		if (ans == 1)
+			return ans;		
+		for (int i = 0; i < cad.length() - 1; i++) 
+		{
+			if (cad.charAt(i) <= cad.charAt(i+1) && flag == false)
+			{
+				flag = true;
+				length += 2;
+				ans++;
+			}
+			else if (cad.charAt(i) <= cad.charAt(i+1) && flag == true)
+			{
+				length++;				
+				ans += length - 1;
+			}
+			else
+			{
+				flag = false;
+				length = 0;
+			}
+		}		
+		return ans;
+	}
+	
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemC");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemC")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		String[] strings = new String [testCases];
+		
+		for (int i = 0; i < strings.length; i++) 
+		{
+			scan.nextLine();
+			strings[i] = scan.nextLine();
+		}
+		/*for (int i = 0; i < strings.length; i++) 
+		{
+			System.out.println(strings[i]);
+		}*/
+		for (int i = 0; i < strings.length; i++) 
+		{
+			System.out.println(subs(strings[i]));
+		}
+		
+	}
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemD 
+{
+	public static String limak (char choco [][], int tam )
+	{
+		String ans = "NO";
+		int cherrys = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					cherrys++;
+				}
+			}
+		}
+		if (cherrys % 2 == 1)
+		{
+			ans = "NO";
+			return ans;
+		}				
+		int ziel = cherrys / 2, aux = 0, aux1 = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					aux++;
+				}
+				if (choco[j][i] == '#')
+				{
+					aux1++;
+				} 				
+			}
+			if (aux == ziel || aux1 == ziel)
+			{
+				ans = "YES";
+				return ans;
+			}
+			else if (aux > ziel || aux1 > ziel)
+			{
+				ans = "NO";
+				return ans;
+			}
+		}	
+		return ans;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < testCases; i++) 
+		{
+			int tam = Integer.parseInt(scan.nextLine());
+			char [][] choco = new char [tam][tam];
+			for (int j = 0; j < tam; j++) 
+			{
+				
+				choco[j] = scan.nextLine().toCharArray();
+			}
+			/*for (int j = 0; j < choco.length; j++) 
+			{
+				for (int j2 = 0; j2 < choco.length; j2++) 
+				{
+					System.out.print(choco[j][j2]);
+				}
+				System.out.println();
+			}*/
+			System.out.println(limak(choco, tam));
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintStream;
+
+public class ProblemA 
+{	
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemA"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int tam;
+		tam = Integer.parseInt(scan.nextLine());
+		long [] nums = new long[tam];
+		for (int i = 0; i < nums.length; i++) 
+		{
+			 nums[i] = scan.nextInt();			
+		}
+		long max = nums[0] * nums[1];
+		for (int i = 0; i < nums.length; i++) 
+		{
+			for (int j = 0; j < nums.length; j++) 
+			{
+				if (i == j)
+					continue;
+				if (nums[i] * nums[j] > max)
+					max = nums[i] * nums[j];
+			}
+		}
+		System.out.println(max);  
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemD 
+{
+	public static String limak (char choco [][], int tam )
+	{
+		String ans = "NO";
+		int cherrys = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					cherrys++;
+				}
+			}
+		}
+		if (cherrys % 2 == 1)
+		{
+			ans = "NO";
+			return ans;
+		}				
+		int ziel = cherrys / 2, aux = 0, aux1 = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					aux++;
+				}
+				if (choco[j][i] == '#')
+				{
+					aux1++;
+				} 				
+			}
+			if (aux == ziel || aux1 == ziel)
+			{
+				ans = "YES";
+				return ans;
+			}
+			else if (aux > ziel || aux1 > ziel)
+			{
+				ans = "NO";
+				return ans;
+			}
+		}	
+		return ans;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < testCases; i++) 
+		{
+			int tam = Integer.parseInt(scan.nextLine());
+			char [][] choco = new char [tam][tam];
+			for (int j = 0; j < tam; j++) 
+			{
+				
+				choco[j] = scan.nextLine().toCharArray();
+			}
+			/*for (int j = 0; j < choco.length; j++) 
+			{
+				for (int j2 = 0; j2 < choco.length; j2++) 
+				{
+					System.out.print(choco[j][j2]);
+				}
+				System.out.println();
+			}*/
+			System.out.println(limak(choco, tam));
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemD 
+{
+	public static String limak (char choco [][], int tam )
+	{
+		String ans = "NO";
+		int cherrys = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					cherrys++;
+				}
+			}
+		}
+		if (cherrys % 2 == 1)
+		{
+			ans = "NO";
+			return ans;
+		}				
+		int ziel = cherrys / 2, aux = 0, aux1 = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					aux++;
+				}
+				if (choco[j][i] == '#')
+				{
+					aux1++;
+				} 				
+			}
+			if (aux == ziel || aux1 == ziel)
+			{
+				ans = "YES";
+				return ans;
+			}
+			else if (aux > ziel || aux1 > ziel)
+			{
+				ans = "NO";
+				return ans;
+			}
+		}	
+		return ans;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < testCases; i++) 
+		{
+			int tam = Integer.parseInt(scan.nextLine());
+			char [][] choco = new char [tam][tam];
+			for (int j = 0; j < tam; j++) 
+			{
+				
+				choco[j] = scan.nextLine().toCharArray();
+			}
+			System.out.println(limak(choco, tam));
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemD 
+{
+	public static String limak (char choco [][], int tam )
+	{
+		String ans = "NO";
+		int cherrys = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					cherrys++;
+				}
+			}
+		}
+		if (cherrys % 2 == 1)
+		{
+			ans = "NO";
+			return ans;
+		}			
+		
+		int ziel = cherrys / 2, aux = 0, aux1 = 0;
+		int a=0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				
+				if (choco[i][j] == '#')
+				{
+					aux++;
+				}
+				if (choco[j][i] == '#')
+				{
+					aux1++;
+				} 	
+				//System.out.println("i = " + i + " j = " + j);
+			}
+			//System.out.println("ziel = "+ ziel +" aux = " + aux + " aux1 = " + aux1);
+			if (aux == ziel || aux1 == ziel)
+			{
+				ans = "YES";
+				return ans;
+			}
+			else if (aux > ziel || aux1 > ziel)
+			{
+				ans = "NO";
+				//return ans;
+			}
+		}	
+		//System.out.println("ziel = "+ ziel +" aux = " + aux + " aux1 = " + aux1);
+		return ans;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < testCases; i++) 
+		{
+			int tam = Integer.parseInt(scan.nextLine());
+			char [][] choco = new char [tam][tam];
+			for (int j = 0; j < tam; j++) 
+			{
+				
+				choco[j] = scan.nextLine().toCharArray();
+			}
+			System.out.println(limak(choco, tam));
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemE 
+{
+	public static String limak (char choco [][], int tam )
+	{
+		String ans = "NO";
+		int cherrys = 0;
+		int cols = 0, filas = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					cherrys++;
+				}
+			}
+		}
+		if (cherrys % 2 == 1)
+		{
+			ans = "NO";
+			return ans;
+		}			
+		
+		int ziel = cherrys / 2, aux = 0, aux1 = 0;
+		int a=0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				
+				if (choco[i][j] == '#')
+				{
+					aux++;
+				}
+				if (choco[j][i] == '#')
+				{
+					aux1++;
+				} 	
+				//System.out.println("i = " + i + " j = " + j);
+			}
+			//System.out.println("ziel = "+ ziel +" aux = " + aux + " aux1 = " + aux1);
+			if (aux == ziel || aux1 == ziel)
+			{
+				if (aux == ziel)
+				{
+					filas++;
+				}
+				if (aux1 == ziel)
+				{
+					cols++;
+				}
+				ans = "YES";
+				
+			}
+			else if (aux > ziel || aux1 > ziel)
+			{
+				ans = "NO";
+				//return ans;
+			}
+		}	
+		//System.out.println("ziel = "+ ziel +" aux = " + aux + " aux1 = " + aux1);
+		System.out.println(filas +" " + cols);
+		return ans;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemE");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemE")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < testCases; i++) 
+		{
+			int tam = Integer.parseInt(scan.nextLine());
+			char [][] choco = new char [tam][tam];
+			for (int j = 0; j < tam; j++) 
+			{
+				
+				choco[j] = scan.nextLine().toCharArray();
+			}
+			//System.out.println(limak(choco, tam));
+			limak(choco, tam);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemE 
+{
+	public static String limak (char choco [][], int tam )
+	{
+		
+		String ans = "NO";
+		int cherrys = 0;
+		int cols = 0, filas = 0;
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				if (choco[i][j] == '#')
+				{
+					cherrys++;
+				}
+			}
+		}
+		if (cherrys % 2 == 1)
+		{
+			ans = "NO";
+			//return ans;
+		}			
+		
+		int ziel = cherrys / 2, aux = 0, aux1 = 0;
+		
+		for (int i = 0; i < tam; i++)
+		{
+			for (int j = 0; j < tam; j++)
+			{
+				
+				if (choco[i][j] == '#')
+				{
+					aux++;
+				}
+				if (choco[j][i] == '#')
+				{
+					aux1++;
+				} 	
+				//System.out.println("i = " + i + " j = " + j);
+			}
+			//System.out.println("ziel = "+ ziel +" aux = " + aux + " aux1 = " + aux1);
+			if (aux == ziel || aux1 == ziel)
+			{
+				if (aux == ziel)
+				{
+					filas++;
+				}
+				if (aux1 == ziel)
+				{
+					cols++;
+				}
+				ans = "YES";
+				
+			}
+			else if (aux > ziel || aux1 > ziel)
+			{
+				//ans = "NO";
+				//return ans;
+			}
+		}	
+		//System.out.println("ziel = "+ ziel +" aux = " + aux + " aux1 = " + aux1);
+		if (cherrys %2 == 1)
+		{
+			filas = 0;
+			cols = 0;
+		}
+		System.out.println(filas + " " + cols);
+		return ans;
+	}
+	public static void main (String args[]) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemE");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemE")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int testCases = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < testCases; i++) 
+		{
+			int tam = Integer.parseInt(scan.nextLine());
+			char [][] choco = new char [tam][tam];
+			for (int j = 0; j < tam; j++) 
+			{
+				
+				choco[j] = scan.nextLine().toCharArray();
+			}
+			//System.out.println(limak(choco, tam));
+			limak(choco, tam);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+
+public class ProblemA 
+{
+	public class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> HashMap<K, V> 
+	        sortByValue( HashMap<K, V> map )
+	    {
+	        LinkedList<HashMap.Entry<K, V>> list =
+	            new LinkedList<HashMap.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<HashMap.Entry<K, V>>()
+	        {
+	            public int compare( HashMap.Entry<K, V> o1, HashMap.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        HashMap<K, V> result = new LinkedHashMap<K, V>();
+	        for (HashMap.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		ProblemA a = new ProblemA();
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			HashMap<Integer, Score> map = new HashMap<>(teams);
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = a.new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = a.new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class ProblemB 
+{
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemB");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int N = Integer.parseInt(scan.nextLine());
+			int [] numbers = new int [N];
+			HashMap<Integer, Integer> map = new HashMap<>();
+			int index = 0;
+			for (int j = 0; j < N; j++) 
+			{
+				int a = scan.nextInt();
+				if(map.containsKey(a))
+				{
+					map.put(a, map.get(a)+1);
+				}
+				else
+				{
+					numbers[index++] = a;
+					map.put(a, 1);
+				}
+				
+			}
+			if (i != testCases-1)
+				scan.nextLine();
+			
+			for (int j = 0; j < map.keySet().size(); j++)  
+			{
+				System.out.println(numbers[j] + " " + map.get(numbers[j]));
+			}
+			
+			//System.out.println(Arrays.toString(numbers));
+		}
+		
+		scan.close();
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProblemC 
+{
+	public static class UnionFind 
+	{
+		private int id[];
+		private int sz[];
+		private int cont;
+
+		public int getCont() 
+		{
+			return cont;
+		}
+		
+		public int getSize(int x) 
+		{
+			return sz[x];
+		}
+
+		public UnionFind(int n) 
+		{
+			id = new int[n];
+			sz = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) 
+			{
+				id[i] = i;
+				sz[i] = 1;
+			}
+		}
+
+		public int find(int x) 
+		{
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public void union(int x, int y) 
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if (sz[a] < sz[b]) 
+			{
+				id[a] = b;
+				sz[b] += sz[a];
+			} 
+			else 
+			{
+				id[b] = a;
+				sz[a] += sz[b];
+			}
+			cont--;
+		}
+	}
+
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemC");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemC")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int friendships = Integer.parseInt(scan.nextLine());
+			HashMap<String, Integer> map = new HashMap<>();
+			UnionFind unionFind = new UnionFind(2*friendships);
+			int aux = 0;
+			for (int j = 0; j < friendships; j++) 
+			{
+				String x = scan.next();
+				String y = scan.next();
+				int m = 0, n = 0;
+				if(!map.containsKey(x) && !map.containsKey(y))
+				{
+					m = aux;
+					map.put(x, aux++);
+					n = aux;
+					map.put(y, aux++);
+				}
+				else if(map.containsKey(x) && !map.containsKey(y))
+				{
+					m = map.get(x);
+					n = aux;
+					map.put(y, aux++);
+				}
+				else if(map.containsKey(y) && !map.containsKey(x))
+				{
+					m = map.get(y);
+					n = aux;
+					map.put(x, aux++);
+				}
+				else
+				{
+					m = map.get(x);
+					n = map.get(y);
+				}
+				unionFind.union(m, n);
+				System.out.println(unionFind.getSize(unionFind.find(m)));
+				
+				if(i != testCases-1)
+					scan.nextLine();
+			}
+		}
+		scan.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash
+{
+	public class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V>
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new HashMap<K, V>();
+	        for (HashMap.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+
+	public class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team)
+		{
+			super();
+			this.team = team;
+		}
+
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+
+		@Override
+		public int compareTo(Score other)
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+
+	}
+	public static void main(String[] args) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists())
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		}
+		else
+		{
+			scan = new Scanner(System.in);
+		}
+		ProblemAHash a = new ProblemAHash();
+
+		int testCases = Integer.parseInt(scan.nextLine());
+
+		for (int i = 0; i < testCases; i++)
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			for (int j = 0; j < sendings; j++)
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = a.new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+
+
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+
+			MapUtil order = a.new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values())
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new HashMap<K, V>();
+	        for (HashMap.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		ProblemAHash a = new ProblemAHash();
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = a.new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = a.new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new HashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		ProblemAHash a = new ProblemAHash();
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = a.new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = a.new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> HashMap<K, V> 
+	        sortByValue( HashMap<K, V> map )
+	    {
+	        LinkedList<HashMap.Entry<K, V>> list =
+	            new LinkedList<HashMap.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<HashMap.Entry<K, V>>()
+	        {
+	            public int compare( HashMap.Entry<K, V> o1, HashMap.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        HashMap<K, V> result = new LinkedHashMap<K, V>();
+	        for (HashMap.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public static class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	 
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		ProblemA a = new ProblemA();
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			HashMap<Integer, Score> map = new HashMap<>(teams);
+			int C = 0;
+			int I = 0;
+			int T = 0;
+			int R = 0;
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(status == 'C')
+					C++;
+				else if(status == 'I')
+					I++;
+				else if(status == 'T')
+					T++;
+				else if(status == 'R')
+					R++;
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+			//System.out.println(C + " " + I + " " + T + " " + R);
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public static class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	 
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		ProblemA a = new ProblemA();
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			int C = 0;
+			int I = 0;
+			int T = 0;
+			int R = 0;
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(status == 'C')
+					C++;
+				else if(status == 'I')
+					I++;
+				else if(status == 'T')
+					T++;
+				else if(status == 'R')
+					R++;
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+			//System.out.println(C + " " + I + " " + T + " " + R);
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public static class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	 
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			int C = 0;
+			int I = 0;
+			int T = 0;
+			int R = 0;
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(status == 'C')
+					C++;
+				else if(status == 'I')
+					I++;
+				else if(status == 'T')
+					T++;
+				else if(status == 'R')
+					R++;
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+			//System.out.println(C + " " + I + " " + T + " " + R);
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public static class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+		
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+				this.map.put(problem, map.get(problem)+1);
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			if(this.map.get(problem) == -1)
+				return;
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+			this.map.put(problem, -1);
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	 
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			int C = 0;
+			int I = 0;
+			int T = 0;
+			int R = 0;
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(status == 'C')
+					C++;
+				else if(status == 'I')
+					I++;
+				else if(status == 'T')
+					T++;
+				else if(status == 'R')
+					R++;
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+			//System.out.println(C + " " + I + " " + T + " " + R);
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemAHash 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public static class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+		
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+			{
+				if(this.map.get(problem) == -1)
+					return;
+				this.map.put(problem, map.get(problem)+1);
+			}
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			if(this.map.get(problem) == -1)
+				return;
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+			this.map.put(problem, -1);
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	 
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			int C = 0;
+			int I = 0;
+			int T = 0;
+			int R = 0;
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(status == 'C')
+					C++;
+				else if(status == 'I')
+					I++;
+				else if(status == 'T')
+					T++;
+				else if(status == 'R')
+					R++;
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+			//System.out.println(C + " " + I + " " + T + " " + R);
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemEhash 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+	
+	public static class Score implements Comparable<Score>
+	{
+		int team;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int minutes = 0;
+		int penalty;
+		int correctProblems = 0;
+
+		public Score(int team) 
+		{
+			super();
+			this.team = team;
+		}
+		
+		public void addProblem (int problem)
+		{
+			if(map.containsKey(problem))
+			{
+				if(this.map.get(problem) == -1)
+					return;
+				this.map.put(problem, map.get(problem)+1);
+			}
+			else
+				this.map.put(problem, 0);
+		}
+		
+		public void correctProblem (int problem, int minutes)
+		{
+			if(this.map.get(problem) == -1)
+				return;
+			int tries = this.map.get(problem);
+			this.penalty += 20 * tries + minutes;
+			this.correctProblems++;
+			this.map.put(problem, -1);
+		}
+		
+		@Override
+		public int compareTo(Score other) 
+		{
+			if(this.correctProblems > other.correctProblems)
+				return 1;
+			else if(this.correctProblems < other.correctProblems)
+				return -1;
+			else if(this.penalty < other.penalty)
+				return 1;
+			else if(this.penalty > other.penalty)
+				return -1;
+			else if(this.team < other.team)
+				return 1;
+			else if(this.team > other.team)
+				return -1;
+			return 0;
+		}
+
+		
+	}
+	 
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int teams = scan.nextInt();
+			int sendings = scan.nextInt();
+			scan.nextLine();
+			Map<Integer, Score> map = new HashMap<>(teams);
+			int C = 0;
+			int I = 0;
+			int T = 0;
+			int R = 0;
+			for (int j = 0; j < sendings; j++) 
+			{
+				int team = scan.nextInt();
+				int problem = scan.nextInt();
+				int time = scan.nextInt();
+				char status = scan.next().charAt(0);
+				
+				if(status == 'C')
+					C++;
+				else if(status == 'I')
+					I++;
+				else if(status == 'T')
+					T++;
+				else if(status == 'R')
+					R++;
+				
+				if(map.containsKey(team))
+				{
+					Score s = map.get(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				else
+				{
+					Score s = new Score(team);
+					if (status == 'C')
+					{
+						s.addProblem(problem);
+						s.correctProblem(problem, time);
+					}
+					else
+						s.addProblem(problem);
+					map.put(team, s);
+				}
+				
+				
+				if (j != sendings - 1)
+					scan.nextLine();
+			}
+			
+			MapUtil order = new MapUtil();
+			map = order.sortByValue(map);
+			for (Score score: map.values()) 
+			{
+				System.out.println(score.team + " " + score.correctProblems + " " + score.penalty);
+			}
+			System.out.println(C + " " + I + " " + T + " " + R);
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class UnionFindFinal 
+{
+	public static class UnionFind 
+	{
+		private int id[];
+		private int enm[];
+		private int hasEnm[];
+		private int rank[];
+		private int cont;
+
+		public int getCont() 
+		{
+			return cont;
+		}
+
+		public UnionFind(int n) 
+		{
+			id = new int[n];
+			enm = new int[n];
+			hasEnm = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) 
+			{
+				enm[i] = -1;
+				hasEnm[i] = 0;
+				id[i] = i;
+				rank[i] = 1;
+			}
+		}
+
+		public int find(int x) 
+		{
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public int union(int x, int y) 
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+			{
+				//System.out.println("error !!!" + " " + x + " " + y);
+				return -1;
+			}
+			if (rank[a] < rank[b]) 
+			{
+				if(hasEnm[a] == 1 || hasEnm[b] == 1)
+				{
+					if(hasEnm[a] == 1 && hasEnm[b] == 1)
+					{
+						int c = union1(enm[a], enm[b]);
+						enm[b] = c;
+						enm[a] = enm[b];
+						enm[c] = b;
+					}
+					else if(hasEnm[a] == 1)
+					{
+						enm[b] = enm[a];
+						enm[enm[a]] = b;
+						//enm[y] = enm[a];
+						//enm[x] = enm[a];
+					}
+					else if(hasEnm[b] == 1)
+					{
+						enm[b] = enm[b];
+						enm[enm[b]] = b;
+						
+						//enm[x] = enm[b];
+						//enm[y] = enm[b];
+						//enm[enm[b]] = b;
+					}
+					hasEnm[x] = 1;
+					hasEnm[y] = 1;
+					
+				}
+				id[a] = b;
+				return b;
+			} 
+			else 
+			{
+				if(hasEnm[a] == 1 || hasEnm[b] == 1)
+				{
+					if(hasEnm[a] == 1 && hasEnm[b] == 1)
+					{
+						int c = union1(enm[a], enm[b]);
+						enm[a] = c;
+						enm[b] = enm[a];
+						enm[c] = a;
+					}
+					else if(hasEnm[a] == 1)
+					{
+						enm[a] = enm[a];
+						enm[enm[a]] = a;
+						
+						/*enm[y] = enm[a];
+						enm[x] = enm[a];
+						enm[enm[a]] = a;*/
+					}
+					else if(hasEnm[b] == 1)
+					{
+						enm[a] = enm[b];
+						enm[enm[b]] = a;
+						/*enm[x] = enm[b];
+						enm[y] = enm[b];
+						enm[enm[b]] = b;*/ 
+					}
+					hasEnm[x] = 1;
+					hasEnm[y] = 1;
+				}
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+				return a;
+			}
+			//cont--;
+		}
+		
+		public int union1(int x, int y) 
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+			{
+				//System.out.println("error !!!" + " " + x + " " + y);
+				return -1;
+			}
+			if (rank[a] < rank[b]) 
+			{
+				id[a] = b;
+				return b;
+			} 
+			else 
+			{
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+				return a;
+			}
+			//cont--;
+		}
+	
+
+		
+		public void setEnm(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+			
+			if(hasEnm[a] == 1 || hasEnm[b] == 1)
+			{
+				if(hasEnm[a] == 1 && hasEnm[b] == 1)
+				{
+					int c = union1(a, enm[b]);
+					int d = union1(b, enm[a]);
+					enm[c] = d;
+					enm[d] = c;
+					hasEnm[c] = 1;
+					hasEnm[d] = 1;
+					return;
+				}
+				else if(hasEnm[a] == 1)
+				{
+					int c = union1(b, enm[a]);
+					enm[c] = a;
+					enm[a] = c;
+					hasEnm[c] = 1;
+					hasEnm[a] = 1;
+					return;
+				}
+				else
+				{
+					int c = union1(a, enm[b]);
+					enm[b] = c;
+					enm[c] = b;
+					hasEnm[b] = 1;
+					hasEnm[c] = 1;
+					return;
+				}
+			}
+			
+			enm[a] = b;
+			enm[b] = a;
+			hasEnm[a] = 1;
+			hasEnm[b] = 1;
+		}
+		
+		public void updateEnm()
+		{
+			
+		}
+		
+		public boolean getEnm(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return false;
+			if(hasEnm[a] == 1 && hasEnm[b] == 1)
+			{
+				enm[x] = enm[a];
+				enm[y] = enm[b];
+				hasEnm[x] = 1;
+				hasEnm[y] = 1;
+				if (enm[x] == enm[y])
+					union(x,y);
+				return id[a] == enm[b];
+			}
+			return false;
+		}
+		
+		public boolean getFr(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+			
+			if(hasEnm[x] == 1 && hasEnm[y] == 1 && enm[x] == enm[y])
+			{
+				union(x,y);
+				return true;
+			}
+			
+			return b == a;
+		}
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		ProblemD d = new ProblemD();
+		int testCases = Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int persons = scan.nextInt();
+			int operations = scan.nextInt();
+			UnionFind unionFind = new UnionFind(persons);
+			for (int j = 0; j < operations; j++) 
+			{
+				int op = scan.nextInt();
+				int person1 = scan.nextInt();
+				int person2 = scan.nextInt();
+				
+				//System.out.println(op + " " + person1 + " " + person2);
+				
+				switch(op)
+				{
+					case 1:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+							
+						else
+						{
+							if(unionFind.getFr(person1, person2))
+								break;
+							unionFind.union(person1, person2);
+						}
+						break;
+					}
+					case 2:
+					{
+						if(person1 == person2 || unionFind.getFr(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+						else
+						{
+							if(unionFind.getEnm(person1, person2))
+								break;
+							unionFind.setEnm(person1, person2);
+						}
+						break;
+					}
+					case 3:
+					{
+						if(unionFind.getFr(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+							
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+							
+						break;
+					}
+					case 4:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+							
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+							
+						break;
+					}
+				}
+			}
+			if(i != testCases-1)
+				scan.nextLine();
+		}
+		
+		
+		
+	}
+}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class UnionFindFinal
+{
+	public static class UnionFind
+	{
+		private int id[];
+		private int enm[];
+		private int hasEnm[];
+		private int rank[];
+		private int cont;
+
+		public int getCont()
+		{
+			return cont;
+		}
+
+		public UnionFind(int n)
+		{
+			id = new int[n];
+			enm = new int[n];
+			hasEnm = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++)
+			{
+				enm[i] = -1;
+				hasEnm[i] = 0;
+				id[i] = i;
+				rank[i] = 1;
+			}
+		}
+
+		public int find(int x)
+		{
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public int union(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+			{
+				//System.out.println("error !!!" + " " + x + " " + y);
+				return -1;
+			}
+			if (rank[a] < rank[b])
+			{
+				if(hasEnm[a] == 1 || hasEnm[b] == 1)
+				{
+					if(hasEnm[a] == 1 && hasEnm[b] == 1)
+					{
+						int c = union1(enm[a], enm[b]);
+						enm[b] = c;
+						enm[a] = enm[b];
+						enm[c] = b;
+					}
+					else if(hasEnm[a] == 1)
+					{
+						enm[b] = enm[a];
+						enm[enm[a]] = b;
+						//enm[y] = enm[a];
+						//enm[x] = enm[a];
+					}
+					else if(hasEnm[b] == 1)
+					{
+						enm[b] = enm[b];
+						enm[enm[b]] = b;
+
+						//enm[x] = enm[b];
+						//enm[y] = enm[b];
+						//enm[enm[b]] = b;
+					}
+					hasEnm[x] = 1;
+					hasEnm[y] = 1;
+
+				}
+				id[a] = b;
+				return b;
+			}
+			else
+			{
+				if(hasEnm[a] == 1 || hasEnm[b] == 1)
+				{
+					if(hasEnm[a] == 1 && hasEnm[b] == 1)
+					{
+						int c = union1(enm[a], enm[b]);
+						enm[a] = c;
+						enm[b] = enm[a];
+						enm[c] = a;
+					}
+					else if(hasEnm[a] == 1)
+					{
+						enm[a] = enm[a];
+						enm[enm[a]] = a;
+
+						/*enm[y] = enm[a];
+						enm[x] = enm[a];
+						enm[enm[a]] = a;*/
+					}
+					else if(hasEnm[b] == 1)
+					{
+						enm[a] = enm[b];
+						enm[enm[b]] = a;
+						/*enm[x] = enm[b];
+						enm[y] = enm[b];
+						enm[enm[b]] = b;*/
+					}
+					hasEnm[x] = 1;
+					hasEnm[y] = 1;
+				}
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+				return a;
+			}
+			//cont--;
+		}
+
+		public int union1(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+			{
+				//System.out.println("error !!!" + " " + x + " " + y);
+				return -1;
+			}
+			if (rank[a] < rank[b])
+			{
+				id[a] = b;
+				return b;
+			}
+			else
+			{
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+				return a;
+			}
+			//cont--;
+		}
+
+
+
+		public void setEnm(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+
+			if(hasEnm[a] == 1 || hasEnm[b] == 1)
+			{
+				if(hasEnm[a] == 1 && hasEnm[b] == 1)
+				{
+					int c = union1(a, enm[b]);
+					int d = union1(b, enm[a]);
+					enm[c] = d;
+					enm[d] = c;
+					hasEnm[c] = 1;
+					hasEnm[d] = 1;
+					return;
+				}
+				else if(hasEnm[a] == 1)
+				{
+					int c = union1(b, enm[a]);
+					enm[c] = a;
+					enm[a] = c;
+					hasEnm[c] = 1;
+					hasEnm[a] = 1;
+					return;
+				}
+				else
+				{
+					int c = union1(a, enm[b]);
+					enm[b] = c;
+					enm[c] = b;
+					hasEnm[b] = 1;
+					hasEnm[c] = 1;
+					return;
+				}
+			}
+
+			enm[a] = b;
+			enm[b] = a;
+			hasEnm[a] = 1;
+			hasEnm[b] = 1;
+		}
+
+		public void updateEnm()
+		{
+
+		}
+
+		public boolean getEnm(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return false;
+			if(hasEnm[a] == 1 && hasEnm[b] == 1)
+			{
+				enm[x] = enm[a];
+				enm[y] = enm[b];
+				hasEnm[x] = 1;
+				hasEnm[y] = 1;
+				if (enm[x] == enm[y])
+					union(x,y);
+				return id[a] == enm[b];
+			}
+			return false;
+		}
+
+		public boolean getFr(int x, int y)
+		{
+			int a = find(x);
+			int b = find(y);
+
+			if(hasEnm[x] == 1 && hasEnm[y] == 1 && enm[x] == enm[y])
+			{
+				union(x,y);
+				return true;
+			}
+
+			return b == a;
+		}
+	}
+
+	public static void main(String[] args) throws FileNotFoundException
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists())
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		}
+		else
+		{
+			scan = new Scanner(System.in);
+		}
+
+
+		int testCases = Integer.parseInt(scan.nextLine());
+
+		for (int i = 0; i < testCases; i++)
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int persons = scan.nextInt();
+			int operations = scan.nextInt();
+			UnionFind unionFind = new UnionFind(persons);
+			for (int j = 0; j < operations; j++)
+			{
+				int op = scan.nextInt();
+				int person1 = scan.nextInt();
+				int person2 = scan.nextInt();
+
+				//System.out.println(op + " " + person1 + " " + person2);
+
+				switch(op)
+				{
+					case 1:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+
+						else
+						{
+							if(unionFind.getFr(person1, person2))
+								break;
+							unionFind.union(person1, person2);
+						}
+						break;
+					}
+					case 2:
+					{
+						if(person1 == person2 || unionFind.getFr(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+						else
+						{
+							if(unionFind.getEnm(person1, person2))
+								break;
+							unionFind.setEnm(person1, person2);
+						}
+						break;
+					}
+					case 3:
+					{
+						if(unionFind.getFr(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+
+						break;
+					}
+					case 4:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+
+						break;
+					}
+				}
+			}
+			if(i != testCases-1)
+				scan.nextLine();
+		}
+
+
+
+	}
+}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class PE 
+{
+	public static class UnionFind 
+	{
+		private int id[];
+		private int rank[];
+		private int cont;
+
+		public int getCont() 
+		{
+			return cont;
+		}
+
+		public UnionFind(int n) 
+		{
+			id = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) 
+			{
+				id[i] = i;
+				rank[i] = 1;
+			}
+		}
+
+		public int find(int x) 
+		{
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public void union(int x, int y) 
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) 
+			{
+				id[a] = b;
+			} 
+			else 
+			{
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		
+		public boolean getEnm(int x, int y)
+		{
+			return find(2*x+1) == find(2*y);
+		}
+		
+		public boolean getFr(int x, int y)
+		{
+			return find(2*x) == find(2*y);
+		}
+		
+		public void setEnm(int x, int y)
+		{
+			union(2*x+1, 2*y);
+			union(2*x, 2*y+1);
+		}
+		public void setFr(int x, int y)
+		{
+			union(2*x+1, 2*y+1);
+			union(2*x, 2*y);
+		}
+		
+		
+		
+		
+	}
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		//System.out.println(testCases);
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int persons = scan.nextInt();
+			int operations = scan.nextInt();
+			UnionFind unionFind = new UnionFind(2*persons);
+			for (int j = 0; j < operations; j++) 
+			{
+				int op = scan.nextInt();
+				int person1 = scan.nextInt();
+				int person2 = scan.nextInt();
+				
+				//System.out.println(op + " " + person1 + " " + person2);
+				
+				switch(op)
+				{
+					case 1:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+						else
+						{
+							unionFind.setFr(person1, person2);
+						}
+						break;
+					}
+					case 2:
+					{
+						if(person1 == person2 || unionFind.getFr(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+						else
+						{
+							unionFind.setEnm(person1, person2);
+						}
+						break;
+					}
+					case 3:
+					{
+						if(unionFind.getFr(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+							
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+							
+						break;
+					}
+					case 4:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+							
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+							
+						break;
+					}
+				}
+			}
+			if(i != testCases-1)
+				scan.nextLine();
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class PE 
+{
+	public static class UnionFind 
+	{
+		private int id[];
+		private int rank[];
+		private int cont;
+
+		public int getCont() 
+		{
+			return cont;
+		}
+
+		public UnionFind(int n) 
+		{
+			id = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) 
+			{
+				id[i] = i;
+				rank[i] = 1;
+			}
+		}
+
+		public int find(int x) 
+		{
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public void union(int x, int y) 
+		{
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) 
+			{
+				id[a] = b;
+			} 
+			else 
+			{
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		
+		public boolean getEnm(int x, int y)
+		{
+			return find(2*x+1) == find(2*y);
+		}
+		
+		public boolean getFr(int x, int y)
+		{
+			return find(2*x) == find(2*y);
+		}
+		
+		public void setEnm(int x, int y)
+		{
+			union(2*x+1, 2*y);
+			union(2*x, 2*y+1);
+		}
+		public void setFr(int x, int y)
+		{
+			union(2*x+1, 2*y+1);
+			union(2*x, 2*y);
+		}
+		
+		
+		
+		
+	}
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		//System.out.println(testCases);
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int persons = scan.nextInt();
+			int operations = scan.nextInt();
+			UnionFind unionFind = new UnionFind(2*persons);
+			for (int j = 0; j < operations; j++) 
+			{
+				int op = scan.nextInt();
+				int person1 = scan.nextInt();
+				int person2 = scan.nextInt();
+				
+				//System.out.println(op + " " + person1 + " " + person2);
+				
+				switch(op)
+				{
+					case 1:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+						else
+						{
+							unionFind.setFr(person1, person2);
+						}
+						break;
+					}
+					case 2:
+					{
+						if(person1 == person2 || unionFind.getFr(person1, person2))
+							//System.out.println("-1" + " " + j);
+							System.out.println("-1");
+						else
+						{
+							unionFind.setEnm(person1, person2);
+						}
+						break;
+					}
+					case 3:
+					{
+						if(unionFind.getFr(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+							
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+							
+						break;
+					}
+					case 4:
+					{
+						if(unionFind.getEnm(person1, person2))
+							//System.out.println("1" +  " " + j);
+							System.out.println("1");
+							
+						else
+							//System.out.println("0" +  " " + j);
+							System.out.println("0");
+							
+						break;
+					}
+				}
+			}
+			if(i != testCases-1)
+				scan.nextLine();
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class P1
+{
+	
+	
+	public class MyQueue<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyQueue( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	    	//System.out.println(getNode( idx , 0, size( ) ).data);
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    public void push(AnyType x )
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	        addBefore( getNode( 0, 0, size( ) ), x );
+	    }
+	    
+	    public void enqueue(AnyType x )
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	    	add( size( ), x );
+	    }
+	    
+	    public AnyType dequeue()
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	    	return remove( beginMarker.next );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	    
+	    public AnyType peek( )
+	    {
+	        return getNode( 0 ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    public AnyType pop()
+	    {
+	        return remove( beginMarker.next );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyQueue.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+	
+	
+	
+	
+	public static void main(String args[]) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/A_1.txt");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else 
+		{
+			scan = new Scanner(System.in);
+		}
+		P1 p1 = new P1();
+		int n = Integer.parseInt(scan.nextLine());
+		
+		for (int t = 0; t < n; t++) 
+		{
+			System.out.println("Caso #" + (t+1) +":");
+			MyQueue<Integer> queue = p1.new MyQueue<>();
+			MyQueue<Integer> atendidos = p1.new MyQueue<>();
+			
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				if (type.equals("agregar")) 
+				{
+					queue.enqueue(Integer.parseInt(line[1]));
+				} 
+				else if (type.equals("atender")) 
+				{
+					atendidos.add(queue.dequeue());
+					
+				} 
+				else if (type.equals("existe")) 
+				{
+					boolean flag = false;
+					for (int j = 0; j < atendidos.size(); j++) 
+					{
+						if(atendidos.get(j) == Integer.parseInt(line[1]))
+						{
+							System.out.println("SI");
+							flag = true;
+						}
+					}
+					if(!flag)
+						System.out.println("NO");
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.LinkedHashSet;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Set;
+
+public class P1
+{
+	
+	
+	public class MyQueue<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyQueue( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	    	//System.out.println(getNode( idx , 0, size( ) ).data);
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    public void push(AnyType x )
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	        addBefore( getNode( 0, 0, size( ) ), x );
+	    }
+	    
+	    public void enqueue(AnyType x )
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	    	add( size( ), x );
+	    }
+	    
+	    public AnyType dequeue()
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	    	return remove( beginMarker.next );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	    
+	    public AnyType peek( )
+	    {
+	        return getNode( 0 ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    public AnyType pop()
+	    {
+	        return remove( beginMarker.next );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyQueue.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+	
+	
+	
+	
+	public static void main(String args[]) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/A_1.txt");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else 
+		{
+			scan = new Scanner(System.in);
+		}
+		P1 p1 = new P1();
+		int n = Integer.parseInt(scan.nextLine());
+		
+		for (int t = 0; t < n; t++) 
+		{
+			System.out.println("Caso #" + (t+1) +":");
+			MyQueue<Integer> queue = p1.new MyQueue<>();
+			Set<Integer> set = new LinkedHashSet<>();
+			
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				if (type.equals("agregar")) 
+				{
+					queue.enqueue(Integer.parseInt(line[1]));
+				} 
+				else if (type.equals("atender")) 
+				{
+					set.add(queue.dequeue());
+					
+				} 
+				else if (type.equals("existe")) 
+				{
+					boolean flag = false;
+					if(set.contains(Integer.parseInt(line[1])))
+					{
+						System.out.println("SI");
+						flag = true;
+					}
+					if(!flag)
+						System.out.println("NO");
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+
+
+public class P2 
+{
+	// BinaryHeap class
+	//
+	// CONSTRUCTION: with optional capacity (that defaults to 100)
+//	               or an array containing initial items
+	//
+	// ******************PUBLIC OPERATIONS*********************
+	// void insert( x )       --> Insert x
+	// Comparable deleteMin( )--> Return and remove smallest item
+	// Comparable findMin( )  --> Return smallest item
+	// boolean isEmpty( )     --> Return true if empty; else false
+	// void makeEmpty( )      --> Remove all items
+	// ******************ERRORS********************************
+	// Throws UnderflowException as appropriate
+
+	/**
+	 * Implements a binary heap.
+	 * Note that all "matching" is based on the compareTo method.
+	 * @param <AnyType>
+	 */
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeap( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeap( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeap( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	   
+	public class MyQueue<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyQueue( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	    	//System.out.println(getNode( idx , 0, size( ) ).data);
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    public void push(AnyType x )
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	        addBefore( getNode( 0, 0, size( ) ), x );
+	    }
+	    
+	    public void enqueue(AnyType x )
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	    	add( size( ), x );
+	    }
+	    
+	    public AnyType dequeue()
+	    {
+	    	//System.out.println(getNode( 0 , 0, size( ) ).data);
+	    	return remove( beginMarker.next );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	    
+	    public AnyType peek( )
+	    {
+	        return getNode( 0 ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    public AnyType pop()
+	    {
+	        return remove( beginMarker.next );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyQueue.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}	
+
+	public static void main(String args[]) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("B_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("B_1Out.txt")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		P2 p2 = new P2();
+		for (int t = 0; t < n; t++) 
+		{
+			System.out.println("Caso #" + (t+1) +":");
+			Map<Integer, Integer> map = new HashMap<>()  ;
+		    BinaryHeap<Integer> puestos = new BinaryHeap<>(); 
+		    MyQueue<Integer> queue = p2.new MyQueue<>();
+			String s[] = scan.nextLine().split(" ");
+		    
+			int Q = Integer.parseInt(s[0]);// numero de consultas
+			int N = Integer.parseInt(s[1]);
+			
+			for (int i = 0; i < N; i++) 
+			{
+				puestos.insert(i);
+			}
+			
+			
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				if (type.equals("agregar")) 
+				{
+					queue.enqueue(Integer.parseInt(line[1]));
+				} 
+				else if (type.equals("atender")) 
+				{
+					map.put(queue.dequeue(),puestos.deleteMin());
+				}
+				else if (type.equals("existe")) 
+				{
+					boolean flag = false;
+					if(map.containsKey(Integer.parseInt(line[1])))
+					{
+						int value = map.get(Integer.parseInt(line[1])); 
+						System.out.println("SI" + " " + value);
+						flag = true;
+					}
+					if(!flag)
+						System.out.println("NO");
+				}
+				else if (type.equals("salir")) 
+				{
+					int value = map.get(Integer.parseInt(line[1]));
+					map.remove(Integer.parseInt(line[1]));
+					puestos.insert(value);
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class ProblemA 
+{
+	
+	// BinaryHeap class
+	//
+	// CONSTRUCTION: with optional capacity (that defaults to 100)
+//	               or an array containing initial items
+	//
+	// ******************PUBLIC OPERATIONS*********************
+	// void insert( x )       --> Insert x
+	// Comparable deleteMin( )--> Return and remove smallest item
+	// Comparable findMin( )  --> Return smallest item
+	// boolean isEmpty( )     --> Return true if empty; else false
+	// void makeEmpty( )      --> Remove all items
+	// ******************ERRORS********************************
+	// Throws UnderflowException as appropriate
+
+	/**
+	 * Implements a binary heap.
+	 * Note that all "matching" is based on the compareTo method.
+	 * @param <AnyType>
+	 */
+	public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeap( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeap( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeap( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	 }
+	
+	public class Graph
+	{
+		public int vertexes;
+		public ArrayList<Vertex> vertexList;   
+		private Map <Character, Integer> position;
+		private int index;
+		
+		public Graph(int vertexes) 
+		{
+			super();
+			this.vertexes = vertexes;
+			this.vertexList = new ArrayList(vertexes);
+			position = new HashMap<>(vertexes);
+			index = 0;
+		}
+		
+		
+		public void addVertex(char id)
+		{
+			Vertex add = new Vertex(id);
+			vertexList.add(index, add);
+			position.put(id, index++);
+		}
+		
+		public void connect(char st, char fn)
+		{
+			int idx = position.get(st);
+			vertexList.get(idx).addAdjacent(fn);
+			idx = position.get(fn);
+			vertexList.get(idx).inDegree++;
+		}
+		
+		public String topSort() throws Exception
+		{
+			BinaryHeap<Vertex> queue = new BinaryHeap<>();
+			String ans = "";
+			
+			
+			for (Vertex vertex : vertexList) 
+			{
+				if(vertex.inDegree == 0)
+					queue.insert(vertex);
+			}
+			
+			while(!queue.isEmpty())
+			{
+				Vertex v = queue.deleteMin();
+				if (v.visited)
+				{
+					ans = "";
+					break;
+				}
+				v.visited = true;
+				ans += v.id;
+				
+				
+				
+			
+				for (char id : v.adj) 
+				{
+					int idx = position.get(id);
+					vertexList.get(idx).inDegree--;
+					if(vertexList.get(idx).inDegree == 0)
+						queue.insert(vertexList.get(idx));
+				}
+				
+			}
+			if (ans == "")
+				ans = "NO";
+			else if (ans.length() != vertexes)
+				ans = "NO";
+			return ans;
+		}
+		
+		
+		
+		private class Vertex implements Comparable<Vertex>
+		{
+			char id;
+			int inDegree;
+			LinkedList<Character> adj;
+			boolean visited;
+			
+			public Vertex(char id) 
+			{
+				super();
+				this.id = id;
+				this.inDegree = 0;
+				this.adj = new LinkedList<>();
+				visited = false;
+			}
+			
+			public void addAdjacent (char add)
+			{
+				adj.add(add);
+			}
+
+			@Override
+			public int compareTo(Vertex v) 
+			{
+				// TODO Auto-generated method stub
+				if (this.inDegree < v.inDegree)
+					return -1;
+				else if (this.inDegree > v.inDegree)
+					return 1;
+				else if(this.id < v.id)
+					return -1;
+				else if(this.id > v.id)
+					return 1;
+				return 0;
+			}
+		}
+	}
+	
+	
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemA");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		ProblemA a = new ProblemA();
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int variables = Integer.parseInt(scan.nextLine());
+			Graph graph = a.new Graph(variables);
+			for (int i2 = 0; i2 < variables; i2++) 
+			{
+				graph.addVertex(scan.next().charAt(0));
+			}
+			scan.nextLine();
+			
+			String[] commands = scan.nextLine().split(" ");
+			for (int j = 0; j < commands.length; j++) 
+			{
+				char n1 = commands[j].charAt(0);
+				char n2 = commands[j].charAt(2);
+				char op = commands[j].charAt(1);
+				
+				if (op == '<')
+					graph.connect(n1, n2);
+				else
+					graph.connect(n2, n1);
+				
+			}
+			
+			String ans = graph.topSort();
+			if (ans == "NO")
+				System.out.print(ans);
+			else
+			{
+				for (int j = 0; j < ans.length(); j++) 
+				{
+					if (j == ans.length()-1)
+						System.out.print(ans.charAt(j));
+					else
+						System.out.print(ans.charAt(j) + " ");
+				}
+			}
+			System.out.println();
+		}
+		
+		
+		
+		
+		
+		
+		scan.close();
+	}
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemC 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o1.getValue()).compareTo( o2.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+
+	public class Vertex implements Comparable<Vertex> 
+	{
+		int rep;
+		int row;
+		int col;
+		boolean visited;
+		
+		
+		public Vertex (int rep, int x, int y)
+		{
+			this.rep = rep;
+			this.row = x;
+			this.col = y;
+			this.visited = false;
+		}
+
+		
+		
+		
+		@Override
+		public int compareTo(Vertex o) 
+		{
+			// TODO Auto-generated method stub
+			if (this.rep < o.rep)
+				return -1;
+			else if (this.rep > o.rep)
+				return 1;
+			return 0;
+		}
+
+		@Override
+		public String toString() {
+			return "[rep=" + rep + ", row=" + row + ", col=" + col + "]";
+		}
+		
+		
+	}
+	
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemC");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemC")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		ProblemC c = new ProblemC();
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int tam = Integer.parseInt(scan.nextLine());
+			Map <Integer, Vertex> map = new HashMap<>();
+			int [][] mat = new int [tam][tam];
+			int [][] visited = new int [tam][tam];
+			
+			
+			for (int i1 = 0; i1 < tam; i1++) 
+			{
+				for (int i2 = 0; i2 < tam; i2++) 
+				{
+					int num = scan.nextInt();
+					mat[i1][i2] = num;
+					visited[i1][i2] = 0;
+					if (map.containsKey(num))
+					{
+						Vertex v = map.get(num);
+						v.rep++;
+						map.put(num, v);
+					}
+					else
+					{
+						Vertex v = c.new Vertex(1, i1, i2);
+						map.put(num, v);
+					}
+				}
+				if (i != testCases-1)
+					scan.nextLine();
+			}
+			
+			/*for (int i1 = 0; i1 < tam; i1++) 
+			{
+				for (int i2 = 0; i2 < tam; i2++) 
+				{
+					System.out.print(mat[i1][i2] + " ");
+				}
+				System.out.println();
+			}*/
+			
+			MapUtil sort = new MapUtil();  
+			map = sort.sortByValue(map);
+			//System.out.println(map);
+			boolean flag = false;
+			
+			if (map.size() == 1)
+			{
+				System.out.println("YES");
+			}
+			else
+			{
+				for (Map.Entry<Integer, Vertex> pair : map.entrySet()) 
+				{
+					Queue<Vertex> queue = new LinkedList<>();
+					Vertex v = pair.getValue();
+					queue.offer(v);
+					int id = pair.getKey();
+					int totalRep = v.rep;
+					int actualRep = 1;
+					
+					
+					while (queue.size() != 0)
+					{
+						Vertex actual = queue.poll();
+						int row = actual.row;
+						int col = actual.col;
+						
+						
+						visited[row][col] = 1;
+						
+						int up = row - 1;
+						int down = row + 1;
+						int left = col - 1;
+						int right = col + 1;
+						
+						
+						if (left >= 0 && visited[row][left] == 0 && mat[row][left] == id)
+						{
+							actualRep++;
+							Vertex toAdd = c.new Vertex(actualRep, row, left);
+							queue.offer(toAdd);
+						}
+						if (right < tam && visited[row][right] == 0 && mat[row][right] == id)
+						{
+							actualRep++;
+							Vertex toAdd = c.new Vertex(actualRep, row, right);
+							queue.offer(toAdd);
+						}
+						if (up >= 0 && visited[up][col] == 0 && mat[up][col] == id)
+						{
+							actualRep++;
+							Vertex toAdd = c.new Vertex(actualRep, up, col);
+							queue.offer(toAdd);
+						}
+						if (down < tam && visited[down][col] == 0 && mat[down][col] == id)
+						{
+							actualRep++;
+							Vertex toAdd = c.new Vertex(actualRep, down, col);
+							queue.offer(toAdd);
+						}
+					}
+					
+					if (actualRep != totalRep)
+					{
+						flag = true;
+						System.out.println("NO");
+						break;
+					}
+					
+				}
+			
+				if (!flag)
+					System.out.println("YES");
+			}
+			
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+public class ProblemD 
+{
+	public static class MapUtil
+	{
+	    public <K, V extends Comparable<? super V>> Map<K, V> 
+	        sortByValue( Map<K, V> map )
+	    {
+	        LinkedList<Map.Entry<K, V>> list =
+	            new LinkedList<Map.Entry<K, V>>( map.entrySet() );
+	        Collections.sort( list, new Comparator<Map.Entry<K, V>>()
+	        {
+	            public int compare( Map.Entry<K, V> o1, Map.Entry<K, V> o2 )
+	            {
+	                return (o1.getValue()).compareTo( o2.getValue() );
+	            }
+	        } );
+
+	        Map<K, V> result = new LinkedHashMap<K, V>();
+	        for (Map.Entry<K, V> entry : list)
+	        {
+	            result.put( entry.getKey(), entry.getValue() );
+	        }
+	        return result;
+	    }
+	}
+
+	public class Vertex implements Comparable<Vertex> 
+	{
+		int rep;
+		int row;
+		int col;
+		boolean visited;
+		
+		
+		public Vertex (int rep, int x, int y)
+		{
+			this.rep = rep;
+			this.row = x;
+			this.col = y;
+			this.visited = false;
+		}
+
+		
+		
+		
+		@Override
+		public int compareTo(Vertex o) 
+		{
+			// TODO Auto-generated method stub
+			if (this.rep < o.rep)
+				return -1;
+			else if (this.rep > o.rep)
+				return 1;
+			return 0;
+		}
+
+		@Override
+		public String toString() {
+			return "[rep=" + rep + ", row=" + row + ", col=" + col + "]";
+		}
+		
+		
+	}
+	
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/inProblemD");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+		ProblemD d  = new ProblemD();
+		
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			int tam = Integer.parseInt(scan.nextLine());
+			Map <Integer, Vertex> map = new HashMap<>();
+			int [][] mat = new int [tam][tam];
+			int [][] visited = new int [tam][tam];
+			
+			
+			for (int i1 = 0; i1 < tam; i1++) 
+			{
+				for (int i2 = 0; i2 < tam; i2++) 
+				{
+					int num = scan.nextInt();
+					mat[i1][i2] = num;
+					visited[i1][i2] = 0;
+					if (map.containsKey(num))
+					{
+						Vertex v = map.get(num);
+						v.rep++;
+						map.put(num, v);
+					}
+					else
+					{
+						Vertex v = d.new Vertex(1, i1, i2);
+						map.put(num, v);
+					}
+				}
+				if (i != testCases-1)
+					scan.nextLine();
+			}
+			
+			/*for (int i1 = 0; i1 < tam; i1++) 
+			{
+				for (int i2 = 0; i2 < tam; i2++) 
+				{
+					System.out.print(mat[i1][i2] + " ");
+				}
+				System.out.println();
+			}*/
+			
+			MapUtil sort = new MapUtil();  
+			map = sort.sortByValue(map);
+			//System.out.println(map);
+			boolean flag = false;
+			int zones = 0;
+			if (map.size() == 1)
+			{
+				System.out.println("1");
+			}
+			else
+			{
+				for (int i1 = 0; i1 < tam; i1++) 
+				{	
+					for (int i2 = 0; i2 < tam; i2++) 
+					{
+						if(visited[i1][i2] != 1)
+						{
+							zones++;
+							Queue<Vertex> queue = new LinkedList<>();
+							Vertex v = d.new Vertex(0, i1, i2);
+							queue.offer(v);
+							int id = mat[i1][i2];
+							
+							while (queue.size() != 0)
+							{
+								Vertex actual = queue.poll();
+								int row = actual.row;
+								int col = actual.col;
+								
+								
+								visited[row][col] = 1;
+								
+								int up = row - 1;
+								int down = row + 1;
+								int left = col - 1;
+								int right = col + 1;
+								
+								
+								if (left >= 0 && visited[row][left] == 0 && mat[row][left] == id)
+								{
+									Vertex toAdd = d.new Vertex(0, row, left);
+									queue.offer(toAdd);
+								}
+								if (right < tam && visited[row][right] == 0 && mat[row][right] == id)
+								{
+									Vertex toAdd = d.new Vertex(0, row, right);
+									queue.offer(toAdd);
+								}
+								if (up >= 0 && visited[up][col] == 0 && mat[up][col] == id)
+								{
+									Vertex toAdd = d.new Vertex(0, up, col);
+									queue.offer(toAdd);
+								}
+								if (down < tam && visited[down][col] == 0 && mat[down][col] == id)
+								{
+									Vertex toAdd = d.new Vertex(0, down, col);
+									queue.offer(toAdd);
+								}
+							}
+						}
+					}
+				}
+				/*for (Map.Entry<Integer, Vertex> pair : map.entrySet()) 
+				{
+					Queue<Vertex> queue = new LinkedList<>();
+					Vertex v = pair.getValue();
+					queue.offer(v);
+					int id = pair.getKey();
+					int totalRep = v.rep;
+					int actualRep = 1;
+					
+					
+					
+					while (queue.size() != 0)
+					{
+						Vertex actual = queue.poll();
+						int row = actual.row;
+						int col = actual.col;
+						
+						
+						visited[row][col] = 1;
+						
+						int up = row - 1;
+						int down = row + 1;
+						int left = col - 1;
+						int right = col + 1;
+						
+						
+						if (left >= 0 && visited[row][left] == 0 && mat[row][left] == id)
+						{
+							actualRep++;
+							Vertex toAdd = d.new Vertex(actualRep, row, left);
+							queue.offer(toAdd);
+						}
+						if (right < tam && visited[row][right] == 0 && mat[row][right] == id)
+						{
+							actualRep++;
+							Vertex toAdd = d.new Vertex(actualRep, row, right);
+							queue.offer(toAdd);
+						}
+						if (up >= 0 && visited[up][col] == 0 && mat[up][col] == id)
+						{
+							actualRep++;
+							Vertex toAdd = d.new Vertex(actualRep, up, col);
+							queue.offer(toAdd);
+						}
+						if (down < tam && visited[down][col] == 0 && mat[down][col] == id)
+						{
+							actualRep++;
+							Vertex toAdd = d.new Vertex(actualRep, down, col);
+							queue.offer(toAdd);
+						}
+					}
+					
+					if (actualRep != totalRep)
+					{
+						flag = true;
+						System.out.println("NO");
+						break;
+					}
+					
+				}*/
+				System.out.println(zones);
+				
+			}
+			
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+class DijkstraAlgorithm {
+
+	private final List<Vertex> nodes;
+	private final List<Edge> edges;
+	private Set<Vertex> settledNodes;
+	private Set<Vertex> unSettledNodes;
+	private Map<Vertex, Vertex> predecessors;
+	private Map<Vertex, Integer> distance;
+
+	public DijkstraAlgorithm(Graph graph) {
+		// Create a copy of the array so that we can operate on this array
+		this.nodes = new ArrayList<Vertex>(graph.getVertexes());
+		this.edges = new ArrayList<Edge>(graph.getEdges());
+	}
+
+	public void execute(Vertex source) {
+		settledNodes = new HashSet<Vertex>();
+		unSettledNodes = new HashSet<Vertex>();
+		distance = new HashMap<Vertex, Integer>();
+		predecessors = new HashMap<Vertex, Vertex>();
+		distance.put(source, 0);
+		unSettledNodes.add(source);
+		while (unSettledNodes.size() > 0) {
+			Vertex node = getMinimum(unSettledNodes);
+			settledNodes.add(node);
+			unSettledNodes.remove(node);
+			findMinimalDistances(node);
+		}
+	}
+
+	private void findMinimalDistances(Vertex node) {
+		List<Vertex> adjacentNodes = getNeighbors(node);
+		for (Vertex target : adjacentNodes) {
+			if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)) {
+				distance.put(target, getShortestDistance(node) + getDistance(node, target));
+				predecessors.put(target, node);
+				unSettledNodes.add(target);
+			}
+		}
+
+	}
+
+	public int getDistance(Vertex node, Vertex target) {
+		for (Edge edge : edges) {
+			if (edge.getSource().equals(node) && edge.getDestination().equals(target)) {
+				return edge.getWeight();
+			}
+		}
+		throw new RuntimeException("Should not happen");
+	}
+
+	private List<Vertex> getNeighbors(Vertex node) {
+		List<Vertex> neighbors = new ArrayList<Vertex>();
+		for (Edge edge : edges) {
+			if (edge.getSource().equals(node) && !isSettled(edge.getDestination())) {
+				neighbors.add(edge.getDestination());
+			}
+		}
+		return neighbors;
+	}
+
+	private Vertex getMinimum(Set<Vertex> vertexes) {
+		Vertex minimum = null;
+		for (Vertex vertex : vertexes) {
+			if (minimum == null) {
+				minimum = vertex;
+			} else {
+				if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
+					minimum = vertex;
+				}
+			}
+		}
+		return minimum;
+	}
+
+	private boolean isSettled(Vertex vertex) {
+		return settledNodes.contains(vertex);
+	}
+
+	private int getShortestDistance(Vertex destination) {
+		Integer d = distance.get(destination);
+		if (d == null) {
+			return Integer.MAX_VALUE;
+		} else {
+			return d;
+		}
+	}
+
+	/*
+	 * This method returns the path from the source to the selected target and
+	 * NULL if no path exists
+	 */
+	public LinkedList<Vertex> getPath(Vertex target) {
+		LinkedList<Vertex> path = new LinkedList<Vertex>();
+		Vertex step = target;
+		// Check if a path exists
+		if (predecessors.get(step) == null) {
+			return null;
+		}
+		path.add(step);
+		while (predecessors.get(step) != null) {
+			step = predecessors.get(step);
+			path.add(step);
+		}
+		// Put it into the correct order
+		Collections.reverse(path);
+		return path;
+	}
+
+	public int getWeight(Vertex target) {
+		Vertex v1 = target;
+		Vertex v2 = target;
+		int weight = 0;
+		// Check if a path exists
+		if (predecessors.get(v1) == null) {
+			return weight;
+		}
+		while (predecessors.get(v1) != null) {
+			v2 = predecessors.get(v1);
+			weight += getDistance(v2, v1);
+			v1 = v2;
+
+		}
+		return weight;
+	}
+
+}
+
+// Vertice
+
+class Vertex {
+	final private String id;
+
+	public Vertex(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vertex other = (Vertex) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+
+}
+
+// Arco
+
+class Edge {
+	private final Vertex source;
+	private final Vertex destination;
+	private final int weight;
+
+	public Edge( Vertex source, Vertex destination, int weight) 
+	{
+		this.source = source;
+		this.destination = destination;
+		this.weight = weight;
+	}
+
+
+	public Vertex getDestination() {
+		return destination;
+	}
+
+	public Vertex getSource() {
+		return source;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	@Override
+	public String toString() {
+		return source + " " + destination;
+	}
+
+}
+
+// Grafo
+
+class Graph {
+	private final List<Vertex> vertexes;
+	private final List<Edge> edges;
+
+	public Graph(List<Vertex> vertexes, List<Edge> edges) {
+		this.vertexes = vertexes;
+		this.edges = edges;
+	}
+
+	public List<Vertex> getVertexes() {
+		return vertexes;
+	}
+
+	public List<Edge> getEdges() {
+		return edges;
+	}
+
+}
+
+public class ProblemB {
+
+	private static List<Vertex> nodes;
+	private static List<Edge> edges;
+
+	public static void main(String[] args) throws Exception 
+	{
+		
+		Scanner scan;
+		File f = new File("src/inProblemB");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "outProblemC"
+			System.setOut(new PrintStream(new File("src/outProblemB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		
+		int testCases = Integer.parseInt(scan.nextLine());
+
+		for (int i = 0; i < testCases; i++) 
+		{
+			System.out.println("Caso #" + (i+1) + ":");
+			nodes = new ArrayList<Vertex>();
+			edges = new ArrayList<Edge>();
+			String [] line = scan.nextLine().split(" ");
+			int computers = Integer.parseInt(line[0]);
+			int conexions = Integer.parseInt(line[1]);
+			int start = Integer.parseInt(line[2]);
+			int end = Integer.parseInt(line[3]);
+			
+			if (start < end)
+			{
+				int aux = start;
+				start = end;
+				end = aux;
+			}
+			
+			
+			for (int j = 0; j < computers; j++) 
+			{
+				Vertex v = new Vertex(String.valueOf(j));
+				nodes.add(v);
+			}
+			
+			for (int j = 0; j < conexions; j++) 
+			{
+				String [] toR = scan.nextLine().split(" ");
+				int st = Integer.parseInt(toR[0]);
+				int fn = Integer.parseInt(toR[1]);
+				int wght = Integer.parseInt(toR[2]);
+				
+				addLane(st, fn, wght);
+				addLane(fn, st, wght);
+			}
+			
+			Graph graph = new Graph(nodes, edges);
+			DijkstraAlgorithm dijkstra = new DijkstraAlgorithm(graph);
+			dijkstra.execute(nodes.get(start));
+			LinkedList<Vertex> path = dijkstra.getPath(nodes.get(end));
+			if (path == null)
+				System.out.println("inalcanzable");
+			else
+			{
+				int ans = 0;
+				for (int j = 0; j < path.size()-1 ; j++) 
+				{
+					if (j != path.size()-1)
+						ans += dijkstra.getDistance(path.get(j), path.get(j+1));
+				}
+				System.out.println(ans);
+			}
+				
+		}
+		
+		/*for (int test = 0; test < cases; test++) {
+			System.out.println("Caso #" + (test + 1) + ":");
+			String lines1[] = in.readLine().split(" ");
+			int numPC = Integer.parseInt(lines1[0]);
+			int numConections = Integer.parseInt(lines1[1]);
+			int computerA = Integer.parseInt(lines1[2]);
+			int computerB = Integer.parseInt(lines1[3]);
+			if(computerA > computerB){
+				int tmp1 = computerA;
+				computerA = computerB;
+				computerB = tmp1;
+			}
+						
+			nodes = new ArrayList<Vertex>();
+			edges = new ArrayList<Edge>();
+			
+			for (int i = 0; i < numPC; i++) {
+				Vertex location = new Vertex("Node " + i, "Node " + i);
+				nodes.add(location);
+			}
+						
+			for (int i = 0; i < numConections; i++) {
+				String lines2[] = in.readLine().split(" ");
+				int u = Integer.parseInt(lines2[0]);
+				int v = Integer.parseInt(lines2[1]);
+				int time = Integer.parseInt(lines2[2]);
+				addLane("Edge " + i, u, v, time);
+				addLane("Edge " + i, v, u, time);
+			}
+
+			Graph graph = new Graph(nodes, edges);
+			DijkstraAlgorithm dijkstra = new DijkstraAlgorithm(graph);
+			dijkstra.execute(nodes.get(computerA));
+			int weight = dijkstra.getWeight(nodes.get(computerB));
+			if (weight > 0)
+				System.out.println(weight);
+			else
+				System.out.println("Inalcanzable");
+
+		}*/
+		//long stop = System.nanoTime();
+		//double diff = stop - 2*start2 + start1;
+		//System.out.println(diff + " ns");
+
+	}
+
+	private static void addLane(int sourceLocNo, int destLocNo, int duration) 
+	{
+		Edge lane = new Edge(nodes.get(sourceLocNo), nodes.get(destLocNo), duration);
+		edges.add(lane);
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

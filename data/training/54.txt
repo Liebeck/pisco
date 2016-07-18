@@ -1,0 +1,471 @@
+package problemaa;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int N;
+        int max=0;
+        
+        //input
+        N=sc.nextInt();
+        int [] numeros = new int[N];
+        for (int i = 0; i < N; i++) {
+            numeros[i]=sc.nextInt();
+        }
+        
+        //proceso
+        for (int i = 0; i < N; i++) {
+            for (int j = i; j < N; j++) {
+                if(numeros[i]*numeros[j]>max && numeros[i]!= numeros[j]){
+                    max=numeros[i]*numeros[j];
+                }    
+            }
+        }
+        
+        //output
+        System.out.println("El maximo producto es: " + max);
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaa;
+
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N;
+        int max=0;
+
+        N=sc.nextInt();
+        int [] numeros = new int[N];
+        for (int i = 0; i < N; i++) {
+            numeros[i]=sc.nextInt();
+        }
+
+        for (int i = 0; i < N; i++) {
+            for (int j = i; j < N; j++) {
+                if(numeros[i]*numeros[j]>max && numeros[i]!= numeros[j]){
+                    max=numeros[i]*numeros[j];
+                }
+            }
+        }
+
+        System.out.println(max);
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package problemab;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N=0;
+        int sumaColumna=0;
+        int sumaFila=0;
+        int numGanadoras=0;
+
+        N=sc.nextInt();
+        int [][] tablero = new int [N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                    tablero[i][j]=sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                for(int k=0; k<N; k++){
+                    sumaFila+=tablero[i][k];
+                }
+                for(int k=0; k<N; k++){
+                    sumaColumna+=tablero[k][j];
+                }
+                if(sumaFila<sumaColumna){
+                    numGanadoras++;
+                }
+                sumaFila=0;
+                sumaColumna=0;
+            }
+        }
+
+        System.out.println(numGanadoras);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaC;
+
+import java.util.Scanner;
+
+public class ProblemaC {
+
+    public static void main(String[] args) {
+
+        int n;
+        int T;
+        int a;
+        int b;
+        int count=0;
+        Scanner sc = new Scanner(System.in);
+
+        T=sc.nextInt();
+        for (int k = 0; k < T; k++) {
+           n=sc.nextInt();
+           int colorCamisas[][]=new int[n][2];
+           for (int i = 0; i < n; i++) {
+                a=sc.nextInt();
+                b=sc.nextInt();
+                colorCamisas[i][0] = a;
+                colorCamisas[i][1] = b;
+           }
+
+           for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if(i!=j && colorCamisas[i][0]==colorCamisas[j][1]){
+                        count++;
+                    }
+                }
+           }
+
+           System.out.println(count);
+           count = 0;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemad;
+
+import java.util.Scanner;
+
+public class ProblemaD {
+
+    public static void main(String[] args) {
+
+        int n;
+        int T;
+        Scanner sc = new Scanner(System.in);
+        String linea;
+        char chocolatina[][];
+        int total=0 count=0;
+
+        T = sc.nextInt();
+
+        for (int k = 0; k < T; k++) {
+            n = sc.nextInt();
+            chocolatina = new char [n][n];
+
+            for(int i=0; i<n; i++){
+                linea=sc.nextLine();
+                for (int j=0; j<linea.length(); j++){
+                    chocolatina[i][j]=linea.charAt(j);
+                    if(chocolatina[i][j]=='#')
+                        total++;
+                }
+            }
+
+            if(total%2==1){
+                System.out.println("No tiene solucion");
+                break;
+            }
+            if{
+                for (int i = 0; i < n; i++){
+                    for (int j = 0; j < n; j++) {
+                        if(chocolatina[i][j]=='#')
+                        coun++;
+                    }
+                    if((total-count)==count){
+                        System.out.println("si tiene solucion");
+                        break;
+                    }
+                    count=0;
+                }
+            }
+            else{
+                System.out.println("no tiene solucion");
+            }
+
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N=0;
+        int sumaColumna=0;
+        int sumaFila=0;
+        int numGanadoras=0;
+
+        N=sc.nextInt();
+        int [][] tablero = new int [N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                    tablero[i][j]=sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                for(int k=0; k<N; k++){
+                    sumaFila+=tablero[i][k];
+                }
+                for(int k=0; k<N; k++){
+                    sumaColumna+=tablero[k][j];
+                }
+                if(sumaFila<sumaColumna){
+                    numGanadoras++;
+                }
+                sumaFila=0;
+                sumaColumna=0;
+            }
+        }
+
+        System.out.println(numGanadoras);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N=0;
+        int sumaColumna=0;
+        int sumaFila=0;
+        int numGanadoras=0;
+
+        N=sc.nextInt();
+        int [][] tablero = new int [N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                    tablero[i][j]=sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                for(int k=0; k<N; k++){
+                    sumaFila+=tablero[i][k];
+                }
+                for(int k=0; k<N; k++){
+                    sumaColumna+=tablero[k][j];
+                }
+                if(sumaFila<sumaColumna){
+                    numGanadoras++;
+                }
+                sumaFila=0;
+                sumaColumna=0;
+            }
+        }
+
+        System.out.println(numGanadoras);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaC {
+
+    public static void main(String[] args) {
+
+        int n;
+        int T;
+        int a;
+        int b;
+        int count=0;
+        Scanner sc = new Scanner(System.in);
+
+        T=sc.nextInt();
+        for (int k = 0; k < T; k++) {
+           n=sc.nextInt();
+           int colorCamisas[][]=new int[n][2];
+           for (int i = 0; i < n; i++) {
+                a=sc.nextInt();
+                b=sc.nextInt();
+                colorCamisas[i][0] = a;
+                colorCamisas[i][1] = b;
+           }
+
+           for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if(i!=j && colorCamisas[i][0]==colorCamisas[j][1]){
+                        count++;
+                    }
+                }
+           }
+
+           System.out.println(count);
+           count = 0;
+
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N=0;
+        int sumaColumna=0;
+        int sumaFila=0;
+        int numGanadoras=0;
+
+        while(sc.hasNext()){
+            N=sc.nextInt();
+
+            int [][] tablero = new int [N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                        tablero[i][j]=sc.nextInt();
+                }
+            }
+
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    for(int k=0; k<N; k++){
+                        sumaFila+=tablero[i][k];
+                    }
+                    for(int k=0; k<N; k++){
+                        sumaColumna+=tablero[k][j];
+                    }
+                    if(sumaFila<sumaColumna){
+                        numGanadoras++;
+                    }
+                    sumaFila=0;
+                    sumaColumna=0;
+                }
+            }
+
+            System.out.println(numGanadoras);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N=0;
+        int sumaColumna=0;
+        int sumaFila=0;
+        int numGanadoras=0;
+        int caso=1;
+
+        while(sc.hasNext()){
+            N=sc.nextInt();
+
+            int [][] tablero = new int [N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                        tablero[i][j]=sc.nextInt();
+                }
+            }
+
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    for(int k=0; k<N; k++){
+                        sumaFila+=tablero[i][k];
+                    }
+                    for(int k=0; k<N; k++){
+                        sumaColumna+=tablero[k][j];
+                    }
+                    if(sumaFila<sumaColumna){
+                        numGanadoras++;
+                    }
+                    sumaFila=0;
+                    sumaColumna=0;
+                }
+            }
+
+            
+            System.out.println("Case#" + caso + ":");
+            System.out.println(numGanadoras);
+            caso++;
+            numGanadoras=0;
+        }
+        
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N=0;
+        int sumaColumna=0;
+        int sumaFila=0;
+        int numGanadoras=0;
+        int caso=1;
+
+        while(sc.hasNext()){
+            N=sc.nextInt();
+
+            int [][] tablero = new int [N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                        tablero[i][j]=sc.nextInt();
+                }
+            }
+
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    for(int k=0; k<N; k++){
+                        sumaFila+=tablero[i][k];
+                    }
+                    for(int k=0; k<N; k++){
+                        sumaColumna+=tablero[k][j];
+                    }
+                    if(sumaFila<sumaColumna){
+                        numGanadoras++;
+                    }
+                    sumaFila=0;
+                    sumaColumna=0;
+                }
+            }
+
+            
+            System.out.println("Case #" + caso + ":");
+            System.out.println(numGanadoras);
+            caso++;
+            numGanadoras=0;
+        }
+        
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

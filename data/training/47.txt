@@ -1,0 +1,2744 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        BigInteger numeros[] = new BigInteger[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextBigInteger();
+        }
+        
+        BigInteger m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i].compareTo(M1) == 1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i].compareTo(m1) == -1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1.multiply(M2).compareTo(m1.multiply(m2)) == 1)
+            System.out.println(M1.multiply(M2));
+        else
+            System.out.println(m1.multiply(m2));
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N, sumaF = 0, sumaC = 0, cont = 0;
+        
+        for(int t=0; in.hasNext(); t++) {
+            N = in.nextInt();
+            
+            int[][] matriz = new int[N][];
+            //Inicializa y llena la matriz
+            for(int i=0; i<N; i++) {
+                matriz[i] = new int[N];
+                for(int j=0; j<N; j++) {
+                    matriz[i][j] = in.nextInt();
+                }
+            }
+            
+            //Cuenta la cantidad de casillas ganadoras
+            for(int i=0; i<N; i++) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<N; k++) {
+                        sumaF += matriz[i][k];
+                        sumaC += matriz[k][j];
+                    }
+                    if(sumaF < sumaC)
+                        cont ++;
+                    sumaF = 0;
+                    sumaC = 0;
+                }
+            }
+            
+            System.out.println("Case #" + (t+1) + ":\n" + cont);
+            cont = 0;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaC;
+
+import java.util.Scanner;
+
+public class ProblemaC {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt(), N, cont = 0;
+        
+        for(int t=0; t<T; t++) {
+            N = in.nextInt();
+            
+            int[][] colores = new int[2][];
+            //Inicializa la matriz
+            for(int i=0; i<2; i++) {
+                colores[i] = new int[N];
+            }
+            //Llena la matriz
+            for(int i=0; i<N; i++) {
+                colores[0][i] = in.nextInt();
+                colores[1][i] = in.nextInt();
+            }
+            
+            //Verifica si un local juega con el uniforme de visitante
+            for(int i=0; i<N; i++) {
+                for(int j=0; j<N; j++) {
+                    if(colores[0][i] == colores[1][j] && i != j)
+                        cont ++;
+                }
+            }
+            
+            System.out.println("Case #" + (t+1) + ":\n" + cont);
+            cont = 0;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaA;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        BigInteger numeros[] = new BigInteger[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextBigInteger();
+        }
+        
+        BigInteger m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i].compareTo(M1) == 1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i].compareTo(m1) == -1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1.multiply(M2).compareTo(m1.multiply(m2)) == 1)
+            System.out.println(M1.multiply(M2));
+        else
+            System.out.println(m1.multiply(m2));
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        BigInteger numeros[] = new BigInteger[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextBigInteger();
+        }
+        
+        BigInteger m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i].compareTo(M1) == 1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i].compareTo(m1) == -1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1.multiply(M2).compareTo(m1.multiply(m2)) == 1)
+            System.out.println(M1.multiply(M2));
+        else
+            System.out.println(m1.multiply(m2));
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        BigInteger numeros[] = new BigInteger[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextBigInteger();
+        }
+        
+        BigInteger m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i].compareTo(M1) == 1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i].compareTo(m1) == -1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1.multiply(M2).compareTo(m1.multiply(m2)) == 1)
+            System.out.print(M1.multiply(M2));
+        else
+            System.out.print(m1.multiply(m2));
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaA;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        BigInteger numeros[] = new BigInteger[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextBigInteger();
+        }
+        
+        BigInteger m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i].compareTo(M1) == 1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i].compareTo(m1) == -1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1.multiply(M2).compareTo(m1.multiply(m2)) == 1)
+            System.out.println(M1.multiply(M2));
+        else
+            System.out.println(m1.multiply(m2));
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaA;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        long numeros[] = new long[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextLong();
+        }
+        
+        long m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i] > M1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i] < m1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1*M2 > m1*m2)
+            System.out.println(M1*M2);
+        else
+            System.out.println(m1*m2);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        long numeros[] = new long[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextLong();
+        }
+        
+        long m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i] > M1) {
+                M2 = M1;
+                M1 = numeros[i];
+            }
+            if(numeros[i] < m1) {
+                m2 = m1;
+                m1 = numeros[i];
+            }
+        }
+        
+        if(M1*M2 > m1*m2)
+            System.out.println(M1*M2);
+        else
+            System.out.println(m1*m2);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaD {
+
+    public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            int T = in.nextInt();
+            for(int t=0; t<T; t++){
+                int N = in.nextInt(); in.nextLine();
+                int[] filas = new int[N];
+                int[] columnas = new int[N];
+                int total = 0;
+                for(int j = 0; j < N; j++){
+                    String s = in.nextLine();
+                    char tempArray[] = s.toCharArray();
+                    for(int k = 0; k < N; k++){
+                        if(tempArray[k] == '#'){
+                            columnas[k]++;
+                            filas[j]++;
+                            total++;
+                        }
+                    }
+                }
+                int c1 = 0, c2 = 0;
+                boolean ans = false;
+                for(int j = 0; j < N; j++){
+                    c1 += filas[j]; System.out.println("c1:"+c1);
+                    c2 += columnas[j]; System.out.println("c2:"+c2);
+                    if(c1 == total/2.0 || c2 == total/2.0)
+                        ans = true;
+                }
+                if(ans){
+                    System.out.println("YES");
+                }
+                else{
+                    System.out.println("NO");
+                }
+            }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaD {
+
+    public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            int T = in.nextInt();
+            for(int t=0; t<T; t++){
+                int N = in.nextInt(); in.nextLine();
+                int[] filas = new int[N];
+                int[] columnas = new int[N];
+                int total = 0;
+                for(int j = 0; j < N; j++){
+                    String s = in.nextLine();
+                    char tempArray[] = s.toCharArray();
+                    for(int k = 0; k < N; k++){
+                        if(tempArray[k] == '#'){
+                            columnas[k]++;
+                            filas[j]++;
+                            total++;
+                        }
+                    }
+                }
+                int c1 = 0, c2 = 0;
+                boolean ans = false;
+                for(int j = 0; j < N; j++){
+                    c1 += filas[j];
+                    c2 += columnas[j];
+                    if(c1 == total/2.0 || c2 == total/2.0)
+                        ans = true;
+                }
+                if(ans){
+                    System.out.println("YES");
+                }
+                else{
+                    System.out.println("NO");
+                }
+            }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt(), posm = 0, posM = 0;
+        long numeros[] = new long[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextLong();
+        }
+        
+        long m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i] > M1) {
+                M1 = numeros[i];
+                posM = i;
+            }
+            if(numeros[i] < m1) {
+                m1 = numeros[i];
+                posm = i;
+            }
+        }
+        for(int i=0; i<N; i++) {
+            if(numeros[i] > M2 && i != posM) {
+                M2 = numeros[i];
+            }
+            if(numeros[i] < m2 && i != posm) {
+                m2 = numeros[i];
+            }
+        }
+        System.out.println("M1: "+M1+" M2: "+M2);
+        System.out.println("m1: "+m1+" m2: "+m2);
+        if(M1*M2 > m1*m2)
+            System.out.println(M1*M2);
+        else
+            System.out.println(m1*m2);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt(), posm = 0, posM = 0;
+        long numeros[] = new long[N]; 
+        
+        //Llena el array de numeros
+        for(int i=0; i<N; i++) {
+            numeros[i] = in.nextLong();
+        }
+        
+        long m1 = numeros[0], m2 = numeros[0], M1 = numeros[0], M2 = numeros[0];
+        //Busca los dos numeros mayores y los dos menores
+        for(int i=0; i<N; i++) {
+            if(numeros[i] > M1) {
+                M1 = numeros[i];
+                posM = i;
+            }
+            if(numeros[i] < m1) {
+                m1 = numeros[i];
+                posm = i;
+            }
+        }
+        for(int i=0; i<N; i++) {
+            if(numeros[i] > M2 && i != posM) {
+                M2 = numeros[i];
+            }
+            if(numeros[i] < m2 && i != posm) {
+                m2 = numeros[i];
+            }
+        }
+        if(M1*M2 > m1*m2)
+            System.out.println(M1*M2);
+        else
+            System.out.println(m1*m2);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaE {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt(), cont = 0;
+        int[] gente = new int[5];
+        
+        for(int i=0; i<5; i++) {
+            gente[i] = in.nextInt();
+            if(gente[i] == T)
+                cont ++;
+        }
+        
+        System.out.println(cont);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaE {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt(), cont = 0;
+        int[] gente = new int[5];
+        
+        for(int i=0; i<5; i++) {
+            gente[i] = in.nextInt();
+            if(gente[i] == T)
+                cont ++;
+        }
+        
+        System.out.println(cont);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];
+            int[] K = new int[k];
+            entrada = bf.readLine().split(" ");
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1;
+            for(int j=0; j<N/k; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaC {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Niñas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas niñas cumplen sus requisistos
+        int cont = 0, novias = 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                novias++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaC {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+        int[] C = new int[N];
+        String[] entrada = bf.readLine().split(" ");
+        
+        //Lleno matriz de Carlos
+        for(int i=0; i<N; i++) {
+            C[i] = Integer.parseInt(entrada[i]);
+        }
+        
+        int M = Integer.parseInt(bf.readLine());
+        int[][] D = new int[M][];
+        
+        //Lleno matriz de Ninas
+        for(int i=0; i<M; i++) {
+            entrada = bf.readLine().split(" ");
+            D[i] = new int[entrada.length];
+            for(int j=0; j<entrada.length; j++) {
+                D[i][j] = Integer.parseInt(entrada[j]);
+            }
+        }
+        
+        //Cuantas ninas cumplen sus requisistos
+        int cont = 0, novias = 0;
+        for(int i=0; i<M; i++) {
+            if(N <= D[i].length) {
+                for(int j=0; j<N; j++) {
+                    for(int k=0; k<D[i].length; k++) {
+                        if(D[i][k] == C[j]) {
+                            cont ++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cont == N) {
+                novias++;
+            }
+            cont = 0;
+        }
+        
+        //Doy respuesta
+        System.out.println(novias);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaA {
+
+    static ArrayList<Integer> lista = new ArrayList<Integer>();
+    static int costoArray = 0, costoLinked = 0;
+    
+    static void costoI(int pos){
+	costoArray += lista.size() - (pos+1);
+	costoLinked += pos; 
+    }
+ 
+    static void costoC(int pos){
+	costoLinked += pos;
+    }
+ 
+    static void costoE(int pos){
+	costoArray += lista.size() - (pos);
+	costoLinked += pos; 
+    }
+ 
+    public static void costoB(int pos){
+        if(pos < 0){
+            costoArray += lista.size();
+            costoLinked += lista.size();
+	}else{
+            costoArray += pos + 1;
+            costoLinked += pos + 1;
+	}	
+    }
+    
+    static void insertar(Integer x, int pos) {
+        if(pos == lista.size() || lista.isEmpty()) {
+            lista.add(x);
+            System.out.println("insertar: posicion valida");
+            costoI(pos);
+        }
+        else if(pos < lista.size() && pos >= 0){
+            lista.add(lista.get(lista.size()-1));
+            for(int i=lista.size()-1; i>pos; i--) {
+                lista.set(i, lista.get(i-1));
+            }
+            lista.set(pos, x);
+            System.out.println("insertar: posicion valida");
+            costoI(pos);
+        }
+        else {
+            System.out.println("insertar: posicion invalida");
+        }
+    }
+    
+    static void consultar(int pos) {
+        costoC(pos);
+        if(pos >= 0 && pos < lista.size()) {
+            System.out.println("consulta: " + lista.get(pos));
+        }
+        else {
+            System.out.println("consulta: no encontrado");
+        }
+    }
+    
+    static void eliminar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            lista.remove(pos);
+            System.out.println("eliminar: posicion valida");
+            costoE(pos);
+        }
+        else {
+            System.out.println("eliminar: posicion invalida");
+        }
+    }
+    
+    static void buscar(Integer x) {
+        int pos = -1;
+        if(lista.contains(x)) {
+            for(int i=0; i<lista.size(); i++) {
+                if(lista.get(i) == x) {
+                    pos = i;
+                    break;
+                }
+            }
+            System.out.println("buscar: " + pos);
+        }
+        else {
+            System.out.println("no existe numero");
+        }
+        costoB(pos);
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String comando;
+	int T = 0, N = 0;
+	T = Integer.parseInt(bf.readLine());
+ 
+	for (int i = 0; i < T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+            
+            for (int j = 0; j < N; j++) {
+                String[] entrada = bf.readLine().split(" ");
+                comando = entrada[0];
+        
+                switch (comando){
+                    case "insertar":
+                        Integer x = Integer.parseInt(entrada[1]);
+                        int pos = Integer.parseInt(entrada[2]);
+                        insertar(x, pos);
+                        break;
+                    case "consultar":
+                        pos = Integer.parseInt(entrada[1]);
+                        consultar(pos);
+                        break;
+                    case "eliminar":
+                        pos = Integer.parseInt(entrada[1]);
+                        eliminar(pos);
+                        break;
+                    case "buscar":
+                        Integer valor = Integer.parseInt(entrada[1]);
+                        buscar(valor);
+                        break;
+                    case "costo":
+                        System.out.println("costo: " + costoArray+ " " + costoLinked);
+                    default:
+                        break;
+                }
+            }
+            
+            lista.removeAll(lista);
+            costoArray = 0; costoLinked = 0;
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaA {
+
+    static ArrayList<Integer> lista = new ArrayList<Integer>();
+    static int costoArray = 0, costoLinked = 0;
+    
+    static void costoI(int pos){
+	costoArray += lista.size() - (pos+1);
+	costoLinked += pos; 
+    }
+ 
+    static void costoC(int pos){
+	costoLinked += pos;
+    }
+ 
+    static void costoE(int pos){
+	costoArray += lista.size() - (pos);
+	costoLinked += pos; 
+    }
+ 
+    public static void costoB(int pos){
+        if(pos < 0){
+            costoArray += lista.size();
+            costoLinked += lista.size();
+	}else{
+            costoArray += pos + 1;
+            costoLinked += pos + 1;
+	}	
+    }
+    
+    static void insertar(Integer x, int pos) {
+        if(pos == lista.size() || (lista.isEmpty() && pos == 0)) {
+            lista.add(x);
+            System.out.println("insertar: posicion valida");
+            costoI(pos);
+        }
+        else if(pos < lista.size() && pos >= 0){
+            lista.add(lista.get(lista.size()-1));
+            for(int i=lista.size()-1; i>pos; i--) {
+                lista.set(i, lista.get(i-1));
+            }
+            lista.set(pos, x);
+            System.out.println("insertar: posicion valida");
+            costoI(pos);
+        }
+        else {
+            System.out.println("insertar: posicion invalida");
+        }
+    }
+    
+    static void consultar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            System.out.println("consulta: " + lista.get(pos));
+            costoC(pos);
+        }
+        else {
+            System.out.println("consulta: no encontrado");
+        }
+    }
+    
+    static void eliminar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            lista.remove(pos);
+            System.out.println("eliminar: posicion valida");
+            costoE(pos);
+        }
+        else {
+            System.out.println("eliminar: posicion invalida");
+        }
+    }
+    
+    static void buscar(Integer x) {
+        int pos = -1;
+        if(lista.contains(x)) {
+            for(int i=0; i<lista.size(); i++) {
+                if(lista.get(i) == x) {
+                    pos = i;
+                    break;
+                }
+            }
+            System.out.println("buscar: " + pos);
+        }
+        else {
+            System.out.println("no existe numero");
+        }
+        costoB(pos);
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String comando;
+	int T = 0, N = 0;
+	T = Integer.parseInt(bf.readLine());
+ 
+	for (int i = 0; i < T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+            
+            for (int j = 0; j < N; j++) {
+                String[] entrada = bf.readLine().split(" ");
+                comando = entrada[0];
+        
+                switch (comando){
+                    case "insertar":
+                        Integer x = Integer.parseInt(entrada[1]);
+                        int pos = Integer.parseInt(entrada[2]);
+                        insertar(x, pos);
+                        break;
+                    case "consultar":
+                        pos = Integer.parseInt(entrada[1]);
+                        consultar(pos);
+                        break;
+                    case "eliminar":
+                        pos = Integer.parseInt(entrada[1]);
+                        eliminar(pos);
+                        break;
+                    case "buscar":
+                        Integer valor = Integer.parseInt(entrada[1]);
+                        buscar(valor);
+                        break;
+                    case "costo":
+                        System.out.println("costo: " + costoArray+ " " + costoLinked);
+                    default:
+                        break;
+                }
+            }
+            
+            lista.removeAll(lista);
+            costoArray = 0; costoLinked = 0;
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaA {
+
+    static ArrayList<Integer> lista = new ArrayList<Integer>();
+    static int costoArray = 0, costoLinked = 0;
+    
+    static void costoI(int pos){
+	costoArray += lista.size() - (pos+1);
+	costoLinked += pos; 
+    }
+ 
+    static void costoC(int pos){
+	costoLinked += pos;
+    }
+ 
+    static void costoE(int pos){
+	costoArray += lista.size() - (pos);
+	costoLinked += pos; 
+    }
+ 
+    public static void costoB(int pos){
+        if(pos < 0){
+            costoArray += lista.size();
+            costoLinked += lista.size();
+	}else{
+            costoArray += pos + 1;
+            costoLinked += pos + 1;
+	}	
+    }
+    
+    static void insertar(Integer x, int pos) {
+        if(pos == lista.size() || (lista.isEmpty() && pos == 0)) {
+            lista.add(x);
+            System.out.println("insertar: posicion valida");
+            costoI(pos);
+        }
+        else if(pos < lista.size() && pos >= 0){
+            lista.add(lista.get(lista.size()-1));
+            for(int i=lista.size()-1; i>pos; i--) {
+                lista.set(i, lista.get(i-1));
+            }
+            lista.set(pos, x);
+            System.out.println("insertar: posicion valida");
+            costoI(pos);
+        }
+        else {
+            System.out.println("insertar: posicion invalida");
+        }
+    }
+    
+    static void consultar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            System.out.println("consulta: " + lista.get(pos));
+            costoC(pos);
+        }
+        else {
+            System.out.println("consulta: no encontrado");
+        }
+    }
+    
+    static void eliminar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            lista.remove(pos);
+            System.out.println("eliminar: posicion valida");
+            costoE(pos);
+        }
+        else {
+            System.out.println("eliminar: posicion invalida");
+        }
+    }
+    
+    static void buscar(Integer x) {
+        int pos = -1;
+        if(lista.contains(x)) {
+            for(int i=0; i<lista.size(); i++) {
+                if(lista.get(i) == x) {
+                    pos = i;
+                    break;
+                }
+            }
+            System.out.println("buscar: " + pos);
+        }
+        else {
+            System.out.println("no existe numero");
+        }
+        costoB(pos);
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String comando;
+	int T = 0, N = 0;
+	T = Integer.parseInt(bf.readLine());
+ 
+	for (int i = 0; i < T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+            
+            for (int j = 0; j < N; j++) {
+                String[] entrada = bf.readLine().split(" ");
+                comando = entrada[0];
+        
+                switch (comando){
+                    case "insertar":
+                        Integer x = Integer.parseInt(entrada[1]);
+                        int pos = Integer.parseInt(entrada[2]);
+                        insertar(x, pos);
+                        break;
+                    case "consultar":
+                        pos = Integer.parseInt(entrada[1]);
+                        consultar(pos);
+                        break;
+                    case "eliminar":
+                        pos = Integer.parseInt(entrada[1]);
+                        eliminar(pos);
+                        break;
+                    case "buscar":
+                        Integer valor = Integer.parseInt(entrada[1]);
+                        buscar(valor);
+                        break;
+                    case "costo":
+                        System.out.println("costo: " + costoArray+ " " + costoLinked);
+                    default:
+                        break;
+                }
+            }
+            
+            lista.removeAll(lista);
+            costoArray = 0; costoLinked = 0;
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];
+            int[] K = new int[k];
+            entrada = bf.readLine().split(" ");
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1;
+            for(int j=0; j<N/k; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];//cartas
+            int[] K = new int[k];//jugadores
+            entrada = bf.readLine().split(" ");
+            
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+
+            System.out.println("Caso #" + (i+1) + ":");
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1;
+            for(int j=0; j<N/k; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaB;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];//cartas
+            int[] K = new int[k];//jugadores
+            entrada = bf.readLine().split(" ");
+            
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1;
+            for(int j=0; j<N/k; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];//cartas
+            int[] K = new int[k];//jugadores
+            entrada = bf.readLine().split(" ");
+            
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1;
+            for(int j=0; j<N/k; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws IOException {
+        String respuesta = "";
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+
+            boolean[][] casilleros = new boolean[N][];
+            int[] carga = new int[N];
+            
+            //Inicializo matriz de Casilleros
+            String[] entrada = bf.readLine().split(" ");
+            for(int j=0; j<N; j++) {
+                int cantidad = Integer.parseInt(entrada[j]);
+                casilleros[j] = new boolean[cantidad];
+                for(int k=0; k<cantidad; k++) {
+                    casilleros[j][k] = false;
+                }
+            }
+            
+            //Inicializo matriz de Carga de cada cubículo
+            for(int j=0; j<N; j++) {
+                carga[j] = 0;
+            }
+            
+            int P = Integer.parseInt(bf.readLine());
+            ArrayList<String> nombreEstudiante = new ArrayList<String>();
+            ArrayList<Integer> cedulaEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> casilleroEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> cubiculoEstudiante = new ArrayList<Integer>();
+            for(int j=0; j<P; j++) {
+                int posicionEstudiante = 0;
+                entrada = bf.readLine().split(" ");
+                String comando = entrada[0];
+        
+                switch (comando){
+                    case "ingresar": {
+                        //se toman los datos del estudiante nuevo
+                        if(!cedulaEstudiante.contains(Integer.parseInt(entrada[3]))) {
+                            nombreEstudiante.add(entrada[1]);
+                            cedulaEstudiante.add(Integer.parseInt(entrada[3]));
+                            cubiculoEstudiante.add(-1);
+                            casilleroEstudiante.add(-1);
+                            posicionEstudiante = cedulaEstudiante.size() - 1;
+                        }
+                        //se encuentra al estudiante antiguo
+                        else {
+                            for(int k=0; k<cedulaEstudiante.size(); k++) {
+                                if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[3]))
+                                    posicionEstudiante = k;
+                                break;
+                            }
+                        }
+                        //se ubica el cubiculo con menor carga
+                        double cargaActual = carga[0], 
+                        		actual = cargaActual/casilleros[0].length,
+                        		menor = actual;
+                        int cubiculoMenorCarga = 0;
+                        for(int k=0; k<N; k++) {
+                            cargaActual = carga[k];
+                            actual = cargaActual/casilleros[k].length;
+                        	/*System.out.println("El cubiculo " + (k+1) + " tiene carga: " + actual);
+                        	System.out.println("El menor es: " + menor);
+                        	System.out.println("El actual es: " + actual);*/
+                        	if(actual < menor) {
+                                menor = actual;
+                                cubiculoMenorCarga = k;
+                            }
+                        }
+                    	//System.out.println("El cubiculo con menor carga es: " + (cubiculoMenorCarga+1));
+                    	cubiculoEstudiante.set(posicionEstudiante, cubiculoMenorCarga);
+                        //se ubica el primer casillero libre de el cubiculo con menor carga y se asigna
+                        if(carga[cubiculoMenorCarga]/casilleros[cubiculoMenorCarga].length == 1) {
+                            respuesta += "limite alcanzado";
+                        }
+                        else {
+                            for(int k=0; k<casilleros[cubiculoMenorCarga].length; k++) {
+                                if(casilleros[cubiculoMenorCarga][k] == false) {
+                                    casilleroEstudiante.set(posicionEstudiante, k);
+                                    casilleros[cubiculoMenorCarga][k] = true;
+                                    carga[cubiculoMenorCarga] ++;
+                                    respuesta += (cubiculoMenorCarga+1) + " " + (k+1);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "salir": {
+                        //se encuentra al estudiante por su cedula
+                        for(int k=0; k<cedulaEstudiante.size(); k++) {
+                            if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[1]))
+                                posicionEstudiante = k;
+                            break;
+                        }
+                        //se libera el casillero
+                        carga[cubiculoEstudiante.get(posicionEstudiante)] --;
+                        casilleros[cubiculoEstudiante.get(posicionEstudiante)][casilleroEstudiante.get(posicionEstudiante)] = false;
+                        cubiculoEstudiante.set(posicionEstudiante, -1);
+                        casilleroEstudiante.set(posicionEstudiante, -1);
+                        //se imprime el nombre del estudiante
+                        respuesta += nombreEstudiante.get(posicionEstudiante);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                System.out.println(respuesta);
+                respuesta = "";
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws IOException {
+        String respuesta = "";
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+
+            boolean[][] casilleros = new boolean[N][];
+            int[] carga = new int[N];
+            
+            //Inicializo matriz de Casilleros
+            String[] entrada = bf.readLine().split(" ");
+            for(int j=0; j<N; j++) {
+                int cantidad = Integer.parseInt(entrada[j]);
+                casilleros[j] = new boolean[cantidad];
+                for(int k=0; k<cantidad; k++) {
+                    casilleros[j][k] = false;
+                }
+            }
+            
+            //Inicializo matriz de Carga de cada cubiculo
+            for(int j=0; j<N; j++) {
+                carga[j] = 0;
+            }
+            
+            int P = Integer.parseInt(bf.readLine());
+            ArrayList<String> nombreEstudiante = new ArrayList<String>();
+            ArrayList<Integer> cedulaEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> casilleroEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> cubiculoEstudiante = new ArrayList<Integer>();
+            for(int j=0; j<P; j++) {
+                int posicionEstudiante = 0;
+                entrada = bf.readLine().split(" ");
+                String comando = entrada[0];
+        
+                switch (comando){
+                    case "ingresar": {
+                        //se toman los datos del estudiante nuevo
+                        if(!cedulaEstudiante.contains(Integer.parseInt(entrada[3]))) {
+                            nombreEstudiante.add(entrada[1]);
+                            cedulaEstudiante.add(Integer.parseInt(entrada[3]));
+                            cubiculoEstudiante.add(-1);
+                            casilleroEstudiante.add(-1);
+                            posicionEstudiante = cedulaEstudiante.size() - 1;
+                        }
+                        //se encuentra al estudiante antiguo
+                        else {
+                            for(int k=0; k<cedulaEstudiante.size(); k++) {
+                                if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[3]))
+                                    posicionEstudiante = k;
+                                break;
+                            }
+                        }
+                        //se ubica el cubiculo con menor carga
+                        double cargaActual = carga[0], 
+                        		actual = cargaActual/casilleros[0].length,
+                        		menor = actual;
+                        int cubiculoMenorCarga = 0;
+                        for(int k=0; k<N; k++) {
+                            cargaActual = carga[k];
+                            actual = cargaActual/casilleros[k].length;
+                        	/*System.out.println("El cubiculo " + (k+1) + " tiene carga: " + actual);
+                        	System.out.println("El menor es: " + menor);
+                        	System.out.println("El actual es: " + actual);*/
+                        	if(actual < menor) {
+                                menor = actual;
+                                cubiculoMenorCarga = k;
+                            }
+                        }
+                    	//System.out.println("El cubiculo con menor carga es: " + (cubiculoMenorCarga+1));
+                    	cubiculoEstudiante.set(posicionEstudiante, cubiculoMenorCarga);
+                        //se ubica el primer casillero libre de el cubiculo con menor carga y se asigna
+                        if(carga[cubiculoMenorCarga]/casilleros[cubiculoMenorCarga].length == 1) {
+                            respuesta += "limite alcanzado";
+                        }
+                        else {
+                            for(int k=0; k<casilleros[cubiculoMenorCarga].length; k++) {
+                                if(casilleros[cubiculoMenorCarga][k] == false) {
+                                    casilleroEstudiante.set(posicionEstudiante, k);
+                                    casilleros[cubiculoMenorCarga][k] = true;
+                                    carga[cubiculoMenorCarga] ++;
+                                    respuesta += (cubiculoMenorCarga+1) + " " + (k+1);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "salir": {
+                        //se encuentra al estudiante por su cedula
+                        for(int k=0; k<cedulaEstudiante.size(); k++) {
+                            if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[1]))
+                                posicionEstudiante = k;
+                            break;
+                        }
+                        //se libera el casillero
+                        carga[cubiculoEstudiante.get(posicionEstudiante)] --;
+                        casilleros[cubiculoEstudiante.get(posicionEstudiante)][casilleroEstudiante.get(posicionEstudiante)] = false;
+                        cubiculoEstudiante.set(posicionEstudiante, -1);
+                        casilleroEstudiante.set(posicionEstudiante, -1);
+                        //se imprime el nombre del estudiante
+                        respuesta += nombreEstudiante.get(posicionEstudiante);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                System.out.println(respuesta);
+                respuesta = "";
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws IOException {
+        String respuesta = "";
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+
+            boolean[][] casilleros = new boolean[N][];
+            int[] carga = new int[N];
+            
+            //Inicializo matriz de Casilleros
+            String[] entrada = bf.readLine().split(" ");
+            for(int j=0; j<N; j++) {
+                int cantidad = Integer.parseInt(entrada[j]);
+                casilleros[j] = new boolean[cantidad];
+                for(int k=0; k<cantidad; k++) {
+                    casilleros[j][k] = false;
+                }
+            }
+            
+            //Inicializo matriz de Carga de cada cubiculo
+            for(int j=0; j<N; j++) {
+                carga[j] = 0;
+            }
+            
+            int P = Integer.parseInt(bf.readLine());
+            ArrayList<String> nombreEstudiante = new ArrayList<String>();
+            ArrayList<Integer> cedulaEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> casilleroEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> cubiculoEstudiante = new ArrayList<Integer>();
+            for(int j=0; j<P; j++) {
+                int posicionEstudiante = 0;
+                entrada = bf.readLine().split(" ");
+                String comando = entrada[0];
+        
+                switch (comando){
+                    case "ingresar": {
+                        //se toman los datos del estudiante nuevo
+                        if(!cedulaEstudiante.contains(Integer.parseInt(entrada[3]))) {
+                            nombreEstudiante.add(entrada[1]);
+                            cedulaEstudiante.add(Integer.parseInt(entrada[3]));
+                            cubiculoEstudiante.add(-1);
+                            casilleroEstudiante.add(-1);
+                            posicionEstudiante = cedulaEstudiante.size() - 1;
+                        }
+                        //se encuentra al estudiante antiguo
+                        else {
+                            for(int k=0; k<cedulaEstudiante.size(); k++) {
+                                if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[3]))
+                                    posicionEstudiante = k;
+                                break;
+                            }
+                        }
+                        //se ubica el cubiculo con menor carga
+                        double cargaActual = carga[0], 
+                        		actual = cargaActual/casilleros[0].length,
+                        		menor = actual;
+                        int cubiculoMenorCarga = 0;
+                        for(int k=0; k<N; k++) {
+                            cargaActual = carga[k];
+                            actual = cargaActual/casilleros[k].length;
+                        	/*System.out.println("El cubiculo " + (k+1) + " tiene carga: " + actual);
+                        	System.out.println("El menor es: " + menor);
+                        	System.out.println("El actual es: " + actual);*/
+                        	if(actual < menor) {
+                                menor = actual;
+                                cubiculoMenorCarga = k;
+                            }
+                        }
+                    	//System.out.println("El cubiculo con menor carga es: " + (cubiculoMenorCarga+1));
+                    	cubiculoEstudiante.set(posicionEstudiante, cubiculoMenorCarga);
+                        //se ubica el primer casillero libre de el cubiculo con menor carga y se asigna
+                        if(carga[cubiculoMenorCarga]/casilleros[cubiculoMenorCarga].length == 1) {
+                            respuesta += "limite alcanzado";
+                        }
+                        else {
+                            for(int k=0; k<casilleros[cubiculoMenorCarga].length; k++) {
+                                if(casilleros[cubiculoMenorCarga][k] == false) {
+                                    casilleroEstudiante.set(posicionEstudiante, k);
+                                    casilleros[cubiculoMenorCarga][k] = true;
+                                    carga[cubiculoMenorCarga] ++;
+                                    respuesta += (cubiculoMenorCarga+1) + " " + (k+1);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "salir": {
+                        //se encuentra al estudiante por su cedula
+                        for(int k=0; k<cedulaEstudiante.size(); k++) {
+                            if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[1])) {
+                            	posicionEstudiante = k;
+                            	break;
+                            }
+                        }
+                        //se libera el casillero
+                        carga[cubiculoEstudiante.get(posicionEstudiante)] --;
+                        casilleros[cubiculoEstudiante.get(posicionEstudiante)][casilleroEstudiante.get(posicionEstudiante)] = false;
+                        cubiculoEstudiante.set(posicionEstudiante, -1);
+                        casilleroEstudiante.set(posicionEstudiante, -1);
+                        //se imprime el nombre del estudiante
+                        respuesta += nombreEstudiante.get(posicionEstudiante);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                System.out.println(respuesta);
+                respuesta = "";
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaD;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws IOException {
+        String respuesta = "";
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+
+            boolean[][] casilleros = new boolean[N][];
+            int[] carga = new int[N];
+            
+            //Inicializo matriz de Casilleros
+            String[] entrada = bf.readLine().split(" ");
+            for(int j=0; j<N; j++) {
+                int cantidad = Integer.parseInt(entrada[j]);
+                casilleros[j] = new boolean[cantidad];
+                for(int k=0; k<cantidad; k++) {
+                    casilleros[j][k] = false;
+                }
+            }
+            
+            //Inicializo matriz de Carga de cada cubiculo
+            for(int j=0; j<N; j++) {
+                carga[j] = 0;
+            }
+            
+            int P = Integer.parseInt(bf.readLine());
+            ArrayList<String> nombreEstudiante = new ArrayList<String>();
+            ArrayList<Integer> cedulaEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> casilleroEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> cubiculoEstudiante = new ArrayList<Integer>();
+            for(int j=0; j<P; j++) {
+                int posicionEstudiante = 0;
+                entrada = bf.readLine().split(" ");
+                String comando = entrada[0];
+        
+                switch (comando){
+                    case "ingresar": {
+                        //se toman los datos del estudiante nuevo
+                        if(!cedulaEstudiante.contains(Integer.parseInt(entrada[3]))) {
+                            nombreEstudiante.add(entrada[1]);
+                            cedulaEstudiante.add(Integer.parseInt(entrada[3]));
+                            cubiculoEstudiante.add(-1);
+                            casilleroEstudiante.add(-1);
+                            posicionEstudiante = cedulaEstudiante.size() - 1;
+                        }
+                        //se encuentra al estudiante antiguo
+                        else {
+                            for(int k=0; k<cedulaEstudiante.size(); k++) {
+                                if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[3]))
+                                    posicionEstudiante = k;
+                                break;
+                            }
+                        }
+                        //se ubica el cubiculo con menor carga
+                        double cargaActual = carga[0], 
+                        		actual = cargaActual/casilleros[0].length,
+                        		menor = actual;
+                        int cubiculoMenorCarga = 0;
+                        for(int k=0; k<N; k++) {
+                            cargaActual = carga[k];
+                            actual = cargaActual/casilleros[k].length;
+                        	/*System.out.println("El cubiculo " + (k+1) + " tiene carga: " + actual);
+                        	System.out.println("El menor es: " + menor);
+                        	System.out.println("El actual es: " + actual);*/
+                        	if(actual < menor) {
+                                menor = actual;
+                                cubiculoMenorCarga = k;
+                            }
+                        }
+                    	//System.out.println("El cubiculo con menor carga es: " + (cubiculoMenorCarga+1));
+                    	cubiculoEstudiante.set(posicionEstudiante, cubiculoMenorCarga);
+                        //se ubica el primer casillero libre de el cubiculo con menor carga y se asigna
+                        if(carga[cubiculoMenorCarga]/casilleros[cubiculoMenorCarga].length == 1) {
+                            respuesta += "limite alcanzado";
+                        }
+                        else {
+                            for(int k=0; k<casilleros[cubiculoMenorCarga].length; k++) {
+                                if(casilleros[cubiculoMenorCarga][k] == false) {
+                                    casilleroEstudiante.set(posicionEstudiante, k);
+                                    casilleros[cubiculoMenorCarga][k] = true;
+                                    carga[cubiculoMenorCarga] ++;
+                                    respuesta += (cubiculoMenorCarga+1) + " " + (k+1);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "salir": {
+                        //se encuentra al estudiante por su cedula
+                        for(int k=0; k<cedulaEstudiante.size(); k++) {
+                            if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[1])) {
+                            	posicionEstudiante = k;
+                            	break;
+                            }
+                        }
+                        //se libera el casillero
+                        carga[cubiculoEstudiante.get(posicionEstudiante)] --;
+                        casilleros[cubiculoEstudiante.get(posicionEstudiante)][casilleroEstudiante.get(posicionEstudiante)] = false;
+                        cubiculoEstudiante.set(posicionEstudiante, -1);
+                        casilleroEstudiante.set(posicionEstudiante, -1);
+                        //se imprime el nombre del estudiante
+                        respuesta += nombreEstudiante.get(posicionEstudiante);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                System.out.println(respuesta);
+                respuesta = "";
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws IOException {
+        String respuesta = "";
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+
+            boolean[][] casilleros = new boolean[N][];
+            int[] carga = new int[N];
+            
+            //Inicializo matriz de Casilleros
+            String[] entrada = bf.readLine().split(" ");
+            for(int j=0; j<N; j++) {
+                int cantidad = Integer.parseInt(entrada[j]);
+                casilleros[j] = new boolean[cantidad];
+                for(int k=0; k<cantidad; k++) {
+                    casilleros[j][k] = false;
+                }
+            }
+            
+            //Inicializo matriz de Carga de cada cubiculo
+            for(int j=0; j<N; j++) {
+                carga[j] = 0;
+            }
+            
+            int P = Integer.parseInt(bf.readLine());
+            ArrayList<String> nombreEstudiante = new ArrayList<String>();
+            ArrayList<Integer> cedulaEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> casilleroEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> cubiculoEstudiante = new ArrayList<Integer>();
+            for(int j=0; j<P; j++) {
+                int posicionEstudiante = 0;
+                entrada = bf.readLine().split(" ");
+                String comando = entrada[0];
+        
+                switch (comando){
+                    case "ingresar": {
+                        //se toman los datos del estudiante nuevo
+                        if(!cedulaEstudiante.contains(Integer.parseInt(entrada[3]))) {
+                            nombreEstudiante.add(entrada[1]);
+                            cedulaEstudiante.add(Integer.parseInt(entrada[3]));
+                            cubiculoEstudiante.add(-1);
+                            casilleroEstudiante.add(-1);
+                            posicionEstudiante = cedulaEstudiante.size() - 1;
+                        }
+                        //se encuentra al estudiante antiguo
+                        else {
+                            for(int k=0; k<cedulaEstudiante.size(); k++) {
+                                if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[3]))
+                                    posicionEstudiante = k;
+                                break;
+                            }
+                        }
+                        //se ubica el cubiculo con menor carga
+                        double cargaActual = carga[0], 
+                        		actual = cargaActual/casilleros[0].length,
+                        		menor = actual;
+                        int cubiculoMenorCarga = 0;
+                        for(int k=0; k<N; k++) {
+                            cargaActual = carga[k];
+                            actual = cargaActual/casilleros[k].length;
+                        	/*System.out.println("El cubiculo " + (k+1) + " tiene carga: " + actual);
+                        	System.out.println("El menor es: " + menor);
+                        	System.out.println("El actual es: " + actual);*/
+                        	if(actual < menor) {
+                                menor = actual;
+                                cubiculoMenorCarga = k;
+                            }
+                        }
+                    	//System.out.println("El cubiculo con menor carga es: " + (cubiculoMenorCarga+1));
+                    	cubiculoEstudiante.set(posicionEstudiante, cubiculoMenorCarga);
+                        //se ubica el primer casillero libre de el cubiculo con menor carga y se asigna
+                        if(carga[cubiculoMenorCarga]/casilleros[cubiculoMenorCarga].length == 1) {
+                            respuesta += "limite alcanzado";
+                        }
+                        else {
+                            for(int k=0; k<casilleros[cubiculoMenorCarga].length; k++) {
+                                if(casilleros[cubiculoMenorCarga][k] == false) {
+                                    casilleroEstudiante.set(posicionEstudiante, k);
+                                    casilleros[cubiculoMenorCarga][k] = true;
+                                    carga[cubiculoMenorCarga] ++;
+                                    respuesta += (cubiculoMenorCarga+1) + " " + (k+1);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "salir": {
+                        //se encuentra al estudiante por su cedula
+                        for(int k=0; k<cedulaEstudiante.size(); k++) {
+                            if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[1])) {
+                            	posicionEstudiante = k;
+                            	break;
+                            }
+                        }
+                        //se libera el casillero
+                        carga[cubiculoEstudiante.get(posicionEstudiante)] --;
+                        casilleros[cubiculoEstudiante.get(posicionEstudiante)][casilleroEstudiante.get(posicionEstudiante)] = false;
+                        cubiculoEstudiante.set(posicionEstudiante, -1);
+                        casilleroEstudiante.set(posicionEstudiante, -1);
+                        //se imprime el nombre del estudiante
+                        respuesta += nombreEstudiante.get(posicionEstudiante);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                System.out.println(respuesta);
+                respuesta = "";
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaB;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];//cartas
+            int[] K = new int[k];//jugadores
+            entrada = bf.readLine().split(" ");
+            
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1;
+            for(int j=0; j<N/k; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaA {
+
+    static ArrayList<Integer> lista = new ArrayList<Integer>();
+    static int costoArray = 0, costoLinked = 0;
+    
+    static void insertar(Integer x, int pos) {
+        if(pos == lista.size() || (lista.isEmpty() && pos == 0)) {
+            lista.add(x);
+            System.out.println("insertar: posicion valida");
+            costoArray += lista.size() - (pos + 1);
+            costoLinked += pos;
+        }
+        else if(pos < lista.size() && pos >= 0){
+            lista.add(lista.get(lista.size()-1));
+            for(int i=lista.size()-1; i>pos; i--) {
+                lista.set(i, lista.get(i-1));
+            }
+            lista.set(pos, x);
+            System.out.println("insertar: posicion valida");
+            costoArray += lista.size() - pos + 1;
+            costoLinked += pos;
+        }
+        else {
+            System.out.println("insertar: posicion invalida");
+        }
+    }
+    
+    static void consultar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            System.out.println("consulta: " + lista.get(pos));
+            costoLinked += pos;
+        }
+        else {
+            System.out.println("consulta: no encontrado");
+        }
+    }
+    
+    static void eliminar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            lista.remove(pos);
+            System.out.println("eliminar: posicion valida");
+            costoArray += lista.size() - pos;
+            costoLinked += pos;
+        }
+        else {
+            System.out.println("eliminar: posicion invalida");
+        }
+    }
+    
+    static void buscar(Integer x) {
+        int pos = -2;
+        if(lista.contains(x)) {
+            for(int i=0; i<lista.size(); i++) {
+                if(lista.get(i).equals(x)) {
+                    pos = i;
+                    break;
+                }
+            }
+            System.out.println("buscar: " + pos);
+        }
+        else {
+            System.out.println("no existe numero");
+        }
+        if(pos < 0) {
+            costoArray += lista.size();
+            costoLinked += lista.size();
+        }
+        else {
+            costoArray += pos + 1;
+            costoLinked += pos + 1;
+        }
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String comando;
+	int T = 0, N = 0;
+	T = Integer.parseInt(bf.readLine());
+ 
+	for (int i = 0; i < T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+            
+            for (int j = 0; j < N; j++) {
+                String[] entrada = bf.readLine().split(" ");
+                comando = entrada[0];
+        
+                switch (comando){
+                    case "insertar":
+                        Integer x = Integer.parseInt(entrada[1]);
+                        int pos = Integer.parseInt(entrada[2]);
+                        insertar(x, pos);
+                        break;
+                    case "consultar":
+                        pos = Integer.parseInt(entrada[1]);
+                        consultar(pos);
+                        break;
+                    case "eliminar":
+                        pos = Integer.parseInt(entrada[1]);
+                        eliminar(pos);
+                        break;
+                    case "buscar":
+                        Integer valor = Integer.parseInt(entrada[1]);
+                        buscar(valor);
+                        break;
+                    case "costo":
+                        System.out.println("costo: " + costoArray+ " " + costoLinked);
+                    default:
+                        break;
+                }
+            }
+            
+            lista.removeAll(lista);
+            costoArray = 0; costoLinked = 0;
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaA;
+
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProblemaA {
+
+    static ArrayList<Integer> lista = new ArrayList<Integer>();
+    static int costoArray = 0, costoLinked = 0;
+    
+    
+    public static void costoInsertar(int pos){
+		//array
+    	costoArray += lista.size() - (pos+1);
+		//linked
+    	costoLinked += pos; 
+	}
+
+	public static void costoConsultar(int pos){
+		//linked
+		costoLinked += pos; 
+	}
+
+	public static void costoEliminar(int pos){
+		//array
+		costoArray += lista.size() - (pos );
+		//linked
+		costoLinked += pos; 
+	}
+
+	public static void costoBuscar(int indexOf){
+		if(indexOf < 0){
+			//array
+			costoArray += lista.size();
+			//linked
+			costoLinked += lista.size();
+		}else{
+			//array	
+			costoArray += indexOf + 1;
+			//linked
+			costoLinked += indexOf + 1;
+		}	
+	}
+    
+    static void insertar(Integer x, int pos) {
+        if(pos == lista.size() || (lista.isEmpty() && pos == 0)) {
+            lista.add(x);
+            System.out.println("insertar: posicion valida");
+            costoInsertar(pos);
+        }
+        else if(pos < lista.size() && pos >= 0){
+            lista.add(lista.get(lista.size()-1));
+            for(int i=lista.size()-1; i>pos; i--) {
+                lista.set(i, lista.get(i-1));
+            }
+            lista.set(pos, x);
+            System.out.println("insertar: posicion valida");
+            costoInsertar(pos);
+        }
+        else {
+            System.out.println("insertar: posicion invalida");
+        }
+    }
+    
+    static void consultar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            System.out.println("consulta: " + lista.get(pos));
+            costoConsultar(pos);
+        }
+        else {
+            System.out.println("consulta: no encontrado");
+        }
+    }
+    
+    static void eliminar(int pos) {
+        if(pos >= 0 && pos < lista.size()) {
+            lista.remove(pos);
+            System.out.println("eliminar: posicion valida");
+            costoEliminar(pos);
+        }
+        else {
+            System.out.println("eliminar: posicion invalida");
+        }
+    }
+    
+    static void buscar(Integer x) {
+        int pos = -2;
+        if(lista.contains(x)) {
+            for(int i=0; i<lista.size(); i++) {
+                if(lista.get(i).equals(x)) {
+                    pos = i;
+                    break;
+                }
+            }
+            System.out.println("buscar: " + pos);
+        }
+        else {
+            System.out.println("no existe numero");
+        }
+        costoBuscar(pos);
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String comando;
+	int T = 0, N = 0;
+	T = Integer.parseInt(bf.readLine());
+ 
+	for (int i = 0; i < T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+            
+            for (int j = 0; j < N; j++) {
+                String[] entrada = bf.readLine().split(" ");
+                comando = entrada[0];
+        
+                switch (comando){
+                    case "insertar":
+                        Integer x = Integer.parseInt(entrada[1]);
+                        int pos = Integer.parseInt(entrada[2]);
+                        insertar(x, pos);
+                        break;
+                    case "consultar":
+                        pos = Integer.parseInt(entrada[1]);
+                        consultar(pos);
+                        break;
+                    case "eliminar":
+                        pos = Integer.parseInt(entrada[1]);
+                        eliminar(pos);
+                        break;
+                    case "buscar":
+                        Integer valor = Integer.parseInt(entrada[1]);
+                        buscar(valor);
+                        break;
+                    case "costo":
+                        System.out.println("costo: " + costoArray+ " " + costoLinked);
+                    default:
+                        break;
+                }
+            }
+            
+            lista.removeAll(lista);
+            costoArray = 0; costoLinked = 0;
+            
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ProblemaB {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        Scanner in = new Scanner(System.in);
+        int T = Integer.parseInt(bf.readLine()), N, k;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            String[] entrada = bf.readLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            k = Integer.parseInt(entrada[1]);
+            if(k > N) {
+                k = N;
+            }
+            int[] P = new int[N];//cartas
+            int[] K = new int[k];//jugadores
+            entrada = bf.readLine().split(" ");
+            //Lleno matriz de cartas
+            for(int j=0; j<N; j++) {
+                P[j] = Integer.parseInt(entrada[j]);
+            }
+
+            //Inicializo matriz de jugadores
+            for(int j=0; j<k; j++) {
+                K[j] = 0;
+            }
+            //Lleno matriz de jugadores
+            int h = 0, e = N-1, cont = 0;
+            for(int j=0; j<N/k || cont < N; j++) {
+                for(int l=0; l<k; l++) {
+                    if(P[h] > P[e]) { //si la carta de la izquierda es mayor, la toma
+                        K[l] += P[h];
+                        h++;
+                    }
+                    else {//si la carta de la derecha es mayor o igual, la toma
+                        K[l] += P[e];
+                        e--;
+                    }
+                    cont ++;
+                    if(cont == N)
+                    	break;
+                }
+            }
+            //Busco quien tiene la suma mayor
+            int mayor = 0;
+            for(int j=0; j<k; j++) {
+                if(K[j] > mayor) {
+                    mayor = K[j];
+                }
+            }
+            //Doy la respuesta
+            String respuesta= "";
+            for(int j=0; j<k; j++) {
+                if(K[j] == mayor) {
+                    respuesta += j+1 + " ";
+                }
+            }
+            respuesta = respuesta.substring(0, respuesta.length()-1);
+            System.out.println(respuesta);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ProblemaD;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws IOException {
+        String respuesta = "";
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(bf.readLine()), N;
+        
+        for(int i=0; i<T; i++) {
+            System.out.println("Caso #" + (i+1) + ":");
+            N = Integer.parseInt(bf.readLine());
+
+            boolean[][] casilleros = new boolean[N][];
+            int[] carga = new int[N];
+            
+            //Inicializo matriz de Casilleros
+            String[] entrada = bf.readLine().split(" ");
+            for(int j=0; j<entrada.length; j++) {
+                int cantidad = Integer.parseInt(entrada[j]);
+                casilleros[j] = new boolean[cantidad];
+                for(int k=0; k<cantidad; k++) {
+                    casilleros[j][k] = false;
+                }
+            }
+            
+            //Inicializo matriz de Carga de cada cubiculo
+            for(int j=0; j<N; j++) {
+                carga[j] = 0;
+            }
+            
+            int P = Integer.parseInt(bf.readLine());
+            ArrayList<String> nombreEstudiante = new ArrayList<String>();
+            ArrayList<Integer> cedulaEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> casilleroEstudiante = new ArrayList<Integer>();
+            ArrayList<Integer> cubiculoEstudiante = new ArrayList<Integer>();
+            for(int j=0; j<P; j++) {
+                int posicionEstudiante = 0;
+                entrada = bf.readLine().split(" ");
+                String comando = entrada[0];
+        
+                switch (comando){
+                    case "ingresar": {
+                        //se toman los datos del estudiante nuevo
+                        if(!cedulaEstudiante.contains(Integer.parseInt(entrada[3]))) {
+                            nombreEstudiante.add(entrada[1]);
+                            cedulaEstudiante.add(Integer.parseInt(entrada[3]));
+                            cubiculoEstudiante.add(-1);
+                            casilleroEstudiante.add(-1);
+                            posicionEstudiante = cedulaEstudiante.size() - 1;
+                        }
+                        //se encuentra al estudiante antiguo
+                        else {
+                            for(int k=0; k<cedulaEstudiante.size(); k++) {
+                                if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[3]))
+                                    posicionEstudiante = k;
+                                break;
+                            }
+                        }
+                        //se ubica el cubiculo con menor carga
+                        double cargaActual = carga[0], 
+                        		actual = cargaActual/casilleros[0].length,
+                        		menor = actual;
+                        int cubiculoMenorCarga = 0;
+                        for(int k=0; k<N; k++) {
+                            cargaActual = carga[k];
+                            actual = cargaActual/casilleros[k].length;
+                        	/*System.out.println("El cubiculo " + (k+1) + " tiene carga: " + actual);
+                        	System.out.println("El menor es: " + menor);
+                        	System.out.println("El actual es: " + actual);*/
+                        	if(actual < menor) {
+                                menor = actual;
+                                cubiculoMenorCarga = k;
+                            }
+                        }
+                    	//System.out.println("El cubiculo con menor carga es: " + (cubiculoMenorCarga+1));
+                    	cubiculoEstudiante.set(posicionEstudiante, cubiculoMenorCarga);
+                        //se ubica el primer casillero libre de el cubiculo con menor carga y se asigna
+                        if(carga[cubiculoMenorCarga]/casilleros[cubiculoMenorCarga].length == 1) {
+                            respuesta += "limite alcanzado";
+                        }
+                        else {
+                            for(int k=0; k<casilleros[cubiculoMenorCarga].length; k++) {
+                                if(casilleros[cubiculoMenorCarga][k] == false) {
+                                    casilleroEstudiante.set(posicionEstudiante, k);
+                                    casilleros[cubiculoMenorCarga][k] = true;
+                                    carga[cubiculoMenorCarga] ++;
+                                    respuesta += (cubiculoMenorCarga+1) + " " + (k+1);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "salir": {
+                        //se encuentra al estudiante por su cedula
+                        for(int k=0; k<cedulaEstudiante.size(); k++) {
+                            if(cedulaEstudiante.get(k) == Integer.parseInt(entrada[1])) {
+                            	posicionEstudiante = k;
+                            	break;
+                            }
+                        }
+                        //se libera el casillero
+                        carga[cubiculoEstudiante.get(posicionEstudiante)] --;
+                        casilleros[cubiculoEstudiante.get(posicionEstudiante)][casilleroEstudiante.get(posicionEstudiante)] = false;
+                        cubiculoEstudiante.set(posicionEstudiante, -1);
+                        casilleroEstudiante.set(posicionEstudiante, -1);
+                        //se imprime el nombre del estudiante
+                        respuesta += nombreEstudiante.get(posicionEstudiante);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                System.out.println(respuesta);
+                respuesta = "";
+            }
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class C {
+    static ArrayList<Integer> lista = new ArrayList();
+    
+    static void cambio(int idx, int x) {
+        idx --;
+        lista.set(idx, x);
+    }
+    
+    static char multiplicar(int a, int b) {
+        a --; b--; int cont = 0;
+        for(int i=a; i<=b; i++) {
+            if(lista.get(i) == 0)
+                return '0';
+            else if(lista.get(i) < 0)
+                cont ++;
+        }
+        if(cont%2 == 0)
+            return '+';
+        else
+            return '-';
+    }
+    
+    public static void main( String [ ] args ) {
+        Scanner in = new Scanner(System.in);
+        int T = Integer.parseInt(in.nextLine()), N, K;
+        String[] entrada;
+        
+        for(int i=0; i<T; i++) { //for del caso de prueba
+            System.out.println("Caso #" + (i+1) + ":");
+            
+            entrada = in.nextLine().split(" ");
+            N = Integer.parseInt(entrada[0]);
+            K = Integer.parseInt(entrada[1]);
+            entrada = in.nextLine().split(" ");
+            for(int j=0; j<N; j++) { //for para llenar la lista
+                lista.add(Integer.parseInt(entrada[j]));
+            }
+            
+            for(int j=0; j<K; j++) { //for de la partida
+                entrada = in.nextLine().split(" ");
+                switch(entrada[0]) {
+                    case "cambio": {
+                        cambio(Integer.parseInt(entrada[1]), Integer.parseInt(entrada[2]));
+                        break;
+                    }
+                    case "multiplicar": {
+                        System.out.println(multiplicar(Integer.parseInt(entrada[1]), Integer.parseInt(entrada[2])));
+                        break;
+                    }
+                }
+            }
+            lista.clear();
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			if(aux.acierto) return;
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+			return tiempo - o.tiempo;
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null)
+					tree.add(a);
+			}
+			for(A a : tree){
+				System.out.println(a.toString());
+			}
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

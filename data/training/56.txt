@@ -1,0 +1,6480 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class JavaApplication3 {
+
+    public static void main(String[] args) {
+        int N = 0;
+
+       //Bucle Condicional
+        Scanner input = new Scanner(System.in);
+        while (input.hasNextInt()) {
+            N = input.nextInt();
+            input.nextLine();
+            //Entrada
+            String jj = input.nextLine();
+            String[] separado = jj.split(" ");
+            //Convertir Variable
+            long[] convertido = new long[N];
+            for (int n = 0; n < N; n++) {
+                convertido[n] = Integer.parseInt(separado[n]);
+            }
+            
+       long producto;
+            Arrays.sort(convertido);
+            //Creacion Matriz
+            long test1 = (convertido[0] * convertido[1]);
+            long test2 = (convertido[N - 1] * convertido[N - 2]);
+            producto = test1 > test2 ? test1 : test2;
+           
+            System.out.println(Math.abs(producto));     
+            
+            
+            
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class JavaApplication3 {
+
+   public static void main(String[] args) {
+       int N = 0;
+       Scanner sc = new Scanner(System.in);
+       while(sc.hasNextInt())
+       {
+           //Aciertos
+           int aciertos = 0;
+           N = sc.nextInt();
+           sc.nextLine();
+           //Entrada del parametro
+           String entrada = sc.nextLine();
+           String[] separado = entrada.split(" ");
+           int[] convertido = new int[5];
+           //Aciertos Convertidos
+           for(int n = 0;n < 5; n++){
+               convertido[n] = Integer.parseInt(separado[n]);
+               if(convertido[n] == N){
+                   aciertos++;
+               }
+           }
+           System.out.println(aciertos);
+       }
+   }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class JavaApplication3 {
+
+    private static int N;
+    private int n;
+    private int[][] mat;
+    private static int cont = 0;
+    private static Scanner keypad = new Scanner(System.in);
+    
+    
+    //Creación Matriz
+    public void cargar() {
+        N = teclado.nextInt();
+        if (1 <= N && N <= 100) {
+            mat = new int[N][N];
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    n = teclado.nextInt();
+                    if (1 <= n && n <= 100) {
+                        mat[f][c] = n;
+                    }
+                }
+            }
+        }
+    }
+    //Evaluacion Matriz
+    public void evaluar(int a, int b) {
+        int c = 0, d = 0;
+        for (int i = 0; i < N; i++) {
+            c += mat[a][i];
+            d += mat[i][b];
+
+        }
+        if (c < d) {
+            cont += 1;
+        }
+    }
+    //Imprime Los casos
+    public static void main(String[] ar) {
+        JavaApplication3 ma = new JavaApplication3();
+        int cont1 = 1;
+        while (keypad.hasNextInt()) {
+            ma.cargar();
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    ma.evaluar(f, c);
+                }
+            }
+            System.out.println("Case #" + cont1 + ":\n" + cont);
+            cont = 0;
+            cont1 += 1;
+        }
+    }
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class JavaApplication3 {
+
+    private static int N;
+    private int n;
+    private int[][] mat;
+    private static int cont = 0;
+    private static Scanner keypad = new Scanner(System.in);
+    
+    
+    //Creación Matriz
+    public void cargar() {
+        N = keypad.nextInt();
+        if (1 <= N && N <= 100) {
+            mat = new int[N][N];
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    n = keypad.nextInt();
+                    if (1 <= n && n <= 100) {
+                        mat[f][c] = n;
+                    }
+                }
+            }
+        }
+    }
+    //Evaluacion Matriz
+    public void evaluar(int a, int b) {
+        int c = 0, d = 0;
+        for (int i = 0; i < N; i++) {
+            c += mat[a][i];
+            d += mat[i][b];
+
+        }
+        if (c < d) {
+            cont += 1;
+        }
+    }
+    //Imprime Los casos
+    public static void main(String[] ar) {
+        JavaApplication3 ma = new JavaApplication3();
+        int cont1 = 1;
+        while (keypad.hasNextInt()) {
+            ma.cargar();
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    ma.evaluar(f, c);
+                }
+            }
+            System.out.println("Case #" + cont1 + ":\n" + cont);
+            cont = 0;
+            cont1 += 1;
+        }
+    }
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class JavaApplication3 {
+
+    private static int N;
+    private int n;
+    private int[][] mat;
+    private static int cont = 0;
+    private static Scanner teclado = new Scanner(System.in);
+    
+    
+    //Creación Matriz
+    public void cargar() {
+        N = teclado.nextInt();
+        if (1 <= N && N <= 100) {
+            mat = new int[N][N];
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    n = teclado.nextInt();
+                    if (1 <= n && n <= 100) {
+                        mat[f][c] = n;
+                    }
+                }
+            }
+        }
+    }
+    //Evaluacion Matriz
+    public void evaluar(int a, int b) {
+        int c = 0, d = 0;
+        for (int i = 0; i < N; i++) {
+            c += mat[a][i];
+            d += mat[i][b];
+
+        }
+        if (c < d) {
+            cont += 1;
+        }
+    }
+    //Imprime Los casos
+    public static void main(String[] ar) {
+        JavaApplication3 ma = new JavaApplication3();
+        int cont1 = 1;
+        while (teclado.hasNextInt()) {
+            ma.cargar();
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    ma.evaluar(f, c);
+                }
+            }
+            System.out.println("Case #" + cont1 + ":\n" + cont);
+            cont = 0;
+            cont1 += 1;
+        }
+    }
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class JavaApplication3 {
+
+    private static int N;
+    private int n;
+    private int[][] mat;
+    private static int cont = 0;
+    private static Scanner teclado = new Scanner(System.in);
+    
+    
+    //Creación Matriz
+    public void cargar() {
+        N = teclado.nextInt();
+        if (1 <= N && N <= 100) {
+            mat = new int[N][N];
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    n = teclado.nextInt();
+                    if (1 <= n && n <= 100) {
+                        mat[f][c] = n;
+                    }
+                }
+            }
+        }
+    }
+    //Evaluacion Matriz
+    public void evaluar(int a, int b) {
+        int c = 0, d = 0;
+        for (int i = 0; i < N; i++) {
+            c += mat[a][i];
+            d += mat[i][b];
+
+        }
+        if (c < d) {
+            cont += 1;
+        }
+    }
+    //Imprime Los casos
+    public static void main(String[] ar) {
+        JavaApplication3 ma = new JavaApplication3();
+        int cont1 = 1;
+        while (teclado.hasNextInt()) {
+            ma.cargar();
+            for (int f = 0; f < N; f++) {
+                for (int c = 0; c < N; c++) {
+                    ma.evaluar(f, c);
+                }
+            }
+            System.out.println("Case #" + cont1 + ":\n" + cont);
+            cont = 0;
+            cont1 += 1;
+        }
+    }
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package segundotaller;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+    public static void main(String[] args) {
+        
+        int casos=0;
+        Scanner lectura = new Scanner(System.in);
+        casos= lectura.nextInt();
+        
+        for(int i=0; i<casos; i++){
+            System.out.println("Caso #"+(i+1)+":");
+            MyArrayList <Integer> lst = new MyArrayList<>(); 
+            MyLinkedList <Integer> list2 = new MyLinkedList<>();
+            int n=lectura.nextInt();
+            for(int j=0; j<n; j++){
+                String comando = lectura.next();
+                if( comando.equals("insertar")){
+                    int x = lectura.nextInt();
+                    int pos = lectura.nextInt();
+                    //agregar los datos
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("insertar: posicion invalida");
+                    } else{
+                        lst.add(pos, x);
+                        list2.add(pos,x);
+                        System.out.println("insertar: posicion valida");
+                    }
+                }
+                else if(comando.equals("consulta")){
+                    int pos = lectura.nextInt();
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("consulta: no encontrado");
+                    } else {
+                        System.out.println("consulta: "+lst.get(pos));
+                        list2.get(pos);
+                    }
+                }
+                else if(comando.equals("eliminar")){
+                    int pos = lectura.nextInt();
+                    if(pos>=lst.size() || pos<0){
+                        System.out.println("eliminar: posicion invalida");
+                    } else {
+                        System.out.println("eliminar: posicion valida");
+                        lst.remove(pos);
+                        list2.remove(pos);
+                    }
+                }
+                else if(comando.equals("buscar")){
+                    int x = lectura.nextInt();
+                    int pos = lst.buscar(x);
+                    list2.buscar(x);
+                    if(pos==-1){
+                        System.out.println("​no existe numero");
+                    } else {
+                       System.out.println("buscar: " +pos);
+                    }
+                }
+                else{
+                    System.out.println("costo: " +lst.costo + " " +list2.costo);
+                }
+                
+               
+        }
+       }
+ }
+}
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package nn;
+import java.util.Scanner;
+
+public class Jugador {
+
+    public static void main(String[] args) {
+        
+        int casos=0;
+        Scanner lectura = new Scanner(System.in);
+        casos= lectura.nextInt();
+        
+        for(int i=0; i<casos; i++){
+            System.out.println("Caso #"+(i+1)+":");
+            MyArrayList <Integer> lst = new MyArrayList<>(); 
+            MyLinkedList <Integer> list2 = new MyLinkedList<>();
+            int n=lectura.nextInt();
+            for(int j=0; j<n; j++){
+                String comando = lectura.next();
+                if( comando.equals("insertar")){
+                    int x = lectura.nextInt();
+                    int pos = lectura.nextInt();
+                    //agregar los datos
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("insertar: posicion invalida");
+                    } else{
+                        lst.add(pos, x);
+                        list2.add(pos,x);
+                        System.out.println("insertar: posicion valida");
+                    }
+                }
+                else if(comando.equals("consulta")){
+                    int pos = lectura.nextInt();
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("consulta: no encontrado");
+                    } else {
+                        System.out.println("consulta: "+lst.get(pos));
+                        list2.get(pos);
+                    }
+                }
+                else if(comando.equals("eliminar")){
+                    int pos = lectura.nextInt();
+                    if(pos>=lst.size() || pos<0){
+                        System.out.println("eliminar: posicion invalida");
+                    } else {
+                        System.out.println("eliminar: posicion valida");
+                        lst.remove(pos);
+                        list2.remove(pos);
+                    }
+                }
+                else if(comando.equals("buscar")){
+                    int x = lectura.nextInt();
+                    int pos = lst.buscar(x);
+                    list2.buscar(x);
+                    if(pos==-1){
+                        System.out.println("​no existe numero");
+                    } else {
+                       System.out.println("buscar: " +pos);
+                    }
+                }
+                else{
+                    System.out.println("costo: " +lst.costo + " " +list2.costo);
+                }
+                
+               
+        }
+       }
+ }
+}
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.*;
+import java.util.*;
+
+
+public class ProblemaA {
+
+	public static void main(String[] args) {
+		
+		int casos=0;
+        Scanner lectura = new Scanner(System.in);
+        casos= lectura.nextInt();
+        
+        for(int i=0; i<casos; i++){
+            System.out.println("Caso #"+(i+1)+":");
+            MyArrayList <Integer> lst = new MyArrayList<>(); 
+            MyLinkedList <Integer> list2 = new MyLinkedList<>();
+            int n=lectura.nextInt();
+            for(int j=0; j<n; j++){
+                String comando = lectura.next();
+                if( comando.equals("insertar")){
+                    int x = lectura.nextInt();
+                    int pos = lectura.nextInt();
+                    //agregar los datos
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("insertar: posicion invalida");
+                    } else{
+                        lst.add(pos, x);
+                        list2.add(pos,x);
+                        System.out.println("insertar: posicion valida");
+                    }
+                }
+                else if(comando.equals("consulta")){
+                    int pos = lectura.nextInt();
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("consulta: no encontrado");
+                    } else {
+                        System.out.println("consulta: "+lst.get(pos));
+                        list2.get(pos);
+                    }
+                }
+                else if(comando.equals("eliminar")){
+                    int pos = lectura.nextInt();
+                    if(pos>=lst.size() || pos<0){
+                        System.out.println("eliminar: posicion invalida");
+                    } else {
+                        System.out.println("eliminar: posicion valida");
+                        lst.remove(pos);
+                        list2.remove(pos);
+                    }
+                }
+                else if(comando.equals("buscar")){
+                    int x = lectura.nextInt();
+                    int pos = lst.buscar(x);
+                    list2.buscar(x);
+                    if(pos==-1){
+                        System.out.println("​no existe numero");
+                    } else {
+                       System.out.println("buscar: " +pos);
+                    }
+                }
+                else{
+                    System.out.println("costo: " +lst.costo + " " +list2.costo);
+                }
+                
+               
+        }
+       }
+ }
+}
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+  
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    
+    public int size( )
+    {
+        return theSize;
+    }
+     
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+        
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntob;
+import java.util.Scanner;
+import java.util.Deque;
+import java.util.LinkedList;
+public class PuntoB {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] separado = new String[2];
+        String entrada = "";
+        int Casos = 0,Casos2 = 0, NoCartas = 0,NoJugadores = 0;
+        ////
+        Casos = Integer.parseInt(sc.nextLine());
+        while(Casos > 0){
+            String ganadores = "";
+            Deque mazo = new LinkedList();
+            entrada = sc.nextLine();
+            separado = entrada.split(" ");
+            NoCartas = Integer.parseInt(separado[0]);
+            NoJugadores = Integer.parseInt(separado[1]);
+            int[] jugadores = new int[NoJugadores];
+            for(int n = 0;n < NoJugadores;n++){
+                jugadores[n] = 0;
+            }
+            /////////
+            entrada = sc.nextLine();
+            String[] separado2 = new String[NoCartas];
+            separado2 = entrada.split(" ");
+            /////////////////
+            for(int n = 0;n < NoCartas;n++){
+                mazo.add(separado2[n]);
+            }
+            //////////
+            int n = 0;
+            while(mazo.isEmpty() != true){
+                int[] tmp = new int[2];
+                tmp[0] = Integer.parseInt(mazo.getFirst().toString());
+                tmp[1] = Integer.parseInt(mazo.getLast().toString());
+                /////////
+                if(tmp[0] > tmp[1]){
+                    jugadores[n] += tmp[0];
+                    mazo.removeFirst();
+                }
+                else if(tmp[0] < tmp[1]){
+                    jugadores[n] += tmp[1];
+                    mazo.removeLast();
+                }
+                else{//tmp[0] == tmp[1]
+                    jugadores[n] += tmp[1];
+                    mazo.removeLast();
+                }
+                /////////
+                n++;
+                if(n >= NoJugadores){n = 0;}
+            }
+            int NoMayor = 0, ignorar = -1;
+            for(int m = 0;m < NoJugadores;m++){
+                if(jugadores[m] > NoMayor){NoMayor = jugadores[m]; ganadores =(m+1)+""; ignorar = m;}
+            }
+            for(int m = 0;m < NoJugadores;m++){
+                if(jugadores[m] == NoMayor && ignorar != m){ganadores += " "+(m+1);}
+            }
+            //////////
+            System.out.println("Caso #"+(Casos2+1)+":\n"+ganadores);
+            Casos--;
+            Casos2++;
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntoc;
+import java.util.Scanner;
+public class PuntoC {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String entrada = "";
+        int Aprueban = 0;
+        int NoCualidades = Integer.parseInt(sc.nextLine());
+        String[] Cualidades = new String[NoCualidades];
+        //
+        entrada = sc.nextLine();
+        Cualidades = entrada.split(" ");
+        //
+        int NoNinas = Integer.parseInt(sc.nextLine());
+        //
+        for(int n = 0;n < NoNinas;n++){
+            entrada = sc.nextLine();
+            String[] tmp2 = entrada.split(" ");
+            int tmp = 0;
+            for(int m = 0;m < tmp2.length;m++){
+                for(int j = 0;j < NoCualidades;j++){
+                    if(tmp2[m].equals(Cualidades[j])){
+                        tmp++;
+                    }
+                }
+            }
+            if(tmp >= NoCualidades){
+                Aprueban++;
+            }
+        }
+        //
+        System.out.println(Aprueban);
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntoa;
+
+import java.util.*;
+import java.io.*;
+
+public class PuntoA {
+    public static void main(String[] args) {
+
+        int casos=0;
+        Scanner lectura = new Scanner(System.in);
+        casos= Integer.parseInt(lectura.nextLine());
+        
+        for(int i=0; i<casos; i++){
+            System.out.println("Caso #"+(i+1)+":");
+            MyArrayList <Integer> lst = new MyArrayList<>(); 
+            MyLinkedList <Integer> list2 = new MyLinkedList<>();
+            int n= Integer.parseInt(lectura.nextLine());
+            
+            
+            for(int j=0; j<n; j++){
+                
+                String comando = lectura.nextLine();
+                String[] tmp = new String[3];
+                tmp = comando.split(" ");
+                if( tmp[0].equals("insertar")){
+                    int x = Integer.parseInt(tmp[1]);
+                    int pos = Integer.parseInt(tmp[2]);
+                    //agregar los datos
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("insertar: posicion invalida");
+                    } else{
+                        lst.add(pos, x);
+                        list2.add(pos,x);
+                        System.out.println("insertar: posicion valida");
+                    }
+                }
+                else if(tmp[0].equals("consulta")){
+                    int pos = Integer.parseInt(tmp[1]);
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("consulta: no encontrado");
+                    } else {
+                        System.out.println("consulta: "+lst.get(pos));
+                        list2.get(pos);
+                    }
+                }
+                else if(tmp[0].equals("eliminar")){
+                    int pos = Integer.parseInt(tmp[1]);
+                    if(pos>=lst.size() || pos<0){
+                        System.out.println("eliminar: posicion invalida");
+                    } else {
+                        System.out.println("eliminar: posicion valida");
+                        lst.remove(pos);
+                        list2.remove(pos);
+                    }
+                }
+                else if(tmp[0].equals("buscar")){
+                    int x = Integer.parseInt(tmp[1]);
+                    int pos = lst.buscar(x);
+                    list2.buscar(x);
+                    if(pos==-1){
+                        System.out.println("​no existe numero");
+                    } else {
+                       System.out.println("buscar: " +pos);
+                    }
+                }
+                else{
+                    System.out.println("costo: " +lst.costo + " " +list2.costo);
+                }
+                
+               
+        }
+       }
+ }
+}
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+  
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    
+    public int size( )
+    {
+        return theSize;
+    }
+     
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+        
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+
+	}
+            
+    
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package puntoa;
+
+import java.util.*;
+import java.io.*;
+
+public class PuntoA {
+    public static void main(String[] args) {
+
+        int casos=0;
+        Scanner lectura = new Scanner(System.in);
+        casos= Integer.parseInt(lectura.nextLine());
+        
+        for(int i=0; i<casos; i++){
+            System.out.println("Caso #"+(i+1)+":");
+            MyArrayList <Integer> lst = new MyArrayList<>(); 
+            MyLinkedList <Integer> list2 = new MyLinkedList<>();
+            int n= Integer.parseInt(lectura.nextLine());
+            
+            
+            for(int j=0; j<n; j++){
+                
+                String comando = lectura.nextLine();
+                String[] tmp = new String[3];
+                tmp = comando.split(" ");
+                if( tmp[0].equals("insertar")){
+                    int x = Integer.parseInt(tmp[1]);
+                    int pos = Integer.parseInt(tmp[2]);
+                    //agregar los datos
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("insertar: posicion invalida");
+                    } else{
+                        lst.add(pos, x);
+                        list2.add(pos,x);
+                        System.out.println("insertar: posicion valida");
+                    }
+                }
+                else if(tmp[0].equals("consulta")){
+                    int pos = Integer.parseInt(tmp[1]);
+                    if(pos>lst.size() || pos<0){
+                        System.out.println("consulta: no encontrado");
+                    } else {
+                        System.out.println("consulta: "+lst.get(pos));
+                        list2.get(pos);
+                    }
+                }
+                else if(tmp[0].equals("eliminar")){
+                    int pos = Integer.parseInt(tmp[1]);
+                    if(pos>=lst.size() || pos<0){
+                        System.out.println("eliminar: posicion invalida");
+                    } else {
+                        System.out.println("eliminar: posicion valida");
+                        lst.remove(pos);
+                        list2.remove(pos);
+                    }
+                }
+                else if(tmp[0].equals("buscar")){
+                    int x = Integer.parseInt(tmp[1]);
+                    int pos = lst.buscar(x);
+                    list2.buscar(x);
+                    if(pos==-1){
+                        System.out.println("​no existe numero");
+                    } else {
+                       System.out.println("buscar: " +pos);
+                    }
+                }
+                else{
+                    System.out.println("costo: " +lst.costo + " " +list2.costo);
+                }
+                
+               
+        }
+       }
+ }
+}
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+  
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    
+    public int size( )
+    {
+        return theSize;
+    }
+     
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+        
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+
+	}
+            
+    
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package nn;
+import java.util.Scanner;
+
+public class Jugador {
+
+    public static void main(String[] args) {
+
+		int casos = 0;
+		Scanner lectura = new Scanner(System.in);
+		casos = Integer.parseInt(lectura.nextLine());
+
+		for (int i = 0; i < casos; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			MyArrayList<Integer> lst = new MyArrayList<>();
+			MyLinkedList<Integer> list2 = new MyLinkedList<>();
+			int n = Integer.parseInt(lectura.nextLine());
+
+			for (int j = 0; j < n; j++) {
+
+				String comando = lectura.nextLine();
+				String[] tmp = new String[3];
+				tmp = comando.split(" ");
+				if (tmp[0].equals("insertar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = Integer.parseInt(tmp[2]);
+					// agregar los datos
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("insertar: posicion invalida");
+					} else {
+						lst.add(pos, x);
+						list2.add(pos, x);
+						System.out.println("insertar: posicion valida");
+					}
+				} else if (tmp[0].equals("consultar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("consulta: no encontrado");
+					} else {
+						System.out.println("consulta: " + lst.get(pos));
+						list2.get(pos);
+					}
+				} else if (tmp[0].equals("eliminar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos >= lst.size() || pos < 0) {
+						System.out.println("eliminar: posicion invalida");
+					} else {
+						System.out.println("eliminar: posicion valida");
+						lst.remove(pos);
+						list2.remove(pos);
+					}
+				} else if (tmp[0].equals("buscar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = lst.buscar(x);
+					list2.buscar(x);
+					if (pos == -1) {
+						System.out.println("​no existe numero");
+					} else {
+						System.out.println("buscar: " + pos);
+					}
+				} else {
+					System.out.println("costo: " + lst.costo + " " + list2.costo);
+				}
+
+			}
+		}
+	}
+}
+
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Idx == elemento a consultar
+    //Consulta Array
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Consulta Listas
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    
+    
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿
+package nn;
+import java.util.Scanner;
+
+public class Jugador {
+
+    public static void main(String[] args) {
+
+		int casos = 0;
+		Scanner lectura = new Scanner(System.in);
+		casos = Integer.parseInt(lectura.nextLine());
+
+		for (int i = 0; i < casos; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			MyArrayList<Integer> lst = new MyArrayList<>();
+			MyLinkedList<Integer> list2 = new MyLinkedList<>();
+			int n = Integer.parseInt(lectura.nextLine());
+
+			for (int j = 0; j < n; j++) {
+
+				String comando = lectura.nextLine();
+				String[] tmp = new String[3];
+				tmp = comando.split(" ");
+				if (tmp[0].equals("insertar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = Integer.parseInt(tmp[2]);
+					// agregar los datos
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("insertar: posicion invalida");
+					} else {
+						lst.add(pos, x);
+						list2.add(pos, x);
+						System.out.println("insertar: posicion valida");
+					}
+				} else if (tmp[0].equals("consultar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("consulta: no encontrado");
+					} else {
+						System.out.println("consulta: " + lst.get(pos));
+						list2.get(pos);
+					}
+				} else if (tmp[0].equals("eliminar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos >= lst.size() || pos < 0) {
+						System.out.println("eliminar: posicion invalida");
+					} else {
+						System.out.println("eliminar: posicion valida");
+						lst.remove(pos);
+						list2.remove(pos);
+					}
+				} else if (tmp[0].equals("buscar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = lst.buscar(x);
+					list2.buscar(x);
+					if (pos == -1) {
+						System.out.println("no existe numero");
+					} else {
+						System.out.println("buscar: " + pos);
+					}
+				} else {
+					System.out.println("costo: " + lst.costo + " " + list2.costo);
+				}
+
+			}
+		}
+	}
+}
+
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Idx == elemento a consultar
+    //Consulta Array
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Consulta Listas
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    
+    
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿import java.util.Scanner;
+
+public class Jugador {
+
+    public static void main(String[] args) {
+
+		int casos = 0;
+		Scanner lectura = new Scanner(System.in);
+		casos = Integer.parseInt(lectura.nextLine());
+
+		for (int i = 0; i < casos; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			MyArrayList<Integer> lst = new MyArrayList<>();
+			MyLinkedList<Integer> list2 = new MyLinkedList<>();
+			int n = Integer.parseInt(lectura.nextLine());
+
+			for (int j = 0; j < n; j++) {
+
+				String comando = lectura.nextLine();
+				String[] tmp = new String[3];
+				tmp = comando.split(" ");
+				if (tmp[0].equals("insertar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = Integer.parseInt(tmp[2]);
+					// agregar los datos
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("insertar: posicion invalida");
+					} else {
+						lst.add(pos, x);
+						list2.add(pos, x);
+						System.out.println("insertar: posicion valida");
+					}
+				} else if (tmp[0].equals("consultar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("consulta: no encontrado");
+					} else {
+						System.out.println("consulta: " + lst.get(pos));
+						list2.get(pos);
+					}
+				} else if (tmp[0].equals("eliminar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos >= lst.size() || pos < 0) {
+						System.out.println("eliminar: posicion invalida");
+					} else {
+						System.out.println("eliminar: posicion valida");
+						lst.remove(pos);
+						list2.remove(pos);
+					}
+				} else if (tmp[0].equals("buscar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = lst.buscar(x);
+					list2.buscar(x);
+					if (pos == -1) {
+						System.out.println("no existe numero");
+					} else {
+						System.out.println("buscar: " + pos);
+					}
+				} else {
+					System.out.println("costo: " + lst.costo + " " + list2.costo);
+				}
+
+			}
+		}
+	}
+}
+
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Idx == elemento a consultar
+    //Consulta Array
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Consulta Listas
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    
+    
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿import java.util.Scanner;
+
+public class Jugador {
+
+    public static void main(String[] args) {
+
+		int casos = 0;
+		Scanner lectura = new Scanner(System.in);
+		casos = Integer.parseInt(lectura.nextLine());
+
+		for (int i = 0; i < casos; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			MyArrayList<Integer> lst = new MyArrayList<>();
+			MyLinkedList<Integer> list2 = new MyLinkedList<>();
+			int n = Integer.parseInt(lectura.nextLine());
+
+			for (int j = 0; j < n; j++) {
+
+				String comando = lectura.nextLine();
+				String[] tmp = new String[3];
+				tmp = comando.split(" ");
+				if (tmp[0].equals("insertar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = Integer.parseInt(tmp[2]);
+					// agregar los datos
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("insertar: posicion invalida");
+					} else {
+						lst.add(pos, x);
+						list2.add(pos, x);
+						System.out.println("insertar: posicion valida");
+					}
+				} else if (tmp[0].equals("consultar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("consulta: no encontrado");
+					} else {
+						System.out.println("consulta: " + lst.get(pos));
+						list2.get(pos);
+					}
+				} else if (tmp[0].equals("eliminar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos >= lst.size() || pos < 0) {
+						System.out.println("eliminar: posicion invalida");
+					} else {
+						System.out.println("eliminar: posicion valida");
+						lst.remove(pos);
+						list2.remove(pos);
+					}
+				} else if (tmp[0].equals("buscar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = lst.buscar(x);
+					list2.buscar(x);
+					if (pos == -1) {
+						System.out.println("no existe numero");
+					} else {
+						System.out.println("buscar: " + pos);
+					}
+				} else {
+					System.out.println("costo: " + lst.costo + " " + list2.costo);
+				}
+
+			}
+		}
+	}
+}
+
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Idx == elemento a consultar
+    //Consulta Array
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Consulta Listas
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    
+    
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+﻿import java.util.*;
+import java.io.*;
+
+
+
+public class Jugador {
+
+    public static void main(String[] args) {
+
+		int casos = 0;
+		Scanner lectura = new Scanner(System.in);
+		casos = Integer.parseInt(lectura.nextLine());
+
+		for (int i = 0; i < casos; i++) {
+			System.out.println("Caso #" + (i + 1) + ":");
+			MyArrayList<Integer> lst = new MyArrayList<>();
+			MyLinkedList<Integer> list2 = new MyLinkedList<>();
+			int n = Integer.parseInt(lectura.nextLine());
+
+			for (int j = 0; j < n; j++) {
+
+				String comando = lectura.nextLine();
+				String[] tmp = new String[3];
+				tmp = comando.split(" ");
+				if (tmp[0].equals("insertar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = Integer.parseInt(tmp[2]);
+					// agregar los datos
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("insertar: posicion invalida");
+					} else {
+						lst.add(pos, x);
+						list2.add(pos, x);
+						System.out.println("insertar: posicion valida");
+					}
+				} else if (tmp[0].equals("consultar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos > lst.size() || pos < 0) {
+						System.out.println("consulta: no encontrado");
+					} else {
+						System.out.println("consulta: " + lst.get(pos));
+						list2.get(pos);
+					}
+				} else if (tmp[0].equals("eliminar")) {
+					int pos = Integer.parseInt(tmp[1]);
+					if (pos >= lst.size() || pos < 0) {
+						System.out.println("eliminar: posicion invalida");
+					} else {
+						System.out.println("eliminar: posicion valida");
+						lst.remove(pos);
+						list2.remove(pos);
+					}
+				} else if (tmp[0].equals("buscar")) {
+					int x = Integer.parseInt(tmp[1]);
+					int pos = lst.buscar(x);
+					list2.buscar(x);
+					if (pos == -1) {
+						System.out.println("no existe numero");
+					} else {
+						System.out.println("buscar: " + pos);
+					}
+				} else {
+					System.out.println("costo: " + lst.costo + " " + list2.costo);
+				}
+
+			}
+		}
+	}
+}
+
+
+ class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Idx == elemento a consultar
+    //Consulta Array
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- ){
+            costo++;
+            theItems[ i ] = theItems[ i - 1 ];
+        }
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ ) {
+            theItems[ i ] = theItems[ i + 1 ];
+            costo++;
+        }
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    public int buscar(AnyType x){
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(theItems [i] == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+
+//lista enlazada
+ class MyLinkedList<AnyType> implements Iterable<AnyType>
+{
+    int costo=0;
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyLinkedList( )
+    {
+        doClear( );
+    }
+    
+    private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+        
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x )
+    {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x )
+    {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    //Consulta Listas
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    
+    
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    
+    
+    private Node<AnyType> getNode( int idx )
+    {
+        return getNode( idx, 0, size( ) - 1 );
+    }
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper )
+    {
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        
+        p = beginMarker.next;
+        for( int i = 0; i < idx; i++ ){
+            p = p.next;          
+            costo ++;
+        }
+               
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        return remove( getNode( idx ) );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    public int buscar(AnyType x){
+        Node<AnyType> p = beginMarker.next;
+        for(int i=0; i<theSize; i++){
+            costo++;
+            if(p.data == x){
+                return i;
+            }
+        }
+        
+        return -1;
+    
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "[ " );
+
+        for( AnyType x : this )
+            sb.append( x + " " );
+        sb.append( "]" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+     class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyLinkedList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class ProblemaBHeaps {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int cases = sc.nextInt();
+
+		for (int i = 1; i <= cases; i++) {
+			int numElements = sc.nextInt();
+			int pos = sc.nextInt();
+
+			PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+			LinkedList<Integer> myList = new LinkedList<Integer>();
+			for (int a = 0; a < numElements; a++) {
+				int tmp = sc.nextInt();
+				myList.offer(tmp);
+				myList.offer(a);
+				queue.add(-tmp);
+
+			}
+			int answer = 0;
+			while (true) {
+				int element = myList.poll();
+				int posE = myList.poll();
+				if (-queue.peek() == element) {
+					queue.poll();
+					answer++;
+					if (posE == pos)
+						break;
+
+				} else {
+					myList.offer(element);
+					myList.offer(posE);
+				}
+
+			}
+
+			System.out.println(answer);
+
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class ProblemaBHeaps {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int cases = sc.nextInt();
+
+		for (int i = 1; i <= cases; i++) {
+			int numElements = sc.nextInt();
+			int pos = sc.nextInt();
+
+			PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+			LinkedList<Integer> myList = new LinkedList<Integer>();
+			for (int a = 0; a < numElements; a++) {
+				int tmp = sc.nextInt();
+				myList.offer(tmp);
+				myList.offer(a);
+				queue.add(-tmp);
+
+			}
+			int answer = 0;
+			while (true) {
+				int element = myList.poll();
+				int posE = myList.poll();
+				if (-queue.peek() == element) {
+					queue.poll();
+					answer++;
+					if (posE == pos)
+						break;
+
+				} else {
+					myList.offer(element);
+					myList.offer(posE);
+				}
+
+			}
+
+			System.out.println(answer);
+
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class ProblemaBArboles {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int k = 1; k <= t; k++) {
+			int n = sc.nextInt();
+			HashMap<Integer, ArrayList<Integer>> g = new HashMap<>();
+
+			for (int i = 0; i < n; i++) {
+				int head = sc.nextInt();
+				g.put(head, new ArrayList<Integer>());
+				String other[] = sc.nextLine().split(" ");
+				for (int j = 0; j < other.length; j++) {
+					if (other[j].equals(""))
+						continue;
+					g.get(head).add(Integer.parseInt(other[j]));
+				}
+
+			}
+			System.out.println("Caso #" + k + ":");
+			LinkedList<Integer> left = new LinkedList<>();
+			LinkedList<Integer> right = new LinkedList<>();
+			left.push(1);
+			boolean l = true;
+			while (!left.isEmpty() || right.isEmpty()) {
+				int u;
+				if (l)
+					u = left.pop();
+				else
+					u = right.pop();
+				System.out.println(u + " ");
+				if (l)
+					for (int i = 0; i < g.get(u).size(); i++) {
+						int v = g.get(u).get(i);
+						right.push(v);
+					}
+				else
+					for (int i = g.get(u).size() - 1; i >= 0; i--) {
+						int v = g.get(u).get(i);
+						left.push(v);
+					}
+				if (l && left.isEmpty() || !l && right.isEmpty())
+					l = !l;
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProblemaCArboles {
+	static long sum, ans;
+	static long[] pesos;
+	static ArrayList<ArrayList<Integer>> grafos;
+
+	static long go(int u, int p) {
+		long sumHijos = pesos[u];
+		for (Integer v : grafos.get(u)) {
+			if (v == p)
+				continue;
+			sumHijos += go(v, u);
+		}
+		ans = Math.min(ans, Math.abs((sum - sumHijos) - sumHijos));
+		return sumHijos;
+	}
+
+	public static void main(String[] args) {
+		int n;
+		Scanner lectura = new Scanner(System.in);
+		int casos = lectura.nextInt();
+		for (int k = 1; k <= casos; k++) {
+			n = lectura.nextInt();
+
+			grafos = new ArrayList<>();
+
+			for (int i = 0; i <= n; i++) {
+				grafos.add(new ArrayList<Integer>());
+
+			}
+
+			pesos = new long[n + 1];
+			sum = 0;
+			ans = Long.MAX_VALUE;
+			for (int i = 1; i <= n; i++) {
+				pesos[i] = lectura.nextLong();
+				sum += pesos[i];
+
+			}
+			int a, b;
+			for (int j = 1; j <= n; j++) {
+				a = lectura.nextInt();
+				b = lectura.nextInt();
+				grafos.get(a).add(b);
+				grafos.get(b).add(a);
+
+			}
+
+			go(1, -1);
+
+			System.out.println("Caso #" + (k) + ":\n" + ans);
+
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class Lab_7A {
+	// Sirve >:v
+	static class Equipo implements Comparable<Equipo> {
+		private int ID;
+		int resueltos;
+		private int tiempo;
+
+		public Equipo(int a, int b, int c) {
+			this.ID = a;
+			this.resueltos = b;
+			this.tiempo = c;
+		}
+
+		public String cadena() {
+			return this.ID + " " + this.resueltos + " " + this.tiempo;
+		}
+
+		public int compareTo(Equipo compareEquipo) {
+
+			int compare = ((Equipo) compareEquipo).resueltos;
+
+			// descending order
+			return compare - this.resueltos;
+
+			// ascending order
+			// return this.resueltos - compare;
+
+		}
+
+		public static Comparator<Equipo> Comparar = new Comparator<Equipo>() {
+
+			public int compare(Equipo equipo1, Equipo equipo2) {
+				int compare1 = equipo1.resueltos;
+				int compare2 = equipo2.resueltos;
+				if (equipo1.resueltos == equipo2.resueltos) {
+					if (equipo1.tiempo == equipo2.tiempo) {
+						compare1 = equipo1.ID;
+						compare2 = equipo2.ID;
+						return compare2 - compare1;
+					} else {
+						compare1 = equipo1.tiempo;
+						compare2 = equipo2.tiempo;
+						return compare2 - compare1;
+					}
+				} else {
+					return compare1 - compare2;
+				}
+				// ascending order
+
+				// descending order
+				// return fruitName2.compareTo(fruitName1);
+			}
+
+		};
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int casos = Integer.parseInt(sc.nextLine());
+		for (int NoCasos = 1; NoCasos <= casos; NoCasos++) {
+			String[] cadena = sc.nextLine().split(" ");
+			int Equipos = Integer.parseInt(cadena[0]);
+			int Envios = Integer.parseInt(cadena[1]);
+			Hashtable<String, String> contenedor = new Hashtable<String, String>();
+			// Agrupar envios por concursante.
+
+			for (int n = 0; n < Envios; n++) {
+				cadena = sc.nextLine().split(" ");
+				if (contenedor.get(cadena[0]) == null) {// no esta
+					contenedor.put(cadena[0], cadena[1] + " " + cadena[2] + " " + cadena[3]);// problema
+																								// tiempo
+																								// L
+				} else {
+					String tmp = contenedor.get(cadena[0]);
+					tmp += "," + cadena[1] + " " + cadena[2] + " " + cadena[3];
+					contenedor.put(cadena[0], tmp);// problema tiempo L
+				}
+			}
+			///
+			// Calcular
+			String salida = "";
+			Equipo[] equipos = new Equipo[contenedor.size()];
+			int idx = 0;
+			for (int n = 0; n < Equipos; n++) {
+				if (contenedor.get((n + 1) + "") != null) {
+					Hashtable<String, String> contenedor2 = new Hashtable<String, String>();
+					int error = 0, tiempo = 0, resuelto = 0;
+					cadena = contenedor.get((n + 1) + "").split(",");
+					for (int m = 0; m < cadena.length; m++) {
+						String[] tmp = cadena[m].split(" ");
+						if (contenedor2.get(tmp[0]) == null) {
+							if (tmp[2].equals("C")) {
+								resuelto++;
+								tiempo += Integer.parseInt(tmp[1]);
+								contenedor2.put(tmp[0], "Completo");
+							} else {
+								contenedor2.put(tmp[0], "1");
+							}
+						} else {
+							if (tmp[2].equals("C") && !contenedor2.get(tmp[0]).toString().equals("Completo")) {
+								resuelto++;
+								error = Integer.parseInt(contenedor2.get(tmp[0]).toString());
+								tiempo += Integer.parseInt(tmp[1]);
+								tiempo += (error * 20);
+								contenedor2.put(tmp[0], "Completo");
+							} else {
+								if (!contenedor2.get(tmp[0]).toString().equals("Completo")) {
+									error = Integer.parseInt(contenedor2.get(tmp[0]).toString());
+									error++;
+									contenedor2.put(tmp[0], error + "");
+								}
+							}
+						}
+					}
+					// salida += (n+1)+" "+resuelto+" "+tiempo+" \n";
+					equipos[idx] = new Equipo((n + 1), resuelto, tiempo);
+					idx++;
+				}
+			}
+			Arrays.sort(equipos, Equipo.Comparar);
+			Collections.reverse(Arrays.asList(equipos));
+			// Imprimir
+			System.out.println("Caso #" + NoCasos + ":");
+			// System.out.print(salida);
+			for (int n = 0; n < equipos.length; n++) {
+				System.out.println(equipos[n].cadena());
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Lab_6C {
+
+	// Sirve >:v
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int casos = Integer.parseInt(sc.nextLine());
+		for (int NoCasos = 1; NoCasos <= casos; NoCasos++) {
+			String[] cadena = sc.nextLine().split(" ");
+			int NoElementos = Integer.parseInt(cadena[0]);
+			int Rondas = Integer.parseInt(cadena[1]);
+			/////
+			cadena = sc.nextLine().split(" ");
+			Long[] lacadena = new Long[NoElementos];
+			lacadena[0] = Long.parseLong(cadena[0]);
+			for (int n = 1; n < NoElementos; n++) {
+				lacadena[n] = Long.parseLong(cadena[n]) * lacadena[n - 1];
+			}
+
+			////
+			System.out.println("Caso #" + NoCasos + ":");
+			for (int n = 0; n < Rondas; n++) {
+				String[] comando = sc.nextLine().split(" ");
+				if (comando[0].equals("cambio")) {
+					int idx = Integer.parseInt(comando[1]);
+					idx--;
+					int tmp = Integer.parseInt(comando[2]);
+					cadena[idx] = tmp + "";
+					lacadena[0] = Long.parseLong(cadena[0]);
+					for (int m = 1; m < NoElementos; m++) {
+						lacadena[m] = Long.parseLong(cadena[m]) * lacadena[m - 1];
+					}
+				} else {// multiplicar
+					Long resultado;
+					int x = Integer.parseInt(comando[1]);
+					int y = Integer.parseInt(comando[2]);
+					if (x == 1) {
+						x = 2;
+					}
+					resultado = lacadena[y - 1] / lacadena[x - 2];
+					if (resultado == 0) {
+						System.out.println("0");
+					} else if (resultado > 0) {
+						System.out.println("+");
+					} else {
+						System.out.println("-");
+					}
+				}
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class Lab_7E {
+
+	// Sirve >:v
+	static class Equipo implements Comparable<Equipo> {
+		private int ID;
+		int resueltos;
+		private int tiempo;
+
+		public Equipo(int a, int b, int c) {
+			this.ID = a;
+			this.resueltos = b;
+			this.tiempo = c;
+		}
+
+		public String cadena() {
+			return this.ID + " " + this.resueltos + " " + this.tiempo;
+		}
+
+		public int compareTo(Equipo compareEquipo) {
+
+			int compare = ((Equipo) compareEquipo).resueltos;
+
+			// descending order
+			return compare - this.resueltos;
+
+			// ascending order
+			// return this.resueltos - compare;
+
+		}
+
+		public static Comparator<Equipo> Comparar = new Comparator<Equipo>() {
+
+			public int compare(Equipo equipo1, Equipo equipo2) {
+				int compare1 = equipo1.resueltos;
+				int compare2 = equipo2.resueltos;
+				if (equipo1.resueltos == equipo2.resueltos) {
+					if (equipo1.tiempo == equipo2.tiempo) {
+						compare1 = equipo1.ID;
+						compare2 = equipo2.ID;
+						return compare2 - compare1;
+					} else {
+						compare1 = equipo1.tiempo;
+						compare2 = equipo2.tiempo;
+						return compare2 - compare1;
+					}
+				} else {
+					return compare1 - compare2;
+				}
+				// ascending order
+
+				// descending order
+				// return fruitName2.compareTo(fruitName1);
+			}
+
+		};
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int casos = Integer.parseInt(sc.nextLine());
+		for (int NoCasos = 1; NoCasos <= casos; NoCasos++) {
+			String[] cadena = sc.nextLine().split(" ");
+			int Equipos = Integer.parseInt(cadena[0]);
+			int Envios = Integer.parseInt(cadena[1]);
+			int C = 0, I = 0, T = 0, R = 0;
+			Hashtable<String, String> contenedor = new Hashtable<String, String>();
+			// Agrupar envios por concursante.
+
+			for (int n = 0; n < Envios; n++) {
+				cadena = sc.nextLine().split(" ");
+				if (cadena[3].equals("C")) {
+					C++;
+				}
+				if (cadena[3].equals("I")) {
+					I++;
+				}
+				if (cadena[3].equals("T")) {
+					T++;
+				}
+				if (cadena[3].equals("R")) {
+					R++;
+				}
+				if (contenedor.get(cadena[0]) == null) {// no esta
+					contenedor.put(cadena[0], cadena[1] + " " + cadena[2] + " " + cadena[3]);// problema
+																								// tiempo
+																								// L
+				} else {
+					String tmp = contenedor.get(cadena[0]);
+					tmp += "," + cadena[1] + " " + cadena[2] + " " + cadena[3];
+					contenedor.put(cadena[0], tmp);// problema tiempo L
+				}
+			}
+			///
+			// Calcular
+			String salida = "";
+			Equipo[] equipos = new Equipo[contenedor.size()];
+			int idx = 0;
+			for (int n = 0; n < Equipos; n++) {
+				if (contenedor.get((n + 1) + "") != null) {
+					Hashtable<String, String> contenedor2 = new Hashtable<String, String>();
+					int error = 0, tiempo = 0, resuelto = 0;
+					cadena = contenedor.get((n + 1) + "").split(",");
+					for (int m = 0; m < cadena.length; m++) {
+						String[] tmp = cadena[m].split(" ");
+						if (contenedor2.get(tmp[0]) == null) {
+							if (tmp[2].equals("C")) {
+								resuelto++;
+								tiempo += Integer.parseInt(tmp[1]);
+								contenedor2.put(tmp[0], "Completo");
+							} else {
+								contenedor2.put(tmp[0], "1");
+							}
+						} else {
+							if (tmp[2].equals("C") && !contenedor2.get(tmp[0]).toString().equals("Completo")) {
+								resuelto++;
+								error = Integer.parseInt(contenedor2.get(tmp[0]).toString());
+								tiempo += Integer.parseInt(tmp[1]);
+								tiempo += (error * 20);
+								contenedor2.put(tmp[0], "Completo");
+							} else {
+								if (!contenedor2.get(tmp[0]).toString().equals("Completo")) {
+									error = Integer.parseInt(contenedor2.get(tmp[0]).toString());
+									error++;
+									contenedor2.put(tmp[0], error + "");
+								}
+							}
+						}
+					}
+					// salida += (n+1)+" "+resuelto+" "+tiempo+" \n";
+					equipos[idx] = new Equipo((n + 1), resuelto, tiempo);
+					idx++;
+				}
+			}
+			Arrays.sort(equipos, Equipo.Comparar);
+			Collections.reverse(Arrays.asList(equipos));
+			// Imprimir
+			System.out.println("Caso #" + NoCasos + ":");
+			// System.out.print(salida);
+			for (int n = 0; n < equipos.length; n++) {
+				System.out.println(equipos[n].cadena());
+			}
+			System.out.println(C + " " + I + " " + T + " " + R);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Deque;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Lab_7B {
+
+	// Sirve >:v
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int casos = Integer.parseInt(sc.nextLine());
+		for (int NoCasos = 1; NoCasos <= casos; NoCasos++) {
+			Hashtable<String, String> contenedor = new Hashtable<String, String>();
+			Deque deque = new LinkedList();
+			// Entrada
+			int NoNumeros = Integer.parseInt(sc.nextLine());
+			String[] cadena = sc.nextLine().split(" ");
+			// Procesar
+			for (int n = 0; n < NoNumeros; n++) {
+				String No = cadena[n];
+				if (contenedor.get(No) == null) {// no esta
+					deque.addLast(No);
+					contenedor.put(No, 1 + "");
+				} else {// esta
+					int tmp = Integer.parseInt(contenedor.get(No).toString());
+					tmp++;
+					// contenedor.replace(No, tmp+"");
+					contenedor.put(No, tmp + "");
+				}
+			}
+			// Salida
+			System.out.println("Caso #" + NoCasos + ":");
+			while (deque.peekLast() != null) {
+				String llave = deque.pollFirst().toString();
+				System.out.println(llave + " " + contenedor.get(llave));
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Lab_6A {
+	private static String FILE_NAME = "B_2.txt";
+
+	public static void main(String[] args) {
+		Scanner scan;
+		File file = new File(FILE_NAME);
+		try {
+			scan = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			scan = new Scanner(System.in);
+		}
+
+		PriorityQueue pq = new PriorityQueue();
+
+		int N = Integer.parseInt(scan.nextLine());
+		String[] str = scan.nextLine().split(" ");
+		int[] aux = new int[N];
+
+		for (int i = 0; i < N; i++) {
+			if (i < 2) {
+				System.out.println("-1");
+				pq.insert(Integer.parseInt(str[i]));
+			} else {
+				pq.insert(Integer.parseInt(str[i]));
+				int a = pq.remove();
+				int b = (int) pq.remove();
+				int c = (int) pq.remove();
+				System.out.println(a * b * c);
+				pq.insert(a);
+				pq.insert(b);
+				pq.insert(c);
+			}
+		}
+	}
+
+	public static class PriorityQueue {
+		private int[] array;
+		private int index;
+
+		public PriorityQueue() {
+			array = new int[100000];
+			index = 0;
+		}
+
+		public boolean empty() {
+			return index == 0;
+		}
+
+		public void insert(int item) {
+			if (index == array.length) {
+
+			}
+			array[index] = item;
+			index++;
+		}
+
+		public int remove() {
+			if (index == 0)
+				;
+
+			int maxIndex = 0;
+			for (int i = 1; i < index; i++) {
+				if (array[i] > (array[maxIndex])) {
+					maxIndex = i;
+				}
+			}
+			int result = array[maxIndex];
+			index--;
+			array[maxIndex] = array[index];
+			return result;
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProblemaCArboles {
+
+	// ARREGLAR, URGENTEE
+	static long sum, ans;
+	static long[] pesos;
+	static ArrayList<ArrayList<Integer>> grafos;
+
+	static long go(int u, int p) {
+		long sumHijos = pesos[u];
+		for (Integer v : grafos.get(u)) {
+			if (v == p)
+				continue;
+			sumHijos += go(v, u);
+		}
+		ans = Math.min(ans, Math.abs((sum - sumHijos) - sumHijos));
+		return sumHijos;
+	}
+
+	public static void main(String[] args) {
+		int n;
+		Scanner lectura = new Scanner(System.in);
+		int casos = lectura.nextInt();
+		for (int k = 1; k <= casos; k++) {
+			n = lectura.nextInt();
+
+			grafos = new ArrayList<>();
+
+			for (int i = 0; i <= n; i++) {
+				grafos.add(new ArrayList<Integer>());
+
+			}
+
+			pesos = new long[n + 1];
+			sum = 0;
+			ans = Long.MAX_VALUE;
+			for (int i = 1; i <= n; i++) {
+				pesos[i] = lectura.nextLong();
+				sum += pesos[i];
+
+			}
+			int a, b;
+			for (int j = 1; j < n; j++) {
+				a = lectura.nextInt();
+				b = lectura.nextInt();
+				grafos.get(a).add(b);
+				grafos.get(b).add(a);
+
+			}
+
+			go(1, -1);
+
+			System.out.println("Caso #" + (k) + ":\n" + ans);
+
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class BBProblemTree {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int k = 1; k <= t; k++) {
+			int n = sc.nextInt();
+			HashMap<Integer, ArrayList<Integer>> g = new HashMap<>();
+
+			for (int i = 0; i < n; i++) {
+				int head = sc.nextInt();
+				g.put(head, new ArrayList<Integer>());
+				String other[] = sc.nextLine().split(" ");
+				for (int j = 0; j < other.length; j++) {
+					if (other[j].equals(""))
+						continue;
+					g.get(head).add(Integer.parseInt(other[j]));
+
+				}
+
+			}
+
+			System.out.println("Caso #" + k + ":");
+			LinkedList<Integer> left = new LinkedList<>();
+			LinkedList<Integer> right = new LinkedList<>();
+			left.push(1);
+			boolean l = true;
+			while (!left.isEmpty() || !right.isEmpty()) {
+				int u;
+				if (l)
+					u = left.pop();
+				else
+					u = right.pop();
+				System.out.print(u + " ");
+				if (l)
+					for (int i = 0; i < g.get(u).size(); i++) {
+						int v = g.get(u).get(i);
+						right.push(v);
+
+					}
+				else
+					for (int i = g.get(u).size() - 1; i >= 0; i--) {
+						int v = g.get(u).get(i);
+						left.push(v);
+					}
+
+				if (l && left.isEmpty() || !l && right.isEmpty()) {
+					l = !l;
+				}
+				// System.out.println();
+
+			}
+
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

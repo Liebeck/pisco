@@ -1,0 +1,3739 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problema;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class problemA {
+
+	
+	public static void main(String[] args) throws IOException {
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int casos = Integer.parseInt(scan.nextLine());
+		int cnt = 0;
+		while( 0 < casos-- )
+		{
+			    int n = Integer.parseInt(scan.nextLine());
+			    int arr[] = readInts(scan.nextLine(), n);
+			    
+							
+				int menor = 0, mayor = 0, igual = 0;
+				for( int i = 0; i < arr.length; i++ )
+					for( int j = 0; j < arr.length; j++ )
+					{   
+						if( j != i )
+							if( arr[i] < arr[j] )
+								menor++;
+							else if( arr[i] > arr[j] )
+								mayor++;
+							else
+								igual++;
+						
+						
+					}cnt++;
+				System.out.println( "case#" + cnt );
+				System.out.println( mayor );
+				System.out.println( menor );
+				System.out.println( igual );
+			}
+			 
+			
+		}
+		
+	
+	
+	public static int[] readInts(String s, int n) {
+		String split[] = s.split(" ");
+		int arr[] = new int[n];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(split[i]);
+		}
+		return arr;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problema;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class problemA {
+
+	
+	public static void main(String[] args) throws IOException {
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int casos = Integer.parseInt(scan.nextLine());
+		int cnt = 0;
+		while( 0 < casos-- )
+		{
+			    int n = Integer.parseInt(scan.nextLine());
+			    int arr[] = readInts(scan.nextLine(), n);
+			    
+							
+				int menor = 0, mayor = 0, igual = 0;
+				for( int i = 0; i < arr.length; i++ )
+					for( int j = 0; j < arr.length; j++ )
+					{   
+						if( j != i )
+							if( arr[i] < arr[j] )
+								menor++;
+							else if( arr[i] > arr[j] )
+								mayor++;
+							else
+								igual++;
+						
+						
+					}cnt++;
+				System.out.println( "case# " + cnt );
+				System.out.println( mayor );
+				System.out.println( menor );
+				System.out.println( igual );
+			}
+			 
+			
+		}
+		
+	
+	
+	public static int[] readInts(String s, int n) {
+		String split[] = s.split(" ");
+		int arr[] = new int[n];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(split[i]);
+		}
+		return arr;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problema;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class problemA {
+
+	
+	public static void main(String[] args) throws IOException {
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int casos = Integer.parseInt(scan.nextLine());
+		int cnt = 0;
+		while( 0 < casos-- )
+		{
+			    int n = Integer.parseInt(scan.nextLine());
+			    int arr[] = readInts(scan.nextLine(), n);
+			    
+							
+				int menor = 0, mayor = 0, igual = 0;
+				for( int i = 0; i < arr.length; i++ )
+					for( int j = 0; j < arr.length; j++ )
+					{   
+						if( j != i )
+							if( arr[i] < arr[j] )
+								menor++;
+							else if( arr[i] > arr[j] )
+								mayor++;
+							else
+								igual++;
+						
+						
+					}cnt++;
+				System.out.println( "case# " + cnt +":");
+				System.out.println( mayor );
+				System.out.println( menor );
+				System.out.println( igual );
+			}
+			 
+			
+		}
+		
+	
+	
+	public static int[] readInts(String s, int n) {
+		String split[] = s.split(" ");
+		int arr[] = new int[n];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(split[i]);
+		}
+		return arr;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problema;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class problemA {
+
+	
+	public static void main(String[] args) throws IOException {
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		
+		int casos = Integer.parseInt(scan.nextLine());
+		int cnt = 0;
+		while( 0 < casos-- )
+		{
+			    int n = Integer.parseInt(scan.nextLine());
+			    int arr[] = readInts(scan.nextLine(), n);
+			    
+							
+				int menor = 0, mayor = 0, igual = 0;
+				for( int i = 0; i < arr.length; i++ )
+					for( int j = 0; j < arr.length; j++ )
+					{   
+						if( j != i )
+							if( arr[i] < arr[j] )
+								menor++;
+							else if( arr[i] > arr[j] )
+								mayor++;
+							else
+								igual++;
+						
+						
+					}cnt++;
+				System.out.println( "Case #" + cnt +":");
+				System.out.println( mayor );
+				System.out.println( menor );
+				System.out.println( igual );
+			}
+			 
+			
+		}
+		
+	
+	
+	public static int[] readInts(String s, int n) {
+		String split[] = s.split(" ");
+		int arr[] = new int[n];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(split[i]);
+		}
+		return arr;
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problemC;
+
+public class problemC {
+
+	
+		public static void main(String[] args) {
+	        String[] elementos = "a,b".split(",");
+	        int n = elementos.length;                  
+	        int r = elementos.length;  
+	        Perm2(elementos, "", n, r);
+	    }
+
+	    private static void Perm2(String[] elem, String act, int n, int r) {
+	        if (n == 0) {
+	            System.out.println(act);
+	        } else {
+	            for (int i = 0; i < r; i++) {
+	                if (!act.contains(elem[i])) { 
+	                    Perm2(elem, act + elem[i] + ", ", n - 1, r);
+	                }
+	            }
+	        }
+	    }
+	
+
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package problemb;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class problemB {
+
+	public static void main(String[] args) throws IOException  {
+		
+		Scanner sn;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			sn = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			sn = new Scanner(System.in);
+		}
+		
+		while( sn.hasNext( ) )
+		{
+			int ganadoras = 0;
+			int n = Integer.parseInt( sn.nextLine( ) );
+            int mat[ ][ ] = new int [ n ][ n ];
+            String numeros = sn.nextLine();
+            String num[] = numeros.split("\\s+");  
+            for(int i=0; i<n; i++){    
+            for(int j=0; j<n; j++){           
+                    mat[i][j]= Integer.parseInt(num[j]);
+                    }  
+
+         }
+            
+            
+			for( int row = 0; row < n; row++ )
+				for( int col = 0; col < n; col++ )
+					mat[ row ][ col ] = sn.nextInt( );
+                                                      
+			for( int row = 0; row < n; row++ )
+				for( int col = 0; col < n; col++ )
+				{
+					int rowsum = 0, colsum = 0;
+					for( int i = 0; i < n; i++ )
+					{
+						rowsum += mat[ row ][ i ];
+						colsum += mat[ i ][ col ];
+					}
+					if( rowsum < colsum )
+						ganadoras++;
+				}
+			
+		}  
+		
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package problemC;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class problemC {
+
+	
+    public static void main(String[] args) throws IOException {
+	        
+                Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}  
+                    
+                int casos = Integer.parseInt(scan.nextLine());
+                int cnt=0;
+		while( 0 < casos-- )
+		{
+			    int n = Integer.parseInt(scan.nextLine());
+			    String arr[] = readInts(scan.nextLine(), n);
+			    int r = arr.length;
+			    System.out.println( "Case #" + cnt +":");
+                            Perm2(arr,"",n,r);			
+				
+			}cnt++;
+				System.out.println( "Case #" + cnt +":");
+				                                        
+	        
+	    }
+
+	    private static String Perm2( String []arr, String act, int n, int r) {
+	        if (n == 0) {
+	            System.out.println(act);
+	        } else {
+	            for (int i = 0; i < r; i++) {
+	                if (!act.contains(arr[i])) { 
+	                    Perm2(arr, act + arr[i] + ", ", n - 1, r);
+	                }
+	            }
+	        }
+        return act;
+	    }
+            
+            
+            public static String[] readInts(String s, int n) {
+		String split[] = s.split(" ");
+		
+                
+		return split;
+		
+	}
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class Proy6pA {
+
+	public static void main(String[] args) throws FileNotFoundException, Exception {
+		/*
+		 *Escaneo de caracteres.
+		 */
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int t = Integer.parseInt(scan.nextLine());
+		for (int casos = 0; casos < t; casos++) {
+			String[ ] comandos= scan.nextLine().split(" ");
+			int N= Integer.valueOf(comandos[0]); 
+			int M=Integer.valueOf(comandos[1]);
+			String[ ] Numeros= scan.nextLine().split(" ");
+			int [] inser= new int [N];
+			BinaryHeap <Integer> BH = new BinaryHeap <> ( );
+			for (int i = 0; i < N; i++) {
+				BH.insert(Integer.valueOf(Numeros[i]));   
+			}
+			for (int i = 0; i < N; i++) {
+				inser[i]=BH.deleteMin();
+			}
+			int minH=Integer.MAX_VALUE;
+			int minColi=Integer.MAX_VALUE;
+			HashMap <Integer, Integer> minAll = new HashMap<Integer,Integer>();
+			HashMap <Integer, Integer> num_coli= new HashMap<Integer, Integer>();
+			String[ ] Funciones= scan.nextLine().split(" ");
+			for (int i = 0; i < M; i++) {
+				HashMap <Integer, Integer> colisiones = new HashMap<Integer,Integer>();
+				HashMap <Integer, Integer> colRep = new HashMap<Integer, Integer>();
+				int col=Integer.valueOf(Funciones[i]);
+				int coli=0;
+				for (int j = 0; j < N; j++) {
+					int mod=inser[j]%col;
+					if(!colisiones.isEmpty()&&colisiones.containsValue(mod)){
+						coli++;
+						int canti=colRep.get(mod);
+						colRep.put(mod,++canti);
+					}else{
+						colRep.put(mod,0);
+					}
+					colisiones.put(inser[j],mod);
+				}
+				if (minH ==coli){
+					if(minColi>col){
+						minColi=col;
+						minAll.clear();
+                                                num_coli.clear();
+						minAll.putAll(colisiones);
+						num_coli.putAll(colRep);
+					}
+				}else if(minH >coli){
+					minH =coli; 
+                                        minColi=col;
+					minAll.clear(); 
+                                        num_coli.clear(); 
+					minAll.putAll(colisiones);
+					num_coli.putAll(colRep);
+				}
+			}
+			System.out.println("Case #"+(casos+1));
+                        System.out.println( minColi );
+                        System.out.println ( minH );
+			int minAux =0; 
+                        int minimo = minH +1;
+			int mayor=0; 
+                        int con_min=0;
+			HashSet<Integer> usados=new HashSet<Integer>();
+			if(minH >0){
+				while(mayor<N&&minimo!=0){
+					minAux = minAll.get(inser[mayor]);
+					if(usados.contains(minAux))
+						con_min=1;
+					while (con_min==1&&mayor<N){
+						minAux=minAll.get(inser[mayor]);
+						if(!usados.contains(minAux)){
+							con_min=0;
+						}else{
+							++mayor;
+						}
+					}
+					if(mayor>= N)
+						break;
+					usados.add(minAux);
+					int repe=0;
+					if(num_coli.containsKey(minAux) && num_coli.get(minAux)!=0)
+						repe=num_coli.get(minAux)+1;
+					while(repe!=0){
+						for (int i = 0; i < N; i++) {
+							int mk=inser[i];
+							if(minAll.get(mk)==minAux){
+								System.out.print(mk);
+								repe--;
+								minimo--;
+								if(repe!=0)
+									System.out.print(" ");
+							}
+							if(repe==0)
+								break;
+						}
+						System.out.println("\n");
+						minimo++;
+					}
+					mayor++;
+					con_min=0; 
+				}
+			}
+
+		}
+	}
+
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>{
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap( )
+		{
+			this( DEFAULT_CAPACITY );
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * @param capacity the capacity of the binary heap.
+		 */
+		public BinaryHeap( int capacity )
+		{
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[ capacity + 1 ];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * @param items
+		 */
+		public BinaryHeap( AnyType [ ] items )
+		{
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+			int i = 1;
+			for( AnyType item : items )
+				array[ i++ ] = item;
+			buildHeap( );
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order.
+		 * Duplicates are allowed.
+		 * @param x the item to insert.
+		 */
+		public void insert( AnyType x )
+		{
+			if( currentSize == array.length - 1 )
+				enlargeArray( array.length * 2 + 1 );
+
+			// Percolate up
+			int hole = ++currentSize;
+			for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+				array[ hole ] = array[ hole / 2 ];
+			array[ hole ] = x;
+		}
+
+
+		private void enlargeArray( int newSize )
+		{
+			AnyType [] old = array;
+			array = (AnyType []) new Comparable[ newSize ];
+			for( int i = 0; i < old.length; i++ )
+				array[ i ] = old[ i ];        
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+			return array[ 1 ];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+
+			AnyType minItem = findMin( );
+			array[ 1 ] = array[ currentSize-- ];
+			percolateDown( 1 );
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary
+		 * arrangement of items. Runs in linear time.
+		 */
+		private void buildHeap( )
+		{
+			for( int i = currentSize / 2; i > 0; i-- )
+				percolateDown( i );
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty( )
+		{
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty( )
+		{
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;      // Number of elements in heap
+		private AnyType [ ] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * @param hole the index at which the percolate begins.
+		 */
+		private void percolateDown( int hole )
+		{
+			int child;
+			AnyType tmp = array[ hole ];
+
+			for( ; hole * 2 <= currentSize; hole = child )
+			{
+				child = hole * 2;
+				if( child != currentSize &&
+						array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+					child++;
+				if( array[ child ].compareTo( tmp ) < 0 )
+					array[ hole ] = array[ child ];
+				else
+					break;
+			}
+			array[ hole ] = tmp;
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class Proy6pA {
+
+	public static void main(String[] args) throws FileNotFoundException, Exception {
+		/*
+		 *Escaneo de caracteres.
+		 */
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			//System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int t = Integer.parseInt(scan.nextLine());
+		for (int casos = 0; casos < t; casos++) {
+			String[ ] comandos= scan.nextLine().split(" ");
+			int N= Integer.valueOf(comandos[0]); 
+			int M=Integer.valueOf(comandos[1]);
+			String[ ] Numeros= scan.nextLine().split(" ");
+			int [] inser= new int [N];
+			BinaryHeap <Integer> BH = new BinaryHeap <> ( );
+			for (int i = 0; i < N; i++) {
+				BH.insert(Integer.valueOf(Numeros[i]));   
+			}
+			for (int i = 0; i < N; i++) {
+				inser[i]=BH.deleteMin();
+			}
+			int minH=Integer.MAX_VALUE;
+			int minColi=Integer.MAX_VALUE;
+			HashMap <Integer, Integer> minAll = new HashMap<Integer,Integer>();
+			HashMap <Integer, Integer> num_coli= new HashMap<Integer, Integer>();
+			String[ ] Funciones= scan.nextLine().split(" ");
+			for (int i = 0; i < M; i++) {
+				HashMap <Integer, Integer> colisiones = new HashMap<Integer,Integer>();
+				HashMap <Integer, Integer> colRep = new HashMap<Integer, Integer>();
+				int col=Integer.valueOf(Funciones[i]);
+				int coli=0;
+				for (int j = 0; j < N; j++) {
+					int mod=inser[j]%col;
+					if(!colisiones.isEmpty()&&colisiones.containsValue(mod)){
+						coli++;
+						int canti=colRep.get(mod);
+						colRep.put(mod,++canti);
+					}else{
+						colRep.put(mod,0);
+					}
+					colisiones.put(inser[j],mod);
+				}
+				if (minH ==coli){
+					if(minColi>col){
+						minColi=col;
+						minAll.clear();
+                                                num_coli.clear();
+						minAll.putAll(colisiones);
+						num_coli.putAll(colRep);
+					}
+				}else if(minH >coli){
+					minH =coli; 
+                                        minColi=col;
+					minAll.clear(); 
+                                        num_coli.clear(); 
+					minAll.putAll(colisiones);
+					num_coli.putAll(colRep);
+				}
+			}
+			System.out.println("Case #"+(casos+1));
+                        System.out.println( minColi );
+                        System.out.println ( minH );
+			int minAux =0; 
+                        int minimo = minH +1;
+			int mayor=0; 
+                        int con_min=0;
+			HashSet<Integer> usados=new HashSet<Integer>();
+			if(minH >0){
+				while(mayor<N&&minimo!=0){
+					minAux = minAll.get(inser[mayor]);
+					if(usados.contains(minAux))
+						con_min=1;
+					while (con_min==1&&mayor<N){
+						minAux=minAll.get(inser[mayor]);
+						if(!usados.contains(minAux)){
+							con_min=0;
+						}else{
+							++mayor;
+						}
+					}
+					if(mayor>= N)
+						break;
+					usados.add(minAux);
+					int repe=0;
+					if(num_coli.containsKey(minAux) && num_coli.get(minAux)!=0)
+						repe=num_coli.get(minAux)+1;
+					while(repe!=0){
+						for (int i = 0; i < N; i++) {
+							int mk=inser[i];
+							if(minAll.get(mk)==minAux){
+								System.out.print(mk);
+								repe--;
+								minimo--;
+								if(repe!=0)
+									System.out.print(" ");
+							}
+							if(repe==0)
+								break;
+						}
+						System.out.println("\n");
+						minimo++;
+					}
+					mayor++;
+					con_min=0; 
+				}
+			}
+
+		}
+	}
+
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>{
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap( )
+		{
+			this( DEFAULT_CAPACITY );
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * @param capacity the capacity of the binary heap.
+		 */
+		public BinaryHeap( int capacity )
+		{
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[ capacity + 1 ];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * @param items
+		 */
+		public BinaryHeap( AnyType [ ] items )
+		{
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+			int i = 1;
+			for( AnyType item : items )
+				array[ i++ ] = item;
+			buildHeap( );
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order.
+		 * Duplicates are allowed.
+		 * @param x the item to insert.
+		 */
+		public void insert( AnyType x )
+		{
+			if( currentSize == array.length - 1 )
+				enlargeArray( array.length * 2 + 1 );
+
+			// Percolate up
+			int hole = ++currentSize;
+			for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+				array[ hole ] = array[ hole / 2 ];
+			array[ hole ] = x;
+		}
+
+
+		private void enlargeArray( int newSize )
+		{
+			AnyType [] old = array;
+			array = (AnyType []) new Comparable[ newSize ];
+			for( int i = 0; i < old.length; i++ )
+				array[ i ] = old[ i ];        
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+			return array[ 1 ];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+
+			AnyType minItem = findMin( );
+			array[ 1 ] = array[ currentSize-- ];
+			percolateDown( 1 );
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary
+		 * arrangement of items. Runs in linear time.
+		 */
+		private void buildHeap( )
+		{
+			for( int i = currentSize / 2; i > 0; i-- )
+				percolateDown( i );
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty( )
+		{
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty( )
+		{
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;      // Number of elements in heap
+		private AnyType [ ] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * @param hole the index at which the percolate begins.
+		 */
+		private void percolateDown( int hole )
+		{
+			int child;
+			AnyType tmp = array[ hole ];
+
+			for( ; hole * 2 <= currentSize; hole = child )
+			{
+				child = hole * 2;
+				if( child != currentSize &&
+						array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+					child++;
+				if( array[ child ].compareTo( tmp ) < 0 )
+					array[ hole ] = array[ child ];
+				else
+					break;
+			}
+			array[ hole ] = tmp;
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+public class Proy6pB { 
+    
+     public static void main(String[] args) throws FileNotFoundException{
+         Scanner scan;
+        File f = new File("prueba.in");
+        
+	if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int casos = 1; 
+        int comida = 0;  
+        Map<Integer,Integer> bolsa = new TreeMap<>( );
+        int t = Integer.parseInt(scan.nextLine());
+         for (int i = 0; i < t; i++) {
+             
+             System.out.println("Case #" + casos + ":");
+             comida = 0;    
+             bolsa.clear();
+             int numEstanques = Integer.parseInt(scan.nextLine());
+             for (int j = 0; j < numEstanques; j++) {
+               
+                String estanque = scan.nextLine();
+                String l[] = estanque.split(" ");
+                int tipocomida = Integer.parseInt(l[0]);
+                int pokemon = Integer.parseInt(l[1]);
+                if(!bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, 0);
+                }else if (bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, (bolsa.get(tipocomida)+1));
+                }
+                
+              
+           
+                if(bolsa.containsKey(pokemon)){
+                    for (Integer a : bolsa.values()) {
+                        
+                    }
+                    if(bolsa.get(pokemon) > 0){
+                        bolsa.put(pokemon, (bolsa.get(pokemon)-1));
+                    }else if(bolsa.get(pokemon) ==  0){
+                        bolsa.remove(pokemon);
+                    }
+                } else comida++;
+                
+                   
+             }
+             
+             System.out.println(comida);
+             casos++;
+         }
+     }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+public class Proy6pB { 
+    
+     public static void main(String[] args) throws FileNotFoundException{
+         Scanner scan;
+        File f = new File("prueba.in");
+        
+	if (f.exists()) {
+            scan = new Scanner(f);
+           // System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int casos = 1; 
+        int comida = 0;  
+        Map<Integer,Integer> bolsa = new TreeMap<>( );
+        int t = Integer.parseInt(scan.nextLine());
+         for (int i = 0; i < t; i++) {
+             
+             System.out.println("Case #" + casos + ":");
+             comida = 0;    
+             bolsa.clear();
+             int numEstanques = Integer.parseInt(scan.nextLine());
+             for (int j = 0; j < numEstanques; j++) {
+               
+                String estanque = scan.nextLine();
+                String l[] = estanque.split(" ");
+                int tipocomida = Integer.parseInt(l[0]);
+                int pokemon = Integer.parseInt(l[1]);
+                if(!bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, 0);
+                }else if (bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, (bolsa.get(tipocomida)+1));
+                }
+                
+              
+           
+                if(bolsa.containsKey(pokemon)){
+                    for (Integer a : bolsa.values()) {
+                        
+                    }
+                    if(bolsa.get(pokemon) > 0){
+                        bolsa.put(pokemon, (bolsa.get(pokemon)-1));
+                    }else if(bolsa.get(pokemon) ==  0){
+                        bolsa.remove(pokemon);
+                    }
+                } else comida++;
+                
+                   
+             }
+             
+             System.out.println(comida);
+             casos++;
+         }
+     }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+public class Proy6pB { 
+    
+     public static void main(String[] args) throws FileNotFoundException{
+         Scanner scan;
+        File f = new File("prueba.in");
+        
+	if (f.exists()) {
+            scan = new Scanner(f);
+           // System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int casos = 1; 
+        int comida = 0;  
+        Map<Integer,Integer> bolsa = new TreeMap<>( );
+        int t = Integer.parseInt(scan.nextLine());
+         for (int i = 0; i < t; i++) {
+             
+             System.out.println("Case #" + casos + ":");
+             comida = 0;    
+             bolsa.clear();
+             int numEstanques = Integer.parseInt(scan.nextLine());
+             for (int j = 0; j < numEstanques; j++) {
+               
+                String estanque = scan.nextLine();
+                String l[] = estanque.split(" ");
+                int tipocomida = Integer.parseInt(l[0]);
+                int pokemon = Integer.parseInt(l[1]);
+                if(!bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, 0);
+                }else if (bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, (bolsa.get(tipocomida)+1));
+                }
+                
+              
+           
+                if(bolsa.containsKey(pokemon)){
+                    
+                    if(bolsa.get(pokemon) > 0){
+                        bolsa.put(pokemon, (bolsa.get(pokemon)-1));
+                    }else if(bolsa.get(pokemon) ==  0){
+                        bolsa.remove(pokemon);
+                    }
+                } else comida++;
+                
+                   
+             }
+             
+             System.out.println(comida);
+             casos++;
+         }
+     }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Proy6pC {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("prueba.in");
+
+        if (f.exists()) {
+            scan = new Scanner(f);
+            System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int casos = 1;
+
+        int t = Integer.parseInt(scan.nextLine());
+        Set<String> PN = new TreeSet<>();//problemas de norma
+        Set<String> PM = new TreeSet<>();//problemas de mario
+        Set<String> PP = new TreeSet<>(); //problemas de pipe
+        ArrayList<Integer> LN = new ArrayList<>();//lista de norma
+        ArrayList<Integer> LM = new ArrayList<>();//lista de mario
+        ArrayList<Integer> LP = new ArrayList<>();//lista de pipe
+        
+        
+        
+        for (int i = 0; i < t; i++) {
+            System.out.println("Case #" + casos + ":");
+            PN.clear();
+            PM.clear();
+            PP.clear();
+            LN.clear();
+            LM.clear();
+            LP.clear();
+            String numeros = scan.nextLine();
+            String[] comandos = numeros.split(" ");
+            int norma = Integer.parseInt(comandos[0]);
+            int mario = Integer.parseInt(comandos[1]);
+            int pipe = Integer.parseInt(comandos[2]);
+            
+            
+            
+            String EN = scan.nextLine();//entrada norma
+            String m[] = EN.split(" ");
+            for (int j = 0; j < norma; j++) {
+                PN.add(m[j]);
+
+            }
+            String EM = scan.nextLine(); //entrada  mario
+            String n[] = EM.split(" ");
+            for (int j = 0; j < mario; j++) {
+                PM.add(n[j]);
+            }
+            String EP = scan.nextLine();//entrada pipe
+            String o[] = EP.split(" ");
+            for (int j = 0; j < pipe; j++) {
+                PP.add(o[j]);
+            }
+            Set<String> forNorma = new TreeSet<>();
+            for (String a : PM) {
+                forNorma.add(a);
+            }
+            for (String a : PP) {
+                forNorma.add(a);
+            }
+            Set<String> forMario = new TreeSet<>();
+            for (String a : PN) {
+                forMario.add(a);
+            }
+            for (String a : PP) {
+                forMario.add(a);
+            }
+            Set<String> forPipe = new TreeSet<>();
+            for (String a : PM) {
+                forPipe.add(a);
+            }
+            for (String a : PM) {
+                forPipe.add(a);
+            }
+            for (String a : PM) {
+                if (!forNorma.contains(a)) {
+                    LN.add(Integer.parseInt(a));
+                }
+
+            }
+            for (String a : PM) {
+                if (!forMario.contains(a)) {
+                    LM.add(Integer.parseInt(a));
+                }
+            }
+            for (String a : PP) {
+                if (!forPipe.contains(a)) {
+                    LP.add(Integer.parseInt(a));
+                }
+            }
+            Collections.sort(LN);
+            Collections.sort(LM);
+            Collections.sort(LP);
+            int q = -1;
+            if (maximo(LN.size(), LM.size(), LP.size())) {
+                q = maximoaux(LN.size(), LM.size(), LP.size());
+                if (q == LN.size()) {
+                    System.out.print("Norma " + q);
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                } else if (q == LM.size()) {
+                    System.out.print("Mario " + q);
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                } else if (q == LP.size()) {
+                    System.out.print("Pipe " + q);
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                }
+                System.out.println("");
+            } else if (!(LN.size() == LM.size() && LM.size() == LP.size())) {
+                int r = repetidos(LN.size(), LM.size(), LP.size());
+                if (r == LN.size()) {
+
+                    System.out.print("Mario " + LM.size());
+                    for (Integer x : LM) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+                    System.out.print("Pipe " + LP.size());
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+                } else if (r == LM.size()) {
+
+                    System.out.print("Norma " + LN.size());
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                    System.out.print("Pipe " + LP.size());
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                } else if (r == LP.size()) {
+
+                    System.out.print("Norma " + LN.size());
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                    System.out.print("Mario " + LM.size());
+                    for (Integer x : LM) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                }
+
+            } else {
+
+                System.out.print("Norma " + LN.size());
+                for (Integer x : LN) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+                System.out.print("Mario " + LM.size());
+                for (Integer x : LM) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+                System.out.print("Pipe " + LP.size());
+                for (Integer x : LP) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+
+            }
+
+            casos++;
+        }
+    }
+
+    public static boolean maximo(int a, int b, int c) {
+        if (a != b && b != c && a != c) {
+            return true;
+        } else if (a > b && a > c) {
+            return true;
+        } else if (b > a && b > c) {
+            return true;
+        } else if (c > a && c > b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static int maximoaux(int a, int b, int c) {
+        if (a > b && a > c) {
+            return a;
+        } else if (b > a && b > c) {
+            return b;
+        } else if (c > a && c > b) {
+            return c;
+        }
+        return -1;
+    }
+
+    public static int repetidos(int a, int b, int c) {
+        if (a == b) {
+            return c;
+        }
+        if (a == c) {
+            return b;
+        }
+        if (b == c) {
+            return a;
+        }
+        return -1;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Proy6pC {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("prueba.in");
+
+        if (f.exists()) {
+            scan = new Scanner(f);
+            //System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int casos = 1;
+
+        int t = Integer.parseInt(scan.nextLine());
+        Set<String> PN = new TreeSet<>();//problemas de norma
+        Set<String> PM = new TreeSet<>();//problemas de mario
+        Set<String> PP = new TreeSet<>(); //problemas de pipe
+        ArrayList<Integer> LN = new ArrayList<>();//lista de norma
+        ArrayList<Integer> LM = new ArrayList<>();//lista de mario
+        ArrayList<Integer> LP = new ArrayList<>();//lista de pipe
+        
+        
+        
+        for (int i = 0; i < t; i++) {
+            System.out.println("Case #" + casos + ":");
+            PN.clear();
+            PM.clear();
+            PP.clear();
+            LN.clear();
+            LM.clear();
+            LP.clear();
+            String numeros = scan.nextLine();
+            String[] comandos = numeros.split(" ");
+            int norma = Integer.parseInt(comandos[0]);
+            int mario = Integer.parseInt(comandos[1]);
+            int pipe = Integer.parseInt(comandos[2]);
+            
+            
+            
+            String EN = scan.nextLine();//entrada norma
+            String m[] = EN.split(" ");
+            for (int j = 0; j < norma; j++) {
+                PN.add(m[j]);
+
+            }
+            String EM = scan.nextLine(); //entrada  mario
+            String n[] = EM.split(" ");
+            for (int j = 0; j < mario; j++) {
+                PM.add(n[j]);
+            }
+            String EP = scan.nextLine();//entrada pipe
+            String o[] = EP.split(" ");
+            for (int j = 0; j < pipe; j++) {
+                PP.add(o[j]);
+            }
+            Set<String> forNorma = new TreeSet<>();
+            for (String a : PM) {
+                forNorma.add(a);
+            }
+            for (String a : PP) {
+                forNorma.add(a);
+            }
+            Set<String> forMario = new TreeSet<>();
+            for (String a : PN) {
+                forMario.add(a);
+            }
+            for (String a : PP) {
+                forMario.add(a);
+            }
+            Set<String> forPipe = new TreeSet<>();
+            for (String a : PM) {
+                forPipe.add(a);
+            }
+            for (String a : PM) {
+                forPipe.add(a);
+            }
+            for (String a : PM) {
+                if (!forNorma.contains(a)) {
+                    LN.add(Integer.parseInt(a));
+                }
+
+            }
+            for (String a : PM) {
+                if (!forMario.contains(a)) {
+                    LM.add(Integer.parseInt(a));
+                }
+            }
+            for (String a : PP) {
+                if (!forPipe.contains(a)) {
+                    LP.add(Integer.parseInt(a));
+                }
+            }
+            Collections.sort(LN);
+            Collections.sort(LM);
+            Collections.sort(LP);
+            int q = -1;
+            if (maximo(LN.size(), LM.size(), LP.size())) {
+                q = maximoaux(LN.size(), LM.size(), LP.size());
+                if (q == LN.size()) {
+                    System.out.print("Norma " + q);
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                } else if (q == LM.size()) {
+                    System.out.print("Mario " + q);
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                } else if (q == LP.size()) {
+                    System.out.print("Pipe " + q);
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                }
+                System.out.println("");
+            } else if (!(LN.size() == LM.size() && LM.size() == LP.size())) {
+                int r = repetidos(LN.size(), LM.size(), LP.size());
+                if (r == LN.size()) {
+
+                    System.out.print("Mario " + LM.size());
+                    for (Integer x : LM) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+                    System.out.print("Pipe " + LP.size());
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+                } else if (r == LM.size()) {
+
+                    System.out.print("Norma " + LN.size());
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                    System.out.print("Pipe " + LP.size());
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                } else if (r == LP.size()) {
+
+                    System.out.print("Norma " + LN.size());
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                    System.out.print("Mario " + LM.size());
+                    for (Integer x : LM) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                }
+
+            } else {
+
+                System.out.print("Norma " + LN.size());
+                for (Integer x : LN) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+                System.out.print("Mario " + LM.size());
+                for (Integer x : LM) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+                System.out.print("Pipe " + LP.size());
+                for (Integer x : LP) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+
+            }
+
+            casos++;
+        }
+    }
+
+    public static boolean maximo(int a, int b, int c) {
+        if (a != b && b != c && a != c) {
+            return true;
+        } else if (a > b && a > c) {
+            return true;
+        } else if (b > a && b > c) {
+            return true;
+        } else if (c > a && c > b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static int maximoaux(int a, int b, int c) {
+        if (a > b && a > c) {
+            return a;
+        } else if (b > a && b > c) {
+            return b;
+        } else if (c > a && c > b) {
+            return c;
+        }
+        return -1;
+    }
+
+    public static int repetidos(int a, int b, int c) {
+        if (a == b) {
+            return c;
+        }
+        if (a == c) {
+            return b;
+        }
+        if (b == c) {
+            return a;
+        }
+        return -1;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Proy6pC {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("prueba.in");
+
+        if (f.exists()) {
+            scan = new Scanner(f);
+            //System.setOut(new PrintStream(new File("salida.out")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int casos = 1;
+
+        int t = Integer.parseInt(scan.nextLine());
+        Set<String> PN = new TreeSet<>();//problemas de norma
+        Set<String> PM = new TreeSet<>();//problemas de mario
+        Set<String> PP = new TreeSet<>(); //problemas de pipe
+        ArrayList<Integer> LN = new ArrayList<>();//lista de norma
+        ArrayList<Integer> LM = new ArrayList<>();//lista de mario
+        ArrayList<Integer> LP = new ArrayList<>();//lista de pipe
+        
+        
+        
+        for (int i = 0; i < t; i++) {
+            System.out.println("Case #" + casos + ":");
+            PN.clear();
+            PM.clear();
+            PP.clear();
+            LN.clear();
+            LM.clear();
+            LP.clear();
+            String numeros = scan.nextLine();
+            String[] comandos = numeros.split(" ");
+            int norma = Integer.parseInt(comandos[0]);
+            int mario = Integer.parseInt(comandos[1]);
+            int pipe  = Integer.parseInt(comandos[2]);
+            
+            
+            
+            String EN = scan.nextLine();//entrada norma
+            String m[] = EN.split(" ");
+            for (int j = 0; j < norma; j++) {
+                PN.add(m[j]);
+
+            }
+            String EM = scan.nextLine(); //entrada  mario
+            String n[] = EM.split(" ");
+            for (int j = 0; j < mario; j++) {
+                PM.add(n[j]);
+            }
+            String EP = scan.nextLine();//entrada pipe
+            String o[] = EP.split(" ");
+            for (int j = 0; j < pipe; j++) {
+                PP.add(o[j]);
+            }
+            Set<String> forNorma = new TreeSet<>();
+            for (String a : PM) {
+                forNorma.add(a);
+            }
+            for (String a : PP) {
+                forNorma.add(a);
+            }
+            Set<String> forMario = new TreeSet<>();
+            for (String a : PN) {
+                forMario.add(a);
+            }
+            for (String a : PP) {
+                forMario.add(a);
+            }
+            Set<String> forPipe = new TreeSet<>();
+            for (String a : PM) {
+                forPipe.add(a);
+            }
+            for (String a : PM) {
+                forPipe.add(a);
+            }
+            for (String a : PN) {
+                if (!forNorma.contains(a)) {
+                    LN.add(Integer.parseInt(a));
+                }
+
+            }
+            for (String a : PM) {
+                if (!forMario.contains(a)) {
+                    LM.add(Integer.parseInt(a));
+                }
+            }
+            for (String a : PP) {
+                if (!forPipe.contains(a)) {
+                    LP.add(Integer.parseInt(a));
+                }
+            }
+            Collections.sort(LN);
+            Collections.sort(LM);
+            Collections.sort(LP);
+            int q = -1;
+            if (maximo(LN.size(), LM.size(), LP.size())) {
+                q = maximoaux(LN.size(), LM.size(), LP.size());
+                if (q == LN.size()) {
+                    System.out.print("Norma " + q);
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                } else if (q == LM.size()) {
+                    System.out.print("Mario " + q);
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                } else if (q == LP.size()) {
+                    System.out.print("Pipe " + q);
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                }
+                System.out.println("");
+            } else if (!(LN.size() == LM.size() && LM.size() == LP.size())) {
+                int r = repetidos(LN.size(), LM.size(), LP.size());
+                if (r == LN.size()) {
+
+                    System.out.print("Mario " + LM.size());
+                    for (Integer x : LM) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+                    System.out.print("Pipe " + LP.size());
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+                } else if (r == LM.size()) {
+
+                    System.out.print("Norma " + LN.size());
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                    System.out.print("Pipe " + LP.size());
+                    for (Integer x : LP) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                } else if (r == LP.size()) {
+
+                    System.out.print("Norma " + LN.size());
+                    for (Integer x : LN) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                    System.out.print("Mario " + LM.size());
+                    for (Integer x : LM) {
+                        System.out.print(" " + x);
+                    }
+                    System.out.println("");
+
+                }
+
+            } else {
+
+                System.out.print("Norma " + LN.size());
+                for (Integer x : LN) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+                System.out.print("Mario " + LM.size());
+                for (Integer x : LM) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+                System.out.print("Pipe " + LP.size());
+                for (Integer x : LP) {
+                    System.out.print(" " + x);
+                }
+                System.out.println("");
+
+            }
+
+            casos++;
+        }
+    }
+
+    public static boolean maximo(int a, int b, int c) {
+        if (a != b && b != c && a != c) {
+            return true;
+        } else if (a > b && a > c) {
+            return true;
+        } else if (b > a && b > c) {
+            return true;
+        } else if (c > a && c > b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static int maximoaux(int a, int b, int c) {
+        if (a > b && a > c) {
+            return a;
+        } else if (b > a && b > c) {
+            return b;
+        } else if (c > a && c > b) {
+            return c;
+        }
+        return -1;
+    }
+
+    public static int repetidos(int a, int b, int c) {
+        if (a == b) {
+            return c;
+        }
+        if (a == c) {
+            return b;
+        }
+        if (b == c) {
+            return a;
+        }
+        return -1;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proy6pC3 {
+     public static void main(String args[]) throws FileNotFoundException{
+        Scanner scan;
+        File f = new File("C_2.txt");
+	if (f.exists()) {
+            scan = new Scanner(f);
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int nCases = 1; 
+        int t = Integer.parseInt(scan.nextLine());
+        Set<String> setNorma = new TreeSet<>(  );
+        Set<String> setMario = new TreeSet<>(  );
+        Set<String> setPipe = new TreeSet<>(  ); 
+        ArrayList<Integer> listNorma = new ArrayList<>();
+        ArrayList<Integer> listMario = new ArrayList<>();
+        ArrayList<Integer> listPipe = new ArrayList<>();
+         for (int i = 0; i < t; i++) {
+             System.out.println("Case #" + nCases + ":");
+             setNorma.clear();
+             setMario.clear();
+             setPipe.clear();
+             listNorma.clear();
+             listMario.clear();
+             listPipe.clear();
+             String howEach = scan.nextLine();
+             String[] l = howEach.split(" ");
+             int norma = Integer.parseInt(l[0]);
+             int mario = Integer.parseInt(l[1]);
+             int pipe = Integer.parseInt(l[2]);
+             String inputNorma = scan.nextLine();
+             String m[] = inputNorma.split(" ");
+             for (int j = 0; j < norma; j++) {
+                 setNorma.add(m[j]);
+                 
+             }
+             String inputMario = scan.nextLine();
+             String n[] = inputMario.split(" ");
+             for (int j = 0; j < mario; j++) {
+                 setMario.add(n[j]);
+             }
+             String inputPipe = scan.nextLine();
+             String o[] = inputPipe.split(" ");
+             for (int j = 0; j < pipe; j++) {
+                 setPipe.add(o[j]);
+             }
+             Set<String> forNorma = new TreeSet<>(  );
+             for (String a : setMario) {
+                 forNorma.add(a);
+             }
+             for (String a : setPipe) {
+                 forNorma.add(a);
+             }
+             Set<String> forMario = new TreeSet<>(  );
+             for (String a : setNorma) {
+                 forMario.add(a);
+             }
+             for (String a : setPipe) {
+                 forMario.add(a);
+             }
+             Set<String> forPipe = new TreeSet<>(  );
+             for (String a : setMario) {
+                 forPipe.add(a);
+             }
+             for (String a : setNorma) {
+                 forPipe.add(a);
+             }
+             // System.out.println(forNorma.size() + " " + forMario.size() + " " + forPipe.size());
+             for (String a : setNorma) {
+                 if(!forNorma.contains(a)){
+                     listNorma.add(Integer.parseInt(a));
+                 }
+                     
+             }
+             for (String a : setMario) {
+                 if(!forMario.contains(a)){
+                     listMario.add(Integer.parseInt(a));
+                 }
+             }
+             for (String a : setPipe) {
+                 if(!forPipe.contains(a)){
+                     listPipe.add(Integer.parseInt(a));
+                 }
+             }
+             Collections.sort(listNorma);
+             Collections.sort(listMario);
+             Collections.sort(listPipe);
+            // System.out.println(listNorma.size() + " " + listMario.size() + " " + listPipe.size());
+             int q = -1;
+            // System.out.println((thereIsMaxBetweenThree(listNorma.size(),listMario.size(),listPipe.size())));
+             if(thereIsMaxBetweenThree(listNorma.size(),listMario.size(),listPipe.size())){
+                 q = maxBetweenThree(listNorma.size(),listMario.size(),listPipe.size());
+             if(q == listNorma.size()){
+                 System.out.print("Norma " + q);
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+             }else if(q == listMario.size()){
+                 System.out.print("Mario " + q);
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+             }else if(q == listPipe.size()){
+                 System.out.print("Pipe " + q);
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+             }
+                 System.out.println("");
+             }else if (!(listNorma.size() == listMario.size() && listMario.size() ==listPipe.size())){
+                 int r = twice(listNorma.size(),listMario.size(),listPipe.size());
+                 if (r == listNorma.size()){
+                    
+                 System.out.print("Mario " + listMario.size());
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+                 System.out.print("Pipe " + listPipe.size());
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+                 }else if ( r == listMario.size()){
+                 
+                 
+                 System.out.print("Norma " + listNorma.size());
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+             
+                 System.out.print("Pipe " + listPipe.size());
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+            
+                 
+             } else if (r == listPipe.size()){
+                 
+                 System.out.print("Norma " + listNorma.size());
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+             
+                 System.out.print("Mario " + listMario.size());
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+               System.out.println("");
+            
+             }
+             
+                 
+             } else{
+                 
+                 System.out.print("Norma " + listNorma.size());
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+                 System.out.println("");
+                 System.out.print("Mario " + listMario.size());
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+                 System.out.println("");
+                 System.out.print("Pipe " + listPipe.size());
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+                 System.out.println("");
+                 
+             }
+             
+             
+             nCases++;
+         }
+    }
+   public static boolean thereIsMaxBetweenThree(int a, int b, int c){
+       if (a!= b && b !=c && a!= c){
+           return true;
+       } else if (a>b && a>c) return true;
+       else if (b>a && b>c) return true;
+       else if (c>a && c>b) return true;
+       else return false;
+   } 
+     public static int maxBetweenThree(int a, int b, int c){
+       if (a>b && a>c) return a;
+       else if (b>a && b>c) return b;
+       else if (c>a && c>b) return c;
+       return -1;
+   } 
+   public static int twice(int a, int b, int c){
+     if (a == b) return c;
+     if (a == c) return b;
+     if (b == c) return a;
+     return -1;
+   }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy6;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+
+
+
+public class Proy6pD {
+ 
+    
+    public static void main(String[] args)throws FileNotFoundException, Exception{
+        
+        Scanner scan;
+	File f = new File("prueba.in");
+	if (f.exists()) {
+            scan = new Scanner(f);
+            //System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int t= Integer.parseInt(scan.nextLine());
+        for (int casos = 0; casos < t; casos++) {
+            HashMap <String,Integer> candidato= new HashMap <String,Integer> ();
+            int k = Integer.parseInt(scan.nextLine());
+            String [] candidatos = new String[k];
+            String [] partido = new String [k];
+             
+            for (int i = 0; i < k; i++) {
+                String[ ] registro= scan.nextLine().split(" ");
+                candidato.put(registro[0], 0);
+                candidatos[i]=registro[0];
+                partido[i]=registro[1];
+            } 
+            int Q = Integer.parseInt(scan.nextLine());
+            int max = 0;
+            for (int i = 0; i < Q; i++) {
+                String voto=scan.nextLine() ;
+                if(candidato.containsKey(voto)){
+                    int m = candidato.get(voto);
+                    candidato.put(voto, ++m);
+                    if (max<m)
+                        max=m;
+                }
+            } 
+            
+            BinaryHeap<String> heapT = new BinaryHeap<>( );
+            String resultado = String.valueOf(candidato.entrySet());
+            for (int i = 0; i < k; i++) {
+                String votos=(candidatos[i]+"="+max);
+                if (resultado.contains(votos)){
+                   heapT.insert(partido[i]);
+                }
+            }
+            
+            System.out.println("Case #"+(casos + 1)+":");
+            while(!heapT.isEmpty()){
+                System.out.println(heapT.deleteMin());
+            }
+        }
+    }
+    
+    public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x ){
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+            // Percolate up
+        int hole = ++currentSize;
+        for(array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+}   
+    
+    
+    }
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Proy6pE {
+     public static void main(String[] args) throws FileNotFoundException{
+         Scanner scan;
+        File f = new File("prueba.in");
+	if (f.exists()) {
+            scan = new Scanner(f);
+            // System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int casos = 1;
+        int comida = 0;  
+        Map<Integer,Integer> bolsa = new HashMap<>( );
+        Map<Integer,Integer> bolsa2 = new HashMap<>( );
+        int t = Integer.parseInt(scan.nextLine());
+         for (int i = 0; i < t; i++) {
+             
+             System.out.println("Case #" + casos + ":");
+             comida = 0;    
+             bolsa.clear();
+             bolsa2.clear();
+             int numEstanques = Integer.parseInt(scan.nextLine());
+             for (int j = 0; j < numEstanques; j++) {
+                String estanques = scan.nextLine();
+                String l[] = estanques.split(" ");
+                int tipocomida = Integer.parseInt(l[0]);
+                int pokemon = Integer.parseInt(l[1]);
+                if(!bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, 0);
+                }else if (bolsa.containsKey(tipocomida)){
+                    bolsa.put(tipocomida, (bolsa.get(tipocomida)+1));
+                }
+              
+                if(bolsa.containsKey(pokemon)){
+                    if(bolsa.get(pokemon) > 0){
+                        bolsa.put(pokemon, (bolsa.get(pokemon)-1));
+                    }else if(bolsa.get(pokemon) ==  0){
+                        bolsa.remove(pokemon);
+                    }
+                } else{
+                    
+                    
+                     if(!bolsa2.containsKey(pokemon)){
+                    bolsa2.put(pokemon, 1);
+                }else if (bolsa2.containsKey(pokemon)){
+                    int s = bolsa2.get(pokemon)+1;
+                    bolsa2.put(pokemon, s );
+                         
+                }
+                     comida++;
+                }
+                 
+                
+                
+             }
+             int canMax = -1;
+             int canMin = 1000001;
+             int comMaxH = -1;
+             int comMinH = -1;
+             for (Map.Entry<Integer, Integer> d : bolsa2.entrySet()) {
+                 if(d.getValue() > canMax){
+                     canMax = d.getValue();
+                     comMaxH = d.getKey();
+                 }
+                 if(d.getValue() < canMin){
+                     canMin = d.getValue();
+                     comMinH = d.getKey();
+                 }
+                 
+                 
+             }
+
+             for (Map.Entry<Integer, Integer> d : bolsa2.entrySet()) {
+                 if (d.getValue() == canMax){
+                     if(comMaxH > d.getKey()){
+                         comMaxH = d.getKey();
+                     }
+                 }
+                 if (d.getValue() == canMin){
+                     if(comMinH > d.getKey()){
+                         comMinH = d.getKey();
+                     }
+                 }
+             }
+              
+             if(comida != 0){
+             System.out.println(canMax + " " + comMaxH);
+             System.out.println(canMin +" " + comMinH);
+             }else if (comida ==0){
+                 System.out.println("-1");
+             }
+             casos++;
+         }
+     }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proy6;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.TreeMap;
+
+public class Proy6pA {
+
+	public static void main(String[] args) throws FileNotFoundException, Exception {
+		/*
+		 *Escaneo de caracteres.
+		 */
+		Scanner scan;
+		File f = new File("prueba.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			//System.setOut(new PrintStream(new File("salida.out")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int t = Integer.parseInt(scan.nextLine());
+		for (int casos = 0; casos < t; casos++) {
+			String[ ] comandos= scan.nextLine().split(" ");
+			int N= Integer.valueOf(comandos[0]); 
+			int M=Integer.valueOf(comandos[1]);
+			String[ ] Numeros= scan.nextLine().split(" ");
+			int [] inser= new int [N];
+			BinaryHeap <Integer> BH = new BinaryHeap <> ( );
+			for (int i = 0; i < N; i++) {
+				BH.insert(Integer.valueOf(Numeros[i]));   
+			}
+			for (int i = 0; i < N; i++) {
+				inser[i]=BH.deleteMin();
+			}
+			int minH=Integer.MAX_VALUE;
+			int minColi=Integer.MAX_VALUE;
+			TreeMap <Integer, Integer> minAll = new TreeMap<Integer,Integer>();
+			TreeMap <Integer, Integer> num_coli= new TreeMap<Integer, Integer>();
+			String[ ] Funciones= scan.nextLine().split(" ");
+			for (int i = 0; i < M; i++) {
+				TreeMap <Integer, Integer> colisiones = new TreeMap<Integer,Integer>();
+				TreeMap <Integer, Integer> colRep = new TreeMap<Integer, Integer>();
+				int col=Integer.valueOf(Funciones[i]);
+				int coli=0;
+				for (int j = 0; j < N; j++) {
+					int mod=inser[j]%col;
+					if(!colisiones.isEmpty()&&colisiones.containsValue(mod)){
+						coli++;
+						int canti=colRep.get(mod);
+						colRep.put(mod,++canti);
+					}else{
+						colRep.put(mod,0);
+					}
+					colisiones.put(inser[j],mod);
+				}
+				if (minH ==coli){
+					if(minColi>col){
+						minColi=col;
+						minAll.clear();
+                                                num_coli.clear();
+						minAll.putAll(colisiones);
+						num_coli.putAll(colRep);
+					}
+				}else if(minH >coli){
+					minH =coli; 
+                                        minColi=col;
+					minAll.clear(); 
+                                        num_coli.clear(); 
+					minAll.putAll(colisiones);
+					num_coli.putAll(colRep);
+				}
+			}
+			System.out.println("Case #"+(casos+1));
+                        System.out.println( minColi );
+                        System.out.println ( minH );
+			int minAux =0; 
+                        int minimo = minH +1;
+			int mayor=0; 
+                        int con_min=0;
+			HashSet<Integer> premover=new HashSet<Integer>();
+			if(minH >0){
+				while(mayor<N&&minimo!=0){
+					minAux = minAll.get(inser[mayor]);
+					if(premover.contains(minAux))
+						con_min=1;
+					while (con_min==1&&mayor<N){
+						minAux=minAll.get(inser[mayor]);
+						if(!premover.contains(minAux)){
+							con_min=0;
+						}else{
+							++mayor;
+						}
+					}
+					if(mayor>= N)
+						break;
+					premover.add(minAux);
+					int repe=0;
+					if(num_coli.containsKey(minAux) && num_coli.get(minAux)!=0)
+						repe=num_coli.get(minAux)+1;
+					while(repe!=0){
+						for (int i = 0; i < N; i++) {
+							int mk=inser[i];
+							if(minAll.get(mk)==minAux){
+								System.out.print(mk);
+								repe--;
+								minimo--;
+								if(repe!=0)
+									System.out.print(" ");
+							}
+							if(repe==0)
+								break;
+						}
+						System.out.println("\n");
+						minimo++;
+					}
+					mayor++;
+					con_min=0; 
+				}
+			}
+
+		}
+	}
+
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>{
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap( )
+		{
+			this( DEFAULT_CAPACITY );
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * @param capacity the capacity of the binary heap.
+		 */
+		public BinaryHeap( int capacity )
+		{
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[ capacity + 1 ];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * @param items
+		 */
+		public BinaryHeap( AnyType [ ] items )
+		{
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+			int i = 1;
+			for( AnyType item : items )
+				array[ i++ ] = item;
+			buildHeap( );
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order.
+		 * Duplicates are allowed.
+		 * @param x the item to insert.
+		 */
+		public void insert( AnyType x )
+		{
+			if( currentSize == array.length - 1 )
+				enlargeArray( array.length * 2 + 1 );
+
+			// Percolate up
+			int hole = ++currentSize;
+			for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+				array[ hole ] = array[ hole / 2 ];
+			array[ hole ] = x;
+		}
+
+
+		private void enlargeArray( int newSize )
+		{
+			AnyType [] old = array;
+			array = (AnyType []) new Comparable[ newSize ];
+			for( int i = 0; i < old.length; i++ )
+				array[ i ] = old[ i ];        
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+			return array[ 1 ];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin( ) throws Exception
+		{
+			if( isEmpty( ) )
+				throw new Exception( );
+
+			AnyType minItem = findMin( );
+			array[ 1 ] = array[ currentSize-- ];
+			percolateDown( 1 );
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary
+		 * arrangement of items. Runs in linear time.
+		 */
+		private void buildHeap( )
+		{
+			for( int i = currentSize / 2; i > 0; i-- )
+				percolateDown( i );
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty( )
+		{
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty( )
+		{
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize;      // Number of elements in heap
+		private AnyType [ ] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * @param hole the index at which the percolate begins.
+		 */
+		private void percolateDown( int hole )
+		{
+			int child;
+			AnyType tmp = array[ hole ];
+
+			for( ; hole * 2 <= currentSize; hole = child )
+			{
+				child = hole * 2;
+				if( child != currentSize &&
+						array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+					child++;
+				if( array[ child ].compareTo( tmp ) < 0 )
+					array[ hole ] = array[ child ];
+				else
+					break;
+			}
+			array[ hole ] = tmp;
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy7pa;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.*;
+
+
+public class Proy7pB {
+    
+	@SuppressWarnings("resource")
+	public static void main(String[] args)throws FileNotFoundException, Exception{
+        /*
+       *Escaneo de caracteres.
+       */
+       Scanner scan;
+	File f = new File("prueba.in");
+       //File f = new File("salida.out");
+	if (f.exists()) {
+           scan = new Scanner(f);
+           //System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+           scan = new Scanner(System.in);
+	}
+       int t=Integer.parseInt(scan.nextLine());
+       for (int z = 0; z < t; z++) {
+           String[ ] comandos= scan.nextLine().split(" ");
+           int N=Integer.valueOf(comandos[0]);
+           int M=Integer.valueOf(comandos[1]);
+           //creo el grafo
+           int [][] materias= new int [N][N];
+           for (int i = 0; i < M; i++) {
+               String[ ] temas= scan.nextLine().split(" ");
+               int tema1=Integer.valueOf(temas[0]); 
+               int tema2=Integer.valueOf(temas[1]);
+               materias[tema1][tema2]=1;
+           }
+           
+          
+           int aux=0;
+           int auxIn=-1;
+           int auxOut=-1;            
+           for (int i = 0; i < N; i++) {
+               int in=InDegree(materias,i);
+               int out=OutDegree(materias,i);
+               if (in==0){
+                   if(auxIn!=-1){aux=1; break;}
+                   auxIn=i;
+               }
+               if (out==0){
+                   if(auxOut!=-1){aux=1; break;}
+                   auxOut=i;
+               }
+           }
+           
+           
+           System.out.println("Case #"+(z+1)+":");
+           
+           if(auxOut!=-1&&auxIn!=-1&&aux==0){
+               int legal=Topsort(materias,auxIn);
+               if(legal==-1)
+                   aux=1;
+           }else{
+               aux=1;
+           }
+           
+           if(aux==0){
+               System.out.println("Deberia empezar a estudiar");
+           }else{
+           }
+       }
+   }
+    public static class  MyQueueList<AnyType> implements Iterable<AnyType>{
+    /**
+     * Construct an empty LinkedList.
+     */
+    public MyQueueList( )
+    {
+        doClear( );
+    }
+    
+    @SuppressWarnings("unused")
+	private void clear( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void doClear( )
+    {
+        beginMarker = new Node<>( null, null, null );
+        endMarker = new Node<>( null, beginMarker, null );
+        beginMarker.next = endMarker;
+        
+        theSize = 0;
+        modCount++;
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x ){
+        add( size( ), x );   
+        return true;         
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     *
+     */
+    public void  enqueue( AnyType x ){
+        add(x);           
+    }
+    
+    public AnyType peek(){
+        return get(0);
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position.
+     * Items at or after that position are slid one position higher.
+     * @param x any object.
+     * @param idx position to add at.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */
+    public void add( int idx, AnyType x ) {
+        addBefore( getNode( idx, 0, size( ) ), x );
+    }
+    
+    /**
+     * Adds an item to this collection, at specified position p.
+     * Items at or after that position are slid one position higher.
+     * @param p Node to add before.
+     * @param x any object.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+     */    
+    private void addBefore( Node<AnyType> p, AnyType x ) {
+        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+        newNode.prev.next = newNode;
+        p.prev = newNode;         
+        theSize++;
+        modCount++;
+    }   
+    
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        return getNode( idx ).data;
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws IndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        Node<AnyType> p = getNode( idx );
+        AnyType oldVal = p.data;
+        
+        p.data = newVal;   
+        return oldVal;
+    }
+    
+    /**
+     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+     * @param idx index to search at.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+     */
+    private Node<AnyType> getNode( int idx ){
+        return getNode( idx, 0, size( ) - 1 );
+    }
+    
+
+    /**
+     * Gets the Node at position idx, which must range from lower to upper.
+     * @param idx index to search at.
+     * @param lower lowest valid index.
+     * @param upper highest valid index.
+     * @return internal node corresponding to idx.
+     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+     */    
+    private Node<AnyType> getNode( int idx, int lower, int upper ){
+        Node<AnyType> p;  
+        if( idx < lower || idx > upper )
+            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+        if( idx < size( ) / 2 ){
+            p = beginMarker.next;
+            for( int i = 0; i < idx; i++ )
+                p = p.next;            
+        }
+        else{
+            p = endMarker;
+            for( int i = size( ); i > idx; i-- )
+                p = p.prev;
+        }         
+        return p;
+    }
+    
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx ){
+        return remove( getNode( idx ) );
+    }
+    
+    
+    public AnyType dequeue( ){
+        return remove( 0 );
+    }
+    
+    /**
+     * Removes the object contained in Node p.
+     * @param p the Node containing the object.
+     * @return the item was removed from the collection.
+     */
+    private AnyType remove( Node<AnyType> p )
+    {
+        p.next.prev = p.prev;
+        p.prev.next = p.next;
+        theSize--;
+        modCount++;
+        
+        return p.data;
+    }
+    
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+        StringBuilder sb = new StringBuilder( "" );
+
+        for( AnyType x : this )
+            sb.append(x);
+        sb.append( "" );
+
+        return new String( sb );
+    }
+
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new LinkedListIterator( );
+    }
+
+    /**
+     * This is the implementation of the LinkedListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyLinkedList.
+     */
+    private class LinkedListIterator implements java.util.Iterator<AnyType>
+    {
+        private Node<AnyType> current = beginMarker.next;
+        private int expectedModCount = modCount;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current != endMarker;
+        }
+        
+        public AnyType next( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException( ); 
+                   
+            AnyType nextItem = current.data;
+            current = current.next;
+            okToRemove = true;
+            return nextItem;
+        }
+        
+        public void remove( )
+        {
+            if( modCount != expectedModCount )
+                throw new java.util.ConcurrentModificationException( );
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyQueueList.this.remove( current.prev );
+            expectedModCount++;
+            okToRemove = false;       
+        }
+    }
+    
+    /**
+     * This is the doubly-linked list node.
+     */
+    private static class Node<AnyType>
+    {
+        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+        {
+            data = d; prev = p; next = n;
+        }
+        
+        public AnyType data;
+        public Node<AnyType>   prev;
+        public Node<AnyType>   next;
+    }
+    
+    private int theSize;
+    private int modCount = 0;
+    private Node<AnyType> beginMarker;
+    private Node<AnyType> endMarker;
+}
+
+    
+    
+    public static int InDegree(int [][] G, int V){
+        int m=0;
+        for (int i = 0; i < G.length; i++) {
+            m=m+G[i][V];
+        }
+        return m;
+    }
+    
+    public static int OutDegree(int [][] G, int V){
+        int m=0;
+        for (int i = 0; i < G.length; i++) {
+            m=m+G[V][i];
+        }
+        return m;
+    }
+    
+    public static int Topsort(int [][] G, int V){
+        LinkedList <Integer> Qmin= new LinkedList<>( );
+        LinkedList <Integer> Qmax= new LinkedList<>( );
+        int N=G.length;
+        
+        int [][] Gmax=new int [N][N], Gmin=new int [N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                Gmax[i][j]=G[i][j];
+                Gmin[i][j]=G[i][j];
+            }
+        }
+        
+        Qmin.add(V);
+        Qmax.add(V);
+        
+        
+        while(!Qmin.isEmpty()&&!Qmax.isEmpty()){
+            int Vertex=Qmin.poll(); Qmax.poll();
+            
+            for (int i = 0; i < N; i++) {
+                if(G[Vertex][i]!=0){
+                    Gmin[Vertex][i]=0;
+                    int InDegree=InDegree(Gmin,i);
+                    if(InDegree==0)
+                        Qmin.add(i);
+                }
+            }
+            
+            
+            for (int i = N-1; i >= 0; i--) {
+                if(G[Vertex][i]!=0){
+                    Gmax[Vertex][i]=0;
+                    int InDegree=InDegree(Gmax,i);
+                    if(InDegree==0)
+                        Qmax.add(i);
+                }
+            }
+            
+            if(!Qmax.toString().equals(Qmin.toString())){
+                return -1;
+            }
+        }
+        return 0;
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy7pa;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+public class Proy7pC {
+
+    
+    
+    public static void main(String[] args) throws FileNotFoundException, Exception{
+         /*
+        *Escaneo de caracteres.
+        */
+        Scanner scan;
+	File f = new File("prueba.in");
+	if (f.exists()) {
+            scan = new Scanner(f);
+           // System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int t=Integer.parseInt(scan.nextLine());
+        for (int z = 0; z < t; z++) {
+            String[ ] comandos= scan.nextLine().split(" ");
+            int N=Integer.valueOf(comandos[0]);
+            int E=Integer.valueOf(comandos[1]);
+            int Time=Integer.valueOf(comandos[2]);
+            int M=Integer.parseInt(scan.nextLine());
+            int [][] laberinto= new int [N][N];
+            
+            
+            for (int i = 0; i < M; i++) {
+                String[ ] arcos= scan.nextLine().split(" ");
+                int celda1=Integer.valueOf(arcos[0]); 
+                int celda2=Integer.valueOf(arcos[1]);
+                int tiempo=Integer.valueOf(arcos[2]);
+                laberinto[celda1][celda2]=tiempo;
+            }
+            
+            
+            int CanRat=0;
+            System.out.println("Case #"+(z+1)+":");
+            for (int i = 0; i < N; i++) {
+                if(i==E){
+                	CanRat++;
+                }else{
+                    int TiempoTotal=dijkstra(laberinto, i, E);
+                    if(TiempoTotal>0&&TiempoTotal<=Time){
+                    	CanRat++;                    
+                    }
+                }
+            }
+            System.out.println(CanRat);
+            
+        }
+    }
+    public static class vertice implements Comparable<vertice> {
+    	public final int id;
+    	public final int peso;
+
+    	public vertice(int id, int peso) {
+    		this.id = id;
+    		this.peso = peso;
+    	}
+
+    	@Override
+    	public int compareTo(vertice other) {
+    		return Integer.valueOf(peso).compareTo(other.peso);
+    	}
+    	
+    	public boolean equals(vertice other) {
+    		return peso == other.peso;
+    	}
+
+    	// also implement equals() and hashCode()
+        }
+    
+
+    static int dijkstra(int[][] G, int entrada, int salida){
+	int N=G.length;
+        PriorityQueue<vertice> PQ= new PriorityQueue<>();
+        int max=Integer.MAX_VALUE;
+        int [] distancia= new int [N];
+        int [] previo= new int [N];
+        boolean [] visitado= new boolean [N];
+        
+        
+        for (int i = 0; i < N; i++) {
+            distancia[i]=max;
+            previo[i]=-1;
+            visitado[i]=false;
+        }
+        
+        PQ.add(new vertice(entrada , 0)); //Insertamos el vértice inicial en la Cola de Prioridad
+        distancia[entrada] = 0;
+        
+        
+        while(!PQ.isEmpty()){
+        	vertice actual=PQ.poll();
+            if(!visitado[actual.id]){
+                int adyacente=0;
+                int peso=0;
+                
+                for(int i = 0 ; i < N ; ++i){  //reviso sus adyacentes del vertice actual
+                    if(G[actual.id][i]!=0){
+                            peso= G[actual.id][i];
+                            adyacente =i;        //peso de la arista que une actual con adyacente ( actual , adyacente )
+                        if(!visitado[adyacente]){ 
+                            if(distancia[actual.id] + peso < distancia[ adyacente ] ){
+                                distancia[adyacente] = distancia[actual.id] + peso;  //relajamos el vertice actualizando la distancia
+                                previo[adyacente] = actual.id;                         //a su vez actualizamos el vertice previo
+                                PQ.add(new vertice(adyacente , distancia[adyacente])); //agregamos adyacente a la cola de prioridad
+                            }
+                        }
+                    }    
+                }
+                visitado[actual.id]=true;
+            }
+        }
+        
+	if (distancia[salida] == Integer.MAX_VALUE || distancia[salida] < 0) {
+            return -1;
+	}else {
+            return distancia[salida];
+        }	
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy7pa;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+public class Proy7pC {
+
+    
+    
+    public static void main(String[] args) throws FileNotFoundException, Exception{
+        
+        
+        Scanner scan;
+	File f = new File("prueba.in");
+	if (f.exists()) {
+            scan = new Scanner(f);
+           // System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int t=Integer.parseInt(scan.nextLine());
+        for (int z = 0; z < t; z++) {
+            String[ ] comandos= scan.nextLine().split(" ");
+            int N=Integer.valueOf(comandos[0]);
+            int E=Integer.valueOf(comandos[1]);
+            int Time=Integer.valueOf(comandos[2]);
+            int M=Integer.parseInt(scan.nextLine());
+            int [][] laberinto= new int [N][N];
+            
+            
+            for (int i = 0; i < M; i++) {
+                String[ ] arcos= scan.nextLine().split(" ");
+                int celda1=Integer.valueOf(arcos[0]); 
+                int celda2=Integer.valueOf(arcos[1]);
+                int tiempo=Integer.valueOf(arcos[2]);
+                laberinto[celda1][celda2]=tiempo;
+            }
+            
+            
+            int CanRat=0;
+            System.out.println("Case #"+(z+1)+":");
+            for (int i = 0; i < N; i++) {
+                if(i==E){
+                	CanRat++;
+                }else{
+                    int TiempoTotal=dijkstra(laberinto, i, E);
+                    if(TiempoTotal>0&&TiempoTotal<=Time){
+                    	CanRat++;                    
+                    }
+                }
+            }
+            System.out.println(CanRat);
+            
+        }
+    }
+    public static class vertice implements Comparable<vertice> {
+    	public final int id;
+    	public final int peso;
+
+    	public vertice(int id, int peso) {
+    		this.id = id;
+    		this.peso = peso;
+    	}
+
+    	@Override
+    	public int compareTo(vertice other) {
+    		return Integer.valueOf(peso).compareTo(other.peso);
+    	}
+    	
+    	public boolean equals(vertice other) {
+    		return peso == other.peso;
+    	}
+
+    	
+        }
+    
+
+    static int dijkstra(int[][] G, int entrada, int salida){
+	int N=G.length;
+        PriorityQueue<vertice> PQ= new PriorityQueue<>();
+        int max=Integer.MAX_VALUE;
+        int [] distancia= new int [N];
+        int [] previo= new int [N];
+        boolean [] visitado= new boolean [N];
+        
+        
+        for (int i = 0; i < N; i++) {
+            distancia[i]=max;
+            previo[i]=-1;
+            visitado[i]=false;
+        }
+        
+        PQ.add(new vertice(entrada , 0)); 
+        distancia[entrada] = 0;
+        
+        
+        while(!PQ.isEmpty()){
+        	vertice actual=PQ.poll();
+            if(!visitado[actual.id]){
+                int adyacente=0;
+                int peso=0;
+                
+                for(int i = 0 ; i < N ; ++i){  
+                    if(G[actual.id][i]!=0){
+                            peso= G[actual.id][i];
+                            adyacente =i;        
+                        if(!visitado[adyacente]){ 
+                            if(distancia[actual.id] + peso < distancia[ adyacente ] ){
+                                distancia[adyacente] = distancia[actual.id] + peso;  
+                                previo[adyacente] = actual.id;                         
+                                PQ.add(new vertice(adyacente , distancia[adyacente])); 
+                            }
+                        }
+                    }    
+                }
+                visitado[actual.id]=true;
+            }
+        }
+        
+	if (distancia[salida] == Integer.MAX_VALUE || distancia[salida] < 0) {
+            return -1;
+	}else {
+            return distancia[salida];
+        }	
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy7pa;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
+
+public class Proy7pD {
+
+    
+    
+    public static void main(String[] args) throws FileNotFoundException, Exception{
+        
+        Scanner scan;
+	File f = new File("prueba.in");
+	if (f.exists()) {
+            scan = new Scanner(f);
+           // System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int t=Integer.parseInt(scan.nextLine());
+        for (int z = 0; z < t; z++) {
+            String[ ] comandos= scan.nextLine().split(" ");
+            int N=Integer.valueOf(comandos[0]);
+            int E=Integer.valueOf(comandos[1]);
+            int Time=Integer.valueOf(comandos[2]);
+            int M=Integer.parseInt(scan.nextLine());
+            int [][] laberinto= new int [N][N];
+            
+            
+            for (int i = 0; i < M; i++) {
+                String[ ] arcos= scan.nextLine().split(" ");
+                int celda1=Integer.valueOf(arcos[0]); 
+                int celda2=Integer.valueOf(arcos[1]);
+                int tiempo=Integer.valueOf(arcos[2]);
+                laberinto[celda1][celda2]=tiempo;
+            }
+            
+            
+            int CanRat=0;
+            Queue<Integer> Rata = new LinkedList<>();
+            System.out.println("Case #"+(z+1)+":");
+            for (int i = 0; i < N; i++) {
+                if(i==E){
+                	Rata.add(i);
+                }else{
+                    int TiempoTotal=dijkstra(laberinto, i, E);
+                    if(TiempoTotal>0&&TiempoTotal<=Time){
+                    	Rata.add(i);                  
+                    }
+                }
+            }
+            String Ratica = Rata.toString().replace(",", "").replace("[", "").replace("]", "");
+            System.out.println(Ratica);
+            
+        }
+    }
+    public static class vertice implements Comparable<vertice> {
+    	public final int id;
+    	public final int peso;
+
+    	public vertice(int id, int peso) {
+    		this.id = id;
+    		this.peso = peso;
+    	}
+
+    	@Override
+    	public int compareTo(vertice other) {
+    		return Integer.valueOf(peso).compareTo(other.peso);
+    	}
+    	
+    	public boolean equals(vertice other) {
+    		return peso == other.peso;
+    	}
+
+    	
+        }
+    
+
+    static int dijkstra(int[][] G, int entrada, int salida){
+	int N=G.length;
+        PriorityQueue<vertice> PQ= new PriorityQueue<>();
+        int max=Integer.MAX_VALUE;
+        int [] distancia= new int [N];
+        int [] previo= new int [N];
+        boolean [] visitado= new boolean [N];
+        
+        
+        for (int i = 0; i < N; i++) {
+            distancia[i]=max;
+            previo[i]=-1;
+            visitado[i]=false;
+        }
+        
+        PQ.add(new vertice(entrada , 0)); 
+        distancia[entrada] = 0;
+        
+        
+        while(!PQ.isEmpty()){
+        	vertice actual=PQ.poll();
+            if(!visitado[actual.id]){
+                int adyacente=0;
+                int peso=0;
+                
+                for(int i = 0 ; i < N ; ++i){  
+                    if(G[actual.id][i]!=0){
+                            peso= G[actual.id][i];
+                            adyacente =i;        
+                        if(!visitado[adyacente]){ 
+                            if(distancia[actual.id] + peso < distancia[ adyacente ] ){
+                                distancia[adyacente] = distancia[actual.id] + peso;  
+                                previo[adyacente] = actual.id;                         
+                                PQ.add(new vertice(adyacente , distancia[adyacente])); 
+                            }
+                        }
+                    }    
+                }
+                visitado[actual.id]=true;
+            }
+        }
+        
+	if (distancia[salida] == Integer.MAX_VALUE || distancia[salida] < 0) {
+            return -1;
+	}else {
+            return distancia[salida];
+        }	
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy7pa;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+
+public class Proy7pA {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws FileNotFoundException, Exception{
+         /*
+        *Escaneo de caracteres.
+        */
+        Scanner scan;
+	File f = new File("prueba.in");
+	if (f.exists()) {
+            scan = new Scanner(f);
+            //System.setOut(new PrintStream(new File("salida.out")));
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int t=Integer.parseInt(scan.nextLine());
+        for (int z = 0; z < t; z++) {
+            
+            
+            String[ ] comandos= scan.nextLine().split(" ");
+            int N=Integer.valueOf(comandos[0]);// cantidad de vertices
+            int M=Integer.valueOf(comandos[1]);//cantidad de arcos
+            
+            boolean [][] vias= new boolean [N][N];//grafo de n*n
+            for (int i = 0; i < M; i++) {//for con la cantidad de arcos
+                String[ ] conexion= scan.nextLine().split(" ");
+                
+                int via1=Integer.valueOf(conexion[0]); //crear los arcos en la matriz
+                int via2=Integer.valueOf(conexion[1]);
+               
+                vias[via1][via2]=true;
+                vias[via2][via1]=true;
+            }
+            
+            
+            int s=Integer.parseInt(scan.nextLine()); 
+            
+            int aux=0;
+            Set<Integer> camino= new HashSet<Integer>();
+            Set<Integer> estacion= new HashSet<Integer>(); 
+            camino.add(s);
+            estacion.add(s);
+            
+            for (int y=0;y<(N-1);y++){
+                for (int i = 0; i < N; i++) {
+                    if(vias[s][i]&&!camino.contains(i)){
+                        aux++;
+                        camino.add(i);
+                    }
+                }
+                
+                Set<Integer> estaciones=new HashSet<Integer>();
+                estaciones.addAll(estacion);
+                for (int i = 0; i < N; i++) {
+                    if(camino.contains(i) && !estacion.contains(i)){
+                        s=i;
+                        estacion.add(s);
+                        break;
+                    }
+                }
+                
+                
+                if(estaciones.equals(estacion)){
+                    break;
+                }
+            }
+            
+            System.out.println("Case #"+(z+1)+":\n"+aux);
+        }
+    }
+    public static class vertice {
+    	public final int id;
+        public final String [] veci;
+
+        public int getId() {
+            return id;
+        }
+
+        public String[] getVeci() {
+            return veci;
+        }
+
+        
+    	public vertice(int id, String [] veci) {
+    		this.id = id;
+    		this.veci = veci;
+    	}
+
+    	
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proy7pa;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
+
+
+public class Proy7pA {
+
+
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scan;
+		File f = new File( "prueba.in" );
+		if ( f.exists() ) {
+			scan = new Scanner( f );
+			// System.setOut( new PrintStream( "salida.out" ) );
+		} else {
+			scan = new Scanner( System.in );
+		}
+		
+		int z = Integer.parseInt( scan.nextLine() );
+		
+		for ( int k = 0; k < z; k++ ) {
+			
+			HashMap<Integer, ArrayList<Object>> estaciones=new HashMap<>();
+			
+			
+			String []comandos = scan.nextLine().split( " " );
+			int N = Integer.parseInt( comandos[0] );//vertices
+			int M = Integer.parseInt( comandos[1] );//arcos
+			for (int i = 0; i < N; i++) {
+				
+				estaciones.put(i, new ArrayList<>());
+			}
+						
+			for ( int i = 0; i < M; i++ ) {
+			 comandos = scan.nextLine().split( " " );
+			 	int u = Integer.parseInt( comandos[0] );//estacion u
+				int v = Integer.parseInt( comandos[1] );//estacion v
+				
+				estaciones.get(u).add(v);
+				estaciones.get(v).add(u);
+				
+				
+				
+			}
+			comandos = scan.nextLine().split( " " );
+			int vertice=Integer.parseInt( comandos[0] );
+			
+			
+				System.out.println("Case #"+(k+1)+":");
+				int  x = BFS(vertice,estaciones);
+				System.out.println(x);
+				
+
+				
+				
+			
+				
+		}		
+	}
+	// importante la clase BFS 
+	public static int BFS(int nodo,HashMap<Integer, ArrayList<Object>> Graph)    
+	{ 
+		
+		int aux=0;
+	 Queue <Integer> queue =  new LinkedList<>(); 
+	
+	 queue.add(nodo);
+	 TreeSet<Integer> bfs=new TreeSet();
+	
+	 while (!queue.isEmpty())
+	 {
+		 int x=queue.poll(); bfs.add(x);
+
+		 if(!Graph.get(x).isEmpty())
+		 for (int i = 0; i < Graph.get(x).size(); i++) {
+			 
+			 if(!bfs.contains(Graph.get(x).get(i))){
+				 
+				 bfs.add((Integer) Graph.get(x).get(i));	 
+				 queue.add((Integer) Graph.get(x).get(i));
+				 aux++;
+			 
+			 }
+		}
+		
+	 }
+	 return aux;
+	}
+
+
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
