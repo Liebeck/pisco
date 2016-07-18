@@ -1,0 +1,2 @@
+/data/training/*.txt text eol=lf
+/data/test/*.txt text eol=lf
