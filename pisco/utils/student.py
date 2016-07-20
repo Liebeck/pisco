@@ -6,7 +6,13 @@ class Student:
     agreeableness = 0
     conscientiousness = 0
 
-    def __init__(self, student_id, neuroticism, extroversion, openness, agreeableness, conscientiousness):
+    def __init__(self,
+                 student_id,
+                 neuroticism,
+                 extroversion,
+                 openness,
+                 agreeableness,
+                 conscientiousness):
         self.student_id = student_id
         self.neuroticism = neuroticism
         self.extroversion = extroversion
