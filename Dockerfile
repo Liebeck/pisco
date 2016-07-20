@@ -8,7 +8,7 @@ RUN conda install -y \
   pip \
   numpy \
   scikit-learn \
-  nltk \
+  nltk
 
 RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('wordnet')" 
 RUN pip install pytest
