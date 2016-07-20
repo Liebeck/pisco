@@ -1,0 +1,3 @@
+id,neuroticism,extroversion,openness,agreeableness,conscientiousness
+0,60,34,40,40,46
+68,54,46,50,40,46
