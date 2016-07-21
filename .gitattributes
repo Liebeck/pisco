@@ -1,3 +1,3 @@
-/data/training/training.txt eol=lf
+/data/training/personality.txt eol=lf
 /data/training/*.txt text eol=crlf
 /data/test/*.txt text eol=crlf
