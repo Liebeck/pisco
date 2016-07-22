@@ -1,6 +1,7 @@
 from ..models.document import Document
 from ..models.code import Code
 from ..models.label import Label
+import codecs
 import logging
 import os
 
@@ -56,7 +57,8 @@ class CorpusParser:
         file_id = filename.split('.')[0]
         codes = []
         id = 0
-        with open(os.path.join(self.corpus_path, filename)) as f:
+        with codecs.open(os.path.join(self.corpus_path, filename), 'r',
+                         encoding='ISO-8859-1') as f:
             logging.info('Parsing file: {}'.format(filename))
             lines = []
             for line in f:
