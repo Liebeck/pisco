@@ -38,8 +38,8 @@ def load(corpus_path='data/training', truth_file='personality.txt',
                 documents)))
         Y = map(lambda cl: [getattr(cl, l) for l in labels],
                 list(itertools.chain.from_iterable(
-            map(lambda code_list: map(lambda x: x.label, code_list),
-                map(lambda doc: doc.codes, documents)))))
+                    map(lambda code_list: map(lambda x: x.label, code_list),
+                        map(lambda doc: doc.codes, documents)))))
     else:
         raise ValueError('Level={} is not a valid argument'.format(level))
     return X, Y
