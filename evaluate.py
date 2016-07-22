@@ -1,15 +1,10 @@
 #!/usr/bin/env python
 import pisco.loaders.plain_loader as plain_loader
 from pisco.configuration import Configuration
-from pisco.recognizers import DummyRecognizer
 import argparse
 
 
 def configure(conf):
-
-    @conf.recognizer('dummy')
-    def build_random_recognizer(**args):
-        return DummyRecognizer()
 
     @conf.dataset('documents/neuroticism', level='document', labels=['neuroticism'])
     @conf.dataset('documents/extroversion', level='document',labels=['extroversion'])
