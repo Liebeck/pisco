@@ -11,5 +11,8 @@ Given a source code collection of a programmer, Pisco identifies her personality
   make build
 ```
 # Architecture
-##### Transformers:
-Features are called transformers. Each transformer must return the pipline object.
+* **Pipeline:** Main pipeline that is executed for the evaluation. It will be used for 3-fold cross validation and a grid search.
+* **Transformers:** Features are called transformers. Each transformer must return a scikit-learn pipeline object that will later the combined in /pisco/pipeline/pipleline.py with the main pipeline.
+
+
+
