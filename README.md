@@ -11,4 +11,5 @@ Given a source code collection of a programmer, Pisco identifies her personality
   make build
 ```
 # Architecture
-## Transformers: Features are called transformers. Each transformer must return the pipline object.
+##### Transformers:
+Features are called transformers. Each transformer must return the pipline object.
