@@ -12,10 +12,10 @@ def load(corpus_path='data/training', truth_file='personality.txt',
     when algorithms have to be applied directly on the raw text.
 
     Args:
-        corpus_path: path of the corpus. usually deafault will be used
+        corpus_path: path of the corpus. usually default will be used
         truth_file: for the case that it exists. Use None otherwise
         lavel: choose code if you want every single code in the documents.
-               Otherwise choose document to store the whole documnet in a
+               Otherwise choose document to store the whole document in a
                single variable
         labels: a list of labels to be included
     Returns:
