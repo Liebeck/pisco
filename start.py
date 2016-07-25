@@ -22,7 +22,7 @@ def report(grid_scores, n_top=3):
 
 # Load files
 
-X, Y = load(level='code', labels=['openness'])
+X, Y = load(level='document', labels=['openness'])
 Y = [y[0] for y in Y]
 transformers = [unigram.unigram()]
 p = pipeline.pipeline(transformers)
