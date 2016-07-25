@@ -42,7 +42,7 @@ scoring_function = ""
 if evaluation_score == "mse":
     scoring_function = make_scorer(evaluate_mse, greater_is_better=False)
 else:
-    scoring_function = make_scorer(evaluate_pearson, greater_is_better=False)
+    scoring_function = make_scorer(evaluate_pearson, greater_is_better=True)
 
 grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10, cv=3, n_jobs=4, scoring=scoring_function)
 grid_search.fit(X, Y)

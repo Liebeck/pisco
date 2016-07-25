@@ -6,7 +6,7 @@ from sklearn.metrics import make_scorer
 # def pearson_scoring():
 #     return make_scorer(evaluate_pearson, greater_is_better=True)
 #
-# 
+#
 # def mse_scoring():
 #     return make_scorer(evaluate_mse, greater_is_better=False)
 
