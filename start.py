@@ -1,5 +1,11 @@
 import numpy as np
 from operator import itemgetter
+from pisco.pipeline import pipeline
+from pisco.transformers import unigram
+from pisco.loaders.plain_loader import load
+from sklearn.grid_search import GridSearchCV
+from pisco.evaluation.evaluation import mse_scoring
+from pisco.evaluation.evaluation import pearson_scoring
 
 
 def report(grid_scores, n_top=3):
@@ -13,24 +19,22 @@ def report(grid_scores, n_top=3):
         print("")
 
 
-from pisco.pipeline import pipeline
-from pisco.transformers import unigram
-from pisco.loaders.plain_loader import load
+# Load files
 
 X, Y = load(level='code', labels=['openness'])
 Y = [y[0] for y in Y]
 transformers = [unigram.unigram()]
 p = pipeline.pipeline(transformers)
+
+# Test prediction
 p.fit(X, Y)
 result = p.predict(X)
 print('Success!')
 
-from sklearn.grid_search import GridSearchCV
+# Test gridsearch with crossvalidation
+
 
 param_grid = {'svm__C': [1e3, 5e3, 1e4, 5e4, 1e5], 'svm__gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1]}
-
-from pisco.evaluation.evaluation import mse_scoring
-from pisco.evaluation.evaluation import pearson_scoring
 
 evaluation_score = "pearson"
 scoring_function = ""
