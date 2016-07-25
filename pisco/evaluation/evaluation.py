@@ -3,12 +3,12 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import make_scorer
 
 
-def pearson_scoring():
-    return make_scorer(evaluate_pearson, greater_is_better=True)
-
-
-def mse_scoring():
-    return make_scorer(evaluate_mse, greater_is_better=False)
+# def pearson_scoring():
+#     return make_scorer(evaluate_pearson, greater_is_better=True)
+#
+# 
+# def mse_scoring():
+#     return make_scorer(evaluate_mse, greater_is_better=False)
 
 
 def evaluate_pearson(y_truth, y_predicted):
