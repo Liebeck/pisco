@@ -12,7 +12,8 @@ def unigram():
     # ('vect', vectorizer)])
     # pipeline = Pipeline([('vect', vectorizer)])
     pipeline = make_pipeline(
-        vectorizer, FunctionTransformer(functiontransformers.all_code_lines, accept_sparse=True),
+        vectorizer,
+        FunctionTransformer(functiontransformers.all_code_lines, accept_sparse=True),
     )
 
     return ('unigram', pipeline)

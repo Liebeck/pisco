@@ -23,6 +23,8 @@ def report(grid_scores, n_top=3):
 # Load files
 
 X, Y = load(level='document', labels=['openness'])
+X = map(lambda doc: u'\n'.join(
+    map(lambda code: u''.join(code.lines), doc.codes)), X)
 Y = [y[0] for y in Y]
 transformers = [unigram.unigram()]
 p = pipeline.pipeline(transformers)

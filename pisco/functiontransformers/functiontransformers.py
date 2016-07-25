@@ -1,6 +1,4 @@
 def all_code_lines(X):
-    # print type(X)
-    # print X.shape
-    # print "test"
-    # return X.all_code
+    # X = map(lambda doc: u'\n'.join(
+    # map(lambda code: u''.join(code.lines), doc.codes)), X)
     return X
