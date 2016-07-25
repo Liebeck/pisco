@@ -5,19 +5,20 @@ import argparse
 
 
 def configure(conf):
-
     @conf.dataset('documents/neuroticism', level='document', labels=['neuroticism'])
-    @conf.dataset('documents/extroversion', level='document',labels=['extroversion'])
-    @conf.dataset('documents/agreeableness', level='document',labels=['agreeableness'])
-    @conf.dataset('documents/openness', level='document',labels=['openness'])
-    @conf.dataset('documents/conscientiousness', level='document',labels=['conscientiousness'])
-    @conf.dataset('documents/all', level='document',labels=['neuroticism', 'extroversion','agreeableness','openness','conscientiousness'])
-    @conf.dataset('codes/neuroticism',level='code',labels=['neuroticism'])
-    @conf.dataset('codes/extroversion',level='code',labels=['extroversion'])
-    @conf.dataset('codes/agreeableness',level='code',labels=['agreeableness'])
-    @conf.dataset('codes/openness', level='code',labels=['openness'])
-    @conf.dataset('codes/conscientiousness',level='code', labels=['conscientiousness'])
-    @conf.dataset('codes/all',level='code', labels=['neuroticism', 'extroversion','agreeableness','openness','conscientiousness'])
+    @conf.dataset('documents/extroversion', level='document', labels=['extroversion'])
+    @conf.dataset('documents/agreeableness', level='document', labels=['agreeableness'])
+    @conf.dataset('documents/openness', level='document', labels=['openness'])
+    @conf.dataset('documents/conscientiousness', level='document', labels=['conscientiousness'])
+    @conf.dataset('documents/all', level='document',
+                  labels=['neuroticism', 'extroversion', 'agreeableness', 'openness', 'conscientiousness'])
+    @conf.dataset('codes/neuroticism', level='code', labels=['neuroticism'])
+    @conf.dataset('codes/extroversion', level='code', labels=['extroversion'])
+    @conf.dataset('codes/agreeableness', level='code', labels=['agreeableness'])
+    @conf.dataset('codes/openness', level='code', labels=['openness'])
+    @conf.dataset('codes/conscientiousness', level='code', labels=['conscientiousness'])
+    @conf.dataset('codes/all', level='code',
+                  labels=['neuroticism', 'extroversion', 'agreeableness', 'openness', 'conscientiousness'])
     def build_dataset(level=None, labels=[]):
         X, y = plain_loader.load(level=level, labels=labels)
         return X, y
@@ -45,8 +46,8 @@ if __name__ == '__main__':
                            help='Name of the invoked recognizer: ' + pretty_list(conf.get_recognizer_names()))
 
     args = argparser.parse_args()
-    #LOGFMT = '%(asctime)s %(name)s %(levelname)s %(message)s'
-    #logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
+    # LOGFMT = '%(asctime)s %(name)s %(levelname)s %(message)s'
+    # logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
 
     configure(conf)
     X_train, y_train = conf.get_dataset(args.training_corpus)
