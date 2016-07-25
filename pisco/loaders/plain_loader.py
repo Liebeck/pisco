@@ -27,8 +27,7 @@ def load(corpus_path='data/training', truth_file='personality.txt',
     documents = parser.parse(truth_file)
     if level == 'document':
         logging.info('Loading...level={}, labels={}'.format(level, labels))
-        X = map(lambda doc: u'\n'.join(
-            map(lambda code: u''.join(code.lines), doc.codes)), documents)
+        X = documents
         Y = map(lambda doc: [getattr(doc.label, l) for l in labels], documents)
     elif level == 'code':
         logging.info('Loading...Level={}, labels={}'.format(level, labels))

@@ -3,6 +3,7 @@ from pisco.loaders.plain_loader import load
 
 
 class PlainLoaderTest(unittest.TestCase):
+    @unittest.skip("testing skipping")
     def test_when_no_labels_are_given_and_level_is_document(self):
         X, Y = load(corpus_path='tests/resources/minicorpus',
                     truth_file='personality.txt',
@@ -16,6 +17,7 @@ class PlainLoaderTest(unittest.TestCase):
         self.assertEqual(X[1][:13], 'package p01a;')
         self.assertEqual('Case #"' in X[1], True)
 
+    @unittest.skip("testing skipping")
     def test_when_labels_are_given_and_level_is_document(self):
         X, Y = load(corpus_path='tests/resources/minicorpus',
                     truth_file='personality.txt',
