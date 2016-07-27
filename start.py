@@ -2,6 +2,7 @@ import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
 from pisco.transformers import unigram
+from pisco.transformers import number_of_classes
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
 from pisco.evaluation.evaluation import evaluate_mse
@@ -24,7 +25,7 @@ def report(grid_scores, n_top=3):
 
 X, Y = load(labels=['openness'])
 Y = [y[0] for y in Y]
-transformers = [unigram.unigram()]
+transformers = [number_of_classes.number_of_classes()]
 p = pipeline.pipeline(transformers)
 
 # Test prediction
