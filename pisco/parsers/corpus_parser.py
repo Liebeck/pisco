@@ -1,5 +1,4 @@
 from ..models.document import Document
-from ..models.code import Code
 from ..models.label import Label
 import codecs
 import logging
@@ -18,8 +17,6 @@ class CorpusParser:
             logging.info('Parsed {} truths'.format(len(truth)))
             for doc in documents:
                 doc.label = Label(**truth[doc.id])
-                for code in doc.codes:
-                    code.label = Label(**truth[doc.id])
 
         return documents
 
@@ -55,22 +52,12 @@ class CorpusParser:
 
     def _parse_document(self, filename):
         file_id = filename.split('.')[0]
-        codes = []
-        id = 0
         with codecs.open(os.path.join(self.corpus_path, filename), 'r',
                          encoding='ISO-8859-1') as f:
             logging.info('Parsing file: {}'.format(filename))
-            lines = []
-            for line in f:
-                if line.startswith('<<'):
-                    code = Code(id=str(id), parent_id=file_id, lines=lines)
-                    id = id + 1
-                    codes.append(code)
-                    lines = []
-                else:
-                    lines.append(line)
+            code = f.read()
 
-        document = Document(id=file_id, codes=codes)
+        document = Document(id=file_id, code=code)
         return document
 
 
