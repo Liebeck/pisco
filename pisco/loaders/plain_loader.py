@@ -21,6 +21,6 @@ def load(corpus_path='data/training', truth_file='personality.txt', labels=[]):
     parser = CorpusParser(corpus_path)
     documents = parser.parse(truth_file)
     logging.info('Loading...labels={}'.format(labels))
-    X = map(lambda doc: u'\n'.join(map(lambda code: u''.join(code.lines), doc.codes)), documents)
+    X = map(lambda doc: doc.code, documents)
     Y = map(lambda doc: [getattr(doc.label, l) for l in labels], documents)
     return X, Y
