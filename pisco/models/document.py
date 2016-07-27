@@ -1,5 +1,5 @@
 class Document():
-    def __init__(self, id=None, codes=[], label=None):
+    def __init__(self, id=None, code=None, label=None):
         self.id = id
-        self.codes = codes
+        self.code = code
         self.label = label
