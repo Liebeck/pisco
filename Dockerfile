@@ -13,6 +13,7 @@ RUN conda install -y \
 RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('wordnet')" 
 RUN pip install pytest
 RUN pip install pytest-pep8
+RUN pip install plyj
 
 WORKDIR /var/www
 ADD . .
