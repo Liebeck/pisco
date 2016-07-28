@@ -9,7 +9,6 @@ sys.setdefaultencoding("utf-8")
 
 # Refactor
 
-
 # Master commit
 def number_of_classes():
     pipeline = Pipeline([('number_of_classes', NumberOfClasses())])
