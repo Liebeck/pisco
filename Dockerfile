@@ -14,6 +14,7 @@ RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); 
 RUN pip install pytest
 RUN pip install pytest-pep8
 RUN pip install plyj
+RUN pip install javalang
 
 WORKDIR /var/www
 ADD . .
