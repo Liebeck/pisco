@@ -30,7 +30,7 @@ p = pipeline.pipeline(transformers)
 # Test prediction
 p.fit(X, Y)
 result = p.predict(X)
-print('Success!')
+print('\nSuccess!')
 
 # Test gridsearch with crossvalidation
 

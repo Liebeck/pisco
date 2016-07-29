@@ -9,6 +9,9 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+########ATTENTIONS########
+##This is just an example! Please refactor it! There are lots ofcode  smells in this code##
+#########################
 
 def class_level():
     pipeline = Pipeline([('mean_num_functions_per_class', ClassLevelTransformer())])
@@ -30,7 +33,12 @@ class ClassLevelTransformer(BaseEstimator):
     def transform(self, X):
         list_class_list = extract_classes(X)
         result = []
-        for x in list_class_list:
+        for (i,x) in enumerate(list_class_list):
+            percent = float(i) / len(list_class_list)
+            hashes = '#' * int(round(percent * 20))
+            spaces = ' ' * (20 - len(hashes))
+            sys.stdout.write("\rExtracting Features: [{0}] {1}%".format(hashes + spaces, int(round(percent * 100))))
+            sys.stdout.flush()
             num_functions_per_class = self._transform(x)
             mean_num_functions_per_class = 10 * sum(num_functions_per_class) / len(num_functions_per_class)
             result.append([mean_num_functions_per_class])
