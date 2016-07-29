@@ -1,12 +1,12 @@
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
-from pisco.transformers import number_of_classes
+from pisco.transformers.function_level import class_level
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
-from pisco.metrics.evaluation import mse
+from pisco.metrics.metrics import mse
 from sklearn.metrics import make_scorer
-from pisco.evaluation.evaluation import evaluate_pearson
+from pisco.metrics.metrics import pearson
 
 
 def report(grid_scores, n_top=3):
@@ -24,7 +24,7 @@ def report(grid_scores, n_top=3):
 
 X, Y = load(labels=['openness'])
 Y = [y[0] for y in Y]
-transformers = [number_of_classes.number_of_classes()]
+transformers = [class_level()]
 p = pipeline.pipeline(transformers)
 
 # Test prediction
@@ -42,7 +42,7 @@ scoring_function = ""
 if evaluation_score == "mse":
     scoring_function = make_scorer(mse, greater_is_better=False)
 else:
-    scoring_function = make_scorer(evaluate_pearson, greater_is_better=True)
+    scoring_function = make_scorer(pearson, greater_is_better=True)
 
 grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10, cv=3, n_jobs=4, scoring=scoring_function)
 grid_search.fit(X, Y)

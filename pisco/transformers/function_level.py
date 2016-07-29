@@ -1,8 +1,9 @@
 from __future__ import unicode_literals
 from sklearn.base import BaseEstimator
-from parsers.source_parser import SourceParser
+from ..parsers.source_parser import SourceParser
 from sklearn.pipeline import Pipeline
 from ..knife.knife_client import KnifeClient
+import logging
 import numpy as np
 import sys
 reload(sys)
@@ -32,15 +33,20 @@ class ClassLevelTransformer(BaseEstimator):
         for x in list_class_list:
             num_functions_per_class = self._transform(x)
             mean_num_functions_per_class = 10 * sum(num_functions_per_class) / len(num_functions_per_class)
-            result.append(mean_num_functions_per_class)
+            result.append([mean_num_functions_per_class])
+        print(type(result))
+        print(len(result[0]))
         return result
 
 
     def _transform(self, x):
         num_functions_per_class = []
         for clazz in x:
-            functions = self.client.extract_method_blocks(clazz)
-            num_functions_per_class.append(len(functions))
+            functions = self.client.method_blocks(clazz)
+            if functions:
+                num_functions_per_class.append(len(functions))
+            else:
+                num_functions_per_class.append(0)
         return num_functions_per_class
 
 
@@ -49,3 +55,4 @@ def extract_classes(X):
     for x in X:
         class_list = x.split(u"<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>\r")
         list_class_list.append(class_list)
+    return list_class_list
