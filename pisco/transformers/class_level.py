@@ -34,8 +34,6 @@ class ClassLevelTransformer(BaseEstimator):
             num_functions_per_class = self._transform(x)
             mean_num_functions_per_class = 10 * sum(num_functions_per_class) / len(num_functions_per_class)
             result.append([mean_num_functions_per_class])
-        print(type(result))
-        print(len(result[0]))
         return result
 
 
