@@ -3,11 +3,15 @@ from sklearn.base import BaseEstimator
 from ..parsers.source_parser import SourceParser
 from sklearn.pipeline import Pipeline
 from ..knife.knife_client import KnifeClient
+from ..utils.utils import extract_classes
+from ..utils.utils import print_progress_bar
 import logging
 import numpy as np
 import sys
+
 reload(sys)
 sys.setdefaultencoding("utf-8")
+
 
 ########ATTENTIONS########
 ##This is just an example! Please refactor it! There are lots ofcode  smells in this code##
@@ -33,17 +37,13 @@ class ClassLevelTransformer(BaseEstimator):
     def transform(self, X):
         list_class_list = extract_classes(X)
         result = []
-        for (i,x) in enumerate(list_class_list):
-            percent = float(i) / len(list_class_list)
-            hashes = '#' * int(round(percent * 20))
-            spaces = ' ' * (20 - len(hashes))
-            sys.stdout.write("\rExtracting Features: [{0}] {1}%".format(hashes + spaces, int(round(percent * 100))))
-            sys.stdout.flush()
+        print_progress_bar(0, len(list_class_list), "Extracting Features")
+        for (i, x) in enumerate(list_class_list):
+            print_progress_bar(i + 1, len(list_class_list), "Extracting Features")
             num_functions_per_class = self._transform(x)
             mean_num_functions_per_class = 10 * sum(num_functions_per_class) / len(num_functions_per_class)
             result.append([mean_num_functions_per_class])
         return result
-
 
     def _transform(self, x):
         num_functions_per_class = []
@@ -54,11 +54,3 @@ class ClassLevelTransformer(BaseEstimator):
             else:
                 num_functions_per_class.append(0)
         return num_functions_per_class
-
-
-def extract_classes(X):
-    list_class_list = []
-    for x in X:
-        class_list = x.split(u"<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>\r")
-        list_class_list.append(class_list)
-    return list_class_list
