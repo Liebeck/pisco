@@ -40,6 +40,10 @@ def get_mean_num_functions_per_class(self, x):
     return 10 * sum(num_functions_per_class) / len(num_functions_per_class)
 
 
+def get_number_of_classes(self, x):
+    return len(x)
+
+
 ##### Todo: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
     def __init__(self):
@@ -47,6 +51,7 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.features = dict()
         self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
+        self.features["number_of_classes"] = get_number_of_classes
 
     def get_feature_names(self):
         return np.array(self.features.keys())
