@@ -17,6 +17,7 @@ Given a source code collection of a programmer, Pisco identifies her personality
 
 # Architecture
 * **Pipeline:** Main pipeline that is executed for the evaluation. It will be used for 3-fold cross validation and a grid search.
+
 * **Transformers:** Features are called transformers. Each transformer must return a [scikit-learn pipeline object](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) that will later be combined in /pisco/pipeline/pipleline.py with the main pipeline.
 
 
