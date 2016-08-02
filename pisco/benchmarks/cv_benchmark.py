@@ -5,11 +5,11 @@ import numpy as np
 import logging
 
 
-def benchmark(X_train, y_train, recognizer, features, n_folds=4):
-    skf = KFold(len(y_train), n_folds=n_folds, shuffle=True, random_state=123)
+def benchmark(X_train, y_train, recognizer, features, n_folds=10):
+    skf = KFold(len(y_train), n_folds=n_folds, shuffle=True, random_state=0)
     p = pipeline(transformers=features, recognizer=recognizer)
     fold, pcs, rmses = 1, [], []
-    logging.info('Starting cross validation: num_fold={}'.format(2))
+    logging.info('Starting cross validation: num_fold={}'.format(n_folds))
     for train_index, test_index in skf:
         logging.info('Evaluating fold {}'.format(fold))
         X_train_fold, y_train_fold = [X_train[i] for i in train_index], [y_train[i] for i in train_index]
