@@ -8,6 +8,32 @@ class Configuration():
     def __init__(self):
         self.recognizer_registry = {}
         self.dataset_registry = {}
+        self.feature_registry = {}
+
+    def feature(self, name, **args):
+        logger.debug('Register feature {}, opt={}'.format(name, args))
+
+        def decorator(f):
+            if name in self.feature_registry.keys():
+                raise ValueError(
+                    'The feature {} is already registered. Please use another name!'.format(name))
+
+            def wrapper():
+                return f(**args)
+            self.feature_registry[name] = wrapper
+            return f
+        return decorator
+
+    def get_feature(self, name):
+        builder = self.feature_registry.get(name)
+        if builder:
+            return builder()
+        else:
+            raise ValueError("Feature not found: {}".format(name))
+
+    def get_feature_names(self):
+        return self.feature_registry.keys()
+
 
     def recognizer(self, name, **args):
         logger.debug('Register recognizer {}, opt={}'.format(name, args))
