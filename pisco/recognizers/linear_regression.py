@@ -8,5 +8,7 @@ def param_grid():
 
 
 def linear_regression():
-    pipeline = Pipeline([('linear_regression', LinearRegression())])
+    pipeline = Pipeline([(
+        'linear_regression',
+        LinearRegression(fit_intercept=True, normalize=True))])
     return ('recognizer', pipeline)
