@@ -33,11 +33,11 @@ def configure(conf):
 def pretty_list(items):
     return ', '.join([x for x in items])
 
-def report(correlations, errors, num_fold=2):
-    print('******* {}-fold CV Report *******'.format(num_fold))
-    print("PC: %0.2f (+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
-    print("RMSE: %0.2f (+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
-    print('*********************************'.format(num_fold))
+def report(correlations, errors, num_folds=2):
+    print('{} {}-fold CV Report {}'.format('*'*11,num_folds, '*'*11))
+    print("PC:\t%0.2f\t(+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
+    print("RMSE:\t%0.2f\t(+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
+    print('{}'.format('*'*40))
 
 if __name__ == '__main__':
     conf = Configuration()
@@ -87,6 +87,6 @@ if __name__ == '__main__':
         correlations.append(pearson(y_test_fold, y_pred_fold))
         errors.append(mse(y_test_fold, y_pred_fold))
         fold = fold + 1
-        report(correlations, errors, 2)
+    report(correlations, errors, 2)
 
 
