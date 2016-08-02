@@ -11,11 +11,9 @@ def ngram_ranges(begin, end):
 
 
 def param_grid():
-    return {'union__unigram__vec__ngram_range': ngram_ranges(2, 5)}
+    return {'union__unigram__vec__ngram_range': ngram_ranges(1, 10)}
 
 
-def unigram():
-    pipeline = Pipeline([('vec', CountVectorizer(min_df=2,
-                                                 analyzer='char',
-                                                 ngram_range=(2, 5)))])
+def build():
+    pipeline = Pipeline([('vec', CountVectorizer(ngram_range=(4, 5)))])
     return ('unigram', pipeline)

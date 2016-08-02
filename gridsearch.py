@@ -10,6 +10,22 @@ from sklearn.metrics import make_scorer
 from pisco.metrics.metrics import pearson
 
 
+
+
+DIMENSIONS=['openness']
+RECOGNIZERS=[linear_regression]
+FEATURES=[unigram]
+SCORE='RMSE' # or PC
+
+def make_score_function(score):
+    if score == "RMSE":
+        return make_scorer(mse, greater_is_better=False)
+    elif score == 'PC':
+        return make_scorer(pearson, greater_is_better=True)
+    else:
+        raise ValueError('Scoring {} is not supported!'.format(score))
+
+
 def report(grid_scores, n_top=3):
     top_scores = sorted(grid_scores, key=itemgetter(1), reverse=True)[:n_top]
     for i, score in enumerate(top_scores):
@@ -20,25 +36,18 @@ def report(grid_scores, n_top=3):
         print("Parameters: {0}".format(score.parameters))
         print("")
 
+X, Y = load(labels=DIMENSIONS)
 
-# Load files
-X, Y = load(labels=['openness'])
-recognizer = linear_regression.linear_regression()
-p = pipeline.pipeline(transformers=[unigram.unigram()], recognizer=recognizer)
-
-
-# param_grid = {'svm__C': [1e3, 5e3, 1e4, 5e4, 1e5], 'svm__gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1]}
-param_grid = {}
-param_grid.update(linear_regression.param_grid())
-param_grid.update(unigram.param_grid())
-
-evaluation_score = "mse"
-scoring_function = ""
-if evaluation_score == "mse":
-    scoring_function = make_scorer(mse, greater_is_better=False)
-else:
-    scoring_function = make_scorer(pearson, greater_is_better=True)
-
-grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10, cv=3, n_jobs=4, scoring=scoring_function)
-grid_search.fit(X, Y)
-report(grid_search.grid_scores_)
+for recognizer in RECOGNIZERS:
+    transformers = map(lambda f: f.build(), FEATURES)
+    p = pipeline.pipeline(transformers=transformers, recognizer=recognizer.build())
+    param_grid = {}
+    param_grid.update(recognizer.param_grid())
+    for f in FEATURES:
+        print(f)
+        param_grid.update(f.param_grid())
+    scoring = make_score_function(SCORE)
+    grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10,
+                               cv=5, n_jobs=-1, scoring=scoring)
+    grid_search.fit(X, Y)
+    report(grid_search.grid_scores_)
