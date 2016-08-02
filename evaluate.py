@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 from pisco.recognizers.linear_regression import linear_regression
-from pisco.benchmarks.cv_benchmark import benchmark
 import pisco.loaders.plain_loader as plain_loader
 from pisco.transformers.unigram import unigram
 from pisco.configuration import Configuration
+from pisco.benchmarks.cv_benchmark import benchmark
+from pisco.transformers.class_level import class_level
 import argparse
 import logging
 
@@ -46,6 +47,10 @@ def configure(conf):
     @conf.feature('unigram')
     def build_feature():
         return [unigram()]
+
+    @conf.feature('class_level')
+    def build_feature():
+        return [class_level()]
 
 
 def pretty_list(items):

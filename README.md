@@ -11,10 +11,6 @@ Given a source code collection of a programmer, Pisco identifies her personality
   cd pisco
   make build
 ```
-## How to start the project:
-``` bash
-  python start.py
-```
 
 ## How to start knife:
 * Pisco automatically pulls and runs knife. It means by running ``` make run ``` knife will also start. 
@@ -30,6 +26,7 @@ Given a source code collection of a programmer, Pisco identifies her personality
 ``` bash
   make run
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features unigram
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features class_level
 ```
 
 
