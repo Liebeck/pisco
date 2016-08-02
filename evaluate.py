@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-from pisco.recognizers.linear_regression import linear_regression
+import pisco.recognizers.linear_regression as linear_regression
 import pisco.loaders.plain_loader as plain_loader
-from pisco.transformers.unigram import unigram
+import pisco.transformers.unigram as unigram
 from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.class_level import class_level
@@ -42,11 +42,11 @@ def configure(conf):
 
     @conf.recognizer('linear_regression')
     def build_linear_regression():
-        return linear_regression()
+        return linear_regression.build()
 
     @conf.feature('unigram')
     def build_feature():
-        return [unigram()]
+        return [unigram.build()]
 
     @conf.feature('class_level')
     def build_feature():
