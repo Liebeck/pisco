@@ -45,11 +45,11 @@ def configure(conf):
         return linear_regression.build()
 
     @conf.feature('unigram')
-    def build_feature():
+    def build_unigram_feature():
         return [unigram.build()]
 
     @conf.feature('class_level')
-    def build_feature():
+    def build_class_level_feature():
         return [class_level()]
 
 
