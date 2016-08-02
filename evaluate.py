@@ -57,7 +57,6 @@ if __name__ == '__main__':
 
     configure(conf)
     X_train, y_train = conf.get_dataset(args.training_corpus)
-    y_train = [y[0] for y in y_train]
     recognizer_instance = conf.get_recognizer(args.recognizer_name)
     features = conf.get_feature(args.feature_names)
     benchmark(X_train, y_train, recognizer_instance, features)
