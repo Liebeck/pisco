@@ -8,7 +8,6 @@ import argparse
 import logging
 
 
-
 def config_argparser():
     argparser = argparse.ArgumentParser(description='Personality Recognition Evaluation')
     argparser.add_argument('-l', '--log-level', dest='log_level', type=str, default='INFO',
