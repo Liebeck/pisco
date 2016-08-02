@@ -54,7 +54,7 @@ class CorpusParser:
         file_id = filename.split('.')[0]
         with codecs.open(os.path.join(self.corpus_path, filename), 'r',
                          encoding='ISO-8859-1') as f:
-            logging.info('Parsing file: {}'.format(filename))
+            logging.debug('Parsing file: {}'.format(filename))
             code = f.read()
 
         document = Document(id=file_id, code=code)
