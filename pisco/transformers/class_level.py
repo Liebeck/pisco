@@ -13,17 +13,13 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 
-########ATTENTIONS########
-##This is just an example! Please refactor it! There are lots ofcode  smells in this code##
-#########################
-
 def class_level():
     pipeline = Pipeline([('mean_num_functions_per_class', ClassLevelTransformer())])
     return ('class_level', pipeline)
 
 
-##### Refactor into different files?
-##### Todo: Cache results from knife call?
+# TODO: Refactor into different files?
+# TODO: Cache results from knife call?
 def get_num_functions_per_class(self, x):
     num_functions_per_class = []
     for clazz in x:
@@ -44,7 +40,7 @@ def get_number_of_classes(self, x):
     return len(x)
 
 
-##### Todo: Refactor enable/disable of certain features
+# TODO: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
     def __init__(self):
         self.parser = SourceParser()

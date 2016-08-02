@@ -34,7 +34,6 @@ class Configuration():
     def get_feature_names(self):
         return self.feature_registry.keys()
 
-
     def recognizer(self, name, **args):
         logger.debug('Register recognizer {}, opt={}'.format(name, args))
 

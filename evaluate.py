@@ -55,7 +55,6 @@ if __name__ == '__main__':
     LOGFMT = '%(asctime)s %(name)s %(levelname)s %(message)s'
     logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
 
-
     configure(conf)
     X_train, y_train = conf.get_dataset(args.training_corpus)
     y_train = [y[0] for y in y_train]
