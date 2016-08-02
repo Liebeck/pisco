@@ -1,10 +1,13 @@
 import requests
 import os
 
+KNIFE_URL = 'http://'+ ':'.join([
+    os.environ['KNIFE_PORT_4567_TCP_ADDR'],
+    os.environ['KNIFE_PORT_4567_TCP_PORT']])
+
 
 class KnifeClient:
-    # TODO: Extract the hard-coded server to a config file
-    def __init__(self, url='http://172.17.0.2:4567/'):
+    def __init__(self, url=KNIFE_URL):
         self.url = url
 
     def method_blocks(self, clazz=None):
