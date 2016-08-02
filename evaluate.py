@@ -5,6 +5,8 @@ from pisco.recognizers.linear_regression import linear_regression
 from pisco.transformers.unigram import unigram
 from pisco.pipeline.pipeline import pipeline
 from sklearn.cross_validation import KFold
+from pisco.metrics.metrics import pearson, mse
+import numpy as np
 import logging
 import argparse
 
@@ -56,8 +58,12 @@ if __name__ == '__main__':
     LOGFMT = '%(asctime)s %(name)s %(levelname)s %(message)s'
     logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
 
+
+    correlations = []
+    errors = []
     configure(conf)
     X_train, y_train = conf.get_dataset(args.training_corpus)
+    y_train = [y[0] for y in y_train]
     if args.test_corpus:
         X_test, y_test = conf.get_dataset(args.test_corpus)
     else:
@@ -75,7 +81,11 @@ if __name__ == '__main__':
         logging.info('Testing on fold {} with {} instances'.format(
             fold, len(test_index)))
         y_pred_fold =p.predict(X_test_fold)
+        correlations.append(pearson(y_test_fold, y_pred_fold))
+        errors.append(mse(y_test_fold, y_pred_fold))
         fold = fold + 1
+    print("Correlations: %0.2f (+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
+    print("Errors: %0.2f (+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
     if X_test:
         logging.info('Training on {} instances!'.format(len(X_train)))
         p.fit(X_train, y_train)
