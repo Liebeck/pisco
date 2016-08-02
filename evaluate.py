@@ -33,6 +33,11 @@ def configure(conf):
 def pretty_list(items):
     return ', '.join([x for x in items])
 
+def report(correlations, errors, num_fold=2):
+    print('******* {}-fold CV Report *******'.format(num_fold))
+    print("PC: %0.2f (+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
+    print("RMSE: %0.2f (+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
+    print('*********************************'.format(num_fold))
 
 if __name__ == '__main__':
     conf = Configuration()
@@ -73,21 +78,15 @@ if __name__ == '__main__':
     p = pipeline(features, classifier=recognizer_instance)
     skf = KFold(len(y_train), n_folds=2, shuffle=True, random_state=123)
     fold = 1
+    logging.info('Starting cross validation: num_fold={}'.format(2))
     for train_index, test_index in skf:
         X_train_fold, y_train_fold = [X_train[i] for i in train_index], [y_train[i] for i in train_index]
         X_test_fold, y_test_fold = [X_train[i] for i in test_index], [y_train[i] for i in test_index]
-        logging.info('Training on {} instances!'.format(len(train_index)))
         p.fit(X_train_fold, y_train_fold)
-        logging.info('Testing on fold {} with {} instances'.format(
-            fold, len(test_index)))
         y_pred_fold =p.predict(X_test_fold)
         correlations.append(pearson(y_test_fold, y_pred_fold))
         errors.append(mse(y_test_fold, y_pred_fold))
         fold = fold + 1
-    print("Correlations: %0.2f (+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
-    print("Errors: %0.2f (+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
-    if X_test:
-        logging.info('Training on {} instances!'.format(len(X_train)))
-        p.fit(X_train, y_train)
-        logging.info('Testing on {} instances!'.format(len(X_test)))
-        y_pred = p.predict(X_test)
+        report(correlations, errors, 2)
+
+
