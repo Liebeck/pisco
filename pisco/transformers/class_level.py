@@ -5,6 +5,8 @@ from sklearn.pipeline import Pipeline
 from ..knife.knife_client import KnifeClient
 from ..utils.utils import extract_classes
 from ..utils.utils import print_progress_bar
+from ..knife.json_helper import get_classes
+from ..knife.json_helper import get_methods
 import logging
 import numpy as np
 import sys
@@ -20,42 +22,42 @@ def class_level():
 
 # TODO: Refactor into different files?
 # TODO: Cache results from knife call?
-def get_num_functions_per_class(self, responses):
+def get_num_functions_per_class(responses):
     num_functions_per_class = []
     for response in responses:
         if response is not None:
-            num_functions_per_class.append(len(self.client.get_methods(response)))
+            num_functions_per_class.append(len(get_methods(response)))
         else:
             num_functions_per_class.append(0)
     return num_functions_per_class
 
 
-def get_mean_num_functions_per_class(self, responses):
-    num_functions_per_class = get_num_functions_per_class(self, responses)
-    return 10 * sum(num_functions_per_class) / len(num_functions_per_class)
+def get_mean_num_functions_per_class(responses):
+    num_functions_per_class = get_num_functions_per_class(responses)
+    return 1.0 * sum(num_functions_per_class) / len(num_functions_per_class)
 
 
-def get_number_of_classes(self, responses):
+def get_number_of_classes(responses):
     sum_classes = 0
     for response in filter(lambda r: r is not None, responses):
-        classes = self.client.get_classes(response)
+        classes = get_classes(response)
         sum_classes += len(classes)
     return sum_classes
 
 
-def get_number_of_files(self, responses):
+def get_number_of_files(responses):
     return len(responses)
 
 
-def get_mean_count_comments_per_class(self, x):
-    mean_count_comments_per_class = get_count_comments_per_class(self, x)
-    return sum(mean_count_comments_per_class) / len(mean_count_comments_per_class)
+def get_mean_count_comments_per_class(responses):
+    mean_count_comments_per_class = get_count_comments_per_class(responses)
+    return 1.0 * sum(mean_count_comments_per_class) / len(mean_count_comments_per_class)
 
 
-def get_count_comments_per_class(self, x):
+def get_count_comments_per_class(responses):
     count_comments_per_class = []
-    for clazz in x:
-        functions = self.client.method_blocks(clazz)
+    for response in filter(lambda r: r is not None, responses):
+        functions = get_methods(response)
         countComments = 0
         if functions:
             for func in functions:
@@ -65,10 +67,10 @@ def get_count_comments_per_class(self, x):
     return count_comments_per_class
 
 
-def get_length_of_functions_per_class(self, x):
+def get_length_of_functions_per_class(responses):
     length_functions_per_class = []
-    for clazz in x:
-        functions = self.client.method_blocks(clazz)
+    for response in filter(lambda r: r is not None, responses):
+        functions = get_methods(response)
         sum_ = 0
         if functions:
             lengthFunctions = []
@@ -79,14 +81,14 @@ def get_length_of_functions_per_class(self, x):
     return length_functions_per_class
 
 
-def get_mean_length_functions_per_class(self, x):
-    mean_length_functions_per_class = get_length_of_functions_per_class(self, x)
+def get_mean_length_functions_per_class(responses):
+    mean_length_functions_per_class = get_length_of_functions_per_class(responses)
     return sum(mean_length_functions_per_class) / len(mean_length_functions_per_class)
 
 
 # TODO: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
-    def __init__(self, verbose = True):
+    def __init__(self, verbose=True):
         self.parser = SourceParser()
         self.client = KnifeClient()
         self.verbose = verbose
@@ -117,6 +119,6 @@ class ClassLevelTransformer(BaseEstimator):
                 knifeReponses.append(knifeResponse)
             row = []
             for key, value in self.features.items():
-                row.append(value(self, knifeReponses))
+                row.append(value(knifeReponses))
             result.append(row)
         return result
