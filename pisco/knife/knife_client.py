@@ -10,6 +10,25 @@ class KnifeClient:
     def __init__(self, url=KNIFE_URL):
         self.url = url
 
+    def extract(self, clazz):
+        r = requests.post(os.path.join(self.url, 'extract'),
+                          data={'class': clazz})
+        if r.json()['state'] == 'OK':
+            return r.json()
+        else:
+            return None
+
+    def get_classes(self, response):
+        # print response['classes']
+        return response['classes']
+
+    def get_methods(self, response):
+        methods = map(lambda clazz: clazz['methods'],
+                      response['classes'])
+        # print methods
+        return methods
+
+    # TODO: Refactor method_blocks with the new request / response model
     def method_blocks(self, clazz=None):
         r = requests.post(os.path.join(self.url, 'extract'),
                           data={'class': clazz})
