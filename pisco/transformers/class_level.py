@@ -14,7 +14,7 @@ sys.setdefaultencoding("utf-8")
 
 
 def class_level():
-    pipeline = Pipeline([('mean_num_functions_per_class', ClassLevelTransformer())])
+    pipeline = Pipeline([('mean_num_functions_per_class', ClassLevelTransformer(verbose=True))])
     return ('class_level', pipeline)
 
 
@@ -49,9 +49,10 @@ def get_number_of_files(self, responses):
 
 # TODO: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
-    def __init__(self):
+    def __init__(self, verbose = True):
         self.parser = SourceParser()
         self.client = KnifeClient()
+        self.verbose = verbose
         self.features = dict()
         self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
         self.features["number_of_classes"] = get_number_of_classes
@@ -66,10 +67,11 @@ class ClassLevelTransformer(BaseEstimator):
     def transform(self, X):
         list_class_list = extract_classes(X)
         result = []
-        print_progress_bar(0, len(list_class_list), "Extracting Features")
+        if self.verbose:
+            print_progress_bar(0, len(list_class_list), "Extracting Features")
         for (i, x) in enumerate(list_class_list):
-            print_progress_bar(i + 1, len(list_class_list), "Extracting Features")
-
+            if self.verbose:
+                print_progress_bar(i + 1, len(list_class_list), "Extracting Features")
             knifeReponses = []
             for clazz in x:
                 knifeResponse = self.client.extract(clazz)
