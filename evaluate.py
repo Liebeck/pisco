@@ -1,14 +1,11 @@
 #!/usr/bin/env python
-import pisco.loaders.plain_loader as plain_loader
-from pisco.configuration import Configuration
 from pisco.recognizers.linear_regression import linear_regression
+import pisco.loaders.plain_loader as plain_loader
 from pisco.transformers.unigram import unigram
-from pisco.pipeline.pipeline import pipeline
-from sklearn.cross_validation import KFold
-from pisco.metrics.metrics import pearson, mse
-import numpy as np
-import logging
+from pisco.configuration import Configuration
+from pisco.benchmarks.cv_benchmark import benchmark
 import argparse
+import logging
 
 
 def configure(conf):
@@ -33,11 +30,6 @@ def configure(conf):
 def pretty_list(items):
     return ', '.join([x for x in items])
 
-def report(correlations, errors, num_folds=2):
-    print('{} {}-fold CV Report {}'.format('*'*11,num_folds, '*'*11))
-    print("PC:\t%0.2f\t(+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
-    print("RMSE:\t%0.2f\t(+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
-    print('{}'.format('*'*40))
 
 if __name__ == '__main__':
     conf = Configuration()
@@ -64,29 +56,9 @@ if __name__ == '__main__':
     logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
 
 
-    correlations = []
-    errors = []
     configure(conf)
     X_train, y_train = conf.get_dataset(args.training_corpus)
     y_train = [y[0] for y in y_train]
-    if args.test_corpus:
-        X_test, y_test = conf.get_dataset(args.test_corpus)
-    else:
-        X_test, y_test = None, None
     recognizer_instance = conf.get_recognizer(args.recognizer_name)
     features = conf.get_feature(args.feature_names)
-    p = pipeline(features, classifier=recognizer_instance)
-    skf = KFold(len(y_train), n_folds=2, shuffle=True, random_state=123)
-    fold = 1
-    logging.info('Starting cross validation: num_fold={}'.format(2))
-    for train_index, test_index in skf:
-        X_train_fold, y_train_fold = [X_train[i] for i in train_index], [y_train[i] for i in train_index]
-        X_test_fold, y_test_fold = [X_train[i] for i in test_index], [y_train[i] for i in test_index]
-        p.fit(X_train_fold, y_train_fold)
-        y_pred_fold =p.predict(X_test_fold)
-        correlations.append(pearson(y_test_fold, y_pred_fold))
-        errors.append(mse(y_test_fold, y_pred_fold))
-        fold = fold + 1
-    report(correlations, errors, 2)
-
-
+    benchmark(X_train, y_train, recognizer_instance, features)
