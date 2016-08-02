@@ -5,7 +5,7 @@ import numpy as np
 import logging
 
 
-def benchmark(X_train, y_train, recognizer, features, n_folds=3):
+def benchmark(X_train, y_train, recognizer, features, n_folds=4):
     skf = KFold(len(y_train), n_folds=n_folds, shuffle=True, random_state=123)
     p = pipeline(transformers=features, recognizer=recognizer)
     fold, pcs, rmses = 1, [], []
