@@ -96,8 +96,8 @@ class ClassLevelTransformer(BaseEstimator):
         self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
         self.features["number_of_classes"] = get_number_of_classes
         self.features["number_of_files"] = get_number_of_files
-        # self.features["get_mean_count_comments_per_class"] = get_mean_count_comments_per_class
-        self.features["get_mean_length_functions_per_class"] = get_mean_length_functions_per_class
+        self.features["get_mean_count_comments_per_class"] = get_mean_count_comments_per_class
+        # self.features["get_mean_length_functions_per_class"] = get_mean_length_functions_per_class
 
     def get_feature_names(self):
         return np.array(self.features.keys())
