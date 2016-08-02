@@ -1,27 +1,31 @@
 #!/usr/bin/env python
 import pisco.loaders.plain_loader as plain_loader
 from pisco.configuration import Configuration
+from pisco.recognizers.linear_regression import linear_regression
+from pisco.transformers.unigram import unigram
+from pisco.pipeline.pipeline import pipeline
+from sklearn.cross_validation import KFold
+import logging
 import argparse
 
 
 def configure(conf):
-    @conf.dataset('documents/neuroticism', level='document', labels=['neuroticism'])
-    @conf.dataset('documents/extroversion', level='document', labels=['extroversion'])
-    @conf.dataset('documents/agreeableness', level='document', labels=['agreeableness'])
-    @conf.dataset('documents/openness', level='document', labels=['openness'])
-    @conf.dataset('documents/conscientiousness', level='document', labels=['conscientiousness'])
-    @conf.dataset('documents/all', level='document',
-                  labels=['neuroticism', 'extroversion', 'agreeableness', 'openness', 'conscientiousness'])
-    @conf.dataset('codes/neuroticism', level='code', labels=['neuroticism'])
-    @conf.dataset('codes/extroversion', level='code', labels=['extroversion'])
-    @conf.dataset('codes/agreeableness', level='code', labels=['agreeableness'])
-    @conf.dataset('codes/openness', level='code', labels=['openness'])
-    @conf.dataset('codes/conscientiousness', level='code', labels=['conscientiousness'])
-    @conf.dataset('codes/all', level='code',
-                  labels=['neuroticism', 'extroversion', 'agreeableness', 'openness', 'conscientiousness'])
+    @conf.dataset('neuroticism', labels=['neuroticism'])
+    @conf.dataset('extroversion', labels=['extroversion'])
+    @conf.dataset('agreeableness', labels=['agreeableness'])
+    @conf.dataset('openness', labels=['openness'])
+    @conf.dataset('conscientiousness', labels=['conscientiousness'])
     def build_dataset(level=None, labels=[]):
-        X, y = plain_loader.load(level=level, labels=labels)
+        X, y = plain_loader.load(labels=labels)
         return X, y
+
+    @conf.recognizer('linear_regression')
+    def build_linear_regression():
+        return linear_regression()
+
+    @conf.feature('unigram')
+    def build_feature():
+        return [unigram()]
 
 
 def pretty_list(items):
@@ -45,14 +49,35 @@ if __name__ == '__main__':
     argparser.add_argument('-r', '--recognizer', dest='recognizer_name', type=str, required=True,
                            help='Name of the invoked recognizer: ' + pretty_list(conf.get_recognizer_names()))
 
+    argparser.add_argument('-f', '--features', dest='feature_names', type=str, required=True,
+                           help='Name of the features: ' + pretty_list(conf.get_feature_names()))
+
     args = argparser.parse_args()
-    # LOGFMT = '%(asctime)s %(name)s %(levelname)s %(message)s'
-    # logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
+    LOGFMT = '%(asctime)s %(name)s %(levelname)s %(message)s'
+    logging.basicConfig(level=getattr(logging, args.log_level), format=LOGFMT)
 
     configure(conf)
     X_train, y_train = conf.get_dataset(args.training_corpus)
     if args.test_corpus:
         X_test, y_test = conf.get_dataset(args.test_corpus)
     else:
-        X_test, y_test = None
+        X_test, y_test = None, None
     recognizer_instance = conf.get_recognizer(args.recognizer_name)
+    features = conf.get_feature(args.feature_names)
+    p = pipeline(features, classifier=recognizer_instance)
+    skf = KFold(len(y_train), n_folds=2, shuffle=True, random_state=123)
+    fold = 1
+    for train_index, test_index in skf:
+        X_train_fold, y_train_fold = [X_train[i] for i in train_index], [y_train[i] for i in train_index]
+        X_test_fold, y_test_fold = [X_train[i] for i in test_index], [y_train[i] for i in test_index]
+        logging.info('Training on {} instances!'.format(len(train_index)))
+        p.fit(X_train_fold, y_train_fold)
+        logging.info('Testing on fold {} with {} instances'.format(
+            fold, len(test_index)))
+        y_pred_fold =p.predict(X_test_fold)
+        fold = fold + 1
+    if X_test:
+        logging.info('Training on {} instances!'.format(len(X_train)))
+        p.fit(X_train, y_train)
+        logging.info('Testing on {} instances!'.format(len(X_test)))
+        y_pred = p.predict(X_test)
