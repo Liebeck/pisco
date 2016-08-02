@@ -47,6 +47,43 @@ def get_number_of_files(self, responses):
     return len(responses)
 
 
+def get_mean_count_comments_per_class(self, x):
+    mean_count_comments_per_class = get_count_comments_per_class(self, x)
+    return sum(mean_count_comments_per_class) / len(mean_count_comments_per_class)
+
+
+def get_count_comments_per_class(self, x):
+    count_comments_per_class = []
+    for clazz in x:
+        functions = self.client.method_blocks(clazz)
+        countComments = 0
+        if functions:
+            for func in functions:
+                count = func.count("//")
+                countComments += count
+        count_comments_per_class.append(countComments)
+    return count_comments_per_class
+
+
+def get_length_of_functions_per_class(self, x):
+    length_functions_per_class = []
+    for clazz in x:
+        functions = self.client.method_blocks(clazz)
+        sum_ = 0
+        if functions:
+            lengthFunctions = []
+            for func in functions:
+                lengthFunctions.append(len(func))
+            sum_ = sum(lengthFunctions)
+        length_functions_per_class.append(sum_)
+    return length_functions_per_class
+
+
+def get_mean_length_functions_per_class(self, x):
+    mean_length_functions_per_class = get_length_of_functions_per_class(self, x)
+    return sum(mean_length_functions_per_class) / len(mean_length_functions_per_class)
+
+
 # TODO: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
     def __init__(self, verbose = True):
@@ -57,6 +94,8 @@ class ClassLevelTransformer(BaseEstimator):
         self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
         self.features["number_of_classes"] = get_number_of_classes
         self.features["number_of_files"] = get_number_of_files
+        # self.features["get_mean_count_comments_per_class"] = get_mean_count_comments_per_class
+        self.features["get_mean_length_functions_per_class"] = get_mean_length_functions_per_class
 
     def get_feature_names(self):
         return np.array(self.features.keys())
