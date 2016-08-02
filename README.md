@@ -4,6 +4,7 @@ Given a source code collection of a programmer, Pisco identifies her personality
 
 ## Dependencies
 * [docker](https://www.docker.com/)
+* [knife](https://github.com/pasmod/knife)
 
 ## How to setup the project:
 ``` bash
@@ -14,6 +15,10 @@ Given a source code collection of a programmer, Pisco identifies her personality
 ``` bash
   python start.py
 ```
+
+## How to start knife:
+* Pisco automatically pulls and runs knife. It means by running ``` make run ``` knife will also start. 
+* Notice: Changes in knife take 2-3 minutes to be observable by pisco!! If you want to see the changes directly, build and start knife yourself!!
 
 # Architecture
 * **Pipeline:** Main pipeline that is executed for the evaluation. It will be used for 3-fold cross validation and a grid search.
