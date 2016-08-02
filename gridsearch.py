@@ -10,12 +10,11 @@ from sklearn.metrics import make_scorer
 from pisco.metrics.metrics import pearson
 
 
+DIMENSIONS = ['openness']
+RECOGNIZERS = [linear_regression]
+FEATURES = [unigram]
+SCORE = 'RMSE'  # or PC
 
-
-DIMENSIONS=['openness']
-RECOGNIZERS=[linear_regression]
-FEATURES=[unigram]
-SCORE='RMSE' # or PC
 
 def make_score_function(score):
     if score == "RMSE":
