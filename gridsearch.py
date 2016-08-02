@@ -23,7 +23,7 @@ def report(grid_scores, n_top=3):
 # Load files
 
 X, Y = load(labels=['openness'])
-Y = [y[0] for y in Y]
+# Y = [y[0] for y in Y]
 transformers = [class_level()]
 p = pipeline.pipeline(transformers)
 
@@ -35,7 +35,8 @@ print('\nSuccess!')
 # Test gridsearch with crossvalidation
 
 
-param_grid = {'svm__C': [1e3, 5e3, 1e4, 5e4, 1e5], 'svm__gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1]}
+# param_grid = {'svm__C': [1e3, 5e3, 1e4, 5e4, 1e5], 'svm__gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1]}
+param_grid = {'linear_regression__fit_intercept': [True, False], 'linear_regression__normalize': [True, False]}
 
 evaluation_score = "mse"
 scoring_function = ""
