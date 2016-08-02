@@ -1,7 +1,8 @@
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
-from pisco.transformers.class_level import class_level
+from pisco.transformers.unigram import unigram
+import pisco.recognizers.linear_regression as linear_regression
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
 from pisco.metrics.metrics import mse
@@ -23,9 +24,9 @@ def report(grid_scores, n_top=3):
 # Load files
 
 X, Y = load(labels=['openness'])
-# Y = [y[0] for y in Y]
-transformers = [class_level()]
-p = pipeline.pipeline(transformers)
+transformers = [unigram()]
+recognizer = linear_regression.linear_regression()
+p = pipeline.pipeline(transformers=[unigram()], recognizer=recognizer)
 
 # Test prediction
 p.fit(X, Y)
@@ -36,7 +37,8 @@ print('\nSuccess!')
 
 
 # param_grid = {'svm__C': [1e3, 5e3, 1e4, 5e4, 1e5], 'svm__gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1]}
-param_grid = {'linear_regression__fit_intercept': [True, False], 'linear_regression__normalize': [True, False]}
+param_grid = {}
+param_grid.update(linear_regression.param_grid())
 
 evaluation_score = "mse"
 scoring_function = ""
