@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 from pisco.recognizers.linear_regression import linear_regression
+from pisco.benchmarks.cv_benchmark import benchmark
 import pisco.loaders.plain_loader as plain_loader
 from pisco.transformers.unigram import unigram
 from pisco.configuration import Configuration
-from pisco.benchmarks.cv_benchmark import benchmark
 import argparse
 import logging
 

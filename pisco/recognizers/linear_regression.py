@@ -8,5 +8,5 @@ def param_grid():
 
 
 def linear_regression():
-    pipeline = Pipeline([('linear_regression', LinearRegression(n_jobs=-1))])
+    pipeline = Pipeline([('linear_regression', LinearRegression())])
     return ('recognizer', pipeline)
