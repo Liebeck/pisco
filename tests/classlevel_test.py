@@ -5,22 +5,26 @@ import json
 
 
 class ClassLevelFeaturesTest(unittest.TestCase):
-    def test_get_number_of_classes(self):
-        knifeReponses = []
+    def load_first_two_results(self):
+        knife_reponses = []
         with open('tests/knife_results/knife_result1.txt') as result1:
-            knifeReponses.append(json.load(result1))
-        self.assertEqual(get_number_of_classes(knifeReponses), 2)
+            knife_reponses.append(json.load(result1))
         with open('tests/knife_results/knife_result2.txt') as result2:
-            knifeReponses.append(json.load(result2))
-        self.assertEqual(get_number_of_classes(knifeReponses), 3)
+            knife_reponses.append(json.load(result2))
+        return knife_reponses
+
+    def test_get_number_of_classes(self):
+        knife_reponses = []
+        with open('tests/knife_results/knife_result1.txt') as result1:
+            knife_reponses.append(json.load(result1))
+        self.assertEqual(get_number_of_classes(knife_reponses), 2)
+        with open('tests/knife_results/knife_result2.txt') as result2:
+            knife_reponses.append(json.load(result2))
+        self.assertEqual(get_number_of_classes(knifknife_reponseseReponses), 3)
 
     def test_get_num_functions_per_class(self):
-        knifeReponses = []
-        with open('tests/knife_results/knife_result1.txt') as result1:
-            knifeReponses.append(json.load(result1))
-        with open('tests/knife_results/knife_result2.txt') as result2:
-            knifeReponses.append(json.load(result2))
-        self.assertEqual(get_num_functions_per_class(knifeReponses), [2, 1])
+        knife_reponses = self.load_first_two_results()
+        self.assertEqual(get_num_functions_per_class(knife_reponses), [2, 1])
 
 
 if __name__ == '__main__':
