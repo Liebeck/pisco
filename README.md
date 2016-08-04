@@ -30,5 +30,17 @@ Given a source code collection of a programmer, Pisco identifies her personality
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features class_level
 ```
 
+# Workflow
+``` git pull ``` 
+``` make run ``` (optionally ``` make build```)
 
+evaluate (see *How to evaluate a feature*)
+
+``` make run ``` 
+``` py.test -- pep8``` 
+
+``` git status``` 
+``` git add 'path'``` 
+``` git commit -m 'message'``` 
+``` git push``` 
 
