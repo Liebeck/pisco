@@ -27,7 +27,7 @@
           "isPublic": true,
           "isPrivate": false,
           "isStatic": true,
-          "codeBlock": "public static int add(int a, int b) {\n\n\t\treturn a + b;\n\t}\n",
+          "codeBlock": "public static int add(int a, int b) {\n\n\t\treturn a + b;//this is a comment\n\t}\n",
           "parameters": [
             {
               "parameterName": "a",
