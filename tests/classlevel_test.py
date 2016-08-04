@@ -1,5 +1,6 @@
 from pisco.transformers.class_level import get_number_of_classes
 from pisco.transformers.class_level import get_num_functions_per_class
+from pisco.transformers.class_level import get_percentage_class_is_private
 import unittest
 import json
 
@@ -25,6 +26,10 @@ class ClassLevelFeaturesTest(unittest.TestCase):
     def test_get_num_functions_per_class(self):
         knife_reponses = self.load_first_two_results()
         self.assertEqual(get_num_functions_per_class(knife_reponses), [2, 1])
+
+    def test_get_percentage_class_is_private(self):
+        knife_reponses = self.load_first_two_results()
+        self.assertEqual(get_percentage_class_is_private(knife_reponses), 0)
 
 
 if __name__ == '__main__':
