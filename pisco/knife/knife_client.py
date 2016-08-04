@@ -9,10 +9,15 @@ KNIFE_URL = 'http://' + ':'.join([
 class KnifeClient:
     def __init__(self, url=KNIFE_URL):
         self.url = url
+        self.memory = {}
 
     def extract(self, clazz):
-        r = requests.post(os.path.join(self.url, 'extract'),
-                          data={'class': clazz})
+        if clazz not in self.memory:
+            r = requests.post(os.path.join(self.url, 'extract'),
+                              data={'class': clazz})
+            self.memory[clazz] = r
+        else:
+            r = self.memory[clazz]
         if r.json()['state'] == 'OK':
             return r.json()
         else:
