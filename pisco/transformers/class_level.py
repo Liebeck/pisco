@@ -7,6 +7,8 @@ from ..utils.utils import extract_classes
 from ..utils.utils import print_progress_bar
 from ..knife.json_helper import get_classes
 from ..knife.json_helper import get_methods
+from ..knife.json_helper import get_code_blocks
+from ..knife.json_helper import get_class_is_private
 import logging
 import numpy as np
 import sys
@@ -49,12 +51,7 @@ def get_number_of_files(responses):
     return len(responses)
 
 
-def get_mean_count_comments_per_class(responses):
-    mean_count_comments_per_class = get_count_comments_per_class(responses)
-    return 1.0 * sum(mean_count_comments_per_class) / len(mean_count_comments_per_class)
-
-
-def get_count_comments_per_class(responses):
+def get_mean_count_single_line_comments(responses):
     count_comments_per_class = []
     for response in filter(lambda r: r is not None, responses):
         functions = get_methods(response)
@@ -64,7 +61,7 @@ def get_count_comments_per_class(responses):
                 count = func.count("//")
                 countComments += count
         count_comments_per_class.append(countComments)
-    return count_comments_per_class
+    return (1.0 * sum(count_comments_per_class)) / len(count_comments_per_class)
 
 
 def get_length_of_functions_per_class(responses):
@@ -86,6 +83,25 @@ def get_mean_length_functions_per_class(responses):
     return sum(mean_length_functions_per_class) / len(mean_length_functions_per_class)
 
 
+def get_percentage_class_is_private(responses):
+    sum_is_private = 0
+    sum_is_not_private = 0
+    for response in filter(lambda r: r is not None, responses):
+        is_privates = get_class_is_private(response)
+        for is_private in is_privates:
+            if is_private is True:
+                sum_is_private += 1
+            else:
+                sum_is_not_private += 1
+    if sum_is_not_private == 0:
+        if sum_is_private == 0:
+            return 0.0
+        else:
+            return 1.0
+    result = 10 * (1.0 * sum_is_private) / sum_is_not_private
+    return result
+
+
 # TODO: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
     def __init__(self, verbose=True):
@@ -96,7 +112,8 @@ class ClassLevelTransformer(BaseEstimator):
         self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
         self.features["number_of_classes"] = get_number_of_classes
         self.features["number_of_files"] = get_number_of_files
-        self.features["get_mean_count_comments_per_class"] = get_mean_count_comments_per_class
+        self.features["get_mean_count_single_line_comments"] = get_mean_count_single_line_comments
+        self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
         # self.features["get_mean_length_functions_per_class"] = get_mean_length_functions_per_class
 
     def get_feature_names(self):
