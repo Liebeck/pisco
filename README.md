@@ -1,5 +1,5 @@
 # Pisco
-[!Build Status](https://travis-ci.com/Liebeck/pisco.svg?token=qYUFfiWV6mqYYR5fELB6)](https://travis-ci.com/Liebeck/pisco)
+[![Build Status](https://travis-ci.com/Liebeck/pisco.svg?token=qYUFfiWV6mqYYR5fELB6)](https://travis-ci.com/Liebeck/pisco)
 
 Given a source code collection of a programmer, Pisco identifies her personality trait!
 
