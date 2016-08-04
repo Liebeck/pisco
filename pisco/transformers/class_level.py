@@ -98,7 +98,7 @@ def get_percentage_class_is_private(responses):
             return 0.0
         else:
             return 1.0
-    result = 10 * (1.0 * sum_is_private) / sum_is_not_private
+    result = sum_is_private / sum_is_not_private
     return result
 
 
