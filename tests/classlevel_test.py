@@ -20,7 +20,7 @@ class ClassLevelFeaturesTest(unittest.TestCase):
         self.assertEqual(get_number_of_classes(knife_reponses), 2)
         with open('tests/knife_results/knife_result2.txt') as result2:
             knife_reponses.append(json.load(result2))
-        self.assertEqual(get_number_of_classes(knifknife_reponseseReponses), 3)
+        self.assertEqual(get_number_of_classes(knife_reponses), 3)
 
     def test_get_num_functions_per_class(self):
         knife_reponses = self.load_first_two_results()
