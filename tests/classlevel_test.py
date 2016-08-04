@@ -1,7 +1,6 @@
 from pisco.transformers.class_level import get_number_of_classes
 import unittest
 import json
-import logging
 
 
 class ClassLevelFeaturesTest(unittest.TestCase):
