@@ -1,0 +1,52 @@
+{
+  "state": "OK",
+  "classes": [
+    {
+      "className": "ThirdClass",
+      "packageName": "",
+      "isPublic": true,
+      "isPrivate": false,
+      "isStatic": false,
+      "implementsInterfaces": false,
+      "methods": [
+        {
+          "methodName": "main",
+          "isPublic": true,
+          "isPrivate": false,
+          "isStatic": true,
+          "codeBlock": "public static void main(java.lang.String[] args) {\n\n\t\tSystem.out.println(add(2, 3));\n\t}\n",
+          "parameters": [
+            {
+              "parameterName": "args",
+              "type": "java.lang.String[]"
+            }
+          ]
+        },
+        {
+          "methodName": "add",
+          "isPublic": true,
+          "isPrivate": false,
+          "isStatic": true,
+          "codeBlock": "public static int add(int a, int b) {\n\n\t\treturn a + b;\n\t}\n",
+          "parameters": [
+            {
+              "parameterName": "a",
+              "type": "int"
+            },
+            {
+              "parameterName": "b",
+              "type": "int"
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "fieldName": "counter",
+          "type": "int",
+          "codeBlock": "int counter = 5;\n"
+        }
+      ]
+    }
+  ]
+}
