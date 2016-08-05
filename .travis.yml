@@ -3,8 +3,7 @@ sudo: required
 language: python
 
 env:
-  - "KNIFE_PORT_4567_TCP_ADDR=dummy_entry"
-  - "KNIFE_PORT_4567_TCP_PORT=dummy_entry"
+  - KNIFE_PORT_4567_TCP_ADDR=dummy_entry KNIFE_PORT_4567_TCP_PORT=dummy_entry
 
 services:
   - docker
