@@ -28,8 +28,7 @@ class KnifeClient:
         r = requests.post(os.path.join(self.url, 'extract'),
                           data={'class': clazz})
         if r.json()['state'] == 'OK':
-            all_methods = map(lambda clazz: clazz['methods'],
-                              r.json()['classes'])
+            all_methods = map(lambda clazz: clazz['methods'], r.json()['classes'])
             method_blocks = map(lambda class_methods: map(
                 lambda m: m['codeBlock'], class_methods), all_methods)
             return method_blocks

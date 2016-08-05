@@ -8,10 +8,12 @@ from ..utils.utils import print_progress_bar
 from ..knife.json_helper import get_classes
 from ..knife.json_helper import get_methods
 from ..knife.json_helper import get_code_blocks
-from ..knife.json_helper import get_class_is_private
+from ..knife.json_helper import get_clazzes_is_access_modifier
+from ..knife.json_helper import get_methods_in_clazz
 import logging
 import numpy as np
 import sys
+import re
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -51,54 +53,114 @@ def get_number_of_files(responses):
     return len(responses)
 
 
-def get_mean_count_single_line_comments(responses):
+# Done
+def get_mean_count_single_line_comments_per_class(responses):
     count_comments_per_class = []
     for response in filter(lambda r: r is not None, responses):
-        functions = get_methods(response)
-        countComments = 0
-        if functions:
-            for func in functions:
-                count = func.count("//")
-                countComments += count
-        count_comments_per_class.append(countComments)
+        classes = get_classes(response)
+        for clazz in classes:
+            count_comments_in_clazz = 0
+            methods = get_methods_in_clazz(clazz)
+            for method in methods:
+                code_block = method['codeBlock']
+                count_comments = code_block.count("//")
+                count_comments_in_clazz += count_comments
+                # print count_comments
+                # raw_input("Press Enter to continue...")
+            count_comments_per_class.append(count_comments)
     return (1.0 * sum(count_comments_per_class)) / len(count_comments_per_class)
 
 
-def get_length_of_functions_per_class(responses):
-    length_functions_per_class = []
+# Done
+def get_mean_length_of_functions_per_class(responses):
+    length_methods_per_class = []
     for response in filter(lambda r: r is not None, responses):
-        functions = get_methods(response)
-        sum_ = 0
-        if functions:
-            lengthFunctions = []
-            for func in functions:
-                lengthFunctions.append(len(func))
-            sum_ = sum(lengthFunctions)
-        length_functions_per_class.append(sum_)
-    return length_functions_per_class
+        classes = get_classes(response)
+        for clazz in classes:
+            length_of_function = 0
+            methods = get_methods_in_clazz(clazz)
+            for method in methods:
+                code_block = method['codeBlock']
+                length_of_function += len(code_block)
+            length_methods_per_class.append(length_of_function)
+    return sum(length_methods_per_class) / len(length_methods_per_class)
 
 
-def get_mean_length_functions_per_class(responses):
-    mean_length_functions_per_class = get_length_of_functions_per_class(responses)
-    return sum(mean_length_functions_per_class) / len(mean_length_functions_per_class)
-
-
-def get_percentage_class_is_private(responses):
-    sum_is_private = 0
-    sum_is_not_private = 0
+# Done
+def get_percentage_class_is_acess_modifier(responses, acess_modifier):
+    sum_is_acess_modifier = 0
+    sum_is_not_acess_modifier = 0
     for response in filter(lambda r: r is not None, responses):
-        is_privates = get_class_is_private(response)
-        for is_private in is_privates:
-            if is_private is True:
-                sum_is_private += 1
+        is_acess_modifier_list = get_clazzes_is_access_modifier(response, acess_modifier)
+        for is_acess_modifier in is_acess_modifier_list:
+            if is_acess_modifier is True:
+                sum_is_acess_modifier += 1
             else:
-                sum_is_not_private += 1
-    if sum_is_not_private == 0:
-        if sum_is_private == 0:
+                sum_is_not_acess_modifier += 1
+    if sum_is_not_acess_modifier == 0:
+        if sum_is_acess_modifier == 0:
             return 0.0
         else:
             return 1.0
-    result = 10 * (1.0 * sum_is_private) / sum_is_not_private
+    result = (1.0 * sum_is_acess_modifier) / sum_is_not_acess_modifier
+    return result
+
+
+# Done
+def get_percentage_class_is_private(responses):
+    return get_percentage_class_is_acess_modifier(responses, 'isPrivate')
+
+
+# Done
+def get_percentage_class_is_public(responses):
+    return get_percentage_class_is_acess_modifier(responses, 'isPublic')
+
+
+# Done
+def get_percentage_class_is_static(responses):
+    return get_percentage_class_is_acess_modifier(responses, 'isStatic')
+
+
+def get_mean_long_comments_length_per_class(responses):
+    length_long_comments_per_class = []
+    prog = re.compile('\/\*\*[^*]*\*+([^/][^*]*\*+)*\/')
+    for response in filter(lambda r: r is not None, responses):
+        classes = get_classes(response)
+        for clazz in classes:
+            length_of_comments = 0
+            methods = get_methods_in_clazz(clazz)
+            for method in methods:
+                code_block = method['codeBlock']
+                results = prog.finditer(code_block)
+                for result in results:
+                    if result is not None:
+                        # print result.group()
+                        length_of_comments += len(result.group())
+                        # print length_of_comments
+                        # raw_input("Press Enter to continue...")
+            length_long_comments_per_class.append(length_of_comments)
+    result = (1.0 * sum(length_long_comments_per_class)) / len(length_long_comments_per_class)
+    return result
+
+
+def get_mean_count_long_comments_per_class(responses):
+    count_long_comments_per_class = []
+    prog = re.compile('\/\*\*[^*]*\*+([^/][^*]*\*+)*\/')
+    for response in filter(lambda r: r is not None, responses):
+        classes = get_classes(response)
+        for clazz in classes:
+            count_of_comments = 0
+            methods = get_methods_in_clazz(clazz)
+            for method in methods:
+                code_block = method['codeBlock']
+                results = prog.finditer(code_block)
+                for result in results:
+                    if result is not None:
+                        count_of_comments += 1
+                        # print length_of_comments
+                        # raw_input("Press Enter to continue...")
+            count_long_comments_per_class.append(count_of_comments)
+    result = (1.0 * sum(count_long_comments_per_class)) / len(count_long_comments_per_class)
     return result
 
 
@@ -112,9 +174,13 @@ class ClassLevelTransformer(BaseEstimator):
         self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
         self.features["number_of_classes"] = get_number_of_classes
         self.features["number_of_files"] = get_number_of_files
-        self.features["get_mean_count_single_line_comments"] = get_mean_count_single_line_comments
-        self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
-        # self.features["get_mean_length_functions_per_class"] = get_mean_length_functions_per_class
+        self.features["get_mean_count_single_line_comments_per_class"] = get_mean_count_single_line_comments_per_class
+        # self.features["get_mean_count_long_comments_per_class"] = get_mean_count_long_comments_per_class
+        # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
+        # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public
+        # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static
+        # self.features["get_mean_long_comments_length_per_class"] = get_mean_long_comments_length_per_class
+        # self.features["get_mean_length_of_functions_per_class"] = get_mean_length_of_functions_per_class
 
     def get_feature_names(self):
         return np.array(self.features.keys())
