@@ -86,38 +86,38 @@ def get_mean_length_of_functions_per_class(responses):
 
 
 # Done
-def get_percentage_class_is_acess_modifier(responses, acess_modifier):
-    sum_is_acess_modifier = 0
-    sum_is_not_acess_modifier = 0
+def get_percentage_class_is_access_modifier(responses, access_modifier):
+    sum_is_access_modifier = 0
+    sum_is_not_access_modifier = 0
     for response in filter(lambda r: r is not None, responses):
-        is_acess_modifier_list = get_clazzes_is_access_modifier(response, acess_modifier)
+        is_acess_modifier_list = get_clazzes_is_access_modifier(response, access_modifier)
         for is_acess_modifier in is_acess_modifier_list:
             if is_acess_modifier is True:
-                sum_is_acess_modifier += 1
+                sum_is_access_modifier += 1
             else:
-                sum_is_not_acess_modifier += 1
-    if sum_is_not_acess_modifier == 0:
-        if sum_is_acess_modifier == 0:
+                sum_is_not_access_modifier += 1
+    if sum_is_not_access_modifier == 0:
+        if sum_is_access_modifier == 0:
             return 0.0
         else:
             return 1.0
-    result = (1.0 * sum_is_acess_modifier) / sum_is_not_acess_modifier
+    result = (1.0 * sum_is_access_modifier) / sum_is_not_access_modifier
     return result
 
 
 # Done
 def get_percentage_class_is_private(responses):
-    return get_percentage_class_is_acess_modifier(responses, 'isPrivate')
+    return get_percentage_class_is_access_modifier(responses, 'isPrivate')
 
 
 # Done
 def get_percentage_class_is_public(responses):
-    return get_percentage_class_is_acess_modifier(responses, 'isPublic')
+    return get_percentage_class_is_access_modifier(responses, 'isPublic')
 
 
 # Done
 def get_percentage_class_is_static(responses):
-    return get_percentage_class_is_acess_modifier(responses, 'isStatic')
+    return get_percentage_class_is_access_modifier(responses, 'isStatic')
 
 
 def get_mean_long_comments_length_per_class(responses):
