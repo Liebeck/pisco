@@ -90,9 +90,9 @@ def get_percentage_class_is_access_modifier(responses, access_modifier):
     sum_is_access_modifier = 0
     sum_is_not_access_modifier = 0
     for response in filter(lambda r: r is not None, responses):
-        is_acess_modifier_list = get_clazzes_is_access_modifier(response, access_modifier)
-        for is_acess_modifier in is_acess_modifier_list:
-            if is_acess_modifier is True:
+        is_access_modifier_list = get_clazzes_is_access_modifier(response, access_modifier)
+        for is_access_modifier in is_access_modifier_list:
+            if is_access_modifier is True:
                 sum_is_access_modifier += 1
             else:
                 sum_is_not_access_modifier += 1
