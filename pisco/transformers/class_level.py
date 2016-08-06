@@ -25,7 +25,6 @@ def class_level():
 
 
 # TODO: Refactor into different files?
-# TODO: Cache results from knife call?
 def get_num_functions_per_class(responses):
     num_functions_per_class = []
     for response in responses:
