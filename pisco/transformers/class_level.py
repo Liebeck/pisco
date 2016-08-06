@@ -195,12 +195,12 @@ class ClassLevelTransformer(BaseEstimator):
         for (i, x) in enumerate(list_class_list):
             if self.verbose:
                 print_progress_bar(i + 1, len(list_class_list), "Extracting Features")
-            knifeReponses = []
+            knife_reponses = []
             for clazz in x:
-                knifeResponse = self.client.extract(clazz)
-                knifeReponses.append(knifeResponse)
+                knife_response = self.client.extract(clazz)
+                knife_reponses.append(knife_response)
             row = []
             for key, value in self.features.items():
-                row.append(value(knifeReponses))
+                row.append(value(knife_reponses))
             result.append(row)
         return result
