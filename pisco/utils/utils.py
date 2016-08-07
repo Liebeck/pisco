@@ -1,4 +1,5 @@
 import sys
+import re
 
 
 def extract_classes(X):
@@ -18,3 +19,8 @@ def print_progress_bar(i, max, message, print_new_line=True):
     if print_new_line and (i == max):
         sys.stdout.write("\n")
     sys.stdout.flush()
+
+
+def extract_sections(submission):
+    regex = re.compile(u"<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>[\n|\r]")
+    return regex.split(submission)

@@ -4,14 +4,9 @@ from ...knife.knife_client import KnifeClient
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 import numpy as np
-import re
+from ...utils.utils import extract_sections
 
 client = KnifeClient()
-
-
-def extract_sections(submission):
-    regex = re.compile(u"<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>[\n|\r]")
-    return regex.split(submission)
 
 
 def build():
