@@ -5,6 +5,7 @@ import pisco.transformers.unigram as unigram
 from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.class_level import class_level
+import pisco.transformers.structure.mean_number_of_methods_per_class as mean_number_of_methods_per_class
 import argparse
 import logging
 
@@ -51,6 +52,10 @@ def configure(conf):
     @conf.feature('class_level')
     def build_class_level_feature():
         return [class_level()]
+
+    @conf.feature('mean_number_of_methods_per_class')
+    def build_mean_number_of_methods_per_class_feature():
+        return [mean_number_of_methods_per_class.build()]
 
 
 def pretty_list(items):
