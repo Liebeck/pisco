@@ -1,10 +1,9 @@
-from __future__ import unicode_literals
+from ...utils.utils import extract_sections
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
-from pisco import client
 from sklearn.pipeline import Pipeline
+from pisco import client
 import numpy as np
-from ...utils.utils import extract_sections
 
 
 def build():
@@ -17,17 +16,14 @@ class MeanNumberOfMethodsPerClass(BaseEstimator):
         return self
 
     def transform(self, raw_submissions):
-        results = []
-        for raw_submission in raw_submissions:
-            result = self._transform(raw_submission)
-            results.append([np.average(result)])
-        return results
+        num_functions_per_class = map(lambda raw_submission:
+                                      self._transform(raw_submission),
+                                      raw_submissions)
+        return map(lambda x: np.average(x), num_functions_per_class)
 
     def _transform(self, raw_submission):
-        result = []
         sections = extract_sections(raw_submission)
-        for section in sections:
-            response = client.extract(section)
-            for methods in adapter.response_to_methods(response):
-                result.append(len(methods))
-        return result
+        methods = map(lambda section:
+                      adapter.response_to_methods(client.extract(section)),
+                      sections)
+        return map(lambda ms: map(lambda m: len(m), ms), methods)
