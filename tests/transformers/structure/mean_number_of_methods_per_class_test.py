@@ -1,4 +1,4 @@
-from pisco.transformers.structure.mean_number_of_methods_per_class import MeanNumberOfMethodsPerClass
+from tests import mean_number_of_methods_per_class
 import unittest
 import codecs
 
@@ -10,7 +10,7 @@ def read_submission(filename):
 
 class MeanNumberOfMethodsPerClassTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = MeanNumberOfMethodsPerClass()
+        self.transformer = mean_number_of_methods_per_class
         self.submissions = [read_submission('tests/resources/submission1.txt'),
                             read_submission('tests/resources/submission2.txt')]
 
