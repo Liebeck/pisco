@@ -3,12 +3,15 @@ from sklearn.base import BaseEstimator
 from ...knife.knife_client import KnifeClient
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+import numpy as np
+import re
 
 client = KnifeClient()
 
 
-def extract_sections(x):
-    return x.split(u"<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>\r")
+def extract_sections(submission):
+    regex = re.compile(u"<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>[\n|\r]")
+    return regex.split(submission)
 
 
 def build():
@@ -24,7 +27,7 @@ class MeanNumberOfMethodsPerClass(BaseEstimator):
         results = []
         for raw_submission in raw_submissions:
             result = self._transform(raw_submission)
-            results.append([sum(result)])
+            results.append([np.average(result)])
         return results
 
     def _transform(self, raw_submission):

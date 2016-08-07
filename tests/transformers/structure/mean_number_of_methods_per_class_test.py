@@ -14,7 +14,7 @@ class MeanNumberOfMethodsPerClassTest(unittest.TestCase):
         self.submissions = [read_submission('tests/resources/submission1.txt'),
                             read_submission('tests/resources/submission2.txt')]
 
-    def test_get_num_functions_per_class(self):
+    def test_feature_extraction(self):
         self.assertEqual(self.transformer.transform(self.submissions),
                          [[1.5], [2.5]])
 
