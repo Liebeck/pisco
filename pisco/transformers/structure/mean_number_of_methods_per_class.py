@@ -35,4 +35,3 @@ class MeanNumberOfMethodsPerClass(BaseEstimator):
             for methods in adapter.response_to_methods(response):
                 result.append(len(methods))
         return result
-
