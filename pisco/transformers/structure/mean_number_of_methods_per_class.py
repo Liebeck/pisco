@@ -16,17 +16,17 @@ class MeanNumberOfMethodsPerClass(BaseEstimator):
         return self
 
     def transform(self, raw_submissions):
-        num_functions = map(lambda raw_submission:
-                            self._transform(raw_submission),
-                            raw_submissions)
-        mean_num_functions = map(lambda x:
-                                 map(lambda x: np.average(x), x),
-                                 num_functions)
+        num_methods = map(lambda raw_submission:
+                          self._transform(raw_submission),
+                          raw_submissions)
+        mean_num_methods = map(lambda x:
+                               map(lambda x: np.average(x), x),
+                               num_methods)
         return map(lambda x: [np.mean(x)],
                    map(lambda x:
                        map(lambda x:
                            np.mean(x), x),
-                       mean_num_functions))
+                       mean_num_methods))
 
     def _transform(self, raw_submission):
         sections = extract_sections(raw_submission)
