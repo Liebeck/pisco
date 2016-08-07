@@ -1,5 +1,5 @@
 from knife.knife_client import KnifeClient
-from loggers import config_logger
+from loggers.config import config_logger
 import logging
 
 # Configure the logger

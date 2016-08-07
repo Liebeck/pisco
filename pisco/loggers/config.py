@@ -1,4 +1,4 @@
-from loggers.logstash_formatter import LogstashFormatterV2
+from logstash_formatter import LogstashFormatterV2
 import logging
 
 
