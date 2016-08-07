@@ -1,4 +1,5 @@
 from loggers.logstash_formatter import LogstashFormatterV2
+from knife.knife_client import KnifeClient
 import logging
 
 
@@ -20,3 +21,4 @@ def config_logger(log_level=logging.INFO):
     logger.addHandler(handler)
 
 config_logger()
+client = KnifeClient()

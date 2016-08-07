@@ -1,12 +1,10 @@
 from __future__ import unicode_literals
 from sklearn.base import BaseEstimator
-from ...knife.knife_client import KnifeClient
 import pisco.knife.adapters as adapter
+from pisco import client
 from sklearn.pipeline import Pipeline
 import numpy as np
 from ...utils.utils import extract_sections
-
-client = KnifeClient()
 
 
 def build():
