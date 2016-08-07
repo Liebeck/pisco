@@ -16,7 +16,7 @@ class MeanNumberOfMethodsPerClassTest(unittest.TestCase):
 
     def test_feature_extraction(self):
         self.assertEqual(self.transformer.transform(self.submissions),
-                         [[1.5], [2.5]])
+                         [[1.5], [2.0]])
 
 if __name__ == '__main__':
     unittest.main()
