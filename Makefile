@@ -1,7 +1,7 @@
 name = pisco
 registry = hub.docker.com
 
-build: test
+build:
 	docker build -t $(registry)/$(name) $(BUILD_OPTS) .
 
 stop:
