@@ -11,7 +11,7 @@ min_lines_of_methods_per_class = NumberOfMethodsPerClass(stat='min', method='lin
 max_lines_of_methods_per_class = NumberOfMethodsPerClass(stat='max', method='lines')  # noqa
 variance_lines_of_methods_per_class = NumberOfMethodsPerClass(stat='variance', method='lines')  # noqa
 
-mean_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='mean', method='char')  # noqa
-min_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='min', method='char')  # noqa
-max_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='max', method='char')  # noqa
-variance_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='variance', method='char')  # noqa
+mean_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='mean', method='chars')  # noqa
+min_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='min', method='chars')  # noqa
+max_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='max', method='chars')  # noqa
+variance_chars_of_methods_per_class = NumberOfMethodsPerClass(stat='variance', method='chars')  # noqa
