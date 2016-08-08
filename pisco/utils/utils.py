@@ -40,14 +40,22 @@ def get_stat_function(method='mean'):
         raise ValueError('Method {} is not supported!'.format(method))
 
 
-def count_num_lines(text):
-    return len(text.split('\n'))
+def count_num_lines(texts):
+    return map(lambda parts:
+               len([part for part in parts if part.strip() not in ['', '\t']]),
+               map(lambda text:
+                   text.split('\n'),
+                   texts))
+
+
+def count_num_chars(texts):
+    return map(lambda text: len(text), texts)
 
 
 def get_measurement_function(method='lines'):
     if 'lines' == method:
         return count_num_lines
     if 'chars' == method:
-        return len
+        return count_num_chars
     else:
         raise ValueError('Method {} is not supported!'.format(method))
