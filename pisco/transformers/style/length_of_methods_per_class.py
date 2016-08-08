@@ -6,15 +6,15 @@ from sklearn.pipeline import Pipeline
 
 
 def build(stat='mean', method='lines'):
-    pipeline = Pipeline([('length_of_methods_per_class',
+    pipeline = Pipeline([('transformer',
                           LengthOfMethodsPerClass(stat=stat, method=method))])
-    return ('transformer', pipeline)
+    return ('length_of_methods_per_class', pipeline)
 
 
 def param_grid():
-    return {'union__transformer__length_of_methods_per_class__stat':
+    return {'union__length_of_methods_per_class__transformer__stat':
             ['mean', 'max', 'min', 'variance'],
-            'union__transformer__length_of_methods_per_class__method':
+            'union__length_of_methods_per_class__transformer__method':
             ['lines', 'chars']}
 
 

@@ -1,5 +1,5 @@
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
-import pisco.transformers.structure.length_of_methods_per_class as length_of_methods_per_class  # noqa
+import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
@@ -10,11 +10,13 @@ from sklearn.grid_search import GridSearchCV
 from pisco.metrics.metrics import mse
 from sklearn.metrics import make_scorer
 from pisco.metrics.metrics import pearson
+from collections import OrderedDict
 
 
 DIMENSIONS = ['openness']
 RECOGNIZERS = [linear_regression]
-FEATURES = [unigram, number_of_methods_per_class, length_of_methods_per_class]
+FEATURES = [word_unigram, number_of_methods_per_class,
+            length_of_methods_per_class]
 SCORE = 'RMSE'  # or PC
 
 
@@ -43,13 +45,12 @@ for recognizer in RECOGNIZERS:
     transformers = map(lambda f: f.build(), FEATURES)
     p = pipeline.pipeline(transformers=transformers,
                           recognizer=recognizer.build())
-    param_grid = {}
+    param_grid = OrderedDict()
     param_grid.update(recognizer.param_grid())
     for f in FEATURES:
-        print(f)
         param_grid.update(f.param_grid())
     scoring = make_score_function(SCORE)
-    grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10,
+    grid_search = GridSearchCV(p, param_grid=param_grid, verbose=100,
                                cv=5, n_jobs=-1, scoring=scoring)
     grid_search.fit(X, Y)
     report(grid_search.grid_scores_)
