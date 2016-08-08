@@ -34,4 +34,5 @@ class LengthOfMethodsPerClass(BaseEstimator):
         measure = get_measurement_function(self.method)
         sections = extract_sections(raw_submission)
         methods = adapter.method_blocks(sections)
-        return [stat(map(lambda x: measure(x), methods))]
+        return [stat(map(lambda x: stat(x),
+                         map(lambda x: measure(x), methods)))]
