@@ -36,3 +36,11 @@ def methods(sections):
             m.append(None)
         methods.append(m)
     return methods
+
+
+def method_blocks(sections):
+    methods_ = methods(sections)
+    method_blocks = []
+    for m in methods_:
+        method_blocks.append(m['codeBlock'])
+    return method_blocks
