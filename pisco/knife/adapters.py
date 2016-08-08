@@ -16,8 +16,11 @@ def classes(sections):
     clazzes = []
     for section in sections:
         response = client.extract(section)
-        for clazz in response['classes']:
-            clazzes.append(clazz)
+        if response:
+            for clazz in response['classes']:
+                clazzes.append(clazz)
+        else:
+            clazzes.append(None)
     return clazzes
 
 
@@ -26,7 +29,10 @@ def methods(sections):
     clazzes = classes(sections)
     for clazz in clazzes:
         m = []
-        for method in clazz['methods']:
-            m.append(method)
+        if clazz:
+            for method in clazz['methods']:
+                m.append(method)
+        else:
+            m.append(None)
         methods.append(m)
     return methods
