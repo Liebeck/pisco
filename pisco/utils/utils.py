@@ -27,7 +27,7 @@ def extract_sections(submission):
     return regex.split(submission)
 
 
-def get_stat(method='mean'):
+def get_stat_function(method='mean'):
     if 'mean' == method:
         return np.mean
     if 'max' == method:

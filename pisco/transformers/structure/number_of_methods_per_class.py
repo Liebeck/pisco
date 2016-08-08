@@ -1,12 +1,18 @@
-from ...utils.utils import extract_sections, get_stat
+from ...utils.utils import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
 def build():
-    pipeline = Pipeline([('transformer', NumberOfMethodsPerClass())])
-    return ('mean_number_of_methods_per_class', pipeline)
+    pipeline = Pipeline([('number_of_methods_per_class',
+                          NumberOfMethodsPerClass(method='mean'))])
+    return ('transformer', pipeline)
+
+
+def param_grid():
+    return {'union__transformer__number_of_methods_per_class__method':
+            ['mean', 'max', 'min', 'variance']}
 
 
 class NumberOfMethodsPerClass(BaseEstimator):
@@ -20,7 +26,7 @@ class NumberOfMethodsPerClass(BaseEstimator):
         return map(lambda x: self._transform(x), raw_submissions)
 
     def _transform(self, raw_submission):
-        stat = get_stat(self.method)
+        stat = get_stat_function(self.method)
         sections = extract_sections(raw_submission)
         methods = adapter.methods(sections)
         return stat(map(lambda x: len(x), methods))
