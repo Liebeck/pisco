@@ -1,15 +1,15 @@
 from __future__ import unicode_literals
 from sklearn.base import BaseEstimator
-from ..parsers.source_parser import SourceParser
+from ...parsers.source_parser import SourceParser
 from sklearn.pipeline import Pipeline
-from ..knife.knife_client import KnifeClient
-from ..utils.utils import extract_classes
-from ..utils.utils import print_progress_bar
-from ..knife.json_helper import get_classes
-from ..knife.json_helper import get_methods
-from ..knife.json_helper import get_code_blocks
-from ..knife.json_helper import get_clazzes_is_access_modifier
-from ..knife.json_helper import get_methods_in_clazz
+from ...knife.knife_client import KnifeClient
+from ...utils.utils import extract_classes
+from ...utils.utils import print_progress_bar
+from ...knife.json_helper import get_classes
+from ...knife.json_helper import get_methods
+from ...knife.json_helper import get_code_blocks
+from ...knife.json_helper import get_clazzes_is_access_modifier
+from ...knife.json_helper import get_methods_in_clazz
 import logging
 import numpy as np
 import sys
