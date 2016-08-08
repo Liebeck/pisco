@@ -1,15 +1,4 @@
-import logging
 from pisco import client
-
-
-def response_to_classes(response):
-    return response['classes'] if response else []
-
-
-def response_to_methods(response):
-    classes = response_to_classes(response)
-    logging.info(classes)
-    return map(lambda clazz: clazz['methods'], response_to_classes(response))
 
 
 def classes(sections):
