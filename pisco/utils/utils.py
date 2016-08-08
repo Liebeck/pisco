@@ -41,14 +41,18 @@ def get_stat_function(method='mean'):
 
 
 def count_num_lines(texts):
+    if not texts:
+        return 0
     return map(lambda parts:
                len([part for part in parts if part.strip() not in ['', '\t']]),
                map(lambda text:
-                   text.split('\n'),
+                   text.split('\n') if text else [''],
                    texts))
 
 
 def count_num_chars(texts):
+    if not texts:
+        return 0
     return map(lambda text: len(text), texts)
 
 
