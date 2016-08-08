@@ -38,3 +38,16 @@ def get_stat_function(method='mean'):
         return np.var
     else:
         raise ValueError('Method {} is not supported!'.format(method))
+
+
+def count_num_lines(text):
+    return len(text.split('\n'))
+
+
+def get_measurement_function(method='lines'):
+    if 'lines' == method:
+        return count_num_lines
+    if 'chars' == method:
+        return len
+    else:
+        raise ValueError('Method {} is not supported!'.format(method))
