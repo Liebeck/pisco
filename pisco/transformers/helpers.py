@@ -75,7 +75,7 @@ def _count_num_chars(texts):
     """
     if not texts:
         return 0
-    return map(lambda text: len(text), texts)
+    return map(lambda text: len(text) if text else 0, texts)
 
 
 def get_measurement_function(method='lines'):
