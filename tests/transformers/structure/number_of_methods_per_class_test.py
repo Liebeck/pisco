@@ -51,7 +51,7 @@ class VarianceNumberOfMethodsPerClassTest(unittest.TestCase):
 
     def test_feature_extraction(self):
         self.assertEqual(self.transformer.transform(self.submissions),
-                         [[0.25], [2.0/3]])
+                         [[0.25], [2.0 / 3]])
 
 if __name__ == '__main__':
     unittest.main()
