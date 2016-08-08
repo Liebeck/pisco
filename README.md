@@ -13,7 +13,7 @@ This will install all required dependencies.
   cd pisco
   make build
 ```
-# How to Evaluate a Feature
+## How to Evaluate a Feature
 ``` bash
   make run
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features word_unigram
@@ -23,7 +23,7 @@ This will install all required dependencies.
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all
 ```
 
-# Workflow
+## Workflow
 ``` git pull ```
 ``` make run ``` (optionally ``` make build```)
 
