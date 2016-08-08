@@ -1,4 +1,5 @@
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
+import pisco.transformers.structure.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
@@ -13,7 +14,7 @@ from pisco.metrics.metrics import pearson
 
 DIMENSIONS = ['openness']
 RECOGNIZERS = [linear_regression]
-FEATURES = [unigram, number_of_methods_per_class]
+FEATURES = [unigram, number_of_methods_per_class, length_of_methods_per_class]
 SCORE = 'RMSE'  # or PC
 
 
