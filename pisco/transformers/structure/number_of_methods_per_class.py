@@ -4,9 +4,9 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(method='mean'):
+def build(stat='mean'):
     pipeline = Pipeline([('number_of_methods_per_class',
-                          NumberOfMethodsPerClass(method=method))])
+                          NumberOfMethodsPerClass(stat=stat))])
     return ('transformer', pipeline)
 
 
@@ -16,8 +16,8 @@ def param_grid():
 
 
 class NumberOfMethodsPerClass(BaseEstimator):
-    def __init__(self, method='mean'):
-        self.method = method
+    def __init__(self, stat='mean'):
+        self.stat = stat
 
     def fit(self, submissions, y):
         return self
@@ -26,7 +26,7 @@ class NumberOfMethodsPerClass(BaseEstimator):
         return map(lambda x: self._transform(x), raw_submissions)
 
     def _transform(self, raw_submission):
-        stat = get_stat_function(self.method)
+        stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
         methods = adapter.methods(sections)
         return [stat(map(lambda x: len(x), methods))]
