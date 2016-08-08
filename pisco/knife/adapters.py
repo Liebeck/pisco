@@ -44,6 +44,9 @@ def method_blocks(sections):
     for mm in methods_:
         m = []
         for t in mm:
-            m.append(t['sourceCode'])
+            if t:
+                m.append(t['sourceCode'])
+            else:
+                m.append(None)
         method_blocks.append(m)
     return method_blocks
