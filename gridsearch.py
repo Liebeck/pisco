@@ -3,7 +3,7 @@ import pisco.transformers.structure.length_of_methods_per_class as length_of_met
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
-import pisco.transformers.unigram as unigram
+import pisco.transformers.misc.word_unigram as word_unigram
 import pisco.recognizers.linear_regression as linear_regression
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
