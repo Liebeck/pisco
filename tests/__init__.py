@@ -1,10 +1,10 @@
 from pisco.transformers.structure.number_of_methods_per_class import NumberOfMethodsPerClass  # noqa
 from pisco.transformers.style.length_of_methods_per_class import LengthOfMethodsPerClass  # noqa
 
-mean_number_of_methods_per_class = NumberOfMethodsPerClass(method='mean')
-min_number_of_methods_per_class = NumberOfMethodsPerClass(method='min')
-max_number_of_methods_per_class = NumberOfMethodsPerClass(method='max')
-variance_number_of_methods_per_class = NumberOfMethodsPerClass(method='variance')  # noqa
+mean_number_of_methods_per_class = NumberOfMethodsPerClass(stat='mean')
+min_number_of_methods_per_class = NumberOfMethodsPerClass(stat='min')
+max_number_of_methods_per_class = NumberOfMethodsPerClass(stat='max')
+variance_number_of_methods_per_class = NumberOfMethodsPerClass(stat='variance')  # noqa
 
 mean_lines_of_methods_per_class = LengthOfMethodsPerClass(stat='mean', method='lines')  # noqa
 min_lines_of_methods_per_class = LengthOfMethodsPerClass(stat='min', method='lines')  # noqa

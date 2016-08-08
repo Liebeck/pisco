@@ -1,7 +1,7 @@
-from pisco.transformers.class_level import get_number_of_classes
-from pisco.transformers.class_level import get_num_functions_per_class
-from pisco.transformers.class_level import get_percentage_class_is_private
-from pisco.transformers.class_level import get_mean_length_of_functions_per_class
+from pisco.transformers.misc.class_level import get_number_of_classes
+from pisco.transformers.misc.class_level import get_num_functions_per_class
+from pisco.transformers.misc.class_level import get_percentage_class_is_private
+from pisco.transformers.misc.class_level import get_mean_length_of_functions_per_class
 import unittest
 import json
 
