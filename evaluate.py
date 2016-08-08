@@ -6,6 +6,7 @@ from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.class_level import class_level
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
+import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import argparse
 import logging
 
@@ -65,6 +66,10 @@ def configure(conf):
     @conf.feature('mean_number_of_methods_per_class')
     def build_mean_number_of_methods_per_class_feature():
         return [number_of_methods_per_class.build(method='mean')]
+
+    @conf.feature('mean_length_of_methods_per_class')
+    def build_mean_length_of_methods_per_class_feature():
+        return [length_of_methods_per_class.build(stat='mean', method='lines')]
 
 
 def pretty_list(items):
