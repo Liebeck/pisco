@@ -5,29 +5,38 @@ import pisco.transformers.unigram as unigram
 from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.class_level import class_level
-import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class
+import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import argparse
 import logging
 
 
 def config_argparser():
-    argparser = argparse.ArgumentParser(description='Personality Recognition Evaluation')
-    argparser.add_argument('-l', '--log-level', dest='log_level', type=str, default='INFO',
+    argparser = argparse.ArgumentParser(
+        description='Personality Recognition Evaluation'
+    )
+    argparser.add_argument('-l', '--log-level', dest='log_level',
+                           type=str, default='INFO',
                            help='Set log level (DEBUG, INFO, ERROR)')
 
-    argparser.add_argument('-c', '--train_corpus', dest='training_corpus', type=str, required=True,
-                           help='Set name of the training corpus used for the evaluation: ' + pretty_list(
-                               conf.get_dataset_names()))
+    argparser.add_argument('-c', '--train_corpus', dest='training_corpus',
+                           type=str, required=True,
+                           help='Set name of the training corpus: ' +
+                           pretty_list(conf.get_dataset_names()))
 
-    argparser.add_argument('-t', '--test_corpus', dest='test_corpus', type=str, required=False,
-                           help='Set name of the test corpus used for the evaluation: ' + pretty_list(
-                               conf.get_dataset_names()))
+    argparser.add_argument('-t', '--test_corpus', dest='test_corpus',
+                           type=str, required=False,
+                           help='Set name of the test corpus: ' +
+                           pretty_list(conf.get_dataset_names()))
 
-    argparser.add_argument('-r', '--recognizer', dest='recognizer_name', type=str, required=True,
-                           help='Name of the invoked recognizer: ' + pretty_list(conf.get_recognizer_names()))
+    argparser.add_argument('-r', '--recognizer', dest='recognizer_name',
+                           type=str, required=True,
+                           help='Name of the invoked recognizer: ' +
+                           pretty_list(conf.get_recognizer_names()))
 
-    argparser.add_argument('-f', '--features', dest='feature_names', type=str, required=True,
-                           help='Name of the features: ' + pretty_list(conf.get_feature_names()))
+    argparser.add_argument('-f', '--features', dest='feature_names',
+                           type=str, required=True,
+                           help='Name of the features: ' +
+                           pretty_list(conf.get_feature_names()))
     return argparser
 
 
@@ -55,7 +64,7 @@ def configure(conf):
 
     @conf.feature('mean_number_of_methods_per_class')
     def build_mean_number_of_methods_per_class_feature():
-        return [number_of_methods_per_class.build()]
+        return [number_of_methods_per_class.build(method='mean')]
 
 
 def pretty_list(items):

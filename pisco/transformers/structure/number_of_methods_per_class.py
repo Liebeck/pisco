@@ -4,9 +4,9 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build():
+def build(method='mean'):
     pipeline = Pipeline([('number_of_methods_per_class',
-                          NumberOfMethodsPerClass(method='mean'))])
+                          NumberOfMethodsPerClass(method=method))])
     return ('transformer', pipeline)
 
 
