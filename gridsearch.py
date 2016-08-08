@@ -1,3 +1,4 @@
+import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
@@ -12,7 +13,7 @@ from pisco.metrics.metrics import pearson
 
 DIMENSIONS = ['openness']
 RECOGNIZERS = [linear_regression]
-FEATURES = [unigram]
+FEATURES = [unigram, number_of_methods_per_class]
 SCORE = 'RMSE'  # or PC
 
 
@@ -39,7 +40,8 @@ X, Y = load(labels=DIMENSIONS)
 
 for recognizer in RECOGNIZERS:
     transformers = map(lambda f: f.build(), FEATURES)
-    p = pipeline.pipeline(transformers=transformers, recognizer=recognizer.build())
+    p = pipeline.pipeline(transformers=transformers,
+                          recognizer=recognizer.build())
     param_grid = {}
     param_grid.update(recognizer.param_grid())
     for f in FEATURES:
