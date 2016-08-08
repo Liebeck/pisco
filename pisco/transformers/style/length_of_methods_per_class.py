@@ -1,5 +1,5 @@
-from ...utils.utils import extract_sections, get_stat_function
-from ...utils.utils import get_measurement_function
+from ..helpers import extract_sections, get_stat_function
+from ..helpers import get_measurement_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
