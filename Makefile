@@ -1,11 +1,15 @@
 name = pisco
 registry = hub.docker.com
 
-build:
+build: test
 	docker build -t $(registry)/$(name) $(BUILD_OPTS) .
 
 stop:
 	docker rm -f $(name) || true
+
+test: stop start_knife
+	docker run -it --rm=true --link knife:knife -v $(shell pwd):/var/www \
+	--name=$(name) $(registry)/$(name) py.test --pep8
 
 run: stop start_knife
 	docker run -it --rm=true --link knife:knife -v $(shell pwd):/var/www \
