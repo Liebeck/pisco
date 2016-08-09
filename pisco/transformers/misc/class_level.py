@@ -80,7 +80,10 @@ def get_mean_length_of_functions_per_class(responses):
             methods = get_methods_in_clazz(clazz)
             for method in methods:
                 code_block = method['codeBlock']
-                length_of_function += len(code_block)
+                index_opening_bracket = code_block.find("{")
+                index_closing_bracket = len(code_block) - code_block[::-1].find("}") - 1
+                inner_code_block = code_block[index_opening_bracket + 1:index_closing_bracket]
+                length_of_function += len(inner_code_block)
             length_methods_per_class.append(length_of_function)
     return sum(length_methods_per_class) / len(length_methods_per_class)
 
@@ -179,7 +182,7 @@ class ClassLevelTransformer(BaseEstimator):
         # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public
         # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static
         # self.features["get_mean_long_comments_length_per_class"] = get_mean_long_comments_length_per_class
-        # self.features["get_mean_length_of_functions_per_class"] = get_mean_length_of_functions_per_class
+        self.features["get_mean_length_of_functions_per_class"] = get_mean_length_of_functions_per_class
 
     def get_feature_names(self):
         return np.array(self.features.keys())
