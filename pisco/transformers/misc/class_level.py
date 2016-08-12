@@ -35,19 +35,6 @@ def get_num_functions_per_class(responses):
     return num_functions_per_class
 
 
-def get_mean_num_functions_per_class(responses):
-    num_functions_per_class = get_num_functions_per_class(responses)
-    return 1.0 * sum(num_functions_per_class) / len(num_functions_per_class)
-
-
-def get_number_of_classes(responses):
-    sum_classes = 0
-    for response in filter(lambda r: r is not None, responses):
-        classes = get_classes(response)
-        sum_classes += len(classes)
-    return sum_classes
-
-
 def get_number_of_files(responses):
     return len(responses)
 
@@ -67,25 +54,7 @@ def get_mean_count_single_line_comments_per_class(responses):
                 # print count_comments
                 # raw_input("Press Enter to continue...")
             count_comments_per_class.append(count_comments)
-    return (1.0 * sum(count_comments_per_class)) / len(count_comments_per_class)
-
-
-# Done
-def get_mean_length_of_functions_per_class(responses):
-    length_methods_per_class = []
-    for response in filter(lambda r: r is not None, responses):
-        classes = get_classes(response)
-        for clazz in classes:
-            length_of_function = 0
-            methods = get_methods_in_clazz(clazz)
-            for method in methods:
-                code_block = method['codeBlock']
-                index_opening_bracket = code_block.find("{")
-                index_closing_bracket = len(code_block) - code_block[::-1].find("}") - 1
-                inner_code_block = code_block[index_opening_bracket + 1:index_closing_bracket]
-                length_of_function += len(inner_code_block)
-            length_methods_per_class.append(length_of_function)
-    return sum(length_methods_per_class) / len(length_methods_per_class)
+    return (1.0 * sum(count_comments_per_class)) /  len(count_comments_per_class)
 
 
 # Done
@@ -173,8 +142,6 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.verbose = verbose
         self.features = dict()
-        self.features["mean_num_function_per_class"] = get_mean_num_functions_per_class
-        self.features["number_of_classes"] = get_number_of_classes
         self.features["number_of_files"] = get_number_of_files
         self.features["get_mean_count_single_line_comments_per_class"] = get_mean_count_single_line_comments_per_class
         # self.features["get_mean_count_long_comments_per_class"] = get_mean_count_long_comments_per_class
@@ -182,7 +149,6 @@ class ClassLevelTransformer(BaseEstimator):
         # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public
         # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static
         # self.features["get_mean_long_comments_length_per_class"] = get_mean_long_comments_length_per_class
-        self.features["get_mean_length_of_functions_per_class"] = get_mean_length_of_functions_per_class
 
     def get_feature_names(self):
         return np.array(self.features.keys())
