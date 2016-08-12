@@ -15,6 +15,7 @@ RUN pip install pytest
 RUN pip install pytest-pep8
 RUN pip install plyj
 RUN pip install javalang
+RUN pip install pandas
 
 WORKDIR /var/www
 ADD . .
