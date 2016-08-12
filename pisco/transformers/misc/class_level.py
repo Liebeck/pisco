@@ -35,10 +35,6 @@ def get_num_functions_per_class(responses):
     return num_functions_per_class
 
 
-def get_number_of_files(responses):
-    return len(responses)
-
-
 # Done
 def get_mean_count_single_line_comments_per_class(responses):
     count_comments_per_class = []
@@ -142,7 +138,6 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.verbose = verbose
         self.features = dict()
-        self.features["number_of_files"] = get_number_of_files
         self.features["get_mean_count_single_line_comments_per_class"] = get_mean_count_single_line_comments_per_class
         # self.features["get_mean_count_long_comments_per_class"] = get_mean_count_long_comments_per_class
         # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
