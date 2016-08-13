@@ -23,17 +23,6 @@ def class_level():
     return ('class_level', pipeline)
 
 
-# TODO: Refactor into different files?
-def get_num_functions_per_class(responses):
-    num_functions_per_class = []
-    for response in responses:
-        if response is not None:
-            num_functions_per_class.append(len(get_methods(response)))
-        else:
-            num_functions_per_class.append(0)
-    return num_functions_per_class
-
-
 # Done
 def get_percentage_class_is_access_modifier(responses, access_modifier):
     sum_is_access_modifier = 0
