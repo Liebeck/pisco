@@ -6,7 +6,6 @@ from ...knife.knife_client import KnifeClient
 from ...utils.utils import extract_classes
 from ...utils.utils import print_progress_bar
 from ...knife.json_helper import get_classes
-from ...knife.json_helper import get_methods
 from ...knife.json_helper import get_clazzes_is_access_modifier
 from ...knife.json_helper import get_methods_in_clazz
 import numpy as np
@@ -28,8 +27,9 @@ def get_percentage_class_is_access_modifier(responses, access_modifier):
     sum_is_access_modifier = 0
     sum_is_not_access_modifier = 0
     for response in filter(lambda r: r is not None, responses):
-        is_access_modifier_list = get_clazzes_is_access_modifier(response,
-                                                                 access_modifier)
+        is_access_modifier_list = get_clazzes_is_access_modifier(
+            response,
+            access_modifier)
         for is_access_modifier in is_access_modifier_list:
             if is_access_modifier is True:
                 sum_is_access_modifier += 1
@@ -77,7 +77,8 @@ def get_mean_long_comments_length_per_class(responses):
                         # print length_of_comments
                         # raw_input("Press Enter to continue...")
             length_long_comments_per_class.append(length_of_comments)
-    result = (1.0 * sum(length_long_comments_per_class)) / len(length_long_comments_per_class)
+    length = len(length_long_comments_per_class)
+    result = (1.0 * sum(length_long_comments_per_class)) / length
     return result
 
 
@@ -88,10 +89,10 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.verbose = verbose
         self.features = dict()
-        # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
-        # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public
-        # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static
-        # self.features["get_mean_long_comments_length_per_class"] = get_mean_long_comments_length_per_class
+        # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private  # noqa
+        # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public  # noqa
+        # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static  # noqa
+        # self.features["get_mean_long_comments_length_per_class"] = get_mean_long_comments_length_per_class  # noqa
 
     def get_feature_names(self):
         return np.array(self.features.keys())
@@ -106,7 +107,8 @@ class ClassLevelTransformer(BaseEstimator):
             print_progress_bar(0, len(list_class_list), "Extracting Features")
         for (i, x) in enumerate(list_class_list):
             if self.verbose:
-                print_progress_bar(i + 1, len(list_class_list), "Extracting Features")
+                print_progress_bar(i + 1, len(list_class_list),
+                                   "Extracting Features")
             knife_reponses = []
             for clazz in x:
                 knife_response = self.client.extract(clazz)
