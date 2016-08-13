@@ -1,7 +1,4 @@
-from tests import (mean_number_of_methods_per_class,
-                   min_number_of_methods_per_class,
-                   max_number_of_methods_per_class,
-                   variance_number_of_methods_per_class)
+from tests import mean_number_of_methods_per_class
 import unittest
 import codecs
 
@@ -23,35 +20,6 @@ class MeanNumberOfMethodsPerClassTest(unittest.TestCase):
         self.assertEqual(self.transformer.transform(self.submissions),
                          [[1.5], [2.0]])
 
-
-class MinNumberOfMethodsPerClassTest(unittest.TestCase):
-    def setUp(self):
-        self.transformer = min_number_of_methods_per_class
-        self.submissions = [submission1, submission2]
-
-    def test_feature_extraction(self):
-        self.assertEqual(self.transformer.transform(self.submissions),
-                         [[1.0], [1.0]])
-
-
-class MaxNumberOfMethodsPerClassTest(unittest.TestCase):
-    def setUp(self):
-        self.transformer = max_number_of_methods_per_class
-        self.submissions = [submission1, submission2]
-
-    def test_feature_extraction(self):
-        self.assertEqual(self.transformer.transform(self.submissions),
-                         [[2.0], [3.0]])
-
-
-class VarianceNumberOfMethodsPerClassTest(unittest.TestCase):
-    def setUp(self):
-        self.transformer = variance_number_of_methods_per_class
-        self.submissions = [submission1, submission2]
-
-    def test_feature_extraction(self):
-        self.assertEqual(self.transformer.transform(self.submissions),
-                         [[0.25], [2.0 / 3]])
 
 if __name__ == '__main__':
     unittest.main()
