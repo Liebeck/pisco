@@ -52,12 +52,15 @@ def comments(sections, types=['block']):
         a = []
         for t in types:
             a.append([])
-        class_comments = cs['comments']
-        for cc in class_comments:
-            if cc['type'] in new_types:
-                idx = types_map.keys()[types_map.values().index(cc['type'])]
-                a[types.index(idx)].append(cc['content'])
-            else:
-                a.append(None)
+        if cs:
+            class_comments = cs['comments']
+            for cc in class_comments:
+                if cc['type'] in new_types:
+                    idx = types_map.keys()[types_map.values().index(
+                        cc['type'])]
+                    a[types.index(idx)].append(cc['content'])
+                else:
+                    a.append(None)
+        a = [[], [], []]
         comments.append(a)
     return comments
