@@ -35,24 +35,6 @@ def get_num_functions_per_class(responses):
 
 
 # Done
-def get_mean_count_single_line_comments_per_class(responses):
-    count_comments_per_class = []
-    for response in filter(lambda r: r is not None, responses):
-        classes = get_classes(response)
-        for clazz in classes:
-            count_comments_in_clazz = 0
-            methods = get_methods_in_clazz(clazz)
-            for method in methods:
-                code_block = method['codeBlock']
-                count_comments = code_block.count("//")
-                count_comments_in_clazz += count_comments
-                # print count_comments
-                # raw_input("Press Enter to continue...")
-            count_comments_per_class.append(count_comments)
-    return (1.0 * sum(count_comments_per_class)) /  len(count_comments_per_class)
-
-
-# Done
 def get_percentage_class_is_access_modifier(responses, access_modifier):
     sum_is_access_modifier = 0
     sum_is_not_access_modifier = 0
@@ -138,7 +120,6 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.verbose = verbose
         self.features = dict()
-        self.features["get_mean_count_single_line_comments_per_class"] = get_mean_count_single_line_comments_per_class
         # self.features["get_mean_count_long_comments_per_class"] = get_mean_count_long_comments_per_class
         # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
         # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public
