@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 
 
-def build(stat='mean', types=['block', 'lines']):
+def build(stat='mean', types=['block', 'line', 'javadoc']):
     pipeline = Pipeline([('transformer',
                           NumberOfCommentsPerClass(stat=stat, types=types))])
     return ('number_of_comments_per_class', pipeline)
