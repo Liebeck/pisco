@@ -111,5 +111,5 @@ def powerset(seq):
         yield seq
     else:
         for item in powerset(seq[1:]):
-            yield [seq[0]]+item
+            yield [seq[0]] + item
             yield item

@@ -12,6 +12,7 @@ from sklearn.metrics import make_scorer
 from pisco.metrics.metrics import pearson
 from collections import OrderedDict
 import pprint
+import json
 
 
 DIMENSIONS = ['openness']
@@ -86,5 +87,4 @@ for name, recognizer in RECOGNIZERS:
         result['recognizer']['|'.join(map(lambda x: x[0], features))]['best_params'] = best_params
         result['recognizer']['|'.join(map(lambda x: x[0], features))]['scorer'] = "pca"
 pp = pprint.PrettyPrinter(depth=4)
-import json
 pp.pprint(json.dumps(result))
