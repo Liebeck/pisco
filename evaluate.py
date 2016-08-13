@@ -7,6 +7,7 @@ from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.misc.class_level import class_level
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
+import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import argparse
 import logging
 
@@ -71,10 +72,19 @@ def configure(conf):
     def build_mean_length_of_methods_per_class_feature():
         return [length_of_methods_per_class.build(stat='mean', method='lines')]
 
+    @conf.feature('mean_number_of_comments_per_class')
+    def build_mean_number_of_comments_per_class_feature():
+        return [number_of_comments_per_class.build(stat='mean',
+                                                   types=['block',
+                                                          'line',
+                                                          'javadoc'])]
+
     @conf.feature('all')
     def build_all_features():
-        return [word_unigram.build(), number_of_methods_per_class.build(),
-                length_of_methods_per_class.build()]
+        return [word_unigram.build(),
+                number_of_methods_per_class.build(),
+                length_of_methods_per_class.build(),
+                number_of_comments_per_class.build()]
 
 
 def pretty_list(items):
