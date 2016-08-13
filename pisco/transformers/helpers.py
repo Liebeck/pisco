@@ -88,7 +88,6 @@ def get_measurement_function(method='lines'):
         a function to count
     Raises:
         ValueError: if method is not supported.
-
     """
     if 'lines' == method:
         return _count_num_lines
@@ -96,3 +95,21 @@ def get_measurement_function(method='lines'):
         return _count_num_chars
     else:
         raise ValueError('Method {} is not supported!'.format(method))
+
+
+def powerset(seq):
+    """Returns all the subsets of the sequence except the
+    empty set. This is a generator.
+
+    Args:
+        seq: a sequence such as a list
+
+    Returns:
+        a list of all subsets except the empty set
+    """
+    if len(seq) <= 1:
+        yield seq
+    else:
+        for item in powerset(seq[1:]):
+            yield [seq[0]]+item
+            yield item
