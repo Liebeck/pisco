@@ -1,17 +1,24 @@
 public class Example {
 	int counter = 5;
 	public static void main(String[] args) {
+	/*
+	 * Block comment
+     *
+	 */
 		System.out.println(add(2, 3));
 		System.out.println(add(2, 3));
 		System.out.println(add(2, 3));
 	}
 
 	public static int add(final int a, final int b) {
+        /*
+         * Block comment
+         */
 		return a + b;
 	}
 
-  public int divide(double a, double b){
-    return 1.0 * a / b
+  public double divide(double a, double b){
+    return 1.0 * a / b; // Line Comment
   }
 
 }
@@ -19,8 +26,8 @@ public class Example {
 public class Example2 {
 	int counter = 5;
 	public static void main(String[] args) {
-		System.out.println(add(2, 3));
-		System.out.println(add(2, 3));
+		System.out.println(2);
+		System.out.println(3);
 	}
 }
 <<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
@@ -31,6 +38,6 @@ public class SecondClass {
 	}
 
   public static void main(String[] args) {
-		System.out.println(print(2));
+		System.out.println(2);
 	}
 }
