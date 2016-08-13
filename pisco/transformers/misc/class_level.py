@@ -92,27 +92,6 @@ def get_mean_long_comments_length_per_class(responses):
     return result
 
 
-def get_mean_count_long_comments_per_class(responses):
-    count_long_comments_per_class = []
-    prog = re.compile('\/\*\*[^*]*\*+([^/][^*]*\*+)*\/')
-    for response in filter(lambda r: r is not None, responses):
-        classes = get_classes(response)
-        for clazz in classes:
-            count_of_comments = 0
-            methods = get_methods_in_clazz(clazz)
-            for method in methods:
-                code_block = method['codeBlock']
-                results = prog.finditer(code_block)
-                for result in results:
-                    if result is not None:
-                        count_of_comments += 1
-                        # print length_of_comments
-                        # raw_input("Press Enter to continue...")
-            count_long_comments_per_class.append(count_of_comments)
-    result = (1.0 * sum(count_long_comments_per_class)) / len(count_long_comments_per_class)
-    return result
-
-
 # TODO: Refactor enable/disable of certain features
 class ClassLevelTransformer(BaseEstimator):
     def __init__(self, verbose=True):
@@ -120,7 +99,6 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.verbose = verbose
         self.features = dict()
-        # self.features["get_mean_count_long_comments_per_class"] = get_mean_count_long_comments_per_class
         # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private
         # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public
         # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static
