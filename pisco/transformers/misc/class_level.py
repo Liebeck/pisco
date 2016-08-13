@@ -7,10 +7,8 @@ from ...utils.utils import extract_classes
 from ...utils.utils import print_progress_bar
 from ...knife.json_helper import get_classes
 from ...knife.json_helper import get_methods
-from ...knife.json_helper import get_code_blocks
 from ...knife.json_helper import get_clazzes_is_access_modifier
 from ...knife.json_helper import get_methods_in_clazz
-import logging
 import numpy as np
 import sys
 import re
@@ -20,7 +18,8 @@ sys.setdefaultencoding("utf-8")
 
 
 def class_level():
-    pipeline = Pipeline([('mean_num_functions_per_class', ClassLevelTransformer(verbose=True))])
+    pipeline = Pipeline([('mean_num_functions_per_class',
+                          ClassLevelTransformer(verbose=True))])
     return ('class_level', pipeline)
 
 
@@ -58,7 +57,8 @@ def get_percentage_class_is_access_modifier(responses, access_modifier):
     sum_is_access_modifier = 0
     sum_is_not_access_modifier = 0
     for response in filter(lambda r: r is not None, responses):
-        is_access_modifier_list = get_clazzes_is_access_modifier(response, access_modifier)
+        is_access_modifier_list = get_clazzes_is_access_modifier(response,
+                                                                 access_modifier)
         for is_access_modifier in is_access_modifier_list:
             if is_access_modifier is True:
                 sum_is_access_modifier += 1
