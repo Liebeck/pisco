@@ -39,3 +39,25 @@ def method_blocks(sections):
                 m.append(None)
         method_blocks.append(m)
     return method_blocks
+
+
+def comments(sections, types=['block']):
+    types_map = {'block': 'BlockComment',
+                 'line': 'LineComment',
+                 'javadoc': 'JavadocComment'}
+    new_types = map(lambda t: types_map[t], types)
+    css = classes(sections)
+    comments = []
+    for cs in css:
+        a = []
+        for t in types:
+            a.append([])
+        class_comments = cs['comments']
+        for cc in class_comments:
+            if cc['type'] in new_types:
+                idx = types_map.keys()[types_map.values().index(cc['type'])]
+                a[types.index(idx)].append(cc['content'])
+            else:
+                a.append(None)
+        comments.append(a)
+    return comments
