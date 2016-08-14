@@ -15,7 +15,7 @@ def param_grid():
     return {'union__number_of_comments_per_class__transformer__stat':
             ['mean', 'max', 'min', 'variance'],
             'union__number_of_comments_per_class__transformer__types':
-            powerset(['block', 'line', 'javadoc'])}
+            list(powerset(['block', 'line', 'javadoc']))}
 
 
 class NumberOfCommentsPerClass(BaseEstimator):
