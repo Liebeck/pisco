@@ -28,7 +28,11 @@ def methods(section):
     Returns:
         list of list of methods
     """
-    return map(lambda clazz: _methods(clazz), classes(section))
+    clazzes = classes(section)
+    if clazzes:
+        return map(lambda clazz: _methods(clazz), classes(section))
+    else:
+        return None
 
 
 def class_field(section, field='sourceCode'):
