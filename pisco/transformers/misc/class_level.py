@@ -4,7 +4,6 @@ from ...parsers.source_parser import SourceParser
 from sklearn.pipeline import Pipeline
 from ...knife.knife_client import KnifeClient
 from ...utils.utils import extract_classes
-from ...utils.utils import print_progress_bar
 from ...knife.json_helper import get_classes
 from ...knife.json_helper import get_clazzes_is_access_modifier
 from ...knife.json_helper import get_methods_in_clazz
@@ -103,12 +102,7 @@ class ClassLevelTransformer(BaseEstimator):
     def transform(self, X):
         list_class_list = extract_classes(X)
         result = []
-        if self.verbose:
-            print_progress_bar(0, len(list_class_list), "Extracting Features")
         for (i, x) in enumerate(list_class_list):
-            if self.verbose:
-                print_progress_bar(i + 1, len(list_class_list),
-                                   "Extracting Features")
             knife_reponses = []
             for clazz in x:
                 knife_response = self.client.extract(clazz)
