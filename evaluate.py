@@ -11,6 +11,7 @@ from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.misc.class_level import class_level
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
+import pisco.transformers.structure.ratio_of_class_access_modifiers as ratio_of_class_access_modifiers  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import argparse
@@ -104,12 +105,17 @@ def configure(conf):
                                                           'line',
                                                           'javadoc'])]
 
+    @conf.feature('ratio_of_public_classes')
+    def build_ratio_of_class_access_modifiers_feature():
+        return [ratio_of_class_access_modifiers.build(modifier='public')]
+
     @conf.feature('all')
     def build_all_features():
         return [word_unigram.build(),
                 number_of_methods_per_class.build(),
                 length_of_methods_per_class.build(),
-                number_of_comments_per_class.build()]
+                number_of_comments_per_class.build(),
+                ratio_of_class_access_modifiers.build()]
 
 
 def pretty_list(items):
