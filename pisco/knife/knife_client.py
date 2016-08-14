@@ -1,7 +1,8 @@
 import requests
 import os
 
-# Todo: Workaround for travis environment variables
+
+# TODO: Workaround for travis environment variables
 KNIFE_URL = 'http://' + ':'.join([
     os.getenv('KNIFE_PORT_4567_TCP_ADDR', 'Travis_default'),
     os.getenv('KNIFE_PORT_4567_TCP_PORT', 'Travis_default')])
@@ -19,7 +20,10 @@ class KnifeClient:
             self.memory[clazz] = r
         else:
             r = self.memory[clazz]
-        if r.json()['state'] == 'OK':
-            return r.json()
-        else:
+        try:
+            if r.json()['state'] == 'OK':
+                return r.json()
+            else:
+                return None
+        except:
             return None
