@@ -33,4 +33,7 @@ class NumberOfMethodsPerClass(BaseEstimator):
 
     def __transform(self, section):
         methods = adapter.methods(section)
-        return map(lambda x: len(x), methods)
+        if methods:
+            return map(lambda x: len(x), methods)
+        else:
+            return [0]
