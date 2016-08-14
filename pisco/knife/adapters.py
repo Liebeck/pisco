@@ -31,15 +31,16 @@ def methods(section):
     return map(lambda clazz: _methods(clazz), classes(section))
 
 
-def method_blocks(section):
-    """Extracts all classes from a section.
+def class_field(section, field='sourceCode'):
+    """Extracts fields from classes of a section.
 
     Args:
         section: string content of a code section
+        field: a field in class
     Returns:
-        list consisting of dictionaries representing a class
+        list of list of class fields
     """
-    return map(lambda c: _method_blocks(c), classes(section))
+    return map(lambda c: _class_field(c, field=field), classes(section))
 
 
 def comments(section, types=['block', 'line']):
@@ -51,9 +52,8 @@ def comments(section, types=['block', 'line']):
 
     Args:
         section: string content of a code section
-        types: types of comments to be extracted
     Returns:
-        list of list of methods
+        list of list of comments
     """
     return map(lambda clazz: _comments(clazz, types), classes(section))
 
@@ -65,8 +65,8 @@ def _methods(clazz):
         None
 
 
-def _method_blocks(clazz):
-    return map(lambda m: m.get('sourceCode', None), _methods(clazz))
+def _class_field(clazz, field='sourceCode'):
+    return map(lambda m: m.get(field, None), _methods(clazz))
 
 
 def _comments(clazz, types=['block', 'line']):
