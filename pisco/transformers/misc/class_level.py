@@ -5,7 +5,6 @@ from sklearn.pipeline import Pipeline
 from ...knife.knife_client import KnifeClient
 from ...utils.utils import extract_classes
 from ...knife.json_helper import get_classes
-from ...knife.json_helper import get_clazzes_is_access_modifier
 from ...knife.json_helper import get_methods_in_clazz
 import numpy as np
 import sys
@@ -19,43 +18,6 @@ def class_level():
     pipeline = Pipeline([('mean_num_functions_per_class',
                           ClassLevelTransformer(verbose=True))])
     return ('class_level', pipeline)
-
-
-# Done
-def get_percentage_class_is_access_modifier(responses, access_modifier):
-    sum_is_access_modifier = 0
-    sum_is_not_access_modifier = 0
-    for response in filter(lambda r: r is not None, responses):
-        is_access_modifier_list = get_clazzes_is_access_modifier(
-            response,
-            access_modifier)
-        for is_access_modifier in is_access_modifier_list:
-            if is_access_modifier is True:
-                sum_is_access_modifier += 1
-            else:
-                sum_is_not_access_modifier += 1
-    if sum_is_not_access_modifier == 0:
-        if sum_is_access_modifier == 0:
-            return 0.0
-        else:
-            return 1.0
-    result = (1.0 * sum_is_access_modifier) / sum_is_not_access_modifier
-    return result
-
-
-# Done
-def get_percentage_class_is_private(responses):
-    return get_percentage_class_is_access_modifier(responses, 'isPrivate')
-
-
-# Done
-def get_percentage_class_is_public(responses):
-    return get_percentage_class_is_access_modifier(responses, 'isPublic')
-
-
-# Done
-def get_percentage_class_is_static(responses):
-    return get_percentage_class_is_access_modifier(responses, 'isStatic')
 
 
 def get_mean_long_comments_length_per_class(responses):
@@ -88,9 +50,6 @@ class ClassLevelTransformer(BaseEstimator):
         self.client = KnifeClient()
         self.verbose = verbose
         self.features = dict()
-        # self.features["get_percentage_class_is_private"] = get_percentage_class_is_private  # noqa
-        # self.features["get_percentage_class_is_public"] = get_percentage_class_is_public  # noqa
-        # self.features["get_percentage_class_is_static"] = get_percentage_class_is_static  # noqa
         # self.features["get_mean_long_comments_length_per_class"] = get_mean_long_comments_length_per_class  # noqa
 
     def get_feature_names(self):
