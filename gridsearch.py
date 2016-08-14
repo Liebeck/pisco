@@ -1,5 +1,7 @@
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
+import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
+from pisco.transformers.helpers import powerset
 import numpy as np
 from operator import itemgetter
 from pisco.pipeline import pipeline
@@ -20,7 +22,8 @@ RECOGNIZERS = [('Linear Regression', linear_regression)]
 FEATURES = [
     # ('Word Unigram', word_unigram),
     ('Number of Methods per Class', number_of_methods_per_class),
-    ('Length of Methods per Class', length_of_methods_per_class)]
+    ('Length of Methods per Class', length_of_methods_per_class),
+    ('Number of Comments per Class', number_of_comments_per_class)]
 SCORE = 'PC'  # or PC
 
 
@@ -32,19 +35,6 @@ def make_score_function(score):
     else:
         raise ValueError('Scoring {} is not supported!'.format(score))
 
-
-def powerset(seq):
-    """
-    Returns all the subsets of this set. This is a generator.
-    """
-    if len(seq) <= 1:
-        yield seq
-        yield []
-    else:
-        for item in powerset(seq[1:]):
-            yield [seq[0]] + item
-            if len(item) > 0:
-                yield item
 
 FEATURES = powerset(FEATURES)
 
