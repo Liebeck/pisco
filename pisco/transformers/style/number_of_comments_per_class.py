@@ -33,6 +33,21 @@ class NumberOfCommentsPerClass(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        cs = adapter.comments(sections, self.types)
-        return stat(np.array(map(lambda x:
-                                 map(lambda x: len(x), x), cs)), axis=0)
+        vectors = []
+        for section in sections:
+            vectors.append(self.__transform(section))
+        final = []
+        for vec in vectors:
+            for c in vec:
+                final.append(c)
+        return stat(final, axis=0)
+
+    def __transform(self, section):
+        cs = adapter.comments(section, self.types)
+        result = []
+        for c in cs:
+            ff = []
+            for t in self.types:
+                ff.append(len(c[t]))
+            result.append(ff)
+        return result

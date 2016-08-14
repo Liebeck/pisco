@@ -28,5 +28,10 @@ class NumberOfMethodsPerClass(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        methods = adapter.methods(sections)
-        return [stat(map(lambda x: len(x), methods))]
+        methods = map(lambda x: self.__transform(x), sections)
+        return [stat(map(lambda x: stat(x), methods))]
+
+    def __transform(self, section):
+        methods = adapter.methods(section)
+        a = map(lambda x: len(x), methods)
+        return a

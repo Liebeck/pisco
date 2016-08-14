@@ -21,7 +21,7 @@ class MeanLinesOfMethodsPerClassTest(unittest.TestCase):
     def test_feature_extraction(self):
         np.testing.assert_almost_equal(
             self.transformer.transform(self.submissions),
-            [[1.75], [2.33]], decimal=2)
+            [[1.75], [2.75]], decimal=2)
 
 
 class MeanCharsOfMethodsPerClassTest(unittest.TestCase):
@@ -31,7 +31,7 @@ class MeanCharsOfMethodsPerClassTest(unittest.TestCase):
 
     def test_feature_extraction(self):
         features = self.transformer.transform(self.submissions)
-        np.testing.assert_almost_equal(features, [[72.75], [53.44]],
+        np.testing.assert_almost_equal(features, [[72.75], [72.17]],
                                        decimal=2)
 
 

@@ -20,7 +20,7 @@ class MeanNumberOfCommentsPerClassTest(unittest.TestCase):
     def test_feature_extraction(self):
         np.testing.assert_almost_equal(
             self.transformer.transform(self.submissions),
-            [[0, 0.5, 0.5], [0.66, 0.33, 0]], decimal=1)
+            [[0, 0.5, 0.5], [1.0, 0.3, 0.0]], decimal=1)
 
 
 if __name__ == '__main__':
