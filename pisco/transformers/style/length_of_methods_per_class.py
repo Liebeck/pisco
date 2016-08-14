@@ -43,5 +43,3 @@ class LengthOfMethodsPerClass(BaseEstimator):
         measure = get_measurement_function(self.method)
         a = map(lambda x: measure(x), methods)
         return a
-
-
