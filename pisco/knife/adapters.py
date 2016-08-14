@@ -2,29 +2,26 @@ from pisco import client
 
 
 def classes(sections):
-    clazzes = []
-    for section in sections:
-        response = client.extract(section)
-        if response:
-            for clazz in response['classes']:
-                clazzes.append(clazz)
-        else:
-            clazzes.append(None)
-    return clazzes
+    return map(lambda section: _classes(section), sections)
 
 
-def methods(sections):
-    methods = []
-    clazzes = classes(sections)
-    for clazz in clazzes:
-        m = []
-        if clazz:
-            for method in clazz['methods']:
-                m.append(method)
-        else:
-            m.append(None)
-        methods.append(m)
-    return methods
+def _classes(section):
+    response = client.extract(section)
+    if response:
+        return response['classes']
+    else:
+        return None
+
+
+def methods(section):
+    return map(lambda clazz: _methods(clazz), _classes(section))
+
+
+def _methods(clazz):
+    if clazz:
+        return clazz['methods']
+    else:
+        None
 
 
 def method_blocks(sections):
@@ -41,26 +38,19 @@ def method_blocks(sections):
     return method_blocks
 
 
-def comments(sections, types=['block']):
-    types_map = {'block': 'BlockComment',
-                 'line': 'LineComment',
-                 'javadoc': 'JavadocComment'}
-    new_types = map(lambda t: types_map[t], types)
-    css = classes(sections)
-    comments = []
-    for cs in css:
-        a = []
-        for t in types:
-            a.append([])
-        if cs:
-            class_comments = cs['comments']
-            for cc in class_comments:
-                if cc['type'] in new_types:
-                    idx = types_map.keys()[types_map.values().index(
-                        cc['type'])]
-                    a[types.index(idx)].append(cc['content'])
-                else:
-                    a.append(None)
-        a = [[], [], []]
-        comments.append(a)
-    return comments
+def comments(section, types=['block', 'line']):
+    a = map(lambda clazz: __comments(clazz, types), _classes(section))
+    return a
+
+
+def __comments(clazz, types=['block', 'line']):
+    mapping = {u'BlockComment': u'block',
+               u'LineComment': u'line',
+               u'JavadocComment': u'javadoc'}
+    comments_ = dict()
+    for t in types:
+        comments_[t] = []
+    for c in clazz['comments']:
+            comment_type = c[u'type']
+            comments_[mapping[comment_type]].append(c['content'])
+    return comments_
