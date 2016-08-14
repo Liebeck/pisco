@@ -90,5 +90,7 @@ def _comments(clazz, types=['block', 'line']):
         comments_[t] = []
     for c in clazz['comments']:
             comment_type = c[u'type']
-            comments_[mapping[comment_type]].append(c['content'])
+            mapped_type = mapping[comment_type]
+            if mapped_type in types:
+                comments_[mapped_type].append(c['content'])
     return comments_
