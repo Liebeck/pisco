@@ -34,9 +34,13 @@ class NumberOfCommentsPerClass(BaseEstimator):
         sections = extract_sections(raw_submission)
         vectors = [self.__transform(section) for section in sections]
         vectors = [entry for v in vectors for entry in v]
-        return stat(vectors, axis=0)
+        print(stat(vectors, axis=0))
+        return [stat(vectors, axis=0)[2]]
 
     def __transform(self, section):
-        return map(lambda x:
-                   map(lambda t: len(x[t]), self.types),
-                   adapter.comments(section, self.types))
+        comments = adapter.comments(section, self.types)
+        if comments:
+            return map(lambda x:
+                       map(lambda t: len(x[t]), self.types), comments)
+        else:
+            return [map(lambda t: 0, self.types)]

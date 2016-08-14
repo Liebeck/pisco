@@ -40,4 +40,7 @@ class LengthOfMethodsPerClass(BaseEstimator):
     def __transform(self, section):
         methods = adapter.class_field(section, field='sourceCode')
         measure = get_measurement_function(self.method)
-        return map(lambda x: measure(x), methods)
+        if methods:
+            return map(lambda x: measure(x), methods)
+        else:
+            return [0]
