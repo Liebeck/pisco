@@ -1,11 +1,7 @@
 from pisco import client
 
 
-def classes(sections):
-    return map(lambda section: _classes(section), sections)
-
-
-def _classes(section):
+def classes(section):
     response = client.extract(section)
     if response:
         return response['classes']
@@ -14,7 +10,15 @@ def _classes(section):
 
 
 def methods(section):
-    return map(lambda clazz: _methods(clazz), _classes(section))
+    return map(lambda clazz: _methods(clazz), classes(section))
+
+
+def method_blocks(section):
+    return map(lambda c: _method_blocks(c), classes(section))
+
+
+def comments(section, types=['block', 'line']):
+    return map(lambda clazz: _comments(clazz, types), classes(section))
 
 
 def _methods(clazz):
@@ -24,21 +28,11 @@ def _methods(clazz):
         None
 
 
-def method_blocks(section):
-    return map(lambda c: _method_blocks(c), _classes(section))
-
-
 def _method_blocks(clazz):
-    methods_ = _methods(clazz)
-    return map(lambda m: m.get('sourceCode', None), methods_)
+    return map(lambda m: m.get('sourceCode', None), _methods(clazz))
 
 
-def comments(section, types=['block', 'line']):
-    a = map(lambda clazz: __comments(clazz, types), _classes(section))
-    return a
-
-
-def __comments(clazz, types=['block', 'line']):
+def _comments(clazz, types=['block', 'line']):
     mapping = {u'BlockComment': u'block',
                u'LineComment': u'line',
                u'JavadocComment': u'javadoc'}
