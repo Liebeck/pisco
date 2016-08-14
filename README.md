@@ -34,7 +34,7 @@ This will install all required dependencies.
   make run
 ```
 
-evaluate (see [How to evaluate a feature](#how-to-evaluate-a-feature-evaluate-feature))
+evaluate (see [How to evaluate a feature](#how-to-evaluate-a-feature))
 
 If you want to push your changes you follow these steps:
 
