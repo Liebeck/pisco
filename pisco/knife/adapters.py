@@ -40,7 +40,11 @@ def class_field(section, field='sourceCode'):
     Returns:
         list of list of class fields
     """
-    return map(lambda c: _class_field(c, field=field), classes(section))
+    clazzes = classes(section)
+    if clazzes:
+        return map(lambda c: _class_field(c, field=field), classes(section))
+    else:
+        return None
 
 
 def comments(section, types=['block', 'line']):
@@ -55,7 +59,11 @@ def comments(section, types=['block', 'line']):
     Returns:
         list of list of comments
     """
-    return map(lambda clazz: _comments(clazz, types), classes(section))
+    clazzes = classes(section)
+    if clazzes:
+        return map(lambda clazz: _comments(clazz, types), classes(section))
+    else:
+        return None
 
 
 def _methods(clazz):
