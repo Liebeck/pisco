@@ -1,4 +1,4 @@
-public class Example {
+static class Example {
     // This is a line comment
     int counter = 5;
     /**

@@ -1,6 +1,6 @@
 package de.hhu.knife.mappers;
 
-public class Example {
+private class Example {
     int counter = 5;
 
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Example {
 }
 
 
-public class Example2 {
+private class Example2 {
     int counter = 5;
     public static void main(String[] args) {
         /*
