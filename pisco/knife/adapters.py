@@ -24,18 +24,13 @@ def _methods(clazz):
         None
 
 
-def method_blocks(sections):
-    methods_ = methods(sections)
-    method_blocks = []
-    for mm in methods_:
-        m = []
-        for t in mm:
-            if t:
-                m.append(t['sourceCode'])
-            else:
-                m.append(None)
-        method_blocks.append(m)
-    return method_blocks
+def method_blocks(section):
+    return map(lambda c: _method_blocks(c), _classes(section))
+
+
+def _method_blocks(clazz):
+    methods_ = _methods(clazz)
+    return map(lambda m: m.get('sourceCode', None), methods_)
 
 
 def comments(section, types=['block', 'line']):
