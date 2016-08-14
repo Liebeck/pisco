@@ -13,7 +13,7 @@ This will install all required dependencies.
   cd pisco
   make build
 ```
-## How to Evaluate a Feature [evaluate-feature]
+## How to Evaluate a Feature
 ``` bash
   make run
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features word_unigram
@@ -34,7 +34,7 @@ This will install all required dependencies.
   make run
 ```
 
-evaluate (see [How to evaluate a feature](#evaluate-feature))
+evaluate (see [How to evaluate a feature](#how-to-evaluate-a-feature-evaluate-feature))
 
 If you want to push your changes you follow these steps:
 
