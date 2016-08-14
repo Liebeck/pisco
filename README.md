@@ -24,10 +24,19 @@ This will install all required dependencies.
 ```
 
 ## Workflow
-``` git pull ```
-``` make run ``` (optionally ``` make build```)
+``` bash
+  git pull
+```
+
+(optionally ``` make build```)
+
+``` bash
+  make run 
+```
 
 evaluate (see *How to evaluate a feature*)
+
+If you want to push your changes you follow these steps:
 
 ``` bash
 make run
