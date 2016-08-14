@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
+import pisco.recognizers.ridge as ridge
 import pisco.loaders.plain_loader as plain_loader
 import pisco.transformers.misc.word_unigram as word_unigram
 from pisco.configuration import Configuration
@@ -60,6 +61,10 @@ def configure(conf):
     @conf.recognizer('decision_tree_regressor')
     def build_decision_tree_regressor():
         return decision_tree_regressor.build()
+
+    @conf.recognizer('ridge')
+    def build_ridge():
+        return ridge.build()
 
     @conf.feature('word_unigram')
     def build_word_unigram_feature():
