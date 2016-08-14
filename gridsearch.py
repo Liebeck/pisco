@@ -2,29 +2,38 @@ import pisco.transformers.structure.number_of_methods_per_class as number_of_met
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 from pisco.transformers.helpers import powerset
-import numpy as np
-from operator import itemgetter
 from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram
 import pisco.recognizers.linear_regression as linear_regression
+import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
 from pisco.metrics.metrics import mse
 from sklearn.metrics import make_scorer
 from pisco.metrics.metrics import pearson
 from collections import OrderedDict
-import pprint
 import json
 
 
 DIMENSIONS = ['openness']
-RECOGNIZERS = [('Linear Regression', linear_regression)]
+RECOGNIZERS = [('Linear Regression', linear_regression),
+               ('Decision Tree Regressor',
+               decision_tree_regressor)]
 FEATURES = [
     # ('Word Unigram', word_unigram),
     ('Number of Methods per Class', number_of_methods_per_class),
     ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class)]
-SCORE = 'PC'  # or PC
+SCORE = 'PC'
+
+
+def pretty(d, indent=0):
+    for key, value in d.iteritems():
+        print '\t' * indent + str(key)
+        if isinstance(value, dict):
+            pretty(value, indent + 1)
+        else:
+            print '\t' * (indent + 1) + str(value)
 
 
 def make_score_function(score):
@@ -39,22 +48,13 @@ def make_score_function(score):
 FEATURES = powerset(FEATURES)
 
 
-def report(grid_scores, n_top=3):
-    top_scores = sorted(grid_scores, key=itemgetter(1), reverse=True)[:n_top]
-    for i, score in enumerate(top_scores):
-        print("Model with rank: {0}".format(i + 1))
-        print("Mean validation score: {0:.3f} (std: {1:.3f})".format(
-            score.mean_validation_score,
-            np.std(score.cv_validation_scores)))
-        print("Parameters: {0}".format(score.parameters))
-        print("")
-
 X, Y = load(labels=DIMENSIONS)
 
 result = {}
+result['recognizers'] = []
 for name, recognizer in RECOGNIZERS:
+    current_recognizer = {}
     for features in FEATURES:
-        result['recognizer'] = {'name': name}
         transformers = map(lambda f: f[1].build(), features)
         p = pipeline.pipeline(transformers=transformers,
                               recognizer=recognizer.build())
@@ -72,9 +72,13 @@ for name, recognizer in RECOGNIZERS:
         best_score = abs(grid_search.best_score_)
         best_params = grid_search.best_params_
         scorer = grid_search.scorer_
-        result['recognizer']['|'.join(map(lambda x: x[0], features))] = {}
-        result['recognizer']['|'.join(map(lambda x: x[0], features))]['best_score'] = best_score
-        result['recognizer']['|'.join(map(lambda x: x[0], features))]['best_params'] = best_params
-        result['recognizer']['|'.join(map(lambda x: x[0], features))]['scorer'] = "pca"
-pp = pprint.PrettyPrinter(depth=4)
-pp.pprint(json.dumps(result))
+        feature_names = '|'.join(map(lambda x: x[0], features))
+        current_recognizer['name'] = name
+        current_recognizer[feature_names] = {}
+        current_recognizer[feature_names]['best_score'] = best_score
+        current_recognizer[feature_names]['best_params'] = best_params
+        current_recognizer[feature_names]['scorer'] = SCORE
+    result['recognizers'].append(current_recognizer)
+print(result)
+with open('result.json', 'w') as outfile:
+    json.dump(result, outfile, indent=2)
