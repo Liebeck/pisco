@@ -1,6 +1,3 @@
-import sys
-
-
 def extract_classes(X):
     list_class_list = []
     for x in X:
