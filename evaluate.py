@@ -66,7 +66,7 @@ def configure(conf):
 
     @conf.feature('mean_number_of_methods_per_class')
     def build_mean_number_of_methods_per_class_feature():
-        return [number_of_methods_per_class.build(method='mean')]
+        return [number_of_methods_per_class.build(stat='mean')]
 
     @conf.feature('mean_length_of_methods_per_class')
     def build_mean_length_of_methods_per_class_feature():
