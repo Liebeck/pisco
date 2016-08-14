@@ -3,7 +3,6 @@ from ..helpers import powerset
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
-import numpy as np
 
 
 def build(stat='mean', types=['block', 'line', 'javadoc']):
@@ -33,21 +32,11 @@ class NumberOfCommentsPerClass(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        vectors = []
-        for section in sections:
-            vectors.append(self.__transform(section))
-        final = []
-        for vec in vectors:
-            for c in vec:
-                final.append(c)
-        return stat(final, axis=0)
+        vectors = [self.__transform(section) for section in sections]
+        vectors = [entry for v in vectors for entry in v]
+        return stat(vectors, axis=0)
 
     def __transform(self, section):
-        cs = adapter.comments(section, self.types)
-        result = []
-        for c in cs:
-            ff = []
-            for t in self.types:
-                ff.append(len(c[t]))
-            result.append(ff)
-        return result
+        return map(lambda x:
+                   map(lambda t: len(x[t]), self.types),
+                   adapter.comments(section, self.types))
