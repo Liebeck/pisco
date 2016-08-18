@@ -5,6 +5,7 @@ import pisco.recognizers.ridge as ridge
 import pisco.recognizers.elastic_net as elastic_net
 import pisco.recognizers.lasso as lasso
 import pisco.recognizers.lars as lars
+import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.loaders.plain_loader as plain_loader
 import pisco.transformers.misc.word_unigram as word_unigram
 from pisco.configuration import Configuration
@@ -81,6 +82,10 @@ def configure(conf):
     @conf.recognizer('lars')
     def build_lars():
         return lars.build()
+
+    @conf.recognizer('support_vector_regression')
+    def build_supoort_vector_regressiion():
+        return support_vector_regression.build()
 
     @conf.feature('word_unigram')
     def build_word_unigram_feature():
