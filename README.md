@@ -40,7 +40,7 @@ If you want to push your changes you follow these steps:
 
 ``` bash
 make run
-py.test -- pep8
+py.test --pep8
 git status
 git add 'path'
 git commit -m 'message'

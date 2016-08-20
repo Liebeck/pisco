@@ -6,6 +6,7 @@ from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
+import pisco.recognizers.support_vector_regression as support_vector_regression
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
 from pisco.metrics.metrics import mse
@@ -17,8 +18,8 @@ import json
 
 DIMENSIONS = ['openness']
 RECOGNIZERS = [('Linear Regression', linear_regression),
-               ('Decision Tree Regressor',
-               decision_tree_regressor)]
+               ('Decision Tree Regressor', decision_tree_regressor),
+               ('Support Vector Regression', support_vector_regression)]
 FEATURES = [
     # ('Word Unigram', word_unigram),
     ('Number of Methods per Class', number_of_methods_per_class),
