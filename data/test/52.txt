@@ -1,0 +1,4414 @@
+package problemaA;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int[] num;
+	private static int N=0;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			num = new int[N];
+			if(N>1&&N<100000){
+				for(int i=0; i<N;i++){
+					int p=sc.nextInt();
+					if(p>=-1000000000&&p<=1000000000){
+						num[i]=p;
+					}
+				}
+			}
+			evaluar();
+		}
+		sc.close();
+	}
+	private static void evaluar() {
+		int mayor=0;
+		int menor=0;
+		int mayorP=0;
+		int menorP=0;
+		for(int i=0;i<N;i++){
+			int num1=num[i];
+			if(num1>mayor){
+				mayor=num1;
+			}
+			if(num1<mayorP){
+				mayorP=num1;
+			}
+		}
+		for(int i=0;i<N;i++){
+			int num1=num[i];
+			if(num1!=mayor && num1>menor){
+				menor=num1;
+			}
+			if(num1!=mayorP && num1<menorP){
+				menorP=num1;
+			}
+		}
+		int r1 = mayor*menor;
+		int r2 = mayorP*menorP;
+		if(r1>r2){
+			System.out.println(r1);
+		}else{
+			System.out.println(r2);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int i=0;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					revisar();
+				}
+			}
+			n+=1;
+		}
+		sc.close();
+	}
+	private static void revisar() {
+		int Ti = tab[i][0];
+		int Vi;
+		for(int j=0;j<N;j++){
+			Vi = tab[j][1];
+			if(Ti==Vi){
+				total+=1;
+			}
+		}
+		if(i<N-1){
+			i+=1;
+			revisar();
+		}else{
+			System.out.println("Case #"+caso+":");
+			System.out.println(total);
+			i=0;
+			total=0;
+			caso+=1;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int i=0;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					revisar();
+				}
+			}
+			n+=1;
+		}
+		sc.close();
+	}
+	private static void revisar() {
+		int Ti = tab[i][0];
+		int Vi;
+		for(int j=0;j<N;j++){
+			Vi = tab[j][1];
+			if(Ti==Vi){
+				total+=1;
+			}
+		}
+		if(i<N-1){
+			i+=1;
+			revisar();
+		}else{
+			System.out.println("Case #"+caso+":");
+			System.out.println(total);
+			i=0;
+			total=0;
+			caso+=1;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaA;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int[] num;
+	private static int N=0;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			num = new int[N];
+			if(N>1&&N<100000){
+				for(int i=0; i<N;i++){
+					int p=sc.nextInt();
+					if(p>=-1000000000&&p<=1000000000){
+						num[i]=p;
+					}
+				}
+			}
+			evaluar();
+		}
+		sc.close();
+	}
+	private static void evaluar() {
+		int mayor=0;
+		int menor=0;
+		int mayorP=0;
+		int menorP=0;
+		for(int i=0;i<N;i++){
+			int num1=num[i];
+			if(num1>mayor){
+				mayor=num1;
+			}
+			if(num1<mayorP){
+				mayorP=num1;
+			}
+		}
+		for(int i=0;i<N;i++){
+			int num1=num[i];
+			if(num1!=mayor && num1>menor){
+				menor=num1;
+			}
+			if(num1!=mayorP && num1<menorP){
+				menorP=num1;
+			}
+		}
+		int r1 = mayor*menor;
+		int r2 = mayorP*menorP;
+		if(r1>r2){
+			System.out.println(r1);
+		}else{
+			System.out.println(r2);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaB;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int[][] tab;
+	private static int N=0;
+	private static int num=1;
+	private static int m=0;
+	private static int resta;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			if(N>=1&&N<=100){
+				tab = new int[N][N];
+				for(int i=0; i<N; i++){
+					for(int j=0; j<N; j++){
+						tab[i][j]=sc.nextInt();
+					}
+				}
+			}
+			sumar();
+		}	
+		sc.close();
+	}
+	private static void sumar() {
+		int rest=0;
+		int i=0;
+		int j=0;
+		int index1 = 0;
+		int index2 = 0;
+		boolean eval =false;
+		int n =0;
+		int sumaF;
+		int sumaC;
+		while(n<N){
+			sumaC=0;
+			for(int k=0;k<N;k++){
+				sumaC += tab[k][index1];
+			}
+			while(m<N){
+				sumaF=0;
+				for(int k=0;k<N;k++){
+					sumaF += tab[index2][k];
+				}
+				resta=0;
+				resta=sumaC-sumaF;
+				if(resta>=rest&&resta>0){
+					rest=resta;
+					i=index2;
+					j=index1;
+					eval=true;
+				}
+				m+=1;
+				index2++;
+			}	
+			index2=0;
+			m=0;
+			n+=1;
+			index1++;
+		}
+		if(eval==true){
+			System.out.println("case #" + num +":");
+			System.out.println(tab[i][j]);
+			num+=1;
+			eval=false;
+		}else{
+			System.out.println("case #" + num +":");
+			System.out.println("0");
+			num+=1;
+			eval=false;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaD;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int T=0;
+	private static int N=0;
+	private static int[][] tab;
+	private static boolean evaE= true;
+	private static int fin=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		T=sc.nextInt();
+		if(T>0&&T<1000){
+			int n=0;
+			while(n<T){
+				N=sc.nextInt();
+				if(N>=1&&N<=1000){
+					tab = new int[N][N];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<N;j++){
+							String dato = sc.next();
+							if(dato.equals("#")){
+								tab[i][j] = 1;
+							}else if(dato.equals(".")){
+								tab[i][j] = 0 ;
+							}else{
+								evaE=false;
+							}
+						}
+					}
+					evaluar(evaE);
+				}
+				n+=1;
+			}
+		}
+		sc.close();
+	}
+	private static void evaluar(boolean ev) {
+		if(N>1&&ev==true){
+			evaluarFilas();
+		}else{
+			System.out.println("NO");
+		}
+	}
+	private static void evaluarFilas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<fin;i++){
+			for(int j=0; j<N;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=fin;i<N;i++){
+			for(int j=0; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma2!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarFilas();
+			}else{
+				fin=1;
+				evaluarColumnas();
+			}
+		}
+	}
+	private static void evaluarColumnas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<N;i++){
+			for(int j=0; j<fin;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=0;i<N;i++){
+			for(int j=fin; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma1!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarColumnas();
+			}else{
+				fin=1;
+				System.out.println("NO");
+			}
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaB;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int[][] tab;
+	private static int N=0;
+	private static int num=1;
+	private static int m=0;
+	private static int resta;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			if(N>=1&&N<=100){
+				tab = new int[N][N];
+				for(int i=0; i<N; i++){
+					for(int j=0; j<N; j++){
+						tab[i][j]=sc.nextInt();
+					}
+				}
+			}
+			sumar();
+		}	
+		sc.close();
+	}
+	private static void sumar() {
+		int rest=0;
+		int i=0;
+		int j=0;
+		int index1 = 0;
+		int index2 = 0;
+		boolean eval =false;
+		int n =0;
+		int sumaF;
+		int sumaC;
+		while(n<N){
+			sumaC=0;
+			for(int k=0;k<N;k++){
+				sumaC += tab[k][index1];
+			}
+			while(m<N){
+				sumaF=0;
+				for(int k=0;k<N;k++){
+					sumaF += tab[index2][k];
+				}
+				resta=0;
+				resta=sumaC-sumaF;
+				if(resta>=rest&&resta>0){
+					rest=resta;
+					i=index2;
+					j=index1;
+					eval=true;
+				}
+				m+=1;
+				index2++;
+			}	
+			index2=0;
+			m=0;
+			n+=1;
+			index1++;
+		}
+		if(eval==true){
+			System.out.println("case #" + num +":");
+			System.out.println(tab[i][j]);
+			num+=1;
+			eval=false;
+		}else{
+			System.out.println("case #" + num +":");
+			System.out.println("0");
+			num+=1;
+			eval=false;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int[] num;
+	private static int N=0;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			num = new int[N];
+			if(N>1&&N<100000){
+				for(int i=0; i<N;i++){
+					int p=sc.nextInt();
+					if(p>=-1000000000&&p<=1000000000){
+						num[i]=p;
+					}
+				}
+			}
+			evaluar();
+		}
+		sc.close();
+	}
+	private static void evaluar() {
+		int mayor=0;
+		int menor=0;
+		int mayorP=0;
+		int menorP=0;
+		for(int i=0;i<N;i++){
+			int num1=num[i];
+			if(num1>mayor){
+				mayor=num1;
+			}
+			if(num1<mayorP){
+				mayorP=num1;
+			}
+		}
+		for(int i=0;i<N;i++){
+			int num1=num[i];
+			if(num1!=mayor && num1>menor){
+				menor=num1;
+			}
+			if(num1!=mayorP && num1<menorP){
+				menorP=num1;
+			}
+		}
+		int r1 = mayor*menor;
+		int r2 = mayorP*menorP;
+		if(r1>r2){
+			System.out.println(r1);
+		}else{
+			System.out.println(r2);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio;
+
+import java.util.Scanner;
+
+public class Main {
+	private static long[] num;
+	private static int N=0;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			num = new long[N];
+			if(N>1&&N<100000){
+				for(int i=0; i<N;i++){
+					long p=sc.nextInt();
+					if(p>=-1000000000&&p<=1000000000){
+						num[i]=p;
+					}
+				}
+			}
+			evaluar();
+		}
+		sc.close();
+	}
+	private static void evaluar() {
+		long mayor=0;
+		long menor=0;
+		long mayorP=0;
+		long menorP=0;
+		for(int i=0;i<N;i++){
+			long num1=num[i];
+			if(num1>mayor){
+				mayor=num1;
+			}
+			if(num1<mayorP){
+				mayorP=num1;
+			}
+		}
+		for(int i=0;i<N;i++){
+			long num1=num[i];
+			if(num1!=mayor && num1>menor){
+				menor=num1;
+			}
+			if(num1!=mayorP && num1<menorP){
+				menorP=num1;
+			}
+		}
+		long r1 = mayor*menor;
+		long r2 = mayorP*menorP;
+		if(r1>r2){
+			System.out.println(r1);
+		}else{
+			System.out.println(r2);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio;
+
+import java.util.Scanner;
+
+
+public class Main {
+	private static int[][] tab;
+	private static int N=0;
+	private static int num=1;
+	private static int m=0;
+	private static int resta;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			N = sc.nextInt();
+			if(N>=1&&N<=100){
+				tab = new int[N][N];
+				for(int i=0; i<N; i++){
+					for(int j=0; j<N; j++){
+						tab[i][j]=sc.nextInt();
+					}
+				}
+			}
+			sumar();
+		}	
+		sc.close();
+	}
+	private static void sumar() {
+		int rest=0;
+		int i=0;
+		int j=0;
+		int index1 = 0;
+		int index2 = 0;
+		boolean eval =false;
+		int n =0;
+		int sumaF;
+		int sumaC;
+		while(n<N){
+			sumaC=0;
+			for(int k=0;k<N;k++){
+				sumaC += tab[k][index1];
+			}
+			while(m<N){
+				sumaF=0;
+				for(int k=0;k<N;k++){
+					sumaF += tab[index2][k];
+				}
+				resta=0;
+				resta=sumaC-sumaF;
+				if(resta>=rest&&resta>0){
+					rest=resta;
+					i=index2;
+					j=index1;
+					eval=true;
+				}
+				m+=1;
+				index2++;
+			}	
+			index2=0;
+			m=0;
+			n+=1;
+			index1++;
+		}
+		if(eval==true){
+			System.out.println("case #" + num +":");
+			System.out.println(tab[i][j]);
+			num+=1;
+			eval=false;
+		}else{
+			System.out.println("case #" + num +":");
+			System.out.println("0");
+			num+=1;
+			eval=false;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package laboratorio;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class Mian{
+	private static int T=0;
+	private static int N=0;
+	private static int[][] tab;
+	private static boolean evaE= true;
+	private static int fin=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		T=sc.nextInt();
+		if(T>0&&T<1000){
+			int n=0;
+			while(n<T){
+				N=sc.nextInt();
+				if(N>=1&&N<=1000){
+					tab = new int[N][N];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<N;j++){
+							String dato = sc.next();
+							if(dato.equals("#")){
+								tab[i][j] = 1;
+							}else if(dato.equals(".")){
+								tab[i][j] = 0 ;
+							}else{
+								evaE=false;
+							}
+						}
+					}
+					evaluar(evaE);
+				}
+				n+=1;
+			}
+		}
+		sc.close();
+	}
+	private static void evaluar(boolean ev) {
+		if(N>1&&ev==true){
+			evaluarFilas();
+		}else{
+			System.out.println("NO");
+		}
+	}
+	private static void evaluarFilas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<fin;i++){
+			for(int j=0; j<N;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=fin;i<N;i++){
+			for(int j=0; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma2!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarFilas();
+			}else{
+				fin=1;
+				evaluarColumnas();
+			}
+		}
+	}
+	private static void evaluarColumnas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<N;i++){
+			for(int j=0; j<fin;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=0;i<N;i++){
+			for(int j=fin; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma1!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarColumnas();
+			}else{
+				fin=1;
+				System.out.println("NO");
+			}
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package laboratorio;
+
+import java.util.Scanner;
+
+public class Main{
+	private static int T=0;
+	private static int N=0;
+	private static int[][] tab;
+	private static boolean evaE= true;
+	private static int fin=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		T=sc.nextInt();
+		
+			int n=0;
+			while(n<T){
+				N=sc.nextInt();
+				
+					tab = new int[N][N];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<N;j++){
+							String dato = sc.next();
+							if(dato.equals("#")){
+								tab[i][j] = 1;
+							}else if(dato.equals(".")){
+								tab[i][j] = 0 ;
+							}else{
+								evaE=false;
+							}
+						}
+					}
+					evaluar(evaE);
+				
+				n+=1;
+			}
+		
+		sc.close();
+	}
+	private static void evaluar(boolean ev) {
+		if(N>1&&ev==true){
+			evaluarFilas();
+		}else{
+			System.out.println("NO");
+		}
+	}
+	private static void evaluarFilas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<fin;i++){
+			for(int j=0; j<N;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=fin;i<N;i++){
+			for(int j=0; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma2!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarFilas();
+			}else{
+				fin=1;
+				evaluarColumnas();
+			}
+		}
+	}
+	private static void evaluarColumnas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<N;i++){
+			for(int j=0; j<fin;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=0;i<N;i++){
+			for(int j=fin; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma1!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarColumnas();
+			}else{
+				fin=1;
+				System.out.println("NO");
+			}
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	private static int T=0;
+	private static int N=0;
+	private static int[][] tab;
+	private static boolean evaE= true;
+	private static int fin=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		T=sc.nextInt();
+		if(T>0&&T<1000){
+			int n=0;
+			while(n<T){
+				N=sc.nextInt();
+				if(N>=1&&N<=1000){
+					tab = new int[N][N];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<N;j++){
+							String dato = sc.next();
+							if(dato.equals("#")){
+								tab[i][j] = 1;
+							}else if(dato.equals(".")){
+								tab[i][j] = 0 ;
+							}else{
+								evaE=false;
+							}
+						}
+					}
+					evaluar(evaE);
+				}
+				n+=1;
+			}
+		}
+		sc.close();
+	}
+	private static void evaluar(boolean ev) {
+		if(N>1&&ev==true){
+			evaluarFilas();
+		}else{
+			System.out.println("NO");
+		}
+	}
+	private static void evaluarFilas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<fin;i++){
+			for(int j=0; j<N;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=fin;i<N;i++){
+			for(int j=0; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma2!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarFilas();
+			}else{
+				fin=1;
+				evaluarColumnas();
+			}
+		}
+	}
+	private static void evaluarColumnas() {
+		int suma1=0;
+		int suma2=0;
+		for(int i=0;i<N;i++){
+			for(int j=0; j<fin;j++){
+				suma1+=tab[i][j];
+			}
+		}
+		for(int i=0;i<N;i++){
+			for(int j=fin; j<N;j++){
+				suma2+=tab[i][j];
+			}
+		}
+		if(suma1==suma2&&suma1!=0){
+			System.out.println("YES");
+		}else{
+			if(fin<N-1){
+				fin+=1;
+				evaluarColumnas();
+			}else{
+				fin=1;
+				System.out.println("NO");
+			}
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package hoy;
+
+import java.util.Scanner;
+
+
+public class Main {
+    
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int[] tab = new int[5];
+    int casos = 0;
+    while(sc.hasNext()){
+        int T = sc.nextInt();
+        if(T>=1&&T<=4){
+            for(int i=0; i<5; i++){
+                tab[i] = sc.nextInt();
+            }
+            for(int i=0;i<5;i++){
+                if(T==tab[i]){
+                    casos+=1;
+                }
+            }
+        }
+        System.out.println(casos);
+        casos=0;
+    }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int i=0;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					revisar();
+				}
+			}
+			n+=1;
+		}
+		sc.close();
+	}
+	private static void revisar() {
+		int Ti = tab[i][0];
+		string z = i + "0";
+		int Vi;
+		for(int j=0;j<N;j++){
+			Vi = tab[j][1];
+			String m = j + "1";
+			if(Ti==Vi&&z!=m){
+				total+=1;
+			}
+		}
+		if(i<N-1){
+			i+=1;
+			revisar();
+		}else{
+			System.out.println("Case #"+caso+":");
+			System.out.println(total);
+			i=0;
+			total=0;
+			caso+=1;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int i=0;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					revisar();
+				}
+			}
+			n+=1;
+		}
+		sc.close();
+	}
+	private static void revisar() {
+		int Ti = tab[i][0];
+		String z = i + "0";
+		int Vi;
+		for(int j=0;j<N;j++){
+			Vi = tab[j][1];
+			String m = j + "1";
+			if(Ti==Vi && z!=m){
+				total+=1;
+			}
+		}
+		if(i<N-1){
+			i+=1;
+			revisar();
+		}else{
+			System.out.println("Case #"+caso+":");
+			System.out.println(total);
+			i=0;
+			total=0;
+			caso+=1;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int i=0;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					revisar();
+				}
+			}
+			n+=1;
+		}
+		sc.close();
+	}
+	private static void revisar() {
+		int Ti = tab[i][0];
+		String z = i + "0";
+		int Vi;
+		for(int j=0;j<N;j++){
+			Vi = tab[j][1];
+			String m = j + "1";
+			if(Ti==Vi && z!=m){
+				total+=1;
+			}
+		}
+		if(i<N-1){
+			i+=1;
+			revisar();
+		}else{
+			System.out.println("Case #"+caso+":");
+			System.out.println(total);
+			i=0;
+			total=0;
+			caso+=1;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+private static char[][] corte;
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+
+int T = Integer.parseInt(sc.nextLine());
+if (0 < T && T < 1000) {
+for (int i = 0; i < T; i++) {
+int N = Integer.parseInt(sc.nextLine());
+
+if (1 <= N && N <= 1000) {
+boolean eval = false;
+corte = new char[N][N];
+for (int k = 0; k < N; k++) {
+char[] b = sc.nextLine().toCharArray();
+punto[k] = b;
+}
+int cer = 0;
+for (int i = 0; i< N; i++) {
+for (int j = 0; j < N; j++) {
+if (corte[i][j]=='#')
+cer++;
+}
+}
+if (cer % 2 != 0) {
+System.out.println("NO");
+continue;
+}
+int cau = 0;
+for (int r = 0; r < N; r++) {
+for (int w = 0; w < N; w++) {
+if (corte[r][w]== '#') {
+cau++;
+}
+}
+if (cau == (cer / 2)) {
+System.out.println("YES");
+eval = true;
+break;
+}
+}
+cau = 0;
+if (eval) {
+continue;
+}
+for (int r = 0; r < N; r++) {
+for (int w = 0; w < N; w++) {
+if (corte[w][r]=='#') {
+cau++;
+}
+}
+if (cau == (cer / 2)) {
+System.out.println("YES");
+pudo = true;
+break;
+}
+}
+if (eval) {
+continue;
+}
+System.out.println("NO");
+}
+}
+}
+}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					for (int i1 = 0; i1 < N; i1++) {
+						
+						for (int j = 0; j < N; j++) {
+							if(i1!=j){
+							if (tab[i1][0]==tab[j][1]) {
+								total++;
+							}
+							}
+						}
+				}
+					System.out.println("Case #"+caso+":");
+					System.out.println(total);
+					total=0;
+					caso+=1;
+			}
+			n+=1;
+		}
+	}
+		sc.close();
+	}
+}
+	
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+	private static int N=0;
+	private static int[][] tab;
+	private static int total = 0;
+	private static int caso=1;
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int n=0;
+		while(n<T){
+			if(T>=1&&T<=100){
+				N = sc.nextInt();
+				if(N>1&&N<=100){
+					tab = new int[N][2];
+					for(int i=0;i<N;i++){
+						for(int j=0;j<2;j++){
+							tab[i][j] = sc.nextInt();
+						}
+					}
+					for (int i1 = 0; i1 < N; i1++) {
+						
+						for (int j = 0; j < N; j++) {
+							if(i1!=j){
+							if (tab[i1][0]==tab[j][1]) {
+								total++;
+							}
+							}
+						}
+				}
+					System.out.println("Case #"+caso+":");
+					System.out.println(total);
+					total=0;
+					caso+=1;
+			}
+			n+=1;
+		}
+	}
+		sc.close();
+	}
+}
+	
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+import java.util.Scanner;
+
+
+public class Main {
+	private static int caso=1;
+public static void main(String[] args) {
+	int cantidad=0,casos=0;
+	int count = 0;
+
+	Scanner in = new Scanner(System.in);
+	casos = in.nextInt();
+	for (int i = 0; i < casos; i++) {
+		count = 0;
+		cantidad = in.nextInt();
+		
+		
+		int arreglo[][] = new int[cantidad][2];
+		
+		for (int i1 = 0; i1 < cantidad; i1++) {
+			for (int j = 0; j <2; j++) {
+				arreglo[i1][j] = in.nextInt();
+				
+			}
+		}
+		
+		
+		for (int i1 = 0; i1 < cantidad; i1++) {
+			
+			for (int j = 0; j < cantidad; j++) {
+				if(i1!=j){
+				if (arreglo[i1][0]==arreglo[j][1]) {
+					count++;
+				}
+				}
+			}
+		}
+		System.out.println("Case #"+caso+":");
+		System.out.println(count);
+		caso+=1;
+	}
+
+
+	}
+		
+	}
+			
+	
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemaC;
+import java.util.Scanner;
+
+public class Main {
+	private static char punto[][];
+	private static boolean eval;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int T = Integer.parseInt(sc.nextLine());
+		if (0 < T && T < 1000) {
+			for (int i = 0; i < T; i++) {
+				int N = Integer.parseInt(sc.nextLine());
+
+				if (1 <= N && N <= 1000) {
+					int x = 0;
+					int y = 0;
+					eval = false;
+					punto= new char[N][N];
+					for (int k = 0; k < N; k++) {
+						char[] b = sc.nextLine().toCharArray();
+						punto[k] = b;
+					}
+					for (int i1 = 0; i1 < N; i1++) {
+						for (int g = 0; g < N; g++) {
+							if (punto[i1][g]=='#')
+								x++;
+						}
+					}
+					if (x % 2 != 0) {
+						System.out.println("NO");
+						continue;
+					}
+					for (int r = 0; r < N; r++) {
+						for (int w = 0; w < N; w++) {
+							if (punto[r][w]== '#') {
+								y+=1;
+							}
+						}
+						if (y == (x / 2)) {
+							System.out.println("YES");
+							eval = true;
+							break;
+						}
+					}
+					y= 0;
+					if (eval) {
+						continue;
+					}
+					for (int r = 0; r < N; r++) {
+						for (int w = 0; w < N; w++) {
+							if (punto[w][r]=='#') {
+								y+=1;
+							}
+						}
+						if (y== (x / 2)) {
+							System.out.println("YES");
+							eval = true;
+							break;
+						}
+					}
+					if (eval) {
+						continue;
+					}
+					System.out.println("NO");
+				}
+			}
+		}
+		sc.close();
+	}
+
+}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class problemaf {
+
+	public static void main(String[] args) {
+
+//delaracion de variables
+int variable =0;	     
+int t=0;
+int aux=0;
+	     
+	//entrada de los datos del te   
+	     
+	     Scanner entrada = new Scanner(System.in);
+	     t = entrada.nextInt();
+           //arreglo que contiene las entradas de los numeros
+        	   int columna[] = new int [5];
+        	   for(int w=0;p<columna.length;w++){
+        		   columna[w] = entrada.nextInt();
+        		   
+        	   }
+        	//recorrodo de si encuentra los que le valen  
+           for(int q=0;q<columna.length;q++){
+        	   if(columna[q] == t){
+        		   variable++;
+        		 
+        	   }
+           }
+           
+           
+           
+          //salida de los resultados 
+	System.out.println(variable);
+	
+           
+	
+	
+	
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class problemaf {
+
+	public static void main(String[] args) {
+
+//delaracion de variables
+int variable =0;	     
+int t=0;
+int aux=0;
+	     
+	//entrada de los datos del te   
+	     
+	     Scanner entrada = new Scanner(System.in);
+	     t = entrada.nextInt();
+           //arreglo que contiene las entradas de los numeros
+        	   int columna[] = new int [5];
+        	   for(int w=0;w<columna.length;w++){
+        		   columna[w] = entrada.nextInt();
+        		   
+        	   }
+        	//recorrodo de si encuentra los que le valen  
+           for(int q=0;q<columna.length;q++){
+        	   if(columna[q] == t){
+        		   variable++;
+        		 
+        	   }
+           }
+           
+           
+           
+          //salida de los resultados 
+	System.out.println(variable);
+	
+           
+	
+	
+	
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //C
+	
+	static Node head;
+	static int salida=0;
+	public  static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cantidadC = sc.nextInt();
+		if(cantidadC>0 && cantidadC<10001){
+			int valor = sc.nextInt();
+
+			head = new Node(valor);
+			Node temp = head;
+			for(int i=cantidadC-1;i>0;i--){
+				valor = sc.nextInt();
+				Node temp1 = new Node(valor);
+				temp.enlazar(temp1);
+				temp = temp1;
+			}
+
+			int niñas = sc.nextInt();
+			int igual = 0;
+			for(int j=0;j<niñas+1;j++){
+
+				String dato = sc.nextLine() + " ";
+				String numS="";
+				igual=0;
+				for(int i=0;i<dato.length();i++){
+					String d = dato.charAt(i) + "";
+					if(!d.equals(" ")){
+						numS = numS + d;	
+					}else if(d.equals(" ") && numS.length()>0){
+						int num= Integer.parseInt(numS);
+						temp=head;
+						for(int k=cantidadC;k>0;k--){
+							int f = temp.valor();
+							if(f==num){
+								igual+=1;
+								if(igual==cantidadC)salida+=1;
+							}
+							temp = temp.siguiente();
+						}
+						numS="";
+
+					}else if(dato.length()==dato.length()-1){
+						break;
+					}
+				}
+			}
+			System.out.println(salida);
+			salida=0;
+		}
+
+		sc.close();
+	}
+
+}
+	class Node{
+		int valor;
+		Node siguiente;
+		public Node(int valor){
+			this.valor = valor;
+			this.siguiente=null;
+		}
+		public int valor(){
+			return valor;
+		}
+		public Node siguiente(){
+			return siguiente;
+		}
+		public void enlazar(Node n){
+			siguiente = n;
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //C
+	
+	static Node head;
+	static int salida=0;
+	public  static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cantidadC = sc.nextInt();
+		if(cantidadC>0 && cantidadC<10001){
+			int valor = sc.nextInt();
+
+			head = new Node(valor);
+			Node temp = head;
+			for(int i=cantidadC-1;i>0;i--){
+				valor = sc.nextInt();
+				Node temp1 = new Node(valor);
+				temp.enlazar(temp1);
+				temp = temp1;
+			}
+
+			int ninas = sc.nextInt();
+			int igual = 0;
+			for(int j=0;j<ninas+1;j++){
+
+				String dato = sc.nextLine() + " ";
+				String numS="";
+				igual=0;
+				for(int i=0;i<dato.length();i++){
+					String d = dato.charAt(i) + "";
+					if(!d.equals(" ")){
+						numS = numS + d;	
+					}else if(d.equals(" ") && numS.length()>0){
+						int num= Integer.parseInt(numS);
+						temp=head;
+						for(int k=cantidadC;k>0;k--){
+							int f = temp.valor();
+							if(f==num){
+								igual+=1;
+								if(igual==cantidadC)salida+=1;
+							}
+							temp = temp.siguiente();
+						}
+						numS="";
+
+					}else if(dato.length()==dato.length()-1){
+						break;
+					}
+				}
+			}
+			System.out.println(salida);
+			salida=0;
+		}
+
+		sc.close();
+	}
+
+}
+	class Node{
+		int valor;
+		Node siguiente;
+		public Node(int valor){
+			this.valor = valor;
+			this.siguiente=null;
+		}
+		public int valor(){
+			return valor;
+		}
+		public Node siguiente(){
+			return siguiente;
+		}
+		public void enlazar(Node n){
+			siguiente = n;
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //C
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		int k=casos;
+		System.out.println();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazar(aux);
+				temp = temp.siguiente();
+			}
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazar(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazar(vacio);
+
+			while(nCartas-1>0){
+				temp=head;
+				for(int i=0; i<nCartas-1;i++){
+					if(temp.siguiente()!=null){
+						antes=temp;
+						temp=temp.siguiente();
+						cola = temp;
+					}
+
+				}
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						antes.enlazar(nuevo);
+					}
+
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						antes.enlazar(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						antes.enlazar(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+			if(cas==k-1){
+				System.out.println("Caso #"  + cas+":");
+				System.out.print(salida);
+			}else{
+				System.out.println("Caso #"+ cas+":");
+				System.out.println(salida);
+			}
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+	class Node{
+		int valor;
+		Node siguiente;
+		public Node(int valor){
+			this.valor = valor;
+			this.siguiente=null;
+		}
+		public int valor(){
+			return valor;
+		}
+		public Node siguiente(){
+			return siguiente;
+		}
+		public void enlazar(Node n){
+			siguiente = n;
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //B
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		int k=casos;
+		System.out.println();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazar(aux);
+				temp = temp.siguiente();
+			}
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazar(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazar(vacio);
+
+			while(nCartas-1>0){
+				temp=head;
+				for(int i=0; i<nCartas-1;i++){
+					if(temp.siguiente()!=null){
+						antes=temp;
+						temp=temp.siguiente();
+						cola = temp;
+					}
+
+				}
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						antes.enlazar(nuevo);
+					}
+
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						antes.enlazar(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazar(temp.siguiente());
+						antes.enlazar(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+			if(cas==k-1){
+				System.out.println("Caso #"  + cas+":");
+				System.out.print(salida);
+			}else{
+				System.out.println("Caso #"+ cas+":");
+				System.out.println(salida);
+			}
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+	class Node{
+		int valor;
+		Node siguiente;
+		public Node(int valor){
+			this.valor = valor;
+			this.siguiente=null;
+		}
+		public int valor(){
+			return valor;
+		}
+		public Node siguiente(){
+			return siguiente;
+		}
+		public void enlazar(Node n){
+			siguiente = n;
+		}
+	}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class problema {
+
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int casos = sc.nextInt();
+		int [][] columna;
+		String[][] casillero;
+		sc.nextLine();
+		if(0<casos && casos<1000){   
+			int caso = 1;
+			for (int i = 0; i < casos; i++) {
+				System.out.println("Caso #"+caso+":");
+				int n = sc.nextInt();
+				sc.nextLine();
+				int fila = 0;
+				columna = new int [2][n];
+
+				String datos = sc.nextLine();
+				String cubiculos [] = datos.split(" ");
+
+				if(1<=n && n<=1000){                    
+					for (int j = 0; j < cubiculos.length; j++) {
+						int k = Integer.parseInt(cubiculos[j]) ;
+						if(1<=k && k<=1000){
+							columna [0][fila] = k;
+							fila++;                       
+						}                        
+					}
+					casillero = new String [fila][];
+					for (int j = 0; j < fila ; j++) {
+
+						casillero [j] = new String [columna[0][j]];                        
+					}    
+					n = sc.nextInt();
+					sc.nextLine();
+					if (1<=n && n<=10000){
+						for (int j = 0; j < n; j++) {
+							datos = sc.nextLine();
+							cubiculos = datos.split(" ");
+							if(datos.contains("ingresar")){
+								double menor = 1;
+								double promedio ;
+								int libre = 0;
+								for (int k = 0; k < fila; k++) {
+									double dato =columna[1][k];
+									double date =columna[0][k];
+									promedio =(dato/date);
+
+									if (promedio < menor){
+										menor = promedio;
+										libre = k;
+
+									}
+								}
+								if(menor==1){
+									System.out.println("limite alcanzado");                                   
+								}else{               
+
+									for (int l = 0; l < columna[0][libre]; l++) {
+
+										if(casillero[libre][l] == null){
+
+											casillero[libre][l] = datos;
+											System.out.println((libre+1)+" "+(l+1));
+
+											columna[1][libre]= columna[1][libre] + 1;
+											break;
+										}                                        
+									}
+
+								}                               
+							}else if(datos.contains("salir")){
+								int salto =0;
+								String cedula = cubiculos[1];
+								for (int k = 0; k < casillero.length; k++) {
+									for (int l = 0; l < casillero[k].length; l++) {
+										if(casillero[k][l]!=null){
+											if(casillero[k][l].contains(cedula)){
+												cubiculos = casillero[k][l].split(" ");
+												System.out.println(cubiculos[1]);
+												casillero[k][l] = null;
+												columna[1][k] = columna[1][k]-1;
+												salto++;
+												break;
+											}
+										}
+
+									}
+									if (salto != 0) {
+										break;
+									}
+								}
+							}
+						}
+					}
+				}
+				caso++;
+			}
+			
+		}
+
+		sc.close();
+	}
+}
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //B
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		int k=casos;
+		System.out.println();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazarS(aux);
+				aux.enlazarA(temp);
+				temp = temp.siguiente();
+			}
+			cola=temp;
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazarS(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazarS(vacio);
+
+			while(nCartas-1>0){
+				
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+					cola = cola.anterior();
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+			if(cas==k-1){
+				System.out.println("Caso #"  + cas+":");
+				System.out.print(salida);
+			}else{
+				System.out.println("Caso #"+ cas+":");
+				System.out.println(salida);
+			}
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+class Node{
+	int valor;
+	Node siguiente;
+	Node anterior;
+	public Node(int valor){
+		this.valor = valor;
+		this.siguiente=null;
+		this.anterior=null;
+	}
+	public int valor(){
+		return valor;
+	}
+	public Node siguiente(){
+		return siguiente;
+	}
+	public Node anterior(){
+		return anterior;
+	}
+	public void enlazarS(Node n){
+		siguiente = n;
+	}
+	public void enlazarA(Node n){
+		anterior=n;
+	}
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //B
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazarS(aux);
+				aux.enlazarA(temp);
+				temp = temp.siguiente();
+			}
+			cola=temp;
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazarS(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazarS(vacio);
+
+			while(nCartas-1>0){
+				
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+					cola = cola.anterior();
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+			
+			
+				System.out.println("Caso #"  + cas+":");
+				System.out.println(salida);
+			
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+class Node{
+	int valor;
+	Node siguiente;
+	Node anterior;
+	public Node(int valor){
+		this.valor = valor;
+		this.siguiente=null;
+		this.anterior=null;
+	}
+	public int valor(){
+		return valor;
+	}
+	public Node siguiente(){
+		return siguiente;
+	}
+	public Node anterior(){
+		return anterior;
+	}
+	public void enlazarS(Node n){
+		siguiente = n;
+	}
+	public void enlazarA(Node n){
+		anterior=n;
+	}
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //B
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazarS(aux);
+				aux.enlazarA(temp);
+				temp = temp.siguiente();
+			}
+			cola=temp;
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazarS(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazarS(vacio);
+
+			while(nCartas-1>0){
+				
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+					cola = cola.anterior();
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+			if(cas==1){
+				System.out.println();
+				System.out.println("Caso #"  + cas+":");
+				System.out.println(salida);
+			}
+				System.out.println("Caso #"  + cas+":");
+				System.out.println(salida);
+			
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+class Node{
+	int valor;
+	Node siguiente;
+	Node anterior;
+	public Node(int valor){
+		this.valor = valor;
+		this.siguiente=null;
+		this.anterior=null;
+	}
+	public int valor(){
+		return valor;
+	}
+	public Node siguiente(){
+		return siguiente;
+	}
+	public Node anterior(){
+		return anterior;
+	}
+	public void enlazarS(Node n){
+		siguiente = n;
+	}
+	public void enlazarA(Node n){
+		anterior=n;
+	}
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //B
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazarS(aux);
+				aux.enlazarA(temp);
+				temp = temp.siguiente();
+			}
+			cola=temp;
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazarS(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazarS(vacio);
+
+			while(nCartas-1>0){
+				
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+					cola = cola.anterior();
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+			if(cas==1){
+				System.out.println();
+				System.out.println("Caso #"  + cas+":");
+				System.out.println(salida);
+			}else{
+				System.out.println("Caso #"  + cas+":");
+				System.out.println(salida);
+			}
+				
+			
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+class Node{
+	int valor;
+	Node siguiente;
+	Node anterior;
+	public Node(int valor){
+		this.valor = valor;
+		this.siguiente=null;
+		this.anterior=null;
+	}
+	public int valor(){
+		return valor;
+	}
+	public Node siguiente(){
+		return siguiente;
+	}
+	public Node anterior(){
+		return anterior;
+	}
+	public void enlazarS(Node n){
+		siguiente = n;
+	}
+	public void enlazarA(Node n){
+		anterior=n;
+	}
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class problema { //B
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cas=1;
+		int casos = sc.nextInt();
+		while(casos>0){
+			int jugador = 1;
+			int nCartas = sc.nextInt();
+			int jugadores = sc.nextInt();
+			int carta = sc.nextInt();
+			Node vacio = new Node(0);
+			Node antes = null;
+			Node cartas = new Node(0);
+			Node head = new Node(carta);
+			Node aux;
+			Node temp = head;
+			Node cola = null;
+			for(int i=1;i<nCartas;i++){
+				carta=sc.nextInt();
+				aux = new Node(carta);
+				temp.enlazarS(aux);
+				aux.enlazarA(temp);
+				temp = temp.siguiente();
+			}
+			cola=temp;
+			temp=cartas;
+			for(int i=1;i<jugadores;i++){
+				aux = new Node(0);
+				temp.enlazarS(aux);
+				temp = temp.siguiente();
+			}
+			temp.enlazarS(vacio);
+
+			while(nCartas-1>0){
+				
+				if(head.valor()<cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ cola.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+					cola = cola.anterior();
+				}else if(head.valor()>=cola.valor()){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+						temp = head;
+						head=temp.siguiente();
+
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+						temp = head;
+						head=temp.siguiente();
+					}
+				}
+				if(jugador==jugadores){
+					jugador =1;
+				}else{
+					jugador++;
+				}
+				nCartas-=1;
+				if(nCartas==1){
+					temp = cartas;
+					if(jugador==1){
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						cartas = nuevo;
+					}else{
+						for(int i=1;i<jugador;i++){
+							antes = temp;
+							temp =temp.siguiente();
+						}
+						int dato = temp.valor()+ head.valor();
+						Node nuevo = new Node(dato);
+						nuevo.enlazarS(temp.siguiente());
+						antes.enlazarS(nuevo);
+					}
+
+				}
+			}
+			int cantidad = 0;
+			temp=cartas;
+			String salida="";
+			boolean ev = true;
+			for(int i=1;i<jugadores+1;i++){
+				if(temp.valor()>=cantidad){
+					if(ev==true && (cartas.valor()==cartas.siguiente().valor())){
+						salida=1 +"";
+						ev=false;
+					}
+					if(cartas.valor()==temp.siguiente().valor()){
+						salida = salida + " " + (i+1);
+					}
+					if(ev==true&&temp.valor()>cantidad){
+						cantidad =temp.valor();
+						salida=i+"";
+					}
+				}
+				temp=temp.siguiente();
+			}
+	
+				System.out.println("Caso #"  + cas+":");
+				System.out.println(salida);
+			
+				
+			
+			cas++;
+			casos--;
+		}
+		sc.close();
+	}
+
+}
+class Node{
+	int valor;
+	Node siguiente;
+	Node anterior;
+	public Node(int valor){
+		this.valor = valor;
+		this.siguiente=null;
+		this.anterior=null;
+	}
+	public int valor(){
+		return valor;
+	}
+	public Node siguiente(){
+		return siguiente;
+	}
+	public Node anterior(){
+		return anterior;
+	}
+	public void enlazarS(Node n){
+		siguiente = n;
+	}
+	public void enlazarA(Node n){
+		anterior=n;
+	}
+	
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.*;
+
+public class EjercicioB {
+
+
+
+	public static void main(String[] args) {
+
+
+		Scanner entrada = new Scanner(System.in);
+		int r= entrada.nextInt();
+		for(int z=1; z<=r; z++){
+
+		int w, y;
+		w=entrada.nextInt();
+		y= entrada.nextInt();
+		int[] mano = new int[w];
+		int[] puntaje= new int[y];
+		for(int i=0; i<w; i++){
+			mano[i]=entrada.nextInt();
+		}
+		 int cj=0;
+		 int ct=0;
+		 int ch=w-1;
+		for(int i=0; i<w; i++){
+
+			if(mano[ch]>=mano[ct]){
+				puntaje[cj]=puntaje[cj]+mano[ch];
+				ch--;
+			}else{
+				puntaje[cj]=puntaje[cj]+mano[ct];
+				ct++;
+			}
+			cj++;
+			if(cj>=y){
+				cj=0;
+			};
+			if(ch<ct){
+				break;
+			}
+		}
+		int maximo=0;
+		for(int i=0; i<y; i++){
+			if(puntaje[i]>maximo){
+				maximo=puntaje[i];
+			}
+		}
+
+		System.out.println("Caso #"+z+":");
+		int m=1;
+		for(int k=0; k<y; k++){
+			if(puntaje[k]==maximo){
+				System.out.print(m+" ");
+			}
+			m++;
+		}
+		System.out.println();
+
+
+
+	}
+	}
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaA {
+	static Node aux;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int Q;
+		int dato;
+		String comando;
+		Node date;
+		int num1 = 0;
+		int num2 = 0;
+		int n;
+		int b;
+		int salida = 0;
+		int caso = 1;
+		boolean cas;
+		while(T>0){
+			Node raiz = null;
+			Q = sc.nextInt();
+			cas = true;
+			while(Q>0){
+				salida = 0;
+				comando = sc.next();
+				if(comando.equals("agregar")){
+					dato = sc.nextInt();
+					date = new Node(dato);
+					if(raiz == null){
+						raiz = date;
+					}else{
+						aux = raiz;
+						Node padreA;
+						while(true){
+							padreA = aux;
+							if(dato < aux.dato){
+								aux = aux.hIzq;
+								if(aux == null){
+									padreA.hIzq = date;
+									break;
+								}
+							}else{
+								aux = aux.hDer;
+								if(aux == null){
+									padreA.hDer = date;
+									break;
+								}
+							}
+						}
+					}
+				}else if(comando.equals("distancia")){
+					num1 = sc.nextInt();
+					num2 = sc.nextInt();
+					if(raiz==null){
+						salida=-1;
+					}else{
+						aux = raiz;
+						if(!(num1 < num2)){
+							int aux = num2;
+							num2 = num1;
+							num1 = aux;
+						}
+						if(num1 == num2){
+							salida = 0;
+						}else{
+							while(true){
+								if(aux.dato == num2){
+									salida += recorrer(aux,num1);
+									break;
+								}else if(aux.dato == num1){
+									salida += recorrer(aux,num2);
+									break;
+								}else if((aux.dato > num1) && (aux.dato < num2)){
+									n = recorrer(aux , num1);
+									b = recorrer(aux,num2);
+									if((n == -1) || (b == -1)){
+										salida = -1;
+										break;
+									}
+									salida = n + b;
+									break;
+								}else if((aux.dato > num1) && (aux.dato > num2)){
+									aux = aux.hIzq;
+									if(aux == null){
+										salida = -1;
+										break;
+									}
+								}
+								else if((aux.dato < num1) && (aux.dato < num2)){
+									aux = aux.hDer;
+									if(aux == null){
+										salida = -1;
+										break;
+									}
+								}
+							}
+						}
+					}
+				}else if(comando.equals("ancestro")){
+					num1 = sc.nextInt();
+					num2 = sc.nextInt();
+					if(raiz == null){
+						salida = -1;
+					}else{
+						salida = 0;
+						if(!(num1 < num2)){
+							int aux = num2;
+							num2 = num1;
+							num1 = aux;
+						}
+						if(num1 == num2){
+							salida = num1;
+						}else{
+							aux = raiz;
+							while(true){
+								if(aux.dato > num1 && aux.dato < num2){
+									n = recorrer(aux,num1);
+									if(n==-1){
+										salida = n;
+										break;
+									}
+									b = recorrer(aux,num2);
+									if(b==-1){
+										salida = b;
+										break;
+									}
+									salida = aux.dato;
+									break;
+								}else if(aux.dato == num1){
+									n = recorrer(aux,num2);
+									if(n!=-1){
+										salida = num1;
+										break;
+									}else{
+										salida = -1;
+									}
+								}else if(aux.dato == num2){
+									n = recorrer(aux,num1);
+									if(n!=-1){
+										salida = num2;
+										break;
+									}else{
+										salida = -1;
+									}
+								}else if(aux.dato > num1 && aux.dato > num2){
+									aux = aux.hIzq;
+								}else if(aux.dato < num1 && aux.dato < num2){
+									aux = aux.hDer;
+								}
+								if(aux==null){
+									salida=-1;
+									break;
+								}
+							}
+						}
+					}
+				}else{
+				}
+				if(comando.equals("distancia")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("distancia: " + salida);
+				}else if(comando.equals("ancestro")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("ancestro: " + salida);
+				}
+				Q--;
+			}
+			caso++;
+			T--;
+		}
+		sc.close();
+	}
+	static int recorrer(Node cabeza,int num){
+		int salida = 0;
+		while(true){
+			if(cabeza.dato != num){
+				if(cabeza.dato > num){
+					cabeza = cabeza.hIzq;
+					salida += 1;
+					if(cabeza == null){
+						salida =-1;
+						break;
+					}				
+				}
+				if(cabeza.dato < num){
+					cabeza = cabeza.hDer;
+					salida += 1;
+					if(cabeza == null){
+						salida =-1;
+						break;
+					}				
+				}
+			}else{
+				break;
+			}
+		}
+		return salida;	
+	}
+
+	public static class Node{
+		int dato;
+		Node hIzq;
+		Node hDer;
+		public Node(int dato){
+			this.dato = dato;
+			this.hIzq = null;
+			this.hDer = null;
+		}		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ProblemaB {
+	static int caso = 1;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] numeros;
+		try{
+			int T = sc.nextInt();
+			String fila;
+			Node raiz = null;
+			while(T>0){
+				int Q = sc.nextInt();
+				sc.nextLine();
+				while(Q>0){
+					fila = sc.nextLine();
+					numeros = fila.split(" ");
+					if(raiz == null){
+						raiz = new Node(Integer.parseInt(numeros[0]));
+						for(int i=1;i<numeros.length;i++){
+							insertarNode(raiz,Integer.parseInt(numeros[i]),Integer.parseInt(numeros[0]));
+						}
+					}else{
+						for(int i=1;i<numeros.length;i++){
+							insertarNode(raiz,Integer.parseInt(numeros[i]),Integer.parseInt(numeros[0]));
+						}
+					}
+					Q--;
+				}
+				ver(raiz);
+				raiz = null;
+				caso++;
+				T--;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		sc.close();	
+	}
+
+	public static void ver(Node raiz){
+		Stack<Node> salida = new Stack<Node>();
+		Stack<Node> salida2 = new Stack<Node>();
+		Node temp=null;
+		String salidaF = "";
+		System.out.println("caso #" + caso + ":");
+		int n;
+		salida.add(raiz);
+		while(true){
+			while(!salida.isEmpty()){
+				temp = salida.pop();
+				salidaF +=temp.dato + " ";
+				n=0;
+				while(n<temp.hijos.length){
+					salida2.add(temp.hijos[n]);
+					n++;
+				}
+			}
+			while(!salida2.isEmpty()){
+				temp = salida2.pop();
+				salidaF+=temp.dato + " ";
+				n=temp.hijos.length;
+				while(n>0){
+					salida.add(temp.hijos[n-1]);
+					n--;
+				}
+			}
+			if(salida.isEmpty() && salida2.isEmpty())break;
+		}
+		System.out.println(salidaF.substring(0,salidaF.length()-1));
+	}
+	public static void insertarNode(Node nodo,int dato,int padre){
+		Node nuevo = new Node(dato);
+		if(nodo.dato == padre){
+			nodo.insertar(nuevo	);
+		}else{
+			for(int i=0;i<nodo.nhijos;i++){
+				if(nodo.hijos[i].dato == padre){
+					nodo.hijos[i].insertar(nuevo);
+				}else{
+					insertarNode(nodo.hijos[i],dato,padre);
+				}
+			}
+		}
+	}
+
+	static class Node{
+		int dato;
+		int nhijos;
+		Node[] hijos;
+		Node[] hijosT;
+
+		public Node(int dato) {
+			this.dato = dato;
+			this.nhijos = 0;
+			this.hijos = new Node[0];
+			this.hijosT = new Node[0];
+		}
+		public void copiar(){
+			hijosT = new Node[nhijos+1];
+			for(int i=0;i<this.nhijos;i++){
+				hijosT[i] = hijos[i];
+			}
+		}
+		public void insertar(Node nodo){
+			copiar();
+			hijosT[nhijos] = nodo;
+			hijos = hijosT;
+			this.nhijos ++;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaD {
+	static ArrayList<NodoAvl> raices = new ArrayList<NodoAvl>();
+	static Queue<NodoAvl> nodos = new LinkedList<NodoAvl>();
+	static String salida;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		arbolAvl arbol = new arbolAvl();
+		int idx;
+		int idy;
+		NodoAvl raiz1;
+		NodoAvl auxi;
+		NodoAvl tempo = null;
+		boolean crea = true;
+		int q = sc.nextInt();
+		while(q>0){
+			String comando= sc.next();
+			if(comando.equals("insertar")){
+				tempo=null;
+				idx = sc.nextInt();
+				int num = sc.nextInt();
+				for(NodoAvl e : raices){
+					if(e.idx == idx){
+						tempo = e;
+						break;
+					}
+				}
+				raiz1 = tempo;
+					NodoAvl nuevo = new NodoAvl(idx,num);
+					if(tempo==null){
+						raiz1 = nuevo;
+					}else{
+						tempo = arbol.insertarAvl(nuevo,tempo);
+					}
+					if(tempo != raiz1){
+						for(NodoAvl e : raices){
+							if(e == raiz1){
+								raices.remove(e);
+								raices.add(tempo);
+								break;
+							}
+						}
+					}
+				
+			}else if(comando.equals("unir")){
+				idx = sc.nextInt();
+				idy = sc.nextInt();
+				raiz1 = null;
+				tempo = null;
+				for(NodoAvl e : raices){
+					if(e.idx == idx){
+						tempo = e;
+						break;
+					}
+				}
+				for(NodoAvl e : raices){
+					if(e.idx == idy){
+						raiz1 = e;
+						break;
+					}
+				}
+				if((tempo != null)&&(raiz1 != null)){
+					postOrden(raiz1);
+					raiz1 = tempo;
+					while(!nodos.isEmpty()){
+						auxi = nodos.poll();
+						auxi.idx = idx;
+						auxi.hijoD = null;
+						auxi.hijoI = null;
+						tempo = arbol.insertarAvl(auxi,tempo);
+					}
+					for(NodoAvl h : raices){
+						if(h.idx == tempo.idx){
+							raices.remove(h);
+							break;
+						}
+					}
+					for(NodoAvl h : raices){
+						if(h.idx == tempo.idx){
+							raices.remove(h);
+							break;
+						}
+					}
+					raices.add(tempo);
+				}
+				salida = "";
+				inOrden(tempo);
+				//System.out.println(salida);
+				salida = "";
+			}else if(comando.equals("contiene")){
+				idx = sc.nextInt();
+				idy = sc.nextInt();
+				auxi = null;
+				tempo = null;
+				for(NodoAvl e : raices){
+					if(e.idx == idx){
+						tempo = e;
+						break;
+					}
+				}
+				for(NodoAvl e : raices){
+					if(e.idx == idy){
+						auxi = e;
+						break;
+					}
+				}
+				String sal1;
+				if(auxi != null && tempo != null){
+					salida="";
+					inOrden(auxi);
+					sal1 = salida;
+					salida = "";
+					while(true){
+						if(tempo.dato == auxi.dato){
+							inOrden(tempo);
+							break;
+						}else if(tempo.dato < auxi.dato){
+							if(tempo.hijoD!=null){
+								tempo = tempo.hijoD;
+							}else break;
+						}else if(tempo.dato > auxi.dato){
+							if(tempo.hijoI!=null){
+								tempo = tempo.hijoI;
+							}else break;
+						}
+						if(tempo==null)break;
+					}
+					if(tempo.dato != auxi.dato){
+						System.out.println("contiene: No");
+					}else{
+						if(sal1.equals(salida)){
+							System.out.println("contiene: Yes");
+						}else{
+							System.out.println("contiene: No");
+						}						
+					}
+				}
+				salida = "";
+			}else if(comando.equals("ocurrencia")){
+				idx = sc.nextInt();
+				idy = sc.nextInt();
+				tempo = null;
+				for(NodoAvl e : raices){
+					if(e.idx == idx){
+						tempo = e;
+						break;
+					}
+				}
+				if(tempo != null){
+					while(true){
+						if(tempo.dato == idy){
+							System.out.println("ocurrencia: " + tempo.ocurrencias);
+							break;
+						}else if(tempo.dato < idy){
+							if(tempo.hijoD!=null){
+								tempo = tempo.hijoD;
+							}else{
+								System.out.println("ocurrencia: " + 0);
+								break;
+							}
+						}else if(tempo.dato > idy){
+							if(tempo.hijoI!=null){
+								tempo = tempo.hijoI;
+							}else{
+								System.out.println("ocurrencia: " + 0);
+								break;
+							}
+						}
+					}
+				}else{
+					
+				}
+			}else if(comando.equals("crear")){
+				idx = sc.nextInt();
+				for(NodoAvl e : raices){
+					if(e.idx == idx){
+						crea = false;
+						break;
+					}
+				}
+				NodoAvl raiz = new NodoAvl(idx,sc.nextInt());
+				if(crea == true){
+					raices.add(raiz);
+				}
+				crea = true;
+			}else{
+				tempo = null;
+				idx = sc.nextInt();
+				for(NodoAvl h : raices){
+					if(h.idx == idx){
+						tempo = h;
+						break;
+					}
+				}
+				if(tempo!=null){
+					preOrden(tempo);
+				}
+			}
+			q--;
+		}
+		sc.close();
+	}
+
+	public static void preOrden(NodoAvl c){
+		if(c!=null){
+			System.out.println(c.dato + " " + c.ocurrencias + "No");
+			preOrden(c.hijoI);
+			preOrden(c.hijoD);
+		}
+	}
+	public static void inOrden(NodoAvl c){
+		if(c!=null){
+			inOrden(c.hijoI);
+			salida+=c.dato;
+			inOrden(c.hijoD);
+		}
+	}
+	public static void postOrden(NodoAvl y){
+		if(y != null){
+			postOrden(y.hijoI);
+			postOrden(y.hijoD);
+			if(y!=null){
+				y.fe = 0;
+				nodos.add(y);
+			}
+		}
+	}
+
+	static class arbolAvl{
+		private NodoAvl raiz;
+		public arbolAvl(){
+			raiz = null;
+		}
+		public NodoAvl buscar(int d,NodoAvl r){
+			if(raiz==null){
+				return null;
+			}else if(r.dato == d){
+				return r;
+			}else if(r.dato < d){
+				return buscar(d,r.hijoD);
+			}else{
+				return buscar(d,r.hijoI);
+			}
+
+		}
+
+		public int obtenerFe(NodoAvl r){
+			if(r==null){
+				return -1;
+			}else{
+				return r.fe;
+			}
+		}
+
+		public NodoAvl rotacionIzquierda(NodoAvl r){
+			NodoAvl aux = r.hijoI;
+			r.hijoI = aux.hijoD;
+			aux.hijoD = r;
+			r.fe = Math.max(obtenerFe(r.hijoI), obtenerFe(r.hijoD)) + 1;
+			aux.fe = Math.max(obtenerFe(aux.hijoI), obtenerFe(aux.hijoD)) + 1;
+			return aux;
+		}
+
+		public NodoAvl rotacionDerecha(NodoAvl r){
+			NodoAvl aux = r.hijoD;
+			r.hijoD = aux.hijoI;
+			aux.hijoI = r;
+			r.fe = Math.max(obtenerFe(r.hijoI), obtenerFe(r.hijoD)) + 1;
+			aux.fe = Math.max(obtenerFe(aux.hijoI), obtenerFe(aux.hijoD)) + 1;
+			return aux;
+		}
+
+		public NodoAvl rotacionDobleIzquierda(NodoAvl r){
+			NodoAvl tempo;
+			r.hijoI = rotacionDerecha(r.hijoI);
+			tempo = rotacionIzquierda(r);
+			return tempo;
+		}
+
+		public NodoAvl rotacionDobleDerecha(NodoAvl r){
+			NodoAvl tempo;
+			r.hijoD = rotacionIzquierda(r.hijoD);
+			tempo = rotacionDerecha(r);
+			return tempo;
+		}
+
+		public NodoAvl insertarAvl(NodoAvl nuevo,NodoAvl subArbol){
+			NodoAvl nuevoPadre = subArbol;
+			if(nuevo.dato<subArbol.dato){
+				if(subArbol.hijoI == null){
+					subArbol.hijoI = nuevo;
+				}else{
+					subArbol.hijoI = insertarAvl(nuevo,subArbol.hijoI);
+					if((obtenerFe(subArbol.hijoI)-obtenerFe(subArbol.hijoD))==2){
+						if(nuevo.dato<subArbol.hijoI.dato){
+							nuevoPadre = rotacionIzquierda(subArbol);
+						}else{
+							nuevoPadre = rotacionDobleIzquierda(subArbol);
+						}
+					}
+				}
+			}else if(nuevo.dato > subArbol.dato){
+				if(subArbol.hijoD == null){
+					subArbol.hijoD = nuevo;
+				}else{
+					subArbol.hijoD = insertarAvl(nuevo,subArbol.hijoD);
+					if((obtenerFe(subArbol.hijoD)-obtenerFe(subArbol.hijoI))==2){
+						if(nuevo.dato > subArbol.hijoD.dato){
+							nuevoPadre = rotacionDerecha(subArbol);
+						}else{
+							nuevoPadre = rotacionDobleDerecha(subArbol);
+						}
+					}
+				}
+			}else{
+				subArbol.ocurrencias +=nuevo.ocurrencias;
+			}
+			if((subArbol.hijoI == null) && (subArbol.hijoD != null)){
+				subArbol.fe = subArbol.hijoD.fe + 1;
+			}else if((subArbol.hijoD == null)&&(subArbol.hijoI != null)){
+				subArbol.fe = subArbol.hijoI.fe+1;
+			}else{
+				subArbol.fe = Math.max(obtenerFe(subArbol.hijoI), obtenerFe(subArbol.hijoD)) + 1;
+			}
+			return nuevoPadre;
+		}
+
+	}
+	static class NodoAvl{
+		int idx;
+		int dato;
+		int fe;
+		int ocurrencias;
+		NodoAvl hijoI;
+		NodoAvl hijoD;
+
+		public NodoAvl(int idx,int dato){
+			this.ocurrencias = 1;
+			this.idx = idx;
+			this.dato = dato;
+			this.fe = 0;
+			this.hijoI = null;
+			this.hijoD = null;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int N = sc.nextInt();
+		BigInteger num;
+		int cont = 0;
+		BigInteger salida;
+		BigInteger num1;
+		BigInteger[] numeros = new BigInteger[3];
+		numeros[0] = new BigInteger("1");
+		numeros[1] = new BigInteger("1");
+		numeros[2] = new BigInteger("1");
+		while(N>0){
+			num = sc.nextBigInteger();
+			for (int i = 0; i < 3 ; i++) {
+				if(numeros[i].compareTo(num) < 0){
+					numeros[i] = num;
+					  for (int j = 0; j < 2; j++) {
+					        for (int k = 1; k < 3; k++) {
+					            if (numeros[j].compareTo(numeros[k]) > 0) {
+					                num1 = numeros[j];
+					                numeros[j] = numeros[k];
+					                numeros[k] = num1;
+					                break;
+					            }
+					        }
+					    }
+					break;
+				}
+			}
+			
+			if(cont >1){
+				salida = numeros[0];
+				num1 = numeros[1];
+				num = numeros[2];
+				num = num.multiply(salida);
+				num1 = num1.multiply(num);
+				System.out.println(num1);
+			}else{
+				System.out.println(-1);
+				cont++;
+			}
+			N--;
+		}
+		
+		sc.close();
+	}
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaE {
+	static int salidaC = 0;
+	static Node aux;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int Q;
+		int dato;
+		String comando;
+		Node date;
+		int num1 = 0;
+		int num2 = 0;
+		int n;
+		int b;
+		int salida = 0;
+		int caso = 1;
+		boolean cas;
+		while(T>0){
+			Node raiz = null;
+			Q = sc.nextInt();
+			cas = true;
+			while(Q>0){
+				salidaC = 0;
+				salida = 0;
+				comando = sc.next();
+				if(comando.equals("agregar")){
+					dato = sc.nextInt();
+					date = new Node(dato);
+					if(raiz == null){
+						raiz = date;
+					}else{
+						aux = raiz;
+						Node padreA;
+						while(true){
+							padreA = aux;
+							if(dato < aux.dato){
+								aux = aux.hIzq;
+								if(aux == null){
+									padreA.hIzq = date;
+									break;
+								}
+							}else{
+								aux = aux.hDer;
+								if(aux == null){
+									padreA.hDer = date;
+									break;
+								}
+							}
+						}
+					}
+				}else if(comando.equals("distancia")){
+					num1 = sc.nextInt();
+					num2 = sc.nextInt();
+					if(raiz==null){
+						salida=-1;
+					}else{
+						aux = raiz;
+						if(!(num1 < num2)){
+							int aux = num2;
+							num2 = num1;
+							num1 = aux;
+						}
+						if(num1 == num2){
+							salida = 0;
+						}else{
+							while(true){
+								if(aux.dato == num2){
+									salida += recorrer(aux,num1);
+									break;
+								}else if(aux.dato == num1){
+									salida += recorrer(aux,num2);
+									break;
+								}else if((aux.dato > num1) && (aux.dato < num2)){
+									n = recorrer(aux , num1);
+									b = recorrer(aux,num2);
+									if((n == -1) || (b == -1)){
+										salida = -1;
+										break;
+									}
+									salida = n + b;
+									break;
+								}else if((aux.dato > num1) && (aux.dato > num2)){
+									aux = aux.hIzq;
+									if(aux == null){
+										salida = -1;
+										break;
+									}
+								}
+								else if((aux.dato < num1) && (aux.dato < num2)){
+									aux = aux.hDer;
+									if(aux == null){
+										salida = -1;
+										break;
+									}
+								}
+							}
+						}
+					}
+				}else if(comando.equals("ancestro")){
+					num1 = sc.nextInt();
+					num2 = sc.nextInt();
+					if(raiz == null){
+						salida = -1;
+					}else{
+						salida = 0;
+						if(!(num1 < num2)){
+							int aux = num2;
+							num2 = num1;
+							num1 = aux;
+						}
+						if(num1 == num2){
+							salida = num1;
+						}else{
+							aux = raiz;
+							while(true){
+								if(aux.dato > num1 && aux.dato < num2){
+									n = recorrer(aux,num1);
+									if(n==-1){
+										salida = n;
+										break;
+									}
+									b = recorrer(aux,num2);
+									if(b==-1){
+										salida = b;
+										break;
+									}
+									salida = aux.dato;
+									break;
+								}else if(aux.dato == num1){
+									n = recorrer(aux,num2);
+									if(n!=-1){
+										salida = num1;
+										break;
+									}else{
+										salida = -1;
+									}
+								}else if(aux.dato == num2){
+									n = recorrer(aux,num1);
+									if(n!=-1){
+										salida = num2;
+										break;
+									}else{
+										salida = -1;
+									}
+								}else if(aux.dato > num1 && aux.dato > num2){
+									aux = aux.hIzq;
+								}else if(aux.dato < num1 && aux.dato < num2){
+									aux = aux.hDer;
+								}
+								if(aux==null){
+									salida=-1;
+									break;
+								}
+							}
+						}
+					}
+				}else if(comando.equals("contar")){
+					num1 = sc.nextInt();
+					aux = raiz;
+					if(aux != null){
+						while(true){
+							if(aux.dato != num1){
+								if(aux.dato > num1){
+									aux = aux.hIzq;
+									if(aux == null){
+										salida =-1;
+										break;
+									}				
+								}
+								if(aux.dato < num1){
+									aux = aux.hDer;
+									salida += 1;
+									if(aux == null){
+										salida =-1;
+										break;
+									}				
+								}
+							}else{
+								inOrden(aux);
+								break;
+							}
+						}
+					}else{
+						salidaC = 0;
+					}
+				}else{
+				}
+				if(comando.equals("distancia")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("distancia: " + salida);
+				}else if(comando.equals("ancestro")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("ancestro: " + salida);
+				}else if(comando.equals("contar")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("contar: " + (salidaC-1));
+				}
+				Q--;
+			}
+			caso++;
+			T--;
+		}
+		sc.close();
+	}
+
+	public static void inOrden(Node c){
+		if(c!=null){
+			inOrden(c.hIzq);
+			salidaC+=1;
+			inOrden(c.hDer);
+		}
+	}
+
+	static int recorrer(Node cabeza,int num){
+		int salida = 0;
+		while(true){
+			if(cabeza.dato != num){
+				if(cabeza.dato > num){
+					cabeza = cabeza.hIzq;
+					salida += 1;
+					if(cabeza == null){
+						salida =-1;
+						break;
+					}				
+				}
+				if(cabeza.dato < num){
+					cabeza = cabeza.hDer;
+					salida += 1;
+					if(cabeza == null){
+						salida =-1;
+						break;
+					}				
+				}
+			}else{
+				break;
+			}
+		}
+		return salida;	
+	}
+
+	public static class Node{
+		int dato;
+		Node hIzq;
+		Node hDer;
+		public Node(int dato){
+			this.dato = dato;
+			this.hIzq = null;
+			this.hDer = null;
+		}		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ProblemaA {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int N = sc.nextInt();
+		BigInteger num;
+		int cont = 0;
+		BigInteger salida;
+		BigInteger num1;
+		BigInteger[] numeros = new BigInteger[3];
+		numeros[0] = new BigInteger("1");
+		numeros[1] = new BigInteger("1");
+		numeros[2] = new BigInteger("1");
+		while(N>0){
+			num = sc.nextBigInteger();
+			for (int i = 0; i < 3 ; i++) {
+				if(numeros[i].compareTo(num) < 0){
+					numeros[i] = num;
+					  for (int j = 0; j < 2; j++) {
+					        for (int k = 1; k < 3; k++) {
+					            if (numeros[j].compareTo(numeros[k]) > 0) {
+					                num1 = numeros[j];
+					                numeros[j] = numeros[k];
+					                numeros[k] = num1;
+					                break;
+					            }
+					        }
+					    }
+					break;
+				}
+			}
+			
+			if(cont >1){
+				salida = numeros[0];
+				num1 = numeros[1];
+				num = numeros[2];
+				num = num.multiply(salida);
+				num1 = num1.multiply(num);
+				System.out.println(num1);
+			}else{
+				System.out.println(-1);
+				cont++;
+			}
+			N--;
+		}
+		
+		sc.close();
+	}
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaB {
+	static int size;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		numero n;
+		int T = sc.nextInt();
+		int N,num,index;
+		int caso = 1;
+		while(T>0){
+			Hashtable<Integer,numero> numeros = new Hashtable<Integer,numero>();
+			Queue<Integer> indices = new LinkedList<Integer>();
+			N = sc.nextInt();
+			size = N;
+			while(N>0){
+				num=sc.nextInt();
+				index = num % (size-1);
+				n = new numero(num);
+					while(true){
+						if(numeros.get(index)!=null){
+							if(numeros.get(index).dato == num){
+								n.ocurrencias = n.ocurrencias + numeros.get(index).ocurrencias ;
+								numeros.remove(index);
+								numeros.put(index,n);
+								break;
+							}
+						}
+						if(numeros.get(index) == null){
+							numeros.put(index,n);
+							indices.add(index);
+							break;
+						}
+						index+=size;
+					}
+				N--;
+			}
+			int j;
+			System.out.println("Caso #"+caso+":");
+			int tam = indices.size();
+			for (int i = 0; i < tam; i++) {
+				j = indices.poll();
+				System.out.println(numeros.get(j).dato + " " + numeros.get(j).ocurrencias);
+			}
+			caso++;
+			T--;
+		}
+		sc.close();
+	}
+
+
+	static class numero{
+		int dato;
+		int ocurrencias;
+
+		public numero(int dato){
+			this.dato = dato;
+			this.ocurrencias = 1;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaA {
+	static Node aux;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		int Q;
+		int dato;
+		String comando;
+		Node date;
+		int num1 = 0;
+		int num2 = 0;
+		int n;
+		int b;
+		int salida = 0;
+		int caso = 1;
+		boolean cas;
+		while(T>0){
+			Node raiz = null;
+			Q = sc.nextInt();
+			cas = true;
+			while(Q>0){
+				salida = 0;
+				comando = sc.next();
+				if(comando.equals("agregar")){
+					dato = sc.nextInt();
+					date = new Node(dato);
+					if(raiz == null){
+						raiz = date;
+					}else{
+						aux = raiz;
+						Node padreA;
+						while(true){
+							padreA = aux;
+							if(dato < aux.dato){
+								aux = aux.hIzq;
+								if(aux == null){
+									padreA.hIzq = date;
+									break;
+								}
+							}else{
+								aux = aux.hDer;
+								if(aux == null){
+									padreA.hDer = date;
+									break;
+								}
+							}
+						}
+					}
+				}else if(comando.equals("distancia")){
+					num1 = sc.nextInt();
+					num2 = sc.nextInt();
+					if(raiz==null){
+						salida=-1;
+					}else{
+						aux = raiz;
+						if(!(num1 < num2)){
+							int aux = num2;
+							num2 = num1;
+							num1 = aux;
+						}
+						if(num1 == num2){
+							salida = 0;
+						}else{
+							while(true){
+								if(aux.dato == num2){
+									salida += recorrer(aux,num1);
+									break;
+								}else if(aux.dato == num1){
+									salida += recorrer(aux,num2);
+									break;
+								}else if((aux.dato > num1) && (aux.dato < num2)){
+									n = recorrer(aux , num1);
+									if(n == -1){
+										salida = -1;
+										break;
+									}
+									b = recorrer(aux,num2);
+									if(b == -1){
+										salida = -1;
+										break;
+									}
+									
+									salida = n + b;
+									break;
+								}else if((aux.dato > num1) && (aux.dato > num2)){
+									aux = aux.hIzq;
+									if(aux == null){
+										salida = -1;
+										break;
+									}
+								}
+								else if((aux.dato < num1) && (aux.dato < num2)){
+									aux = aux.hDer;
+									if(aux == null){
+										salida = -1;
+										break;
+									}
+								}
+							}
+						}
+					}
+				}else if(comando.equals("ancestro")){
+					num1 = sc.nextInt();
+					num2 = sc.nextInt();
+					if(raiz == null){
+						salida = -1;
+					}else{
+						salida = 0;
+						if(!(num1 < num2)){
+							int aux = num2;
+							num2 = num1;
+							num1 = aux;
+						}
+						if(num1 == num2){
+							salida = num1;
+						}else{
+							aux = raiz;
+							while(true){
+								if(aux.dato > num1 && aux.dato < num2){
+									n = recorrer(aux,num1);
+									if(n==-1){
+										salida = n;
+										break;
+									}
+									b = recorrer(aux,num2);
+									if(b==-1){
+										salida = b;
+										break;
+									}
+									salida = aux.dato;
+									break;
+								}else if(aux.dato == num1){
+									n = recorrer(aux,num2);
+									if(n!=-1){
+										salida = num1;
+										break;
+									}else{
+										salida = -1;
+									}
+								}else if(aux.dato == num2){
+									n = recorrer(aux,num1);
+									if(n!=-1){
+										salida = num2;
+										break;
+									}else{
+										salida = -1;
+									}
+								}else if(aux.dato > num1 && aux.dato > num2){
+									aux = aux.hIzq;
+								}else if(aux.dato < num1 && aux.dato < num2){
+									aux = aux.hDer;
+								}
+								if(aux==null){
+									salida=-1;
+									break;
+								}
+							}
+						}
+					}
+				}else{
+				}
+				if(comando.equals("distancia")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("distancia: " + salida);
+				}else if(comando.equals("ancestro")){
+					if(cas==true){
+						System.out.println("Caso #"+caso);
+						cas = false;
+					}
+					System.out.println("ancestro: " + salida);
+				}
+				Q--;
+			}
+			caso++;
+			T--;
+		}
+		sc.close();
+	}
+	static int recorrer(Node cabeza,int num){
+		int salida = 0;
+		while(true){
+			if(cabeza.dato != num){
+				if(cabeza.dato > num){
+					cabeza = cabeza.hIzq;
+					salida += 1;
+					if(cabeza == null){
+						salida =-1;
+						break;
+					}				
+				}
+				if(cabeza.dato < num){
+					cabeza = cabeza.hDer;
+					salida += 1;
+					if(cabeza == null){
+						salida =-1;
+						break;
+					}				
+				}
+			}else{
+				break;
+			}
+		}
+		return salida;	
+	}
+
+	public static class Node{
+		int dato;
+		Node hIzq;
+		Node hDer;
+		public Node(int dato){
+			this.dato = dato;
+			this.hIzq = null;
+			this.hDer = null;
+		}		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

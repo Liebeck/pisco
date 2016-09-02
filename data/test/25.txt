@@ -1,0 +1,6777 @@
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	
+	public static void ordenar(int tamano)
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		String numero;
+		
+		numero=entrada.nextLine();
+		
+		
+		String array[]=new String[numero.length()];
+		int array1[]=new int[numero.length()];
+		int array2[]=new int[tamano-1];
+		int array3[]=new int[1];
+		
+		
+		for(int i=0;i<numero.length();i++)
+		{
+			array[i]=(new StringBuffer().append(numero.charAt(i))).toString();
+		}
+		
+		//for(int i=0;i<numero.length();i++)
+		//{
+			//System.out.println(array[i]);
+		//}
+		
+		//System.out.println();
+		
+		for(int i=0;i<numero.length();i++)
+		{
+			if(array[i].charAt(0)==' ')
+			{
+				array1[i]=i;
+			}
+		}
+		
+		int a=0;
+		for(int i=0;i<numero.length();i++)
+		{
+			if(array1[i]!=0)
+			{
+				array2[a]=array1[i];
+				a=a+1;
+			}
+			array3[0]=a;
+		}
+		
+		//for(int i=0;i<tamano-1;i++)
+		//{
+			//System.out.println(array2[i]);
+	//	}
+		//System.out.println(array3[0]);
+		
+		//System.out.println();
+
+		String array4[]=new String[array3[0]+1];
+		String array5[]=new String[array3[0]+1];
+
+		
+		for(int i=0;i<array3[0]-1;i++)
+		{
+			array4[i]=numero.substring(array2[i]+1,array2[i+1]);
+		}
+
+		for(int i=1;i<array5.length;i++)
+		{
+			array5[i]=array4[i-1];
+		}
+
+		
+		array5[array3[0]]=numero.substring(array2[tamano-2]+1,numero.length());
+		array5[0]=numero.substring(0,array2[0]);
+
+		//for(int i=0; i<array5.length;i++)
+		//{
+			//System.out.println(array5[i]);
+	//	}
+		//System.out.println();
+		//System.out.println(Integer.parseInt(array5[2]));
+		//hasta aquí, c´est bien!
+		
+		 String array7[]=new String[array5.length];
+		 
+			for(int i=0; i<array5.length;i++)
+			{
+				array7[i]=array5[i];
+			}
+
+		 
+			//System.out.println();
+		 
+		 	long array8[]=new long[array5.length];
+		 
+			for(int i=0; i<array5.length;i++)
+			{
+				array8[i]=Integer.parseInt(array7[i]);
+			}
+		//	for(int i=0; i<array5.length;i++)
+			//{
+				//System.out.println(array8[i]);
+		//	}
+			
+			int array10[]=new int[1];
+			
+			for(int i=0; i<array5.length;i++)
+			{
+				if(array8[i]<-1000000000 || array8[i]>1000000000)
+				{
+					array10[0]=3;
+					break;
+				}
+			}
+			
+			//System.out.println(array10[0]);
+			
+			//final
+			
+			if(array10[0]!=3)
+			{
+				int maspequenio;
+				
+				for(int i=0; i<array8.length-1; i++)
+				{
+					maspequenio=i;
+					
+					for(int indice=i+1; indice<array8.length;indice++)
+					{
+						if(array8[indice]<array8[maspequenio])
+						{
+							maspequenio=indice;
+						}
+					}
+
+					long temporal=array8[i];
+					array8[i]=array8[maspequenio];
+					array8[maspequenio]=temporal;
+					
+				}
+				
+				
+				//System.out.println();
+				
+			//	for(int indice=0; indice<array8.length;indice++)
+				//{
+					//System.out.println(array8[indice]);
+				//}	
+				
+		
+				long ext1=array8[0];
+				long sExt1=array8[1];
+				long ext2=array8[array8.length-1];
+				long sExt2=array8[array8.length-2];
+				
+				long producto1=ext1*sExt1;
+				long producto2=ext2*sExt2;
+				
+				//System.out.println();
+				if(producto1<=producto2)
+				{
+					System.out.println(producto2);
+				}
+				else
+				{
+					System.out.println(producto1);
+				}
+			}
+			
+			else
+			{
+				
+			}	
+	}
+	
+
+	
+	
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int tamano;
+		
+		tamano=Integer.parseInt(entrada.nextLine());
+		
+		if(1<tamano && tamano<100000)
+		{
+			ordenar(tamano);
+		}
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaB 
+{
+	private static String array[];
+	
+	public static void detector(String clave)
+	{
+		array=new String[clave.length()];
+		int array1[]=new int[clave.length()];
+		
+		for(int i=0;i<array.length;i++)
+		{
+			array[i]=(new StringBuffer().append(clave.charAt(i))).toString();
+		}
+		
+		//for(int i=0;i<array.length;i++)
+		//{
+			//System.out.println(array[i]);
+		//}
+		
+		for(int i=0;i<array1.length;i++)
+		{
+			array1[i]=-1;
+		}
+		
+		int cantidadBombas=0;
+		for(int i=0;i<array.length;i++)
+		{
+			if(array[i].charAt(0)=='B')
+			{
+				array1[i]=i;
+				cantidadBombas=cantidadBombas+1;
+			}
+		}
+		
+		if(cantidadBombas==0)
+		{
+			System.out.println(0);
+		}
+		
+		else
+		{
+			//System.out.println(cantidadBombas);
+			
+		//	for(int i=0;i<array1.length;i++)
+			//{
+				//System.out.printf("%s ",array1[i]);
+			//}
+			
+			//System.out.println();
+			
+			
+			int array3[]=new int[cantidadBombas];
+			
+			int contador3=0;
+			
+			for(int i=0;i<array1.length;i++)
+			{
+				if(array1[i]!=-1)
+				{
+					array3[contador3]=i;
+					contador3=contador3+1;
+				}
+				
+			}
+			
+			//for(int i=0;i<array3.length;i++)
+			//{
+				//System.out.printf("%s ",array3[i]);
+			//}
+			
+			//System.out.println();
+			int array2[]=new int[array3.length+1];
+			int contador1=0;
+			int contador2=0;
+			
+			for(int i=0;i<array3.length-1;i++)
+			{
+				int a=array3[i+1]-array3[i];
+				if(a<6)
+				{
+					array2[i]=a-1;
+					//System.out.println(a-1);
+				}
+				else if(a>=6)
+				{
+					int b;
+					b=4;
+					array2[i]=b;
+					//System.out.println(b);
+				}
+				
+			}
+			
+			if(array3[0]>1)
+			{
+				array2[array2.length-2]=2;
+			}
+			else if(array3[0]==1)
+			{
+				array2[array2.length-2]=1;
+			}
+			else if(array3[0]==0)
+			{
+				array2[array2.length-2]=0;
+			}
+			
+			int c=(array1.length)-array3[array3.length-1];
+			
+			if(c==2)
+			{
+				array2[array2.length-1]=1;
+			}
+			else if(c>2)
+			{
+				array2[array2.length-1]=2;
+			}
+			else if(c==1)
+			{
+				array2[array2.length-1]=0;
+			}
+			
+		
+			
+			
+			//System.out.println();
+		//	for(int i=0;i<array2.length;i++)
+			//{
+				//System.out.printf("%s ",array2[i]);
+		//	}
+			
+			//System.out.println();
+			
+			int d=0;
+			
+			for(int i=0;i<array2.length;i++)
+			{
+				d=d+array2[i];
+			}
+			
+			System.out.println(d);
+			//System.out.println(array1.length);
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		String clave;
+		int casosPrueba;
+		
+		casosPrueba=Integer.parseInt(entrada.nextLine());
+		
+		if(0<casosPrueba && casosPrueba<11)
+		{
+			for(int i=0;i<casosPrueba;i++)
+			{
+				clave=entrada.nextLine();
+				if(1<=clave.length() && clave.length()<=100000)
+				{
+					detector(clave);
+				}
+				
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaC 
+{
+	private static String array[];
+	
+	public static void subCadena(String cadena)
+	{
+		array=new String[cadena.length()];
+		
+		for(int i=0;i<array.length;i++)
+		{
+			array[i]=(new StringBuffer().append(cadena.charAt(i))).toString();
+		}
+		
+		//for(int i=0;i<array.length;i++)
+		//{
+			//System.out.println(array[i]);
+		//}
+		
+		int array1[]=new int[array.length-1];
+		
+		
+		for(int i=0;i<array.length-1;i++)
+		{
+			if(array[i].charAt(0)<=array[i+1].charAt(0))
+			{
+				array1[i]=1;
+			}
+		}
+		
+		//for(int i=0;i<array1.length;i++)
+		//{
+			//System.out.printf("%s ",array1[i]);
+		//}
+		
+		int a=0;
+		
+		for(int i=0;i<array1.length;i++)
+		{
+			if(array1[i]==0)
+			{
+				a=a+1;
+			}
+		}
+		//System.out.println();
+		
+		int array2[]=new int[a+2];
+		int b=0;
+		
+		for(int i=0;i<array1.length;i++)
+		{
+			if(array1[i]==0)
+			{
+				array2[b]=i;
+				b=b+1;
+			}
+		}
+		
+		int h=0;
+		for(int i=0;i<array1.length;i++)
+		{
+			h=h+array1[i];
+		}
+		
+		//System.out.println(h);
+		//System.out.println(cadena.length()-1);
+		int cinal = 0;
+		
+		if(h==(cadena.length()-1))
+		{
+			if(cadena.length()>1)
+			{
+				int c=cadena.length();
+				if(c>1)
+				{
+					if(c%2==0)
+					{
+						if(c==2)
+						{
+							cinal=cinal+((c*(c/2))-1);
+						}
+						else
+						{
+							cinal=cinal+((c*(c/2))-(c/2));
+						}
+					}
+					else if(c%2==1)
+					{
+						if(c==3)
+						{
+							cinal=cinal+((c*((c%2))));
+						}
+						else
+						{
+							cinal=cinal+(c*((c-1)/2));
+						}
+					}
+				}
+				//System.out.println("Hola");
+				System.out.println(cinal+cadena.length());
+				
+			}
+			else
+			{
+				//System.out.println("jajaja");
+				System.out.println(cadena.length());
+			}
+		}
+		
+		else
+		{
+			int puntuador=0;
+			
+			int array12[]=new int[array.length];
+			
+			int count=0;
+			if(array1[array1.length-1]==1)
+			{
+				for(int i=array1.length-1;i>array2[array2.length-3];i--)
+				{
+					if(array1[i]==0)
+					{
+						count=i;
+						break;
+					}
+				}
+				int count2;
+				count2=array1.length-count;
+				//System.out.println(count2);
+				array2[array2.length-2]=count2;
+			}
+			
+			int count3=0;
+			if(array2[0]!=0)
+			{
+				count3=array2[array2.length-2]+(array2[0]+1);
+				array2[array2.length-1]=count3;
+			}
+			
+			//for(int i=0;i<array2.length;i++)
+			//{
+				//System.out.printf("%s ",array2[i]);
+			//}
+			//System.out.println();
+			
+			
+			for(int i=0;i<array2.length-1;i++)
+			{
+				int c=array2[i+1]-array2[i];
+				
+				if(c>1)
+				{
+					if(c%2==0)
+					{
+						if(c==2)
+						{
+							array12[i]=(c*(c/2))-1;
+						}
+						else
+						{
+							array12[i]=(c*(c/2))-(c/2);
+						}
+					}
+					else if(c%2==1)
+					{
+						if(c==3)
+						{
+							array12[i]=(c*((c%2)));
+						}
+						else
+						{
+							array12[i]=c*((c-1)/2);
+						}
+					}
+				}
+			}
+			
+		//	for(int i=0;i<array12.length;i++)
+			//{
+				//System.out.printf("%s ",array12[i]);
+		//	}
+			
+			int sumador=0;
+			for(int i=0;i<array12.length;i++)
+			{
+				sumador=sumador+array12[i];
+			}
+			//System.out.println();
+			System.out.println(sumador+cadena.length());
+			
+			
+		}
+		
+		
+		
+		
+	}
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int casosPrueba;
+		String cadena;
+		int longCadena;
+		
+		casosPrueba=Integer.parseInt(entrada.nextLine());
+		
+		if(0<casosPrueba && casosPrueba<1000)
+		{
+			for(int i=0;i<casosPrueba;i++)
+			{
+				longCadena=Integer.parseInt(entrada.nextLine());
+				
+				if(1<=longCadena && longCadena<=1000000)
+				{
+					cadena=entrada.nextLine();
+					
+					if(cadena.length()==longCadena)
+					{
+						subCadena(cadena);
+					}
+					
+				}
+			}
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProbemaD 
+{
+	//private static String array[];
+	
+	public static void chocolate(String array[][])
+	{
+		
+		//for(int j=0;j<array.length;j++)
+	//	{	
+			//for(int k=0;k<array.length;k++)
+			//{
+			//	System.out.printf("%s ",array[j][k]);
+			//}
+		//	System.out.println();
+		//}
+		
+		int array1[][]=new int[array.length][array.length];
+		
+		
+		for(int j=0;j<array.length;j++)
+		{	
+			for(int k=0;k<array.length;k++)
+			{
+				if(array[j][k].charAt(0)=='#')
+				{
+					array1[j][k]=1;
+				}
+			}
+		}
+		
+		//for(int j=0;j<array1.length;j++)
+		//{	
+			//for(int k=0;k<array1.length;k++)
+			//{
+				//System.out.printf("%s ",array1[j][k]);
+			//}
+			//System.out.println();
+		//}
+		
+		int array2[]=new int[array1.length];
+		int array3[]=new int[array1.length];
+		
+		double contador=0;
+		for(int i=0;i<array1.length;i++)
+		{
+			for(int k=0;k<array1.length;k++)
+			{
+				if(array1[i][k]==1)
+				{
+					array2[i]=array2[i]+1;
+					contador=contador+1;
+				}
+			}
+		}
+		
+		double contador5=0;
+		
+		for(int i=0;i<array1.length;i++)
+		{
+			for(int k=0;k<array1.length;k++)
+			{
+				if(array1[k][i]==1)
+				{
+					array3[i]=array3[i]+1;
+					contador5=contador5+1;
+				}
+			}
+		}
+		
+		
+		
+		//for(int i=0;i<array2.length;i++)
+		//{
+			//System.out.println(array2[i]);
+	//	}
+		//System.out.println();
+		//for(int i=0;i<array3.length;i++)
+		//{
+			//System.out.println(array3[i]);
+	//	}
+		
+		int coin=0;
+		for(int i=0;i<array2.length;i++)
+		{
+			coin=coin+array2[i];
+		}
+		//System.out.println();
+		//System.out.println(coin);
+		int array19[]=new int[array2.length-1];
+		
+		//array19[array19.length-1]=array2[array2.length-1];
+		for(int i=0;i<array2.length;i++)
+		{
+			int count7=0;
+			
+			for(int k=0;k<array2.length-1;k++)
+			{
+				if(k>=i)
+				{
+					array19[i]=array19[i]+array2[k+1];
+				}
+			}
+		}
+		int array20[]=new int[array2.length-1];
+		
+		for(int i=0;i<array20.length;i++)
+		{
+			array20[i]=coin-array19[i];
+		}
+		
+		
+		
+		//System.out.println();
+		//for(int i=0;i<array19.length;i++)
+		//{
+			//System.out.println(array19[i]);
+		//}
+		
+		//System.out.println();
+		//for(int i=0;i<array20.length;i++)
+		//{
+			//System.out.println(array20[i]);
+		//}
+		
+		//columnas
+		int array21[]=new int[array3.length-1];
+		
+		//array19[array19.length-1]=array2[array2.length-1];
+		for(int i=0;i<array3.length;i++)
+		{
+			int count7=0;
+			
+			for(int k=0;k<array3.length-1;k++)
+			{
+				if(k>=i)
+				{
+					array21[i]=array21[i]+array3[k+1];
+				}
+			}
+		}
+		int array22[]=new int[array3.length-1];
+		
+		for(int i=0;i<array22.length;i++)
+		{
+			array22[i]=coin-array21[i];
+		}
+		
+		
+		
+		//System.out.println();
+		//for(int i=0;i<array21.length;i++)
+		//{
+			//System.out.println(array21[i]);
+		//}
+		
+		//System.out.println();
+		//for(int i=0;i<array22.length;i++)
+		//{
+				//System.out.println(array22[i]);
+		//}
+		
+		//conclusión
+		
+		int conn=0;
+		
+		for(int i=0;i<array19.length;i++)
+		{
+			if(array19[i]==array20[i])
+			{
+				conn=conn+1;
+				break;
+			}
+		}
+		
+		int conn2=0;
+		for(int i=0;i<array21.length;i++)
+		{
+			if(array21[i]==array22[i])
+			{
+				conn2=conn2+1;
+				break;
+			}
+		}
+		
+		if(conn==1 || conn2==1)
+		{
+			System.out.println("YES");
+		}
+		else
+		{
+			System.out.println("NO");
+		}
+		
+		
+	}
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int casosPrueba;
+		
+		casosPrueba=Integer.parseInt(entrada.nextLine());
+		
+		int tamano;
+		
+		String linea;
+		
+		for(int h=0;h<casosPrueba;h++)
+		{
+			tamano=Integer.parseInt(entrada.nextLine());
+			String array[][]=new String[tamano][tamano];
+			
+			for(int j=0;j<array.length;j++)
+			{
+				linea=entrada.nextLine();
+				
+				for(int k=0;k<array.length;k++)
+				{
+					array[j][k]=(new StringBuffer().append(linea.charAt(k))).toString();
+				}
+			}
+			
+			chocolate(array);
+			
+		}		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProbemaD 
+{
+	//private static String array[];
+	
+	public static void chocolate(String array[][])
+	{
+				
+		int array1[][]=new int[array.length][array.length];
+		
+		
+		for(int j=0;j<array.length;j++)
+		{	
+			for(int k=0;k<array.length;k++)
+			{
+				if(array[j][k].charAt(0)=='#')
+				{
+					array1[j][k]=1;
+				}
+			}
+		}
+		
+			
+		int array2[]=new int[array1.length];
+		int array3[]=new int[array1.length];
+		
+		double contador=0;
+		for(int i=0;i<array1.length;i++)
+		{
+			for(int k=0;k<array1.length;k++)
+			{
+				if(array1[i][k]==1)
+				{
+					array2[i]=array2[i]+1;
+					contador=contador+1;
+				}
+			}
+		}
+		
+		double contador5=0;
+		
+		for(int i=0;i<array1.length;i++)
+		{
+			for(int k=0;k<array1.length;k++)
+			{
+				if(array1[k][i]==1)
+				{
+					array3[i]=array3[i]+1;
+					contador5=contador5+1;
+				}
+			}
+		}
+		
+		
+				
+		int coin=0;
+		for(int i=0;i<array2.length;i++)
+		{
+			coin=coin+array2[i];
+		}
+		
+		int array19[]=new int[array2.length-1];
+		
+		for(int i=0;i<array2.length;i++)
+		{
+			int count7=0;
+			
+			for(int k=0;k<array2.length-1;k++)
+			{
+				if(k>=i)
+				{
+					array19[i]=array19[i]+array2[k+1];
+				}
+			}
+		}
+		int array20[]=new int[array2.length-1];
+		
+		for(int i=0;i<array20.length;i++)
+		{
+			array20[i]=coin-array19[i];
+		}
+		
+		
+		int array21[]=new int[array3.length-1];
+		
+		for(int i=0;i<array3.length;i++)
+		{
+			int count7=0;
+			
+			for(int k=0;k<array3.length-1;k++)
+			{
+				if(k>=i)
+				{
+					array21[i]=array21[i]+array3[k+1];
+				}
+			}
+		}
+		int array22[]=new int[array3.length-1];
+		
+		for(int i=0;i<array22.length;i++)
+		{
+			array22[i]=coin-array21[i];
+		}
+		
+		
+		
+		int conn=0;
+		
+		for(int i=0;i<array19.length;i++)
+		{
+			if(array19[i]==array20[i])
+			{
+				conn=conn+1;
+				break;
+			}
+		}
+		
+		int conn2=0;
+		for(int i=0;i<array21.length;i++)
+		{
+			if(array21[i]==array22[i])
+			{
+				conn2=conn2+1;
+				break;
+			}
+		}
+		
+		if(conn==1 || conn2==1)
+		{
+			System.out.println("YES");
+		}
+		else
+		{
+			System.out.println("NO");
+		}
+		
+		
+	}
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int casosPrueba;
+		
+		casosPrueba=Integer.parseInt(entrada.nextLine());
+		
+		int tamano;
+		
+		String linea;
+		
+		for(int h=0;h<casosPrueba;h++)
+		{
+			tamano=Integer.parseInt(entrada.nextLine());
+			String array[][]=new String[tamano][tamano];
+			
+			for(int j=0;j<array.length;j++)
+			{
+				linea=entrada.nextLine();
+				
+				for(int k=0;k<array.length;k++)
+				{
+					array[j][k]=(new StringBuffer().append(linea.charAt(k))).toString();
+				}
+			}
+			
+			chocolate(array);
+			
+		}		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	
+	public static void ordenar(int tamano)
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		String numero;
+		
+		numero=entrada.nextLine();
+		
+		
+		String array[]=new String[numero.length()];
+		int array1[]=new int[numero.length()];
+		int array2[]=new int[tamano-1];
+		int array3[]=new int[1];
+		
+		
+		for(int i=0;i<numero.length();i++)
+		{
+			array[i]=(new StringBuffer().append(numero.charAt(i))).toString();
+		}
+		
+			
+		for(int i=0;i<numero.length();i++)
+		{
+			if(array[i].charAt(0)==' ')
+			{
+				array1[i]=i;
+			}
+		}
+		
+		int a=0;
+		for(int i=0;i<numero.length();i++)
+		{
+			if(array1[i]!=0)
+			{
+				array2[a]=array1[i];
+				a=a+1;
+			}
+			array3[0]=a;
+		}
+		
+		
+
+		String array4[]=new String[array3[0]+1];
+		String array5[]=new String[array3[0]+1];
+
+		
+		for(int i=0;i<array3[0]-1;i++)
+		{
+			array4[i]=numero.substring(array2[i]+1,array2[i+1]);
+		}
+
+		for(int i=1;i<array5.length;i++)
+		{
+			array5[i]=array4[i-1];
+		}
+
+		
+		array5[array3[0]]=numero.substring(array2[tamano-2]+1,numero.length());
+		array5[0]=numero.substring(0,array2[0]);
+
+		
+		 String array7[]=new String[array5.length];
+		 
+			for(int i=0; i<array5.length;i++)
+			{
+				array7[i]=array5[i];
+			}
+
+		 
+			//System.out.println();
+		 
+		 	long array8[]=new long[array5.length];
+		 
+			for(int i=0; i<array5.length;i++)
+			{
+				array8[i]=Integer.parseInt(array7[i]);
+			}
+					
+			int array10[]=new int[1];
+			
+			for(int i=0; i<array5.length;i++)
+			{
+				if(array8[i]<-1000000000 || array8[i]>1000000000)
+				{
+					array10[0]=3;
+					break;
+				}
+			}
+			
+			
+			if(array10[0]!=3)
+			{
+				int maspequenio;
+				
+				for(int i=0; i<array8.length-1; i++)
+				{
+					maspequenio=i;
+					
+					for(int indice=i+1; indice<array8.length;indice++)
+					{
+						if(array8[indice]<array8[maspequenio])
+						{
+							maspequenio=indice;
+						}
+					}
+
+					long temporal=array8[i];
+					array8[i]=array8[maspequenio];
+					array8[maspequenio]=temporal;
+					
+				}
+				
+				
+								
+		
+				long ext1=array8[0];
+				long sExt1=array8[1];
+				long ext2=array8[array8.length-1];
+				long sExt2=array8[array8.length-2];
+				
+				long producto1=ext1*sExt1;
+				long producto2=ext2*sExt2;
+				
+				//System.out.println();
+				if(producto1<=producto2)
+				{
+					System.out.println(producto2);
+				}
+				else
+				{
+					System.out.println(producto1);
+				}
+			}
+			
+			else
+			{
+				
+			}	
+	}
+	
+
+	
+	
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int tamano;
+		
+		tamano=Integer.parseInt(entrada.nextLine());
+		
+		if(1<tamano && tamano<100000)
+		{
+			ordenar(tamano);
+		}
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	
+	public static void ordenar(int tamano)
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		String numero;
+		
+		numero=entrada.nextLine();
+		
+		
+		String array[]=new String[numero.length()];
+		int array1[]=new int[numero.length()];
+		int array2[]=new int[tamano-1];
+		int array3[]=new int[1];
+		
+		
+		for(int i=0;i<numero.length();i++)
+		{
+			array[i]=(new StringBuffer().append(numero.charAt(i))).toString();
+		}
+		
+		for(int i=0;i<numero.length();i++)
+		{
+			if(array[i].charAt(0)==' ')
+			{
+				array1[i]=i;
+			}
+		}
+		
+		int a=0;
+		for(int i=0;i<numero.length();i++)
+		{
+			if(array1[i]!=0)
+			{
+				array2[a]=array1[i];
+				a=a+1;
+			}
+			array3[0]=a;
+		}
+
+		String array4[]=new String[array3[0]+1];
+		String array5[]=new String[array3[0]+1];
+
+		
+		for(int i=0;i<array3[0]-1;i++)
+		{
+			array4[i]=numero.substring(array2[i]+1,array2[i+1]);
+		}
+
+		for(int i=1;i<array5.length;i++)
+		{
+			array5[i]=array4[i-1];
+		}
+
+		
+		array5[array3[0]]=numero.substring(array2[tamano-2]+1,numero.length());
+		array5[0]=numero.substring(0,array2[0]);
+
+		
+		 String array7[]=new String[array5.length];
+		 
+			for(int i=0; i<array5.length;i++)
+			{
+				array7[i]=array5[i];
+			}
+
+		 
+		 
+		 	long array8[]=new long[array5.length];
+		 
+			for(int i=0; i<array5.length;i++)
+			{
+				array8[i]=Integer.parseInt(array7[i]);
+			}
+			
+			int array10[]=new int[1];
+			
+			for(int i=0; i<array5.length;i++)
+			{
+				if(array8[i]<-1000000000 || array8[i]>1000000000)
+				{
+					array10[0]=3;
+					break;
+				}
+			}
+
+			
+			if(array10[0]!=3)
+			{
+				int maspequenio;
+				
+				for(int i=0; i<array8.length-1; i++)
+				{
+					maspequenio=i;
+					
+					for(int indice=i+1; indice<array8.length;indice++)
+					{
+						if(array8[indice]<array8[maspequenio])
+						{
+							maspequenio=indice;
+						}
+					}
+
+					long temporal=array8[i];
+					array8[i]=array8[maspequenio];
+					array8[maspequenio]=temporal;
+					
+				}
+				
+				
+		
+				long ext1=array8[0];
+				long sExt1=array8[1];
+				long ext2=array8[array8.length-1];
+				long sExt2=array8[array8.length-2];
+				
+				long producto1=ext1*sExt1;
+				long producto2=ext2*sExt2;
+				
+				if(producto1<=producto2)
+				{
+					System.out.println(producto2);
+				}
+				else
+				{
+					System.out.println(producto1);
+				}
+			}
+			
+			else
+			{
+				
+			}	
+	}
+	
+
+	
+	
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int tamano;
+		
+		tamano=Integer.parseInt(entrada.nextLine());
+		
+		if(1<tamano && tamano<100000)
+		{
+			ordenar(tamano);
+		}
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	
+	public static long[] readInts(String cad)
+	{
+		String lines[] = cad.split(" ");
+		long arr[] = new long[lines.length];
+		for (int i = 0; i < arr.length; i++) 
+		{
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}
+	
+		public static void ordenar(long array8[])
+		{
+		 
+				int maspequenio;
+				
+				for(int i=0; i<array8.length-1; i++)
+				{
+					maspequenio=i;
+					
+					for(int indice=i+1; indice<array8.length;indice++)
+					{
+						if(array8[indice]<array8[maspequenio])
+						{
+							maspequenio=indice;
+						}
+					}
+
+					long temporal=array8[i];
+					array8[i]=array8[maspequenio];
+					array8[maspequenio]=temporal;
+					
+				}
+				
+				
+		
+				long ext1=array8[0];
+				long sExt1=array8[1];
+				long ext2=array8[array8.length-1];
+				long sExt2=array8[array8.length-2];
+				
+				long producto1=ext1*sExt1;
+				long producto2=ext2*sExt2;
+				
+				if(producto1<=producto2)
+				{
+					System.out.println(producto2);
+				}
+				else
+				{
+					System.out.println(producto1);
+				}	
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		Scanner scan = new Scanner(System.in);
+
+		int n = Integer.parseInt(scan.nextLine());
+		long arr[] = readInts(scan.nextLine());
+		
+		ordenar(arr);
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Juh 
+{
+	//private static String array[];
+	
+		public static void chocolate(String array[][])
+		{
+					
+			int array1[][]=new int[array.length][array.length];
+			
+			
+			for(int j=0;j<array.length;j++)
+			{	
+				for(int k=0;k<array.length;k++)
+				{
+					if(array[j][k].charAt(0)=='#')
+					{
+						array1[j][k]=1;
+					}
+				}
+			}
+			
+				
+			int array2[]=new int[array1.length];
+			int array3[]=new int[array1.length];
+			
+			double contador=0;
+			for(int i=0;i<array1.length;i++)
+			{
+				for(int k=0;k<array1.length;k++)
+				{
+					if(array1[i][k]==1)
+					{
+						array2[i]=array2[i]+1;
+						contador=contador+1;
+					}
+				}
+			}
+			
+			double contador5=0;
+			
+			for(int i=0;i<array1.length;i++)
+			{
+				for(int k=0;k<array1.length;k++)
+				{
+					if(array1[k][i]==1)
+					{
+						array3[i]=array3[i]+1;
+						contador5=contador5+1;
+					}
+				}
+			}
+			
+			
+					
+			int coin=0;
+			for(int i=0;i<array2.length;i++)
+			{
+				coin=coin+array2[i];
+			}
+			
+			int array19[]=new int[array2.length-1];
+			
+			for(int i=0;i<array2.length;i++)
+			{
+				int count7=0;
+				
+				for(int k=0;k<array2.length-1;k++)
+				{
+					if(k>=i)
+					{
+						array19[i]=array19[i]+array2[k+1];
+					}
+				}
+			}
+			int array20[]=new int[array2.length-1];
+			
+			for(int i=0;i<array20.length;i++)
+			{
+				array20[i]=coin-array19[i];
+			}
+			
+			
+			int array21[]=new int[array3.length-1];
+			
+			for(int i=0;i<array3.length;i++)
+			{
+				int count7=0;
+				
+				for(int k=0;k<array3.length-1;k++)
+				{
+					if(k>=i)
+					{
+						array21[i]=array21[i]+array3[k+1];
+					}
+				}
+			}
+			int array22[]=new int[array3.length-1];
+			
+			for(int i=0;i<array22.length;i++)
+			{
+				array22[i]=coin-array21[i];
+			}
+			
+			
+			
+			int conn=0;
+			
+			for(int i=0;i<array19.length;i++)
+			{
+				if(array19[i]==array20[i])
+				{
+					conn=conn+1;
+					break;
+				}
+			}
+			
+			int conn2=0;
+			for(int i=0;i<array21.length;i++)
+			{
+				if(array21[i]==array22[i])
+				{
+					conn2=conn2+1;
+					break;
+				}
+			}
+			
+			if(conn==1 || conn2==1)
+			{
+				//System.out.println("YES");
+				
+				int contador19=0;
+				int contador20=0;
+				
+				for(int i=0;i<array19.length;i++)
+				{
+					if(array19[i]==array20[i])
+					{
+						contador19=contador19+1;
+					}
+				}
+				
+				for(int i=0;i<array19.length;i++)
+				{
+					if(array21[i]==array22[i])
+					{
+						contador20=contador20+1;
+					}
+				}
+				
+				System.out.printf("%s %s",contador19,contador20);
+				
+			
+			}
+			else
+			{
+				System.out.printf("%s %s",0,0);
+			}
+			
+			
+		}
+		
+		public static void main(String Args[])
+		{
+			Scanner entrada=new Scanner(System.in);
+			
+			int casosPrueba;
+			
+			casosPrueba=Integer.parseInt(entrada.nextLine());
+			
+			int tamano;
+			
+			String linea;
+			
+			for(int h=0;h<casosPrueba;h++)
+			{
+				tamano=Integer.parseInt(entrada.nextLine());
+				String array[][]=new String[tamano][tamano];
+				
+				for(int j=0;j<array.length;j++)
+				{
+					linea=entrada.nextLine();
+					
+					for(int k=0;k<array.length;k++)
+					{
+						array[j][k]=(new StringBuffer().append(linea.charAt(k))).toString();
+					}
+				}
+				
+				chocolate(array);
+				
+			}		
+		}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Juh 
+{
+	//private static String array[];
+	
+		public static void chocolate(String array[][])
+		{
+					
+			int array1[][]=new int[array.length][array.length];
+			
+			
+			for(int j=0;j<array.length;j++)
+			{	
+				for(int k=0;k<array.length;k++)
+				{
+					if(array[j][k].charAt(0)=='#')
+					{
+						array1[j][k]=1;
+					}
+				}
+			}
+			
+				
+			int array2[]=new int[array1.length];
+			int array3[]=new int[array1.length];
+			
+			double contador=0;
+			for(int i=0;i<array1.length;i++)
+			{
+				for(int k=0;k<array1.length;k++)
+				{
+					if(array1[i][k]==1)
+					{
+						array2[i]=array2[i]+1;
+						contador=contador+1;
+					}
+				}
+			}
+			
+			double contador5=0;
+			
+			for(int i=0;i<array1.length;i++)
+			{
+				for(int k=0;k<array1.length;k++)
+				{
+					if(array1[k][i]==1)
+					{
+						array3[i]=array3[i]+1;
+						contador5=contador5+1;
+					}
+				}
+			}
+			
+			
+					
+			int coin=0;
+			for(int i=0;i<array2.length;i++)
+			{
+				coin=coin+array2[i];
+			}
+			
+			int array19[]=new int[array2.length-1];
+			
+			for(int i=0;i<array2.length;i++)
+			{
+				int count7=0;
+				
+				for(int k=0;k<array2.length-1;k++)
+				{
+					if(k>=i)
+					{
+						array19[i]=array19[i]+array2[k+1];
+					}
+				}
+			}
+			int array20[]=new int[array2.length-1];
+			
+			for(int i=0;i<array20.length;i++)
+			{
+				array20[i]=coin-array19[i];
+			}
+			
+			
+			int array21[]=new int[array3.length-1];
+			
+			for(int i=0;i<array3.length;i++)
+			{
+				int count7=0;
+				
+				for(int k=0;k<array3.length-1;k++)
+				{
+					if(k>=i)
+					{
+						array21[i]=array21[i]+array3[k+1];
+					}
+				}
+			}
+			int array22[]=new int[array3.length-1];
+			
+			for(int i=0;i<array22.length;i++)
+			{
+				array22[i]=coin-array21[i];
+			}
+			
+			
+			
+			int conn=0;
+			
+			for(int i=0;i<array19.length;i++)
+			{
+				if(array19[i]==array20[i])
+				{
+					conn=conn+1;
+					break;
+				}
+			}
+			
+			int conn2=0;
+			for(int i=0;i<array21.length;i++)
+			{
+				if(array21[i]==array22[i])
+				{
+					conn2=conn2+1;
+					break;
+				}
+			}
+			
+			if(conn==1 || conn2==1)
+			{
+				//System.out.println("YES");
+				
+				int contador19=0;
+				int contador20=0;
+				
+				for(int i=0;i<array19.length;i++)
+				{
+					if(array19[i]==array20[i])
+					{
+						contador19=contador19+1;
+					}
+				}
+				
+				for(int i=0;i<array19.length;i++)
+				{
+					if(array21[i]==array22[i])
+					{
+						contador20=contador20+1;
+					}
+				}
+				
+				System.out.print(contador19+" "+contador20);
+				System.out.println();
+				
+			
+			}
+			else
+			{
+				int contador30=0;
+				System.out.printf(contador30+" "+contador30);
+				System.out.println();
+			}
+			
+			
+		}
+		
+		public static void main(String Args[])
+		{
+			Scanner entrada=new Scanner(System.in);
+			
+			int casosPrueba;
+			
+			casosPrueba=Integer.parseInt(entrada.nextLine());
+			
+			int tamano;
+			
+			String linea;
+			
+			for(int h=0;h<casosPrueba;h++)
+			{
+				tamano=Integer.parseInt(entrada.nextLine());
+				String array[][]=new String[tamano][tamano];
+				
+				for(int j=0;j<array.length;j++)
+				{
+					linea=entrada.nextLine();
+					
+					for(int k=0;k<array.length;k++)
+					{
+						array[j][k]=(new StringBuffer().append(linea.charAt(k))).toString();
+					}
+				}
+				
+				chocolate(array);
+				
+			}		
+		}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+
+public class ProblemC 
+{
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove(int index) //throws IllegalArgumentException
+		{
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove( --current );
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+	public static class UnionFind
+	{
+		
+		private int id[];
+		private int rank[];
+		private int cont;
+		
+		public int getCont(int i)
+		{
+			 return rank[find(i)];
+		}
+		
+		public UnionFind(int n) {
+			id = new int [n];
+			rank = new int[n];
+			cont = n;
+			
+			for (int i = 0; i < n; i++) {
+				id[i] = i;
+				rank[i] = 1;
+			}
+		}
+
+		public int find(int x) {
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+		
+		public boolean find(int p, int q) {
+
+			return find(p) == find(q);
+
+		}
+
+		public void union(int x, int y) {
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				id[a] = b;
+				rank[b] += rank[a];
+			} else {
+				id[b] = a;
+				rank[a] += rank[b];
+			}
+			cont--;
+		}
+
+	}
+	
+	public static String[] readStrings(String cad)
+	{
+		String lines[] = cad.split(" ");
+		
+		String arr[] = new String[lines.length];
+		for (int i = 0; i < arr.length; i++) 
+		{
+			arr[i] = lines[i];
+		}
+		return arr;
+	}
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada= new Scanner(System.in);
+		int nCasos;
+		
+		nCasos=Integer.parseInt(entrada.nextLine());
+		
+		for(int r=0;r<nCasos;r++)
+		{
+			
+			MyArrayList<MyArrayList> lsimple=new MyArrayList<>();
+			
+			System.out.printf("Caso #%d:\n",r+1);
+			
+			int nAmistades;
+			nAmistades=Integer.parseInt(entrada.nextLine());
+			
+			
+			
+			
+			MyArrayList<String> lsimple1=new MyArrayList<>();
+			MyArrayList<Integer> lsimple2=new MyArrayList<>();
+			
+			UnionFind uf = new UnionFind(1000000);
+			
+			//disjoint=new disjoint;
+			
+			//Set<String> lista=new HashSet<>();
+			for(int t=0;t<nAmistades;t++)
+			{
+				String cadenas;
+				cadenas=entrada.nextLine();
+				
+				String[] arrCadenas = readStrings(cadenas);
+				
+				int[] enteros=new int[2];
+
+				
+				if(t==0)
+				{
+					lsimple1.add(arrCadenas[0]);
+					lsimple1.add(arrCadenas[1]);
+					
+					lsimple2.add(0);
+					lsimple2.add(1);
+					
+					enteros[0]=0;
+					enteros[1]=1;
+					
+					//System.out.println(2);
+					
+				}
+				
+				else
+				{
+					
+					for(int j=0;j<2;j++)
+					{
+						int contador=0;
+						for(int i=0;i<lsimple1.size();i++)
+						{
+							if(arrCadenas[j].equals(lsimple1.get(i)))
+							{
+							
+								enteros[j]=lsimple2.get(i);
+							}
+							
+							else
+							{
+								contador=contador+1;
+							}
+				
+						}
+						
+						if(contador==lsimple1.size())
+						{
+							lsimple2.add(lsimple1.size());
+							enteros[j]=lsimple1.size();
+							lsimple1.add(arrCadenas[j]);
+							
+							
+							
+						}
+					}
+					
+				}
+				
+				
+				
+				uf.union(enteros[0], enteros[1]);
+				
+				//System.out.printf("%s %s\n",enteros[0],enteros[1]);
+				System.out.println(uf.getCont(enteros[0]));
+				
+				//System.out.println(uf.getCont());
+				//uf.find(enteros[0]);
+				
+
+			}
+			
+			
+			
+			
+		}
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+
+
+public class PruebahASH 
+{
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove(int index) //throws IllegalArgumentException
+		{
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove( --current );
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+	
+	
+	public static class Alumnos 
+	{
+	    private int age;
+	    private String name;
+	 
+	    Alumnos(int age)
+	    {
+	    	this.name = name;
+	    	this.age = age;   
+	    }
+	    
+	    public int getAge() {
+			return age;
+		}
+		
+		public String getName() {
+			return name;
+		}
+		
+		
+		@Override
+		public boolean equals(Object o)
+		{
+		  if (o instanceof Alumnos)
+		  {
+		    Alumnos p = (Alumnos)o;
+		    return this.name.equals(p.name);
+		  } 
+		  
+		  else 
+		  {
+		    return false;
+		  }
+		}
+		
+		@Override
+		public int hashCode() 
+		{
+		  return age;
+		}
+		
+	
+	}
+	
+	public static int[] readInts(String cad)
+	{
+		String lines[] = cad.split(" ");
+		int arr[] = new int[lines.length];
+		for (int i = 0; i < arr.length; i++) 
+		{
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}
+	
+	  public static void main(String args[]) 
+	  {
+		  Scanner entrada=new Scanner(System.in);
+		  
+		  int nCasos;
+		  nCasos=Integer.parseInt(entrada.nextLine());
+		  
+		  for(int y=0;y<nCasos;y++)
+		  {
+			  System.out.printf("Caso #%d:\n",y+1);
+			  
+			  int tamanoSecuencia;
+			  tamanoSecuencia=Integer.parseInt(entrada.nextLine());
+			  
+			  String secuencia;
+			  secuencia=entrada.nextLine();
+			  
+			  int[] arrSecuencia = readInts(secuencia);
+
+			  
+			  List<Integer> list = new ArrayList<Integer>();
+			  
+			  
+			  
+			  for(int i=0;i<arrSecuencia.length;i++)
+			  {
+				  list.add(arrSecuencia[i]);
+			  }
+			  
+			  /*
+			  for(int i=0;i<list.size();i++)
+			  {
+				 // System.out.println(list.get(i));
+			  }
+			  Set<Integer> lista=new HashSet<>();3
+			 
+			  
+			  
+			  for(int i=0;i<list.size();i++)
+			  {
+				  
+				  lista.add(list.get(i));
+			  }
+			  */
+			  
+			  
+			  
+			  MyArrayList<Integer> lsimple=new MyArrayList<>();
+			  
+			  lsimple.add(arrSecuencia[0]);
+			  
+			 
+			  
+			  for(int i=1;i<arrSecuencia.length;i++)
+			  {
+				  int gh=0;
+				  for(int j=0;j<lsimple.size();j++)
+				  {
+					  if(arrSecuencia[i]==lsimple.get(j))
+					  {
+						  gh=gh+100;
+					  }
+				  }
+				  
+				  if(gh==0)
+				  {
+					  //System.out.printf("tamano ideal: %s tamano hashset: %s \n", lsimple.size(),lista.size());
+					  
+						  lsimple.add(arrSecuencia[i]);
+						  //contador1=contador1+1; 
+				
+				  }
+			
+			  }
+			  
+			  /*
+			  System.out.println("fghjkl");
+			  for(int i=0;i<lsimple.size();i++)
+			  {
+				  System.out.println(lsimple.get(i));
+			  }
+			  
+			  System.out.println();
+			  System.out.println(lsimple.size());
+			  System.out.println("sdfghjk");
+			  
+			  
+			  System.out.println(lista);
+			  
+			  
+			  //System.out.println(list.size());
+			//  System.out.println(lista.size());
+			  */
+			  	//int h=lista.size();
+			  	int inicial=arrSecuencia[0];
+			  	
+			  	for (int i=0;i<lsimple.size();i++) 
+		        {
+
+			  		System.out.println(lsimple.get(i) + " " + Collections.frequency(list, lsimple.get(i)));
+			  		
+	
+		        }
+			  
+		  }
+
+	  }
+	  
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+public class ProblemA 
+{
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+	
+	public static void main(String Args[])
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int nCasos=Integer.parseInt(entrada.nextLine());
+		
+		for(int r=0;r<nCasos;r++)
+		{
+			System.out.printf("Caso #%d:\n",r+1);
+			
+			int operaciones=Integer.parseInt(entrada.nextLine());
+			
+			MyArrayList<Integer> lcola=new MyArrayList<>();
+			
+			HashMap<Integer, Integer>  myMap = new HashMap<Integer, Integer>();
+			
+			String comando;
+			for(int t=0;t<operaciones;t++)
+			{
+				comando=entrada.nextLine();
+				
+				String array[]=new String[comando.length()];
+		        
+		        for(int i=0;i<array.length;i++)
+		        {
+		        	array[i]=(new StringBuffer().append(comando.charAt(i))).toString();
+		        }
+		        int array2[]=new int[array.length];
+		        
+		        int contador=0;
+		        for(int i=0;i<array.length;i++)
+		        {
+		        	if(array[i].charAt(0)==' ')
+		        	{
+		        		array2[i]=i;
+		        		contador=contador+1;
+		        	}
+		        }
+		        
+		      //  for(int i=0;i<array.length;i++)
+		        //{
+		        //	System.out.println(array2[i]);
+		        //}
+		        
+		        int array3[]=new int[contador];
+		        
+		        int contador2=0;
+		        for(int i=0;i<array2.length;i++)
+		        {
+		        	if(array2[i]!=0)
+		        	{
+		        		array3[contador2]=array2[i];
+		        		contador2=contador2+1;
+		        	}
+		        }
+		        
+		        
+		       // for(int i=0;i<array3.length;i++)
+		        //{
+		        	//System.out.printf("%d ",array3[i]);
+		        //}
+		        
+		        //System.out.println();
+		        
+		        int array4[]=new int[array3.length];
+		        String array5[]=new String[1];
+		        
+		        
+		        	//System.out.println();
+		        
+		       
+		        
+		        if(array3.length==1)
+		        {
+		        	array5[0]=comando.substring(0,array3[0]);
+		        	array4[0]=Integer.parseInt(comando.substring(array3[0]+1,comando.length()));
+		        	
+		        	String claveAgregar="agregar";
+		        	String claveExiste="existe";
+		        	
+		        	if(claveAgregar.equals(array5[0]))
+		        	{
+		        		int id=array4[0];
+		        		lcola.add(id);
+		        	}
+		        	
+		        	else if(claveExiste.equals(array5[0]))
+		        	{
+		        		int id=array4[0];
+		        		if(myMap.containsKey(id)==true)
+		        		{
+		        			System.out.println("SI");
+		        		}
+		        		
+		        		else
+		        		{
+		        			System.out.println("NO");
+		        		}
+		        	}
+		        }
+		        
+		        else if(comando.equals("atender"))
+		        {
+		        	myMap.put(lcola.get(0), 1);
+		        	lcola.remove();
+		        }
+				
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+public class ProblemB
+{
+	
+	public static class BinaryHeapMin<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeapMin( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeapMin( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeapMin( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+	
+	public static int[] readInts(String cad)
+	{
+		String lines[] = cad.split(" ");
+		int arr[] = new int[lines.length];
+		for (int i = 0; i < arr.length; i++) 
+		{
+			arr[i] = Integer.parseInt(lines[i]);
+		}
+		return arr;
+	}
+	
+	
+	public static void main(String Args[]) throws Exception
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int nCasos=Integer.parseInt(entrada.nextLine());
+		
+		for(int r=0;r<nCasos;r++)
+		{
+			System.out.printf("Caso #%d:\n",r+1);
+			
+			String NK=entrada.nextLine();
+    		
+    		int[] arrInic = readInts(NK);
+    		
+    		int operaciones;
+    		operaciones=arrInic[0];
+    		
+    		int espacios;
+    		espacios=arrInic[1];
+    		
+    		int count=0;
+			
+			MyArrayList<Integer> lcola=new MyArrayList<>();
+			
+			HashMap<Integer, Integer>  myMap = new HashMap<Integer, Integer>();
+			
+			BinaryHeapMin<Integer> h2 = new BinaryHeapMin<>( );
+			
+			for(int i=0;i<espacios;i++)
+			{
+				h2.insert(i);
+			}
+			
+			String comando;
+			for(int t=0;t<operaciones;t++)
+			{
+				comando=entrada.nextLine();
+				
+				String array[]=new String[comando.length()];
+		        
+		        for(int i=0;i<array.length;i++)
+		        {
+		        	array[i]=(new StringBuffer().append(comando.charAt(i))).toString();
+		        }
+		        int array2[]=new int[array.length];
+		        
+		        int contador=0;
+		        for(int i=0;i<array.length;i++)
+		        {
+		        	if(array[i].charAt(0)==' ')
+		        	{
+		        		array2[i]=i;
+		        		contador=contador+1;
+		        	}
+		        }
+		        
+		      //  for(int i=0;i<array.length;i++)
+		        //{
+		        //	System.out.println(array2[i]);
+		        //}
+		        
+		        int array3[]=new int[contador];
+		        
+		        int contador2=0;
+		        for(int i=0;i<array2.length;i++)
+		        {
+		        	if(array2[i]!=0)
+		        	{
+		        		array3[contador2]=array2[i];
+		        		contador2=contador2+1;
+		        	}
+		        }
+		        
+		        
+		       // for(int i=0;i<array3.length;i++)
+		        //{
+		        	//System.out.printf("%d ",array3[i]);
+		        //}
+		        
+		        //System.out.println();
+		        
+		        int array4[]=new int[array3.length];
+		        String array5[]=new String[1];
+		        
+		        
+		        	//System.out.println();
+		        
+		       
+		        
+		        if(array3.length==1)
+		        {
+		        	array5[0]=comando.substring(0,array3[0]);
+		        	array4[0]=Integer.parseInt(comando.substring(array3[0]+1,comando.length()));
+		        	
+		        	String claveAgregar="agregar";
+		        	String claveExiste="existe";
+		        	String claveSalir="salir";
+		        	
+		        	if(claveAgregar.equals(array5[0]))
+		        	{
+		        		int id=array4[0];
+		        		lcola.add(id);
+		        	}
+		        	
+		        	else if(claveExiste.equals(array5[0]))
+		        	{
+		        		int id=array4[0];
+		        		if(myMap.containsKey(id)==true)
+		        		{
+		        			System.out.printf("%s %s\n","SI",myMap.get(id));
+		        		}
+		        		
+		        		else
+		        		{
+		        			System.out.println("NO");
+		        		}
+		        	}
+		        	
+		        	else if(claveSalir.equals(array5[0]))
+		        	{
+		        		int id=array4[0];
+		        		
+		        		//System.out.printf("jajajjaja: %s\n",myMap.get(id));
+		        		h2.insert(myMap.get(id));
+		        		myMap.remove(id);
+		        		
+		        	}
+		        }
+		        
+		        else if(comando.equals("atender"))
+		        {
+		        	int min=h2.findMin();
+		       
+		        	myMap.put(lcola.get(0), min);
+		        	h2.deleteMin();
+		        	lcola.remove();
+		        }
+				
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import parcial2hoy.ProblemB.MyArrayList;
+
+
+
+
+public class B2
+{
+	
+	public static class BinaryHeapMin<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeapMin( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeapMin( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeapMin( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+
+	public static void main(String args[]) throws Exception {
+		Scanner scan;
+		File f = new File("B_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++)
+		
+		{
+			System.out.printf("Caso #%d:\n",t+1);
+			
+			
+		    String s[] = scan.nextLine().split(" ");
+			int Q = Integer.parseInt(s[0]);// numero de consultas
+			int N = Integer.parseInt(s[1]);
+			
+			MyArrayList<String> lcola=new MyArrayList<>();
+			
+			HashMap<String, Integer>  myMap = new HashMap<String, Integer>();
+			
+			BinaryHeapMin<Integer> h2 = new BinaryHeapMin<>( );
+			
+			int count=0;
+			
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				
+
+				
+				
+				if (type.equals("agregar"))
+				{
+					String id=line[1];
+	        		lcola.add(id);
+				} 
+				
+				else if (type.equals("atender"))
+				{
+					h2.insert(count);
+		        	int min=h2.findMin();
+		        	
+		       
+		        	myMap.put(lcola.get(0), min);
+		        	h2.deleteMin();
+		        	lcola.remove();
+		        	count++;
+				} 
+				
+				else if (type.equals("existe")) 
+				
+				{
+					String id=line[1];
+					if(myMap.containsKey(id)==true)
+	        		{
+	        			System.out.printf("%s %s\n","SI",myMap.get(id));
+	        		}
+	        		
+	        		else
+	        		{
+	        			System.out.println("NO");
+	        		}
+				} 
+				
+				else if (type.equals("salir")) 
+				{
+					String id=line[1];
+					//System.out.printf("jajajjaja: %s\n",myMap.get(id));
+	        		h2.insert(myMap.get(id));
+	        		myMap.remove(id);
+	        		
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+
+
+
+public class B2
+{
+	
+	public static class BinaryHeapMin<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeapMin( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeapMin( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeapMin( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+
+	public static void main(String args[]) throws Exception {
+		Scanner scan;
+		File f = new File("B_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++)
+		
+		{
+			System.out.printf("Caso #%d:\n",t+1);
+			
+			
+		    String s[] = scan.nextLine().split(" ");
+			int Q = Integer.parseInt(s[0]);// numero de consultas
+			int N = Integer.parseInt(s[1]);
+			
+			MyArrayList<String> lcola=new MyArrayList<>();
+			
+			HashMap<String, Integer>  myMap = new HashMap<String, Integer>();
+			
+			BinaryHeapMin<Integer> h2 = new BinaryHeapMin<>( );
+			
+			int count=0;
+			
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				
+
+				
+				
+				if (type.equals("agregar"))
+				{
+					String id=line[1];
+	        		lcola.add(id);
+				} 
+				
+				else if (type.equals("atender"))
+				{
+					h2.insert(count);
+		        	int min=h2.findMin();
+		        	
+		       
+		        	myMap.put(lcola.get(0), min);
+		        	h2.deleteMin();
+		        	lcola.remove();
+		        	count++;
+				} 
+				
+				else if (type.equals("existe")) 
+				
+				{
+					String id=line[1];
+					if(myMap.containsKey(id)==true)
+	        		{
+	        			System.out.printf("%s %s\n","SI",myMap.get(id));
+	        		}
+	        		
+	        		else
+	        		{
+	        			System.out.println("NO");
+	        		}
+				} 
+				
+				else if (type.equals("salir")) 
+				{
+					String id=line[1];
+					//System.out.printf("jajajjaja: %s\n",myMap.get(id));
+	        		h2.insert(myMap.get(id));
+	        		myMap.remove(id);
+	        		
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+
+public class B2
+{
+	
+	public static class BinaryHeapMin<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeapMin( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeapMin( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeapMin( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+
+	public static void main(String args[]) throws Exception {
+		Scanner scan;
+		File f = new File("B_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++)
+		
+		{
+			System.out.printf("Caso #%d:\n",t+1);
+			
+			
+		   // String s[] = scan.nextLine().split(" ");
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			//int N = Integer.parseInt(s[1]);
+			
+			MyArrayList<String> lcola=new MyArrayList<>();
+			
+			HashMap<String, Integer>  myMap = new HashMap<String, Integer>();
+			
+			BinaryHeapMin<Integer> h2 = new BinaryHeapMin<>( );
+			
+			int count=0;
+			
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				
+
+				
+				
+				if (type.equals("agregar"))
+				{
+					String id=line[1];
+	        		lcola.add(id);
+				} 
+				
+				else if (type.equals("atender"))
+				{
+					h2.insert(count);
+		        	int min=h2.findMin();
+		        	
+		       
+		        	myMap.put(lcola.get(0), min);
+		        	h2.deleteMin();
+		        	lcola.remove();
+		        	count++;
+				} 
+				
+				else if (type.equals("existe")) 
+				
+				{
+					String id=line[1];
+					if(myMap.containsKey(id)==true)
+	        		{
+	        			System.out.printf("%s %s\n","SI",myMap.get(id));
+	        		}
+	        		
+	        		else
+	        		{
+	        			System.out.println("NO");
+	        		}
+				} 
+				
+				else if (type.equals("salir")) 
+				{
+					String id=line[1];
+					//System.out.printf("jajajjaja: %s\n",myMap.get(id));
+	        		h2.insert(myMap.get(id));
+	        		myMap.remove(id);
+	        		
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+
+public class B2
+{
+	
+	public static class BinaryHeapMin<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeapMin( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeapMin( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeapMin( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+
+	public static void main(String args[]) throws Exception {
+		Scanner scan;
+		File f = new File("B_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++)
+		
+		{
+			System.out.printf("Caso #%d:\n",t+1);
+			
+			
+		   // String s[] = scan.nextLine().split(" ");
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			//int N = Integer.parseInt(s[1]);
+			
+			MyArrayList<String> lcola=new MyArrayList<>();
+			
+			HashMap<String, Integer>  myMap = new HashMap<String, Integer>();
+			
+			BinaryHeapMin<Integer> h2 = new BinaryHeapMin<>( );
+			
+			int count=0;
+			
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				
+
+				
+				
+				if (type.equals("agregar"))
+				{
+					String id=line[1];
+	        		lcola.add(id);
+				} 
+				
+				else if (type.equals("atender"))
+				{
+					myMap.put(lcola.get(0), 1);
+		        	lcola.remove();
+				} 
+				
+				else if (type.equals("existe")) 
+				
+				{
+					String id=line[1];
+					if(myMap.containsKey(id)==true)
+	        		{
+	        			System.out.println("SI");
+	        		}
+	        		
+	        		else
+	        		{
+	        			System.out.println("NO");
+	        		}
+				} 
+				
+				else if (type.equals("salir")) 
+				{
+					String id=line[1];
+					//System.out.printf("jajajjaja: %s\n",myMap.get(id));
+	        		h2.insert(myMap.get(id));
+	        		myMap.remove(id);
+	        		
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package parcial2hoy;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+
+public class B2
+{
+	
+	public static class BinaryHeapMin<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeapMin( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeapMin( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeapMin( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+	
+	public static class MyArrayList<T> implements Iterable<T>
+	{
+
+		@Override
+		public Iterator<T> iterator() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		private T[] array;
+		private int size;
+		private static final int capacidadInicial=10;
+		
+		public MyArrayList()
+		{
+			size=0;
+			array=(T[]) new Object[capacidadInicial];
+		}
+		
+		public int array30[]=new int[1];
+		
+		public void size2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			size=size*a;
+		}
+		
+		public void salvador2(int a)
+		{
+			array=(T[]) new Object[capacidadInicial];
+			array30[0]=array30[0]*a;
+		}
+		
+		public int size()
+		{
+			return size;
+		}
+		
+		
+		public boolean isEmpty()
+		{
+			return size==0;
+		}
+		
+			
+		
+
+		
+		
+		public int primeraOcurrencia(T variable)
+		{
+			int j=-1;
+			
+			for(int i=0;i<size();i++)
+			{
+				if(variable.equals(array[i]))
+				{
+					j=i;
+					break;
+				}
+			}
+			if(j!=-1)
+			{
+				//array30[0]=array30[0]+j+1;
+				//System.out.printf("buscar: %d\n",j);
+			}
+			
+			else if(j==-1)
+			{
+				//System.out.println("no existe el numero");
+				//array30[0]=array30[0]+size();
+			}
+			return j;
+			
+		}
+		
+		
+		 public T get( int idx )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        return array[ idx ];    
+		    }
+		
+		  public T set( int idx,T newVal )
+		    {
+		        if( idx < 0 || idx >= size( ) )
+		            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+		        T old = array[ idx ];    
+		        array[ idx ] = newVal;
+		        
+		        return old;    
+		    }
+		  
+		public boolean add( T x )
+	    {
+	    add( size( ), x );
+	        return true;            
+	    }
+		
+		
+		public void add(int index, T variable)
+		{
+			if(index<0)
+			{
+				throw new IllegalArgumentException("El valor ingresado es incorrecto"); 
+			}
+			size=size+1;
+			
+			
+			if((size()<=array.length || array[array.length-1]!=null) && index<size())
+			{
+				//array30[0]=198;
+				//System.out.println("insertar: posicion valida");
+				
+				int c=size()-(index+1);
+				
+				//array30[0]=array30[0]+c;
+				
+			
+				
+				T[] segundo=(T[]) new Object[array.length+1];
+				segundo[index]=variable;
+				
+				for(int i=0;i<index;i++)
+				{
+					segundo[i]=array[i];
+				}
+				
+				for(int i=index+1;i<segundo.length;i++)
+				{
+					segundo[i]=array[i-1];
+				}
+				
+				array=segundo;
+			}
+			
+			else
+			{
+				//System.out.println("insertar: posicion invalida");
+				size=size-1;
+				if(index>=array.length)
+				{
+					T[] tercero= (T[])new Object[index+1];
+					for (int i = 0; i < array.length; i++)
+					{
+						tercero[i]=array[i];
+					}
+					tercero[index]=variable;
+					array=tercero;
+				}
+			}
+		
+			
+			
+		}
+		
+		int m=0;
+		public void remove() //throws IllegalArgumentException
+		{
+			int index=0;
+			int c=size()-(index+1);
+			if(c>0)
+			{
+				//array30[0]=array30[0]+c;
+			}
+			
+			if(index<0 || index>=size())
+			{
+				//throw new IllegalArgumentException("El valor ingresado es incorrecto");
+				//System.out.println("eliminar: posicion invalida");
+				size=size+0;
+			}
+			
+			else
+			{
+				for(int i=index;i<array.length-1;i++)
+				{
+					array[i]=array[i+1];
+					m=m+1;
+				}
+				
+				if(m!=0)
+				{
+					size=size-1;
+					//System.out.println("eliminar: posicion valida");
+				}
+			}
+			
+			
+		}
+		
+		private void clear( )
+	    {
+	        size = 0;
+	    }
+		
+		public String toString()
+		{
+			if(size>0)
+			{
+				String toString= new String("");
+				
+				for (int contador = 0; contador < array.length; contador++) 
+				{
+					if(array[contador]!=null)
+					{
+						System.out.printf("%s %s", toString, array[contador].toString());
+					}
+				}
+				return toString;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		  
+		public int salvador(int w)
+		{
+			return w*array30[0];
+		}
+		
+
+		
+		
+		  
+		  private class ArrayListIterator implements java.util.Iterator<T>
+		    {
+		        private int current = 0;
+		        private boolean okToRemove = false;
+		        
+		        public boolean hasNext( )
+		        {
+		            return current < size( );
+		        }
+		        
+		        
+		        public T next()
+		        {
+		            if( !hasNext( ) ) 
+		                throw new java.util.NoSuchElementException( ); 
+		                  
+		            okToRemove = true;    
+		            return array[ current++ ];
+		        }
+		        
+		        public void remove( )
+		        {
+		            if( !okToRemove )
+		                throw new IllegalStateException( );
+		                
+		            MyArrayList.this.remove();
+		            okToRemove = false;
+		        }
+		    }
+		  
+		  
+		
+	}
+
+	public static void main(String args[]) throws Exception {
+		Scanner scan;
+		File f = new File("B_1.txt");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// System.setOut(new PrintStream(new File("A_1Out.txt")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int t = 0; t < n; t++)
+		
+		{
+			System.out.printf("Caso #%d:\n",t+1);
+			
+			
+		   // String s[] = scan.nextLine().split(" ");
+			int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+			//int N = Integer.parseInt(s[1]);
+			
+			MyArrayList<String> lcola=new MyArrayList<>();
+			
+			//HashMap<String, Integer>  myMap = new HashMap<String, Integer>();
+			
+			HashSet<String>  myMap = new HashSet<String>();
+			
+			BinaryHeapMin<Integer> h2 = new BinaryHeapMin<>( );
+			
+			int count=0;
+			
+			for (int i = 0; i < Q; i++) 
+			{
+				String line[] = scan.nextLine().split(" ");// linea para ver que
+															// tipo de comando
+				String type = line[0];
+				
+
+				
+				
+				if (type.equals("agregar"))
+				{
+					String id=line[1];
+	        		lcola.add(id);
+				} 
+				
+				else if (type.equals("atender"))
+				{
+					myMap.add(lcola.get(0));
+		        	lcola.remove();
+				} 
+				
+				else if (type.equals("existe")) 
+				
+				{
+					String id=line[1];
+					if(myMap.contains(id)==true)
+	        		{
+	        			System.out.println("SI");
+	        		}
+	        		
+	        		else
+	        		{
+	        			System.out.println("NO");
+	        		}
+				} 
+				
+				else if (type.equals("salir")) 
+				{
+					
+	        		
+				}
+
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package grafos2;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class ProblemB 
+{
+
+	
+	public static void main(String[] args) 
+	
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int nCasos = Integer.parseInt(entrada.nextLine());
+		
+		for(int r = 0 ; r< nCasos ; r++)
+		{
+			vertices.clear();
+			
+			System.out.printf("Caso #%d:\n",r+1);
+			
+			String cadena[] = entrada.nextLine().split(" ");
+			
+			int Compu = Integer.parseInt(cadena[0]);
+			
+			int Conecte = Integer.parseInt(cadena[1]);
+			
+			String salida = cadena[2];
+			String llegada = cadena[3];
+			
+			
+			for(int i = 0 ; i < Compu ; i++)
+			{
+				Vertex nuevoVertice = new Vertex(i + "");
+		    	vertices.put(i + "", nuevoVertice);
+			}
+			
+			for(int k = 0 ; k < Conecte ; k++)
+			{
+				String [] conecciones = entrada.nextLine().split(" ");
+				String compu1 = conecciones[0];
+				String compu2 = conecciones [1];
+				double peso = Double.parseDouble(conecciones[2]);
+				newEdge(compu1, compu2, peso);
+			}
+			
+			computePaths(vertices.get(salida));
+			
+			double tiempo = vertices.get(llegada).minDistance;
+			
+			if (tiempo == Double.POSITIVE_INFINITY)
+			{
+				System.out.println("Inalcanzable");
+			}
+			
+			else
+			{
+				System.out.println((int)tiempo);
+			}
+			
+
+		}
+
+	}
+	
+	
+	public static int[] readInts(String cad) 
+	{
+		String spl[] = cad.split(" ");
+		int arr[] = new int[spl.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(spl[i]);
+		}
+		return arr;
+	}
+	
+	static Map<String,Vertex> vertices = new HashMap<String,Vertex>( );
+	static double num = Double.POSITIVE_INFINITY;
+	
+	static class Vertex implements Comparable<Vertex>
+	{
+	    public final String name;
+	    public ArrayList<Edge>  adjacencies ;
+	    public double minDistance = Double.POSITIVE_INFINITY;
+	    public Vertex previous;
+	    public Vertex(String argName)  {
+	    	name = argName;
+	    	adjacencies = new ArrayList<Edge>( );
+	    	previous = null;
+	    }
+	    public String toString() { return name; }
+	    public int compareTo(Vertex other)
+	    {
+	        return Double.compare(minDistance, other.minDistance);
+	    }
+
+	}
+
+
+	static class Edge
+	{
+	    public final Vertex target;
+	    public final double weight;
+	    public Edge(Vertex argTarget, double argWeight)
+	    { target = argTarget; weight = argWeight; }
+	}
+	
+	public static void newEdge (String salida, String destino, double costo){
+		Vertex vertice1 = vertices.get(salida);
+		Vertex vertice2 = vertices.get(destino);
+		Edge edge1 = new Edge (vertice2, costo); 
+		Edge edge2 = new Edge (vertice1, costo);
+		vertice1.adjacencies.add(edge1);
+		vertice2.adjacencies.add(edge2);
+	}
+
+    public static void computePaths(Vertex source)
+    {
+        source.minDistance = 0.;
+        PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>();
+        vertexQueue.add(source);
+
+    while (!vertexQueue.isEmpty()) {
+        Vertex u = vertexQueue.poll();
+
+            // Visit each edge exiting u
+            for (Edge e : u.adjacencies)
+            {
+                Vertex v = e.target;
+                double weight = e.weight;
+                double distanceThroughU = u.minDistance + weight;
+        if (distanceThroughU < v.minDistance) {
+            vertexQueue.remove(v);
+
+            v.minDistance = distanceThroughU ;
+            v.previous = u;
+            vertexQueue.add(v);
+        }
+            }
+        }
+    }
+
+    public static List<Vertex> getShortestPathTo(Vertex target)
+    {
+        List<Vertex> path = new ArrayList<Vertex>();
+        for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
+            path.add(vertex);
+
+        Collections.reverse(path);
+        return path;
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package grafos2;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class ProblemC
+{
+
+	
+	public static void main(String[] args)
+	{
+		Scanner entrada=new Scanner(System.in);
+		int nCasos = Integer.parseInt(entrada.nextLine());
+		
+		
+		for(int r = 0 ; r < nCasos ; r++)
+		{
+			System.out.printf("Caso #%d:\n",r+1);;
+			
+			int tamano = Integer.parseInt(entrada.nextLine());
+			int[][] matriz = new int [tamano][tamano];
+			
+			for (int n = 0 ; n < tamano ; n++)
+			{
+				matriz [n] = readInts(entrada.nextLine());
+			}
+			
+			Grafo grafoMatriz = new Grafo (matriz);
+			System.out.println(grafoMatriz.identificarZonas());
+		}
+	}
+	
+	
+	public static int[] readInts(String cad) {
+		String spl[] = cad.split(" ");
+		int arr[] = new int[spl.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(spl[i]);
+		}
+		return arr;
+	}
+	
+	public static class Grafo 
+	{
+
+	    public int[][] matriz;
+
+	    public Grafo(int [][] matrizNueva)
+	    {
+	        matriz = matrizNueva;
+	    }
+
+	    public String identificarZonas()
+	    {
+	    	
+	    	int n = this.matriz.length;
+	        Boolean [][]nodosVisitados = new Boolean[n][n];
+	        
+	        HashMap<Integer, Boolean> islas = new HashMap <>();
+	        
+	        for(int fila=0; fila< n; fila++)
+	        {
+	        	for(int columna=0; columna < n ; columna++)
+	            {
+	            	nodosVisitados[fila][columna] = false;
+	            }
+	        }
+
+	        for(int fila=0; fila< n; fila++)
+	        {
+	            for(int columna=0; columna < n ; columna++)
+	            {
+	                if(nodosVisitados[fila][columna] == false)
+	                {
+	                    int numero = this.matriz[fila][columna];
+	                    buscarIslas(nodosVisitados, fila, columna, numero);
+	                    
+	                    if(islas.containsKey(numero))
+	                    {
+	                    	return "NO";
+	                    }
+	                    
+	                    else
+	                    {
+	                    	islas.put(numero, true);
+	                    }
+	                }
+	            }
+	        }
+	        return "YES";
+	    }
+
+	    private void buscarIslas(Boolean [][] nodosVisitados, int fila, int columna, Integer numero)
+	    {
+	    	int n = this.matriz.length;
+	    	
+	        if(columna < 0 || columna > n-1 || fila < 0 || fila > n-1 )
+	        {
+	            return;
+	        }
+	        
+	        if(nodosVisitados[fila][columna] == true)
+	        {
+	            return;
+	        }
+	        
+	        if(this.matriz[fila][columna] != numero)
+	        {
+	            return;
+	        }
+	        
+	        nodosVisitados[fila][columna] = true;
+	        buscarIslas(nodosVisitados, fila, columna-1, numero);
+	        buscarIslas(nodosVisitados, fila, columna+1, numero);
+	        buscarIslas(nodosVisitados, fila+1, columna, numero);
+	        buscarIslas(nodosVisitados, fila-1, columna, numero);
+	    }
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package grafos2;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class ProblemB 
+{
+
+	
+	public static void main(String[] args) 
+	
+	{
+		Scanner entrada=new Scanner(System.in);
+		
+		int nCasos = Integer.parseInt(entrada.nextLine());
+		
+		for(int r = 0 ; r< nCasos ; r++)
+		{
+			vertices.clear();
+			
+			System.out.printf("Caso #%d:\n",r+1);
+			
+			String cadena[] = entrada.nextLine().split(" ");
+			
+			int Compu = Integer.parseInt(cadena[0]);
+			
+			int Conecte = Integer.parseInt(cadena[1]);
+			
+			String salida = cadena[2];
+			String llegada = cadena[3];
+			
+			
+			for(int i = 0 ; i < Compu ; i++)
+			{
+				Vertex nuevoVertice = new Vertex(i + "");
+		    	vertices.put(i + "", nuevoVertice);
+			}
+			
+			for(int k = 0 ; k < Conecte ; k++)
+			{
+				String [] conecciones = entrada.nextLine().split(" ");
+				String compu1 = conecciones[0];
+				String compu2 = conecciones [1];
+				double peso = Double.parseDouble(conecciones[2]);
+				newEdge(compu1, compu2, peso);
+			}
+			
+			computePaths(vertices.get(salida));
+			
+			double tiempo = vertices.get(llegada).minDistance;
+			
+			if (tiempo == Double.POSITIVE_INFINITY)
+			{
+				System.out.println("inalcanzable");
+			}
+			
+			else
+			{
+				System.out.println((int)tiempo);
+			}
+			
+
+		}
+
+	}
+	
+	
+	public static int[] readInts(String cad) 
+	{
+		String spl[] = cad.split(" ");
+		int arr[] = new int[spl.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(spl[i]);
+		}
+		return arr;
+	}
+	
+	static Map<String,Vertex> vertices = new HashMap<String,Vertex>( );
+	static double num = Double.POSITIVE_INFINITY;
+	
+	static class Vertex implements Comparable<Vertex>
+	{
+	    public final String name;
+	    public ArrayList<Edge>  adjacencies ;
+	    public double minDistance = Double.POSITIVE_INFINITY;
+	    public Vertex previous;
+	    public Vertex(String argName)  {
+	    	name = argName;
+	    	adjacencies = new ArrayList<Edge>( );
+	    	previous = null;
+	    }
+	    public String toString() { return name; }
+	    public int compareTo(Vertex other)
+	    {
+	        return Double.compare(minDistance, other.minDistance);
+	    }
+
+	}
+
+
+	static class Edge
+	{
+	    public final Vertex target;
+	    public final double weight;
+	    public Edge(Vertex argTarget, double argWeight)
+	    { target = argTarget; weight = argWeight; }
+	}
+	
+	public static void newEdge (String salida, String destino, double costo){
+		Vertex vertice1 = vertices.get(salida);
+		Vertex vertice2 = vertices.get(destino);
+		Edge edge1 = new Edge (vertice2, costo); 
+		Edge edge2 = new Edge (vertice1, costo);
+		vertice1.adjacencies.add(edge1);
+		vertice2.adjacencies.add(edge2);
+	}
+
+    public static void computePaths(Vertex source)
+    {
+        source.minDistance = 0.;
+        PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>();
+        vertexQueue.add(source);
+
+    while (!vertexQueue.isEmpty()) {
+        Vertex u = vertexQueue.poll();
+
+            // Visit each edge exiting u
+            for (Edge e : u.adjacencies)
+            {
+                Vertex v = e.target;
+                double weight = e.weight;
+                double distanceThroughU = u.minDistance + weight;
+        if (distanceThroughU < v.minDistance) {
+            vertexQueue.remove(v);
+
+            v.minDistance = distanceThroughU ;
+            v.previous = u;
+            vertexQueue.add(v);
+        }
+            }
+        }
+    }
+
+    public static List<Vertex> getShortestPathTo(Vertex target)
+    {
+        List<Vertex> path = new ArrayList<Vertex>();
+        for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
+            path.add(vertex);
+
+        Collections.reverse(path);
+        return path;
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package grafos2;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class ProblemD
+{
+
+	
+	public static void main(String[] args)
+	{
+		Scanner entrada=new Scanner(System.in);
+		int nCasos = Integer.parseInt(entrada.nextLine());
+		
+		
+		for(int r = 0 ; r < nCasos ; r++)
+		{
+			System.out.printf("Caso #%d:\n",r+1);;
+			
+			int tamano = Integer.parseInt(entrada.nextLine());
+			int[][] matriz = new int [tamano][tamano];
+			
+			for (int n = 0 ; n < tamano ; n++)
+			{
+				matriz [n] = readInts(entrada.nextLine());
+			}
+			
+			Grafo grafoMatriz = new Grafo (matriz);
+			grafoMatriz.identificarZonas();
+		}
+	}
+	
+	
+	public static int[] readInts(String cad) {
+		String spl[] = cad.split(" ");
+		int arr[] = new int[spl.length];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(spl[i]);
+		}
+		return arr;
+	}
+	
+	public static class Grafo 
+	{
+
+	    public int[][] matriz;
+
+	    public Grafo(int [][] matrizNueva)
+	    {
+	        matriz = matrizNueva;
+	    }
+
+	    public void identificarZonas()
+	    {
+	    	
+	    	int n = this.matriz.length;
+	        Boolean [][]nodosVisitados = new Boolean[n][n];
+	        
+	        HashMap<Integer, Boolean> islas = new HashMap <>();
+	        
+	        for(int fila=0; fila< n; fila++)
+	        {
+	        	for(int columna=0; columna < n ; columna++)
+	            {
+	            	nodosVisitados[fila][columna] = false;
+	            }
+	        }
+	        
+	        int count=0;
+
+	        for(int fila=0; fila< n; fila++)
+	        {
+	            for(int columna=0; columna < n ; columna++)
+	            {
+	                if(nodosVisitados[fila][columna] == false)
+	                {
+	                    int numero = this.matriz[fila][columna];
+	                    buscarIslas(nodosVisitados, fila, columna, numero);
+	                    count++;
+	                    
+	                    if(islas.containsKey(numero))
+	                    {
+	                    	//System.out.println(count);
+	                    }
+	                    
+	                    else
+	                    {
+	                    	islas.put(numero, true);
+	                    	//System.out.println(count);
+	                    }
+	                    
+	                   
+	                }
+	            }
+	            
+	        }
+	        
+	        System.out.println(count);
+	        
+	    }
+
+	    
+	    private void buscarIslas(Boolean [][] nodosVisitados, int fila, int columna, Integer numero)
+	    {
+	    	int n = this.matriz.length;
+	    	
+	        if(columna < 0 || columna > n-1 || fila < 0 || fila > n-1 )
+	        {
+	            return;
+	        }
+	        
+	        if(nodosVisitados[fila][columna] == true)
+	        {
+	        	//count++;
+	            return;
+	        }
+	        
+	        if(this.matriz[fila][columna] != numero)
+	        {
+	            return;
+	        }
+	        
+	        nodosVisitados[fila][columna] = true;
+	        buscarIslas(nodosVisitados, fila, columna-1, numero);
+	        buscarIslas(nodosVisitados, fila, columna+1, numero);
+	        buscarIslas(nodosVisitados, fila+1, columna, numero);
+	        buscarIslas(nodosVisitados, fila-1, columna, numero);
+	    }
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

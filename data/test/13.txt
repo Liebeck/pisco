@@ -1,0 +1,3216 @@
+package problema_a;
+
+import java.util.*;
+
+public class Problema_A {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        Scanner leer = new Scanner(System.in);
+        int cPrueba = leerInt.nextInt();
+        int[] numeros;
+        int cNumeros;
+        int nMayor,nMenor,nIgual;
+        int p = 1;
+        while(p <= cPrueba){
+            cNumeros = leerInt.nextInt();
+            numeros = new int[cNumeros];
+            nMayor=0;
+            nMenor=0;
+            nIgual=0;
+            for(int i=0;i<numeros.length;i++){
+                numeros[i]=leer.nextInt();
+            }
+            for(int i=0;i<numeros.length;i++){
+                for(int j=0;j<numeros.length;j++){
+                    if(i!=j){
+                        if(numeros[i]>numeros[j]){
+                            nMayor++;
+                        }else if(numeros[i]<numeros[j]){
+                            nMenor++;
+                        }else if(numeros[i]==numeros[j]){
+                            nIgual++;
+                        }
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(nMayor);
+            System.out.println(nMenor);
+            System.out.println(nIgual);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_b;
+
+import java.util.*;
+
+public class Problema_B {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        Scanner leer = new Scanner(System.in);
+        int [][] tablero;
+        int dTablero;
+        int sFila, sColumna;
+        int cGanadora;
+        int p = 1;
+        while(leerInt.hasNextLine()){
+            dTablero = leerInt.nextInt();
+            tablero = new int[dTablero][dTablero];
+            cGanadora = 0;
+            for(int i=0;i<dTablero;i++){
+                for(int j=0;j<dTablero;j++){
+                    tablero[i][j]=leer.nextInt();
+                }
+            }
+            for(int c1=0;c1<dTablero;c1++){
+                for(int c2=0;c2<dTablero;c2++){
+                    sFila=0;
+                    sColumna=0;
+                    for(int i=0;i<dTablero;i++){
+                        sFila = sFila + tablero[c1][i];
+                    }
+                    for(int j=0;j<dTablero;j++){
+                        sColumna = sColumna + tablero[j][c2];
+                    }
+                    if(sFila < sColumna){
+                        cGanadora++;
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(cGanadora);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_c;
+
+import java.util.*;
+
+public class Problema_C {
+    
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        Scanner leerString = new Scanner(System.in);
+        int cPrueba = leerInt.nextInt();
+        String cPiedras;
+        ArrayList <String> cadena;
+        int nPiedras;
+        int p = 1;
+        while(p <= cPrueba){
+            nPiedras = leerInt.nextInt();
+            cPiedras = leerString.nextLine();
+            cPiedras = NoEspacios(cPiedras);
+            cadena = new ArrayList<String>();
+            for(int c1=0; c1 < cPiedras.length(); c1++){
+            String a="";
+            if(nPiedras >= 2){
+                for(int c2=0; c2 < cPiedras.length(); c2++){
+                a="";
+                if(nPiedras >= 3){
+                    for(int c3=0; c3 < cPiedras.length(); c3++){
+                    a="";
+                    if(nPiedras >= 4){
+                        for(int c4=0; c4 < cPiedras.length(); c4++){
+                        a="";
+                        if(nPiedras >= 5){
+                            for(int c5=0; c5 < cPiedras.length(); c5++){
+                            a="";
+                            if(nPiedras == 6){
+                                for(int c6=0; c6 < cPiedras.length(); c6++){
+                                a="";
+                                if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c1!=c6&&c2!=c3&&c2!=c4&&c2!=c5&&c2!=c6&&c3!=c4&&c3!=c5&&c3!=c6&&c4!=c5&&c4!=c6&&c5!=c6){
+                                    a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5)+cPiedras.charAt(c6);
+                                    cadena.add(a);
+                                }
+                                }
+                            }else{
+                            if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c2!=c3&&c2!=c4&&c2!=c5&&c3!=c4&&c3!=c5&&c4!=c5){
+                                a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5);
+                                cadena.add(a);
+                            }
+                            }
+                            }
+                        }else{
+                        if(c1!=c2 && c1!=c3 && c1!=c4 && c2!=c3 && c2!=c4 && c3!=c4){
+                            a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4);
+                            cadena.add(a);
+                        }
+                        }
+                        }
+                    }else{
+                    if(c1!=c2 && c1!=c3 && c2!=c3){
+                        a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2) + cPiedras.charAt(c3);
+                        cadena.add(a);
+                    }
+                    }
+                    }
+                }else{
+                if(c1!=c2){
+                    a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2);
+                    cadena.add(a);
+                }
+                }
+                }
+            }else{
+            a = a + cPiedras.charAt(c1);
+            cadena.add(a);
+            }
+            }
+            Mostrar(cadena,p);
+            p ++;
+        }
+    }
+    
+    public static String NoEspacios(String a){
+        String b = "";
+        for(int i=0;i<a.length();i++){
+            if(a.charAt(i)!=' '){
+                b= b+ a.charAt(i);
+            }
+        }
+        return b;
+    }
+    
+    public static void Mostrar(ArrayList a, int b){
+        a = eliminarRepetidos(a);
+        Collections.sort(a);
+        System.out.println("Case #"+b+":");
+        for (Object a1 : a) {
+            System.out.println(a1);
+        }
+    }
+    
+    public static ArrayList eliminarRepetidos(ArrayList a){
+        for(int i = 0; i < a.size(); i++){
+            for(int j =0; j < a.size() && i!=j ; j++){
+                if(a.get(i).equals(a.get(j)) == true){
+                    a.remove(i);
+                }
+            }
+        }
+        return a;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_d;
+
+import java.util.*;
+
+public class Problema_D {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        Scanner leer = new Scanner(System.in);
+        int cPrueba = leerInt.nextInt();
+        int [][] equipos;
+        int nEquipos;
+        int vVisitante;
+        int p = 1;
+        while(p <= cPrueba){
+            nEquipos = leerInt.nextInt();
+            equipos = new int[nEquipos][2];
+            vVisitante = 0;
+            for(int i=0;i<nEquipos;i++){
+                for(int j=0;j<2;j++){
+                    equipos[i][j]=leer.nextInt();
+                }
+            }
+            for(int i=0;i<nEquipos;i++){
+                for(int j=0;j<nEquipos;j++){
+                    if(i!=j){
+                        if(equipos[i][0]==equipos[j][1]){
+                            vVisitante++;
+                        }
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(vVisitante);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_a;
+
+import java.util.*;
+
+public class Problema_A {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        //Scanner leer = new Scanner(System.in);
+        int cPrueba = leerInt.nextInt();
+        int[] numeros;
+        int cNumeros;
+        int nMayor,nMenor,nIgual;
+        int p = 1;
+        while(p <= cPrueba){
+            cNumeros = leerInt.nextInt();
+            numeros = new int[cNumeros];
+            nMayor=0;
+            nMenor=0;
+            nIgual=0;
+            for(int i=0;i<numeros.length;i++){
+                numeros[i]=leerInt.nextInt();
+            }
+            for(int i=0;i<numeros.length;i++){
+                for(int j=0;j<numeros.length;j++){
+                    if(i!=j){
+                        if(numeros[i]>numeros[j]){
+                            nMayor++;
+                        }else if(numeros[i]<numeros[j]){
+                            nMenor++;
+                        }else if(numeros[i]==numeros[j]){
+                            nIgual++;
+                        }
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(nMayor);
+            System.out.println(nMenor);
+            System.out.println(nIgual);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_b;
+
+import java.util.*;
+
+public class Problema_B {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        int [][] tablero;
+        int dTablero;
+        int sFila, sColumna;
+        int cGanadora;
+        int p = 1;
+        while(leerInt.hasNextLine()){
+            dTablero = leerInt.nextInt();
+            tablero = new int[dTablero][dTablero];
+            cGanadora = 0;
+            for(int i=0;i<dTablero;i++){
+                for(int j=0;j<dTablero;j++){
+                    tablero[i][j]=leerInt.nextInt();
+                }
+            }
+            for(int c1=0;c1<dTablero;c1++){
+                for(int c2=0;c2<dTablero;c2++){
+                    sFila=0;
+                    sColumna=0;
+                    for(int i=0;i<dTablero;i++){
+                        sFila = sFila + tablero[c1][i];
+                    }
+                    for(int j=0;j<dTablero;j++){
+                        sColumna = sColumna + tablero[j][c2];
+                    }
+                    if(sFila < sColumna){
+                        cGanadora++;
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(cGanadora);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_c;
+
+import java.util.*;
+
+public class Problema_C {
+    
+    public static void main(String[] args) {
+        Scanner leerString = new Scanner(System.in);
+        int cPrueba = Integer.parseInt(leerString.nextLine());
+        String cPiedras;
+        ArrayList <String> cadena;
+        int nPiedras;
+        int p = 1;
+        while(p <= cPrueba){
+            nPiedras = Integer.parseInt(leerString.nextLine());
+            cPiedras = leerString.nextLine();
+            cPiedras = NoEspacios(cPiedras);
+            cadena = new ArrayList<String>();
+            for(int c1=0; c1 < cPiedras.length(); c1++){
+            String a="";
+            if(nPiedras >= 2){
+                for(int c2=0; c2 < cPiedras.length(); c2++){
+                a="";
+                if(nPiedras >= 3){
+                    for(int c3=0; c3 < cPiedras.length(); c3++){
+                    a="";
+                    if(nPiedras >= 4){
+                        for(int c4=0; c4 < cPiedras.length(); c4++){
+                        a="";
+                        if(nPiedras >= 5){
+                            for(int c5=0; c5 < cPiedras.length(); c5++){
+                            a="";
+                            if(nPiedras == 6){
+                                for(int c6=0; c6 < cPiedras.length(); c6++){
+                                a="";
+                                if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c1!=c6&&c2!=c3&&c2!=c4&&c2!=c5&&c2!=c6&&c3!=c4&&c3!=c5&&c3!=c6&&c4!=c5&&c4!=c6&&c5!=c6){
+                                    a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5)+cPiedras.charAt(c6);
+                                    cadena.add(a);
+                                }
+                                }
+                            }else{
+                            if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c2!=c3&&c2!=c4&&c2!=c5&&c3!=c4&&c3!=c5&&c4!=c5){
+                                a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5);
+                                cadena.add(a);
+                            }
+                            }
+                            }
+                        }else{
+                        if(c1!=c2 && c1!=c3 && c1!=c4 && c2!=c3 && c2!=c4 && c3!=c4){
+                            a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4);
+                            cadena.add(a);
+                        }
+                        }
+                        }
+                    }else{
+                    if(c1!=c2 && c1!=c3 && c2!=c3){
+                        a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2) + cPiedras.charAt(c3);
+                        cadena.add(a);
+                    }
+                    }
+                    }
+                }else{
+                if(c1!=c2){
+                    a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2);
+                    cadena.add(a);
+                }
+                }
+                }
+            }else{
+            a = a + cPiedras.charAt(c1);
+            cadena.add(a);
+            }
+            }
+            Mostrar(cadena,p);
+            p ++;
+        }
+    }
+    
+    public static String NoEspacios(String a){
+        String b = "";
+        for(int i=0;i<a.length();i++){
+            if(a.charAt(i)!=' '){
+                b= b+ a.charAt(i);
+            }
+        }
+        return b;
+    }
+    
+    public static void Mostrar(ArrayList a, int b){
+        a = eliminarRepetidos(a);
+        Collections.sort(a);
+        System.out.println("Case #"+b+":");
+        for (Object a1 : a) {
+            System.out.println(a1);
+        }
+    }
+    
+    public static ArrayList eliminarRepetidos(ArrayList a){
+        for(int i = 0; i < a.size(); i++){
+            for(int j =0; j < a.size() && i!=j ; j++){
+                if(a.get(i).equals(a.get(j)) == true){
+                    a.remove(i);
+                }
+            }
+        }
+        return a;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_d;
+
+import java.util.*;
+
+public class Problema_D {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        int cPrueba = leerInt.nextInt();
+        int [][] equipos;
+        int nEquipos;
+        int vVisitante;
+        int p = 1;
+        while(p <= cPrueba){
+            nEquipos = leerInt.nextInt();
+            equipos = new int[nEquipos][2];
+            vVisitante = 0;
+            for(int i=0;i<nEquipos;i++){
+                for(int j=0;j<2;j++){
+                    equipos[i][j]=leerInt.nextInt();
+                }
+            }
+            for(int i=0;i<nEquipos;i++){
+                for(int j=0;j<nEquipos;j++){
+                    if(i!=j){
+                        if(equipos[i][0]==equipos[j][1]){
+                            vVisitante++;
+                        }
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(vVisitante);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_b;
+
+import java.util.*;
+
+public class Problema_B {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        int [][] tablero;
+        int dTablero;
+        int sFila;
+        int sColumna;
+        int cGanadora;
+        int p = 1;
+        while(leerInt.hasNext()){
+            dTablero = leerInt.nextInt();
+            tablero = new int[dTablero][dTablero];
+            cGanadora = 0;
+            for(int i=0;i<dTablero;i++){
+                for(int j=0;j<dTablero;j++){
+                    tablero[i][j]=leerInt.nextInt();
+                }
+            }
+            for(int c1=0;c1<dTablero;c1++){
+                for(int c2=0;c2<dTablero;c2++){
+                    sFila=0;
+                    sColumna=0;
+                    for(int i=0;i<dTablero;i++){
+                        sFila = sFila + tablero[c1][i];
+                    }
+                    for(int j=0;j<dTablero;j++){
+                        sColumna = sColumna + tablero[j][c2];
+                    }
+                    if(sFila < sColumna){
+                        cGanadora++;
+                    }
+                }
+            }
+            System.out.println("Case #"+p+":");
+            System.out.println(cGanadora);
+            p++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_c;
+
+import java.util.*;
+
+public class Problema_C {
+    
+    public static void main(String[] args) {
+        Scanner leerString = new Scanner(System.in);
+        int cPrueba = Integer.parseInt(leerString.nextLine());
+        String cPiedras;
+        ArrayList <String> cadena;
+        int nPiedras;
+        int p = 1;
+        while(p <= cPrueba){
+            nPiedras = Integer.parseInt(leerString.nextLine());
+            cPiedras = leerString.nextLine();
+            cPiedras = NoEspacios(cPiedras);
+            cadena = new ArrayList<>();
+            for(int c1=0; c1 < cPiedras.length(); c1++){
+            String a="";
+            if(nPiedras >= 2){
+                for(int c2=0; c2 < cPiedras.length(); c2++){
+                a="";
+                if(nPiedras >= 3){
+                    for(int c3=0; c3 < cPiedras.length(); c3++){
+                    a="";
+                    if(nPiedras >= 4){
+                        for(int c4=0; c4 < cPiedras.length(); c4++){
+                        a="";
+                        if(nPiedras >= 5){
+                            for(int c5=0; c5 < cPiedras.length(); c5++){
+                            a="";
+                            if(nPiedras == 6){
+                                for(int c6=0; c6 < cPiedras.length(); c6++){
+                                a="";
+                                if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c1!=c6&&c2!=c3&&c2!=c4&&c2!=c5&&c2!=c6&&c3!=c4&&c3!=c5&&c3!=c6&&c4!=c5&&c4!=c6&&c5!=c6){
+                                    a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5)+cPiedras.charAt(c6);
+                                    cadena.add(a);
+                                }
+                                }
+                            }else{
+                            if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c2!=c3&&c2!=c4&&c2!=c5&&c3!=c4&&c3!=c5&&c4!=c5){
+                                a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5);
+                                cadena.add(a);
+                            }
+                            }
+                            }
+                        }else{
+                        if(c1!=c2 && c1!=c3 && c1!=c4 && c2!=c3 && c2!=c4 && c3!=c4){
+                            a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4);
+                            cadena.add(a);
+                        }
+                        }
+                        }
+                    }else{
+                    if(c1!=c2 && c1!=c3 && c2!=c3){
+                        a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2) + cPiedras.charAt(c3);
+                        cadena.add(a);
+                    }
+                    }
+                    }
+                }else{
+                if(c1!=c2){
+                    a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2);
+                    cadena.add(a);
+                }
+                }
+                }
+            }else{
+            a = a + cPiedras.charAt(c1);
+            cadena.add(a);
+            }
+            }
+            Mostrar(cadena,p);
+            p ++;
+        }
+    }
+    
+    public static String NoEspacios(String a){
+        String b = "";
+        for(int i=0;i<a.length();i++){
+            if(a.charAt(i)!=' '){
+                b= b+ a.charAt(i);
+            }
+        }
+        return b;
+    }
+    
+    public static void Mostrar(ArrayList a, int b){
+        a = eliminarRepetidos(a);
+        Collections.sort(a);
+        System.out.println("Case #"+b+":");
+        for (Object a1 : a) {
+            System.out.println(a1);
+        }
+    }
+    
+    public static ArrayList eliminarRepetidos(ArrayList a){
+        for(int i = 0; i < a.size(); i++){
+            for(int j =0; j < a.size() && i!=j ; j++){
+                if(a.get(i).equals(a.get(j)) == true){
+                    a.remove(i);
+                }
+            }
+        }
+        return a;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_c;
+
+import java.util.*;
+
+public class Problema_C {
+    
+    public static void main(String[] args) {
+        Scanner leerString = new Scanner(System.in);
+        int cPrueba = Integer.parseInt(leerString.nextLine());
+        String cPiedras;
+        ArrayList <String> cadena;
+        int nPiedras;
+        int p = 1;
+        while(p <= cPrueba){
+            nPiedras = Integer.parseInt(leerString.nextLine());
+            cPiedras = leerString.nextLine();
+            cPiedras = NoEspacios(cPiedras);
+            cadena = new ArrayList<>();
+            for(int c1=0; c1 < cPiedras.length(); c1++){
+            String a="";
+            if(nPiedras >= 2){
+                for(int c2=0; c2 < cPiedras.length(); c2++){
+                a="";
+                if(nPiedras >= 3){
+                    for(int c3=0; c3 < cPiedras.length(); c3++){
+                    a="";
+                    if(nPiedras >= 4){
+                        for(int c4=0; c4 < cPiedras.length(); c4++){
+                        a="";
+                        if(nPiedras >= 5){
+                            for(int c5=0; c5 < cPiedras.length(); c5++){
+                            a="";
+                            if(nPiedras == 6){
+                                for(int c6=0; c6 < cPiedras.length(); c6++){
+                                a="";
+                                if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c1!=c6&&c2!=c3&&c2!=c4&&c2!=c5&&c2!=c6&&c3!=c4&&c3!=c5&&c3!=c6&&c4!=c5&&c4!=c6&&c5!=c6){
+                                    a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5)+cPiedras.charAt(c6);
+                                    cadena.add(a);
+                                }
+                                }
+                            }else{
+                            if(c1!=c2&&c1!=c3&&c1!=c4&&c1!=c5&&c2!=c3&&c2!=c4&&c2!=c5&&c3!=c4&&c3!=c5&&c4!=c5){
+                                a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4)+cPiedras.charAt(c5);
+                                cadena.add(a);
+                            }
+                            }
+                            }
+                        }else{
+                        if(c1!=c2 && c1!=c3 && c1!=c4 && c2!=c3 && c2!=c4 && c3!=c4){
+                            a = a+cPiedras.charAt(c1)+cPiedras.charAt(c2)+cPiedras.charAt(c3)+cPiedras.charAt(c4);
+                            cadena.add(a);
+                        }
+                        }
+                        }
+                    }else{
+                    if(c1!=c2 && c1!=c3 && c2!=c3){
+                        a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2) + cPiedras.charAt(c3);
+                        cadena.add(a);
+                    }
+                    }
+                    }
+                }else{
+                if(c1!=c2){
+                    a = a + cPiedras.charAt(c1)+ cPiedras.charAt(c2);
+                    cadena.add(a);
+                }
+                }
+                }
+            }else{
+            a = a + cPiedras.charAt(c1);
+            cadena.add(a);
+            }
+            }
+            SortearyMostrar(cadena,p);
+            p ++;
+        }
+    }
+    
+    public static String NoEspacios(String a){
+        String b = "";
+        for(int i=0;i<a.length();i++){
+            if(a.charAt(i)!=' '){
+                b= b+ a.charAt(i);
+            }
+        }
+        return b;
+    }
+    
+    public static void SortearyMostrar(ArrayList a, int b){
+        Collections.sort(a);
+        SortedSet set = new TreeSet();
+        for (Object a1 : a) {
+            set.add(a1);
+        }
+        System.out.println("Case #"+b+":");
+        for (Object a1 : set) {
+            System.out.println(a1);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problema_e;
+
+import java.util.*;
+
+public class Problema_E {
+
+    public static void main(String[] args) {
+        Scanner leerInt = new Scanner(System.in);
+        int cPrueba = leerInt.nextInt();
+        int[] numeros;
+        int cNumeros;
+        int nMovimientos;
+        int intervalo;
+        int p = 1;
+        while(p <= cPrueba){
+            cNumeros = leerInt.nextInt();
+            numeros = new int[cNumeros];
+            nMovimientos = 0;
+            for(int i=0;i<numeros.length;i++){
+                numeros[i]=leerInt.nextInt();
+            }
+            for(int i=0;i<numeros.length;i++){
+                intervalo = i;
+                if(numeros[i]==0){
+                    for(int k=i;i<numeros.length;i++){
+                        if(numeros[k]==0)intervalo++;
+                    }
+                }
+            }
+        }
+    }  
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.util.*;
+import java.io.*;
+
+
+public class ProblemaA {
+    
+    public static class SeparateChainingHashTable<AnyType> {
+
+        private List<Integer>[] theLists;
+        private int currentSize;
+        private static final int DEFAULT_TABLE_SIZE = 101;
+        private int colisiones;
+
+        public SeparateChainingHashTable(int size) {
+            currentSize = size;
+            theLists = new LinkedList[size];
+            colisiones = 0;
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<Integer>();
+            }
+        }
+        
+        public int Colisiones(){
+            return colisiones;
+        }
+        
+        public List<Integer>[] listas(){
+            return theLists;
+        }
+
+        public void insert(int x) {
+            List<Integer> whichList = theLists[x % currentSize];
+            whichList.add(x);
+            if (whichList.size() > 1) {
+                colisiones++;
+                whichList.sort(null);
+            }
+        }
+    }
+    
+    public static class Intentos implements Comparable<Intentos>{
+        private int colisiones;
+        private int kj;
+        private List<Integer>[] theLists;
+        SeparateChainingHashTable<Integer> intentos;
+        public Intentos(int colisiones, int kj, List[] theLists, SeparateChainingHashTable<Integer> intentos) {
+            this.colisiones = colisiones;
+            this.kj = kj;
+            this.theLists = theLists;
+            this.intentos = intentos;
+        }
+        public int compareTo (Intentos a){
+            if(colisiones < a.colisiones)return -1;
+            if(colisiones > a.colisiones)return 1;
+            if(kj < a.kj)return -1;
+            if(kj > a.kj)return 1;
+            return 0;
+        }
+    }
+    
+    public static class Intentos2 implements Comparable<Intentos2>{
+        private int s;
+        private List<Integer> aux;
+        public Intentos2(int s, List<Integer> aux) {
+            this.s = s;
+            this.aux = aux;
+        }
+        public int compareTo (Intentos2 a){
+            if(s < a.s)return -1;
+            if(s > a.s)return 1;
+            return 0;
+        }
+    }
+       
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        String[] xi;
+        String[] kj;
+        String[] npruebas;
+        Intentos[] guardados;
+        LinkedList<Intentos2> g2;
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while(p>0){
+            npruebas = scan.nextLine().split(" ");
+            guardados = new Intentos[Integer.parseInt(npruebas[1])];
+            g2 = new LinkedList<>();
+            xi = scan.nextLine().split(" ");
+            kj = scan.nextLine().split(" ");
+            for (int i = 0; i < Integer.parseInt(npruebas[1]); i++) {
+                SeparateChainingHashTable casos = new SeparateChainingHashTable<>(Integer.parseInt(kj[i]));
+                for (int j = 0; j < Integer.parseInt(npruebas[0]); j++) {
+                    casos.insert(Integer.parseInt(xi[j]));
+                }
+                guardados[i]=new Intentos(casos.colisiones,Integer.parseInt(kj[i])
+                        ,casos.listas(), casos);
+            }try{Arrays.sort(guardados);}catch(Exception e){}
+            System.out.println("Case #" + q + ":");
+            System.out.println(guardados[0].kj);
+            System.out.println(guardados[0].colisiones);
+            for (List<Integer> theList : guardados[0].theLists) {
+                if (theList.size() > 1) {
+                    g2.add(new Intentos2(theList.get(0), theList));
+                }
+            }g2.sort(null);
+            for (Intentos2 g21 : g2) {
+                for (Integer aux : g21.aux) {
+                    System.out.print(aux + " ");
+                }System.out.println();
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaB {
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("B_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0){
+            int estanques = Integer.parseInt(scan.nextLine());
+            int contador = 0;
+            Map<Integer,Integer> comidas = new TreeMap<>();
+            for (int i = 0; i < estanques; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                if (comidas.containsKey(Integer.parseInt(cp[0])))
+                    comidas.replace(Integer.parseInt(cp[0]), (comidas.get(Integer.parseInt(cp[0])) + 1));
+                else comidas.put(Integer.parseInt(cp[0]), 1);
+                
+                if(!comidas.containsKey(Integer.parseInt(cp[1])) && (Integer.parseInt(cp[0])!=Integer.parseInt(cp[1]))){
+                    contador ++;
+                }else if(comidas.containsKey(Integer.parseInt(cp[1])) && (comidas.get(Integer.parseInt(cp[1]))<=0)){
+                    contador++;
+                }else if(comidas.containsKey(Integer.parseInt(cp[1])) && (comidas.get(Integer.parseInt(cp[1]))>0))
+                    comidas.replace(Integer.parseInt(cp[1]),(comidas.get(Integer.parseInt(cp[1]))-1));
+            }System.out.println("Case #" + q + ":");
+            System.out.println(contador);
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaC {
+    
+    public static class Persona implements Comparable<Persona>{
+        private String Nombre;
+        private int pr;
+        private Set<Integer> id = new TreeSet<Integer>();
+
+        public Persona(String Nombre, int pr,Set<Integer> id) {
+            this.Nombre = Nombre;
+            this.pr = pr;
+            this.id = id;
+        }
+        
+        public int compareTo(Persona a){
+            if(pr < a.pr)return 1;
+            if(pr > a.pr)return -1;
+            return 0;
+        }
+
+        public String toString() {
+            return Nombre + " " + pr + " " + id.toString().replaceAll("\\[", "").replaceAll("\\]", "").replaceAll(",", "");
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("C_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] nmp = scan.nextLine().split(" ");
+            String n = scan.nextLine();
+            int[] N = Arrays.stream(n.substring(0, n.length()).split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+            Arrays.sort(N);
+            String m = scan.nextLine();
+            int[] M = Arrays.stream(m.substring(0, m.length()).split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+            Arrays.sort(M);
+            String pi = scan.nextLine();
+            int[] P = Arrays.stream(pi.substring(0, pi.length()).split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+            Arrays.sort(P);
+            LinkedList<Persona> w = new LinkedList<>();
+            Set<Integer> norma = new TreeSet<>();
+            Set<Integer> mario = new TreeSet<>();
+            Set<Integer> pipe = new TreeSet<>();
+            System.out.println("Case #" + q + ":");
+            for (int i = 0; i < N.length; i++) {
+                norma.add(N[i]);
+            }for (int i = 0; i < M.length; i++) {
+                mario.add(M[i]);
+            }for (int i = 0; i < P.length; i++) {
+                pipe.add(P[i]);
+            }for (int i = 0; i < N.length; i++) {
+                if(mario.contains(N[i]) && pipe.contains(N[i])){
+                    mario.remove(N[i]);
+                    norma.remove(N[i]);
+                    pipe.remove(N[i]);
+                }else if(pipe.contains(N[i])){
+                    norma.remove(N[i]);
+                    pipe.remove(N[i]);
+                }else if(mario.contains(N[i])){
+                    mario.remove(N[i]);
+                    norma.remove(N[i]);
+                }
+            }for (int i = 0; i < M.length; i++) {
+                if(norma.contains(M[i]) && pipe.contains(M[i])){
+                    norma.remove(M[i]);
+                    mario.remove(M[i]);
+                    pipe.remove(M[i]);
+                }else if(norma.contains(M[i])){
+                    norma.remove(M[i]);
+                    mario.remove(M[i]);
+                }else if(pipe.contains(M[i])){
+                    mario.remove(M[i]);
+                    pipe.remove(M[i]);
+                }
+            }for (int i = 0; i < P.length; i++) {
+                if(norma.contains(P[i]) && mario.contains(P[i])){
+                    norma.remove(P[i]);
+                    mario.remove(P[i]);
+                    pipe.remove(P[i]);
+                }else if(norma.contains(P[i])){
+                    norma.remove(P[i]);
+                    pipe.remove(P[i]);
+                }else if(mario.contains(P[i])){
+                    mario.remove(P[i]);
+                    pipe.remove(P[i]);
+                }
+            }w.add(new Persona("Norma", norma.size(), norma));
+            w.add(new Persona("Mario", mario.size(), mario));
+            w.add(new Persona("Pipe", pipe.size(), pipe));
+            w.sort(null);
+            System.out.println(w.get(0));
+            for (int i = 1; i < w.size(); i++) {
+                if(w.get(i).pr == w.get(0).pr)
+                    System.out.println(w.get(i));
+                else break;
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaD {
+
+    public static class Candidato implements Comparable<Candidato>{
+        private int votos = 0;
+        private String nombre;
+        private String partido;
+
+        public Candidato(String nombre, String partido) {
+            this.nombre = nombre;
+            this.partido = partido;
+        }
+        public int compareTo (Candidato a){
+            if(votos < a.votos)return 1;
+            if(votos > a.votos)return -1;
+            else {
+                int f = partido.compareTo(a.partido);
+                return f;
+            }
+        }
+        public int getVotos() {
+            return votos;
+        }
+        public void setVotos(int votos) {
+            this.votos = votos;
+        }
+    }
+    
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("D_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            int n = Integer.parseInt(scan.nextLine());
+            LinkedList<Candidato> c = new LinkedList<>();
+            System.out.println("Case #" + q +":");
+            for (int i = 0; i < n; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                c.add(new Candidato(cp[0], cp[1]));
+            }int m = Integer.parseInt(scan.nextLine());
+            for (int i = 0; i < m; i++) {
+                String nombre = scan.nextLine();
+                for (Candidato c1 : c) {
+                    if(c1.nombre.equals(nombre)){
+                        c1.setVotos(c1.getVotos()+1);
+                        break;
+                    }
+                }
+            }c.sort(null);
+            System.out.println(c.get(0).partido);
+            for (int i = 1; i < c.size(); i++) {
+                if(c.get(i).votos == c.get(0).votos)
+                    System.out.println(c.get(i).partido);
+                else break;
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.util.*;
+import java.io.*;
+
+
+public class ProblemaA {
+    
+    public static class SeparateChainingHashTable<AnyType> {
+
+        private List<Integer>[] theLists;
+        private int currentSize;
+        private static final int DEFAULT_TABLE_SIZE = 101;
+        private int colisiones;
+
+        public SeparateChainingHashTable(int size) {
+            currentSize = size;
+            theLists = new LinkedList[size];
+            colisiones = 0;
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<Integer>();
+            }
+        }
+        
+        public int Colisiones(){
+            return colisiones;
+        }
+        
+        public List<Integer>[] listas(){
+            return theLists;
+        }
+
+        public void insert(int x) {
+            List<Integer> whichList = theLists[x % currentSize];
+            whichList.add(x);
+            if (whichList.size() > 1) {
+                colisiones++;
+                Arrays.sort(whichList.toArray());
+            }
+        }
+    }
+    
+    public static class Intentos implements Comparable<Intentos>{
+        private int colisiones;
+        private int kj;
+        private List<Integer>[] theLists;
+        SeparateChainingHashTable<Integer> intentos;
+        public Intentos(int colisiones, int kj, List[] theLists, SeparateChainingHashTable<Integer> intentos) {
+            this.colisiones = colisiones;
+            this.kj = kj;
+            this.theLists = theLists;
+            this.intentos = intentos;
+        }
+        public int compareTo (Intentos a){
+            if(colisiones < a.colisiones)return -1;
+            if(colisiones > a.colisiones)return 1;
+            if(kj < a.kj)return -1;
+            if(kj > a.kj)return 1;
+            return 0;
+        }
+    }
+    
+    public static class Intentos2 implements Comparable<Intentos2>{
+        private int s;
+        private List<Integer> aux;
+        public Intentos2(int s, List<Integer> aux) {
+            this.s = s;
+            this.aux = aux;
+        }
+        public int compareTo (Intentos2 a){
+            if(s < a.s)return -1;
+            if(s > a.s)return 1;
+            return 0;
+        }
+    }
+       
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        String[] xi;
+        String[] kj;
+        String[] npruebas;
+        Intentos[] guardados;
+        LinkedList<Intentos2> g2;
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while(p>0){
+            npruebas = scan.nextLine().split(" ");
+            guardados = new Intentos[Integer.parseInt(npruebas[1])];
+            g2 = new LinkedList<>();
+            xi = scan.nextLine().split(" ");
+            kj = scan.nextLine().split(" ");
+            for (int i = 0; i < Integer.parseInt(npruebas[1]); i++) {
+                SeparateChainingHashTable casos = new SeparateChainingHashTable<>(Integer.parseInt(kj[i]));
+                for (int j = 0; j < Integer.parseInt(npruebas[0]); j++) {
+                    casos.insert(Integer.parseInt(xi[j]));
+                }
+                guardados[i]=new Intentos(casos.colisiones,Integer.parseInt(kj[i])
+                        ,casos.listas(), casos);
+            }try{Arrays.sort(guardados);}catch(Exception e){}
+            System.out.println("Case #" + q + ":");
+            System.out.println(guardados[0].kj);
+            System.out.println(guardados[0].colisiones);
+            for (List<Integer> theList : guardados[0].theLists) {
+                if (theList.size() > 1) {
+                    g2.add(new Intentos2(theList.get(0), theList));
+                }
+            }Arrays.sort(g2.toArray());
+            for (Intentos2 g21 : g2) {
+                for (Integer aux : g21.aux) {
+                    System.out.print(aux + " ");
+                }System.out.println();
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaB {
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("B_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0){
+            int estanques = Integer.parseInt(scan.nextLine());
+            int contador = 0;
+            Map<Integer,Integer> comidas = new TreeMap<>();
+            for (int i = 0; i < estanques; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                if (comidas.containsKey(Integer.parseInt(cp[0])))
+                    comidas.replace(Integer.parseInt(cp[0]), (comidas.get(Integer.parseInt(cp[0])) + 1));
+                else comidas.put(Integer.parseInt(cp[0]), 1);
+                
+                if(!comidas.containsKey(Integer.parseInt(cp[1])) && (Integer.parseInt(cp[0])!=Integer.parseInt(cp[1]))){
+                    contador ++;
+                }else if(comidas.containsKey(Integer.parseInt(cp[1])) && (comidas.get(Integer.parseInt(cp[1]))<=0)){
+                    contador++;
+                }else if(comidas.containsKey(Integer.parseInt(cp[1])) && (comidas.get(Integer.parseInt(cp[1]))>0))
+                    comidas.replace(Integer.parseInt(cp[1]),(comidas.get(Integer.parseInt(cp[1]))-1));
+            }System.out.println("Case #" + q + ":");
+            System.out.println(contador);
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaD {
+
+    public static class Candidato implements Comparable<Candidato>{
+        private int votos = 0;
+        private String nombre;
+        private String partido;
+
+        public Candidato(String nombre, String partido) {
+            this.nombre = nombre;
+            this.partido = partido;
+        }
+        public int compareTo (Candidato a){
+            if(votos < a.votos)return 1;
+            if(votos > a.votos)return -1;
+            else {
+                int f = partido.compareTo(a.partido);
+                return f;
+            }
+        }
+        public int getVotos() {
+            return votos;
+        }
+        public void setVotos(int votos) {
+            this.votos = votos;
+        }
+    }
+    
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("D_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            int n = Integer.parseInt(scan.nextLine());
+            LinkedList<Candidato> c = new LinkedList<>();
+            System.out.println("Case #" + q +":");
+            for (int i = 0; i < n; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                c.add(new Candidato(cp[0], cp[1]));
+            }int m = Integer.parseInt(scan.nextLine());
+            for (int i = 0; i < m; i++) {
+                String nombre = scan.nextLine();
+                for (Candidato c1 : c) {
+                    if(c1.nombre.equals(nombre)){
+                        c1.setVotos(c1.getVotos()+1);
+                        break;
+                    }
+                }
+            }Arrays.sort(c.toArray());
+            System.out.println(c.get(0).partido);
+            for (int i = 1; i < c.size(); i++) {
+                if(c.get(i).votos == c.get(0).votos)
+                    System.out.println(c.get(i).partido);
+                else break;
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaB {
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("B_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0){
+            int estanques = Integer.parseInt(scan.nextLine());
+            int contador = 0;
+            Map<Integer,Integer> comidas = new TreeMap<>();
+            for (int i = 0; i < estanques; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                if (comidas.containsKey(Integer.parseInt(cp[0])))
+                    comidas.put(Integer.parseInt(cp[0]), (comidas.get(Integer.parseInt(cp[0])) + 1));
+                else comidas.put(Integer.parseInt(cp[0]), 1);
+                
+                if(!comidas.containsKey(Integer.parseInt(cp[1])) && (Integer.parseInt(cp[0])!=Integer.parseInt(cp[1]))){
+                    contador ++;
+                }else if(comidas.containsKey(Integer.parseInt(cp[1])) && (comidas.get(Integer.parseInt(cp[1]))<=0)){
+                    contador++;
+                }else if(comidas.containsKey(Integer.parseInt(cp[1])) && (comidas.get(Integer.parseInt(cp[1]))>0))
+                    comidas.put(Integer.parseInt(cp[1]),(comidas.get(Integer.parseInt(cp[1]))-1));
+            }System.out.println("Case #" + q + ":");
+            System.out.println(contador);
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaD {
+
+    public static class Candidato implements Comparable<Candidato>{
+        private int votos = 0;
+        private String nombre;
+        private String partido;
+
+        public Candidato(String nombre, String partido) {
+            this.nombre = nombre;
+            this.partido = partido;
+        }
+        public int compareTo (Candidato a){
+            if(votos < a.votos)return 1;
+            if(votos > a.votos)return -1;
+            else {
+                int f = partido.compareTo(a.partido);
+                return f;
+            }
+        }
+        public int getVotos() {
+            return votos;
+        }
+        public void setVotos(int votos) {
+            this.votos = votos;
+        }
+    }
+    
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("D_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            int n = Integer.parseInt(scan.nextLine());
+            LinkedList<Candidato> c = new LinkedList<>();
+            System.out.println("Case #" + q +":");
+            for (int i = 0; i < n; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                c.add(new Candidato(cp[0], cp[1]));
+            }int m = Integer.parseInt(scan.nextLine());
+            for (int i = 0; i < m; i++) {
+                String nombre = scan.nextLine();
+                for (Candidato c1 : c) {
+                    if(c1.nombre.equals(nombre)){
+                        c1.setVotos(c1.getVotos()+1);
+                        //break;
+                    }
+                }
+            }Arrays.sort(c.toArray());
+            System.out.println(c.get(0).partido);
+            for (int i = 1; i < c.size(); i++) {
+                if(c.get(i).votos == c.get(0).votos)
+                    System.out.println(c.get(i).partido);
+                else break;
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaD {
+
+    public static class Candidato implements Comparable<Candidato>{
+        private int votos = 0;
+        private String nombre;
+        private String partido;
+
+        public Candidato(String nombre, String partido) {
+            this.nombre = nombre;
+            this.partido = partido;
+        }
+        public int compareTo (Candidato a){
+            if(votos < a.votos)return 1;
+            if(votos > a.votos)return -1;
+            else {
+                int f = partido.compareTo(a.partido);
+                return -f;
+            }
+        }
+        public int getVotos() {
+            return votos;
+        }
+        public void setVotos(int votos) {
+            this.votos = votos;
+        }
+    }
+    
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("D_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            int n = Integer.parseInt(scan.nextLine());
+            LinkedList<Candidato> c = new LinkedList<>();
+            System.out.println("Case #" + q +":");
+            for (int i = 0; i < n; i++) {
+                String[] cp = scan.nextLine().split(" ");
+                c.add(new Candidato(cp[0], cp[1]));
+            }int m = Integer.parseInt(scan.nextLine());
+            for (int i = 0; i < m; i++) {
+                String nombre = scan.nextLine();
+                for (Candidato c1 : c) {
+                    if(c1.nombre.equals(nombre)){
+                        c1.setVotos(c1.getVotos()+1);
+                        //break;
+                    }
+                }
+            }Arrays.sort(c.toArray());
+            System.out.println(c.get(0).partido);
+            for (int i = 1; i < c.size(); i++) {
+                if(c.get(i).votos == c.get(0).votos)
+                    System.out.println(c.get(i).partido);
+                else break;
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaC {
+    
+    public static class Persona implements Comparable<Persona>{
+        private String Nombre;
+        private int pr;
+        private Set<Integer> id = new TreeSet<Integer>();
+
+        public Persona(String Nombre, int pr,Set<Integer> id) {
+            this.Nombre = Nombre;
+            this.pr = pr;
+            this.id = id;
+        }
+        
+        public int compareTo(Persona a){
+            if(pr < a.pr)return 1;
+            if(pr > a.pr)return -1;
+            return 0;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("C_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] nmp = scan.nextLine().split(" ");
+            String n = scan.nextLine();
+            int[] N = Arrays.stream(n.substring(0, n.length()).split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+            Arrays.sort(N);
+            String m = scan.nextLine();
+            int[] M = Arrays.stream(m.substring(0, m.length()).split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+            Arrays.sort(M);
+            String pi = scan.nextLine();
+            int[] P = Arrays.stream(pi.substring(0, pi.length()).split(" "))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+            Arrays.sort(P);
+            LinkedList<Persona> w = new LinkedList<>();
+            Set<Integer> norma = new TreeSet<>();
+            Set<Integer> mario = new TreeSet<>();
+            Set<Integer> pipe = new TreeSet<>();
+            System.out.println("Case #" + q + ":");
+            for (int i = 0; i < N.length; i++) {
+                norma.add(N[i]);
+            }for (int i = 0; i < M.length; i++) {
+                mario.add(M[i]);
+            }for (int i = 0; i < P.length; i++) {
+                pipe.add(P[i]);
+            }for (int i = 0; i < N.length; i++) {
+                if(mario.contains(N[i]) && pipe.contains(N[i])){
+                    mario.remove(N[i]);
+                    norma.remove(N[i]);
+                    pipe.remove(N[i]);
+                }else if(pipe.contains(N[i])){
+                    norma.remove(N[i]);
+                    pipe.remove(N[i]);
+                }else if(mario.contains(N[i])){
+                    mario.remove(N[i]);
+                    norma.remove(N[i]);
+                }
+            }for (int i = 0; i < M.length; i++) {
+                if(norma.contains(M[i]) && pipe.contains(M[i])){
+                    norma.remove(M[i]);
+                    mario.remove(M[i]);
+                    pipe.remove(M[i]);
+                }else if(norma.contains(M[i])){
+                    norma.remove(M[i]);
+                    mario.remove(M[i]);
+                }else if(pipe.contains(M[i])){
+                    mario.remove(M[i]);
+                    pipe.remove(M[i]);
+                }
+            }for (int i = 0; i < P.length; i++) {
+                if(norma.contains(P[i]) && mario.contains(P[i])){
+                    norma.remove(P[i]);
+                    mario.remove(P[i]);
+                    pipe.remove(P[i]);
+                }else if(norma.contains(P[i])){
+                    norma.remove(P[i]);
+                    pipe.remove(P[i]);
+                }else if(mario.contains(P[i])){
+                    mario.remove(P[i]);
+                    pipe.remove(P[i]);
+                }
+            }w.add(new Persona("Norma", norma.size(), norma));
+            w.add(new Persona("Mario", mario.size(), mario));
+            w.add(new Persona("Pipe", pipe.size(), pipe));
+            Arrays.sort(w.toArray());
+            System.out.print(w.get(0).Nombre + " " + w.get(0).pr);
+            for (Integer pipe1 : w.get(0).id) {
+                System.out.println(" " + pipe1);
+            }
+            for (int i = 1; i < w.size(); i++) {
+                if (w.get(i).pr == w.get(0).pr) {
+                    System.out.print(w.get(0).Nombre + " " + w.get(0).pr);
+                    for (Integer pipe1 : w.get(0).id) {
+                        System.out.println(" " + pipe1);
+                    }
+                } else break;
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ProyectoVI;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class ProblemaC {
+     public static void main(String args[]) throws FileNotFoundException{
+        Scanner scan;
+        File f = new File("C_2.txt");
+	if (f.exists()) {
+            scan = new Scanner(f);
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int nCases = 1; 
+        int t = Integer.parseInt(scan.nextLine());
+        Set<String> setNorma = new TreeSet<>(  );
+        Set<String> setMario = new TreeSet<>(  );
+        Set<String> setPipe = new TreeSet<>(  ); 
+        ArrayList<Integer> listNorma = new ArrayList<>();
+        ArrayList<Integer> listMario = new ArrayList<>();
+        ArrayList<Integer> listPipe = new ArrayList<>();
+         for (int i = 0; i < t; i++) {
+             System.out.println("Case #" + nCases + ":");
+             setNorma.clear();
+             setMario.clear();
+             setPipe.clear();
+             listNorma.clear();
+             listMario.clear();
+             listPipe.clear();
+             String howEach = scan.nextLine();
+             String[] l = howEach.split(" ");
+             int norma = Integer.parseInt(l[0]);
+             int mario = Integer.parseInt(l[1]);
+             int pipe = Integer.parseInt(l[2]);
+             String inputNorma = scan.nextLine();
+             String m[] = inputNorma.split(" ");
+             for (int j = 0; j < norma; j++) {
+                 setNorma.add(m[j]);
+                 
+             }
+             String inputMario = scan.nextLine();
+             String n[] = inputMario.split(" ");
+             for (int j = 0; j < mario; j++) {
+                 setMario.add(n[j]);
+             }
+             String inputPipe = scan.nextLine();
+             String o[] = inputPipe.split(" ");
+             for (int j = 0; j < pipe; j++) {
+                 setPipe.add(o[j]);
+             }
+             Set<String> forNorma = new TreeSet<>(  );
+             for (String a : setMario) {
+                 forNorma.add(a);
+             }
+             for (String a : setPipe) {
+                 forNorma.add(a);
+             }
+             Set<String> forMario = new TreeSet<>(  );
+             for (String a : setNorma) {
+                 forMario.add(a);
+             }
+             for (String a : setPipe) {
+                 forMario.add(a);
+             }
+             Set<String> forPipe = new TreeSet<>(  );
+             for (String a : setMario) {
+                 forPipe.add(a);
+             }
+             for (String a : setNorma) {
+                 forPipe.add(a);
+             }
+             // System.out.println(forNorma.size() + " " + forMario.size() + " " + forPipe.size());
+             for (String a : setNorma) {
+                 if(!forNorma.contains(a)){
+                     listNorma.add(Integer.parseInt(a));
+                 }
+                     
+             }
+             for (String a : setMario) {
+                 if(!forMario.contains(a)){
+                     listMario.add(Integer.parseInt(a));
+                 }
+             }
+             for (String a : setPipe) {
+                 if(!forPipe.contains(a)){
+                     listPipe.add(Integer.parseInt(a));
+                 }
+             }
+             Collections.sort(listNorma);
+             Collections.sort(listMario);
+             Collections.sort(listPipe);
+            // System.out.println(listNorma.size() + " " + listMario.size() + " " + listPipe.size());
+             int q = -1;
+            // System.out.println((thereIsMaxBetweenThree(listNorma.size(),listMario.size(),listPipe.size())));
+             if(thereIsMaxBetweenThree(listNorma.size(),listMario.size(),listPipe.size())){
+                 q = maxBetweenThree(listNorma.size(),listMario.size(),listPipe.size());
+             if(q == listNorma.size()){
+                 System.out.print("Norma " + q);
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+             }else if(q == listMario.size()){
+                 System.out.print("Mario " + q);
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+             }else if(q == listPipe.size()){
+                 System.out.print("Pipe " + q);
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+             }
+                 System.out.println("");
+             }else if (!(listNorma.size() == listMario.size() && listMario.size() ==listPipe.size())){
+                 int r = twice(listNorma.size(),listMario.size(),listPipe.size());
+                 if (r == listNorma.size()){
+                    
+                 System.out.print("Mario " + listMario.size());
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+                 System.out.print("Pipe " + listPipe.size());
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+                 }else if ( r == listMario.size()){
+                 
+                 
+                 System.out.print("Norma " + listNorma.size());
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+             
+                 System.out.print("Pipe " + listPipe.size());
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+            
+                 
+             } else if (r == listPipe.size()){
+                 
+                 System.out.print("Norma " + listNorma.size());
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+                     System.out.println("");
+             
+                 System.out.print("Mario " + listMario.size());
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+               System.out.println("");
+            
+             }
+             
+                 
+             } else{
+                 
+                 System.out.print("Norma " + listNorma.size());
+                 for (Integer x : listNorma) {
+                 System.out.print(" " + x);
+                }
+                 System.out.println("");
+                 System.out.print("Mario " + listMario.size());
+                 for (Integer x : listMario) {
+                 System.out.print(" " + x);
+                }
+                 System.out.println("");
+                 System.out.print("Pipe " + listPipe.size());
+                 for (Integer x : listPipe) {
+                 System.out.print(" " + x);
+                }
+                 System.out.println("");
+                 
+             }
+             
+             
+             nCases++;
+         }
+    }
+   public static boolean thereIsMaxBetweenThree(int a, int b, int c){
+       if (a!= b && b !=c && a!= c){
+           return true;
+       } else if (a>b && a>c) return true;
+       else if (b>a && b>c) return true;
+       else if (c>a && c>b) return true;
+       else return false;
+   } 
+     public static int maxBetweenThree(int a, int b, int c){
+       if (a>b && a>c) return a;
+       else if (b>a && b>c) return b;
+       else if (c>a && c>b) return c;
+       return -1;
+   } 
+   public static int twice(int a, int b, int c){
+     if (a == b) return c;
+     if (a == c) return b;
+     if (b == c) return a;
+     return -1;
+   }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ProyectoVI;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+/**
+ *
+ */
+public class ProblemaD {
+    public static void main(String args[]) throws FileNotFoundException{
+        Scanner scan;
+        File f = new File("D_2.txt");
+	if (f.exists()) {
+            scan = new Scanner(f);
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int nCases = 1; 
+        int t = Integer.parseInt(scan.nextLine());
+        Map<String, String> parties = new TreeMap<>( );
+        Map<String, Integer> votes = new TreeMap<>( );
+        int winner = -1, index = 0;
+        for (int i = 0; i < t; i++) {
+            System.out.println("Case #" + nCases + ":");
+            parties.clear();
+            votes.clear();
+            int numberCandidates = Integer.parseInt(scan.nextLine());
+            String[] winners = new String[numberCandidates];
+            for (int j = 0; j < numberCandidates; j++) {
+                String candidateAndParty = scan.nextLine();
+                String l[] = candidateAndParty.split(" ");
+                String currentCandidate = l[0];
+                String currentParty = l[1];
+                parties.put(currentCandidate, currentParty);
+                votes.put(currentParty, 0);
+            }
+            int numberVotes = Integer.parseInt(scan.nextLine()); 
+            for (int j = 0; j < numberVotes; j++) {
+                String currentVote = scan.nextLine();
+                votes.put(parties.get(currentVote), votes.get(parties.get(currentVote))+1);
+            }
+            winner = -1;
+            for (Integer a : votes.values()) {
+                if(winner < a){
+                    winner = a;
+                }
+            }
+            index = 0;
+            for (Map.Entry<String, Integer> b : votes.entrySet()) {
+                if(b.getValue() == winner){
+                    winners[index] = b.getKey();
+                    index++;
+                }
+            }
+            for (int j = index; j < winners.length; j++) {
+                winners[j] = "";
+            }
+            Arrays.sort(winners);
+            for (String c : winners) {
+                if(!c.equals(""))System.out.println(c);
+            }
+            /*System.out.println(parties.entrySet());
+            System.out.println(votes.entrySet());*/
+           // System.out.println("-----------------------------------------------");
+            nCases++;
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaE_GR3 {
+
+    public static void main(String[] args) throws Exception {
+         Scanner scan;
+        File f = new File("E_1.txt");
+	if (f.exists()) {
+            scan = new Scanner(f);
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int nCases = 1, supplies = 0;  
+        Map<Integer,Integer> bag = new HashMap<>( );
+        Map<Integer,Integer> mistyBag = new HashMap<>( );
+        int t = Integer.parseInt(scan.nextLine());
+         for (int i = 0; i < t; i++) {
+             
+             System.out.println("Case #" + nCases + ":");
+             supplies = 0;    
+             bag.clear();
+             mistyBag.clear();
+             int ponds = Integer.parseInt(scan.nextLine());
+             for (int j = 0; j < ponds; j++) {
+                // System.out.println("----------------------------------------------------------------------------");
+                String foodAndPokemon = scan.nextLine();
+                String l[] = foodAndPokemon.split(" ");
+                int food = Integer.parseInt(l[0]);
+                int pokemon = Integer.parseInt(l[1]);
+                if(!bag.containsKey(food)){
+                    bag.put(food, 0);
+                }else if (bag.containsKey(food)){
+                    bag.put(food, (bag.get(food)+1));
+                }
+                
+              
+           
+                /* System.out.println("bagsGetPokemon " + bag.get(pokemon));
+                 
+                    System.out.println(bag.entrySet());*/
+                if(bag.containsKey(pokemon)){
+                    if(bag.get(pokemon) > 0){
+                        bag.put(pokemon, (bag.get(pokemon)-1));
+                    }else if(bag.get(pokemon) ==  0){
+                        bag.remove(pokemon);
+                    }
+                } else{
+                    
+                    
+                     if(!mistyBag.containsKey(pokemon)){
+                    mistyBag.put(pokemon, 1);
+                }else if (mistyBag.containsKey(pokemon)){
+                    int s = mistyBag.get(pokemon)+1;
+                    mistyBag.put(pokemon, s );
+                         
+                }
+                  //  mistyBag.put(j, pokemon);
+                    // System.out.println(mistyBag.entrySet());
+                     supplies++;
+                }
+                 
+                
+                   // System.out.println("food " + food +" pok " + pokemon + " sup " + supplies);
+                // System.out.println(bag.entrySet());
+               
+                 
+                
+             }
+             int cMax = -1, cMin = 1000001, cMaxF = -1, cMinF = -1;
+             for (Map.Entry<Integer, Integer> d : mistyBag.entrySet()) {
+                 if(d.getValue() > cMax){
+                     cMax = d.getValue();
+                     cMaxF = d.getKey();
+                 }
+                 if(d.getValue() < cMin){
+                     cMin = d.getValue();
+                     cMinF = d.getKey();
+                 }
+                 
+                 
+             }
+
+             for (Map.Entry<Integer, Integer> d : mistyBag.entrySet()) {
+                // System.out.println(d.getKey() + " " + d.getValue());
+                 if (d.getValue() == cMax){
+                     if(cMaxF > d.getKey()){
+                         cMaxF = d.getKey();
+                     }
+                 }
+                 if (d.getValue() == cMin){
+                     if(cMinF > d.getKey()){
+                         cMinF = d.getKey();
+                     }
+                 }
+             }
+              
+             if(supplies != 0){
+             System.out.println(cMax + " " + cMaxF);
+             System.out.println(cMin +" " + cMinF);
+             }else if (supplies ==0){
+                 System.out.println("-1");
+             }
+             nCases++;
+         }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ec.nov.pkg23;
+
+import java.util.*;
+import java.io.*;
+
+
+public class ProblemaA {
+    
+    public static class SeparateChainingHashTable<AnyType> {
+
+        private List<Integer>[] theLists;
+        private int currentSize;
+        private static final int DEFAULT_TABLE_SIZE = 101;
+        private int colisiones;
+
+        public SeparateChainingHashTable(int size) {
+            currentSize = size;
+            theLists = new LinkedList[size];
+            colisiones = 0;
+            for (int i = 0; i < theLists.length; i++) {
+                theLists[i] = new LinkedList<Integer>();
+            }
+        }
+        
+        public int Colisiones(){
+            return colisiones;
+        }
+        
+        public List<Integer>[] listas(){
+            return theLists;
+        }
+
+        public void insert(int x) {
+            List<Integer> whichList = theLists[x % currentSize];
+            whichList.add(x);
+            if (whichList.size() > 1) {
+                colisiones++;
+                Collections.sort(whichList);
+            }
+        }
+    }
+    
+    public static class Intentos implements Comparable<Intentos>{
+        private int colisiones;
+        private int kj;
+        private List<Integer>[] theLists;
+        SeparateChainingHashTable<Integer> intentos;
+        public Intentos(int colisiones, int kj, List[] theLists, SeparateChainingHashTable<Integer> intentos) {
+            this.colisiones = colisiones;
+            this.kj = kj;
+            this.theLists = theLists;
+            this.intentos = intentos;
+        }
+        public int compareTo (Intentos a){
+            if(colisiones < a.colisiones)return -1;
+            if(colisiones > a.colisiones)return 1;
+            if(kj < a.kj)return -1;
+            if(kj > a.kj)return 1;
+            return 0;
+        }
+    }
+    
+    public static class Intentos2 implements Comparable<Intentos2>{
+        private int s;
+        private List<Integer> aux;
+        public Intentos2(int s, List<Integer> aux) {
+            this.s = s;
+            this.aux = aux;
+        }
+        public int compareTo (Intentos2 a){
+            if(s < a.s)return -1;
+            if(s > a.s)return 1;
+            return 0;
+        }
+    }
+       
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_6.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        String[] xi;
+        String[] kj;
+        String[] npruebas;
+        Intentos[] guardados;
+        LinkedList<Intentos2> g2;
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while(p>0){
+            npruebas = scan.nextLine().split(" ");
+            guardados = new Intentos[Integer.parseInt(npruebas[1])];
+            g2 = new LinkedList<>();
+            xi = scan.nextLine().split(" ");
+            kj = scan.nextLine().split(" ");
+            for (int i = 0; i < Integer.parseInt(npruebas[1]); i++) {
+                SeparateChainingHashTable casos = new SeparateChainingHashTable<>(Integer.parseInt(kj[i]));
+                for (int j = 0; j < Integer.parseInt(npruebas[0]); j++) {
+                    casos.insert(Integer.parseInt(xi[j]));
+                }
+                guardados[i]=new Intentos(casos.colisiones,Integer.parseInt(kj[i])
+                        ,casos.listas(), casos);
+            }try{Arrays.sort(guardados);}catch(Exception e){}
+            System.out.println("Case #" + q + ":");
+            System.out.println(guardados[0].kj);
+            System.out.println(guardados[0].colisiones);
+            for (List<Integer> theList : guardados[0].theLists) {
+                if (theList.size() > 1) {
+                    g2.add(new Intentos2(theList.get(0), theList));
+                }
+            }Arrays.sort(g2.toArray());
+            for (Intentos2 g21 : g2) {
+                for (Integer aux : g21.aux) {
+                    System.out.print(aux + " ");
+                }System.out.println();
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaB {
+    
+    public static class Nodo{
+        int entrada = 0;
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("B_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] TR = scan.nextLine().split(" ");
+            Map<String, Nodo> Materias = new HashMap<>();
+            for (int i = 0; i < Integer.parseInt(TR[1]); i++) {
+                String[] u = scan.nextLine().split(" ");
+                if (!Materias.containsKey(u[0])) Materias.put(u[0], new Nodo());
+                if (!Materias.containsKey(u[1])) Materias.put(u[1], new Nodo());
+                Materias.get(u[0]).adyacentes.add(u[1]);
+                Materias.get(u[1]).entrada++;
+            }LinkedList<String> cola = new LinkedList<>();
+            System.out.println("Case #" + q + ":");
+            for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                if (d.getValue().entrada == 0) cola.add(d.getKey());
+            else{
+                boolean v = true;
+                while (!cola.isEmpty()){
+                    LinkedList<String> aux = Materias.get(cola.get(0)).adyacentes;
+                    Materias.remove(cola.remove(0));
+                    for (String aux1 : aux) Materias.get(aux1).entrada--;
+                    for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                        if (d.getValue().entrada == 0) cola.add(d.getKey());
+                    }if (cola.size() > 1) {
+                        v = false;
+                        break;
+                    }
+                }if (v) System.out.println("Deberia empezar a estudiar");
+            }p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaA_V2 {
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0){
+            String[] EV = scan.nextLine().split(" ");
+            boolean [][] Estaciones= new boolean [Integer.parseInt(EV[0])][Integer.parseInt(EV[0])];
+            for(int i = 0; i < Integer.parseInt(EV[1]); i++){
+                String[] u = scan.nextLine().split(" ");
+                Estaciones[Integer.parseInt(u[0])][Integer.parseInt(u[1])] = true;
+                Estaciones[Integer.parseInt(u[1])][Integer.parseInt(u[0])] = true;
+            }int key = Integer.parseInt(scan.nextLine());
+            int c = 0;
+            LinkedList<Integer> cola = new LinkedList<>();
+            Set<Integer> visitados = new HashSet<>();
+            cola.add(key);
+            visitados.add(key);
+            while(!cola.isEmpty()){
+                int a = cola.remove(0);
+                for (int i = 0; i < Integer.parseInt(EV[0]) ; i++) {
+                    if(Estaciones[a][i] && !visitados.contains(i)){
+                        cola.add(i);
+                        visitados.add(i);
+                        c++;
+                    }
+                }
+            }System.out.println("Case #" + q + ":");
+            System.out.println(c);
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaA {
+    
+    public static class Nodo{
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args)throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while(p>0){
+            String[] EV = scan.nextLine().split(" ");
+            Map<String, Nodo> Estaciones = new HashMap<>();
+            for(int i = 0; i < Integer.parseInt(EV[1]); i++){
+                String[] u = scan.nextLine().split(" ");
+                if(!Estaciones.containsKey(u[0])) Estaciones.put(u[0], new Nodo());
+                if(!Estaciones.containsKey(u[1])) Estaciones.put(u[1], new Nodo());
+                Estaciones.get(u[0]).adyacentes.add(u[1]);
+                Estaciones.get(u[1]).adyacentes.add(u[0]);
+            }String key = scan.nextLine();
+            int c = 0;
+            LinkedList<String> cola = new LinkedList<>();
+            LinkedList<String> aux = Estaciones.get(key).adyacentes;
+            Estaciones.get(key).visitado = true;
+            for(String aux1 : aux) cola.add(aux1);
+            while(!cola.isEmpty()){
+                if(!Estaciones.get(cola.get(0)).visitado) {
+                    LinkedList<String> tmp = Estaciones.get(cola.get(0)).adyacentes;
+                    Estaciones.get(cola.remove(0)).visitado = true;
+                    for(String aux2 : tmp) cola.add(aux2);
+                    c++;
+                }else cola.remove(0);
+            }System.out.println("Case #" + q + ":");
+            System.out.println(c);
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }   
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaA_V3 {
+    
+    public static class Nodo{
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] EV = scan.nextLine().split(" ");
+            if(Integer.parseInt(EV[1]) >= (Integer.parseInt(EV[0]) * Integer.parseInt(EV[0]))/2){
+                boolean [][] Estaciones= new boolean [Integer.parseInt(EV[0])][Integer.parseInt(EV[0])];
+                for(int i = 0; i < Integer.parseInt(EV[1]); i++){
+                    String[] u = scan.nextLine().split(" ");
+                    Estaciones[Integer.parseInt(u[0])][Integer.parseInt(u[1])] = true;
+                    Estaciones[Integer.parseInt(u[1])][Integer.parseInt(u[0])] = true;
+                }int key = Integer.parseInt(scan.nextLine());
+                int c = 0;
+                LinkedList<Integer> cola = new LinkedList<>();
+                Set<Integer> visitados = new HashSet<>();
+                cola.add(key);
+                visitados.add(key);
+                while(!cola.isEmpty()){
+                    int a = cola.remove(0);
+                    for (int i = 0; i < Integer.parseInt(EV[0]) ; i++) {
+                        if(Estaciones[a][i] && !visitados.contains(i)){
+                            cola.add(i);
+                            visitados.add(i);
+                            c++;
+                        }
+                    }
+                }System.out.println("Case #" + q + ":");
+                System.out.println(c);
+            }else{
+                Map<String, Nodo> Estaciones = new HashMap<>();
+                for(int i = 0; i < Integer.parseInt(EV[1]); i++){
+                    String[] u = scan.nextLine().split(" ");
+                    if(!Estaciones.containsKey(u[0])) Estaciones.put(u[0], new Nodo());
+                    if(!Estaciones.containsKey(u[1])) Estaciones.put(u[1], new Nodo());
+                    Estaciones.get(u[0]).adyacentes.add(u[1]);
+                    Estaciones.get(u[1]).adyacentes.add(u[0]);
+                }String key = scan.nextLine();
+                int c = 0;
+                LinkedList<String> cola = new LinkedList<>();
+                LinkedList<String> aux = Estaciones.get(key).adyacentes;
+                Estaciones.get(key).visitado = true;
+                for(String aux1 : aux) cola.add(aux1);
+                while(!cola.isEmpty()){
+                    if(!Estaciones.get(cola.get(0)).visitado) {
+                        LinkedList<String> tmp = Estaciones.get(cola.get(0)).adyacentes;
+                        Estaciones.get(cola.remove(0)).visitado = true;
+                        for(String aux2 : tmp) cola.add(aux2);
+                        c++;
+                    }else cola.remove(0);
+                }System.out.println("Case #" + q + ":");
+                System.out.println(c);
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }  
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaA {
+    
+    public static class Nodo{
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args)throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("A_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while(p>0){
+            String[] EV = scan.nextLine().split(" ");
+            Map<String, Nodo> Estaciones = new HashMap<>();
+            for(int i = 0; i < Integer.parseInt(EV[1]); i++){
+                String[] u = scan.nextLine().split(" ");
+                if(!Estaciones.containsKey(u[0])) Estaciones.put(u[0], new Nodo());
+                if(!Estaciones.containsKey(u[1])) Estaciones.put(u[1], new Nodo());
+                Estaciones.get(u[0]).adyacentes.add(u[1]);
+                Estaciones.get(u[1]).adyacentes.add(u[0]);
+            }String key = scan.nextLine();
+            int c = 0;
+            
+                LinkedList<String> cola = new LinkedList<>();
+                try{
+                LinkedList<String> aux = Estaciones.get(key).adyacentes;
+                Estaciones.get(key).visitado = true;
+            for(String aux1 : aux) cola.add(aux1);
+            }catch (Exception e){}
+            while(!cola.isEmpty()){
+                if(!Estaciones.get(cola.get(0)).visitado) {
+                    LinkedList<String> tmp = Estaciones.get(cola.get(0)).adyacentes;
+                    Estaciones.get(cola.remove(0)).visitado = true;
+                    for(String aux2 : tmp) cola.add(aux2);
+                    c++;
+                }else cola.remove(0);
+            }System.out.println("Case #" + q + ":");
+            System.out.println(c);
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }   
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaD {
+    
+    public static class Nodo{
+        int entrada = 0;
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("B_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] TR = scan.nextLine().split(" ");
+            Map<String, Nodo> Materias = new HashMap<>();
+            for (int i = 0; i < Integer.parseInt(TR[1]); i++) {
+                String[] u = scan.nextLine().split(" ");
+                if (!Materias.containsKey(u[0])) Materias.put(u[0], new Nodo());
+                if (!Materias.containsKey(u[1])) Materias.put(u[1], new Nodo());
+                Materias.get(u[0]).adyacentes.add(u[1]);
+                Materias.get(u[1]).entrada++;
+            }PriorityQueue<String> cola = new PriorityQueue<>();
+            LinkedList<String> salida = new LinkedList<>();
+            System.out.println("Case #" + q + ":");
+            for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                if (d.getValue().entrada == 0) cola.add(d.getKey());
+            }while (!Materias.isEmpty()){
+                while(!cola.isEmpty()){
+                    LinkedList<String> aux = Materias.get(cola.poll()).adyacentes;
+                    salida.add(cola.peek());
+                    Materias.remove(cola.remove(0));
+                    for (String aux1 : aux)
+                        Materias.get(aux1).entrada--;
+                }for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                    if (d.getValue().entrada == 0)
+                        cola.add(d.getKey());
+                }
+            }for (String salida1 : salida) {
+                System.out.println(salida1 + " ");
+            }
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaD {
+    
+    public static class Nodo{
+        int entrada = 0;
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("B_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] TR = scan.nextLine().split(" ");
+            Map<String, Nodo> Materias = new HashMap<>();
+            for (int i = 0; i < Integer.parseInt(TR[1]); i++) {
+                String[] u = scan.nextLine().split(" ");
+                if (!Materias.containsKey(u[0])) Materias.put(u[0], new Nodo());
+                if (!Materias.containsKey(u[1])) Materias.put(u[1], new Nodo());
+                Materias.get(u[0]).adyacentes.add(u[1]);
+                Materias.get(u[1]).entrada++;
+            }PriorityQueue<String> cola = new PriorityQueue<>();
+            System.out.println("Case #" + q + ":");
+            for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                if (d.getValue().entrada == 0) cola.add(d.getKey());
+            }while (!Materias.isEmpty()){
+                while(!cola.isEmpty()){
+                    LinkedList<String> aux = Materias.get(cola.poll()).adyacentes;
+                    System.out.print(cola.peek() + " ");
+                    Materias.remove(cola.remove(0));
+                    for (String aux1 : aux)
+                        Materias.get(aux1).entrada--;
+                }for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                    if (d.getValue().entrada == 0)
+                        cola.add(d.getKey());
+                }
+            }System.out.println("");
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaD {
+    
+    public static class Nodo{
+        int entrada = 0;
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        /*File f = new File("B_7.txt");
+        if (f.exists())scan = new Scanner(f);
+        else */ scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] TR = scan.nextLine().split(" ");
+            Map<String, Nodo> Materias = new HashMap<>();
+            for (int i = 0; i < Integer.parseInt(TR[1]); i++) {
+                String[] u = scan.nextLine().split(" ");
+                if (!Materias.containsKey(u[0])) Materias.put(u[0], new Nodo());
+                if (!Materias.containsKey(u[1])) Materias.put(u[1], new Nodo());
+                Materias.get(u[0]).adyacentes.add(u[1]);
+                Materias.get(u[1]).entrada++;
+            }PriorityQueue<String> cola = new PriorityQueue<>();
+            System.out.println("Case #" + q + ":");
+            for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                if (d.getValue().entrada == 0) cola.add(d.getKey());
+            }while (!Materias.isEmpty()){
+                while(!cola.isEmpty()){
+                    LinkedList<String> aux = Materias.get(cola.peek()).adyacentes;
+                    System.out.print(cola.peek() + " ");
+                    Materias.remove(cola.poll());
+                    for (String aux1 : aux)
+                        Materias.get(aux1).entrada--;
+                }for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                    if (d.getValue().entrada == 0)
+                        cola.add(d.getKey());
+                }
+            }System.out.println("");
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaD {
+    
+    public static class Nodo{
+        int entrada = 0;
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("D_1.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] TR = scan.nextLine().split(" ");
+            Map<String, Nodo> Materias = new HashMap<>();
+            for (int i = 0; i < Integer.parseInt(TR[1]); i++) {
+                String[] u = scan.nextLine().split(" ");
+                if (!Materias.containsKey(u[0])) Materias.put(u[0], new Nodo());
+                if (!Materias.containsKey(u[1])) Materias.put(u[1], new Nodo());
+                Materias.get(u[0]).adyacentes.add(u[1]);
+                Materias.get(u[1]).entrada++;
+            }PriorityQueue<String> cola = new PriorityQueue<>();
+            System.out.println("Case #" + q + ":");
+            for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                if (d.getValue().entrada == 0) cola.add(d.getKey());
+            }while (!Materias.isEmpty()){
+                while(!cola.isEmpty()){
+                    LinkedList<String> aux = Materias.get(cola.peek()).adyacentes;
+                    System.out.print(cola.peek() + " ");
+                    Materias.remove(cola.poll());
+                    for (String aux1 : aux)
+                        Materias.get(aux1).entrada--;
+                }for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                    if (d.getValue().entrada == 0)
+                        cola.add(d.getKey());
+                }
+            }System.out.println("");
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaD {
+    
+    private static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private int currentSize;
+        private AnyType[] array;
+
+        public BinaryHeap() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public BinaryHeap(int capacity) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+        }
+
+        public BinaryHeap(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            int hole = ++currentSize;
+            for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            for (int i = 0; i < old.length; i++) {
+                array[i] = old[i];
+            }
+        }
+
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize && array[child + 1].compareTo(array[child]) < 0) {
+                    child++;
+                }
+                if (array[child].compareTo(tmp) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+    
+    public static class Nodo{
+        int entrada = 0;
+        boolean visitado = false;
+        LinkedList<String> adyacentes = new LinkedList<>();
+    }
+
+    public static void main(String[] args) throws Exception {
+        //final long startTime = System.currentTimeMillis();
+        Scanner scan;
+        File f = new File("D_1.txt");
+        if (f.exists())scan = new Scanner(f);
+        else  scan = new Scanner(System.in);
+        int p = Integer.parseInt(scan.nextLine());
+        int q = 1;
+        while (p>0) {
+            String[] TR = scan.nextLine().split(" ");
+            Map<String, Nodo> Materias = new HashMap<>();
+            for (int i = 0; i < Integer.parseInt(TR[1]); i++) {
+                String[] u = scan.nextLine().split(" ");
+                if (!Materias.containsKey(u[0])) Materias.put(u[0], new Nodo());
+                if (!Materias.containsKey(u[1])) Materias.put(u[1], new Nodo());
+                Materias.get(u[0]).adyacentes.add(u[1]);
+                Materias.get(u[1]).entrada++;
+            }BinaryHeap<String> cola = new BinaryHeap<>();
+            System.out.println("Case #" + q + ":");
+            for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                if (d.getValue().entrada == 0) cola.insert(d.getKey());
+            }while (!Materias.isEmpty()){
+                while(!cola.isEmpty()){
+                    LinkedList<String> aux = Materias.get(cola.findMin()).adyacentes;
+                    System.out.print(cola.findMin() + " ");
+                    Materias.remove(cola.deleteMin());
+                    for (String aux1 : aux)
+                        Materias.get(aux1).entrada--;
+                }for (Map.Entry<String, Nodo> d : Materias.entrySet()) {
+                    if (d.getValue().entrada == 0)
+                        cola.insert(d.getKey());
+                }
+            }System.out.println("");
+            p--;
+            q++;
+        }/*final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Complexity " + duration);*/
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic;
+
+import java.io.*;
+import java.util.*;
+
+public class ProblemaC {
+
+    private static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+
+        private static final int DEFAULT_CAPACITY = 10;
+
+        private int currentSize;
+        private AnyType[] array;
+
+        public BinaryHeap() {
+            this(DEFAULT_CAPACITY);
+        }
+
+        public BinaryHeap(int capacity) {
+            currentSize = 0;
+            array = (AnyType[]) new Comparable[capacity + 1];
+        }
+
+        public BinaryHeap(AnyType[] items) {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+            int i = 1;
+            for (AnyType item : items) {
+                array[i++] = item;
+            }
+            buildHeap();
+        }
+
+        public void insert(AnyType x) {
+            if (currentSize == array.length - 1) {
+                enlargeArray(array.length * 2 + 1);
+            }
+
+            int hole = ++currentSize;
+            for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
+            }
+            array[hole] = x;
+        }
+
+        private void enlargeArray(int newSize) {
+            AnyType[] old = array;
+            array = (AnyType[]) new Comparable[newSize];
+            for (int i = 0; i < old.length; i++) {
+                array[i] = old[i];
+            }
+        }
+
+        public AnyType findMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+            return array[1];
+        }
+
+        public AnyType deleteMin() throws Exception {
+            if (isEmpty()) {
+                throw new Exception();
+            }
+
+            AnyType minItem = findMin();
+            array[1] = array[currentSize--];
+            percolateDown(1);
+
+            return minItem;
+        }
+
+        private void buildHeap() {
+            for (int i = currentSize / 2; i > 0; i--) {
+                percolateDown(i);
+            }
+        }
+
+        public boolean isEmpty() {
+            return currentSize == 0;
+        }
+
+        public void makeEmpty() {
+            currentSize = 0;
+        }
+
+        private void percolateDown(int hole) {
+            int child;
+            AnyType tmp = array[hole];
+
+            for (; hole * 2 <= currentSize; hole = child) {
+                child = hole * 2;
+                if (child != currentSize && array[child + 1].compareTo(array[child]) < 0) {
+                    child++;
+                }
+                if (array[child].compareTo(tmp) < 0) {
+                    array[hole] = array[child];
+                } else {
+                    break;
+                }
+            }
+            array[hole] = tmp;
+        }
+    }
+
+    private static Nodo[] graph;
+
+    private static class Nodo implements Comparable<Nodo> {
+        private int id;
+        private int dist;
+        private boolean known;
+        private int path;
+        private ArrayList<Integer> adjacents;
+        private ArrayList<Integer> weights;
+
+        public Nodo(int id) {
+            this.id = id;
+            path = -1;
+            dist = 0;
+            known = true;
+            adjacents = new ArrayList<>();
+            weights = new ArrayList<>();
+        }
+        @Override
+        public String toString() {
+            return "Vertex [id=" + id + ", dist=" + dist + ", known=" + known + ", path=" + path + ", adjacents="
+                    + adjacents + ", weights=" + weights + "]";
+        }
+        @Override
+        public int compareTo(Nodo o) {
+            if (dist < o.dist) {
+                return -1;
+            } else if (dist > o.dist) {
+                return 1;
+            }
+            return 0;
+        }
+    }
+
+    private static void dijkstra(Nodo s) throws Exception {
+        for (Nodo v : graph) {
+            if (v != null) {
+                v.dist = Integer.MAX_VALUE;
+                v.known = false;
+            }
+        }
+        s.dist = 0;
+        BinaryHeap<Nodo> heap = new BinaryHeap<>();
+        heap.insert(s);
+
+        while (!heap.isEmpty()) {
+            Nodo v = heap.deleteMin();
+            if (!v.known) {
+                v.known = true;
+
+                for (int i = 0; i < v.adjacents.size(); i++) {
+                    Nodo w = graph[v.adjacents.get(i)];
+
+                    if (!w.known) {
+                        int aux = v.weights.get(i);
+                        if (v.dist + aux < w.dist) {
+                            w.dist = v.dist + aux;
+                            w.path = v.id;
+                        }
+                        heap.insert(w);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Scanner scan;
+        File f = new File("C_1.txt");
+        if (f.exists()) scan = new Scanner(f);
+        else scan = new Scanner(System.in);
+        scan = new Scanner(System.in);
+        byte cases = (byte) Integer.parseInt(scan.nextLine());
+        for (int i = 0; i < cases; i++) {
+            System.out.println("Case #" +(i + 1)+ ":");
+            String[] input = scan.nextLine().split(" ");
+            int n = Integer.parseInt(input[0]);
+            int e = Integer.parseInt(input[1]);
+            int time = Integer.parseInt(input[2]);
+            int m = Integer.parseInt(scan.nextLine());
+            graph = new Nodo[n];
+            for (int j = 0; j < m; j++) {
+                input = scan.nextLine().split(" ");
+                int entry1 = Integer.parseInt(input[0]);
+                int entry2 = Integer.parseInt(input[1]);
+                int entry3 = Integer.parseInt(input[2]);
+                if (graph[entry1] == null) {
+                    graph[entry1] = new Nodo(entry1);
+                }
+                graph[entry1].adjacents.add(entry2);
+                graph[entry1].weights.add(entry3);
+                if (graph[entry2] == null) {
+                    graph[entry2] = new Nodo(entry2);
+                }
+            }
+            int counter = 1;
+            for (Nodo ver : graph) {
+                if (ver != null) {
+                    dijkstra(ver);
+                }
+                if (graph[e] != null) {
+                    if (graph[e].dist <= time) {
+                        if (ver != null && ver.id != e) {
+                            counter++;
+                        }
+                    }
+                }
+            }
+            System.out.println(counter);
+        }
+        scan.close();
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package ed.dic.pkg10;
+
+import java.util.*;
+import java.io.*;
+
+public class ProblemaD {
+    
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("D_2.txt");
+        if (f.exists()) {
+            scan = new Scanner(f);
+        } else {
+            scan = new Scanner(System.in);
+        }
+
+        int casos = Integer.parseInt(scan.nextLine());
+
+        for (int test = 0; test < casos; test++) {
+
+            ArrayList<Vertice> Graph = new ArrayList<Vertice>();
+
+            String line[] = scan.nextLine().split(" ");
+            int a = Integer.parseInt(line[0]);
+            int b = Integer.parseInt(line[1]);
+            for (int i = 0; i < a; i++) {
+
+                Graph.add(new Vertice(i));
+            }
+
+            for (int i = 0; i < b; i++) {
+                line = scan.nextLine().split(" ");
+                int u = Integer.parseInt(line[0]);
+                int v = Integer.parseInt(line[1]);
+
+                Vertice temaU = Graph.get(u);
+                Vertice temaV = Graph.get(v);
+
+                temaU.lista.add(temaV);
+
+            }
+
+            for (int i = 0; i < Graph.size(); i++) {
+
+                Vertice vertice = Graph.get(i);
+
+                vertice.outdegree = vertice.lista.size();
+
+            }
+            for (int i = 0; i < Graph.size(); i++) {
+                Vertice vertice = Graph.get(i);
+
+                for (int j = 0; j < Graph.size(); j++) {
+
+                    Vertice vertice2 = Graph.get(j);
+                    if (vertice != vertice2) {
+                        for (int j2 = 0; j2 < vertice2.lista.size(); j2++) {
+
+                            if (vertice.id == vertice2.lista.get(j2).id) {
+                                vertice.indegree++;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            System.out.println("Case #" + (test + 1) + ":");
+            try {
+                topsort(Graph);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        scan.close();
+    }
+
+    public static class Vertice implements Comparable<Vertice> {
+
+        @Override
+        public int compareTo(Vertice o) {
+            if (o.id < this.id) {
+                return 1;
+            } else if (o.id > this.id) {
+
+            } else {
+                return 0;
+            }
+
+            return -1;
+        }
+
+        int id,
+                indegree = 0,
+                outdegree = 0;
+        ArrayList<Vertice> lista = new ArrayList<Vertice>();
+
+        public Vertice(int nombre) {
+            this.id = nombre;
+            indegree = 0;
+            outdegree = 0;
+            lista = new ArrayList<>();
+        }
+    }
+
+    static void topsort(ArrayList<Vertice> grafo) throws Exception {
+        int counter = 0;
+        PriorityQueue<Vertice> queue = new PriorityQueue<>();
+
+        for (int i = 0; i < grafo.size(); i++) {
+            if (grafo.get(i).indegree == 0) {
+                queue.add(grafo.get(i));
+            }
+        }
+        if (queue.size() > 1) {
+        }
+        int iterator = 0;
+        while (!queue.isEmpty()) {
+            if (queue.size() > 1) {
+            }
+
+            Vertice v = queue.poll();
+            if (iterator == 0) {
+                System.out.print(v.id + " ");
+            }
+            if (iterator > 0) {
+                System.out.print(v.id + " ");
+            }
+            v.id = ++counter;
+            iterator++;
+            for (int i = 0; i < v.lista.size(); i++) {
+                Vertice w = v.lista.get(i);
+                if (--w.indegree == 0) {
+                    queue.add(w);
+                }
+
+            }
+        }
+        System.out.println("");
+
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

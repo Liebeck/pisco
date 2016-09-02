@@ -1,0 +1,5537 @@
+package mainPackage;
+
+import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class ProblemaA
+{
+	public static final String FILE_NAME="Entrada1.in";
+	
+	public static int [] comparator (int array[],int k)
+	{
+		int ans[]=new int [3];
+		Arrays.fill(ans, 0);
+		
+		for (int s = 0; s < k; s++)
+		{
+			for (int i = 1; i < k; i++)
+			{
+				if(array[0]>array[i]) ans[0]+=1;
+				if(array[0]<array[i]) ans[1]+=1;
+				if(array[0]==array[i]) ans[2]+=1;
+			}
+			int temp = array[0];
+			for (int i = 0; i < k-1; i++)
+			{
+				array[i]=array[i+1];
+			}
+			array[k-1]=temp;
+		}
+		return ans;
+	}
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaA.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int n= Integer.parseInt(scan.nextLine());
+		int k=0;
+		int array [];
+		int ans [];
+		String str="";
+		
+		for (int i = 1; i <= n; i++) 
+		{
+			k= Integer.parseInt(scan.nextLine());
+			array= new int[k];
+			str=scan.nextLine();
+			String [] s1=str.split(" ");
+			for (int j = 0; j < k; j++) 
+			{
+				array[j]=Integer.parseInt(s1[j]);
+			}
+			System.out.println("Case #"+i+":");
+			ans=ProblemaA.comparator(array, k);
+			
+			for (int j = 0; j < 3; j++) 
+			{
+				System.out.println(ans[j]);
+			}
+		}
+		scan.close();
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class ProblemaB 
+{
+	public static final String FILE_NAME="Entrada2.in";
+	
+	public static void main (String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaB.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int n;
+		int board [][];
+		String str;
+		String [] temp;
+		int counter=1;
+		
+		while (scan.hasNext())
+		{
+			n = Integer.parseInt(scan.nextLine());
+			//¿question if it is correct to asign a new board in every cycle
+			board= new int[n][n];
+			
+			for (int i = 0; i < n; i++) 
+			{
+				str=scan.nextLine();
+				temp=str.split(" ");
+				for (int j = 0; j < n; j++) 
+				{
+					board[i][j]=Integer.parseInt(temp[j]);
+				}
+				str="";
+			}
+	
+			System.out.println("Case #"+counter+":");
+			System.out.println(ProblemaB.winnerBoxes(board,n));
+			counter++;
+		}
+		
+		scan.close();
+		
+	}
+
+	public static int winnerBoxes(int array[][], int n) 
+	{
+		int ans=0;
+		int colSum=0;
+		int rowSum=0;
+		for (int i = 0; i < n; i++) 
+		{
+			for (int j = 0; j<n; j++) 
+			{
+				for (int jj = 0; jj < n; jj++) {
+					rowSum+=array[i][jj];
+					colSum+=array[jj][j];
+				}
+				if (rowSum<colSum) ans++;
+				rowSum=0;
+				colSum=0;
+			}
+		}
+		return ans;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+
+
+public class ProblemaD 
+{
+	public static final String FILE_NAME="Entrada4.in";
+	public static void main (String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaD.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		int teams [][];
+		int n;
+		String str;
+		String [] temp;
+		
+		for (int i = 1; i <= t; i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			teams= new int [n][2];
+			for (int j = 0; j < n; j++) 
+			{
+				str=scan.nextLine();
+				temp=str.split(" ");
+				teams[j][0]=Integer.parseInt(temp[0]);
+				teams[j][1]=Integer.parseInt(temp[1]);
+				
+			}
+			System.out.println("Case #"+i+":");
+			System.out.println(ProblemaD.NumberOfColorChanges(teams,n));
+		}
+		scan.close();
+	}
+	public static int NumberOfColorChanges(int[][] teams, int n)
+	{
+		int ans=0;
+		
+		for (int i = 0; i < n; i++) 
+		{
+			for (int j = 0; j < n; j++) 
+			{
+				if(i!=j)
+				{
+					if(teams[i][0]==teams[j][1])ans++;	
+				}
+			}
+			
+		}
+		return ans;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class ProblemaB 
+{
+	public static final String FILE_NAME="Entrada2.in";
+	
+	public static void main (String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaB.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int n;
+		int board [][];
+		String str;
+		String [] temp;
+		int counter=1;
+		
+		while (scan.hasNext())
+		{
+			n = Integer.parseInt(scan.nextLine());
+			//¿question if it is correct to asign a new board in every cycle
+			board= new int[n][n];
+			
+			for (int i = 0; i < n; i++) 
+			{
+				str=scan.nextLine();
+				temp=str.split(" ");
+				for (int j = 0; j < n; j++) 
+				{
+					board[i][j]=Integer.parseInt(temp[j]);
+				}
+				str="";
+			}
+	
+			System.out.println("Case #"+counter+":");
+			System.out.println(ProblemaB.winnerBoxes(board,n));
+			counter++;
+		}
+		
+		scan.close();
+		
+	}
+
+	public static int winnerBoxes(int array[][], int n) 
+	{
+		int ans=0;
+		int colSum=0;
+		int rowSum=0;
+		for (int i = 0; i < n; i++) 
+		{
+			for (int j = 0; j<n; j++) 
+			{
+				for (int jj = 0; jj < n; jj++) {
+					rowSum+=array[i][jj];
+					colSum+=array[jj][j];
+				}
+				if (rowSum<colSum) ans++;
+				rowSum=0;
+				colSum=0;
+			}
+		}
+		return ans;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.*;
+
+public class ProblemaC 
+{
+	public static final String FILE_NAME="Entrada3.in";
+	public static void main (String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaC.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		int n=0;
+		ArrayList<String> ans= new ArrayList<String>();
+		String color="";
+		
+		for (int i = 1; i <= t; i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			color=scan.nextLine();
+			color=color.replaceAll(" ", "");
+			ans=ProblemaC.sequenceFinder(color);
+			System.out.println("Case "+i+":");
+			for (String string : ans)
+			{
+				System.out.println(string);
+			}
+			ans.clear();
+			
+		}
+		scan.close();
+	}
+	
+	public static ArrayList<String> sequenceFinder (String color)
+	{
+		ArrayList<String> ans=new ArrayList<String>();
+		ArrayList<String> temporary= new ArrayList<String>();
+		String firstCharacter="";
+		String newSequence="";
+		String checkedCharacters="";
+		
+		if(color.length()==1)
+		{
+			ans.add(color);
+			return ans;
+		}
+		else if(color.length()==2)
+		{
+			if(color.charAt(0)==color.charAt(1))
+			{
+				ans.add(color);
+				return ans;
+			}
+			else
+			{
+				ans.add(color);
+				String inverse=""+color.charAt(1)+color.charAt(0);
+				ans.add(inverse);
+				return ans;
+			}
+		}
+		else
+		{
+			for (int i = 0; i < color.length(); i++) 
+			{
+				firstCharacter=color.charAt(i)+"";
+				temporary.clear();
+				newSequence=checkedCharacters+color.substring(i+1);
+				
+				temporary.addAll(sequenceFinder(newSequence));
+				for (String string : temporary)
+				{
+					String temp=firstCharacter+string;
+					if (!ans.contains(temp)) 
+					{
+						ans.add(temp);
+					}
+				}
+				checkedCharacters+=firstCharacter;
+			}
+			return ans;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.*;
+
+
+
+public class ProblemaC 
+{
+	public static final String FILE_NAME="Entrada3.in";
+	public static void main (String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaC.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		int n=0;
+		ArrayList<String> ans= new ArrayList<String>();
+		String color="";
+		
+		for (int i = 1; i <= t; i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			color=scan.nextLine();
+			color=color.replaceAll(" ", "");
+			ans=ProblemaC.sequenceFinder(color);
+			System.out.println("Case #"+i+":");
+			for (String string : ans)
+			{
+				System.out.println(string);
+			}
+			ans.clear();
+			
+		}
+		scan.close();
+	}
+	
+	public static ArrayList<String> sequenceFinder (String color)
+	{
+		ArrayList<String> ans=new ArrayList<String>();
+		ArrayList<String> temporary= new ArrayList<String>();
+		String firstCharacter="";
+		String newSequence="";
+		String checkedCharacters="";
+		
+		if(color.length()==1)
+		{
+			ans.add(color);
+			return ans;
+		}
+		else if(color.length()==2)
+		{
+			if(color.charAt(0)==color.charAt(1))
+			{
+				ans.add(color);
+				return ans;
+			}
+			else
+			{
+				ans.add(color);
+				String inverse=""+color.charAt(1)+color.charAt(0);
+				ans.add(inverse);
+				return ans;
+			}
+		}
+		else
+		{
+			for (int i = 0; i < color.length(); i++) 
+			{
+				firstCharacter=color.charAt(i)+"";
+				temporary.clear();
+				newSequence=checkedCharacters+color.substring(i+1);
+				
+				temporary.addAll(sequenceFinder(newSequence));
+				for (String string : temporary)
+				{
+					String temp=firstCharacter+string;
+					if (!ans.contains(temp)) 
+					{
+						ans.add(temp);
+					}
+				}
+				checkedCharacters+=firstCharacter;
+			}
+			return ans;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+
+public class ProblemaB 
+{
+	public static final String FILE_NAME="Entrada2.in";
+	
+	public static void main (String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaB.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int n;
+		int board [][];
+		String str;
+		String [] temp;
+		int counter=1;
+		
+		while (scan.hasNext())
+		{
+			n = Integer.parseInt(scan.nextLine());
+			
+			board= new int[n][n];
+			
+			for (int i = 0; i < n; i++) 
+			{
+				str=scan.nextLine();
+				temp=str.split(" ");
+				for (int j = 0; j < n; j++) 
+				{
+					board[i][j]=Integer.parseInt(temp[j]);
+				}
+				str="";
+			}
+	
+			System.out.println("Case #"+counter+":");
+			System.out.println(ProblemaB.winnerBoxes(board,n));
+			counter++;
+		}
+		
+		scan.close();
+		
+	}
+
+	public static int winnerBoxes(int array[][], int n) 
+	{
+		int ans=0;
+		int colSum=0;
+		int rowSum=0;
+		for (int i = 0; i < n; i++) 
+		{
+			for (int j = 0; j<n; j++) 
+			{
+				for (int jj = 0; jj < n; jj++) {
+					rowSum+=array[i][jj];
+					colSum+=array[jj][j];
+				}
+				if (rowSum<colSum) ans++;
+				rowSum=0;
+				colSum=0;
+			}
+		}
+		return ans;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaE
+{
+	public static final String FILE_NAME="Entrada5.in";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaE.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t =Integer.parseInt(scan.nextLine());
+		int n =0;
+		int array[];
+		String str="";
+		String temp [];
+		
+		for(int i=1; i<=t;i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			array= new int [n];
+			str=scan.nextLine();
+			temp=new String[n];
+			temp=str.split(" ");
+			
+			for (int j = 0; j < array.length; j++) 
+			{
+				array[j]=Integer.parseInt(temp[j]);
+			}
+
+			System.out.println("Case #"+i+":");
+			System.out.println(ProblemaE.maximunNumberOf1s(array, n));
+			
+			for (int j = 0; j < array.length; j++) {
+				//System.out.print(array[j]+" ");
+			}
+		}
+		scan.close();
+	}
+	public static int maximunNumberOf1s (int arrays[], int n) 
+	{
+		int temp=0;
+		int max=0;
+		int temporal[]= new int[n];
+		
+		for (int i = 0; i < arrays.length; i++)
+		{
+			for (int j = 0; j < arrays.length-i; j++) 
+			{
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temporal[k]=arrays[k];
+				}
+				int x=0+j;
+				int y=x+i;
+				for (int k = x; k <=y ; k++) 
+				{
+					if(arrays[k]==0)temporal[k]=1;
+					if(arrays[k]==1)temporal[k]=0;
+				}
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temp+=temporal[k];
+					if(temp>=max)max=temp;
+				}
+				temp=0;
+			}
+		}
+		if(n==1) max=1;
+		return max;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaE
+{
+	public static final String FILE_NAME="Entrada5.in";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaE.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t =Integer.parseInt(scan.nextLine());
+		int n =0;
+		int array[];
+		String str="";
+		String temp [];
+		
+		for(int i=1; i<=t;i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			array= new int [n];
+			str=scan.nextLine();
+			temp=new String[n];
+			temp=str.split(" ");
+			
+			for (int j = 0; j < array.length; j++) 
+			{
+				array[j]=Integer.parseInt(temp[j]);
+			}
+
+			//System.out.println("Case #"+i+":");
+			System.out.println(ProblemaE.maximunNumberOf1s(array, n));
+			
+		}
+		scan.close();
+	}
+	public static int maximunNumberOf1s (int arrays[], int n) 
+	{
+		int temp=0;
+		int max=0;
+		int temporal[]= new int[n];
+		
+		for (int i = 0; i < arrays.length; i++)
+		{
+			for (int j = 0; j < arrays.length-i; j++) 
+			{
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temporal[k]=arrays[k];
+				}
+				int x=0+j;
+				int y=x+i;
+				for (int k = x; k <=y ; k++) 
+				{
+					if(arrays[k]==0)temporal[k]=1;
+					if(arrays[k]==1)temporal[k]=0;
+				}
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temp+=temporal[k];
+					if(temp>=max)max=temp;
+				}
+				temp=0;
+			}
+		}
+		if(n==1) max=1;
+		return max;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaE
+{
+	public static final String FILE_NAME="Entrada5.in";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaE.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t =Integer.parseInt(scan.nextLine());
+		int n =0;
+		int array[];
+		String str="";
+		String temp [];
+		
+		for(int i=1; i<=t;i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			array= new int [n];
+			str=scan.nextLine();
+			temp=new String[n];
+			temp=str.split(" ");
+			
+			for (int j = 0; j < array.length; j++) 
+			{
+				array[j]=Integer.parseInt(temp[j]);
+			}
+
+			//System.out.println("Case #"+i+":");
+			System.out.println(ProblemaE.maximunNumberOf1s(array, n));
+			
+		}
+		scan.close();
+	}
+	public static int maximunNumberOf1s (int arrays[], int n) 
+	{
+		int temp=0;
+		int max=0;
+		int temporal[]= new int[n];
+		
+		for (int i = 0; i < arrays.length; i++)
+		{
+			for (int j = 0; j < arrays.length-i; j++) 
+			{
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temporal[k]=arrays[k];
+				}
+				int x=0+j;
+				int y=x+i;
+				for (int k = x; k <=y ; k++) 
+				{
+					if(arrays[k]==0)temporal[k]=1;
+					if(arrays[k]==1)temporal[k]=0;
+				}
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temp+=temporal[k];
+					if(temp>=max)max=temp;
+				}
+				temp=0;
+			}
+		}
+		if(n==1) max=1;
+		return max;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package mainPackage;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaE
+{
+	public static final String FILE_NAME="Entrada5.in";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(ProblemaE.FILE_NAME);
+		try 
+		{
+			scan = new Scanner(file);
+			//System.setOut(new PrintStream(new File("Salida.txt")));
+		} 
+		catch (FileNotFoundException e) 
+		{	
+			scan = new Scanner(System.in);
+		}
+		
+		int t =Integer.parseInt(scan.nextLine());
+		int n =0;
+		int array[];
+		String str="";
+		String temp [];
+		
+		for(int i=1; i<=t;i++)
+		{
+			n=Integer.parseInt(scan.nextLine());
+			array= new int [n];
+			str=scan.nextLine();
+			temp=new String[n];
+			temp=str.split(" ");
+			
+			for (int j = 0; j < array.length; j++) 
+			{
+				array[j]=Integer.parseInt(temp[j]);
+			}
+
+			//System.out.println("Case #"+i+":");
+			System.out.println(ProblemaE.maximunNumberOf1s(array, n));
+			
+		}
+		scan.close();
+	}
+	public static int maximunNumberOf1s (int arrays[], int n) 
+	{
+		int temp=0;
+		int max=0;
+		int temporal[]= new int[n];
+		
+		for (int i = 0; i < arrays.length; i++)
+		{
+			for (int j = 0; j < arrays.length-i; j++) 
+			{
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temporal[k]=arrays[k];
+				}
+				int x=0+j;
+				int y=x+i;
+				for (int k = x; k <=y ; k++) 
+				{
+					if(arrays[k]==0)temporal[k]=1;
+					if(arrays[k]==1)temporal[k]=0;
+				}
+				for (int k = 0; k < arrays.length; k++) 
+				{
+					temp+=temporal[k];
+					if(temp>=max)max=temp;
+				}
+				temp=0;
+			}
+		}
+		if(n==1) max=1;
+		int temp2=0;
+		for (int i = 0; i < arrays.length; i++) 
+		{
+			temp2+=arrays[i];
+		}
+		if (temp2==n) max=n;
+		return max;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	public static String INPUT="A_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			String temp []=scan.nextLine().split(" ");
+			
+			//data
+			int n=Integer.parseInt(temp[0]);
+			//sizes
+			int m=Integer.parseInt(temp[1]);
+			
+			int data[]=new int[n];
+			int sizes[]= new int[m];
+			
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < n; j++) 
+			{
+				data[j]=Integer.parseInt(temp[j]);
+			}
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < m; j++) 
+			{
+				sizes[j]=Integer.parseInt(temp[j]);			
+			}
+			
+			//simulation
+			int theMinimunKth=0;
+			int minimunCollisions=0;
+			
+			for (int j = 0; j < m; j++) 
+			{
+				MyHashTable table = new MyHashTable(sizes[j]);
+				
+				int tempCollisions=0;
+				
+				for (int k = 0; k < n; k++) 
+				{
+					if(table.insert(data[k]))
+						tempCollisions++;
+				}
+				if(j==0)
+				{
+					theMinimunKth=sizes[j];
+					minimunCollisions=tempCollisions;
+				}
+				else
+				{
+					if (tempCollisions==minimunCollisions)
+					{							
+						if(sizes[j]<theMinimunKth)
+							theMinimunKth=sizes[j];
+					}
+					else if (tempCollisions<minimunCollisions)
+					{
+						theMinimunKth=sizes[j];
+						minimunCollisions=tempCollisions;		
+					}
+					else;
+				}
+				
+			}
+			System.out.println(theMinimunKth);
+			System.out.println(minimunCollisions);
+			
+			//re simulate the minimum
+			if(minimunCollisions!=0)
+			{
+				MyHashTable table= new MyHashTable(theMinimunKth);
+				ArrayList<Integer> theFirsts= new ArrayList<>();
+				for (int j = 0; j < n; j++) 
+				{
+					table.insert(data[j]);
+				}
+				for (int j = 0; j < table.arrays.length; j++) 
+				{
+					if (table.arrays[j]!=null)
+						if(table.arrays[j].size()>1)
+							theFirsts.add(table.arrays[j].get(0));
+				}
+				Collections.sort(theFirsts);
+				for (int j = 0; j < theFirsts.size(); j++) 
+				{
+					ArrayList<Integer>temporal=table.arrays[table.getHashCode(theFirsts.get(j))];
+					for (Integer integer : temporal) 
+					{
+						System.out.print(integer+" ");
+					}
+					System.out.println();
+				}
+			}
+			
+		}
+		scan.close();
+	}
+	
+	public static class MyHashTable 
+	{
+		int numberOfCollisions;
+		int tableSize;
+		int currentSize;
+		
+		ArrayList<Integer>arrays[];
+
+		@SuppressWarnings("unchecked")
+		public MyHashTable(int tableSize) 
+		{
+			super();
+			this.numberOfCollisions = 0;
+			this.currentSize=0;
+			this.tableSize = tableSize;
+			
+			arrays= new ArrayList[tableSize];
+			
+			
+		}
+		
+		public int getHashCode (int x)
+		{
+			return x%tableSize;
+		}
+		//return true if collision false if not
+		public boolean insert (int x)
+		{
+			int index= getHashCode(x);
+			
+			if (arrays[index]==null)
+			{
+				arrays[index]= new ArrayList<Integer>();
+				arrays[index].add(x);
+				
+				return false;
+			}
+			else
+			{
+				arrays[index].add(x);
+				Collections.sort(arrays[index]);
+				return true;
+			}
+		}
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ProblemaB 
+{
+	public static String INPUT="B_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			
+			//number of ponds
+			int n=Integer.parseInt(scan.nextLine().trim());
+			String temp[];
+			SeparateChainingHashTable<Integer>backPack= new SeparateChainingHashTable<>();
+			int neededFood=0;
+			
+			for (int j = 0; j < n; j++) 
+			{
+				temp=scan.nextLine().split(" ");
+				int food=Integer.parseInt(temp[0]);
+				
+				backPack.insert(food);
+				
+				int pokemon=Integer.parseInt(temp[1]);
+				
+				if(backPack.contains(pokemon))
+					backPack.remove(pokemon);
+				else
+					neededFood++;
+			}
+			System.out.println(neededFood);
+		}
+		
+		scan.close();
+	}
+	
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[ nextPrime( size ) ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( true )
+	        {
+	            whichList.add( x );
+
+	                // Rehash; see Section 5.5
+	            if( ++currentSize > theLists.length )
+	                rehash( );
+	        }
+	    }
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;  
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+	    
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    private List<AnyType> [ ] theLists; 
+	    private int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+	    
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaC
+{
+	public static String INPUT="C_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			
+			HashMap<Integer, ArrayList<String>>problems= new HashMap<>();
+			String temp[];
+			
+			temp=scan.nextLine().split(" ");
+			int n=Integer.parseInt(temp[0]);
+			int m=Integer.parseInt(temp[1]);
+			int p=Integer.parseInt(temp[2]);
+			
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < n; j++) 
+			{
+				int id=Integer.parseInt(temp[j]);
+				
+				if (!problems.containsKey(id))
+				{
+					ArrayList <String>array = new ArrayList<>();
+					array.add("Norma");
+					problems.put(id, array);
+				}
+				else
+					problems.get(id).add("Norma");
+			}
+			
+			temp=scan.nextLine().split(" ");
+			
+			for (int j = 0; j < m; j++) 
+			{
+				int id=Integer.parseInt(temp[j]);
+				
+				if (!problems.containsKey(id))
+				{
+					ArrayList <String>array = new ArrayList<>();
+					array.add("Mario");
+					problems.put(id, array);
+				}
+				else
+					problems.get(id).add("Mario");
+			}
+			
+			temp=scan.nextLine().split(" ");
+			
+			for (int j = 0; j < p; j++) 
+			{
+				int id=Integer.parseInt(temp[j]);
+				
+				if (!problems.containsKey(id))
+				{
+					ArrayList <String>array = new ArrayList<>();
+					array.add("Pipe");
+					problems.put(id, array);
+				}
+				else
+					problems.get(id).add("Pipe");
+			}
+			
+			ArrayList<Integer> norma= new ArrayList<>();
+			ArrayList<Integer> mario= new ArrayList<>();
+			ArrayList<Integer> pipe= new ArrayList<>();
+			
+			for (Map.Entry<Integer, ArrayList<String>>entry : problems.entrySet()) 
+			{
+				ArrayList<String>temporal=entry.getValue();
+				if(temporal.size()==1)
+				{
+					switch(temporal.get(0))
+					{
+					case "Norma":
+						norma.add(entry.getKey());
+						break;
+					case "Mario":
+						mario.add(entry.getKey());
+						break;
+					case "Pipe":
+						pipe.add(entry.getKey());
+						break;
+					}
+				}
+			}
+			Collections.sort(norma);
+			Collections.sort(mario);
+			Collections.sort(pipe);
+			
+			int nSize=norma.size();
+			int mSize=mario.size();
+			int pSize=pipe.size();
+			int max;
+			max=Math.max(mSize, nSize);
+			max=Math.max(max, pSize);
+			
+			if(norma.size()==max)
+			{
+				System.out.printf("Norma %d ",nSize);
+				for (int k = 0; k < norma.size(); k++) 
+				{
+					System.out.print(norma.get(k)+" ");
+				}
+				System.out.println();
+			}
+			if(mario.size()==max)
+			{
+				System.out.printf("Mario %d ",mSize);
+				for (int k = 0; k < mario.size(); k++) 
+				{
+					System.out.print(mario.get(k)+" ");
+				}
+				System.out.println();
+			}
+			if(pipe.size()==max)
+			{
+				System.out.printf("Pipe %d ",pSize);
+				for (int k = 0; k < pipe.size(); k++) 
+				{
+					System.out.print(pipe.get(k)+" ");
+				}
+				System.out.println();
+			}
+				
+		}	
+		scan.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaD 
+{
+	public static String INPUT="D_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			
+			HashMap<String, Integer>candidateVotes = new HashMap<>();
+			HashMap<String, String> candidatePartie= new HashMap<>();
+			
+			//candidates
+			int n =Integer.parseInt(scan.nextLine());
+			String temp[];
+			for (int j = 0; j < n; j++) 
+			{
+				temp = scan.nextLine().split(" ");
+				candidatePartie.put(temp[0], temp[1]);
+				candidateVotes.put(temp[0], 0);
+			}
+			int q =Integer.parseInt(scan.nextLine());
+			for (int j = 0; j < q; j++) 
+			{
+				String aux=scan.nextLine();
+				if(candidateVotes.containsKey(aux))
+					candidateVotes.put(aux, candidateVotes.get(aux)+1);
+			}
+			
+			int maxVotes=0;
+			for (Map.Entry<String, Integer> entry: candidateVotes.entrySet()) 
+			{
+				if(entry.getValue()>maxVotes)
+					maxVotes=entry.getValue();
+			}
+			ArrayList<String>winners= new ArrayList<>();
+			for (Map.Entry<String, Integer> entry: candidateVotes.entrySet()) 
+			{
+				if(entry.getValue()==maxVotes)
+					winners.add(entry.getKey());
+			}
+			ArrayList<String>winnerParties= new ArrayList<>();
+			for (String string : winners)
+			{
+				String ans=candidatePartie.get(string);
+				winnerParties.add(ans);
+			}
+			Collections.sort(winnerParties);
+			for (String string : winnerParties) 
+			{
+				System.out.println(string);
+			}
+			
+		}
+		scan.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	public static String INPUT="A_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			String temp []=scan.nextLine().split(" ");
+			
+			//data
+			int n=Integer.parseInt(temp[0]);
+			//sizes
+			int m=Integer.parseInt(temp[1]);
+			
+			int data[]=new int[n];
+			int sizes[]= new int[m];
+			
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < n; j++) 
+			{
+				data[j]=Integer.parseInt(temp[j]);
+			}
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < m; j++) 
+			{
+				sizes[j]=Integer.parseInt(temp[j]);			
+			}
+			
+			//simulation
+			int theMinimunKth=0;
+			int minimunCollisions=0;
+			
+			for (int j = 0; j < m; j++) 
+			{
+				MyHashTable table = new MyHashTable(sizes[j]);
+				
+				int tempCollisions=0;
+				
+				for (int k = 0; k < n; k++) 
+				{
+					if(table.insert(data[k]))
+						tempCollisions++;
+				}
+				if(j==0)
+				{
+					theMinimunKth=sizes[j];
+					minimunCollisions=tempCollisions;
+				}
+				else
+				{
+					if (tempCollisions==minimunCollisions)
+					{							
+						if(sizes[j]<theMinimunKth)
+							theMinimunKth=sizes[j];
+					}
+					else if (tempCollisions<minimunCollisions)
+					{
+						theMinimunKth=sizes[j];
+						minimunCollisions=tempCollisions;		
+					}
+					else;
+				}
+				
+			}
+			System.out.println(theMinimunKth);
+			System.out.println(minimunCollisions);
+			
+			//re simulate the minimum
+			if(minimunCollisions!=0)
+			{
+				MyHashTable table= new MyHashTable(theMinimunKth);
+				ArrayList<Integer> theFirsts= new ArrayList<>();
+				for (int j = 0; j < n; j++) 
+				{
+					table.insert(data[j]);
+				}
+				for (int j = 0; j < table.arrays.length; j++) 
+				{
+					if (table.arrays[j]!=null)
+						if(table.arrays[j].size()>1)
+							theFirsts.add(table.arrays[j].get(0));
+				}
+				Collections.sort(theFirsts);
+				for (int j = 0; j < theFirsts.size(); j++) 
+				{
+					ArrayList<Integer>temporal=table.arrays[table.getHashCode(theFirsts.get(j))];
+					for (Integer integer : temporal) 
+					{
+						System.out.print(integer+" ");
+					}
+					System.out.println();
+				}
+			}
+			
+		}
+		scan.close();
+	}
+	
+	public static class MyHashTable 
+	{
+		int numberOfCollisions;
+		int tableSize;
+		int currentSize;
+		
+		ArrayList<Integer>arrays[];
+
+		@SuppressWarnings("unchecked")
+		public MyHashTable(int tableSize) 
+		{
+			super();
+			this.numberOfCollisions = 0;
+			this.currentSize=0;
+			this.tableSize = tableSize;
+			
+			arrays= new ArrayList[tableSize];
+			
+			
+		}
+		
+		public int getHashCode (int x)
+		{
+			return x%tableSize;
+		}
+		//return true if collision false if not
+		public boolean insert (int x)
+		{
+			int index= getHashCode(x);
+			
+			if (arrays[index]==null)
+			{
+				arrays[index]= new ArrayList<Integer>();
+				arrays[index].add(x);
+				
+				return false;
+			}
+			else
+			{
+				arrays[index].add(x);
+				Collections.sort(arrays[index]);
+				return true;
+			}
+		}
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaB 
+{
+	public static String INPUT="B_1.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			
+			//number of ponds
+			int n=Integer.parseInt(scan.nextLine().trim());
+			String temp[];
+			SeparateChainingHashTable<Integer>backPack= new SeparateChainingHashTable<>();
+			int neededFood=0;
+			HashMap <Integer,Integer>foodQuantity= new HashMap<Integer, Integer>();
+			
+			for (int j = 0; j < n; j++) 
+			{
+				temp=scan.nextLine().split(" ");
+				int food=Integer.parseInt(temp[0]);
+				
+				backPack.insert(food);
+				
+				int pokemon=Integer.parseInt(temp[1]);
+				
+				if(backPack.contains(pokemon))
+					backPack.remove(pokemon);
+				else
+				{
+					neededFood++;
+					if (!foodQuantity.containsKey(pokemon))
+						foodQuantity.put(pokemon, 1);
+					else 
+						foodQuantity.put(pokemon, foodQuantity.get(pokemon)+1);
+				}
+					
+			}
+			
+			
+			System.out.println(neededFood);
+			ArrayList<Integer>food = new ArrayList<Integer>();
+			for (Map.Entry<Integer, Integer> entry : foodQuantity.entrySet()) 
+			{
+				food.add(entry.getKey());
+			}
+			Collections.sort(food);
+			for (Integer integer : food) 
+			{
+				System.out.println(integer+" "+foodQuantity.get(integer));
+			}
+			
+		}
+		
+		scan.close();
+	}
+	
+	public static class SeparateChainingHashTable<AnyType>
+	{
+	    /**
+	     * Construct the hash table.
+	     */
+	    public SeparateChainingHashTable( )
+	    {
+	        this( DEFAULT_TABLE_SIZE );
+	    }
+
+	    /**
+	     * Construct the hash table.
+	     * @param size approximate table size.
+	     */
+	    public SeparateChainingHashTable( int size )
+	    {
+	        theLists = new LinkedList[ nextPrime( size ) ];
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ] = new LinkedList<>( );
+	    }
+
+	    /**
+	     * Insert into the hash table. If the item is
+	     * already present, then do nothing.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( true )
+	        {
+	            whichList.add( x );
+
+	                // Rehash; see Section 5.5
+	            if( ++currentSize > theLists.length )
+	                rehash( );
+	        }
+	    }
+
+	    /**
+	     * Remove from the hash table.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        if( whichList.contains( x ) )
+	    {
+	        whichList.remove( x );
+	            currentSize--;
+	    }
+	    }
+
+	    /**
+	     * Find an item in the hash table.
+	     * @param x the item to search for.
+	     * @return true if x is found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        List<AnyType> whichList = theLists[ myhash( x ) ];
+	        return whichList.contains( x );
+	    }
+
+	    /**
+	     * Make the hash table logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        for( int i = 0; i < theLists.length; i++ )
+	            theLists[ i ].clear( );
+	        currentSize = 0;  
+	    }
+
+	    /**
+	     * A hash routine for String objects.
+	     * @param key the String to hash.
+	     * @param tableSize the size of the hash table.
+	     * @return the hash value.
+	     */
+	    public static int hash( String key, int tableSize )
+	    {
+	        int hashVal = 0;
+
+	        for( int i = 0; i < key.length( ); i++ )
+	            hashVal = 37 * hashVal + key.charAt( i );
+
+	        hashVal %= tableSize;
+	        if( hashVal < 0 )
+	            hashVal += tableSize;
+
+	        return hashVal;
+	    }
+
+	    private void rehash( )
+	    {
+	        List<AnyType> [ ]  oldLists = theLists;
+
+	            // Create new double-sized, empty table
+	        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+	        for( int j = 0; j < theLists.length; j++ )
+	            theLists[ j ] = new LinkedList<>( );
+
+	            // Copy table over
+	        currentSize = 0;
+	        for( List<AnyType> list : oldLists )
+	            for( AnyType item : list )
+	                insert( item );
+	    }
+
+	    private int myhash( AnyType x )
+	    {
+	        int hashVal = x.hashCode( );
+
+	        hashVal %= theLists.length;
+	        if( hashVal < 0 )
+	            hashVal += theLists.length;
+
+	        return hashVal;
+	    }
+	    
+	    private static final int DEFAULT_TABLE_SIZE = 101;
+
+	        /** The array of Lists. */
+	    private List<AnyType> [ ] theLists; 
+	    private int currentSize;
+
+	    /**
+	     * Internal method to find a prime number at least as large as n.
+	     * @param n the starting number (must be positive).
+	     * @return a prime number larger than or equal to n.
+	     */
+	    @SuppressWarnings("empty-statement")
+	    private static int nextPrime( int n )
+	    {
+	        if( n % 2 == 0 )
+	            n++;
+
+	        for( ; !isPrime( n ); n += 2 )
+	            ;
+
+	        return n;
+	    }
+
+	    /**
+	     * Internal method to test if a number is prime.
+	     * Not an efficient algorithm.
+	     * @param n the number to test.
+	     * @return the result of the test.
+	     */
+	    private static boolean isPrime( int n )
+	    {
+	        if( n == 2 || n == 3 )
+	            return true;
+
+	        if( n == 1 || n % 2 == 0 )
+	            return false;
+
+	        for( int i = 3; i * i <= n; i += 2 )
+	            if( n % i == 0 )
+	                return false;
+
+	        return true;
+	    }
+	    
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	public static String INPUT="A_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			String temp []=scan.nextLine().split(" ");
+			
+			//data
+			int n=Integer.parseInt(temp[0]);
+			//sizes
+			int m=Integer.parseInt(temp[1]);
+			
+			int data[]=new int[n];
+			int sizes[]= new int[m];
+			
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < n; j++) 
+			{
+				data[j]=Integer.parseInt(temp[j]);
+			}
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < m; j++) 
+			{
+				sizes[j]=Integer.parseInt(temp[j]);			
+			}
+			
+			//simulation
+			int theMinimunKth=0;
+			int minimunCollisions=0;
+			
+			for (int j = 0; j < m; j++) 
+			{
+				MyHashTable table = new MyHashTable(sizes[j]);
+				
+				int tempCollisions=0;
+				
+				for (int k = 0; k < n; k++) 
+				{
+					if(table.insert(data[k]))
+						tempCollisions++;
+				}
+				if(j==0)
+				{
+					theMinimunKth=sizes[j];
+					minimunCollisions=tempCollisions;
+				}
+				else
+				{
+					if (tempCollisions==minimunCollisions)
+					{							
+						if(sizes[j]<theMinimunKth)
+							theMinimunKth=sizes[j];
+					}
+					else if (tempCollisions<minimunCollisions)
+					{
+						theMinimunKth=sizes[j];
+						minimunCollisions=tempCollisions;		
+					}
+					else;
+				}
+				
+			}
+			System.out.println(theMinimunKth);
+			System.out.println(minimunCollisions);
+			
+			//re simulate the minimum
+			if(minimunCollisions!=0)
+			{
+				MyHashTable table= new MyHashTable(theMinimunKth);
+				ArrayList<Integer> theFirsts= new ArrayList<>();
+				for (int j = 0; j < n; j++) 
+				{
+					table.insert(data[j]);
+				}
+				for (int j = 0; j < table.arrays.length; j++) 
+				{
+					if (table.arrays[j]!=null)
+						if(table.arrays[j].size()>1)
+							theFirsts.add(table.arrays[j].get(0));
+				}
+				Collections.sort(theFirsts);
+				for (int j = 0; j < theFirsts.size(); j++) 
+				{
+					ArrayList<Integer>temporal=table.arrays[table.getHashCode(theFirsts.get(j))];
+					for (Integer integer : temporal) 
+					{
+						System.out.print(integer+" ");
+					}
+					System.out.println();
+				}
+			}
+			
+		}
+		scan.close();
+	}
+	
+	public static class MyHashTable 
+	{
+		int numberOfCollisions;
+		int tableSize;
+		int currentSize;
+		
+		ArrayList<Integer>arrays[];
+
+		@SuppressWarnings("unchecked")
+		public MyHashTable(int tableSize) 
+		{
+			super();
+			this.numberOfCollisions = 0;
+			this.currentSize=0;
+			this.tableSize = tableSize;
+			
+			arrays= new ArrayList[tableSize];
+			
+			
+		}
+		
+		public int getHashCode (int x)
+		{
+			return x%tableSize;
+		}
+		//return true if collision false if not
+		public boolean insert (int x)
+		{
+			int index= getHashCode(x);
+			
+			if (arrays[index]==null)
+			{
+				arrays[index]= new ArrayList<Integer>();
+				arrays[index].add(x);
+				
+				return false;
+			}
+			else
+			{
+				arrays[index].add(x);
+				Collections.sort(arrays[index]);
+				return true;
+			}
+		}
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class ProblemaA 
+{
+	public static String INPUT="A_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			String temp []=scan.nextLine().split(" ");
+			
+			//data
+			int n=Integer.parseInt(temp[0]);
+			//sizes
+			int m=Integer.parseInt(temp[1]);
+			
+			int data[]=new int[n];
+			int sizes[]= new int[m];
+			
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < n; j++) 
+			{
+				data[j]=Integer.parseInt(temp[j]);
+			}
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < m; j++) 
+			{
+				sizes[j]=Integer.parseInt(temp[j]);			
+			}
+			
+			//simulation
+			int theMinimunKth=0;
+			int minimunCollisions=0;
+			MyHashTable table;
+			
+			for (int j = 0; j < m; j++) 
+			{
+				table = new MyHashTable(sizes[j]);
+				
+				int tempCollisions=0;
+				
+				for (int k = 0; k < n; k++) 
+				{
+					if(table.insert(data[k]))
+						tempCollisions++;
+				}
+				if(j==0)
+				{
+					theMinimunKth=sizes[j];
+					minimunCollisions=tempCollisions;
+				}
+				else
+				{
+					if (tempCollisions==minimunCollisions)
+					{							
+						if(sizes[j]<theMinimunKth)
+							theMinimunKth=sizes[j];
+					}
+					else if (tempCollisions<minimunCollisions)
+					{
+						theMinimunKth=sizes[j];
+						minimunCollisions=tempCollisions;		
+					}
+					else;
+				}
+			}
+			System.out.println(theMinimunKth);
+			System.out.println(minimunCollisions);
+			
+			//re simulate the minimum
+			if(minimunCollisions!=0)
+			{
+				table= new MyHashTable(theMinimunKth);
+				ArrayList<Integer> theFirsts= new ArrayList<>();
+				for (int j = 0; j < n; j++) 
+				{
+					table.insert(data[j]);
+				}
+				for (int j = 0; j < table.arrays.length; j++) 
+				{
+					if (table.arrays[j]!=null)
+						if(table.arrays[j].size()>1)
+							theFirsts.add(table.arrays[j].get(0));
+				}
+				Collections.sort(theFirsts);
+				/*for (int j = 0; j < theFirsts.size(); j++) 
+				{
+					ArrayList<Integer>temporal=table.arrays[table.getHashCode(theFirsts.get(j))];
+					for (Integer integer : temporal) 
+					{
+						System.out.print(integer+" ");
+					}
+					System.out.println();
+				}*/
+				Iterator <Integer> iterator=theFirsts.iterator();
+				while (iterator.hasNext())
+				{
+					ArrayList<Integer>temporal=table.arrays[table.getHashCode(iterator.next())];
+					for (Integer integer : temporal) 
+					{
+						System.out.print(integer+" ");
+					}
+					System.out.println();
+					iterator.remove();
+				}
+			}
+			
+		}
+		scan.close();
+	}
+	
+	public static class MyHashTable 
+	{
+		int numberOfCollisions;
+		int tableSize;
+		int currentSize;
+		
+		ArrayList<Integer>arrays[];
+
+		@SuppressWarnings("unchecked")
+		public MyHashTable(int tableSize) 
+		{
+			super();
+			this.numberOfCollisions = 0;
+			this.currentSize=0;
+			this.tableSize = tableSize;
+			
+			arrays= new ArrayList[tableSize];
+			
+			
+		}
+		
+		public int getHashCode (int x)
+		{
+			return x%tableSize;
+		}
+		//return true if collision false if not
+		public boolean insert (int x)
+		{
+			int index= getHashCode(x);
+			
+			if (arrays[index]==null)
+			{
+				arrays[index]= new ArrayList<Integer>();
+				arrays[index].add(x);
+				
+				return false;
+			}
+			else
+			{
+				arrays[index].add(x);
+				Collections.sort(arrays[index]);
+				return true;
+			}
+		}
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ProblemaA2 
+{
+	public static String INPUT="A_2.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",(i+1));
+			String temp []=scan.nextLine().split(" ");
+			
+			//data
+			int n=Integer.parseInt(temp[0]);
+			//sizes
+			int m=Integer.parseInt(temp[1]);
+			
+			int data[]=new int[n];
+			int sizes[]= new int[m];
+			
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < n; j++) 
+			{
+				data[j]=Integer.parseInt(temp[j]);
+			}
+			temp=scan.nextLine().split(" ");
+			for (int j = 0; j < m; j++) 
+			{
+				sizes[j]=Integer.parseInt(temp[j]);			
+			}
+			
+			//simulation
+			int theMinimunKth=0;
+			int minimunCollisions=0;
+			
+			HashMap<Integer, ArrayList<Integer>> map;
+			
+			
+			for (int j = 0; j < m; j++) 
+			{
+				map= new HashMap<Integer, ArrayList<Integer>>();
+				
+				//table = new MyHashTable(sizes[j]);
+				
+				int tempCollisions=0;
+				
+				for (int k = 0; k < n; k++) 
+				{
+					int generatedKey=data[k]%sizes[j];
+					
+					if(!map.containsKey(generatedKey))
+					{
+						ArrayList<Integer>array= null;
+						map.put(generatedKey, array);
+					}
+					else
+					{
+						tempCollisions++;
+					}
+				}
+				if(j==0)
+				{
+					theMinimunKth=sizes[j];
+					minimunCollisions=tempCollisions;
+				}
+				else
+				{
+					if (tempCollisions==minimunCollisions)
+					{							
+						if(sizes[j]<theMinimunKth)
+							theMinimunKth=sizes[j];
+					}
+					else if (tempCollisions<minimunCollisions)
+					{
+						theMinimunKth=sizes[j];
+						minimunCollisions=tempCollisions;		
+					}
+					else;
+				}
+			}
+			System.out.println(theMinimunKth);
+			System.out.println(minimunCollisions);
+			
+			//re simulate the minimum
+			if(minimunCollisions!=0)
+			{
+				//table= new MyHashTable(theMinimunKth);
+				
+				map= new HashMap<Integer, ArrayList<Integer>>();
+				ArrayList<Integer> theFirsts= new ArrayList<>();
+				
+				for (int j = 0; j < n; j++) 
+				{
+					int generatedKey=data[j]%theMinimunKth;
+					
+					if(!map.containsKey(generatedKey))
+					{
+						ArrayList<Integer>array= new ArrayList<Integer>();
+						array.add(data[j]);
+						map.put(generatedKey, array);
+					}
+					else
+					{
+						map.get(generatedKey).add(data[j]);
+						Collections.sort(map.get(generatedKey));
+					}
+					//table.insert(data[j]);
+				}
+				
+				for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()) 
+				{
+					theFirsts.add(entry.getValue().get(0));
+				}
+				Collections.sort(theFirsts);
+				for (Integer integer : theFirsts) 
+				{
+					int generatedKey=integer%theMinimunKth;
+					ArrayList<Integer> aux= map.get(generatedKey);
+					if(aux.size()>1)
+					{
+						for (Integer integer2 : aux) 
+						{
+							System.out.print(integer2+" ");
+						}
+						System.out.println();
+					}
+					
+				}
+				
+			}
+			
+		}
+		scan.close();
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+
+public class ProblemaA 
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			
+			int n= Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			Graph railway = new Graph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v= Integer.parseInt(aux[1]);
+				
+				railway.connect(u, v);
+			}
+			int s=Integer.parseInt(scan.nextLine());
+			
+			railway.breathFirstSearch(s);
+			
+			System.out.println(railway.numberOfReachableNodes());
+		}
+		
+		scan.close();
+	}
+	
+	
+	public static class Graph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private int source;
+		
+		public Graph(int size)
+		{
+			source=-1;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				adyacencyList.replace(i, arr);
+			}
+			else 
+				adyacencyList.get(i).add(j);
+			
+			if(adyacencyList.get(j)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(i);
+				adyacencyList.replace(j, arr);
+			}
+			else 
+				adyacencyList.get(j).add(i);
+		}
+		public void resetGraph()
+		{
+			source=-1;
+			for (Node node : nodes) 
+			{
+				node.distance=-1;
+				node.reachedFrom=-1;
+			}
+		}
+		public void breathFirstSearch (int s)
+		{
+			source=s;
+			Queue <Node> queue= new LinkedList<>();
+			Node aux= nodes.get(s);
+			aux.distance=0;
+			
+			queue.add(aux);
+			
+			while(!queue.isEmpty())
+			{
+				aux=queue.poll();
+				for (Integer vertex : adyacencyList.get(aux.id)) 
+				{
+					Node aux2= nodes.get(vertex);
+					if (aux2.distance==-1) 
+					{
+						aux2.reachedFrom=aux.id;
+						aux2.distance=aux.distance+1;
+						queue.add(aux2);
+					}
+				}
+			}
+		}
+		public int numberOfReachableNodes ()
+		{
+			int ans=0;
+			for (Node node : nodes) 
+			{
+				if(node.distance!=-1)
+					ans++;
+			}
+			return --ans;
+		}
+		public int getSource ()
+		{
+			return source;
+		}
+		
+		private class Node
+		{
+			int id;
+			int distance;
+			@SuppressWarnings("unused")
+			int reachedFrom;
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.distance = -1;
+				this.reachedFrom = -1;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+			
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaB
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.topSort();
+			
+			String ans;
+			ans=(graph.hasOnlyOneSortingOrder())
+			
+			System.out.println(ans);
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+			
+		}
+		
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+
+public class ProblemaA 
+{
+	public static String INPUT="inputA1.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			
+			int n= Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			Graph railway = new Graph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v= Integer.parseInt(aux[1]);
+				
+				railway.connect(u, v);
+			}
+			int s=Integer.parseInt(scan.nextLine());
+			
+			railway.breathFirstSearch(s);
+			
+			System.out.println(railway.numberOfReachableNodes());
+		}
+		
+		scan.close();
+	}
+	
+	
+	public static class Graph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private int source;
+		
+		public Graph(int size)
+		{
+			source=-1;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				adyacencyList.replace(i, arr);
+			}
+			else 
+				adyacencyList.get(i).add(j);
+			
+			if(adyacencyList.get(j)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(i);
+				adyacencyList.replace(j, arr);
+			}
+			else 
+				adyacencyList.get(j).add(i);
+		}
+		public void resetGraph()
+		{
+			source=-1;
+			for (Node node : nodes) 
+			{
+				node.distance=-1;
+				node.reachedFrom=-1;
+			}
+		}
+		public void breathFirstSearch (int s)
+		{
+			source=s;
+			Queue <Node> queue= new LinkedList<>();
+			Node aux= nodes.get(s);
+			aux.distance=0;
+			
+			queue.add(aux);
+			
+			while(!queue.isEmpty())
+			{
+				aux=queue.poll();
+				for (Integer vertex : adyacencyList.get(aux.id)) 
+				{
+					Node aux2= nodes.get(vertex);
+					if (aux2.distance==-1) 
+					{
+						aux2.reachedFrom=aux.id;
+						aux2.distance=aux.distance+1;
+						queue.add(aux2);
+					}
+				}
+			}
+		}
+		public int numberOfReachableNodes ()
+		{
+			int ans=0;
+			for (Node node : nodes) 
+			{
+				if(node.distance!=-1)
+					ans++;
+			}
+			return --ans;
+		}
+		public int getSource ()
+		{
+			return source;
+		}
+		
+		private class Node
+		{
+			int id;
+			int distance;
+			@SuppressWarnings("unused")
+			int reachedFrom;
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.distance = -1;
+				this.reachedFrom = -1;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+			
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+
+public class ProblemaA 
+{
+	public static String INPUT="inputA1.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			
+			int n= Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			Graph railway = new Graph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v= Integer.parseInt(aux[1]);
+				
+				railway.connect(u, v);
+			}
+			int s=Integer.parseInt(scan.nextLine());
+			
+			railway.breathFirstSearch(s);
+			
+			System.out.println(railway.numberOfReachableNodes());
+		}
+		
+		scan.close();
+	}
+	
+	
+	public static class Graph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private int source;
+		
+		public Graph(int size)
+		{
+			source=-1;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+				adyacencyList.get(i).add(j);
+			
+			if(adyacencyList.get(j)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(i);
+				adyacencyList.put(j, arr);
+				//adyacencyList.replace(j, arr);
+			}
+			else 
+				adyacencyList.get(j).add(i);
+		}
+		public void resetGraph()
+		{
+			source=-1;
+			for (Node node : nodes) 
+			{
+				node.distance=-1;
+				node.reachedFrom=-1;
+			}
+		}
+		public void breathFirstSearch (int s)
+		{
+			source=s;
+			Queue <Node> queue= new LinkedList<>();
+			Node aux= nodes.get(s);
+			aux.distance=0;
+			
+			queue.add(aux);
+			
+			while(!queue.isEmpty())
+			{
+				aux=queue.poll();
+				for (Integer vertex : adyacencyList.get(aux.id)) 
+				{
+					Node aux2= nodes.get(vertex);
+					if (aux2.distance==-1) 
+					{
+						aux2.reachedFrom=aux.id;
+						aux2.distance=aux.distance+1;
+						queue.add(aux2);
+					}
+				}
+			}
+		}
+		public int numberOfReachableNodes ()
+		{
+			int ans=0;
+			for (Node node : nodes) 
+			{
+				if(node.distance!=-1)
+					ans++;
+			}
+			return --ans;
+		}
+		public int getSource ()
+		{
+			return source;
+		}
+		
+		private class Node
+		{
+			int id;
+			int distance;
+			@SuppressWarnings("unused")
+			int reachedFrom;
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.distance = -1;
+				this.reachedFrom = -1;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+			
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaB
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.topSort();
+			
+			String ans;
+			ans=(graph.hasOnlyOneSortingOrder())
+			
+			System.out.println(ans);
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+			
+		}
+		
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaD
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.newTopSort();
+			
+			ArrayList<Integer>answer= graph.getTopologicalSort();
+			
+			for (Integer integer : answer)
+			{
+				System.out.print(integer+" ");
+			}
+			System.out.println();
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		public void newTopSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux=null;
+				if(queue.size()>1)
+				{
+					ArrayList<Node> auxiliarArray= new ArrayList<Node>();
+					for (int i = 0; i < queue.size(); i++) 
+					{
+						auxiliarArray.add(queue.poll());
+						Collections.sort(auxiliarArray);
+						aux=auxiliarArray.get(0);
+						for (int j = 1; j < auxiliarArray.size(); j++) 
+						{
+							queue.add(auxiliarArray.get(j));
+						}
+					}
+				}
+				else
+				{
+					aux= queue.poll();
+				}
+				
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+			
+		}
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node implements Comparable <Node>
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+
+			@Override
+			public int compareTo(Node other) 
+			{
+				return this.id-other.id;
+			}
+			
+		}
+		
+		public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		   
+		}
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaD
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.newTopSort();
+			
+			ArrayList<Integer>answer= graph.getTopologicalSort();
+			
+			for (Integer integer : answer)
+			{
+				System.out.print(integer+" ");
+			}
+			System.out.println();
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		public void newTopSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux=null;
+				if(queue.size()>1)
+				{
+					//BinaryHeap<Node>auxiliarHeap= new BinaryHeap<Node>();
+					ArrayList<Node> auxiliarArray= new ArrayList<Node>();
+					for (int i = 0; i < queue.size(); i++) 
+					{
+						auxiliarArray.add(queue.poll());
+					}
+					Collections.sort(auxiliarArray);
+					aux=auxiliarArray.get(0);
+					for (int j = 1; j < auxiliarArray.size(); j++) 
+					{
+						queue.add(auxiliarArray.get(j));
+					}
+				}
+				else
+				{
+					aux= queue.poll();
+				}
+				
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+			
+		}
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node implements Comparable <Node>
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+
+			@Override
+			public int compareTo(Node other) 
+			{
+				return this.id-other.id;
+			}
+			
+		}
+		
+		public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		   
+		}
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaD
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[]) throws Exception
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.newTopSort();
+			
+			ArrayList<Integer>answer= graph.getTopologicalSort();
+			
+			for (Integer integer : answer)
+			{
+				System.out.print(integer+" ");
+			}
+			System.out.println();
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		public void newTopSort() throws Exception
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			
+			while(!queue.isEmpty())
+			{
+				Node aux=null;
+				if(queue.size()>1)
+				{
+					BinaryHeap<Node>auxiliarHeap= new BinaryHeap<Node>();
+					
+					for (int i = 0; i < queue.size(); i++) 
+					{
+						auxiliarHeap.insert(queue.poll());
+		
+					}
+					aux=auxiliarHeap.deleteMin();
+					
+					for (int i = 0; i < auxiliarHeap.currentSize; i++) 
+					{
+						queue.add(auxiliarHeap.deleteMin());
+					}
+				}
+				else
+				{
+					aux= queue.poll();
+				}
+				
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				
+			}
+			
+		}
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node implements Comparable <Node>
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+
+			@Override
+			public int compareTo(Node other) 
+			{
+				return this.id-other.id;
+			}
+			
+		}
+		
+		public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		   
+		}
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaD
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[]) throws Exception
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.newTopSort();
+			
+			ArrayList<Integer>answer= graph.getTopologicalSort();
+			
+			for (Integer integer : answer)
+			{
+				System.out.print(integer+" ");
+			}
+			System.out.println();
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		public void newTopSort() throws Exception
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			
+			while(!queue.isEmpty())
+			{
+				Node aux=null;
+				if(queue.size()>1)
+				{
+					BinaryHeap<Node>auxiliarHeap= new BinaryHeap<Node>();
+					
+					for (int i = 0; i < queue.size(); i++) 
+					{
+						auxiliarHeap.insert(queue.poll());
+		
+					}
+					aux=auxiliarHeap.deleteMin();
+					
+					for (int i = 0; i < auxiliarHeap.currentSize; i++) 
+					{
+						queue.add(auxiliarHeap.deleteMin());
+					}
+				}
+				else
+				{
+					aux= queue.poll();
+				}
+				
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				
+			}
+			
+		}
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node implements Comparable <Node>
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+
+			@Override
+			public int compareTo(Node other) 
+			{
+				if (this.indegree==other.indegree)
+					return this.id-other.id;
+				else return this.indegree-other.indegree;
+			}
+			
+		}
+		
+		public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		   
+		}
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaD
+{
+	public static String INPUT="input.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[]) throws Exception
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			//System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			int n = Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			DirectedAcyclicGraph graph= new DirectedAcyclicGraph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v=Integer.parseInt(aux[1]);
+				graph.connect(u,v);
+			}
+			graph.finalTopSort();
+			
+			ArrayList<Integer>answer= graph.getTopologicalSort();
+			
+			for (Integer integer : answer)
+			{
+				System.out.print(integer+" ");
+			}
+			System.out.println();
+		}
+		
+		scan.close();
+		
+	}
+	
+
+	public static  class DirectedAcyclicGraph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private ArrayList<Integer>topologicalSort;
+		private boolean hasOnlyOneSorting;
+		
+		public DirectedAcyclicGraph(int size)
+		{
+			hasOnlyOneSorting=true;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				adyacencyList.put(i, null);
+				nodes.add(new Node(i));
+			}
+		}
+		
+		public boolean hasOnlyOneSortingOrder()
+		{
+			return hasOnlyOneSorting;
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				nodes.get(j).indegree++;
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+			{
+				adyacencyList.get(i).add(j);
+				nodes.get(j).indegree++;
+			}
+				
+			
+			
+		}
+		
+		public ArrayList<Integer> getTopologicalSort ()
+		{
+			return topologicalSort;
+		}
+		public void newTopSort() throws Exception
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			
+			while(!queue.isEmpty())
+			{
+				Node aux=null;
+				if(queue.size()>1)
+				{
+					BinaryHeap<Node>auxiliarHeap= new BinaryHeap<Node>();
+					
+					for (int i = 0; i < queue.size(); i++) 
+					{
+						auxiliarHeap.insert(queue.poll());
+		
+					}
+					aux=auxiliarHeap.deleteMin();
+					
+					for (int i = 0; i < auxiliarHeap.currentSize; i++) 
+					{
+						queue.add(auxiliarHeap.deleteMin());
+					}
+				}
+				else
+				{
+					aux= queue.poll();
+				}
+				
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				
+			}
+			
+		}
+		public void finalTopSort() throws Exception
+		{
+			topologicalSort= new ArrayList<>();
+			BinaryHeap<Node> heap =new BinaryHeap<Node>();
+			
+		
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					heap.insert(node);
+				}
+			}
+			
+			while(heap.currentSize!=0)
+			{
+				Node aux=heap.deleteMin();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							heap.insert(nodes.get(node));
+					}
+				}
+				
+			}
+		}
+		public void topSort()
+		{
+			topologicalSort= new ArrayList<>();
+			Queue <Node> queue= new LinkedList<>();
+			
+			for (Node node : nodes) 
+			{
+				if(node.indegree==0)
+				{
+					queue.add(node);
+				}
+			}
+			if(queue.size()>=2)
+				hasOnlyOneSorting=false;
+			
+			while(!queue.isEmpty())
+			{
+				Node aux= queue.poll();
+				topologicalSort.add(aux.id);
+				
+				if(adyacencyList.get(aux.id)!= null)
+				{
+					for (Integer node : adyacencyList.get(aux.id))
+					{
+						if(--nodes.get(node).indegree==0)
+							queue.add(nodes.get(node));
+					}
+				}
+				
+				if(queue.size()>=2)
+					hasOnlyOneSorting=false;
+			}
+		}
+		
+		private class Node implements Comparable <Node>
+		{
+			int id;
+			int indegree;
+		
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.indegree=0;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+
+			@Override
+			public int compareTo(Node other) 
+			{
+				if (this.indegree==other.indegree)
+					return this.id-other.id;
+				else return this.indegree-other.indegree;
+			}
+			
+		}
+		
+		public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		   
+		}
+
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package paraEntregar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+
+
+public class ProblemaA 
+{
+	public static String INPUT="inputA1.txt";
+	public static String OUTPUT="output.txt";
+	
+	public static void main(String args[])
+	{
+		Scanner scan;
+		File file = new File(INPUT);
+		try
+		{
+			scan=new Scanner(file);
+			System.setOut(new PrintStream(OUTPUT));
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			scan= new Scanner(System.in);
+		}
+		
+		int t=Integer.parseInt(scan.nextLine());
+		String aux[];
+		
+		for (int i = 0; i < t; i++) 
+		{
+			System.out.printf("Case #%d:\n",i+1);
+			aux=scan.nextLine().split(" ");
+			
+			int n= Integer.parseInt(aux[0]);
+			int m= Integer.parseInt(aux[1]);
+			
+			Graph railway = new Graph(n);
+			
+			for (int j = 0; j < m; j++) 
+			{
+				aux=scan.nextLine().split(" ");
+				int u=Integer.parseInt(aux[0]);
+				int v= Integer.parseInt(aux[1]);
+				
+				railway.connect(u, v);
+			}
+			int s=Integer.parseInt(scan.nextLine());
+			
+			railway.breathFirstSearch(s);
+			
+			System.out.println(railway.numberOfReachableNodes());
+		}
+		
+		scan.close();
+	}
+	
+	
+	public static class Graph
+	{
+		private HashMap<Integer,ArrayList<Integer>>adyacencyList;
+		private ArrayList<Node>nodes;
+		private int source;
+		
+		public Graph(int size)
+		{
+			source=-1;
+			adyacencyList= new HashMap<>();
+			nodes= new ArrayList<>();
+			
+			for (int i = 0; i < size; i++) 
+			{
+				ArrayList<Integer>arr= new ArrayList<Integer>();
+				adyacencyList.put(i, arr);
+				nodes.add(new Node(i));
+			}
+		}
+		public void connect(int i, int j)
+		{
+			if(adyacencyList.get(i)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(j);
+				adyacencyList.put(i, arr);
+				//adyacencyList.replace(i, arr);
+			}
+			else 
+				adyacencyList.get(i).add(j);
+			
+			if(adyacencyList.get(j)==null)
+			{
+				ArrayList<Integer>arr= new ArrayList<>();
+				arr.add(i);
+				adyacencyList.put(j, arr);
+				//adyacencyList.replace(j, arr);
+			}
+			else 
+				adyacencyList.get(j).add(i);
+		}
+		public void resetGraph()
+		{
+			source=-1;
+			for (Node node : nodes) 
+			{
+				node.distance=-1;
+				node.reachedFrom=-1;
+			}
+		}
+		public void breathFirstSearch (int s)
+		{
+			source=s;
+			Queue <Node> queue= new LinkedList<>();
+			Node aux= nodes.get(s);
+			aux.distance=0;
+			
+			queue.add(aux);
+			
+			while(!queue.isEmpty())
+			{
+				aux=queue.poll();
+				for (Integer vertex : adyacencyList.get(aux.id)) 
+				{
+					Node aux2= nodes.get(vertex);
+					if (aux2.distance==-1) 
+					{
+						aux2.reachedFrom=aux.id;
+						aux2.distance=aux.distance+1;
+						queue.add(aux2);
+					}
+				}
+			}
+		}
+		public int numberOfReachableNodes ()
+		{
+			int ans=0;
+			for (Node node : nodes) 
+			{
+				if(node.distance!=-1)
+					ans++;
+			}
+			return --ans;
+		}
+		public int getSource ()
+		{
+			return source;
+		}
+		
+		private class Node
+		{
+			int id;
+			int distance;
+			@SuppressWarnings("unused")
+			int reachedFrom;
+			
+			public Node(int id)
+			{
+				super();
+				this.id = id;
+				this.distance = -1;
+				this.reachedFrom = -1;
+			}
+			
+			public String toString()
+			{
+				return id+"";
+			}
+			
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

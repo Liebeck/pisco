@@ -1,0 +1,7373 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class Punto1 
+{
+	//entrada problema A usando Scanner
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/entradaA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaA")));
+
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		
+		long pos=0, neg=0, posmax=0, posmin=0, negmax=0, negmin=0;
+		int num = Integer.parseInt(scan.nextLine());
+		long []arr = new long [num];
+		for (int i = 0; i < num; i++) 
+		{
+			arr[i] = scan.nextLong();						
+		}
+		for (int i = 0; i < arr.length; i++) 
+		{
+			if (arr[i] > 0) 
+			{
+				if (arr[i] > posmax)
+				{
+					posmin = posmax;
+					posmax = arr[i];
+				}
+				else if (arr[i] >posmin)
+				{
+					posmin = arr[i];
+				}
+			}
+			else if(arr[i] < 0)
+			{
+				if (arr[i] < negmax)
+				{
+					negmin = negmax;
+					negmax = arr[i];
+				}
+				else if (arr[i]<negmin)
+				{
+					negmin = arr[i];
+				}
+			}
+		}
+				
+				
+		pos = posmax*posmin;
+		neg = negmax*negmin;
+			
+		if (pos > neg)
+			System.out.println(pos);
+		else
+			System.out.println(neg);
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Punto2 
+{
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		Scanner scan;
+		File f = new File("src/entradaB");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine());    
+        String[] arr = new String [N];
+		int w =0;
+        for (int t = 0; t < N; t++) 
+        {        	
+        	arr[t] = scan.nextLine();
+            char[] carr = new char [arr[t].length()];
+        	for(int i=0;i<arr[t].length();i++)
+            {
+                carr[i] = arr[t].charAt(i);
+            }
+        	/*for(int i=0;i<arr[t].length();i++)
+            {
+        		System.out.print(carr[i]);
+            }
+        	System.out.println();*/
+            w =0;
+            for (int j = 0; j < carr.length; j++) 
+            {
+                char a = carr[j];
+                if (a == 'B')
+                {
+                	if (j-1 >= 0)
+                	{
+                		if (carr[j-1] == 'W')
+                		{
+                			carr[j-1] = 'm';
+                			w++;
+                		}
+                	}
+                	if (j-2 >= 0)
+                	{
+                		if (carr[j-2] == 'W')
+                		{
+                			carr[j-2] = 'm';
+                			w++;
+                		}
+                	}
+                	if (j+1 <= carr.length-1)
+                	{
+                		if (carr[j+1] == 'W')
+                		{
+                			carr[j+1] = 'm';
+                			w++;
+                		}
+                	}
+                	if (j+2 <= carr.length-1)
+                	{
+                		if (carr[j+2] == 'W')
+                		{
+                			carr[j+2] = 'm';
+                			w++;
+                		}
+                	}
+                	
+                }
+                
+    		}
+            System.out.println(w);
+        }
+
+        
+        //System.out.println(arr);
+        
+        
+
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Punto3 
+{
+
+	public static void main(String[] args) throws Exception {
+
+		Scanner scan;
+		File f = new File("src/entradaC");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salida.out"
+			System.setOut(new PrintStream(new File("src/salidaC")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < n; i++) 
+		{
+			int cantidad = Integer.parseInt(scan.nextLine());
+			String cadena = scan.nextLine();
+			ArrayList<Character> arr=new ArrayList<Character>();
+	        for(int h=0;h<cadena.length();h++)
+	        {
+	            arr.add(cadena.charAt(h));
+	        }
+	        System.out.println(arr);
+			int SubC = cantidad;
+			for (int k = 0; k < arr.size(); k++) 
+			{
+				boolean valido = true;
+				for (int j = k; j < cantidad; j++) {
+					if (j + 1 < cantidad) 
+					{
+						valido = valido && arr.get(j) <= arr.get(j+1);
+						if (valido) 
+						{
+							SubC++;
+						}
+					}
+				}
+			}
+			
+			System.out.println(SubC);
+		}
+
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+public class Punto4 
+{
+
+	// entrada problema D usando BufferedReader
+	public static void main(String[] args) throws IOException {
+		BufferedReader in;
+		File f = new File("src/entradaD");
+		if (f.exists()) {
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("src/salidaD")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		String line = in.readLine();
+		int N = Integer.parseInt(line);
+		for (int t = 0; t < N; t++) 
+		{
+			int cerezas = 0;
+			int s = Integer.parseInt(in.readLine());
+			char array[][] = new char[s][s];
+			for (int column = 0; column < s; column++) 
+			{
+				String string = in.readLine();
+				char[] filas = new char[s];
+				for (int j = 0; j < s; j++) 
+				{
+					filas[j] = string.charAt(j);
+					if (string.charAt(j) == '#')
+					{
+						cerezas++;
+					}
+				}
+				for (int fila = 0; fila < s; fila++) 
+				{
+					array[column][fila] = filas[fila];
+				}			
+			}
+			//System.out.println(cerezas);
+			boolean yes =true;
+			if (cerezas%2 != 0)
+			{
+				yes = false;
+			}
+
+			
+			int mitad = cerezas/2;
+			if (yes) 
+			{
+				int contador = 1;
+				
+				outerloop:
+				while (contador < s)
+				{
+					int temporal = 0;
+					for (int i = 0; i < contador; i++) 
+					{
+						for (int j = 0; j < s; j++) 
+						{
+							if (array [i][j] == '#') 
+							{
+								temporal ++;
+							}
+						}
+						if (temporal == mitad) 
+						{
+							//System.out.println("esta en la mitad");
+							yes = true;
+							break outerloop;
+						}
+						//System.out.println("en i = "+i+" sigue");
+						if (temporal > mitad) 
+						{
+							yes = false;
+						}
+					}
+					temporal = 0;
+					for (int i = 0; i < contador; i++) 
+					{
+						for (int j = 0; j < s; j++) 
+						{
+							if (array [j][i] == '#') 
+							{
+								temporal ++;
+							}
+						}
+						if (temporal == mitad) 
+						{
+							yes = true;
+							break outerloop;
+						}
+						
+						if (temporal > mitad) 
+						{
+							yes = false;
+							break outerloop;
+						}
+					}
+					contador ++;
+					
+				}
+			}
+			//System.out.println(yes);
+			if (yes) 
+			{
+				System.out.println("YES");
+			}
+			else
+			{
+				System.out.println("NO");
+			}
+			
+			
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+public class Punto4 
+{
+
+	// entrada problema D usando BufferedReader
+	public static void main(String[] args) throws IOException {
+		BufferedReader in;
+		File f = new File("src/entradaD");
+		if (f.exists()) {
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("src/salidaD")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		String line = in.readLine();
+		int N = Integer.parseInt(line);
+		for (int t = 0; t < N; t++) 
+		{
+			int cerezas = 0;
+			int s = Integer.parseInt(in.readLine());
+			char array[][] = new char[s][s];
+			for (int column = 0; column < s; column++) 
+			{
+				String string = in.readLine();
+				char[] filas = new char[s];
+				for (int j = 0; j < s; j++) 
+				{
+					filas[j] = string.charAt(j);
+					if (string.charAt(j) == '#')
+					{
+						cerezas++;
+					}
+				}
+				for (int fila = 0; fila < s; fila++) 
+				{
+					array[column][fila] = filas[fila];
+				}			
+			}
+			//System.out.println(cerezas);
+			boolean yes =true;
+			if (cerezas%2 != 0)
+			{
+				yes = false;
+			}
+
+			
+			int mitad = cerezas/2;
+			if (yes) 
+			{
+				int contador = 1;
+				
+				outerloop:
+				while (contador < s)
+				{
+					int temporal = 0;
+					for (int i = 0; i < contador; i++) 
+					{
+						for (int j = 0; j < s; j++) 
+						{
+							if (array [i][j] == '#') 
+							{
+								temporal ++;
+							}
+						}
+						if (temporal == mitad) 
+						{
+							//System.out.println("esta en la mitad");
+							yes = true;
+							break outerloop;
+						}
+						//System.out.println("en i = "+i+" sigue");
+						if (temporal > mitad) 
+						{
+							yes = false;
+						}
+					}
+					temporal = 0;
+					for (int i = 0; i < contador; i++) 
+					{
+						for (int j = 0; j < s; j++) 
+						{
+							if (array [j][i] == '#') 
+							{
+								temporal ++;
+							}
+						}
+						if (temporal == mitad) 
+						{
+							yes = true;
+							break outerloop;
+						}
+						
+						if (temporal > mitad) 
+						{
+							yes = false;
+							break outerloop;
+						}
+					}
+					contador ++;
+					
+				}
+			}
+			//System.out.println(yes);
+			if (yes) 
+			{
+				System.out.println("YES");
+			}
+			else
+			{
+				System.out.println("NO");
+			}
+			
+			
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Punto3 
+{
+
+	public static void main(String[] args) throws Exception {
+
+		Scanner scan;
+		File f = new File("src/entradaC");
+		if (f.exists()) 
+		{
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salida.out"
+			System.setOut(new PrintStream(new File("src/salidaC")));
+		} else {
+			scan = new Scanner(System.in);
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < n; i++) 
+		{
+			int cantidad = Integer.parseInt(scan.nextLine());
+
+			String cadena = scan.nextLine();
+			ArrayList<Character> arr=new ArrayList<Character>();
+	        for(int h=0;h<cadena.length();h++)
+	        {
+	            arr.add(cadena.charAt(h));
+	        }
+			int SubC = 0;
+			long contador = 1, temporal=0;
+			for (int k = 0; k < arr.size()-1; k++) 
+			{
+				if (k == arr.size()-2) 
+				{
+					if (arr.get(k) <= arr.get(k+1)) 
+					{
+
+						contador += 1;
+							for (int j = 0; j <= contador; j++) 
+							{
+								temporal +=j;
+							}
+
+						SubC += temporal;
+						temporal = 0;
+					}
+					else
+					{
+						if (contador > 0) 
+						{
+							for (int j = 0; j <= contador; j++) 
+							{
+								temporal +=j;
+							}
+						}
+						
+						SubC += temporal;
+						contador = 1;
+						temporal = 0;
+					}
+					
+				}
+				if (arr.get(k) <= arr.get(k+1)) 
+				{
+					contador += 1;
+				}
+				else
+				{
+
+					if (contador > 0) 
+					{
+						for (int j = 0; j <= contador; j++) 
+						{
+							temporal +=j;
+						}
+					}
+					SubC += temporal;
+					contador = 1;
+					temporal = 0;
+				}
+			}
+			if (arr.size() == 1) 
+			{
+				System.out.println(1);
+			}
+			else 
+			{
+				System.out.println(SubC);
+			}
+			
+		}
+
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.awt.List;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoA {
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	
+	
+	    
+	}
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoA p = new PuntoA();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			BinarySearchTree<player> tree = p.new BinarySearchTree<>( );
+			HashMap<Integer, player> players = new HashMap<Integer, player>();
+			//Queue queue = new LinkedList();
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			int equipos = Integer.parseInt(parts[0]);
+			int envios = Integer.parseInt(parts[1]);
+			for (int i = 0; i < equipos; i++) {
+				HashMap<Integer, problem> map = new HashMap<Integer, problem>();
+				
+				player pla = p.new player(map, 0, 0, i+1, false);
+				players.put(i+1, pla);
+			}
+			for (int i = 0; i < envios; i++) {
+				String c = scan.nextLine();
+				String[] en = c.split(" ");
+				int equipo = Integer.parseInt(en[0]);
+				int problema = Integer.parseInt(en[1]);
+				int time = Integer.parseInt(en[2]);
+				String r = en[3];
+				players.get(equipo).send = true;
+				if (!players.get(equipo).map.containsKey(problema)) {
+					problem pro = p.new problem(false,0);
+					players.get(equipo).map.put(problema, pro);
+				}
+				switch(r)
+				{
+				case ("C"):
+					player pl = players.get(equipo);
+					pl.correct += 1;
+					problem pro = pl.map.get(problema);
+					pro.correcto = true;
+					pro.tiempo += time;
+					pl.totalTime += pro.tiempo;
+					pl.map.replace(problema, pro);
+
+					break;
+				case ("I"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("R"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("T"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				}
+			}
+			for (int i = 0; i < equipos; i++) {
+				if (players.get(i+1).send) {
+					player r = players.get(i+1);
+					tree.insert(r);	
+				}			
+			}
+			while (!tree.isEmpty()) {
+				player re = tree.findMin();
+				System.out.println(re.team+" "+re.correct+" "+re.totalTime);
+				tree.remove(tree.findMin());
+			}
+        }
+	}
+	
+	public class problem
+	{
+		boolean correcto;
+		int tiempo;
+		public problem(boolean resultado, int tiempo) {
+			super();
+			this.correcto = resultado;
+			this.tiempo = tiempo;
+		}
+		public problem() {
+			this.correcto = false;
+			this.tiempo = 0;
+		}
+	}
+	
+	public class player implements Comparable<player>
+	{
+		HashMap<Integer, problem> map ;
+		int totalTime;
+		int correct;
+		int team;
+		boolean send;
+
+
+		public player(HashMap<Integer, problem> map, int totalTime, int correct, int team, boolean send) {
+			super();
+			this.map = map;
+			this.totalTime = totalTime;
+			this.correct = correct;
+			this.team = team;
+			this.send = send;
+		}
+
+
+
+		@Override
+		public int compareTo(player o) {
+			if (correct < o.correct) {
+				return 1;
+			}else if (correct > o.correct) {
+				return -1;
+			}else{
+				if (totalTime < o.totalTime) {
+					return -1;
+				}else if (totalTime > o.totalTime) {
+					return 1;
+				}else{
+					if (team < o.team) {
+						return -1;
+					}else if (team > o.team) {
+						return 1;
+					}else
+						return 0;
+				}
+			}
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoB {
+
+
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaB");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			HashMap<Integer, Integer> mapa = new HashMap<Integer, Integer>();
+			Queue queue = new LinkedList();
+			int a = Integer.parseInt(scan.nextLine());
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			for (int i = 0; i < parts.length; i++) {
+				if (i == 0) {
+					mapa.put(Integer.parseInt(parts[i]), 1);
+					queue.add(Integer.parseInt(parts[i]));
+				}
+				else if (mapa.containsKey(Integer.parseInt(parts[i]))) 
+				{
+					mapa.replace(Integer.parseInt(parts[i]), (mapa.get(Integer.parseInt(parts[i])))+1);
+				}
+				else
+				{
+					mapa.put(Integer.parseInt(parts[i]), 1);
+					queue.add(Integer.parseInt(parts[i]));
+				}
+			}
+			int s = queue.size();
+			for (int i = 0; i < s; i++) 
+			{
+				int n = (int) queue.remove();
+				System.out.println(n+" "+mapa.get(n));
+			}	        
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PuntoC {
+	
+	public class UnionFind {
+		private int id[];
+		private int rank[];
+		private int cantidad[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			id = new int[n];
+			rank = new int[n];
+			cantidad = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				id[i] = i;
+				cantidad[i] = 1;
+				rank[i] = 1;
+			}
+		}
+
+		public int find(int x) {
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public void union(int x, int y) {
+			int a = find(x);
+			int b = find(y);
+			int ca = cantidad[a];
+			int cb = cantidad[b];
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				id[a] = b;
+				cantidad[a] = ca+cb;
+				cantidad[b] = ca+cb;
+			} else {
+				id[b] = a;
+				cantidad[a] = ca+cb;
+				cantidad[b] = ca+cb;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		
+	}
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaC");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaC")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoC p = new PuntoC();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso #"+(t+1)+":");
+			int a = Integer.parseInt(scan.nextLine());
+			UnionFind uni = p.new UnionFind(a*2);
+			HashMap<String, Integer> mapa = new HashMap<String, Integer>();
+			for (int tt = 0; tt < a; tt++) 
+	        {
+				String cadena = scan.nextLine();
+				String[] parts = cadena.split(" ");
+				String A = parts[0];
+				String B = parts[1];
+				if (tt == 0 || (!mapa.containsKey(A)&&!mapa.containsKey(B))) {
+					if (tt == 0) {
+						mapa.put(A, 0);
+						mapa.put(B, 1);
+					}else{
+					mapa.put(A, mapa.size());
+					mapa.put(B, mapa.size());
+					}
+				} else if (!mapa.containsKey(A)) {
+					mapa.put(A, mapa.size());
+				}else if (!mapa.containsKey(B)) {
+					mapa.put(B, mapa.size());
+				}
+				uni.union(mapa.get(A), mapa.get(B));
+				
+				System.out.println(uni.cantidad[uni.find(mapa.get(A))]);
+	        }
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.awt.List;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoA {
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	
+	
+	    
+	}
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoA p = new PuntoA();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			BinarySearchTree<player> tree = p.new BinarySearchTree<>( );
+			HashMap<Integer, player> players = new HashMap<Integer, player>();
+			//Queue queue = new LinkedList();
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			int equipos = Integer.parseInt(parts[0]);
+			int envios = Integer.parseInt(parts[1]);
+			for (int i = 0; i < equipos; i++) {
+				HashMap<Integer, problem> map = new HashMap<Integer, problem>();
+				
+				player pla = p.new player(map, 0, 0, i+1, false);
+				players.put(i+1, pla);
+			}
+			for (int i = 0; i < envios; i++) {
+				String c = scan.nextLine();
+				String[] en = c.split(" ");
+				int equipo = Integer.parseInt(en[0]);
+				int problema = Integer.parseInt(en[1]);
+				int time = Integer.parseInt(en[2]);
+				String r = en[3];
+				players.get(equipo).send = true;
+				if (!players.get(equipo).map.containsKey(problema)) {
+					problem pro = p.new problem(false,0);
+					players.get(equipo).map.put(problema, pro);
+				}
+				switch(r)
+				{
+				case ("C"):
+					player pl = players.get(equipo);
+					pl.correct += 1;
+					problem pro = pl.map.get(problema);
+					pro.correcto = true;
+					pro.tiempo += time;
+					pl.totalTime += pro.tiempo;
+					pl.map.put(problema, pro);
+
+					break;
+				case ("I"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("R"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("T"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				}
+			}
+			for (int i = 0; i < equipos; i++) {
+				if (players.get(i+1).send) {
+					player r = players.get(i+1);
+					tree.insert(r);	
+				}			
+			}
+			while (!tree.isEmpty()) {
+				player re = tree.findMin();
+				System.out.println(re.team+" "+re.correct+" "+re.totalTime);
+				tree.remove(tree.findMin());
+			}
+        }
+	}
+	
+	public class problem
+	{
+		boolean correcto;
+		int tiempo;
+		public problem(boolean resultado, int tiempo) {
+			super();
+			this.correcto = resultado;
+			this.tiempo = tiempo;
+		}
+		public problem() {
+			this.correcto = false;
+			this.tiempo = 0;
+		}
+	}
+	
+	public class player implements Comparable<player>
+	{
+		HashMap<Integer, problem> map ;
+		int totalTime;
+		int correct;
+		int team;
+		boolean send;
+
+
+		public player(HashMap<Integer, problem> map, int totalTime, int correct, int team, boolean send) {
+			super();
+			this.map = map;
+			this.totalTime = totalTime;
+			this.correct = correct;
+			this.team = team;
+			this.send = send;
+		}
+
+
+
+		@Override
+		public int compareTo(player o) {
+			if (correct < o.correct) {
+				return 1;
+			}else if (correct > o.correct) {
+				return -1;
+			}else{
+				if (totalTime < o.totalTime) {
+					return -1;
+				}else if (totalTime > o.totalTime) {
+					return 1;
+				}else{
+					if (team < o.team) {
+						return -1;
+					}else if (team > o.team) {
+						return 1;
+					}else
+						return 0;
+				}
+			}
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoB {
+
+
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaB");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			HashMap<Integer, Integer> mapa = new HashMap<Integer, Integer>();
+			Queue queue = new LinkedList();
+			int a = Integer.parseInt(scan.nextLine());
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			for (int i = 0; i < parts.length; i++) {
+				if (i == 0) {
+					mapa.put(Integer.parseInt(parts[i]), 1);
+					queue.add(Integer.parseInt(parts[i]));
+				}
+				else if (mapa.containsKey(Integer.parseInt(parts[i]))) 
+				{
+					mapa.put(Integer.parseInt(parts[i]), (mapa.get(Integer.parseInt(parts[i])))+1);
+				}
+				else
+				{
+					mapa.put(Integer.parseInt(parts[i]), 1);
+					queue.add(Integer.parseInt(parts[i]));
+				}
+			}
+			int s = queue.size();
+			for (int i = 0; i < s; i++) 
+			{
+				int n = (int) queue.remove();
+				System.out.println(n+" "+mapa.get(n));
+			}	        
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.awt.List;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoA {
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	
+	
+	    
+	}
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoA p = new PuntoA();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			BinarySearchTree<player> tree = p.new BinarySearchTree<>( );
+			HashMap<Integer, player> players = new HashMap<Integer, player>();
+			//Queue queue = new LinkedList();
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			int equipos = Integer.parseInt(parts[0]);
+			int envios = Integer.parseInt(parts[1]);
+			for (int i = 0; i < equipos; i++) {
+				HashMap<Integer, problem> map = new HashMap<Integer, problem>();
+				
+				player pla = p.new player(map, 0, 0, i+1, false);
+				players.put(i+1, pla);
+			}
+			for (int i = 0; i < envios; i++) {
+				String c = scan.nextLine();
+				String[] en = c.split(" ");
+				int equipo = Integer.parseInt(en[0]);
+				int problema = Integer.parseInt(en[1]);
+				int time = Integer.parseInt(en[2]);
+				String r = en[3];
+				players.get(equipo).send = true;
+				if (!players.get(equipo).map.containsKey(problema)) {
+					problem pro = p.new problem(false,0);
+					players.get(equipo).map.put(problema, pro);
+				}
+				switch(r)
+				{
+				case ("C"):
+					player pl = players.get(equipo);
+					pl.correct += 1;
+					problem pro = pl.map.get(problema);
+					pro.correcto = true;
+					pro.tiempo += time;
+					pl.totalTime += pro.tiempo;
+					pl.map.put(problema, pro);
+
+					break;
+				case ("I"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("R"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("T"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				}
+			}
+			for (int i = 0; i < equipos; i++) {
+				if (players.get(i+1).send) {
+					player r = players.get(i+1);
+					tree.insert(r);	
+				}			
+			}
+			while (!tree.isEmpty()) {
+				player re = tree.findMin();
+				System.out.println(re.team+" "+re.correct+" "+re.totalTime);
+				tree.remove(tree.findMin());
+			}
+        }
+	}
+	
+	public class problem
+	{
+		boolean correcto;
+		int tiempo;
+		public problem(boolean resultado, int tiempo) {
+			super();
+			this.correcto = resultado;
+			this.tiempo = tiempo;
+		}
+		public problem() {
+			this.correcto = false;
+			this.tiempo = 0;
+		}
+	}
+	
+	public class player implements Comparable<player>
+	{
+		HashMap<Integer, problem> map ;
+		int totalTime;
+		int correct;
+		int team;
+		boolean send;
+
+
+		public player(HashMap<Integer, problem> map, int totalTime, int correct, int team, boolean send) {
+			super();
+			this.map = map;
+			this.totalTime = totalTime;
+			this.correct = correct;
+			this.team = team;
+			this.send = send;
+		}
+
+
+
+		@Override
+		public int compareTo(player o) {
+			if (correct < o.correct) {
+				return 1;
+			}else if (correct > o.correct) {
+				return -1;
+			}else{
+				if (totalTime < o.totalTime) {
+					return -1;
+				}else if (totalTime > o.totalTime) {
+					return 1;
+				}else{
+					if (team < o.team) {
+						return -1;
+					}else if (team > o.team) {
+						return 1;
+					}else
+						return 0;
+				}
+			}
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.awt.List;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoE {
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	
+	
+	    
+	}
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaE");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaE")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoE p = new PuntoE();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			BinarySearchTree<player> tree = p.new BinarySearchTree<>( );
+			HashMap<Integer, player> players = new HashMap<Integer, player>();
+			HashMap<String, Integer> results = new HashMap<String, Integer>();
+			//Queue queue = new LinkedList();
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			int equipos = Integer.parseInt(parts[0]);
+			int envios = Integer.parseInt(parts[1]);
+			for (int i = 0; i < equipos; i++) {
+				HashMap<Integer, problem> map = new HashMap<Integer, problem>();
+				
+				player pla = p.new player(map, 0, 0, i+1, false);
+				players.put(i+1, pla);
+			}
+			results.put("C", 0);
+			results.put("I", 0);
+			results.put("T", 0);
+			results.put("R", 0);
+			for (int i = 0; i < envios; i++) {
+				String c = scan.nextLine();
+				String[] en = c.split(" ");
+				int equipo = Integer.parseInt(en[0]);
+				int problema = Integer.parseInt(en[1]);
+				int time = Integer.parseInt(en[2]);
+				String r = en[3];
+				players.get(equipo).send = true;
+				if (!players.get(equipo).map.containsKey(problema)) {
+					problem pro = p.new problem(false,0);
+					players.get(equipo).map.put(problema, pro);
+				}
+				switch(r)
+				{
+				case ("C"):
+					player pl = players.get(equipo);
+					pl.correct += 1;
+					problem pro = pl.map.get(problema);
+					pro.correcto = true;
+					pro.tiempo += time;
+					pl.totalTime += pro.tiempo;
+					pl.map.put(problema, pro);
+					results.put("C", results.get("C")+1);
+
+					break;
+				case ("I"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+				results.put("I", results.get("I")+1);
+					break;
+				case ("R"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+				results.put("R", results.get("R")+1);
+					break;
+				case ("T"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+				results.put("T", results.get("T")+1);
+					break;
+				}
+			}
+			for (int i = 0; i < equipos; i++) {
+				if (players.get(i+1).send) {
+					player r = players.get(i+1);
+					tree.insert(r);	
+				}			
+			}
+			while (!tree.isEmpty()) {
+				player re = tree.findMin();
+				System.out.println(re.team+" "+re.correct+" "+re.totalTime);
+				tree.remove(tree.findMin());
+			}
+			System.out.println(results.get("C")+" "+results.get("I")+" "+results.get("T")+" "+results.get("R"));
+        }
+	}
+	
+	public class problem
+	{
+		boolean correcto;
+		int tiempo;
+		public problem(boolean resultado, int tiempo) {
+			super();
+			this.correcto = resultado;
+			this.tiempo = tiempo;
+		}
+		public problem() {
+			this.correcto = false;
+			this.tiempo = 0;
+		}
+	}
+	
+	public class player implements Comparable<player>
+	{
+		HashMap<Integer, problem> map ;
+		int totalTime;
+		int correct;
+		int team;
+		boolean send;
+
+
+		public player(HashMap<Integer, problem> map, int totalTime, int correct, int team, boolean send) {
+			super();
+			this.map = map;
+			this.totalTime = totalTime;
+			this.correct = correct;
+			this.team = team;
+			this.send = send;
+		}
+
+
+
+		@Override
+		public int compareTo(player o) {
+			if (correct < o.correct) {
+				return 1;
+			}else if (correct > o.correct) {
+				return -1;
+			}else{
+				if (totalTime < o.totalTime) {
+					return -1;
+				}else if (totalTime > o.totalTime) {
+					return 1;
+				}else{
+					if (team < o.team) {
+						return -1;
+					}else if (team > o.team) {
+						return 1;
+					}else
+						return 0;
+				}
+			}
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.awt.List;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoA {
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	
+	
+	    
+	}
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoA p = new PuntoA();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			BinarySearchTree<player> tree = p.new BinarySearchTree<>( );
+			HashMap<Integer, player> players = new HashMap<Integer, player>();
+			//Queue queue = new LinkedList();
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			int equipos = Integer.parseInt(parts[0]);
+			int envios = Integer.parseInt(parts[1]);
+			for (int i = 0; i < equipos; i++) {
+				HashMap<Integer, problem> map = new HashMap<Integer, problem>();
+				
+				player pla = p.new player(map, 0, 0, i+1, false);
+				players.put(i+1, pla);
+			}
+			for (int i = 0; i < envios; i++) {
+				String c = scan.nextLine();
+				String[] en = c.split(" ");
+				int equipo = Integer.parseInt(en[0]);
+				int problema = Integer.parseInt(en[1]);
+				int time = Integer.parseInt(en[2]);
+				String r = en[3];
+				players.get(equipo).send = true;
+				if (!players.get(equipo).map.containsKey(problema)) {
+					problem pro = p.new problem(false,0);
+					players.get(equipo).map.put(problema, pro);
+				}
+				switch(r)
+				{
+				case ("C"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						player pl = players.get(equipo);
+						pl.correct += 1;
+						problem pro = pl.map.get(problema);
+						pro.correcto = true;
+						pro.tiempo += time;
+						pl.totalTime += pro.tiempo;
+						pl.map.put(problema, pro);
+					}
+
+					break;
+				case ("I"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("R"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				case ("T"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+					break;
+				}
+			}
+			for (int i = 0; i < equipos; i++) {
+				if (players.get(i+1).send) {
+					player r = players.get(i+1);
+					tree.insert(r);	
+				}			
+			}
+			while (!tree.isEmpty()) {
+				player re = tree.findMin();
+				System.out.println(re.team+" "+re.correct+" "+re.totalTime);
+				tree.remove(tree.findMin());
+			}
+        }
+	}
+	
+	public class problem
+	{
+		boolean correcto;
+		int tiempo;
+		public problem(boolean resultado, int tiempo) {
+			super();
+			this.correcto = resultado;
+			this.tiempo = tiempo;
+		}
+		public problem() {
+			this.correcto = false;
+			this.tiempo = 0;
+		}
+	}
+	
+	public class player implements Comparable<player>
+	{
+		HashMap<Integer, problem> map ;
+		int totalTime;
+		int correct;
+		int team;
+		boolean send;
+
+
+		public player(HashMap<Integer, problem> map, int totalTime, int correct, int team, boolean send) {
+			super();
+			this.map = map;
+			this.totalTime = totalTime;
+			this.correct = correct;
+			this.team = team;
+			this.send = send;
+		}
+
+
+
+		@Override
+		public int compareTo(player o) {
+			if (correct < o.correct) {
+				return 1;
+			}else if (correct > o.correct) {
+				return -1;
+			}else{
+				if (totalTime < o.totalTime) {
+					return -1;
+				}else if (totalTime > o.totalTime) {
+					return 1;
+				}else{
+					if (team < o.team) {
+						return -1;
+					}else if (team > o.team) {
+						return 1;
+					}else
+						return 0;
+				}
+			}
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.awt.List;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class PuntoE {
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	
+	
+	    
+	}
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaE");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaE")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoE p = new PuntoE();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso"+" #"+(t+1)+":");
+			BinarySearchTree<player> tree = p.new BinarySearchTree<>( );
+			HashMap<Integer, player> players = new HashMap<Integer, player>();
+			HashMap<String, Integer> results = new HashMap<String, Integer>();
+			//Queue queue = new LinkedList();
+			String cadena = scan.nextLine();
+			String[] parts = cadena.split(" ");
+			int equipos = Integer.parseInt(parts[0]);
+			int envios = Integer.parseInt(parts[1]);
+			for (int i = 0; i < equipos; i++) {
+				HashMap<Integer, problem> map = new HashMap<Integer, problem>();
+				
+				player pla = p.new player(map, 0, 0, i+1, false);
+				players.put(i+1, pla);
+			}
+			results.put("C", 0);
+			results.put("I", 0);
+			results.put("T", 0);
+			results.put("R", 0);
+			for (int i = 0; i < envios; i++) {
+				String c = scan.nextLine();
+				String[] en = c.split(" ");
+				int equipo = Integer.parseInt(en[0]);
+				int problema = Integer.parseInt(en[1]);
+				int time = Integer.parseInt(en[2]);
+				String r = en[3];
+				players.get(equipo).send = true;
+				if (!players.get(equipo).map.containsKey(problema)) {
+					problem pro = p.new problem(false,0);
+					players.get(equipo).map.put(problema, pro);
+				}
+				switch(r)
+				{
+				case ("C"):
+					
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						player pl = players.get(equipo);
+						pl.correct += 1;
+						problem pro = pl.map.get(problema);
+						pro.correcto = true;
+						pro.tiempo += time;
+						pl.totalTime += pro.tiempo;
+						pl.map.put(problema, pro);
+					}
+					results.put("C", results.get("C")+1);
+
+					break;
+				case ("I"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+				results.put("I", results.get("I")+1);
+					break;
+				case ("R"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+				results.put("R", results.get("R")+1);
+					break;
+				case ("T"):
+					if (!players.get(equipo).map.get(problema).correcto)
+					{
+						problem old = players.get(equipo).map.get(problema);
+						old.tiempo += 20;
+					}
+				results.put("T", results.get("T")+1);
+					break;
+				}
+			}
+			for (int i = 0; i < equipos; i++) {
+				if (players.get(i+1).send) {
+					player r = players.get(i+1);
+					tree.insert(r);	
+				}			
+			}
+			while (!tree.isEmpty()) {
+				player re = tree.findMin();
+				System.out.println(re.team+" "+re.correct+" "+re.totalTime);
+				tree.remove(tree.findMin());
+			}
+			System.out.println(results.get("C")+" "+results.get("I")+" "+results.get("T")+" "+results.get("R"));
+        }
+	}
+	
+	public class problem
+	{
+		boolean correcto;
+		int tiempo;
+		public problem(boolean resultado, int tiempo) {
+			super();
+			this.correcto = resultado;
+			this.tiempo = tiempo;
+		}
+		public problem() {
+			this.correcto = false;
+			this.tiempo = 0;
+		}
+	}
+	
+	public class player implements Comparable<player>
+	{
+		HashMap<Integer, problem> map ;
+		int totalTime;
+		int correct;
+		int team;
+		boolean send;
+
+
+		public player(HashMap<Integer, problem> map, int totalTime, int correct, int team, boolean send) {
+			super();
+			this.map = map;
+			this.totalTime = totalTime;
+			this.correct = correct;
+			this.team = team;
+			this.send = send;
+		}
+
+
+
+		@Override
+		public int compareTo(player o) {
+			if (correct < o.correct) {
+				return 1;
+			}else if (correct > o.correct) {
+				return -1;
+			}else{
+				if (totalTime < o.totalTime) {
+					return -1;
+				}else if (totalTime > o.totalTime) {
+					return 1;
+				}else{
+					if (team < o.team) {
+						return -1;
+					}else if (team > o.team) {
+						return 1;
+					}else
+						return 0;
+				}
+			}
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PuntoD {
+	
+	public class UnionFind {
+		private int amigos[];
+		private int enemigos[];
+		private int rank[];
+		private boolean tiene[];
+		private int enemigo[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			amigos = new int[n];
+			enemigos = new int[n];
+			tiene = new boolean[n];
+			enemigo = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				amigos[i] = i;
+				enemigos[i] = i;
+				enemigo[i] = i;
+				rank[i] = 1;
+				tiene[i] = false;
+			}
+		}
+
+		public int findAmigos(int x) {
+			if (amigos[x] != x)
+				return amigos[x] = findAmigos(amigos[x]);
+			return x;
+		}
+
+		public void unionAmigos(int x, int y) {
+			int a = findAmigos(x);
+			int b = findAmigos(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				amigos[a] = b;
+			} else {
+				amigos[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		public int findEnemigos(int x) {
+			if (enemigos[x] != x)
+				return enemigos[x] = findEnemigos(enemigos[x]);
+			return x;
+		}
+
+		public void unionEnemigos(int x, int y) {
+			int a = findAmigos(x);
+			int b = findAmigos(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				enemigos[a] = b;
+				enemigo[b]=a;
+				tiene[a] = true;
+				tiene[b] = true;
+			} else {
+				enemigos[b] = a;
+				enemigo[a] = b;
+				tiene[a] = true;
+				tiene[b] = true;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		
+	}
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaD");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoD p = new PuntoD();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso #"+(t+1)+":");
+			String c = scan.nextLine();
+			String[] num = c.split(" ");
+			int personas = Integer.parseInt(num[0]);
+			int comandos = Integer.parseInt(num[1]);
+			UnionFind uni = p.new UnionFind(personas);
+			HashMap<String, Integer> mapa = new HashMap<String, Integer>();
+			for (int tt = 0; tt < comandos; tt++) 
+	        {
+				
+//				if (uni.findAmigos(uni.findAmigos(0))==uni.findAmigos(uni.findAmigos(15))) {
+//					System.out.println("si");	
+//				}
+				String cadena = scan.nextLine();
+				String[] parts = cadena.split(" ");
+				int comando = Integer.parseInt(parts[0]);
+				int p1 = Integer.parseInt(parts[1]);
+				int p2 = Integer.parseInt(parts[2]);
+//				if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+//					System.out.println("ya "+p1+": "+uni.findAmigos(p1)+" "+p2+": "+uni.findAmigos(p2));
+//				}
+				
+				
+				//System.out.println(p1+"   "+p2);
+				
+				switch(comando)
+				{
+				
+				case 1:
+					if (uni.tiene[uni.findAmigos(p2)] && uni.findAmigos(p1) == 
+						uni.enemigos[uni.findAmigos(p2)] ||uni.findAmigos(p2) == 
+						uni.enemigos[uni.findAmigos(p1)] && uni.tiene[uni.findAmigos(p1)]) {
+						System.out.println("-1");
+					}else
+					{
+						p1 = uni.findAmigos(p1);
+						p2 = uni.findAmigos(p2);
+						//System.out.println("Amigos       p1: "+p1+" p2: "+p2);
+						//uni.unionAmigos(p1, p2);
+						if (uni.tiene[p1] && uni.tiene[p2]) {
+							//System.out.println("enemigos de 15 "+uni.enemigos[15]);
+							int e1 = p1;
+							int e2 = p2;
+							if (uni.enemigos[p1] == p1) {
+								e1 =uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionAmigos(e1, e2);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(e2));
+						}else if (uni.tiene[p1]) {
+							int e1 = p1;
+							if (uni.enemigos[p1] == p1) {
+								e1 =uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionEnemigos(uni.findAmigos(p2), e1);
+						}else if (uni.tiene[p2]) {
+							int e2 = p2;
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionEnemigos(uni.findAmigos(p1), e2);
+						}else{
+							uni.unionAmigos(p1, p2);
+						}
+							
+						
+						//System.out.println("Resultado Amigos:  p1:"+uni.findEnemigos(p1)+" p2: "+uni.findEnemigos(p2));
+						
+					}
+					break;
+				case 2:
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("-1");
+					}else if (uni.findAmigos(p1) == uni.enemigos[uni.findAmigos(p2)] ||
+							uni.findAmigos(p2) == uni.enemigos[uni.findAmigos(p1)]) {
+						
+					}else
+					{
+//						if (p1 == 27 && p2 == 7) {
+//							System.out.println("Aca");
+//							System.out.println("p1: "+uni.findAmigos(p1)+" "+" p2:"+uni.findAmigos(p2));
+//							//System.out.println("0 15 amigos: "+uni.findAmigos(0)+"  "+uni.findAmigos(15));
+//						}
+						p1 = uni.findAmigos(p1);
+						p2 = uni.findAmigos(p2);
+						
+						//System.out.println("Enemigos       p1: "+p1+" p2: "+p2);
+						//uni.unionEnemigos(p1, p2);
+						//System.out.println("Enemigos de "+p1+ " "+uni.findEnemigos(p1)+" Enemigos de "+p2+" "+uni.findEnemigos(p2));
+						if (uni.tiene[p1] && uni.tiene[p2]) {
+							
+							int e1 = p1;
+							int e2 = p2;
+							if (uni.enemigos[p1] == p1) {
+								e1 = uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+								
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+//							if (tt==27) {
+//								System.out.println("e1: "+e1+" e2: "+e2);
+//								System.out.println("enemigos[p2]: "+uni.enemigos[p2]);
+//							}
+							uni.unionAmigos(p1, uni.findAmigos(e2));
+							uni.unionAmigos(p2, uni.findAmigos(e1));
+							uni.unionEnemigos(uni.findAmigos(e1), uni.findAmigos(e2));
+						}else if (uni.tiene[p1]) {
+							
+							int e1 = p1;
+							if (uni.enemigos[p1] == p1) {
+								e1 = uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							uni.unionAmigos(p2, e1);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(p2));
+						}else if (uni.tiene[p2]) {
+							
+							int e2 = p2;
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, e2);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(p2));
+						}else{
+							uni.unionEnemigos(p1, p2);
+						}
+						
+					}
+					break;
+				case 3:
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("1");
+					}else{
+						System.out.println("0");
+					}
+					break;
+				case 4:
+//					System.out.println("tiene?? "+p1+" ---"+uni.findAmigos(p1)+"    "+uni.tiene[uni.findAmigos(p1)]);
+//					System.out.println("amigos de "+uni.findAmigos(4)+" "+uni.enemigos[4]);
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("0");
+					}
+					else if (uni.tiene[uni.findAmigos(p1)] && uni.tiene[uni.findAmigos(p2)]) {
+						if (uni.findAmigos(p1) == uni.enemigos[uni.findAmigos(p2)] ||
+								uni.findAmigos(p2) == uni.enemigos[uni.findAmigos(p1)]) {
+							System.out.println("1");
+						}else
+							System.out.println("0");
+					}
+					else
+						System.out.println("0");
+					
+					break;
+				}
+				
+				//System.out.println(comando+" "+p1+" "+p2);
+	        }
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PuntoD {
+	
+	public class UnionFind {
+		private int amigos[];
+		private int enemigos[];
+		private int rank[];
+		private boolean tiene[];
+		private int enemigo[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			amigos = new int[n];
+			enemigos = new int[n];
+			tiene = new boolean[n];
+			enemigo = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				amigos[i] = i;
+				enemigos[i] = i;
+				enemigo[i] = i;
+				rank[i] = 1;
+				tiene[i] = false;
+			}
+		}
+
+		public int findAmigos(int x) {
+			if (amigos[x] != x)
+				return amigos[x] = findAmigos(amigos[x]);
+			return x;
+		}
+
+		public void unionAmigos(int x, int y) {
+			int a = findAmigos(x);
+			int b = findAmigos(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				amigos[a] = b;
+			} else {
+				amigos[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		public int findEnemigos(int x) {
+			if (enemigos[x] != x)
+				return enemigos[x] = findEnemigos(enemigos[x]);
+			return x;
+		}
+
+		public void unionEnemigos(int x, int y) {
+			int a = findAmigos(x);
+			int b = findAmigos(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				enemigos[a] = b;
+				enemigo[b]=a;
+				tiene[a] = true;
+				tiene[b] = true;
+			} else {
+				enemigos[b] = a;
+				enemigo[a] = b;
+				tiene[a] = true;
+				tiene[b] = true;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		
+	}
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaD.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaD.out")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoD p = new PuntoD();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso #"+(t+1)+":");
+			String c = scan.nextLine();
+			String[] num = c.split(" ");
+			int personas = Integer.parseInt(num[0]);
+			int comandos = Integer.parseInt(num[1]);
+			UnionFind uni = p.new UnionFind(personas);
+			HashMap<String, Integer> mapa = new HashMap<String, Integer>();
+			for (int tt = 0; tt < comandos; tt++) 
+	        {
+				
+//				if (uni.findAmigos(uni.findAmigos(0))==uni.findAmigos(uni.findAmigos(15))) {
+//					System.out.println("si");	
+//				}
+				String cadena = scan.nextLine();
+				String[] parts = cadena.split(" ");
+				int comando = Integer.parseInt(parts[0]);
+				int p1 = Integer.parseInt(parts[1]);
+				int p2 = Integer.parseInt(parts[2]);
+//				if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+//					System.out.println("ya "+p1+": "+uni.findAmigos(p1)+" "+p2+": "+uni.findAmigos(p2));
+//				}
+				
+				if (p1 == 95 && p2 == 95) {
+					System.out.println("aca   "+comando);
+				}
+				System.out.println(p1+"   "+p2);
+				
+				switch(comando)
+				{
+				
+				case 1:
+					if (p1 == p2) {
+						
+					}else
+					if (uni.tiene[uni.findAmigos(p2)] && uni.findAmigos(p1) == 
+						uni.enemigos[uni.findAmigos(p2)] ||uni.findAmigos(p2) == 
+						uni.enemigos[uni.findAmigos(p1)] && uni.tiene[uni.findAmigos(p1)]) {
+						System.out.println("-1");
+					}else
+					{
+						p1 = uni.findAmigos(p1);
+						p2 = uni.findAmigos(p2);
+						//System.out.println("Amigos       p1: "+p1+" p2: "+p2);
+						//uni.unionAmigos(p1, p2);
+						if (uni.tiene[p1] && uni.tiene[p2]) {
+							//System.out.println("enemigos de 15 "+uni.enemigos[15]);
+							int e1 = p1;
+							int e2 = p2;
+							if (uni.enemigos[p1] == p1) {
+								e1 =uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionAmigos(e1, e2);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(e2));
+						}else if (uni.tiene[p1]) {
+							int e1 = p1;
+							if (uni.enemigos[p1] == p1) {
+								e1 =uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionEnemigos(uni.findAmigos(p2), e1);
+						}else if (uni.tiene[p2]) {
+							int e2 = p2;
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionEnemigos(uni.findAmigos(p1), e2);
+						}else{
+							uni.unionAmigos(p1, p2);
+						}
+							
+						
+						//System.out.println("Resultado Amigos:  p1:"+uni.findEnemigos(p1)+" p2: "+uni.findEnemigos(p2));
+						
+					}
+					break;
+				case 2:
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("-1");
+					}else if (uni.findAmigos(p1) == uni.enemigos[uni.findAmigos(p2)] ||
+							uni.findAmigos(p2) == uni.enemigos[uni.findAmigos(p1)]) {
+						
+					}else
+					{
+//						if (p1 == 27 && p2 == 7) {
+//							System.out.println("Aca");
+//							System.out.println("p1: "+uni.findAmigos(p1)+" "+" p2:"+uni.findAmigos(p2));
+//							//System.out.println("0 15 amigos: "+uni.findAmigos(0)+"  "+uni.findAmigos(15));
+//						}
+						p1 = uni.findAmigos(p1);
+						p2 = uni.findAmigos(p2);
+						
+						//System.out.println("Enemigos       p1: "+p1+" p2: "+p2);
+						//uni.unionEnemigos(p1, p2);
+						//System.out.println("Enemigos de "+p1+ " "+uni.findEnemigos(p1)+" Enemigos de "+p2+" "+uni.findEnemigos(p2));
+						if (uni.tiene[p1] && uni.tiene[p2]) {
+							
+							int e1 = p1;
+							int e2 = p2;
+							if (uni.enemigos[p1] == p1) {
+								e1 = uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+								
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+//							if (tt==27) {
+//								System.out.println("e1: "+e1+" e2: "+e2);
+//								System.out.println("enemigos[p2]: "+uni.enemigos[p2]);
+//							}
+							uni.unionAmigos(p1, uni.findAmigos(e2));
+							uni.unionAmigos(p2, uni.findAmigos(e1));
+							uni.unionEnemigos(uni.findAmigos(e1), uni.findAmigos(e2));
+						}else if (uni.tiene[p1]) {
+							
+							int e1 = p1;
+							if (uni.enemigos[p1] == p1) {
+								e1 = uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							uni.unionAmigos(p2, e1);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(p2));
+						}else if (uni.tiene[p2]) {
+							
+							int e2 = p2;
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, e2);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(p2));
+						}else{
+							uni.unionEnemigos(p1, p2);
+						}
+						
+					}
+					break;
+				case 3:
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("1");
+					}else{
+						System.out.println("0");
+					}
+					break;
+				case 4:
+//					System.out.println("tiene?? "+p1+" ---"+uni.findAmigos(p1)+"    "+uni.tiene[uni.findAmigos(p1)]);
+//					System.out.println("amigos de "+uni.findAmigos(4)+" "+uni.enemigos[4]);
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("0");
+					}
+					else if (uni.tiene[uni.findAmigos(p1)] && uni.tiene[uni.findAmigos(p2)]) {
+						if (uni.findAmigos(p1) == uni.enemigos[uni.findAmigos(p2)] ||
+								uni.findAmigos(p2) == uni.enemigos[uni.findAmigos(p1)]) {
+							System.out.println("1");
+						}else
+							System.out.println("0");
+					}
+					else
+						System.out.println("0");
+					
+					break;
+				}
+				
+				//System.out.println(comando+" "+p1+" "+p2);
+	        }
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PuntoD {
+	
+	public class UnionFind {
+		private int amigos[];
+		private int enemigos[];
+		private int rank[];
+		private boolean tiene[];
+		private int enemigo[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			amigos = new int[n];
+			enemigos = new int[n];
+			tiene = new boolean[n];
+			enemigo = new int[n];
+			rank = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				amigos[i] = i;
+				enemigos[i] = i;
+				enemigo[i] = i;
+				rank[i] = 1;
+				tiene[i] = false;
+			}
+		}
+
+		public int findAmigos(int x) {
+			if (amigos[x] != x)
+				return amigos[x] = findAmigos(amigos[x]);
+			return x;
+		}
+
+		public void unionAmigos(int x, int y) {
+			int a = findAmigos(x);
+			int b = findAmigos(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				amigos[a] = b;
+			} else {
+				amigos[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		public int findEnemigos(int x) {
+			if (enemigos[x] != x)
+				return enemigos[x] = findEnemigos(enemigos[x]);
+			return x;
+		}
+
+		public void unionEnemigos(int x, int y) {
+			int a = findAmigos(x);
+			int b = findAmigos(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				enemigos[a] = b;
+				enemigo[b]=a;
+				tiene[a] = true;
+				tiene[b] = true;
+			} else {
+				enemigos[b] = a;
+				enemigo[a] = b;
+				tiene[a] = true;
+				tiene[b] = true;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+		
+	}
+	
+	public static void main(String[] args) throws Exception 
+	{
+		Scanner scan;
+		File f = new File("src/entradaD.in");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaD.out")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		int N = Integer.parseInt(scan.nextLine()); 
+		PuntoD p = new PuntoD();
+		for (int t = 0; t < N; t++) 
+        {
+			System.out.println("Caso #"+(t+1)+":");
+			String c = scan.nextLine();
+			String[] num = c.split(" ");
+			int personas = Integer.parseInt(num[0]);
+			int comandos = Integer.parseInt(num[1]);
+			UnionFind uni = p.new UnionFind(personas);
+			HashMap<String, Integer> mapa = new HashMap<String, Integer>();
+			for (int tt = 0; tt < comandos; tt++) 
+	        {
+				
+//				if (uni.findAmigos(uni.findAmigos(0))==uni.findAmigos(uni.findAmigos(15))) {
+//					System.out.println("si");	
+//				}
+				String cadena = scan.nextLine();
+				String[] parts = cadena.split(" ");
+				int comando = Integer.parseInt(parts[0]);
+				int p1 = Integer.parseInt(parts[1]);
+				int p2 = Integer.parseInt(parts[2]);
+//				if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+//					System.out.println("ya "+p1+": "+uni.findAmigos(p1)+" "+p2+": "+uni.findAmigos(p2));
+//				}
+				
+//				if (p1 == 95 && p2 == 95) {
+//					System.out.println("aca   "+comando);
+//				}
+//				System.out.println(p1+"   "+p2);
+				
+				switch(comando)
+				{
+				
+				case 1:
+					if (p1 == p2) {
+						
+					}else
+					if (uni.tiene[uni.findAmigos(p2)] && uni.findAmigos(p1) == 
+						uni.enemigos[uni.findAmigos(p2)] ||uni.findAmigos(p2) == 
+						uni.enemigos[uni.findAmigos(p1)] && uni.tiene[uni.findAmigos(p1)]) {
+						System.out.println("-1");
+					}else
+					{
+						p1 = uni.findAmigos(p1);
+						p2 = uni.findAmigos(p2);
+						//System.out.println("Amigos       p1: "+p1+" p2: "+p2);
+						//uni.unionAmigos(p1, p2);
+						if (uni.tiene[p1] && uni.tiene[p2]) {
+							//System.out.println("enemigos de 15 "+uni.enemigos[15]);
+							int e1 = p1;
+							int e2 = p2;
+							if (uni.enemigos[p1] == p1) {
+								e1 =uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionAmigos(e1, e2);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(e2));
+						}else if (uni.tiene[p1]) {
+							int e1 = p1;
+							if (uni.enemigos[p1] == p1) {
+								e1 =uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionEnemigos(uni.findAmigos(p2), e1);
+						}else if (uni.tiene[p2]) {
+							int e2 = p2;
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, p2);
+							uni.unionEnemigos(uni.findAmigos(p1), e2);
+						}else{
+							uni.unionAmigos(p1, p2);
+						}
+							
+						
+						//System.out.println("Resultado Amigos:  p1:"+uni.findEnemigos(p1)+" p2: "+uni.findEnemigos(p2));
+						
+					}
+					break;
+				case 2:
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("-1");
+					}else if (uni.findAmigos(p1) == uni.enemigos[uni.findAmigos(p2)] ||
+							uni.findAmigos(p2) == uni.enemigos[uni.findAmigos(p1)]) {
+						
+					}else
+					{
+//						if (p1 == 27 && p2 == 7) {
+//							System.out.println("Aca");
+//							System.out.println("p1: "+uni.findAmigos(p1)+" "+" p2:"+uni.findAmigos(p2));
+//							//System.out.println("0 15 amigos: "+uni.findAmigos(0)+"  "+uni.findAmigos(15));
+//						}
+						p1 = uni.findAmigos(p1);
+						p2 = uni.findAmigos(p2);
+						
+						//System.out.println("Enemigos       p1: "+p1+" p2: "+p2);
+						//uni.unionEnemigos(p1, p2);
+						//System.out.println("Enemigos de "+p1+ " "+uni.findEnemigos(p1)+" Enemigos de "+p2+" "+uni.findEnemigos(p2));
+						if (uni.tiene[p1] && uni.tiene[p2]) {
+							
+							int e1 = p1;
+							int e2 = p2;
+							if (uni.enemigos[p1] == p1) {
+								e1 = uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+								
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+//							if (tt==27) {
+//								System.out.println("e1: "+e1+" e2: "+e2);
+//								System.out.println("enemigos[p2]: "+uni.enemigos[p2]);
+//							}
+							uni.unionAmigos(p1, uni.findAmigos(e2));
+							uni.unionAmigos(p2, uni.findAmigos(e1));
+							uni.unionEnemigos(uni.findAmigos(e1), uni.findAmigos(e2));
+						}else if (uni.tiene[p1]) {
+							
+							int e1 = p1;
+							if (uni.enemigos[p1] == p1) {
+								e1 = uni.findAmigos(uni.enemigo[p1]);
+							}else{
+								e1 = uni.findAmigos(uni.enemigos[p1]);
+							}
+							uni.unionAmigos(p2, e1);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(p2));
+						}else if (uni.tiene[p2]) {
+							
+							int e2 = p2;
+							if (uni.enemigos[p2] == p2) {
+								e2 = uni.findAmigos(uni.enemigo[p2]);
+							}else{
+								e2 = uni.findAmigos(uni.enemigos[p2]);
+							}
+							uni.unionAmigos(p1, e2);
+							uni.unionEnemigos(uni.findAmigos(p1), uni.findAmigos(p2));
+						}else{
+							uni.unionEnemigos(p1, p2);
+						}
+						
+					}
+					break;
+				case 3:
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("1");
+					}else{
+						System.out.println("0");
+					}
+					break;
+				case 4:
+//					System.out.println("tiene?? "+p1+" ---"+uni.findAmigos(p1)+"    "+uni.tiene[uni.findAmigos(p1)]);
+//					System.out.println("amigos de "+uni.findAmigos(4)+" "+uni.enemigos[4]);
+					if (uni.findAmigos(p1) == uni.findAmigos(p2)) {
+						System.out.println("0");
+					}
+					else if (uni.tiene[uni.findAmigos(p1)] && uni.tiene[uni.findAmigos(p2)]) {
+						if (uni.findAmigos(p1) == uni.enemigos[uni.findAmigos(p2)] ||
+								uni.findAmigos(p2) == uni.enemigos[uni.findAmigos(p1)]) {
+							System.out.println("1");
+						}else
+							System.out.println("0");
+					}
+					else
+						System.out.println("0");
+					
+					break;
+				}
+				
+				//System.out.println(comando+" "+p1+" "+p2);
+	        }
+        }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+	import java.io.File;
+	import java.io.FileNotFoundException;
+	import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import java.io.File;
+	import java.io.FileNotFoundException;
+	import java.util.Scanner;
+	
+public class PuntoA {
+	/**
+	 * LinkedList class implements a doubly-linked list.
+	 */
+	public class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	   
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+		public static void main(String args[]) throws FileNotFoundException {
+			Scanner scan;
+			File f = new File("src/entradaA");
+			if (f.exists()) {
+				scan = new Scanner(f);
+				// todo System.out.print va a ir al archivo "salidaA"
+				System.setOut(new PrintStream(new File("src/salidaA")));
+			} 
+			else 
+			{
+				scan = new Scanner(System.in);
+			}
+			int n = Integer.parseInt(scan.nextLine());
+			PuntoA p = new PuntoA();
+			for (int t = 0; t < n; t++) {
+				System.out.println("Caso #"+(t+1)+":");
+				HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+				MyLinkedList<Integer> lst = p.new MyLinkedList<>( );
+				int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+				for (int i = 0; i < Q; i++) {
+					String line[] = scan.nextLine().split(" ");// linea para ver que
+																// tipo de comando
+					String type = line[0];
+					
+					if (type.equals("agregar")) {
+						int id = Integer.parseInt(line[1]);
+						lst.add(id);
+					} else if (type.equals("atender")) {
+						map.put(lst.remove(0), 1);
+					} else if (type.equals("existe")) {
+						int id = Integer.parseInt(line[1]);
+						if (map.containsKey(id)) {
+							System.out.println("SI");
+						}else
+							System.out.println("NO");
+					}
+
+				}
+			}
+		}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+	import java.io.File;
+	import java.io.FileNotFoundException;
+	import java.io.PrintStream;
+	import java.util.HashMap;
+	import java.util.Scanner;
+	import java.io.File;
+	import java.io.FileNotFoundException;
+	import java.util.Scanner;
+	
+public class PuntoB {
+	public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeap( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeap( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeap( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+
+	
+	/**
+	 * LinkedList class implements a doubly-linked list.
+	 */
+	public class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	   
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+		public static void main(String args[]) throws Exception {
+			Scanner scan;
+			File f = new File("src/entradaB");
+			if (f.exists()) {
+				scan = new Scanner(f);
+				// todo System.out.print va a ir al archivo "salidaA"
+				System.setOut(new PrintStream(new File("src/salidaB")));
+			} 
+			else 
+			{
+				scan = new Scanner(System.in);
+			}
+			PuntoB p = new PuntoB();
+			int n = Integer.parseInt(scan.nextLine());
+			for (int t = 0; t < n; t++) {
+			    String s[] = scan.nextLine().split(" ");
+			    System.out.println("Caso #"+(t+1)+":");
+			    BinaryHeap<Integer> heap = p.new BinaryHeap<>( );
+				HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+				MyLinkedList<Integer> lst = p.new MyLinkedList<>( );
+				int Q = Integer.parseInt(s[0]);// numero de consultas
+				int N = Integer.parseInt(s[1]);// espacios
+				for (int i = 0; i < N; i++) {
+					heap.insert(i);
+				}
+				for (int i = 0; i < Q; i++) {
+					String line[] = scan.nextLine().split(" ");// linea para ver que
+																// tipo de comando
+					String type = line[0];
+					if (type.equals("agregar")) {
+						int id = Integer.parseInt(line[1]);
+						lst.add(id);
+					} else if (type.equals("atender")) {
+						map.put(lst.remove(0), heap.deleteMin());
+					} else if (type.equals("existe")) {
+						int id = Integer.parseInt(line[1]);
+						if (map.containsKey(id)) {
+							System.out.println("SI "+map.get(id));
+						}else
+							System.out.println("NO");
+					} else if (type.equals("salir")) {
+						int id = Integer.parseInt(line[1]);
+						heap.insert(map.get(id));
+						map.remove(id);
+					}
+
+				}
+			}
+		}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class PuntoB {
+
+class DijkstraAlgorithm {
+
+	private final List<Edge> edges;
+	private Set<Vertex> settledNodes;
+	private Set<Vertex> unSettledNodes;
+	private Map<Vertex, Vertex> predecessors;
+	private Map<Vertex, Integer> distance;
+
+	public DijkstraAlgorithm(Graph graph) {
+		new ArrayList<Vertex>(graph.getVertexes());
+		this.edges = new ArrayList<Edge>(graph.getEdges());
+	}
+
+	public void execute(Vertex source) {
+		settledNodes = new HashSet<Vertex>();
+		unSettledNodes = new HashSet<Vertex>();
+		distance = new HashMap<Vertex, Integer>();
+		predecessors = new HashMap<Vertex, Vertex>();
+		distance.put(source, 0);
+		unSettledNodes.add(source);
+		while (unSettledNodes.size() > 0) {
+			Vertex node = getMinimum(unSettledNodes);
+			settledNodes.add(node);
+			unSettledNodes.remove(node);
+			findMinimalDistances(node);
+		}
+	}
+
+	private void findMinimalDistances(Vertex node) {
+		List<Vertex> adjacentNodes = getNeighbors(node);
+		for (Vertex target : adjacentNodes) {
+			if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)) {
+				distance.put(target, getShortestDistance(node) + getDistance(node, target));
+				predecessors.put(target, node);
+				unSettledNodes.add(target);
+			}
+		}
+
+	}
+
+	public int getDistance(Vertex node, Vertex target) {
+		for (Edge edge : edges) {
+			if (edge.getSource().equals(node) && edge.getDestination().equals(target)) {
+				return edge.getWeight();
+			}
+		}
+		throw new RuntimeException("Should not happen");
+	}
+
+	private List<Vertex> getNeighbors(Vertex node) {
+		List<Vertex> neighbors = new ArrayList<Vertex>();
+		for (Edge edge : edges) {
+			if (edge.getSource().equals(node) && !isSettled(edge.getDestination())) {
+				neighbors.add(edge.getDestination());
+			}
+		}
+		return neighbors;
+	}
+
+	private Vertex getMinimum(Set<Vertex> vertexes) {
+		Vertex minimum = null;
+		for (Vertex vertex : vertexes) {
+			if (minimum == null) {
+				minimum = vertex;
+			} else {
+				if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
+					minimum = vertex;
+				}
+			}
+		}
+		return minimum;
+	}
+
+	private boolean isSettled(Vertex vertex) {
+		return settledNodes.contains(vertex);
+	}
+
+	private int getShortestDistance(Vertex destination) {
+		Integer d = distance.get(destination);
+		if (d == null) {
+			return Integer.MAX_VALUE;
+		} else {
+			return d;
+		}
+	}
+
+	/*
+	 * This method returns the path from the source to the selected target and
+	 * NULL if no path exists
+	 */
+	public LinkedList<Vertex> getPath(Vertex target) {
+		LinkedList<Vertex> path = new LinkedList<Vertex>();
+		Vertex step = target;
+		// Check if a path exists
+		if (predecessors.get(step) == null) {
+			return null;
+		}
+		path.add(step);
+		while (predecessors.get(step) != null) {
+			step = predecessors.get(step);
+			path.add(step);
+		}
+		// Put it into the correct order
+		Collections.reverse(path);
+		return path;
+	}
+
+	public int getWeight(Vertex target) {
+		Vertex v1 = target;
+		Vertex v2 = target;
+		int weight = 0;
+		while (predecessors.get(v1) != null) {
+			v2 = predecessors.get(v1);
+			weight += getDistance(v2, v1);
+			v1 = v2;
+		}
+		return weight;
+	}
+}
+
+// Vertice
+
+class Vertex {
+	final private String id;
+	final private String name;
+
+	public Vertex(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vertex other = (Vertex) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+}
+
+// Arco
+
+class Edge {
+	private final String id;
+	private final Vertex source;
+	private final Vertex destination;
+	private final int weight;
+
+	public Edge(String id, Vertex source, Vertex destination, int weight) {
+		this.id = id;
+		this.source = source;
+		this.destination = destination;
+		this.weight = weight;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public Vertex getDestination() {
+		return destination;
+	}
+
+	public Vertex getSource() {
+		return source;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	@Override
+	public String toString() {
+		return source + " " + destination;
+	}
+
+}
+
+// Grafo
+
+class Graph {
+	private final List<Vertex> vertexes;
+	private final List<Edge> edges;
+
+	public Graph(List<Vertex> vertexes, List<Edge> edges) {
+		this.vertexes = vertexes;
+		this.edges = edges;
+	}
+
+	public List<Vertex> getVertexes() {
+		return vertexes;
+	}
+
+	public List<Edge> getEdges() {
+		return edges;
+	}
+
+}
+
+	public static void main(String[] args) throws Exception {
+		Scanner scan;
+		File f = new File("src/entradaB");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		PuntoB p = new PuntoB();
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) {
+			System.out.println("Caso #"+(t+1)+":");
+			String[] info = scan.nextLine().split(" ");
+			List<Vertex> nodes = new ArrayList<Vertex>();
+			List<Edge> edges = new ArrayList<Edge>();
+			int computers = Integer.parseInt(info[0]);
+			int connections = Integer.parseInt(info[1]);
+			int source = Integer.parseInt(info[2]);
+			int destination = Integer.parseInt(info[3]);		
+			for (int i = 0; i < computers; i++) {
+				Vertex comp = p.new Vertex(""+i, "" + i);
+				nodes.add(comp);
+			}
+			for (int i = 0; i < connections; i++) {
+				String[] connection = scan.nextLine().split(" ");
+				int s = Integer.parseInt(connection[0]);
+				int d = Integer.parseInt(connection[1]);
+				int time = Integer.parseInt(connection[2]);
+				
+				Edge edge1 = p.new Edge("" + i, nodes.get(s), nodes.get(d), time);
+				Edge edge2 = p.new Edge("" + i, nodes.get(d), nodes.get(s), time);
+				edges.add(edge1);
+				edges.add(edge2);
+			}
+			Graph graph = p.new Graph(nodes, edges);
+			DijkstraAlgorithm dijkstra = p.new DijkstraAlgorithm(graph);
+			dijkstra.execute(nodes.get(source));
+			int weight = dijkstra.getWeight(nodes.get(destination));
+			if (weight > 0)
+				System.out.println(weight);
+			else
+				System.out.println("Inalcanzable");
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class PuntoB {
+
+class DijkstraAlgorithm {
+
+	private final List<Edge> edges;
+	private Set<Vertex> settledNodes;
+	private Set<Vertex> unSettledNodes;
+	private Map<Vertex, Vertex> predecessors;
+	private Map<Vertex, Integer> distance;
+
+	public DijkstraAlgorithm(Graph graph) {
+		new ArrayList<Vertex>(graph.getVertexes());
+		this.edges = new ArrayList<Edge>(graph.getEdges());
+	}
+
+	public void execute(Vertex source) {
+		settledNodes = new HashSet<Vertex>();
+		unSettledNodes = new HashSet<Vertex>();
+		distance = new HashMap<Vertex, Integer>();
+		predecessors = new HashMap<Vertex, Vertex>();
+		distance.put(source, 0);
+		unSettledNodes.add(source);
+		while (unSettledNodes.size() > 0) {
+			Vertex node = getMinimum(unSettledNodes);
+			settledNodes.add(node);
+			unSettledNodes.remove(node);
+			findMinimalDistances(node);
+		}
+	}
+
+	private void findMinimalDistances(Vertex node) {
+		List<Vertex> adjacentNodes = getNeighbors(node);
+		for (Vertex target : adjacentNodes) {
+			if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)) {
+				distance.put(target, getShortestDistance(node) + getDistance(node, target));
+				predecessors.put(target, node);
+				unSettledNodes.add(target);
+			}
+		}
+
+	}
+
+	public int getDistance(Vertex node, Vertex target) {
+		for (Edge edge : edges) {
+			if (edge.getSource().equals(node) && edge.getDestination().equals(target)) {
+				return edge.getWeight();
+			}
+		}
+		throw new RuntimeException("Should not happen");
+	}
+
+	private List<Vertex> getNeighbors(Vertex node) {
+		List<Vertex> neighbors = new ArrayList<Vertex>();
+		for (Edge edge : edges) {
+			if (edge.getSource().equals(node) && !isSettled(edge.getDestination())) {
+				neighbors.add(edge.getDestination());
+			}
+		}
+		return neighbors;
+	}
+
+	private Vertex getMinimum(Set<Vertex> vertexes) {
+		Vertex minimum = null;
+		for (Vertex vertex : vertexes) {
+			if (minimum == null) {
+				minimum = vertex;
+			} else {
+				if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
+					minimum = vertex;
+				}
+			}
+		}
+		return minimum;
+	}
+
+	private boolean isSettled(Vertex vertex) {
+		return settledNodes.contains(vertex);
+	}
+
+	private int getShortestDistance(Vertex destination) {
+		Integer d = distance.get(destination);
+		if (d == null) {
+			return Integer.MAX_VALUE;
+		} else {
+			return d;
+		}
+	}
+
+	/*
+	 * This method returns the path from the source to the selected target and
+	 * NULL if no path exists
+	 */
+	public LinkedList<Vertex> getPath(Vertex target) {
+		LinkedList<Vertex> path = new LinkedList<Vertex>();
+		Vertex step = target;
+		// Check if a path exists
+		if (predecessors.get(step) == null) {
+			return null;
+		}
+		path.add(step);
+		while (predecessors.get(step) != null) {
+			step = predecessors.get(step);
+			path.add(step);
+		}
+		// Put it into the correct order
+		Collections.reverse(path);
+		return path;
+	}
+
+	public int getWeight(Vertex target) {
+		Vertex v1 = target;
+		Vertex v2 = target;
+		int weight = 0;
+		while (predecessors.get(v1) != null) {
+			v2 = predecessors.get(v1);
+			weight += getDistance(v2, v1);
+			v1 = v2;
+		}
+		return weight;
+	}
+}
+
+// Vertice
+
+class Vertex {
+	final private String id;
+	final private String name;
+
+	public Vertex(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vertex other = (Vertex) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+}
+
+// Arco
+
+class Edge {
+	private final String id;
+	private final Vertex source;
+	private final Vertex destination;
+	private final int weight;
+
+	public Edge(String id, Vertex source, Vertex destination, int weight) {
+		this.id = id;
+		this.source = source;
+		this.destination = destination;
+		this.weight = weight;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public Vertex getDestination() {
+		return destination;
+	}
+
+	public Vertex getSource() {
+		return source;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	@Override
+	public String toString() {
+		return source + " " + destination;
+	}
+
+}
+
+// Grafo
+
+class Graph {
+	private final List<Vertex> vertexes;
+	private final List<Edge> edges;
+
+	public Graph(List<Vertex> vertexes, List<Edge> edges) {
+		this.vertexes = vertexes;
+		this.edges = edges;
+	}
+
+	public List<Vertex> getVertexes() {
+		return vertexes;
+	}
+
+	public List<Edge> getEdges() {
+		return edges;
+	}
+
+}
+
+	public static void main(String[] args) throws Exception {
+		Scanner scan;
+		File f = new File("src/entradaB");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaB")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		PuntoB p = new PuntoB();
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) {
+			System.out.println("Caso #"+(t+1)+":");
+			String[] info = scan.nextLine().split(" ");
+			List<Vertex> nodes = new ArrayList<Vertex>();
+			List<Edge> edges = new ArrayList<Edge>();
+			int computers = Integer.parseInt(info[0]);
+			int connections = Integer.parseInt(info[1]);
+			int source = Integer.parseInt(info[2]);
+			int destination = Integer.parseInt(info[3]);		
+			for (int i = 0; i < computers; i++) {
+				Vertex comp = p.new Vertex(""+i, "" + i);
+				nodes.add(comp);
+			}
+			for (int i = 0; i < connections; i++) {
+				String[] connection = scan.nextLine().split(" ");
+				int s = Integer.parseInt(connection[0]);
+				int d = Integer.parseInt(connection[1]);
+				int time = Integer.parseInt(connection[2]);
+				
+				Edge edge1 = p.new Edge("" + i, nodes.get(s), nodes.get(d), time);
+				Edge edge2 = p.new Edge("" + i, nodes.get(d), nodes.get(s), time);
+				edges.add(edge1);
+				edges.add(edge2);
+			}
+			Graph graph = p.new Graph(nodes, edges);
+			DijkstraAlgorithm dijkstra = p.new DijkstraAlgorithm(graph);
+			dijkstra.execute(nodes.get(source));
+			int weight = dijkstra.getWeight(nodes.get(destination));
+			if (weight > 0)
+				System.out.println(weight);
+			else
+				System.out.println("inalcanzable");
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class PuntoC {
+
+	/**
+	 * LinkedList class implements a doubly-linked list.
+	 */
+	public class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	   
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+	
+	public static void main(String[] args) throws Exception {
+		Scanner scan;
+		File f = new File("src/entradaC");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaC")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		PuntoC p = new PuntoC();
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) {
+			System.out.println("Caso #"+(t+1)+":");
+			int n = Integer.parseInt(scan.nextLine()); 
+			MyLinkedList<coordenadas> pila = p.new MyLinkedList<>( );
+			HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+			HashSet<Integer> set = new HashSet<Integer>();
+			MyLinkedList<Integer> lst = p.new MyLinkedList<>( );
+			boolean flag = true;
+			int [][] mtr = new int [n][n];
+			int [][] visitados = new int [n][n];
+			for (int i = 0; i < n; i++) 
+			{
+				for (int j = 0; j < n; j++) 
+				{
+					int num = scan.nextInt();
+					
+					mtr[i][j] = num;
+					visitados[i][j] = 0;
+				}
+				if (t != N-1)
+					scan.nextLine();
+			}
+			for (int fila = 0; fila < n; fila++) 
+			{
+				for (int col = 0; col < n; col++) 
+				{
+					if (visitados[fila][col] == 0) {
+						int num = mtr[fila][col];
+						coordenadas co = p.new coordenadas(fila, col);
+						if (!map.containsKey(num)) {
+							map.put(num, 1);
+						}else{
+							map.put(num, map.get(num)+1);
+						}
+						lst.add(num);
+						pila.add(0, co);
+						if (!set.add(num)) {
+							flag = false;
+						}
+						while (!pila.isEmpty())
+						{
+							coordenadas cor = pila.remove(0);
+							int row = cor.fila;
+							int coll = cor.col;
+							visitados[row][coll] = 1;
+							if (row != 0) {
+								if (mtr[row-1][coll] == num && visitados[row-1][coll] == 0) {
+									coordenadas c = p.new coordenadas(row-1, coll);
+									pila.add(0, c);
+								}
+							}
+							if (row != n-1) {
+								if (mtr[row+1][coll] == num && visitados[row+1][coll] == 0) {
+									coordenadas c = p.new coordenadas(row+1, coll);
+									pila.add(0, c);
+								}
+							}
+							if (coll != n-1) {
+								if (mtr[row][coll+1] == num && visitados[row][coll+1] == 0) {
+									coordenadas c = p.new coordenadas(row, coll+1);
+									pila.add(0, c);
+								}
+							}
+							if (coll != 0) {
+								if (mtr[row][coll-1] == num && visitados[row][coll-1] == 0) {
+									coordenadas c = p.new coordenadas(row, coll-1);
+									pila.add(0, c);
+								}
+							}
+						}
+					}
+				}
+			}
+			if (flag) {
+				System.out.println("YES");
+			}else
+				System.out.println("NO");
+		}
+	}
+//	public void vecinos(MyLinkedList<coordenadas> pila, int[][] mtr, int[][] visitados, int num, int n)
+//	{
+//		while (!pila.isEmpty())
+//		{
+//			coordenadas cor = pila.remove(0);
+//			int fila = cor.fila;
+//			int col = cor.col;
+//			if (fila != 0) {
+//				if (mtr[fila-1][col] == num) {
+//					coordenadas c = new coordenadas(fila-1, col);
+//					pila.add(0, c);
+//				}
+//			}
+//			if (fila != n-1) {
+//				if (mtr[fila+1][col] == num) {
+//					coordenadas c = new coordenadas(fila+1, col);
+//					pila.add(0, c);
+//				}
+//			}
+//			if (col != n-1) {
+//				if (mtr[col+1][col] == num) {
+//					coordenadas c = new coordenadas(fila, col+1);
+//					pila.add(0, c);
+//				}
+//			}
+//			if (col != 0) {
+//				if (mtr[col-1][col] == num) {
+//					coordenadas c = new coordenadas(fila, col-1);
+//					pila.add(0, c);
+//				}
+//			}
+//		}
+//	}
+//	
+	
+	public class coordenadas
+	{
+		int fila;
+		int col;
+		public coordenadas(int fila, int col) {
+			super();
+			this.fila = fila;
+			this.col = col;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class PuntoD {
+
+	/**
+	 * LinkedList class implements a doubly-linked list.
+	 */
+	public class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	   
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+	
+	public static void main(String[] args) throws Exception {
+		Scanner scan;
+		File f = new File("src/entradaD");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaD")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		PuntoD p = new PuntoD();
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) {
+			System.out.println("Caso #"+(t+1)+":");
+			int n = Integer.parseInt(scan.nextLine()); 
+			MyLinkedList<coordenadas> pila = p.new MyLinkedList<>( );
+			HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+			HashSet<Integer> set = new HashSet<Integer>();
+			MyLinkedList<Integer> lst = p.new MyLinkedList<>( );
+			boolean flag = true;
+			int [][] mtr = new int [n][n];
+			int [][] visitados = new int [n][n];
+			for (int i = 0; i < n; i++) 
+			{
+				for (int j = 0; j < n; j++) 
+				{
+					int num = scan.nextInt();
+					
+					mtr[i][j] = num;
+					visitados[i][j] = 0;
+				}
+				if (t != N-1)
+					scan.nextLine();
+			}
+			for (int fila = 0; fila < n; fila++) 
+			{
+				for (int col = 0; col < n; col++) 
+				{
+					if (visitados[fila][col] == 0) {
+						int num = mtr[fila][col];
+						coordenadas co = p.new coordenadas(fila, col);
+						if (!map.containsKey(num)) {
+							map.put(num, 1);
+						}else{
+							map.put(num, map.get(num)+1);
+						}
+						lst.add(num);
+						pila.add(0, co);
+						if (!set.add(num)) {
+							flag = false;
+						}
+						while (!pila.isEmpty())
+						{
+							coordenadas cor = pila.remove(0);
+							int row = cor.fila;
+							int coll = cor.col;
+							visitados[row][coll] = 1;
+							if (row != 0) {
+								if (mtr[row-1][coll] == num && visitados[row-1][coll] == 0) {
+									coordenadas c = p.new coordenadas(row-1, coll);
+									pila.add(0, c);
+								}
+							}
+							if (row != n-1) {
+								if (mtr[row+1][coll] == num && visitados[row+1][coll] == 0) {
+									coordenadas c = p.new coordenadas(row+1, coll);
+									pila.add(0, c);
+								}
+							}
+							if (coll != n-1) {
+								if (mtr[row][coll+1] == num && visitados[row][coll+1] == 0) {
+									coordenadas c = p.new coordenadas(row, coll+1);
+									pila.add(0, c);
+								}
+							}
+							if (coll != 0) {
+								if (mtr[row][coll-1] == num && visitados[row][coll-1] == 0) {
+									coordenadas c = p.new coordenadas(row, coll-1);
+									pila.add(0, c);
+								}
+							}
+						}
+					}
+				}
+			}
+			System.out.println(lst.theSize);
+		}
+	}
+//	public void vecinos(MyLinkedList<coordenadas> pila, int[][] mtr, int[][] visitados, int num, int n)
+//	{
+//		while (!pila.isEmpty())
+//		{
+//			coordenadas cor = pila.remove(0);
+//			int fila = cor.fila;
+//			int col = cor.col;
+//			if (fila != 0) {
+//				if (mtr[fila-1][col] == num) {
+//					coordenadas c = new coordenadas(fila-1, col);
+//					pila.add(0, c);
+//				}
+//			}
+//			if (fila != n-1) {
+//				if (mtr[fila+1][col] == num) {
+//					coordenadas c = new coordenadas(fila+1, col);
+//					pila.add(0, c);
+//				}
+//			}
+//			if (col != n-1) {
+//				if (mtr[col+1][col] == num) {
+//					coordenadas c = new coordenadas(fila, col+1);
+//					pila.add(0, c);
+//				}
+//			}
+//			if (col != 0) {
+//				if (mtr[col-1][col] == num) {
+//					coordenadas c = new coordenadas(fila, col-1);
+//					pila.add(0, c);
+//				}
+//			}
+//		}
+//	}
+//	
+	
+	public class coordenadas
+	{
+		int fila;
+		int col;
+		public coordenadas(int fila, int col) {
+			super();
+			this.fila = fila;
+			this.col = col;
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class PuntoA {
+	
+	/**
+	 * LinkedList class implements a doubly-linked list.
+	 */
+	public class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	   
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+	public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the tree.
+	     */
+	    public BinarySearchTree( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Insert into the tree; duplicates are ignored.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        root = insert( x, root );
+	    }
+	
+	    /**
+	     * Remove from the tree. Nothing is done if x is not found.
+	     * @param x the item to remove.
+	     */
+	    public void remove( AnyType x )
+	    {
+	        root = remove( x, root );
+	    }
+	
+	    /**
+	     * Find the smallest item in the tree.
+	     * @return smallest item or null if empty.
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMin( root ).element;
+	    }
+	
+	    /**
+	     * Find the largest item in the tree.
+	     * @return the largest item of null if empty.
+	     */
+	    public AnyType findMax( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return findMax( root ).element;
+	    }
+	
+	    /**
+	     * Find an item in the tree.
+	     * @param x the item to search for.
+	     * @return true if not found.
+	     */
+	    public boolean contains( AnyType x )
+	    {
+	        return contains( x, root );
+	    }
+	
+	    /**
+	     * Make the tree logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        root = null;
+	    }
+	
+	    /**
+	     * Test if the tree is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return root == null;
+	    }
+	
+	    /**
+	     * Print the tree contents in sorted order.
+	     */
+	    public void printTree( )
+	    {
+	        if( isEmpty( ) )
+	            System.out.println( "Empty tree" );
+	        else
+	            printTree( root );
+	    }
+	
+	    /**
+	     * Internal method to insert into a subtree.
+	     * @param x the item to insert.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return new BinaryNode<>( x, null, null );
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = insert( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = insert( x, t.right );
+	        else
+	            ;  // Duplicate; do nothing
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to remove from a subtree.
+	     * @param x the item to remove.
+	     * @param t the node that roots the subtree.
+	     * @return the new root of the subtree.
+	     */
+	    private BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return t;   // Item not found; do nothing
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            t.left = remove( x, t.left );
+	        else if( compareResult > 0 )
+	            t.right = remove( x, t.right );
+	        else if( t.left != null && t.right != null ) // Two children
+	        {
+	            t.element = findMin( t.right ).element;
+	            t.right = remove( t.element, t.right );
+	        }
+	        else
+	            t = ( t.left != null ) ? t.left : t.right;
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find the smallest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the smallest item.
+	     */
+	    private BinaryNode<AnyType> findMin( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return null;
+	        else if( t.left == null )
+	            return t;
+	        return findMin( t.left );
+	    }
+	
+	    /**
+	     * Internal method to find the largest item in a subtree.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the largest item.
+	     */
+	    private BinaryNode<AnyType> findMax( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	            while( t.right != null )
+	                t = t.right;
+	
+	        return t;
+	    }
+	
+	    /**
+	     * Internal method to find an item in a subtree.
+	     * @param x is item to search for.
+	     * @param t the node that roots the subtree.
+	     * @return node containing the matched item.
+	     */
+	    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return false;
+	
+	        int compareResult = x.compareTo( t.element );
+	
+	        if( compareResult < 0 )
+	            return contains( x, t.left );
+	        else if( compareResult > 0 )
+	            return contains( x, t.right );
+	        else
+	            return true;    // Match
+	    }
+	
+	    /**
+	     * Internal method to print a subtree in sorted order.
+	     * @param t the node that roots the subtree.
+	     */
+	    private void printTree( BinaryNode<AnyType> t )
+	    {
+	        if( t != null )
+	        {
+	            printTree( t.left );
+	            System.out.println( t.element );
+	            printTree( t.right );
+	        }
+	    }
+	
+	    /**
+	     * Internal method to compute height of a subtree.
+	     * @param t the node that roots the subtree.
+	     */
+	    private int height( BinaryNode<AnyType> t )
+	    {
+	        if( t == null )
+	            return -1;
+	        else
+	            return 1 + Math.max( height( t.left ), height( t.right ) );
+	    }
+	
+	    // Basic node stored in unbalanced binary search trees
+	    private class BinaryNode<AnyType>
+	    {
+	            // Constructors
+	        BinaryNode( AnyType theElement )
+	        {
+	            this( theElement, null, null );
+	        }
+	
+	        BinaryNode( AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt )
+	        {
+	            element  = theElement;
+	            left     = lt;
+	            right    = rt;
+	        }
+	
+	        AnyType element;            // The data in the node
+	        BinaryNode<AnyType> left;   // Left child
+	        BinaryNode<AnyType> right;  // Right child
+	    }
+	    
+	    private BinaryNode<AnyType> ancestro( AnyType u,AnyType v, BinaryNode<AnyType> t )
+	    {
+	        if (u == t.element)
+	            return t;
+	        else if (v == t.element)
+	                return t;
+	        int compareResult1 = u.compareTo( t.element );
+	        int compareResult2 = v.compareTo( t.element );
+	        if ( compareResult1 > 0 && compareResult2 > 0 )
+	                return ancestro (u,v,t.right);
+	        else if ( compareResult1 < 0 && compareResult2 < 0 )
+	                return ancestro (u,v,t.left);
+	        else
+	            ; //nada
+	        return t;
+	    }
+
+	    public BinaryNode<AnyType> ancestro( AnyType u,AnyType v )
+	    {
+	        return ancestro( u, v, root );
+	    }
+	    public int distancia( AnyType u,BinaryNode<AnyType> t )
+	    {
+	    	int compareResult = u.compareTo( t.element );
+	        if( compareResult == 0 )
+	            return 0;
+	        else if (compareResult < 1)
+	        	return 1 + distancia(u,t.left);
+	        
+	        return 1 + distancia(u,t.right);
+	    }
+	    
+	    
+	    public int distancia (AnyType u, AnyType v)
+	    {
+	    	BinaryNode<AnyType> t = ancestro(u, v);
+	    	return distancia (u,t) + distancia (v,t);
+	    }
+	    
+	
+	
+	      /** The tree root. */
+	    private BinaryNode<AnyType> root;
+	}
+	
+	/**
+	 * Implements a binary heap.
+	 * Note that all "matching" is based on the compareTo method.
+	 * @param <AnyType>
+	 */
+	public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+	{
+	    /**
+	     * Construct the binary heap.
+	     */
+	    public BinaryHeap( )
+	    {
+	        this( DEFAULT_CAPACITY );
+	    }
+
+	    /**
+	     * Construct the binary heap.
+	     * @param capacity the capacity of the binary heap.
+	     */
+	    public BinaryHeap( int capacity )
+	    {
+	        currentSize = 0;
+	        array = (AnyType[]) new Comparable[ capacity + 1 ];
+	    }
+	    
+	    /**
+	     * Construct the binary heap given an array of items.
+	     * @param items
+	     */
+	    public BinaryHeap( AnyType [ ] items )
+	    {
+	            currentSize = items.length;
+	            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+	            int i = 1;
+	            for( AnyType item : items )
+	                array[ i++ ] = item;
+	            buildHeap( );
+	    }
+
+	    /**
+	     * Insert into the priority queue, maintaining heap order.
+	     * Duplicates are allowed.
+	     * @param x the item to insert.
+	     */
+	    public void insert( AnyType x )
+	    {
+	        if( currentSize == array.length - 1 )
+	            enlargeArray( array.length * 2 + 1 );
+
+	            // Percolate up
+	        int hole = ++currentSize;
+	        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+	            array[ hole ] = array[ hole / 2 ];
+	        array[ hole ] = x;
+	    }
+
+
+	    private void enlargeArray( int newSize )
+	    {
+	            AnyType [] old = array;
+	            array = (AnyType []) new Comparable[ newSize ];
+	            for( int i = 0; i < old.length; i++ )
+	                array[ i ] = old[ i ];        
+	    }
+	    
+	    /**
+	     * Find the smallest item in the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType findMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+	        return array[ 1 ];
+	    }
+
+	    /**
+	     * Remove the smallest item from the priority queue.
+	     * @return the smallest item, or throw an UnderflowException if empty.
+	     * @throws java.lang.Exception
+	     */
+	    public AnyType deleteMin( ) throws Exception
+	    {
+	        if( isEmpty( ) )
+	            throw new Exception( );
+
+	        AnyType minItem = findMin( );
+	        array[ 1 ] = array[ currentSize-- ];
+	        percolateDown( 1 );
+
+	        return minItem;
+	    }
+
+	    /**
+	     * Establish heap order property from an arbitrary
+	     * arrangement of items. Runs in linear time.
+	     */
+	    private void buildHeap( )
+	    {
+	        for( int i = currentSize / 2; i > 0; i-- )
+	            percolateDown( i );
+	    }
+
+	    /**
+	     * Test if the priority queue is logically empty.
+	     * @return true if empty, false otherwise.
+	     */
+	    public boolean isEmpty( )
+	    {
+	        return currentSize == 0;
+	    }
+
+	    /**
+	     * Make the priority queue logically empty.
+	     */
+	    public void makeEmpty( )
+	    {
+	        currentSize = 0;
+	    }
+
+	    private static final int DEFAULT_CAPACITY = 10;
+
+	    private int currentSize;      // Number of elements in heap
+	    private AnyType [ ] array; // The heap array
+
+	    /**
+	     * Internal method to percolate down in the heap.
+	     * @param hole the index at which the percolate begins.
+	     */
+	    private void percolateDown( int hole )
+	    {
+	        int child;
+	        AnyType tmp = array[ hole ];
+
+	        for( ; hole * 2 <= currentSize; hole = child )
+	        {
+	            child = hole * 2;
+	            if( child != currentSize &&
+	                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+	                child++;
+	            if( array[ child ].compareTo( tmp ) < 0 )
+	                array[ hole ] = array[ child ];
+	            else
+	                break;
+	        }
+	        array[ hole ] = tmp;
+	    }
+	}
+
+
+public class grafo
+{
+	int cont;
+	ArrayList<nodo> list;
+	Map <String,Integer> map;
+	
+	public grafo(int cont) {
+		super();
+		this.cont = cont;
+		this.list = new ArrayList<nodo>();
+		this.map = new HashMap<>(cont);
+	}
+	
+	public String topSort() throws Exception
+	{
+		BinaryHeap<nodo> heap = new BinaryHeap<>();
+		String str = "";
+		for (nodo n : list) 
+		{
+			if(n.indegree == 0)
+				heap.insert(n);
+		}
+		
+		while(!heap.isEmpty())
+		{
+			nodo n = heap.deleteMin();
+			if (n.conocido)
+			{
+				str = "";
+				break;
+			}
+			n.conocido = true;
+			str += n.letter;
+			for (String id : n.lst) 
+			{
+				int idx = map.get(id);
+				list.get(idx).indegree--;
+				if(list.get(idx).indegree == 0)
+					heap.insert(list.get(idx));
+			}
+		}
+		if (str == "" || str.length() != cont)
+			str = "NO";
+		return str;
+	}
+}
+
+public class nodo implements Comparable<nodo>
+{
+	int indegree;
+	char letter;
+	LinkedList<String> lst;
+	boolean conocido;
+	
+	public nodo(char letter) {
+		super();
+		this.indegree = 0;
+		this.letter = letter;
+		this.lst = new LinkedList<>();
+		conocido = false;
+	}
+
+	@Override
+	public int compareTo(nodo n) {
+		if (this.indegree < n.indegree) 
+			return -1;
+		else if (n.indegree < this.indegree)
+			return 1;
+		else if (this.letter < n.letter)
+			return -1;
+		else if(this.letter > n.letter)
+			return 1;
+		return 0;
+	}
+
+}
+
+	public static void main(String[] args) throws Exception {
+		Scanner scan;
+		File f = new File("src/entradaA");
+		if (f.exists()) {
+			scan = new Scanner(f);
+			// todo System.out.print va a ir al archivo "salidaA"
+			System.setOut(new PrintStream(new File("src/salidaA")));
+		} 
+		else 
+		{
+			scan = new Scanner(System.in);
+		}
+		PuntoA p = new PuntoA();
+		int N = Integer.parseInt(scan.nextLine()); 
+		for (int t = 0; t < N; t++) {
+			System.out.println("Caso #"+(t+1)+":");
+			int letters = Integer.parseInt(scan.nextLine());
+			grafo graf = p.new grafo(letters);
+			String[] lista = scan.nextLine().split(" ");
+			
+			for (int i = 0; i < letters; i++) {
+				nodo n = p.new nodo(lista[i].charAt(0));
+				graf.list.add(n);
+				graf.map.put(lista[i], graf.map.size());
+			}
+			String[] comandos = scan.nextLine().split(" ");
+			for (int i = 0; i < comandos.length; i++) 
+			{
+				
+				String l1 = String.valueOf(comandos[i].charAt(0));
+				String m = String.valueOf(comandos[i].charAt(1));
+				String l2 = String.valueOf(comandos[i].charAt(2));
+				//System.out.println(l1+" "+m+" "+l2);
+				if (m.equals("<")) {
+					int r = graf.map.get(l1);
+					graf.list.get(r).lst.add(l2);
+					r = graf.map.get(l2);
+					graf.list.get(r).indegree++;
+				}
+				else {
+					int r = graf.map.get(l2);
+					graf.list.get(r).lst.add(l1);
+					r = graf.map.get(l1);
+					graf.list.get(r).indegree++;
+				}
+				
+			}
+			String str = graf.topSort();
+			if (str.equals("NO")) {
+				System.out.println(str);
+			}else 
+			{
+				for (int i = 0; i < str.length(); i++) {
+					if (i != str.length()-1) {
+						System.out.print(str.charAt(i)+" ");
+					}else
+						System.out.print(str.charAt(i));
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

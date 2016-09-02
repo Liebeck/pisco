@@ -1,0 +1,1403 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Main
+{
+
+    static BufferedReader line= new BufferedReader (new InputStreamReader (System.in));
+    static int  count, sum,sum2;
+    static  int [] list;
+
+    public static void main(String[] args) throws NumberFormatException, IOException
+    {
+        int tamano,numCase;
+        boolean flag, flag2=true;
+        char [][] choco;
+        String [] out;
+        // System.out.println("ingrese el numero de casos");
+        numCase=Integer.parseInt(line.readLine());
+        out=new String[numCase];
+
+        for (int i = 0; i < numCase; i++)
+        {
+            //System.out.println("tamano del chocolate ");
+            tamano=Integer.parseInt(line.readLine());
+            choco= new char [tamano][tamano];
+            fill( choco,tamano);
+            flag=cutRow(choco,tamano);
+            flag2=cutCol(choco,tamano);
+            if(flag==true||flag2==true)
+                out[i]="YES";
+            else
+                out[i]="NO";
+        }
+        for (int i = 0; i < out.length; i++)
+            System.out.println(out[i]);
+
+    }
+
+    public static char[][] fill(char a[][],int n) throws IOException
+    {
+        for (int i = 0; i <n; i++)
+        {
+            a[i]=line.readLine().toCharArray();
+        }
+        return  a;
+    }
+
+    public static boolean cutRow (char a[][], int n) throws IOException
+    {
+        list=new int[n];
+        boolean flag=true;
+        for (int i = 0; i <n; i++)
+        {
+            count=0;
+            for (int j = 0; j < n; j++)
+            {
+                if(a[i][j]=='#')
+                {
+                    count++;
+                }
+            }
+            list[i]=count;
+        }
+        for (int i = 0; i <list.length; i++)
+        {
+            sum+=list[i];
+        }
+        for (int i = 0; i < list.length; i++)
+        {
+            sum2+=list[i];
+            if(sum2==sum-sum2)
+            {
+                flag=true;
+                break;
+            }
+        }
+        if(sum2!=sum-sum2)
+        {
+            flag=false;
+        }
+        sum=0;
+        sum2=0;
+        return flag;
+    }
+
+    public static boolean cutCol (char a[][], int n) throws IOException
+    {
+        list=new int[n];
+        boolean flag= true;
+        for (int i = 0; i <n; i++)
+        {
+            count=0;
+            for (int j = 0; j < n; j++)
+            {
+                if(a[j][i]=='#')
+                {
+                    count++;
+                }
+            }
+            list[i]=count;
+        }
+        for (int i = 0; i <list.length; i++)
+        {
+            sum+=list[i];
+        }
+        for (int i = 0; i < list.length; i++)
+        {
+            sum2+=list[i];
+            if(sum2==sum-sum2)
+            {
+                flag = true;
+                break;
+            }
+        }
+        if(sum2!=sum-sum2)
+        {
+            flag=false;
+        }
+        sum=0;
+        sum2=0;
+        return flag;
+    }
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+public class Main
+{
+    private static Scanner cantnum;
+    private static Scanner dato;
+
+    public static void main(String[] args)
+    { int m=2;
+        while(m==2){
+        cantnum = new Scanner(System.in);
+        dato = new Scanner(System.in);
+        int cantidad = cantnum.nextInt(); // pide el numero de elementos
+        int n = 0, mayor = -99999, menor = -99999, igual = -99999;
+        int mayormenos = -99999, igualmenos = -99999, menormenos = -99999;
+
+        {
+            for (int ciclo = 1; ciclo <= cantidad; ciclo++)
+            {
+                n = dato.nextInt(); // recibe los numeros para comparar
+
+                if (n >= 0) ////****************************************casos positivos
+                {
+                    if (n == mayor)
+                    {
+                        igual = n;
+                    }
+
+                    if (n > mayor)
+                    {
+                        // compara
+                        if (mayor >= igual)
+                        {
+                            igual = mayor;
+                        }
+                        mayor = n;
+                    }
+
+                    if (n < mayor)
+                        menor = n;
+                    {
+                        if (igual < menor)
+                        {
+                            igual = menor;
+                        }
+                    }
+
+                }
+                // ********************************************************Casos negativos
+                if (n < 0)
+                {
+                    n = n * -1;
+                    // --------------------------------------------
+                    if (n == mayormenos)
+
+                    {
+                        igualmenos = n;
+                    }
+                    // ------------------------------------------------
+
+                    if (n > mayormenos)
+                    {
+                        // compara
+                        if (mayormenos >= igualmenos)
+                        {
+                            igualmenos = mayormenos;
+                        }
+                        mayormenos = n;
+                    }
+                    // ------------------------------------------------
+                    if (n < mayormenos)
+                        menormenos = n;
+                    {
+                        if (igualmenos < menormenos)
+                        {
+                            igualmenos = menormenos;
+                        }
+                    }
+                    // --------------------------------------------------
+                }
+            }
+            if (mayor==-99999)
+            {
+                mayor=0;
+            }
+            if (igual==-99999)
+            {
+                igual=0;
+            }
+            if (mayormenos==-99999)
+            {
+                mayormenos=0;
+            }
+            if (igualmenos==-99999)
+            {
+                igualmenos=0;
+            }
+
+            int resultado1= mayor*igual;
+            int resultado2= mayormenos*igualmenos;
+            if (resultado1 < resultado2)
+            {
+                System.out.println(resultado2);
+            }
+            else
+            {
+                System.out.println(resultado1);
+            }
+        }
+        }
+        }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio1;
+
+import java.util.*;
+
+public class PA
+{	
+    private static Scanner cantnum;
+    private static Scanner dato;
+
+    public static void main(String[] args)
+    {	while(true){        
+    	cantnum = new Scanner(System.in);
+        dato = new Scanner(System.in);
+        int cantidad = cantnum.nextInt(); // pide el numero de elementos
+        int n = 0, mayor = -99999, menor = -99999, igual = -99999;
+        int mayormenos = -99999, igualmenos = -99999, menormenos = -99999;
+
+        {
+            for (int ciclo = 1; ciclo <= cantidad; ciclo++)
+            {
+                n = dato.nextInt(); // recibe los numeros para comparar
+
+                if (n >= 0) ////****************************************casos positivos
+                {
+                    if (n == mayor)
+                    {
+                        igual = n;
+                    }
+
+                    if (n > mayor)
+                    {
+                        // compara
+                        if (mayor >= igual)
+                        {
+                            igual = mayor;
+                        }
+                        mayor = n;
+                    }
+
+                    if (n < mayor)
+                        menor = n;
+                    {
+                        if (igual < menor)
+                        {
+                            igual = menor;
+                        }
+                    }
+
+                }
+                // ********************************************************Casos negativos
+                if (n < 0)
+                {
+                    n = n * -1;
+                    // --------------------------------------------
+                    if (n == mayormenos)
+
+                    {
+                        igualmenos = n;
+                    }
+                    // ------------------------------------------------
+
+                    if (n > mayormenos)
+                    {
+                        // compara
+                        if (mayormenos >= igualmenos)
+                        {
+                            igualmenos = mayormenos;
+                        }
+                        mayormenos = n;
+                    }
+                    // ------------------------------------------------
+                    if (n < mayormenos)
+                        menormenos = n;
+                    {
+                        if (igualmenos < menormenos)
+                        {
+                            igualmenos = menormenos;
+                        }
+                    }
+                    // --------------------------------------------------
+                }
+            }
+            if (mayor==-99999)
+            {
+                mayor=0;
+            }
+            if (igual==-99999)
+            {
+                igual=0;
+            }
+            if (mayormenos==-99999)
+            {
+                mayormenos=0;
+            }
+            if (igualmenos==-99999)
+            {
+                igualmenos=0;
+            }
+
+            int resultado1= mayor*igual;
+            int resultado2= mayormenos*igualmenos;
+            if (resultado1 < resultado2)
+            {
+                System.out.println(resultado2);
+            }
+            else
+            {
+                System.out.println(resultado1);
+            }
+        }
+    }
+    }
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+    import java.util.Arrays;
+    import java.io.BufferedReader;
+    import java.io.InputStreamReader;
+     
+    class Main{
+    	public static void main (String[] args) throws Exception {
+    		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    		int N=Integer.parseInt(br.readLine());
+    		long[] A=new long[N];
+    		String val[]=br.readLine().split(" ");
+    		for(int i=0;i<val.length;i++)
+    			A[i]=Long.parseLong(val[i]);
+    		Arrays.sort(A);
+    		
+    		long prod= A[0]*A[1];
+    		long prod1=A[N-1]*A[N-2];
+    		
+    		if( prod>prod1 )
+    			System.out.println(prod);
+    		else if(prod1>prod)
+    			System.out.println(prod1);
+    		else
+    		System.out.println(Math.abs(prod));
+    	}
+    }
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package laboratorio1;
+
+import java.util.*;
+
+public class PA
+{	
+    private static Scanner cantnum;
+    private static Scanner dato;
+
+    public static void main(String[] args)
+    {	     
+    	cantnum = new Scanner(System.in);
+        dato = new Scanner(System.in);
+        int cantidad = cantnum.nextInt(); // pide el numero de elementos
+        int n = 0, mayor = -99999, menor = -99999, igual = -99999;
+        int mayormenos = -99999, igualmenos = -99999, menormenos = -99999;
+
+        {
+            for (int ciclo = 1; ciclo <= cantidad; ciclo++)
+            {
+                n = dato.nextInt(); // recibe los numeros para comparar
+
+                if (n >= 0) ////****************************************casos positivos
+                {
+                    if (n == mayor)
+                    {
+                        igual = n;
+                    }
+
+                    if (n > mayor)
+                    {
+                        // compara
+                        if (mayor >= igual)
+                        {
+                            igual = mayor;
+                        }
+                        mayor = n;
+                    }
+
+                    if (n < mayor)
+                        menor = n;
+                    {
+                        if (igual < menor)
+                        {
+                            igual = menor;
+                        }
+                    }
+
+                }
+                // ********************************************************Casos negativos
+                if (n < 0)
+                {
+                    n = n * -1;
+                    // --------------------------------------------
+                    if (n == mayormenos)
+
+                    {
+                        igualmenos = n;
+                    }
+                    // ------------------------------------------------
+
+                    if (n > mayormenos)
+                    {
+                        // compara
+                        if (mayormenos >= igualmenos)
+                        {
+                            igualmenos = mayormenos;
+                        }
+                        mayormenos = n;
+                    }
+                    // ------------------------------------------------
+                    if (n < mayormenos)
+                        menormenos = n;
+                    {
+                        if (igualmenos < menormenos)
+                        {
+                            igualmenos = menormenos;
+                        }
+                    }
+                    // --------------------------------------------------
+                }
+            }
+            if (mayor==-99999)
+            {
+                mayor=0;
+            }
+            if (igual==-99999)
+            {
+                igual=0;
+            }
+            if (mayormenos==-99999)
+            {
+                mayormenos=0;
+            }
+            if (igualmenos==-99999)
+            {
+                igualmenos=0;
+            }
+
+            int resultado1= mayor*igual;
+            int resultado2= mayormenos*igualmenos;
+            if (resultado1 < resultado2)
+            {
+                System.out.println(resultado2);
+            }
+            else
+            {
+                System.out.println(resultado1);
+            }
+        }
+    }
+    }
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+public class Main
+{	
+    private static Scanner cantnum;
+    private static Scanner dato;
+
+    public static void main(String[] args)
+    {	 while(true)    {
+    	cantnum = new Scanner(System.in);
+        dato = new Scanner(System.in);
+        int cantidad = cantnum.nextInt(); // pide el numero de elementos
+        int n = 0, mayor = -99999, menor = -99999, igual = -99999;
+        int mayormenos = -99999, igualmenos = -99999, menormenos = -99999;
+
+        {
+            for (int ciclo = 1; ciclo <= cantidad; ciclo++)
+            {
+                n = dato.nextInt(); // recibe los numeros para comparar
+
+                if (n >= 0) ////****************************************casos positivos
+                {
+                    if (n == mayor)
+                    {
+                        igual = n;
+                    }
+
+                    if (n > mayor)
+                    {
+                        // compara
+                        if (mayor >= igual)
+                        {
+                            igual = mayor;
+                        }
+                        mayor = n;
+                    }
+
+                    if (n < mayor)
+                        menor = n;
+                    {
+                        if (igual < menor)
+                        {
+                            igual = menor;
+                        }
+                    }
+
+                }
+                // ********************************************************Casos negativos
+                if (n < 0)
+                {
+                    n = n * -1;
+                    // --------------------------------------------
+                    if (n == mayormenos)
+
+                    {
+                        igualmenos = n;
+                    }
+                    // ------------------------------------------------
+
+                    if (n > mayormenos)
+                    {
+                        // compara
+                        if (mayormenos >= igualmenos)
+                        {
+                            igualmenos = mayormenos;
+                        }
+                        mayormenos = n;
+                    }
+                    // ------------------------------------------------
+                    if (n < mayormenos)
+                        menormenos = n;
+                    {
+                        if (igualmenos < menormenos)
+                        {
+                            igualmenos = menormenos;
+                        }
+                    }
+                    // --------------------------------------------------
+                }
+            }
+            if (mayor==-99999)
+            {
+                mayor=0;
+            }
+            if (igual==-99999)
+            {
+                igual=0;
+            }
+            if (mayormenos==-99999)
+            {
+                mayormenos=0;
+            }
+            if (igualmenos==-99999)
+            {
+                igualmenos=0;
+            }
+
+            int resultado1= mayor*igual;
+            int resultado2= mayormenos*igualmenos;
+            if (resultado1 < resultado2)
+            {
+                System.out.println(resultado2);
+            }
+            else
+            {
+                System.out.println(resultado1);
+            }
+        }
+    }
+    }
+    }
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.lang.Exception;
+import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+ 
+class Main
+{ 
+    static int maxproduct(int n,int arr[])
+    {
+        int prod=0,prod1=0;
+        
+        if(n==2)
+            return arr[0]*arr[1];
+        
+        Arrays.sort(arr);
+        prod1=arr[0]*arr[1];
+        prod=arr[n-2]*arr[n-1];
+        
+        if(prod1>prod)
+            return (prod1);
+        else
+            return prod;
+        
+        
+    }
+    public static void main (String[] args) throws Exception {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        int prod=0;
+        int prod1=0;
+    
+        int N=Integer.parseInt(br.readLine());
+        int[] A=new int[N];
+        String val[]=br.readLine().split(" ");
+        
+        
+        
+         for(int i=0;i<N;i++)
+            A[i]=Integer.parseInt(val[i]);
+            
+            
+            prod=maxproduct(N,A);
+            System.out.println(prod);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+ 
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        
+        String num = in.readLine();
+        int N = Integer.parseInt(num);
+        
+        String numeros = in.readLine();
+        String lines[] = numeros.split(" ");
+        long P[] = new long[N];
+        for (int i = 0; i < lines.length; i++) {
+            P[i] = Long.parseLong(lines[i]);
+        }
+        Arrays.sort(P);
+        if ((P[0] * P[1]) > (P[N - 1] * P[N - 2])) {
+            System.out.println(P[0] * P[1]);
+        } else if ((P[0] * P[1]) < (P[N - 1] * P[N - 2])) {
+            System.out.println( P[N - 1] * P[N - 2]);
+        } else {
+            System.out.println(Math.abs(P[0] * P[1]));
+        }
+ 
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int z = 1;
+
+        int n = sc.nextInt();
+        int[][] cuadro = new int[n][n];
+        int[] fila = new int[n];
+        int[] columna = new int[n];
+        int sumf = 0;
+        int sumc = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                cuadro[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            sumf = 0;
+            for (int j = 0; j < n; j++) {
+                sumf = sumf + cuadro[i][j];
+            }
+            fila[i] = sumf;
+        }
+
+        for (int i = 0; i < n; i++) {
+            sumf = 0;
+            for (int j = 0; j < n; j++) {
+                sumf = sumf + cuadro[j][i];
+            }
+            columna[i] = sumf;
+
+        }
+
+        int count = 0;
+        for (int t = 0; t < n; t++) {
+            for (int y = 0; y < n; y++) {
+                if (fila[t] < columna[y]) {
+                    count++;
+                }
+            }
+        }
+        System.out.println("case #" + z + ":");
+        System.out.println(count);
+        z++;
+    }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+      
+
+        int n = sc.nextInt();
+        int[][] cuadro = new int[n][n];
+        int[] fila = new int[n];
+        int[] columna = new int[n];
+        int sumf = 0;
+        int sumc = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                cuadro[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            sumf = 0;
+            for (int j = 0; j < n; j++) {
+                sumf = sumf + cuadro[i][j];
+            }
+            fila[i] = sumf;
+        }
+
+        for (int i = 0; i < n; i++) {
+            sumf = 0;
+            for (int j = 0; j < n; j++) {
+                sumf = sumf + cuadro[j][i];
+            }
+            columna[i] = sumf;
+
+        }
+
+        int count = 0;
+        for (int t = 0; t < n; t++) {
+            for (int y = 0; y < n; y++) {
+                if (fila[t] < columna[y]) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+            }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner sc= new Scanner (System.in);
+        
+        int n= sc.nextInt();
+        int s=0;
+        int[] te= new int[5];
+        for(int t=0; t<5; t++){
+            te[t]=sc.nextInt();
+            if(n==te[t]){
+            s++;
+        }
+           
+        }
+         System.out.println(s);
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int recibido = sc.nextInt();
+        int inicio = 0;
+        int count = 0;
+
+        for (int i = 0; i < recibido; i++) {
+
+            count = 0;
+
+            inicio = sc.nextInt();
+
+            int arreglo[][] = new int[inicio][2];
+
+            for (int t = 0; t < inicio; t++) {
+
+                for (int j = 0; j < 2; j++) {
+
+                    arreglo[t][j] = sc.nextInt();
+
+                }
+
+            }
+
+            for (int t = 0; t < inicio; t++) {
+
+                for (int j = 0; j < inicio; j++) {
+
+                    if (t != j) {
+
+                        if (arreglo[t][0] == arreglo[j][1]) {
+
+                            count++;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            System.out.println("Case #" + (i + 1) + ": \n" + count);
+
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.util.*;
+
+class Main {
+
+    public static void main(String[] args) {
+
+        Scanner leer = new Scanner(System.in);
+        int cont = 1;
+        do {
+
+            int n = leer.nextInt();
+
+            int[][] cuadrado = new int[n][n];
+            for (int i = 0; i < n; i++) {
+
+                for (int j = 0; j < n; j++) {
+                    cuadrado[i][j] = leer.nextInt();
+                }
+
+            }
+
+            int[] columnas = new int[n];
+
+            for (int j = 0; j < n; j++) {
+
+                int sum_columna = 0;
+
+                for (int i = 0; i < n; i++) {
+
+                    sum_columna = sum_columna + cuadrado[i][j];
+
+                    columnas[j] = sum_columna;
+                }
+            }
+
+            int[] filas = new int[n];
+
+            for (int j = 0; j < n; j++) {
+
+                int sum_fila = 0;
+
+                for (int i = 0; i < n; i++) {
+
+                    sum_fila = sum_fila + cuadrado[j][i];
+
+                    filas[j] = sum_fila;
+                }
+            }
+            int cuenta = 0;
+
+            for (int j = 0; j < n; j++) {
+
+                for (int i = 0; i < n; i++) {
+
+                    if (filas[j] < columnas[i]) {
+
+                        cuenta++;
+                    }
+
+                }
+
+            }
+
+            System.out.println("Case #" + (cont) + ":\n" + cuenta);
+
+            cont++;
+
+        } while (leer.hasNext());
+
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        for(int b=1; b<=n; b++)
+        {
+
+            int card, play, cardt=0, cardplay=0;
+            card=sc.nextInt();
+            play=sc.nextInt();
+           
+            int[] p= new int[play];
+            int[] baraja = new int[card];
+  //***************************************************************        
+            for(int i=0; i<card; i++)
+            {
+                baraja[i]=sc.nextInt();
+            }
+//**************************************************************/
+            for(int i=0; i<card; i++)
+            {
+                int cardh=card-1;
+                if(baraja[cardh]>=baraja[cardt])
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardh];
+                    cardh--;
+                }
+                else
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardt];
+                    cardt++;
+                }
+                cardplay++;
+                if(cardplay>=play)
+                {
+                    cardplay=0;
+                };
+                if(cardh<cardt)
+                {
+                    break;
+                }
+            }
+//*******************************************************************
+            int max=0;
+            for(int i=0; i<play; i++)
+            {
+                if(p[i]>max)
+                {
+                    max=p[i];
+                }
+            }
+
+            System.out.println("Case #"+b+":");
+//*******************************************************************
+            int pack=1;
+            for(int k=0; k<play; k++)
+            {
+                if(p[k]==max)
+                {
+                    System.out.print(pack+" ");
+                }
+                pack++;
+            }
+            System.out.println();
+            sc.close();
+        }
+    }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        for(int b=1; b<=n; b++)
+        {
+
+            int card, play, cardt=0, cardplay=0;
+            card=sc.nextInt();
+            play=sc.nextInt();
+           
+            int[] p= new int[play];
+            int[] baraja = new int[card];
+  //***************************************************************        
+            for(int i=0; i<card; i++)
+            {
+                baraja[i]=sc.nextInt();
+            }
+//**************************************************************/
+            for(int i=0; i<card; i++)
+            {
+                int cardh=card-1;
+                if(baraja[cardh]>=baraja[cardt])
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardh];
+                    cardh--;
+                }
+                else
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardt];
+                    cardt++;
+                }
+                cardplay++;
+                if(cardplay>=play)
+                {
+                    cardplay=0;
+                };
+                if(cardh<cardt)
+                {
+                    break;
+                }
+            }
+//*******************************************************************
+            int max=0;
+            for(int i=0; i<play; i++)
+            {
+                if(p[i]>max)
+                {
+                    max=p[i];
+                }
+            }
+
+            System.out.println("Caso #"+b+":");
+//*******************************************************************
+            int pack=1;
+            for(int k=0; k<play; k++)
+            {
+                if(p[k]==max)
+                {
+                    System.out.print(pack+" ");
+                }
+                pack++;
+            }
+            System.out.println();
+            
+        }
+    }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        for(int b=1; b<=n; b++)
+        {
+
+            int card, play;
+            card=sc.nextInt();
+            play=sc.nextInt();
+           
+            int[] p= new int[play];
+            int[] baraja = new int[card];
+  //***************************************************************        
+            for(int i=0; i<card; i++)
+            {
+                baraja[i]=sc.nextInt();
+            }
+//**************************************************************/
+            int cardt=0, cardplay=0;
+            for(int i=0; i<card; i++)
+            {
+                int cardh=card-1;
+                if(baraja[cardh]>=baraja[cardt])
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardh];
+                    cardh--;
+                }
+                else
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardt];
+                    cardt++;
+                }
+                cardplay++;
+                if(cardplay>=play)
+                {
+                    cardplay=0;
+                };
+                if(cardh<cardt)
+                {
+                    break;
+                }
+            }
+//*******************************************************************
+            int max=0;
+            for(int i=0; i<play; i++)
+            {
+                if(p[i]>max)
+                {
+                    max=p[i];
+                }
+            }
+
+            System.out.println("Caso #"+b+":");
+//*******************************************************************
+            int pack=1;
+            for(int k=0; k<play; k++)
+            {
+                if(p[k]==max)
+                {
+                    System.out.print(pack+" ");
+                }
+                pack++;
+            }
+            System.out.println();
+            
+        }
+    }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        for(int b=1; b<=n; b++)
+        {
+
+            int card, play;
+            card=sc.nextInt();
+            play=sc.nextInt();
+            int[] p= new int[play];
+            int[] baraja = new int[card];
+  //***************************************************************        
+            for(int i=0; i<card; i++)
+            {
+                baraja[i]=sc.nextInt();
+            }
+//**************************************************************/
+            int cardt=0, cardplay=0, cardh= card-1;
+            for(int i=0; i<card; i++)
+            {
+                
+                if(baraja[cardh]>=baraja[cardt])
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardh];
+                    cardh--;
+                }
+                else
+                {
+                    p[cardplay]=p[cardplay]+baraja[cardt];
+                    cardt++;
+                }
+                cardplay++;
+                if(cardplay>=play)
+                {
+                    cardplay=0;
+                };
+                if(cardh<cardt)
+                {
+                    break;
+                }
+            }
+//*******************************************************************
+            int max=0;
+            for(int i=0; i<play; i++)
+            {
+                if(p[i]>max)
+                {
+                    max=p[i];
+                }
+            }
+
+            System.out.println("Caso #"+b+":");
+//*******************************************************************
+            int pack=1;
+            for(int k=0; k<play; k++)
+            {
+                if(p[k]==max)
+                {
+                    System.out.print(pack+" ");
+                }
+                pack++;
+            }
+            System.out.println();
+            
+        }
+    }
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class main
+{
+
+    public static void main(String[] args)
+    {
+
+        Scanner sc = new Scanner(System.in);
+
+        int c=sc.nextInt();
+        int[] objetive = new int[c];
+
+        for(int i=0; i<c; i++)
+        {
+            objetive[i]=sc.nextInt();
+        }
+        int n=sc.nextInt();
+        sc.nextLine();
+        int[][] darlings= new int[n][100000];
+        int max=0;
+//***************************************************************
+        for(int i=0; i<n; i++)
+        {
+            String s=sc.nextLine().trim();
+            String[] id= s.split(" ");
+            if(id.length> max)
+            {
+                max=id.length;
+            };
+            for(int p=0; p<id.length; p++)
+            {
+            }
+            for(int a=0; a<id.length; a++)
+            {
+                darlings[i][a]=Integer.parseInt(id[a]);
+            }
+        }
+//***************************************************************
+        int count=0;
+        int count2=0;
+//***************************************************************
+        for(int a=0; a<n; a++)
+        {
+            count=0;
+            for(int count=0; count<c; count++)
+            {
+                for(int i=0; i<max; i++)
+                {
+                    if(objetive[count]==darlings[a][i])
+                    {
+                        count++;
+                    }
+                    if(count==objetive.length)
+                    {
+                        count2++;
+                        break;
+                    }
+                    if(objetive[count]==darlings[a][i])
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+//*******************************************************************
+        System.out.println(count2);
+
+
+    }
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+
+        Scanner sc = new Scanner(System.in);
+
+        int c=sc.nextInt();
+        int[] objetive = new int[c];
+
+        for(int i=0; i<c; i++)
+        {
+            objetive[i]=sc.nextInt();
+        }
+        int n=sc.nextInt();
+        sc.nextLine();
+        int[][] darlings= new int[n][100000];
+        int max=0;
+//***************************************************************
+        for(int i=0; i<n; i++)
+        {
+            String s=sc.nextLine().trim();
+            String[] id= s.split(" ");
+            if(id.length> max)
+            {
+                max=id.length;
+            };
+            for(int p=0; p<id.length; p++)
+            {
+            }
+            for(int a=0; a<id.length; a++)
+            {
+                darlings[i][a]=Integer.parseInt(id[a]);
+            }
+        }
+//***************************************************************
+        int count=0;
+        int count2=0;
+//***************************************************************
+        for(int a=0; a<n; a++)
+        {
+            count=0;
+            for(int t=0; t<c; t++)
+            {
+                for(int i=0; i<max; i++)
+                {
+                    if(objetive[t]==darlings[a][i])
+                    {
+                        count++;
+                    }
+                    if(count==objetive.length)
+                    {
+                        count2++;
+                        break;
+                    }
+                    if(objetive[t]==darlings[a][i])
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+//*******************************************************************
+        System.out.println(count2);
+
+
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

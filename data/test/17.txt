@@ -1,0 +1,3254 @@
+package proyecto1estructuras;
+
+import java.util.Scanner;
+public class Proyecto1Estructuras {
+
+   
+   
+    
+    public static void main(String[] args) {
+        //leer el archivo
+        
+        
+        
+		 
+    Scanner input2 = new Scanner (System.in);
+    
+    int casosDePrueba = input2.nextInt();
+    
+    for (int a=0;a<casosDePrueba;a++){
+    Scanner input1 = new Scanner (System.in);
+    
+    int cantidadDeNumerosParaComparar = input1.nextInt();
+    
+    int[] arregloDeNumeros = new int [cantidadDeNumerosParaComparar];
+    
+    int contadorMenores=0 , contadorMayores=0, contadorIguales=0;
+    
+    Scanner inputArreglo=new Scanner (System.in);
+    String numerosAComparar = inputArreglo.nextLine();
+    String [] numerosSeparados= numerosAComparar.split(" ");
+    for (int i=0;i<cantidadDeNumerosParaComparar;i++){
+        
+        arregloDeNumeros[i] = Integer.parseInt(numerosSeparados[i]);
+        }
+    for (int i=0;i<cantidadDeNumerosParaComparar;i++){
+        for (int j=0;j<cantidadDeNumerosParaComparar;j++){
+ 
+        if (arregloDeNumeros[i]<arregloDeNumeros[j]){
+            contadorMenores++;
+            
+        }
+        else {
+            if (arregloDeNumeros[i]==arregloDeNumeros[j]){
+                contadorIguales++;
+            }
+            else {
+                contadorMayores++;
+            }
+        }
+        }
+        
+    }
+    System.out.println("Case #"+(a+1)+":");
+    System.out.println(contadorMayores);
+    System.out.println(contadorMenores);
+    System.out.println(contadorIguales-cantidadDeNumerosParaComparar);
+        }
+    }
+    }
+        
+        
+    
+
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto1estructuras;
+
+import java.util.Scanner;
+public class Proyecto1Estructuras {
+
+   
+   
+    
+    public static void main(String[] args) {
+        //leer el archivo
+        
+        
+        
+		 
+    Scanner input2 = new Scanner (System.in);
+    
+    int casosDePrueba = input2.nextInt();
+    
+    for (int a=0;a<casosDePrueba;a++){
+    //Scanner input1 = new Scanner (System.in);
+    
+    int cantidadDeNumerosParaComparar = input2.nextInt();
+    
+    int[] arregloDeNumeros = new int [cantidadDeNumerosParaComparar];
+    
+    int contadorMenores=0 , contadorMayores=0, contadorIguales=0;
+    
+    Scanner inputArreglo=new Scanner (System.in);
+    String numerosAComparar = inputArreglo.nextLine();
+    String [] numerosSeparados= numerosAComparar.split(" ");
+    for (int i=0;i<cantidadDeNumerosParaComparar;i++){
+        
+        arregloDeNumeros[i] = Integer.parseInt(numerosSeparados[i]);
+        }
+    for (int i=0;i<cantidadDeNumerosParaComparar;i++){
+        for (int j=0;j<cantidadDeNumerosParaComparar;j++){
+ 
+        if (arregloDeNumeros[i]<arregloDeNumeros[j]){
+            contadorMenores++;
+            
+        }
+        else {
+            if (arregloDeNumeros[i]==arregloDeNumeros[j]){
+                contadorIguales++;
+            }
+            else {
+                contadorMayores++;
+            }
+        }
+        }
+        
+    }
+    System.out.println("Case #"+(a+1)+":");
+    System.out.println(contadorMayores);
+    System.out.println(contadorMenores);
+    System.out.println(contadorIguales-cantidadDeNumerosParaComparar);
+        }
+    }
+    }
+        
+        
+    
+
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto1estructuras;
+
+import java.util.Scanner;
+public class Proyecto1Estructuras {
+
+   
+   
+    
+    public static void main(String[] args) {
+        //leer el archivo
+        
+        
+        
+		 
+    Scanner input2 = new Scanner (System.in);
+    
+    int casosDePrueba = Integer.parseInt(input2.nextLine());
+    
+    for (int a=0;a<casosDePrueba;a++){
+    //Scanner input1 = new Scanner (System.in);
+    
+    int cantidadDeNumerosParaComparar = Integer.parseInt(input2.nextLine());
+    
+    int[] arregloDeNumeros = new int [cantidadDeNumerosParaComparar];
+    
+    int contadorMenores=0 , contadorMayores=0, contadorIguales=0;
+    
+    //Scanner inputArreglo=new Scanner (System.in);
+    String numerosAComparar = input2.nextLine();
+    String [] numerosSeparados= numerosAComparar.split(" ");
+    for (int i=0;i<cantidadDeNumerosParaComparar;i++){
+        
+        arregloDeNumeros[i] = Integer.parseInt(numerosSeparados[i]);
+        }
+    for (int i=0;i<cantidadDeNumerosParaComparar;i++){
+        for (int j=0;j<cantidadDeNumerosParaComparar;j++){
+ 
+        if (arregloDeNumeros[i]<arregloDeNumeros[j]){
+            contadorMenores++;
+            
+        }
+        else {
+            if (arregloDeNumeros[i]==arregloDeNumeros[j]){
+                contadorIguales++;
+            }
+            else {
+                contadorMayores++;
+            }
+        }
+        }
+        
+    }
+    System.out.println("Case #"+(a+1)+":");
+    System.out.println(contadorMayores);
+    System.out.println(contadorMenores);
+    System.out.println(contadorIguales-cantidadDeNumerosParaComparar);
+        }
+    }
+    }
+        
+        
+    
+
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proyecto1estructurasb;
+import java.util.Scanner;
+
+public class Proyecto1EstructurasB {
+
+
+    public static void main(String[] args) {
+    Scanner input3 = new Scanner (System.in);
+    
+    int casosDePrueba = Integer.parseInt(input3.nextLine());
+    
+    for (int b=0;b<casosDePrueba;b++){
+        //Scanner input1=new Scanner(System.in);
+        int N=Integer.parseInt(input3.nextLine());
+                
+        int[][] tablero=new int [N][N];
+        //llenar tablero
+        
+        for (int i=0; i<N;i++){
+            //canner input2=new Scanner(System.in);
+            String numerosAComparar = input3.nextLine();
+            for (int j=0; j<N;j++){
+                String [] numerosSeparados= numerosAComparar.split(" ");
+                tablero[i][j] = Integer.parseInt(numerosSeparados[j]);
+                               
+        }
+        }
+
+        
+        //comparar
+        int contador=0;
+        int [] sumFilas=new int[N];
+        int [] sumColumnas=new int[N];
+        for (int k=0;k<N;k++){
+            for (int l=0;l<N;l++){
+            sumFilas [k]+=tablero[k][l];
+            sumColumnas [k]+=tablero[l][k];
+
+            }
+            
+        }
+        
+        for(int comparador=0;comparador<N;comparador++){
+           for(int comparadorB=0;comparadorB<N;comparadorB++){
+                if(sumFilas [comparador]<sumColumnas [comparadorB]){
+                contador++;
+            }
+        } 
+        }
+        System.out.println("Case #"+(b+1)+":");
+        System.out.println(contador);
+    }
+ }   
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proyecto1estructurasb;
+import java.util.Scanner;
+
+public class Proyecto1EstructurasB {
+
+
+    public static void main(String[] args) {
+    Scanner input3 = new Scanner (System.in);
+    
+    //int casosDePrueba = Integer.parseInt(input3.nextLine());
+    
+    //for (int b=0;b<casosDePrueba;b++){
+        //Scanner input1=new Scanner(System.in);
+       int a=0;
+    while (input3.hasNext()){
+        
+    
+ 
+        int N=Integer.parseInt(input3.nextLine());
+                
+        int[][] tablero=new int [N][N];
+        //llenar tablero
+        
+        for (int i=0; i<N;i++){
+            //canner input2=new Scanner(System.in);
+            String numerosAComparar = input3.nextLine();
+            for (int j=0; j<N;j++){
+                String [] numerosSeparados= numerosAComparar.split(" ");
+                tablero[i][j] = Integer.parseInt(numerosSeparados[j]);
+                               
+        }
+        }
+
+        
+        //comparar
+        int contador=0;
+        int [] sumFilas=new int[N];
+        int [] sumColumnas=new int[N];
+        for (int k=0;k<N;k++){
+            for (int l=0;l<N;l++){
+            sumFilas [k]+=tablero[k][l];
+            sumColumnas [k]+=tablero[l][k];
+
+            }
+            
+        }
+        
+        for(int comparador=0;comparador<N;comparador++){
+           for(int comparadorB=0;comparadorB<N;comparadorB++){
+                if(sumFilas [comparador]<sumColumnas [comparadorB]){
+                contador++;
+            }
+        } 
+        }
+                   
+                System.out.println("Case #"+(a+1)+":");
+                System.out.println(contador);
+                a++;
+ 
+        }
+    }
+ }   
+//}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proyecto1estructurasd;
+import java.util.Scanner;
+
+public class Proyecto1EstructurasD {
+
+
+    public static void main(String[] args) {
+        Scanner input1 = new Scanner(System.in);
+        int numeroDeCasos = Integer.parseInt(input1.nextLine());
+
+
+        for (int a=0;a<numeroDeCasos;a++){
+        
+        //Scanner input2 = new Scanner(System.in);
+        int numeroDeEquipos = Integer.parseInt(input1.nextLine());
+            
+        int [][] matrizEquipos = new int [numeroDeEquipos][2];
+
+        for (int i=0;i<numeroDeEquipos;i++){
+                //Scanner input3 = new Scanner(System.in);
+                String numerosAComparar= input1.nextLine();
+                String [] numerosSeparados = numerosAComparar.split(" ");
+                matrizEquipos [i][0] = Integer.parseInt(numerosSeparados[0]);
+                matrizEquipos [i][1] = Integer.parseInt(numerosSeparados[1]);
+        }
+                int contador = 0;
+        for (int i=0;i<numeroDeEquipos;i++){
+            for (int j=0;j<numeroDeEquipos;j++){
+                if (matrizEquipos [i][0] == matrizEquipos [j][1]){
+                    contador++;
+                }
+        
+            }
+        }
+        System.out.println("Case #"+(a+1)+":");
+          System.out.println(contador);
+    }
+
+        }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proyecto1estructurasd;
+import java.util.Scanner;
+
+public class Proyecto1EstructurasD {
+
+
+    public static void main(String[] args) {
+        Scanner input1 = new Scanner(System.in);
+        int numeroDeCasos = Integer.parseInt(input1.nextLine());
+
+
+        for (int a=0;a<numeroDeCasos;a++){
+        
+        //Scanner input2 = new Scanner(System.in);
+        int numeroDeEquipos = Integer.parseInt(input1.nextLine());
+            
+        int [][] matrizEquipos = new int [numeroDeEquipos][2];
+
+        for (int i=0;i<numeroDeEquipos;i++){
+                //Scanner input3 = new Scanner(System.in);
+                String numerosAComparar= input1.nextLine();
+                String [] numerosSeparados = numerosAComparar.split(" ");
+                matrizEquipos [i][0] = Integer.parseInt(numerosSeparados[0]);
+                matrizEquipos [i][1] = Integer.parseInt(numerosSeparados[1]);
+        }
+                int contador = 0;
+        for (int i=0;i<numeroDeEquipos;i++){
+            for (int j=0;j<numeroDeEquipos;j++){
+                if (matrizEquipos [i][0] == matrizEquipos [j][1] && i!=j){
+                    contador++;
+                }
+        
+            }
+        }
+        
+        System.out.println("Case #"+(a+1)+":");
+        System.out.println(contador);
+    }
+
+        }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto1estructurastaller;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class Proyecto1EstructurasTaller {
+
+
+    public static void main(String[] args) {
+        Scanner input1 = new Scanner(System.in);
+        int intentos = Integer.parseInt(input1.nextLine());
+        for (int a=0;a<intentos;a++){
+            int N = Integer.parseInt(input1.nextLine());
+            int [] arregloNumeros = new int [N];
+                String numerosAComparar= input1.nextLine();
+                String [] numerosSeparados = numerosAComparar.split(" ");
+            for (int i=0;i<N;i++){
+                arregloNumeros[i] = Integer.parseInt(numerosSeparados[i]);
+
+        }
+            int contador=0;
+            
+                if (arregloNumeros[0] == 0 ){
+                    contador++;
+                    }
+                                
+            for (int i=1;i<N;i++){
+                if (arregloNumeros[i] == 0 && arregloNumeros[i-1]!=0){
+                contador++;
+                }
+                }
+                
+            System.out.println(contador);
+            }
+        }
+        }
+     
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package proyecto1estructurasc;
+import java.util.Arrays;
+import java.util.Scanner;
+        
+public class Proyecto1EstructurasC {
+
+
+    public static void main(String[] args) {
+        
+        Scanner input1 = new Scanner (System.in);
+        int numeroDeCasos = Integer.parseInt(input1.nextLine());
+        for (int a=0; a<numeroDeCasos ; a++){
+        //Scanner input2 = new Scanner (System.in);
+        int numeroDePiedras = Integer.parseInt(input1.nextLine());
+        char [] arregloDePiedras = new char [numeroDePiedras];
+        //Scanner input3 = new Scanner(System.in);
+        String letrasAComparar= input1.nextLine();
+        for (int i=0; i<numeroDePiedras ; i++){
+            String [] letrasSeparadas = letrasAComparar.split(" ");
+            arregloDePiedras [i] = letrasSeparadas[i].charAt(0);
+        }
+        for (int j=numeroDePiedras-1;j>=0;j--){
+        for (int i=numeroDePiedras-1;i>=0;i--){
+        if (arregloDePiedras [j] > arregloDePiedras [i] && i!=j){
+            char c=arregloDePiedras [j];
+            char b=arregloDePiedras [i];
+            arregloDePiedras [j]=b;
+            arregloDePiedras [i]=c;
+            System.out.println(arregloDePiedras);
+        }
+        } 
+        }
+        }
+   } 
+        }
+   
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasd;
+
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasD {
+    
+    static class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- )
+            theItems[ i ] = theItems[ i - 1 ];
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ )
+            theItems[ i ] = theItems[ i + 1 ];
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+    
+
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+                
+            HashMap<String, Integer> hash = new HashMap<>();
+            HashMap<String, String> hash2 = new HashMap<>();
+            MyArrayList<String> array = new MyArrayList<>();
+            int nCandidatos = Integer.parseInt(input.nextLine());
+            for (int i=0;i<nCandidatos;i++){
+                String[] candidatos = input.nextLine().split(" ");
+                String nombre = candidatos[0];
+                String partido = candidatos[1];
+                hash2.put(nombre,partido);
+                hash.put(nombre,0);
+                array.add(nombre);
+            }
+            int votos = Integer.parseInt(input.nextLine());
+            for (int i=0;i<votos;i++){
+                String voto = input.nextLine();
+                int k=hash.get(voto);
+                hash.remove(voto);
+                hash.put(voto,++k);
+            }
+            int mayor=0;
+            String may="0";
+            MyArrayList<String> ganadores = new MyArrayList<>();
+            for(int i=0;i<array.size();i++){
+                if(hash.get(array.get(i))>mayor){
+                    
+                   mayor=hash.get(array.get(i));
+                   may=hash2.get(array.get(i));
+                   ganadores.clear();
+                   ganadores.add(may);
+                }
+                
+                boolean inserted=false;
+                MainLoop:
+                if(hash.get(array.get(i))==mayor){
+                    for(int j=0; j<ganadores.size(); j++){
+                        if(hash2.get(array.get(i)).compareTo(ganadores.get(j))==0){
+                            inserted=true;
+                            break MainLoop;
+                        }
+                        if(hash2.get(array.get(i)).compareTo(ganadores.get(j))>0){
+                            ganadores.add(j+1,hash2.get(array.get(i)));
+                            System.out.println(hash2.get(array.get(i))+" pos "+j);
+                            inserted=true;
+                            break MainLoop;
+                            
+                        }
+                    }
+                    if(inserted==false)
+                        ganadores.add(0,hash2.get(array.get(i)));
+                    
+                }
+            
+        }
+            for(String x : ganadores)
+                System.out.println(x);
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasa2;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.HashMap;
+import java.util.Set;
+/**
+ *
+ */
+public class Proyecto6EstructurasA2 {
+
+    static class SeparateChainingHashTable<AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        theLists = new LinkedList[  size ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+            
+            whichList.add( x );
+
+                // Rehash; see Section 5.5
+            //if( ++currentSize > theLists.length )
+                //rehash( );
+        
+    }
+    
+    
+    /*public void printLists(){
+    for(List <AnyType> list:theLists){
+        System.out.println("entro"+list.size());
+    }
+    }*/
+    
+    public int collisions(){
+        int c=0;
+        for(List <AnyType> list:theLists){
+            if(!list.isEmpty())
+                c=c+list.size()-1;
+        }
+        //System.out.println(c);
+        return c;
+    }
+    public void printCollisions(){
+        HashMap<AnyType,List> hash = new HashMap<>();
+        List <AnyType> listaDeIniciales=new LinkedList<>( );
+        for(List <AnyType> list:theLists){
+            if(list.size()>1){
+                hash.put(list.get(0),list);
+                listaDeIniciales.add(list.get(0));
+                
+            }
+        }
+            Collections.sort(listaDeIniciales);
+            for(AnyType x:listaDeIniciales){
+                for(Object y:hash.get(x))
+                    System.out.print(y+" ");
+                System.out.println();
+            }
+            
+        //Collections.sort(lista);
+    
+    
+    }
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+    
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+        //System.out.println(hashVal);
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x )
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+        //System.out.println(theLists.length);
+        return hashVal;
+    }
+    
+    private static int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+
+
+        // Simple main
+    
+
+}
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+            String[] casos = input.nextLine().split(" ");
+            int nNumeros=Integer.parseInt(casos[0]);
+            int nK =Integer.parseInt(casos[1]);
+            List<Integer> set1=new LinkedList<>( ); ;
+            SortedSet <Integer> set2= new TreeSet();
+            String[] numeros = input.nextLine().split(" ");
+            String[] ks = input.nextLine().split(" ");
+            for(int i=0;i<nNumeros;i++)
+                set1.add(Integer.parseInt(numeros[i]));
+            Collections.sort(set1);
+            
+            for(int i=0;i<nK;i++)
+                set2.add(Integer.parseInt(ks[i]));
+           
+            int minCol = nNumeros;
+            
+            HashMap<Integer,SeparateChainingHashTable<Integer>> hashConColisiones = new HashMap<>();
+            HashMap<Integer,Integer> hashConK = new HashMap<>();
+            
+            for(Integer x:set2){
+                SeparateChainingHashTable<Integer> hash=new SeparateChainingHashTable<>(x);
+                for(Integer y:set1)
+                    hash.insert(y);
+                if(hash.collisions()<minCol){
+                    minCol=hash.collisions();
+                hashConColisiones.put(hash.collisions(),hash);
+                hashConK.put(hash.collisions(),x);
+                }
+                //hash.printLists();
+            }
+    
+    System.out.println(hashConK.get(minCol));      
+    System.out.println(minCol);
+    if(minCol>0)
+        hashConColisiones.get(minCol).printCollisions();
+            
+    }
+
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasb;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasB {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        
+        for (int b=0;b<casosDePrueba;b++){
+            int mecato=0;
+            System.out.println("Case #"+(b+1)+":");
+            HashMap<Integer,Integer> hash= new HashMap();
+            int nEstanques=Integer.parseInt(input.nextLine());
+            
+            for(int i=0;i<nEstanques;i++){
+                String[] estanques = input.nextLine().split(" ");
+                int comida=Integer.parseInt(estanques[0]);
+                int pokemon =Integer.parseInt(estanques[1]);
+                
+                if(hash.containsKey(comida)){
+                    int nuevaComida=hash.get(comida)+1;
+                    hash.remove(comida);
+                    hash.put(comida, nuevaComida);
+                }
+                else hash.put(comida,1);
+                
+                if(hash.containsKey(pokemon)){
+                    if(hash.get(pokemon)>1){
+                    int nuevaComida=hash.get(pokemon)-1;
+                    hash.remove(pokemon);
+                    hash.put(pokemon, nuevaComida);
+                }
+                    else hash.remove(pokemon);
+                }
+                else 
+                    mecato++;
+                
+                }
+                    
+                
+                /*if(comida!=pokemon)
+                {if(hash.containsKey(pokemon)){
+                    if(hash.get(pokemon)>1){
+                        int nuevaComida=hash.get(pokemon)-1;
+                        hash.remove(pokemon);
+                        hash.put(pokemon, nuevaComida);
+                    }
+                    else
+                        hash.remove(pokemon);
+                }
+                else{
+                    hash.put( comida,1 );
+                    mecato++;
+                    }
+            }*/
+            System.out.println(mecato);
+            }
+            
+            
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasc;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasC {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+        HashMap<Integer,String> hash = new HashMap<>();
+        String[] cantidad = input.nextLine().split(" ");
+        int nNorma = Integer.parseInt(cantidad[0]);
+        int nMario = Integer.parseInt(cantidad[1]);
+        int nPipe = Integer.parseInt(cantidad[2]);
+        int norma=0;
+        int mario=0;
+        int pipe=0;
+        String[] resueltosNorma = input.nextLine().split(" ");
+        String[] resueltosMario = input.nextLine().split(" ");
+        String[] resueltosPipe = input.nextLine().split(" ");
+        for(int i=0;i<nNorma;i++){
+            int id=Integer.parseInt(resueltosNorma[i]);
+            hash.put(id,"norma");
+            norma++;
+        }
+        for(int i=0;i<nMario;i++){
+            int id=Integer.parseInt(resueltosMario[i]);
+            if(hash.containsKey(id)){
+                hash.remove(id);
+                norma--;
+            }
+            else {
+                hash.put(id,"mario");
+                mario++;
+            }
+        }
+        for(int i=0;i<nPipe;i++){
+            int id=Integer.parseInt(resueltosPipe[i]);
+            if(hash.containsKey(id)){
+                
+                if(hash.get(id).equals("norma"))
+                    norma--;
+                else
+                    mario--;
+                hash.remove(id);
+            }
+            else {
+                hash.put(id,"pipe");
+                pipe++;
+            }
+        }
+        
+        int max1=Integer.max(norma,mario);
+        int max=Integer.max(max1, pipe);
+        //System.out.println(hash.keySet());
+        SortedSet<Integer> sortedNorma = new TreeSet();
+        SortedSet<Integer> sortedMario = new TreeSet();
+        SortedSet<Integer> sortedPipe = new TreeSet();
+        for(int x:hash.keySet()){
+            if(hash.get(x).equals("norma")){
+                sortedNorma.add(x);
+            }
+            if(hash.get(x).equals("mario"))
+                sortedMario.add(x);
+            if(hash.get(x).equals("pipe"))
+                sortedPipe.add(x);
+        }
+        if(norma==max){
+        
+        System.out.print("Norma "+norma);
+        for(int x:sortedNorma)
+            System.out.print(" "+x);
+        
+        System.out.println();
+        }
+        if(mario==max){
+        
+        System.out.print("Mario "+mario);
+        for(int x:sortedMario)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+        if(pipe==max){
+        
+        System.out.print("Pipe "+pipe);
+        for(int x:sortedPipe)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+            
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasc;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasC {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+        HashMap<Integer,String> hash = new HashMap<>();
+        String[] cantidad = input.nextLine().split(" ");
+        int nNorma = Integer.parseInt(cantidad[0]);
+        int nMario = Integer.parseInt(cantidad[1]);
+        int nPipe = Integer.parseInt(cantidad[2]);
+        int norma=0;
+        int mario=0;
+        int pipe=0;
+        String[] resueltosNorma = input.nextLine().split(" ");
+        String[] resueltosMario = input.nextLine().split(" ");
+        String[] resueltosPipe = input.nextLine().split(" ");
+        for(int i=0;i<nNorma;i++){
+            int id=Integer.parseInt(resueltosNorma[i]);
+            hash.put(id,"norma");
+            norma++;
+        }
+        for(int i=0;i<nMario;i++){
+            int id=Integer.parseInt(resueltosMario[i]);
+            if(hash.containsKey(id)){
+                hash.remove(id);
+                norma--;
+            }
+            else {
+                hash.put(id,"mario");
+                mario++;
+            }
+        }
+        for(int i=0;i<nPipe;i++){
+            int id=Integer.parseInt(resueltosPipe[i]);
+            if(hash.containsKey(id)){
+                
+                if(hash.get(id).equals("norma"))
+                    norma--;
+                else
+                    mario--;
+                hash.remove(id);
+            }
+            else {
+                hash.put(id,"pipe");
+                pipe++;
+            }
+        }
+        
+        int max1=Integer.max(norma,mario);
+        int max=Integer.max(max1, pipe);
+        //System.out.println(hash.keySet());
+        SortedSet<Integer> sortedNorma = new TreeSet();
+        SortedSet<Integer> sortedMario = new TreeSet();
+        SortedSet<Integer> sortedPipe = new TreeSet();
+        for(int x:hash.keySet()){
+            if(hash.get(x).equals("norma")){
+                sortedNorma.add(x);
+            }
+            if(hash.get(x).equals("mario"))
+                sortedMario.add(x);
+            if(hash.get(x).equals("pipe"))
+                sortedPipe.add(x);
+        }
+        if(norma==max){
+        
+        System.out.print("Norma "+norma);
+        for(int x:sortedNorma)
+            System.out.print(" "+x);
+        
+        System.out.println();
+        }
+        if(mario==max){
+        
+        System.out.print("Mario "+mario);
+        for(int x:sortedMario)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+        if(pipe==max){
+        
+        System.out.print("Pipe "+pipe);
+        for(int x:sortedPipe)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+            
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasc;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasC {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+        HashMap<Integer,String> hash = new HashMap<>();
+        String[] cantidad = input.nextLine().split(" ");
+        int nNorma = Integer.parseInt(cantidad[0]);
+        int nMario = Integer.parseInt(cantidad[1]);
+        int nPipe = Integer.parseInt(cantidad[2]);
+        int norma=0;
+        int mario=0;
+        int pipe=0;
+        String[] resueltosNorma = input.nextLine().split(" ");
+        String[] resueltosMario = input.nextLine().split(" ");
+        String[] resueltosPipe = input.nextLine().split(" ");
+        for(int i=0;i<nNorma;i++){
+            int id=Integer.parseInt(resueltosNorma[i]);
+            hash.put(id,"norma");
+            norma++;
+        }
+        for(int i=0;i<nMario;i++){
+            int id=Integer.parseInt(resueltosMario[i]);
+            if(hash.containsKey(id)){
+                hash.remove(id);
+                norma--;
+            }
+            else {
+                hash.put(id,"mario");
+                mario++;
+            }
+        }
+        for(int i=0;i<nPipe;i++){
+            int id=Integer.parseInt(resueltosPipe[i]);
+            if(hash.containsKey(id)){
+                
+                if(hash.get(id).equals("norma"))
+                    norma--;
+                else
+                    mario--;
+                hash.remove(id);
+            }
+            else {
+                hash.put(id,"pipe");
+                pipe++;
+            }
+        }
+        
+        
+        int max=0;
+        if(norma>mario && norma>pipe)
+            max=norma;
+        if(mario>norma && mario>pipe)
+            max=mario;
+        if(pipe>norma && pipe > mario)
+            max=pipe;
+               
+//        int max1=Integer.max(norma,mario);
+ //       int max=Integer.max(max1, pipe);
+        //System.out.println(hash.keySet());
+        SortedSet<Integer> sortedNorma = new TreeSet();
+        SortedSet<Integer> sortedMario = new TreeSet();
+        SortedSet<Integer> sortedPipe = new TreeSet();
+        for(int x:hash.keySet()){
+            if(hash.get(x).equals("norma")){
+                sortedNorma.add(x);
+            }
+            if(hash.get(x).equals("mario"))
+                sortedMario.add(x);
+            if(hash.get(x).equals("pipe"))
+                sortedPipe.add(x);
+        }
+        if(norma==max){
+        
+        System.out.print("Norma "+norma);
+        for(int x:sortedNorma)
+            System.out.print(" "+x);
+        
+        System.out.println();
+        }
+        if(mario==max){
+        
+        System.out.print("Mario "+mario);
+        for(int x:sortedMario)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+        if(pipe==max){
+        
+        System.out.print("Pipe "+pipe);
+        for(int x:sortedPipe)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+            
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasc;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasC {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+        HashMap<Integer,String> hash = new HashMap<>();
+        String[] cantidad = input.nextLine().split(" ");
+        int nNorma = Integer.parseInt(cantidad[0]);
+        int nMario = Integer.parseInt(cantidad[1]);
+        int nPipe = Integer.parseInt(cantidad[2]);
+        int norma=0;
+        int mario=0;
+        int pipe=0;
+        String[] resueltosNorma = input.nextLine().split(" ");
+        String[] resueltosMario = input.nextLine().split(" ");
+        String[] resueltosPipe = input.nextLine().split(" ");
+        for(int i=0;i<nNorma;i++){
+            int id=Integer.parseInt(resueltosNorma[i]);
+            hash.put(id,"norma");
+            norma++;
+        }
+        for(int i=0;i<nMario;i++){
+            int id=Integer.parseInt(resueltosMario[i]);
+            if(hash.containsKey(id)){
+                hash.remove(id);
+                norma--;
+            }
+            else {
+                hash.put(id,"mario");
+                mario++;
+            }
+        }
+        for(int i=0;i<nPipe;i++){
+            int id=Integer.parseInt(resueltosPipe[i]);
+            if(hash.containsKey(id)){
+                
+                if(hash.get(id).equals("norma"))
+                    norma--;
+                else
+                    mario--;
+                hash.remove(id);
+            }
+            else {
+                hash.put(id,"pipe");
+                pipe++;
+            }
+        }
+        
+        
+        int max=0;
+        if(norma>=mario && norma>=pipe)
+            max=norma;
+        if(mario>=norma && mario>=pipe)
+            max=mario;
+        if(pipe>=norma && pipe >= mario)
+            max=pipe;
+               
+//        int max1=Integer.max(norma,mario);
+ //       int max=Integer.max(max1, pipe);
+        //System.out.println(hash.keySet());
+        SortedSet<Integer> sortedNorma = new TreeSet();
+        SortedSet<Integer> sortedMario = new TreeSet();
+        SortedSet<Integer> sortedPipe = new TreeSet();
+        for(int x:hash.keySet()){
+            if(hash.get(x).equals("norma")){
+                sortedNorma.add(x);
+            }
+            if(hash.get(x).equals("mario"))
+                sortedMario.add(x);
+            if(hash.get(x).equals("pipe"))
+                sortedPipe.add(x);
+        }
+        if(norma==max){
+        
+        System.out.print("Norma "+norma);
+        for(int x:sortedNorma)
+            System.out.print(" "+x);
+        
+        System.out.println();
+        }
+        if(mario==max){
+        
+        System.out.print("Mario "+mario);
+        for(int x:sortedMario)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+        if(pipe==max){
+        
+        System.out.print("Pipe "+pipe);
+        for(int x:sortedPipe)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+            
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasd;
+
+
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasD {
+    
+    static class MyArrayList<AnyType> implements Iterable<AnyType>
+{
+    /**
+     * Construct an empty ArrayList.
+     */
+    public MyArrayList( )
+    {
+        doClear( );
+    }
+    
+    /**
+     * Returns the number of items in this collection.
+     * @return the number of items in this collection.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Returns true if this collection is empty.
+     * @return true if this collection is empty.
+     */ 
+    public boolean isEmpty( )
+    {
+        return size( ) == 0;
+    }
+    
+    /**
+     * Returns the item at position idx.
+     * @param idx the index to search in.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType get( int idx )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        return theItems[ idx ];    
+    }
+        
+    /**
+     * Changes the item at position idx.
+     * @param idx the index to change.
+     * @param newVal the new value.
+     * @return the old value.
+     * @throws ArrayIndexOutOfBoundsException if index is out of range.
+     */
+    public AnyType set( int idx, AnyType newVal )
+    {
+        if( idx < 0 || idx >= size( ) )
+            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + size( ) );
+        AnyType old = theItems[ idx ];    
+        theItems[ idx ] = newVal;
+        
+        return old;    
+    }
+
+    @SuppressWarnings("unchecked")
+    public void ensureCapacity( int newCapacity )
+    {
+        if( newCapacity < theSize )
+            return;
+
+        AnyType [ ] old = theItems;
+        theItems = (AnyType []) new Object[ newCapacity ];
+        for( int i = 0; i < size( ); i++ )
+            theItems[ i ] = old[ i ];
+    }
+    
+    /**
+     * Adds an item to this collection, at the end.
+     * @param x any object.
+     * @return true.
+     */
+    public boolean add( AnyType x )
+    {
+    add( size( ), x );
+        return true;            
+    }
+    
+    /**
+     * Adds an item to this collection, at the specified index.
+     * @param x any object.
+     * @return true.
+     */
+    public void add( int idx, AnyType x )
+    {
+        if( theItems.length == size( ) )
+            ensureCapacity( size( ) * 2 + 1 );
+
+        for( int i = theSize; i > idx; i-- )
+            theItems[ i ] = theItems[ i - 1 ];
+
+        theItems[ idx ] = x;
+        theSize++;  
+    }
+      
+    /**
+     * Removes an item from this collection.
+     * @param idx the index of the object.
+     * @return the item was removed from the collection.
+     */
+    public AnyType remove( int idx )
+    {
+        AnyType removedItem = theItems[ idx ];
+        
+        for( int i = idx; i < size( ) - 1; i++ )
+            theItems[ i ] = theItems[ i + 1 ];
+        theSize--;    
+        
+        return removedItem;
+    }
+    
+    /**
+     * Change the size of this collection to zero.
+     */
+    public void clear( )
+    {
+        doClear( );
+    }
+    
+    private void doClear( )
+    {
+        theSize = 0;
+        ensureCapacity( DEFAULT_CAPACITY );
+    }
+    
+    /**
+     * Obtains an Iterator object used to traverse the collection.
+     * @return an iterator positioned prior to the first element.
+     */
+    public java.util.Iterator<AnyType> iterator( )
+    {
+        return new ArrayListIterator( );
+    }
+
+    /**
+     * Returns a String representation of this collection.
+     */
+    public String toString( )
+    {
+            StringBuilder sb = new StringBuilder( "[ " );
+
+            for( AnyType x : this )
+                sb.append( x + " " );
+            sb.append( "]" );
+
+            return new String( sb );
+    }
+    
+    /**
+     * This is the implementation of the ArrayListIterator.
+     * It maintains a notion of a current position and of
+     * course the implicit reference to the MyArrayList.
+     */
+    private class ArrayListIterator implements java.util.Iterator<AnyType>
+    {
+        private int current = 0;
+        private boolean okToRemove = false;
+        
+        public boolean hasNext( )
+        {
+            return current < size( );
+        }
+        
+        
+        public AnyType next( )
+        {
+            if( !hasNext( ) ) 
+                throw new java.util.NoSuchElementException( ); 
+                  
+            okToRemove = true;    
+            return theItems[ current++ ];
+        }
+        
+        public void remove( )
+        {
+            if( !okToRemove )
+                throw new IllegalStateException( );
+                
+            MyArrayList.this.remove( --current );
+            okToRemove = false;
+        }
+    }
+    
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private AnyType [ ] theItems;
+    private int theSize;
+}
+    
+
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+                
+            HashMap<String, Integer> hash = new HashMap<>();
+            HashMap<String, String> hash2 = new HashMap<>();
+            MyArrayList<String> array = new MyArrayList<>();
+            int nCandidatos = Integer.parseInt(input.nextLine());
+            for (int i=0;i<nCandidatos;i++){
+                String[] candidatos = input.nextLine().split(" ");
+                String nombre = candidatos[0];
+                String partido = candidatos[1];
+                hash2.put(nombre,partido);
+                hash.put(nombre,0);
+                array.add(nombre);
+            }
+            int votos = Integer.parseInt(input.nextLine());
+            for (int i=0;i<votos;i++){
+                String voto = input.nextLine();
+                int k=hash.get(voto);
+                hash.remove(voto);
+                hash.put(voto,++k);
+            }
+            int mayor=0;
+            String may="0";
+            MyArrayList<String> ganadores = new MyArrayList<>();
+            
+            SortedSet <String> set= new TreeSet();
+            for(int i=0;i<array.size();i++){
+                if(hash.get(array.get(i))>mayor){
+                    
+                   mayor=hash.get(array.get(i));
+                   may=hash2.get(array.get(i));
+                   set.clear();
+                   set.add(may);
+                }
+                if(hash.get(array.get(i))==mayor)
+                    set.add(hash2.get(array.get(i)));
+            /*for(int i=0;i<array.size();i++){
+                if(hash.get(array.get(i))>mayor){
+                    
+                   mayor=hash.get(array.get(i));
+                   may=hash2.get(array.get(i));
+                   ganadores.clear();
+                   ganadores.add(may);
+                }
+                
+                boolean inserted=false;
+                MainLoop:
+                if(hash.get(array.get(i))==mayor){
+                    for(int j=0; j<ganadores.size(); j++){
+                        if(hash2.get(array.get(i)).compareTo(ganadores.get(j))==0){
+                            inserted=true;
+                            break MainLoop;
+                        }
+                        if(hash2.get(array.get(i)).compareTo(ganadores.get(j))>0){ //&& (hash2.get(array.get(i)).compareTo(ganadores.get(j+1))<0 ||ganadores.get(j+1)==null )){
+                            ganadores.add(j+1,hash2.get(array.get(i)));
+                            //System.out.println(hash2.get(array.get(i))+" pos "+j);
+                            inserted=true;
+                            break MainLoop;
+                            
+                        }
+                        
+                    }
+                    if(inserted==false)
+                        ganadores.add(0,hash2.get(array.get(i)));
+                    
+                }*/
+            
+        }
+            
+            for(String x : set)
+                System.out.println(x);
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurase;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasE {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        
+        for (int b=0;b<casosDePrueba;b++){
+            int mecato=0;
+            System.out.println("Case #"+(b+1)+":");
+            HashMap<Integer,Integer> hash= new HashMap();
+            HashMap<Integer,Integer> hash2= new HashMap();
+            SortedSet <Integer> lista1= new TreeSet();
+            SortedSet <Integer> lista2= new TreeSet();
+            int nEstanques=Integer.parseInt(input.nextLine());
+            
+            for(int i=0;i<nEstanques;i++){
+                String[] estanques = input.nextLine().split(" ");
+                int comida=Integer.parseInt(estanques[0]);
+                int pokemon =Integer.parseInt(estanques[1]);
+                
+                if(hash.containsKey(comida)){
+                    int nuevaComida=hash.get(comida)+1;
+                    hash.remove(comida);
+                    hash.put(comida, nuevaComida);
+                }
+                else hash.put(comida,1);
+                
+                if(hash.containsKey(pokemon)){
+                    if(hash.get(pokemon)>1){
+                    int nuevaComida=hash.get(pokemon)-1;
+                    hash.remove(pokemon);
+                    hash.put(pokemon, nuevaComida);
+                }
+                    else hash.remove(pokemon);
+                }
+                else {
+                    mecato++;
+                    if(!hash2.containsKey(pokemon))
+                        hash2.put(pokemon,1);
+                    else{
+                        int nuevaComida=hash2.get(pokemon)+1;
+                        hash2.remove(pokemon);
+                        hash2.put(pokemon, nuevaComida);
+                    }
+                        
+                }
+                
+                }
+            int max=0;
+            int min=nEstanques;
+            for(Integer y:hash2.keySet()){
+                int x=hash2.get(y);
+                if(x>max){
+                    lista1.clear();
+                    max=x;
+                    lista1.add(y);
+                }
+                if(x==max)
+                    lista1.add(y);
+                if(x<min){
+                    lista2.clear();
+                    min=x;
+                    lista2.add(y);
+                }
+                if(x==min)
+                    lista2.add(y);
+            }
+            
+            System.out.println(max+" "+lista1.toArray()[0]);
+            System.out.println(min+" "+lista2.toArray()[0]);
+            
+                    
+                
+                /*if(comida!=pokemon)
+                {if(hash.containsKey(pokemon)){
+                    if(hash.get(pokemon)>1){
+                        int nuevaComida=hash.get(pokemon)-1;
+                        hash.remove(pokemon);
+                        hash.put(pokemon, nuevaComida);
+                    }
+                    else
+                        hash.remove(pokemon);
+                }
+                else{
+                    hash.put( comida,1 );
+                    mecato++;
+                    }
+            }*/
+            //System.out.println(mecato);
+            }
+            
+            
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto6estructurasc;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ *
+ */
+public class Proyecto6EstructurasC {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+            System.out.println("Case #"+(b+1)+":");
+        HashMap<Integer,String> hash = new HashMap<>();
+        String[] cantidad = input.nextLine().split(" ");
+        int nNorma = Integer.parseInt(cantidad[0]);
+        int nMario = Integer.parseInt(cantidad[1]);
+        int nPipe = Integer.parseInt(cantidad[2]);
+        int norma=0;
+        int mario=0;
+        int pipe=0;
+        String[] resueltosNorma = input.nextLine().split(" ");
+        String[] resueltosMario = input.nextLine().split(" ");
+        String[] resueltosPipe = input.nextLine().split(" ");
+        for(int i=0;i<nNorma;i++){
+            int id=Integer.parseInt(resueltosNorma[i]);
+            hash.put(id,"norma");
+            norma++;
+        }
+        for(int i=0;i<nMario;i++){
+            int id=Integer.parseInt(resueltosMario[i]);
+            if(hash.containsKey(id)){
+                hash.remove(id);
+                hash.put(id,"los dos");
+                norma--;
+            }
+            else {
+                hash.put(id,"mario");
+                mario++;
+            }
+        }
+        for(int i=0;i<nPipe;i++){
+            int id=Integer.parseInt(resueltosPipe[i]);
+            if(!hash.containsKey(id)){
+            
+                hash.put(id,"pipe");
+                pipe++;
+            }
+            else{
+            if(hash.get(id).equals("norma"))
+                    norma--;
+            if (hash.get(id).equals("mario"))
+                    mario--;
+                
+                hash.remove(id);
+            }
+        }
+        
+        
+        int max=0;
+        if(norma>=mario && norma>=pipe)
+            max=norma;
+        if(mario>=norma && mario>=pipe)
+            max=mario;
+        if(pipe>=norma && pipe >= mario)
+            max=pipe;
+               
+//        int max1=Integer.max(norma,mario);
+ //       int max=Integer.max(max1, pipe);
+        //System.out.println(norma+" "+mario+" "+pipe);
+        SortedSet<Integer> sortedNorma = new TreeSet();
+        SortedSet<Integer> sortedMario = new TreeSet();
+        SortedSet<Integer> sortedPipe = new TreeSet();
+        for(int x:hash.keySet()){
+            if(hash.get(x).equals("norma")){
+                sortedNorma.add(x);
+            }
+            if(hash.get(x).equals("mario"))
+                sortedMario.add(x);
+            if(hash.get(x).equals("pipe"))
+                sortedPipe.add(x);
+        }
+        if(norma==max){
+        
+        System.out.print("Norma "+norma);
+        for(int x:sortedNorma)
+            System.out.print(" "+x);
+        
+        System.out.println();
+        }
+        if(mario==max){
+        
+        System.out.print("Mario "+mario);
+        for(int x:sortedMario)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+        if(pipe==max){
+        
+        System.out.print("Pipe "+pipe);
+        for(int x:sortedPipe)
+            System.out.print(" "+x);
+        System.out.println();
+        }
+            
+    }
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto7estructurasa;
+import java.util.*;
+/**
+ *
+ */
+public class Proyecto7EstructurasA {
+
+static class Node<T> implements Comparable<Node<T>> {
+     
+    protected T data;
+    protected boolean visited;
+    public Integer index = null;
+    public Integer lowlink = null;
+    public double distance = Double.POSITIVE_INFINITY;
+    public Node<T> predecessor = null;
+     
+    public Node(T data) {
+        this.data = data;
+    }
+     
+    public Node() {
+         
+    }
+     
+    public boolean isVisited() {
+        return visited;
+    }
+     
+    public void visit() {
+        visited = true;
+    }
+     
+    public void unvisit() {
+        visited = false;
+    }
+     
+    public int compareTo(Node<T> ob) {
+        String tempA = this.toString();
+        String tempB = ob.toString();
+         
+        return tempA.compareTo(tempB);
+    }
+     
+    public String toString() {
+        return data.toString();
+    }
+     
+}    
+ static class Edge {
+ 
+    protected Node a, b;
+    protected double weight;
+     
+    public Edge(Node a, Node b) {
+        this(a, b, Double.POSITIVE_INFINITY);
+    }
+     
+    public Edge(Node a, Node b, double weight) {
+        this.a = a;
+        this.b = b;
+        this.weight = weight;
+    }
+     
+    public double getWeight() {
+        return weight;
+    }
+     
+    public String toString() {
+        return a + " ==> " + b;
+    }
+ 
+}
+static class Graph {
+ 
+    protected Vector<Node> nodes = new Vector<Node>();
+    protected Vector<Edge> edges = new Vector<Edge>();
+    protected boolean directed = false;
+    protected boolean sortedNeighbors = false;
+     
+    public double[][] getAdjacencyMatrix() {
+        double[][] adjMatrix = new double[nodes.size()][nodes.size()];
+         
+        for(int i = 0; i < nodes.size(); i++)
+            for(int j = 0; j < nodes.size(); j++)
+                if(i == j)
+                    adjMatrix[i][j] = 0;
+                else
+                    adjMatrix[i][j] = Double.POSITIVE_INFINITY;
+                 
+        for(int i = 0; i < nodes.size(); i++) {
+            Node node = nodes.elementAt(i);
+            //System.out.println("Current node: " + node);
+             
+            for(int j = 0; j < edges.size(); j++) {
+                Edge edge = edges.elementAt(j);
+                 
+                if(edge.a == node) {
+                    int indexOfNeighbor = nodes.indexOf(edge.b);
+                     
+                    adjMatrix[i][indexOfNeighbor] = edge.weight;
+                }
+            }
+        }
+         
+        return adjMatrix;
+    }
+    
+    
+    
+    
+     
+    public void setDirected() {
+        directed = true;
+    }
+     
+    public void setUndirected() {
+        directed = false;
+    }
+     
+    public boolean isDirected() {
+        return directed;
+    }
+     
+    public boolean isSortedNeighbors() {
+        return sortedNeighbors;
+    }
+     
+    public void setSortedNeighbors(boolean flag) {
+        sortedNeighbors = flag;
+    }
+     
+    public int indexOf(Node a) {
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+                 
+        return -1;
+    }
+     
+    public Vector<Node> getNodes() {
+        return nodes;
+    }
+     
+    public Vector<Edge> getEdges() {
+        return edges;
+    }
+     
+    public Node getNodeAt(int i) {
+        return nodes.elementAt(i);
+    }
+     
+    public void unvisitAllNodes() {
+        for(int i = 0; i < nodes.size(); i++)
+            nodes.elementAt(i).unvisit();
+    }
+     
+    public SortedSet<Node> getNeighbors(Node a) {
+        SortedSet<Node> neighbors = new TreeSet<Node>();
+         
+        for(int i = 0; i < edges.size(); i++) {
+            Edge edge = edges.elementAt(i);
+             
+            if(edge.a == a)
+                neighbors.add(edge.b);
+                 
+            if(!directed && edge.b == a)
+                neighbors.add(edge.a);
+        }
+         
+         
+        return neighbors;
+    }
+     
+    public int addNode(Node a) {
+        nodes.add(a);
+         
+        return nodes.size() - 1;
+    }
+     
+    public void addEdge(Edge a) {
+        edges.add(a);
+         
+        if(!directed)
+            edges.add(new Edge(a.b, a.a, a.weight));
+    }
+     
+    public void printNodes() {
+        System.out.println(nodes);
+    }
+     
+    public void printEdges() {
+        System.out.println(edges);
+    }
+ 
+}
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+                System.out.println("Case #"+(b+1)+":");
+                Graph grafo = new Graph() ;
+                String[] estacionesYconexiones = input.nextLine().split(" ");
+                int nEstaciones = Integer.parseInt(estacionesYconexiones[0]);
+                int nConexiones = Integer.parseInt(estacionesYconexiones[1]);
+                for (int i=0;i<nEstaciones;i++){
+                    Node a = new Node(i);
+                    grafo.addNode(a);
+                }
+                
+                for (int i=0;i<nConexiones;i++){
+                    String[] esta = input.nextLine().split(" ");
+                    int estacionA = Integer.parseInt(esta[0]);
+                    int estacionB = Integer.parseInt(esta[1]);
+                    Edge a = new Edge (grafo.getNodeAt(estacionA),grafo.getNodeAt(estacionB));
+                    grafo.addEdge(a);
+                }
+                int caso = Integer.parseInt(input.nextLine());
+                Queue <Node> cola = new LinkedList<Node>();;
+                SortedSet vecinos = new TreeSet ();
+                cola.add(grafo.getNodeAt(caso));
+                while (!cola.isEmpty()){
+                    /*for(Node x:cola){
+                    System.out.print(x+" ");
+                    }
+                    System.out.println();*/
+                    for(Node x:grafo.getNeighbors(cola.poll())){
+                        if(!vecinos.contains(x)){
+                            cola.add(x);
+                            vecinos.add(x);
+                        }
+                    }
+                }
+                System.out.println(vecinos.size()-1);
+        }
+            
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p7b;
+import java.util.*;
+/**
+ *
+ */
+public class P7B {
+
+static class Node<T> implements Comparable<Node<T>> {
+     
+    protected T data;
+    protected boolean visited;
+    public Integer index = null;
+    public Integer lowlink = null;
+    public double distance = Double.POSITIVE_INFINITY;
+    public Node<T> predecessor = null;
+    public Integer inDegree = 0;
+     
+    public Node(T data) {
+        this.data = data;
+    }
+     
+    public Node() {
+         
+    }
+     
+    public boolean isVisited() {
+        return visited;
+    }
+     
+    public void visit() {
+        visited = true;
+    }
+     
+    public void unvisit() {
+        visited = false;
+    }
+    public int getInDegree(){
+        return inDegree;
+    }
+     
+    public int compareTo(Node<T> ob) {
+        String tempA = this.toString();
+        String tempB = ob.toString();
+         
+        return tempA.compareTo(tempB);
+    }
+     
+    public String toString() {
+        return data.toString();
+    }
+     
+}    
+ static class Edge {
+ 
+    protected Node a, b;
+    protected double weight;
+     
+    public Edge(Node a, Node b) {
+        this(a, b, Double.POSITIVE_INFINITY);
+        this.b.inDegree=b.inDegree+1;
+    }
+     
+    public Edge(Node a, Node b, double weight) {
+        this.a = a;
+        this.b = b;
+        this.weight = weight;
+        this.b.inDegree=b.inDegree+1;
+    }
+     
+    public double getWeight() {
+        return weight;
+    }
+     
+    public String toString() {
+        return a + " ==> " + b;
+    }
+ 
+}
+static class Graph {
+ 
+    protected Vector<Node> nodes = new Vector<Node>();
+    protected Vector<Edge> edges = new Vector<Edge>();
+    protected boolean directed = true;
+    protected boolean sortedNeighbors = false;
+     
+    public double[][] getAdjacencyMatrix() {
+        double[][] adjMatrix = new double[nodes.size()][nodes.size()];
+         
+        for(int i = 0; i < nodes.size(); i++)
+            for(int j = 0; j < nodes.size(); j++)
+                if(i == j)
+                    adjMatrix[i][j] = 0;
+                else
+                    adjMatrix[i][j] = Double.POSITIVE_INFINITY;
+                 
+        for(int i = 0; i < nodes.size(); i++) {
+            Node node = nodes.elementAt(i);
+            //System.out.println("Current node: " + node);
+             
+            for(int j = 0; j < edges.size(); j++) {
+                Edge edge = edges.elementAt(j);
+                 
+                if(edge.a == node) {
+                    int indexOfNeighbor = nodes.indexOf(edge.b);
+                     
+                    adjMatrix[i][indexOfNeighbor] = edge.weight;
+                }
+            }
+        }
+         
+        return adjMatrix;
+    }
+    
+    
+    /*public int nMinIndexNode(){
+        int min=0;
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+    }
+    
+    public Node minIndexNode(){
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+    }*/
+    
+    
+    
+     
+    public void setDirected() {
+        directed = true;
+    }
+     
+    public void setUndirected() {
+        directed = false;
+    }
+     
+    public boolean isDirected() {
+        return directed;
+    }
+     
+    public boolean isSortedNeighbors() {
+        return sortedNeighbors;
+    }
+     
+    public void setSortedNeighbors(boolean flag) {
+        sortedNeighbors = flag;
+    }
+     
+    public int indexOf(Node a) {
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+                 
+        return -1;
+    }
+     
+    public Vector<Node> getNodes() {
+        return nodes;
+    }
+     
+    public Vector<Edge> getEdges() {
+        return edges;
+    }
+     
+    public Node getNodeAt(int i) {
+        return nodes.elementAt(i);
+    }
+     
+    public void unvisitAllNodes() {
+        for(int i = 0; i < nodes.size(); i++)
+            nodes.elementAt(i).unvisit();
+    }
+     
+    public SortedSet<Node> getNeighbors(Node a) {
+        SortedSet<Node> neighbors = new TreeSet<Node>();
+         
+        for(int i = 0; i < edges.size(); i++) {
+            Edge edge = edges.elementAt(i);
+             
+            if(edge.a == a)
+                neighbors.add(edge.b);
+                 
+            if(!directed && edge.b == a)
+                neighbors.add(edge.a);
+        }
+         
+         
+        return neighbors;
+    }
+     
+    public int addNode(Node a) {
+        nodes.add(a);
+         
+        return nodes.size() - 1;
+    }
+     
+    public void addEdge(Edge a) {
+        edges.add(a);
+         
+        if(!directed)
+            edges.add(new Edge(a.b, a.a, a.weight));
+    }
+     
+    public void printNodes() {
+        System.out.println(nodes);
+    }
+     
+    public void printEdges() {
+        System.out.println(edges);
+    }
+ 
+}
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+                System.out.println("Case #"+(b+1)+":");
+                Graph grafo = new Graph() ;
+                String[] materiasYconexiones = input.nextLine().split(" ");
+                int nMaterias = Integer.parseInt(materiasYconexiones[0]);
+                int nConexiones = Integer.parseInt(materiasYconexiones[1]);
+                for (int i=0;i<nMaterias;i++){
+                    Node a = new Node(i);
+                    grafo.addNode(a);
+                }
+                
+                for (int i=0;i<nConexiones;i++){
+                    String[] esta = input.nextLine().split(" ");
+                    int materiaA = Integer.parseInt(esta[0]);
+                    int materiaB = Integer.parseInt(esta[1]);
+                    Edge a = new Edge (grafo.getNodeAt(materiaA),grafo.getNodeAt(materiaB));
+                    grafo.addEdge(a);
+                }
+                Queue <Node> cola = new LinkedList<Node>();;
+                SortedSet vecinos = new TreeSet ();
+                int nIn = 0;
+                for (int i=0;i<nMaterias;i++){
+                    if(grafo.getNodeAt(i).getInDegree()==0){
+                        //System.out.println(grafo.getNodeAt(i));
+                        cola.add(grafo.getNodeAt(i));
+                        vecinos.add(grafo.getNodeAt(i));
+                        nIn++;
+                    }
+                    //System.out.println(grafo.indexOf(grafo.getNodeAt(i)));
+                }
+                
+                boolean vacia=true;
+                MainLoop:
+                while (!cola.isEmpty() && nIn<2){
+                    /*for(Node x:cola){
+                    System.out.print(x+" ");
+                    }
+                    System.out.println();*/
+                    for(Node x:grafo.getNeighbors(cola.poll())){
+                        if(!vecinos.contains(x)){
+                            cola.add(x);
+                            vecinos.add(x);
+                        }
+                        else{
+                            vacia=false;
+                            break MainLoop;
+                        }
+                    }
+                }
+                if(vacia)
+                else 
+                    System.out.println("Deberia empezar a estudiar");
+        }
+            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package p7b;
+import java.util.*;
+/**
+ *
+ */
+public class P7B {
+
+static class Node<T> implements Comparable<Node<T>> {
+     
+    protected T data;
+    protected boolean visited;
+    public Integer index = null;
+    public Integer lowlink = null;
+    public double distance = Double.POSITIVE_INFINITY;
+    public Node<T> predecessor = null;
+    public Integer inDegree = 0;
+     
+    public Node(T data) {
+        this.data = data;
+    }
+     
+    public Node() {
+         
+    }
+     
+    public boolean isVisited() {
+        return visited;
+    }
+     
+    public void visit() {
+        visited = true;
+    }
+     
+    public void unvisit() {
+        visited = false;
+    }
+    public int getInDegree(){
+        return inDegree;
+    }
+     
+    public int compareTo(Node<T> ob) {
+        String tempA = this.toString();
+        String tempB = ob.toString();
+         
+        return tempA.compareTo(tempB);
+    }
+     
+    public String toString() {
+        return data.toString();
+    }
+     
+}    
+ static class Edge {
+ 
+    protected Node a, b;
+    protected double weight;
+     
+    public Edge(Node a, Node b) {
+        this(a, b, Double.POSITIVE_INFINITY);
+        this.b.inDegree=b.inDegree+1;
+    }
+     
+    public Edge(Node a, Node b, double weight) {
+        this.a = a;
+        this.b = b;
+        this.weight = weight;
+        this.b.inDegree=b.inDegree+1;
+    }
+     
+    public double getWeight() {
+        return weight;
+    }
+     
+    public String toString() {
+        return a + " ==> " + b;
+    }
+ 
+}
+static class Graph {
+ 
+    protected Vector<Node> nodes = new Vector<Node>();
+    protected Vector<Edge> edges = new Vector<Edge>();
+    protected boolean directed = true;
+    protected boolean sortedNeighbors = false;
+     
+    public double[][] getAdjacencyMatrix() {
+        double[][] adjMatrix = new double[nodes.size()][nodes.size()];
+         
+        for(int i = 0; i < nodes.size(); i++)
+            for(int j = 0; j < nodes.size(); j++)
+                if(i == j)
+                    adjMatrix[i][j] = 0;
+                else
+                    adjMatrix[i][j] = Double.POSITIVE_INFINITY;
+                 
+        for(int i = 0; i < nodes.size(); i++) {
+            Node node = nodes.elementAt(i);
+            //System.out.println("Current node: " + node);
+             
+            for(int j = 0; j < edges.size(); j++) {
+                Edge edge = edges.elementAt(j);
+                 
+                if(edge.a == node) {
+                    int indexOfNeighbor = nodes.indexOf(edge.b);
+                     
+                    adjMatrix[i][indexOfNeighbor] = edge.weight;
+                }
+            }
+        }
+         
+        return adjMatrix;
+    }
+    
+    
+    /*public int nMinIndexNode(){
+        int min=0;
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+    }
+    
+    public Node minIndexNode(){
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+    }*/
+    
+    
+    
+     
+    public void setDirected() {
+        directed = true;
+    }
+     
+    public void setUndirected() {
+        directed = false;
+    }
+     
+    public boolean isDirected() {
+        return directed;
+    }
+     
+    public boolean isSortedNeighbors() {
+        return sortedNeighbors;
+    }
+     
+    public void setSortedNeighbors(boolean flag) {
+        sortedNeighbors = flag;
+    }
+     
+    public int indexOf(Node a) {
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+                 
+        return -1;
+    }
+     
+    public Vector<Node> getNodes() {
+        return nodes;
+    }
+     
+    public Vector<Edge> getEdges() {
+        return edges;
+    }
+     
+    public Node getNodeAt(int i) {
+        return nodes.elementAt(i);
+    }
+     
+    public void unvisitAllNodes() {
+        for(int i = 0; i < nodes.size(); i++)
+            nodes.elementAt(i).unvisit();
+    }
+     
+    public SortedSet<Node> getNeighbors(Node a) {
+        SortedSet<Node> neighbors = new TreeSet<Node>();
+         
+        for(int i = 0; i < edges.size(); i++) {
+            Edge edge = edges.elementAt(i);
+             
+            if(edge.a == a)
+                neighbors.add(edge.b);
+                 
+            if(!directed && edge.b == a)
+                neighbors.add(edge.a);
+        }
+         
+         
+        return neighbors;
+    }
+     
+    public int addNode(Node a) {
+        nodes.add(a);
+         
+        return nodes.size() - 1;
+    }
+     
+    public void addEdge(Edge a) {
+        edges.add(a);
+         
+        if(!directed)
+            edges.add(new Edge(a.b, a.a, a.weight));
+    }
+     
+    public void printNodes() {
+        System.out.println(nodes);
+    }
+     
+    public void printEdges() {
+        System.out.println(edges);
+    }
+ 
+}
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+                System.out.println("Case #"+(b+1)+":");
+                Graph grafo = new Graph() ;
+                String[] materiasYconexiones = input.nextLine().split(" ");
+                int nMaterias = Integer.parseInt(materiasYconexiones[0]);
+                int nConexiones = Integer.parseInt(materiasYconexiones[1]);
+                for (int i=0;i<nMaterias;i++){
+                    Node a = new Node(i);
+                    grafo.addNode(a);
+                }
+                
+                for (int i=0;i<nConexiones;i++){
+                    String[] esta = input.nextLine().split(" ");
+                    int materiaA = Integer.parseInt(esta[0]);
+                    int materiaB = Integer.parseInt(esta[1]);
+                    Edge a = new Edge (grafo.getNodeAt(materiaA),grafo.getNodeAt(materiaB));
+                    grafo.addEdge(a);
+                }
+                Queue <Node> cola = new LinkedList<Node>();;
+                SortedSet vecinos = new TreeSet ();
+                int nIn = 0;
+                for (int i=0;i<nMaterias;i++){
+                    if(grafo.getNodeAt(i).getInDegree()==0){
+                        //System.out.println(grafo.getNodeAt(i));
+                        cola.add(grafo.getNodeAt(i));
+                        vecinos.add(grafo.getNodeAt(i));
+                        nIn++;
+                    }
+                    //System.out.println(grafo.indexOf(grafo.getNodeAt(i)));
+                }
+                
+                boolean vacia=true;
+                MainLoop:
+                while (!cola.isEmpty() && nIn<2){
+                    /*for(Node x:cola){
+                    System.out.print(x+" ");
+                    }
+                    System.out.println();*/
+                    int nIn2=0;
+                    for(Node x:grafo.getNeighbors(cola.poll())){
+                        x.inDegree--;
+                        if(x.inDegree==0)
+                            nIn2++;
+                        if(!vecinos.contains(x) && x.inDegree==0 && nIn2<2){
+                            cola.add(x);
+                            vecinos.add(x);
+                        }
+                        else{
+                            vacia=false;
+                            break MainLoop;
+                        }
+                    }
+                }
+                if(vacia)
+                else 
+                    System.out.println("Deberia empezar a estudiar");
+        }
+            
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ */*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package c;
+import java.util.*;
+/**
+ *
+ */
+public class C {
+
+static class Node<T> implements Comparable<Node<T>> {
+     
+    protected T data;
+    protected boolean visited;
+    public Integer index = null;
+    public Integer lowlink = null;
+    public double distance = Double.POSITIVE_INFINITY;
+    public Node<T> predecessor = null;
+    public Integer inDegree = 0;
+     
+    public Node(T data) {
+        this.data = data;
+    }
+    public void setDistance(double x){
+    
+    distance=x;
+    }
+     
+    public Node() {
+         
+    }
+     
+    public boolean isVisited() {
+        return visited;
+    }
+    
+    public int getInDegree(){
+        return inDegree;
+    }
+     
+    public void visit() {
+        visited = true;
+    }
+     
+    public void unvisit() {
+        visited = false;
+    }
+     
+    public int compareTo(Node<T> ob) {
+        String tempA = this.toString();
+        String tempB = ob.toString();
+         
+        return tempA.compareTo(tempB);
+    }
+     
+    public String toString() {
+        return data.toString();
+    }
+     
+}    
+ static class Edge {
+ 
+    protected Node a, b;
+    protected double weight;
+     
+    public Edge(Node a, Node b) {
+        this(a, b, Double.POSITIVE_INFINITY);
+        this.b.inDegree=b.inDegree+1;
+    }
+     
+    public Edge(Node a, Node b, double weight) {
+        this.a = a;
+        this.b = b;
+        this.weight = weight;
+        this.b.inDegree=b.inDegree+1;
+    }
+     
+    public double getWeight() {
+        return weight;
+    }
+     
+    public String toString() {
+        return a + " ==> " + b;
+    }
+    public Node initialNode(){
+        return a;
+    }
+    public Node endingNode(){
+        return b;
+    }
+ 
+}
+static class Graph {
+ 
+    protected Vector<Node> nodes = new Vector<Node>();
+    protected Vector<Edge> edges = new Vector<Edge>();
+    protected boolean directed = true;
+    protected boolean sortedNeighbors = false;
+     
+    public double[][] getAdjacencyMatrix() {
+        double[][] adjMatrix = new double[nodes.size()][nodes.size()];
+         
+        for(int i = 0; i < nodes.size(); i++)
+            for(int j = 0; j < nodes.size(); j++)
+                if(i == j)
+                    adjMatrix[i][j] = 0;
+                else
+                    adjMatrix[i][j] = Double.POSITIVE_INFINITY;
+                 
+        for(int i = 0; i < nodes.size(); i++) {
+            Node node = nodes.elementAt(i);
+            //System.out.println("Current node: " + node);
+             
+            for(int j = 0; j < edges.size(); j++) {
+                Edge edge = edges.elementAt(j);
+                 
+                if(edge.a == node) {
+                    int indexOfNeighbor = nodes.indexOf(edge.b);
+                     
+                    adjMatrix[i][indexOfNeighbor] = edge.weight;
+                }
+            }
+        }
+         
+        return adjMatrix;
+    }
+    
+    
+    /*public int nMinIndexNode(){
+        int min=0;
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+    }
+    
+    public Node minIndexNode(){
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+    }*/
+    
+    
+    
+     
+    public void setDirected() {
+        directed = true;
+    }
+     
+    public void setUndirected() {
+        directed = false;
+    }
+     
+    public boolean isDirected() {
+        return directed;
+    }
+     
+    public boolean isSortedNeighbors() {
+        return sortedNeighbors;
+    }
+     
+    public void setSortedNeighbors(boolean flag) {
+        sortedNeighbors = flag;
+    }
+     
+    public int indexOf(Node a) {
+        for(int i = 0; i < nodes.size(); i++)
+            if(nodes.elementAt(i).data.equals(a.data))
+                return i;
+                 
+        return -1;
+    }
+     
+    public Vector<Node> getNodes() {
+        return nodes;
+    }
+     
+    public Vector<Edge> getEdges() {
+        return edges;
+    }
+     
+    public Node getNodeAt(int i) {
+        return nodes.elementAt(i);
+    }
+     
+    public void unvisitAllNodes() {
+        for(int i = 0; i < nodes.size(); i++)
+            nodes.elementAt(i).unvisit();
+    }
+     
+    public SortedSet<Node> getNeighbors(Node a) {
+        SortedSet<Node> neighbors = new TreeSet<Node>();
+         
+        for(int i = 0; i < edges.size(); i++) {
+            Edge edge = edges.elementAt(i);
+             
+            if(edge.a == a)
+                neighbors.add(edge.b);
+                 
+            if(!directed && edge.b == a)
+                neighbors.add(edge.a);
+        }
+         
+         
+        return neighbors;
+    }
+     
+    public int addNode(Node a) {
+        nodes.add(a);
+         
+        return nodes.size() - 1;
+    }
+     
+    public void addEdge(Edge a) {
+        edges.add(a);
+         
+        if(!directed)
+            edges.add(new Edge(a.b, a.a, a.weight));
+    }
+     
+    public void printNodes() {
+        System.out.println(nodes);
+    }
+     
+    public void printEdges() {
+        System.out.println(edges);
+    }
+ 
+}
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner (System.in);
+        int casosDePrueba = Integer.parseInt(input.nextLine());
+        
+        for (int b=0;b<casosDePrueba;b++){
+                System.out.println("Case #"+(b+1)+":");
+                Graph grafo = new Graph() ;
+                String[] materiasYconexiones = input.nextLine().split(" ");
+                int nCeldas = Integer.parseInt(materiasYconexiones[0]);
+                int salida = Integer.parseInt(materiasYconexiones[1]);
+                int T = Integer.parseInt(materiasYconexiones[1]);
+                for (int i=0;i<nCeldas;i++){
+                    Node a = new Node(i);
+                    grafo.addNode(a);
+                }
+                int nConexiones = Integer.parseInt(input.nextLine());
+                for (int i=0;i<nConexiones;i++){
+                    String[] esta = input.nextLine().split(" ");
+                    int celdaA = Integer.parseInt(esta[0]);
+                    int celdaB = Integer.parseInt(esta[1]);
+                    int costo = Integer.parseInt(esta[2]);
+                    Edge a = new Edge (grafo.getNodeAt(celdaA),grafo.getNodeAt(celdaB),costo);
+                    grafo.addEdge(a);
+                }
+                
+                
+                Queue <Node> cola = new LinkedList<Node>();
+                Queue <Integer> cola2 = new LinkedList<Integer>();
+                int ratonesGanadores=0;
+                for (int i=0;i<nCeldas;i++){
+                    boolean todosVisitados = true;
+                        //System.out.println(grafo.getNodeAt(i));
+                        grafo.getNodeAt(i).setDistance(0);
+                        grafo.getNodeAt(i).visit();
+                        cola.add(grafo.getNodeAt(i));
+                        
+                        while(!todosVisitados){
+                            for(Node c:grafo.getNodes()){
+                                if(c.visited==false)
+                                    todosVisitados = false;
+                            }
+                            double minDistance=Double.POSITIVE_INFINITY;
+                            for(Edge x:grafo.getEdges()){
+                                if(x.initialNode().equals(i)){
+                                    if(x.getWeight()<minDistance){
+                                        minDistance = x.getWeight();
+                                        x.endingNode().visit();
+                                        x.endingNode().setDistance(x.initialNode().distance+x.getWeight());
+                                        }
+                                }
+                            }
+                        }
+                        
+                        if(grafo.getNodeAt(salida).distance<T)
+                            ratonesGanadores++;
+                        
+                        for(Node x:grafo.getNeighbors(cola.poll())){
+                            System.out.println(x.distance);
+                        }
+                        
+                        for(Node x:grafo.getNeighbors(cola.poll())){
+                            x.unvisit();
+                            x.setDistance(Double.POSITIVE_INFINITY);
+                        }
+                        
+                    }
+                    System.out.println(ratonesGanadores);
+                    
+                }
+                
+                
+        }
+            
+    }
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,859 @@
+import java.util.Scanner;
+public class ProblemaA {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		if(N>0 && N<=100){
+			for(int i=0; i<N; i++){
+				int mayor=0;
+				int menor=0;
+				int igual=0;
+				int K = input.nextInt();
+				int [] A = new int [K];
+				if(K>0 && K<=100){
+					for(int j=0; j<K; j++){
+						A[j] = input.nextInt();
+					}
+				}
+				for(int j=0; j<K; j++){
+					int primero = A[j];
+					for(int m=0; m<K; m++){
+						int segundo = A[m];
+						if(j!=m){
+							if(primero>segundo){mayor++;}
+							else if(primero<segundo){menor++;}
+							else if(primero==segundo){igual++;}
+						}
+					}
+				}
+				System.out.println("Case #"+(i+1)+":");	
+				System.out.println(mayor);
+				System.out.println(menor);
+				System.out.println(igual);
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class ProblemaB {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		int Case=0;
+		while(input.hasNext()){
+			int ganadora=0;
+			int N = input.nextInt();	
+			int [][] tablero = new int[N][N];
+			if(N>0 && N<=100){
+				for(int i=0; i<N; i++){
+					for(int j=0; j<N; j++){
+						tablero[i][j] = input.nextInt();
+					}
+				}
+			}
+			for(int i=0; i<N; i++){
+				int count=0;
+				while(count<N){
+					int sumfil=0;
+					int sumcol=0;
+					for(int j=0; j<N; j++){
+						sumcol= tablero[j][i]+sumcol;
+					}
+					for(int m=0; m<N; m++){
+						sumfil = tablero[count][m] + sumfil;
+					}
+					if(sumfil<sumcol){
+						ganadora++;
+					}
+					count++;
+				}
+			}
+			System.out.println("Case #"+(Case+1)+":");
+			System.out.println(ganadora);
+			Case++;
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class ProblemaD{
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+		int T = input.nextInt();
+		if(T>0 && T<=100){
+			for(int i=0; i<T; i++){
+                            int visit=0;
+                            int N = input.nextInt();
+                            int [][] color = new int [N][2];
+                            if(N>0 && N<=100){
+                                for(int j=0; j<N; j++){
+                                    for(int m=0; m<2; m++){
+                                        color[j][m] = input.nextInt();
+                                    }
+                                }
+                            }
+                                for(int j=0; j<N; j++){
+                                    for(int m=0; m<N; m++){
+                                        if(color[j][0] == color [m][1]){
+                                            visit++;
+                                        }
+                                    }
+                                }
+				System.out.println("Case #"+(i+1)+":");
+				System.out.println(visit);
+                        }
+                }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemac;
+
+import java.util.Scanner;
+
+public class ProblemaC {
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+		int T = input.nextInt();
+		if(T>0 && T<=100){
+			for(int i=0; i<T; i++){
+                            int N = input.nextInt();
+                            char[] colores= new char[N];
+                            if(N>0 && N<=6){
+                                for(int j=0; j<N; j++){
+                                    String piedras = input.next();
+                                    colores[j] = piedras.charAt(0);
+                                }
+                            }
+                            int factorial=1;
+                            for(int j=N; j>1; j--){
+                                factorial=factorial*j; 
+                            }
+                            char [][] permut = new char [factorial][N];
+                            System.out.println("Case #"+(i+1)+":");
+                        
+                            for(int j=0; j<factorial; j++){
+                                for(int m=0; m<N; m++){
+                                    
+                                    permut[j][m]=colores[m];
+                                    
+                                    
+                                    
+                                }  
+                            }
+                            
+                            for(int j=0; j<factorial; j++){
+                                for(int m=0; m<N; m++){
+                                    System.out.print(permut[j][m]);                                    
+                                }  
+                                    System.out.println(""); 
+                            }
+                        }
+                } 
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class ProblemaD{
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+		int T = input.nextInt();
+		if(T>0 && T<=100){
+			for(int i=0; i<T; i++){
+                            int visit=0;
+                            int N = input.nextInt();
+                            int [][] color = new int [N][2];
+                            if(N>0 && N<=100){
+                                for(int j=0; j<N; j++){
+                                    for(int m=0; m<2; m++){
+                                        color[j][m] = input.nextInt();
+                                    }
+                                }
+                            }
+                                for(int j=0; j<N; j++){
+                                    for(int m=0; m<N; m++){
+                                        if(color[j][0] == color [m][1] && j!=m){
+                                            visit++;
+                                        }
+                                    }
+                                }
+				System.out.println("Case #"+(i+1)+":");
+				System.out.println(visit);
+                        }
+                }
+    }
+    
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+public class ProblemaE {		
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int T = input.nextInt();
+		if(T>0 && T<=100){
+			for(int i=0; i<T; i++){
+				int N = input.nextInt();
+				int [] enteros = new int [N];
+				int max=0;
+				if(N>0 && N<=100){
+					for(int j=0; j<N; j++){
+						enteros[j] = input.nextInt();
+					}
+
+
+					for(int j=0; j<N; j++){
+						int count=0;
+						for(int m=N; m>0+j; m--){
+							for(int p=j; p<m; p++){
+								
+								if(enteros[p]==0){
+									count++;
+								}else{
+									count--;
+								}
+								
+								if(count>max){
+									max=count;
+								}
+
+								
+								
+							}
+						}
+					}
+					
+					
+					
+					
+				}
+				System.out.println(max);
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Proyecto6A {
+
+	private static void ordenarTodo(HashMap<Integer, ArrayList<Integer>> miMap, int flag) {
+		if(flag!=0){
+			ArrayList<Ordenar> ordenFinal = new ArrayList<>();
+			//recorrer eficientemente un Map
+			for(Map.Entry<Integer, ArrayList<Integer>> entry : miMap.entrySet()){
+				ArrayList<Integer> arr=entry.getValue();
+				Collections.sort(arr);
+				ordenFinal.add(new Ordenar (arr));
+			}
+			Collections.sort(ordenFinal);
+			for (Ordenar ord : ordenFinal)
+				System.out.println(ord);
+		}
+
+	}
+
+	public static class Ordenar implements Comparable<Ordenar>{
+		ArrayList<Integer> array;
+		//constructor
+		public Ordenar(ArrayList<Integer> array) {
+			this.array = array;
+		}
+		//compara solo la primera posicion de los arreglos
+		@Override
+		public int compareTo(Ordenar o) {
+			return this.array.get(0).compareTo(o.array.get(0));
+		}
+	}
+	
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		//numero de casos de prueba T
+		int T = input.nextInt();
+		input.nextLine();
+
+		for (int i=0; i<T; i++){
+			System.out.println("Case #"+(i+1)+":");
+			
+			String [] entrada = input.nextLine().split(" ");
+			//N numeros xi
+			int numN = Integer.parseInt(entrada[0]);
+			//M numero Kj
+			int numM = Integer.parseInt(entrada[1]);
+			
+			//leo todos los numN y los meto en un arreglo
+			int [] arrayN = new int [numN];
+			entrada = input.nextLine().split(" ");
+			for (int n = 0; n < entrada.length; n++){
+				arrayN[n]=Integer.parseInt(entrada[n]);
+			}
+			//leo todos los M y los meto en un arreglo
+			int [] arrayM = new int [numM];
+			entrada=input.nextLine().split(" ");
+			for (int n = 0; n < entrada.length; n++){
+				arrayM[n]=Integer.parseInt(entrada[n]);
+			}
+
+			//creo una tabla HashMap con llave entera que direcciona a un arreglo  
+			HashMap<Integer,ArrayList<Integer>> colisionesFinal = new HashMap<Integer,ArrayList<Integer>>();
+			//variable del numero de colisiones encontradas
+			int numCol=0;
+			//variable del valor de k que minimiza las colisiones
+			int kMinCol=0;
+			
+			//para cada numero M se hace el mismo procedimiento
+			for (int j = 0; j < arrayM.length; j++){
+				//creo una tabla HashMap con llave entera que direcciona a un entero  
+				HashMap<Integer,Integer> tablaHash = new HashMap<Integer,Integer>();
+				//creo una tabla HashMap con llave entera que direcciona a un arreglo  
+				HashMap<Integer,ArrayList<Integer>> colisiones = new HashMap<Integer,ArrayList<Integer>>();
+				
+				//numero de colisiones
+				int colision = 0;
+				int actualM = arrayM[j];
+				
+				//se inserta cada numero N a la tablaHash
+				for (int m = 0; m < arrayN.length; m++){
+					//la funcion que genera la llave es x%k para este ejercicio
+					int actualN = arrayN[m];
+					int llave = actualN%actualM;
+					//si la tabla ya contiene la clave
+					if(tablaHash.containsKey(llave)){
+						//se incrementa una colision
+						colision++;
+						if(!colisiones.containsKey(llave)){
+							ArrayList<Integer> valores= new ArrayList<Integer>();
+							valores.add(tablaHash.get(llave));
+							colisiones.put(llave, valores);
+						}
+						colisiones.get(llave).add(actualN);
+					}
+					//sino se inserta la llave con su valor
+					else{
+						tablaHash.put(llave, actualN);
+					}
+				}
+				if(j==0 || colision<numCol)
+				{
+					colisionesFinal=colisiones;
+					numCol=colision;
+					kMinCol=actualM;
+				}
+				if(colision==numCol && actualM<kMinCol)
+				{
+					colisionesFinal=colisiones;
+					numCol=colision;
+					kMinCol=actualM;
+				}
+				
+				
+			}
+			
+			//imprimo el numero M que minimiza las colisiones
+			System.out.println(kMinCol);
+			//imprimo el numero de colisiones correspondientes
+			System.out.println(numCol);
+			//metodo para ordenar todo
+			int flag = numCol;
+			ordenarTodo(colisionesFinal, flag);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Proyecto6B {
+	
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		//numero de casos de prueba T
+		int T = input.nextInt();
+		input.nextLine();
+
+		for (int i=0; i<T; i++){
+			System.out.println("Case #"+(i+1)+":");
+			
+			//numero de estanques N
+			int estanqueN = Integer.parseInt(input.nextLine());
+			//creo un HashMap con los datos del recorrido
+			HashMap<Integer,Integer> recorrido = new HashMap<Integer,Integer>();
+			int elementosMisty=0;
+			//para cada estanque se hace el mismo procedimiento
+			for (int j = 0; j < estanqueN; j++) {
+				//leo la comida A y el pokemon B en cada estanque
+				String [] entrada = input.nextLine().split(" ");
+				//comida A
+				int comidaA = Integer.parseInt(entrada[0]);
+				//Pokemosn B
+				int pokemonB = Integer.parseInt(entrada[1]);
+				
+				//si la comida A corresponde al pokemon B
+				if(comidaA != pokemonB)
+				{
+					//se agrega la comida por cada estanque
+					Integer comida = recorrido.get(comidaA);
+					if(comida==null){
+						comida = 0;
+						recorrido.put(comidaA, comida+1);
+					}else{
+						recorrido.put(comidaA, comida+1);
+					}
+					//se decrementan los pokemon  por cada estanque
+					Integer pokemon = recorrido.get(pokemonB);
+					if(pokemon==null || pokemon<=0){
+						elementosMisty++;
+					}else{
+						recorrido.put(pokemonB, pokemon-1);
+					}
+				}
+			}
+			//imprimo el nuemro de elementos que Misty debe llevar
+			System.out.println(elementosMisty);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Proyecto6A {
+
+	private static void ordenarTodo(HashMap<Integer, ArrayList<Integer>> miMap, int flag) {
+		if(flag!=0){
+			ArrayList<Ordenar> ordenFinal = new ArrayList<>();
+			//recorrer eficientemente un Map
+			for(Map.Entry<Integer, ArrayList<Integer>> entry : miMap.entrySet()){
+				ArrayList<Integer> arr=entry.getValue();
+				Collections.sort(arr);
+				ordenFinal.add(new Ordenar (arr));
+			}
+			Collections.sort(ordenFinal);
+			for (Ordenar ord : ordenFinal)
+				System.out.println(ord);
+		}
+
+	}
+
+	public static class Ordenar implements Comparable<Ordenar>{
+		ArrayList<Integer> array;
+		//constructor
+		public Ordenar(ArrayList<Integer> array) {
+			this.array = array;
+		}
+		//compara solo la primera posicion de los arreglos
+		@Override
+		public int compareTo(Ordenar o) {
+			return this.array.get(0).compareTo(o.array.get(0));
+		}
+		//para mostrar correctamente
+		@Override
+		public String toString( ){
+			StringBuilder sb = new StringBuilder( "" );
+
+			for( Integer  x : array )
+				sb.append( x + " " );
+			sb.append( "" );
+
+			return new String( sb );
+		}
+	}
+	
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		//numero de casos de prueba T
+		int T = input.nextInt();
+		input.nextLine();
+
+		for (int i=0; i<T; i++){
+			System.out.println("Case #"+(i+1)+":");
+			
+			String [] entrada = input.nextLine().split(" ");
+			//N numeros xi
+			int numN = Integer.parseInt(entrada[0]);
+			//M numero Kj
+			int numM = Integer.parseInt(entrada[1]);
+			
+			//leo todos los numN y los meto en un arreglo
+			int [] arrayN = new int [numN];
+			entrada = input.nextLine().split(" ");
+			for (int n = 0; n < entrada.length; n++){
+				arrayN[n]=Integer.parseInt(entrada[n]);
+			}
+			//leo todos los M y los meto en un arreglo
+			int [] arrayM = new int [numM];
+			entrada=input.nextLine().split(" ");
+			for (int n = 0; n < entrada.length; n++){
+				arrayM[n]=Integer.parseInt(entrada[n]);
+			}
+
+			//creo una tabla HashMap con llave entera que direcciona a un arreglo  
+			HashMap<Integer,ArrayList<Integer>> colisionesFinal = new HashMap<Integer,ArrayList<Integer>>();
+			//variable del numero de colisiones encontradas
+			int numCol=0;
+			//variable del valor de k que minimiza las colisiones
+			int kMinCol=0;
+			
+			//para cada numero M se hace el mismo procedimiento
+			for (int j = 0; j < arrayM.length; j++){
+				//creo una tabla HashMap con llave entera que direcciona a un entero  
+				HashMap<Integer,Integer> tablaHash = new HashMap<Integer,Integer>();
+				//creo una tabla HashMap con llave entera que direcciona a un arreglo  
+				HashMap<Integer,ArrayList<Integer>> colisiones = new HashMap<Integer,ArrayList<Integer>>();
+				
+				//numero de colisiones
+				int colision = 0;
+				int actualM = arrayM[j];
+				
+				//se inserta cada numero N a la tablaHash
+				for (int m = 0; m < arrayN.length; m++){
+					//la funcion que genera la llave es x%k para este ejercicio
+					int actualN = arrayN[m];
+					int llave = actualN%actualM;
+					//si la tabla ya contiene la clave
+					if(tablaHash.containsKey(llave)){
+						//se incrementa una colision
+						colision++;
+						if(!colisiones.containsKey(llave)){
+							ArrayList<Integer> valores= new ArrayList<Integer>();
+							valores.add(tablaHash.get(llave));
+							colisiones.put(llave, valores);
+						}
+						colisiones.get(llave).add(actualN);
+					}
+					//sino se inserta la llave con su valor
+					else{
+						tablaHash.put(llave, actualN);
+					}
+				}
+				if(j==0 || colision<numCol)
+				{
+					colisionesFinal=colisiones;
+					numCol=colision;
+					kMinCol=actualM;
+				}
+				if(colision==numCol && actualM<kMinCol)
+				{
+					colisionesFinal=colisiones;
+					numCol=colision;
+					kMinCol=actualM;
+				}
+				
+				
+			}
+			
+			//imprimo el numero M que minimiza las colisiones
+			System.out.println(kMinCol);
+			//imprimo el numero de colisiones correspondientes
+			System.out.println(numCol);
+			//metodo para ordenar todo
+			int flag = numCol;
+			ordenarTodo(colisionesFinal, flag);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Comparator;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class Proyecto6D {
+
+	//cada partido tiene su nombre y su numero de votos
+	public static class DatosPartido implements Comparable<DatosPartido>{
+		String nombrePartido;
+		Integer numVotos;
+		//constructor
+		public DatosPartido(String partidoCand, int numVotos) {
+			//super();
+			this.nombrePartido= partidoCand;
+			this.numVotos = numVotos;
+		}
+		//compara el partido que tenga mas votos
+		@Override
+		public int compareTo(DatosPartido p) {
+			if(this.numVotos.equals(p.numVotos)){
+				return this.nombrePartido.compareTo(p.nombrePartido);
+			}
+			return p.numVotos.compareTo(this.numVotos);
+		}
+		
+	}
+
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		//numero de casos de prueba T
+		int T = input.nextInt();
+		input.nextLine();
+
+		for (int i=0; i<T; i++){
+			System.out.println("Case #"+(i+1)+":");
+			//numero de candidatos N
+			int N =input.nextInt();
+			input.nextLine();
+			//creo un HashMap con llave el nombre del candidato y el partido del candidato
+			HashMap<String , DatosPartido> datosCand = new HashMap<String , DatosPartido>();
+			//numero de votos
+			int numVotos =0;
+			
+			//leo todos los candidatos y su partido
+			for (int j = 0; j < N; j++){
+				String [] entrada = input.nextLine().split(" ");
+				// nombre del candidato nombreCand
+				String nombreCand = entrada[0]; 
+				//numero de votos inicial
+				numVotos =0;
+				// nombre del partido partidoCand
+				String partidoCand = entrada[1]; 
+				//cada partido tiene su nombre y su numero de votos
+				DatosPartido partidoConVotos = new DatosPartido(partidoCand,numVotos);
+				//agrego los datos al HashMap 
+				datosCand.put(nombreCand, partidoConVotos);
+			}
+			
+			//cantidad de votos realizados Q
+			int Q =input.nextInt();
+			input.nextLine();
+			//leo todos los votos Q y los inserto en el HashMap
+			for (int j = 0; j < Q; j++){
+				//leo el voto realizado
+				String voto = input.nextLine();
+				//miro el nombre del partido segun el candidato votado
+				String nombVotoPartido = datosCand.get(voto).nombrePartido ;
+				//aumento el numero de votos
+				numVotos = datosCand.get(voto).numVotos+1;
+				DatosPartido votoPartido = new DatosPartido(nombVotoPartido , numVotos);
+				//agrego al HashMap
+				datosCand.put(voto , votoPartido);
+			}
+			//creo un TreeSet para ordenar el partido con mas votos
+			TreeSet<DatosPartido> partMasVotos = new TreeSet<>(datosCand.values());
+			//obtengo la primera posicion del arbol que es el partido de mas votos
+			int mayorVotos = partMasVotos.first().numVotos;
+			for(DatosPartido partTemp : partMasVotos){
+				if(partTemp.numVotos != mayorVotos){
+					break;
+				}else{
+					System.out.println(partTemp);
+				}
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Comparator;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class Proyecto6D {
+
+	//cada partido tiene su nombre y su numero de votos
+	public static class DatosPartido implements Comparable<DatosPartido>{
+		String nombrePartido;
+		Integer numVotos;
+		//constructor
+		public DatosPartido(String partidoCand, int numVotos) {
+			//super();
+			this.nombrePartido= partidoCand;
+			this.numVotos = numVotos;
+		}
+		//compara el partido que tenga mas votos
+		@Override
+		public int compareTo(DatosPartido p) {
+			if(this.numVotos.equals(p.numVotos)){
+				return this.nombrePartido.compareTo(p.nombrePartido);
+			}
+			return p.numVotos.compareTo(this.numVotos);
+		}
+		//para que muestre bien el nombre
+		@Override
+		public String toString() {
+			return nombrePartido;
+		}
+		
+	}
+
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		//numero de casos de prueba T
+		int T = input.nextInt();
+		input.nextLine();
+
+		for (int i=0; i<T; i++){
+			System.out.println("Case #"+(i+1)+":");
+			//numero de candidatos N
+			int N =input.nextInt();
+			input.nextLine();
+			//creo un HashMap con llave el nombre del candidato y el partido del candidato
+			HashMap<String , DatosPartido> datosCand = new HashMap<String , DatosPartido>();
+			//numero de votos
+			int numVotos =0;
+			
+			//leo todos los candidatos y su partido
+			for (int j = 0; j < N; j++){
+				String [] entrada = input.nextLine().split(" ");
+				// nombre del candidato nombreCand
+				String nombreCand = entrada[0]; 
+				//numero de votos inicial
+				numVotos =0;
+				// nombre del partido partidoCand
+				String partidoCand = entrada[1]; 
+				//cada partido tiene su nombre y su numero de votos
+				DatosPartido partidoConVotos = new DatosPartido(partidoCand,numVotos);
+				//agrego los datos al HashMap 
+				datosCand.put(nombreCand, partidoConVotos);
+			}
+			
+			//cantidad de votos realizados Q
+			int Q =input.nextInt();
+			input.nextLine();
+			//leo todos los votos Q y los inserto en el HashMap
+			for (int j = 0; j < Q; j++){
+				//leo el voto realizado
+				String voto = input.nextLine();
+				//miro el nombre del partido segun el candidato votado
+				String nombVotoPartido = datosCand.get(voto).nombrePartido ;
+				//aumento el numero de votos
+				numVotos = datosCand.get(voto).numVotos+1;
+				DatosPartido votoPartido = new DatosPartido(nombVotoPartido , numVotos);
+				//agrego al HashMap
+				datosCand.put(voto , votoPartido);
+			}
+			//creo un TreeSet para ordenar el partido con mas votos
+			TreeSet<DatosPartido> partMasVotos = new TreeSet<>(datosCand.values());
+			//obtengo la primera posicion del arbol que es el partido de mas votos
+			int mayorVotos = partMasVotos.first().numVotos;
+			for(DatosPartido partTemp : partMasVotos){
+				if(partTemp.numVotos != mayorVotos){
+					break;
+				}else{
+					System.out.println(partTemp);
+				}
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Proyecto6E{
+
+	public static void main(String[] args){
+		Scanner input = new Scanner (System.in);
+		//numero de casos de prueba T
+		int T = input.nextInt();
+		input.nextLine();
+
+		for (int i=0; i<T; i++){
+			System.out.println("Case #"+(i+1)+":");
+
+			//numero de estanques N
+			int estanqueN = Integer.parseInt(input.nextLine());
+			//creo un HashMap con los datos del recorrido
+			HashMap<Integer,Integer> recorrido = new HashMap<Integer,Integer>();
+			//creo un TreeMap que ordena los alimentos
+			TreeMap<Integer,Integer> ordenComida = new TreeMap<>();
+			int elementosMisty=0;
+			//para cada estanque se hace el mismo procedimiento
+			for (int j = 0; j < estanqueN; j++) {
+				//leo la comida A y el pokemon B en cada estanque
+				String [] entrada = input.nextLine().split(" ");
+				//comida A
+				int comidaA = Integer.parseInt(entrada[0]);
+				//Pokemosn B
+				int pokemonB = Integer.parseInt(entrada[1]);
+
+				//si la comida A corresponde al pokemon B
+				if(comidaA != pokemonB){
+					//se agrega la comida por cada estanque
+					Integer comida = recorrido.get(comidaA);
+					if(comida==null){
+						comida = 0;
+						recorrido.put(comidaA, comida+1);
+					}else{
+						recorrido.put(comidaA, comida+1);
+					}
+					//se decrementan los pokemon  por cada estanque
+					Integer pokemon = recorrido.get(pokemonB);
+					if(pokemon==null || pokemon<=0){
+						elementosMisty++;
+						//guardo el pokemon con su comida
+						Integer comidaP = ordenComida.get(pokemonB);
+						if(comidaP==null){
+							int comidaPokemon =0;
+							ordenComida.put(pokemonB, comidaPokemon+1);
+						}else{
+							int comidaPokemon = ordenComida.get(pokemonB);
+							ordenComida.put(pokemonB, comidaPokemon+1);
+						}
+					}else{
+						recorrido.put(pokemonB, pokemon-1);
+					}
+				}
+			}
+			//imprimo el nuemro de elementos que Misty debe llevar
+			System.out.println(elementosMisty);
+			//metodo para ordenar todo
+			ordenarTodo(ordenComida);
+		}
+	}
+
+	private static void ordenarTodo(TreeMap<Integer, Integer> miMap) {
+
+		//recorrer eficientemente un Map
+		for (Map.Entry<Integer , Integer> entry : miMap.entrySet()) {
+			System.out.println(entry.getKey()+" "+entry.getValue());
+		}
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Proyecto6C{
+
+	public static void main(String[] args){
+			System.out.println("No alcance :'(");
+
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

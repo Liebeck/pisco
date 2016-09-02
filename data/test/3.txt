@@ -1,0 +1,1164 @@
+import java.util.Scanner;
+
+public class Problema_A {
+	public static void main (String [] args)
+	{
+		Scanner sn = new Scanner(System.in);
+		int n=sn.nextInt();												//'n' es el numero de casos
+		for(int a=1;a<=n;a++)											//para cada caso:
+		{
+			int k=sn.nextInt();											//'k' es la cantidad de numeros
+			int [] result = {0,0,0};								  	//arreglo de [>,<,=]
+			int [] nums = new int [k];									//leer numeros
+			for(int p=0; p<k; p++) nums[p]=sn.nextInt();
+			
+			for(int i=0;i<k;i++)										//comparar
+			{
+				int x=nums[i];
+				for(int j=0; j<k;j++)
+				{
+					int y=nums[j];
+					if(j!=i)
+					{
+						if(x>y) result[0]++;
+						else if (x<y) result[1]++;
+						else result[2]++;
+					}
+				}
+			}
+			
+			System.out.println("Case #"+a+":");							//imprimir
+			System.out.println(result[0]);
+			System.out.println(result[1]);
+			System.out.println(result[2]);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
+public class Problema_B {
+	public static void main (String [] args)
+	{
+		Scanner sn= new Scanner(System.in);
+		int a=1;																//'a' cuenta los casos
+		while(sn.hasNext())														//numero de casos indefinido
+		{
+			int n=sn.nextInt();													//'n' es tamaño de tablero
+			int [][] mat = new int[n][n];
+			for (int i = 0; i < n; i++)											//lectura de tablero
+				for (int j = 0; j < n; j++)
+					mat[i][j]=sn.nextInt();
+			int win=0;															//'win' cuenta casilllas ganadoras
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					int [] row = mat[i];										//se obtiene la fila y la columna de la casilla
+					int [] col = getCol(mat,j);
+					if(IntStream.of(row).sum()<IntStream.of(col).sum()) win++;	//se suma la fila y la columna y se comparan
+				}
+			}
+			System.out.println("Case #"+a+":");									//imprimir
+			System.out.println(win);
+			a++;
+		}
+	}
+
+	private static int[] getCol(int[][] mat, int j) {							//metodo para obtencion de columna
+		int []col=new int[mat.length];
+		for (int i = 0; i < col.length; i++) col[i]=mat[i][j];
+		return col;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Problema_C {
+	public static void main (String [] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t=sn.nextInt();																//contador de casos
+		for (int i = 1; i <=t; i++) 
+		{																				//para cada caso:
+			int n=sn.nextInt();
+			String piedras="";
+			for (int j = 0; j < n; j++) piedras+=sn.next();								//leer las letras y concatenar en "piedras"
+			ArrayList<String> comb=new ArrayList<String>();
+			permutation ("",piedras,comb);												//guardar las posibles permutaciones en comb
+			Collections.sort(comb);														//ordenar alfabeticamente (por si acaso)
+			System.out.println("Case "+i+":");											//imprimir
+			for (int j = 0; j < comb.size(); j++) System.out.println(comb.get(j));
+		}
+	}
+	
+	private static void permutation(String prefix, String str, ArrayList<String> combo)	//funcion recursiva que devuelve en combo las posibles permutaciones
+	{
+        int n = str.length();
+        if (n == 0 && !combo.contains(prefix)) 
+            combo.add(prefix);
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1),combo);
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Problema_D {
+	public static void main (String args[])
+	{
+		Scanner sn = new Scanner (System.in);
+		int t=sn.nextInt();									//numero de casos
+		for (int i = 1; i <= t; i++)						//para cada caso:
+		{
+			int n= sn.nextInt();
+			int[] loc = new int [n];
+			int[] vis = new int [n];
+			for (int j = 0; j < n; j++)						//leer color local y color visitante
+			{
+				loc[j]=sn.nextInt(); 
+				vis[j]=sn.nextInt();
+			}
+			int times=0;									//'times' es veces que un local usa uniforme de visitante
+			for (int j = 0; j < loc.length; j++)
+				for (int k = 0; k < vis.length; k++)
+					if(loc[j]==vis[k]) times++;				
+			System.out.println("Case #"+i+":");
+			System.out.println(times);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package asdasd;
+
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
+public class Problema_B {
+	public static void main (String [] args)
+	{
+		Scanner sn= new Scanner(System.in);
+		int a=1;																//'a' cuenta los casos
+		while(sn.hasNext())														//numero de casos indefinido
+		{
+			int n=sn.nextInt();													//'n' es tamaño de tablero
+			int [][] mat = new int[n][n];
+			for (int i = 0; i < n; i++)											//lectura de tablero
+				for (int j = 0; j < n; j++)
+					mat[i][j]=sn.nextInt();
+			int win=0;															//'win' cuenta casilllas ganadoras
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					int [] row = mat[i];										//se obtiene la fila y la columna de la casilla
+					int [] col = getCol(mat,j);
+					if(IntStream.of(row).sum()<IntStream.of(col).sum()) win++;	//se suma la fila y la columna y se comparan
+				}
+			}
+			System.out.println("Case #"+a+":");									//imprimir
+			System.out.println(win);
+			a++;
+		}
+	}
+
+	private static int[] getCol(int[][] mat, int j) {							//metodo para obtencion de columna
+		int []col=new int[mat.length];
+		for (int i = 0; i < col.length; i++) col[i]=mat[i][j];
+		return col;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package asdasd;
+
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
+public class Problema_B {
+	public static void main (String [] args)
+	{
+		Scanner sn= new Scanner(System.in);
+		int a=1;																//'a' cuenta los casos
+		while(sn.hasNext())														//numero de casos indefinido
+		{
+			int n=sn.nextInt();													//'n' es tamano de tablero
+			int [][] mat = new int[n][n];
+			for (int i = 0; i < n; i++)											//lectura de tablero
+				for (int j = 0; j < n; j++)
+					mat[i][j]=sn.nextInt();
+			int win=0;															//'win' cuenta casilllas ganadoras
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					int [] row = mat[i];										//se obtiene la fila y la columna de la casilla
+					int [] col = getCol(mat,j);
+					if(IntStream.of(row).sum()<IntStream.of(col).sum()) win++;	//se suma la fila y la columna y se comparan
+				}
+			}
+			System.out.println("Case #"+a+":");									//imprimir
+			System.out.println(win);
+			a++;
+		}
+	}
+
+	private static int[] getCol(int[][] mat, int j) {							//metodo para obtencion de columna
+		int []col=new int[mat.length];
+		for (int i = 0; i < col.length; i++) col[i]=mat[i][j];
+		return col;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package asdasd;
+
+import java.util.Scanner;
+
+public class ProblemD {
+	public static void main (String args[])
+	{
+		Scanner sn = new Scanner (System.in);
+		int t=sn.nextInt();									//numero de casos
+		for (int i = 1; i <= t; i++)						//para cada caso:
+		{
+			int n= sn.nextInt();
+			int[] loc = new int [n];
+			int[] vis = new int [n];
+			for (int j = 0; j < n; j++)						//leer color local y color visitante
+			{
+				loc[j]=sn.nextInt(); 
+				vis[j]=sn.nextInt();
+			}
+			int times=0;									//'times' es veces que un local usa uniforme de visitante
+			for (int j = 0; j < loc.length; j++)
+				for (int k = 0; k < vis.length; k++)
+					if(loc[j]==vis[k] && j!=k) times++;				
+			System.out.println("Case #"+i+":");
+			System.out.println(times);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package asdasd;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class ProblemC {
+	public static void main (String [] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t=sn.nextInt();																//contador de casos
+		for (int i = 1; i <=t; i++) 
+		{																				//para cada caso:
+			int n=sn.nextInt();
+			String piedras="";
+			for (int j = 0; j < n; j++) piedras+=sn.next();								//leer las letras y concatenar en "piedras"
+			ArrayList<String> comb=new ArrayList<String>();
+			permutation ("",piedras,comb);												//guardar las posibles permutaciones en comb
+			Collections.sort(comb);														//ordenar alfabeticamente (por si acaso)
+			System.out.println("Case #"+i+":");											//imprimir
+			for (int j = 0; j < comb.size(); j++) System.out.println(comb.get(j));
+		}
+	}
+	
+	private static void permutation(String prefix, String str, ArrayList<String> combo)	//funcion recursiva que devuelve en combo las posibles permutaciones
+	{
+        int n = str.length();
+        if (n == 0 && !combo.contains(prefix)) 
+            combo.add(prefix);
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1),combo);
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package asdasd;
+
+import java.util.Scanner;
+
+public class Problema_B {
+	public static void main (String [] args)
+	{
+		Scanner sn= new Scanner(System.in);
+		int a=1;																//'a' cuenta los casos
+		while(sn.hasNext())														//numero de casos indefinido
+		{
+			int n=sn.nextInt();													//'n' es tamano de tablero
+			int [][] mat = new int[n][n];
+			for (int i = 0; i < n; i++)											//lectura de tablero
+				for (int j = 0; j < n; j++)
+					mat[i][j]=sn.nextInt();
+			int win=0;															//'win' cuenta casilllas ganadoras
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					int [] row = mat[i];										//se obtiene la fila y la columna de la casilla
+					int [] col = getCol(mat,j);
+					if(sumAll(row)<sumAll(col)) win++;	//se suma la fila y la columna y se comparan
+				}
+			}
+			System.out.println("Case #"+a+":");									//imprimir
+			System.out.println(win);
+			a++;
+		}
+	}
+	private static int sumAll(int [] arr){
+		int a=0;
+		for(Integer i:arr)
+			a+=i;
+		return a;
+	}
+
+	private static int[] getCol(int[][] mat, int j) {							//metodo para obtencion de columna
+		int []col=new int[mat.length];
+		for (int i = 0; i < col.length; i++) col[i]=mat[i][j];
+		return col;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package asdasd;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class ProblemE {
+	public static void main (String args[]){
+		Scanner sn = new Scanner (System.in);
+		int t=sn.nextInt();									//numero de casos
+		for (int i = 1; i <= t; i++)						//para cada caso:
+		{
+			int n= sn.nextInt();
+			ArrayList<Integer> arr = new ArrayList<Integer>();
+			for (int j = 0; j < n; j++)	{arr.add(sn.nextInt());}
+			System.out.println(arr);
+			if(n<=2 || sumAll(arr)==n)
+			{
+				System.out.println(n);
+			}
+			else
+			{
+				ArrayList<Integer> posibilidades = new ArrayList<>();
+				for (int j=0;j<n;j++) //Escoger indice inicial
+				{
+					for (int k=j;k<=n;k++) //Escoger indice final
+					{
+						int s=k-j+1;//tamano de la zona a cambiar
+						ArrayList<Integer> caso = arr;
+						for (int l=j;l<s;l++)	caso.set(l,1-arr.get(l)); //Voltear
+						System.out.println(caso);
+						posibilidades.add(sumAll(caso));
+					}
+				}
+				Collections.sort(posibilidades);
+				System.out.println(posibilidades);
+				System.out.println(posibilidades.get(posibilidades.size()-1));
+			}
+		}
+	}
+	
+	
+	private static int sumAll(ArrayList<Integer> arr){
+		int a=0;
+		for(Integer i:arr)
+			a+=i;
+		return a;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+
+public class ProblemaA {
+
+	public static class Order implements Comparable<Order>
+	{
+		ArrayList<Integer> tree;
+
+		@Override
+		public int compareTo(Order o) {
+			return this.tree.get(0).compareTo(o.tree.get(0));
+		}
+
+		public Order(ArrayList<Integer> tree) {
+			this.tree = tree;
+		}
+
+		@Override
+		public String toString() {
+			return tree.toString().replaceAll("\\[", "").replaceAll("\\]", "").replaceAll(",", "");
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			String [] line=sn.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			int M = Integer.parseInt(line[1]);
+			line=sn.nextLine().split(" ");
+			int [] x = new int [N];
+			for (int j = 0; j < line.length; j++) 
+				x[j]=Integer.parseInt(line[j]);
+			line=sn.nextLine().split(" ");
+			int [] k = new int [M];
+			for (int j = 0; j < line.length; j++) 
+				k[j]=Integer.parseInt(line[j]);
+			
+			HashMap<Integer,ArrayList<Integer>> colisionesFinal = new HashMap<>();
+			int colFinal=0;
+			int kkFinal=0;
+			for (int j = 0; j < k.length; j++) 
+			{
+				HashMap<Integer,Integer> tablaHash = new HashMap<>();
+				HashMap<Integer,ArrayList<Integer>> colisiones = new HashMap<>();
+				int col=0;
+				int kk=k[j];
+				for (int l = 0; l < x.length; l++) 
+				{
+					int key = x[l]%k[j];
+					int val = x[l];
+					if(tablaHash.containsKey(key))
+					{
+						col++;
+						if(!colisiones.containsKey(key))
+						{
+							ArrayList<Integer> valores= new ArrayList<>();
+							valores.add(tablaHash.get(key));
+							colisiones.put(key, valores);
+						}
+						colisiones.get(key).add(val);
+					}
+					else
+						tablaHash.put(key, val);
+				}
+				if(j==0||col<colFinal||col==colFinal && kk<kkFinal)
+				{
+					colisionesFinal=colisiones;
+					colFinal=col;
+					kkFinal=kk;
+				}
+			}
+			System.out.println(kkFinal);
+			System.out.println(colFinal);
+			if(colFinal!=0)
+			{
+				
+				ArrayList<Order> ordenados = new ArrayList<>();
+				for(Map.Entry<Integer, ArrayList<Integer>> entry :colisionesFinal.entrySet())
+				{
+					ArrayList<Integer> arr=entry.getValue();
+					Collections.sort(arr);
+					ordenados.add(new Order (arr));
+				}
+				Collections.sort(ordenados);
+				for (Order o : ordenados)
+					System.out.println(o);
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProblemaB {
+	public static void main(String[] args) {
+		Scanner sn = new Scanner(System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Case #"+i+":");
+			int n = Integer.parseInt(sn.nextLine());
+			HashMap<Integer,Integer> alimentos = new HashMap<>();
+			int count=0;
+			for (int j = 0; j < n; j++) {
+				String [] line = sn.nextLine().split(" ");
+				int a = Integer.parseInt(line[0]);
+				int p = Integer.parseInt(line[1]);
+				if(a!=p)
+				{
+					Integer comida = alimentos.get(a);
+					if(comida==null)
+						alimentos.put(a, 1);
+					else
+						alimentos.put(a, comida+1);
+					Integer poke = alimentos.get(p);
+					if(poke==null || poke<=0)
+						count++;
+					else
+						alimentos.put(p, poke-1);
+				}
+			}
+			System.out.println(count);
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class ProblemaC {
+	public static void main(String[] args) {
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Case #"+i+":");
+			String [] line = sn.nextLine().split(" ");
+			HashSet<Integer> norma = new HashSet<>();
+			HashSet<Integer> mario = new HashSet<>();
+			HashSet<Integer> pipe = new HashSet<>();
+			line= sn.nextLine().split(" ");
+			for (int j = 0; j < line.length; j++)
+				norma.add(Integer.parseInt(line[j]));
+			line= sn.nextLine().split(" ");
+			for (int j = 0; j < line.length; j++)
+				mario.add(Integer.parseInt(line[j]));
+			line= sn.nextLine().split(" ");
+			for (int j = 0; j < line.length; j++)
+				pipe.add(Integer.parseInt(line[j]));
+			Iterator<Integer> iNorma = norma.iterator();
+			while(iNorma.hasNext())
+			{
+				Integer ii=iNorma.next();
+				boolean m = mario.remove(ii);
+				boolean p = pipe.remove(ii);
+				if(m || p)
+					iNorma.remove();
+			}
+			Iterator<Integer> iMario = mario.iterator();
+			while (iMario.hasNext())
+			{
+				Integer ii=iMario.next();
+				boolean p = pipe.remove(ii);
+				if(p)
+					iMario.remove();
+			}
+			int n=norma.size();
+			int m=mario.size();
+			int p=pipe.size();
+			if(n>=m && n>=p)
+			{
+				TreeSet<Integer> aNorma = new TreeSet<>(norma);
+				System.out.println("Norma "+n+" "+aNorma.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if(m>=p && m>=n)
+			{
+				TreeSet<Integer> aMario = new TreeSet<>(mario);
+				System.out.println("Mario "+m+" "+aMario.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if(p>=n && p>=m)
+			{
+				TreeSet<Integer> aPipe = new TreeSet<>(pipe);
+				System.out.println("Pipe "+p+" "+aPipe.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class ProblemaD {
+	
+	public static class Party implements Comparable<Party>
+	{
+		String partyName;
+		Integer votes;
+		
+		public Party(String name, int votes) {
+			super();
+			this.partyName= name;
+			this.votes = votes;
+		}
+
+		@Override
+		public int compareTo(Party p) {
+			if(this.votes.equals(p.votes))
+				return this.partyName.compareTo(p.partyName);
+			return p.votes.compareTo(this.votes);
+		}
+
+		@Override
+		public String toString() {
+			return partyName;
+		}
+		
+	}
+
+	public static void main(String[] args) 
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Case #"+i+":");
+			HashMap<String,Party > candidatos = new HashMap<>();
+			int n = Integer.parseInt(sn.nextLine());
+			for (int j = 0; j < n; j++)
+			{
+				String [] line = sn.nextLine().split(" ");
+				candidatos.put(line[0], new Party(line[1],0));
+			}
+			int q = Integer.parseInt(sn.nextLine());
+			for (int j = 0; j < q; j++) 
+			{
+				String name = sn.nextLine();
+				candidatos.put(name, new Party(candidatos.get(name).partyName,candidatos.get(name).votes+1));
+			}
+			
+			TreeSet<Party> ordenados = new TreeSet<>(candidatos.values());
+			int winVotes = ordenados.first().votes;
+			for(Party p : ordenados)
+			{
+				if(p.votes==winVotes)
+					System.out.println(p);
+				else
+					break;
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class ProblemaE{
+	public static void main(String[] args) {
+		Scanner sn = new Scanner(System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) {
+			System.out.println("Case #"+i+":");
+			int n = Integer.parseInt(sn.nextLine());
+			HashMap<Integer,Integer> alimentos = new HashMap<>();
+			TreeMap<Integer,Integer> llevar = new TreeMap<>();
+			int count=0;
+			for (int j = 0; j < n; j++) {
+				String [] line = sn.nextLine().split(" ");
+				int a = Integer.parseInt(line[0]);
+				int p = Integer.parseInt(line[1]);
+				if(a!=p)
+				{
+					Integer comida = alimentos.get(a);
+					if(comida==null)
+						alimentos.put(a, 1);
+					else
+						alimentos.put(a, comida+1);
+					Integer poke = alimentos.get(p);
+					if(poke==null||poke<=0)
+					{
+						count++;
+						Integer comidaPoke = llevar.get(p);
+						if(comidaPoke==null)
+							llevar.put(p, 1);
+						else
+							llevar.put(p, llevar.get(p)+1);
+					}
+					else
+						alimentos.put(p, poke-1);
+				}
+			}
+			System.out.println(count);
+			for (Map.Entry<Integer, Integer> entry : llevar.entrySet()) {
+				System.out.println(entry.getKey()+" "+entry.getValue());
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaA {
+	
+	public static class GraphList
+	{
+		ArrayList<Integer>[] adjLists;
+
+		public GraphList(int v)
+		{
+			adjLists = new ArrayList [v];
+			for (int i = 0; i < adjLists.length; i++) {
+				adjLists[i]=new ArrayList<Integer>();
+			}
+		}
+
+		public void connect(int a, int b) 
+		{
+				adjLists[a].add(b);
+		}
+
+		public int allConnections(int s) {
+			HashSet<Integer> con = new HashSet<>();
+			boolean visited[] = new boolean[adjLists.length];
+			Queue<Integer> q = new LinkedList<Integer>();
+			q.add(s);
+			while (!q.isEmpty())
+			{
+				int x = q.poll();
+				for (Integer i : adjLists[x]) 
+				{
+					con.add(i);
+					if(!visited[i])
+						q.add(i);
+				}
+				visited[x]=true;
+			}
+			return con.size();
+		}
+		
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			String[] line = sn.nextLine().split(" ");
+			int v = Integer.parseInt(line[0]);
+			int e = Integer.parseInt(line[1]);
+			GraphList gr = new GraphList(v);
+			for (int j = 0; j < e; j++) 
+			{
+				line = sn.nextLine().split(" ");
+				int a = Integer.parseInt(line[0]);
+				int b = Integer.parseInt(line[1]);
+				gr.connect(a,b);
+				gr.connect(b,a);
+			}
+			int s = Integer.parseInt(sn.nextLine());
+			System.out.println(gr.allConnections(s)-1);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaB {
+	
+	public static class GraphList
+	{
+		ArrayList<Integer>[] adjLists;
+		int[] inDegree;
+
+		public GraphList(int v)
+		{
+			adjLists = new ArrayList [v];
+			inDegree = new int [v];
+			for (int i = 0; i < adjLists.length; i++) {
+				adjLists[i]=new ArrayList<Integer>();
+			}
+		}
+
+		public void connect(int a, int b) 
+		{
+				adjLists[a].add(b);
+				inDegree[b]++;
+		}
+
+		public boolean topSort()
+		{
+			Queue<Integer> q = new LinkedList<Integer>();
+			int c=0;
+			for (int i = 0; i < inDegree.length; i++)
+				if(inDegree[i]==0)
+				{
+					q.add(i);
+					c++;
+				}
+			if(c>1)
+				return false;
+			while(!q.isEmpty())
+			{
+				c=0;
+				int x = q.poll();
+				for (Integer i : adjLists[x])
+				{
+					if(--inDegree[i]==0)
+					{
+						c++;
+						q.add(i);
+					}
+				}
+				if(c>1)
+					return false;
+			}
+			return true;
+		}
+		
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			String[] line = sn.nextLine().split(" ");
+			int v = Integer.parseInt(line[0]);
+			int e = Integer.parseInt(line[1]);
+			GraphList gr = new GraphList(v);
+			for (int j = 0; j < e; j++) 
+			{
+				line = sn.nextLine().split(" ");
+				int a = Integer.parseInt(line[0]);
+				int b = Integer.parseInt(line[1]);
+				gr.connect(a,b);
+			}
+			if(gr.topSort())
+				System.out.println("Deberia empezar a estudiar");
+			else
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class ProblemaC
+{
+	public static class WeightedGraph
+	{
+		public static class Edge implements Comparable<Edge>
+		{
+			Integer node;
+			Integer weight;
+
+			public Edge(int b, int weight) {
+				super();
+				this.node = b;
+				this.weight = weight;
+			}
+
+			@Override
+			public int compareTo(Edge arg0) {
+				return this.weight.compareTo(arg0.weight);
+			}
+		}
+
+		ArrayList<Edge> [] adjList;
+		public static final int INFINITY = 1000000000;
+
+		public WeightedGraph(int nodes) 
+		{
+			adjList = new ArrayList [nodes];
+			for (int i = 0; i < adjList.length; i++)
+				adjList[i]=new ArrayList<>();
+		}
+
+		public void connect(int u, int v, int w)
+		{
+			adjList[u].add(new Edge (v,w));
+		}
+
+		public int dijkstra (int exit, int time)
+		{
+			int[] dist = new int[adjList.length];
+			int[] path = new int [adjList.length];
+			for (int i = 0; i < path.length; i++) 
+			{
+				dist[i]=INFINITY;
+				path[i]=-1;
+			}
+			dist[exit]=0;
+			PriorityQueue<Edge> pq = new PriorityQueue<>();
+			pq.offer(new Edge (exit, 0));
+			while (!pq.isEmpty()) 
+			{
+				Edge top = pq.poll();
+				int u = top.node, distToU=top.weight;
+				if(distToU>=dist[u])
+				{
+					for (Edge edge : adjList[u]) 
+					{
+						int v=edge.node, weightUV=edge.weight;
+						if(dist[u]+weightUV<dist[v])
+						{
+							dist[v]=dist[u]+weightUV;
+							path[v]=u;
+							pq.offer(new Edge (v,dist[v]));
+						}
+					}
+				}
+			}
+			int count=0;
+			for (int i = 0; i < dist.length; i++)
+				if(dist[i]<=time)
+					count++;
+			//System.out.println(Arrays.toString(dist));
+			return count;
+		}
+
+
+	}
+	public static void main(String[] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			String [] line = sn.nextLine().split(" ");
+			int nodes = Integer.parseInt(line[0]);
+			int exit = Integer.parseInt(line[1]);
+			int time = Integer.parseInt(line[2]);
+			int edges = Integer.parseInt(sn.nextLine());
+			WeightedGraph gr = new WeightedGraph(nodes);
+			for (int j = 0; j < edges; j++) 
+			{
+				line = sn.nextLine().split(" ");
+				int u = Integer.parseInt(line[0]);
+				int v = Integer.parseInt(line[1]);
+				int w = Integer.parseInt(line[2]);
+				gr.connect(v,u,w);
+			}
+			System.out.println(gr.dijkstra(exit, time));
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class ProblemaD
+{
+	public static class WeightedGraph
+	{
+		public static class Edge implements Comparable<Edge>
+		{
+			Integer node;
+			Integer weight;
+
+			public Edge(int b, int weight) {
+				super();
+				this.node = b;
+				this.weight = weight;
+			}
+
+			@Override
+			public int compareTo(Edge arg0) {
+				return this.weight.compareTo(arg0.weight);
+			}
+		}
+
+		ArrayList<Edge> [] adjList;
+		public static final int INFINITY = 1000000000;
+
+		public WeightedGraph(int nodes) 
+		{
+			adjList = new ArrayList [nodes];
+			for (int i = 0; i < adjList.length; i++)
+				adjList[i]=new ArrayList<>();
+		}
+
+		public void connect(int u, int v, int w)
+		{
+			adjList[u].add(new Edge (v,w));
+		}
+
+		public String dijkstra (int exit, int time)
+		{
+			int[] dist = new int[adjList.length];
+			int[] path = new int [adjList.length];
+			for (int i = 0; i < path.length; i++) 
+			{
+				dist[i]=INFINITY;
+				path[i]=-1;
+			}
+			dist[exit]=0;
+			PriorityQueue<Edge> pq = new PriorityQueue<>();
+			pq.offer(new Edge (exit, 0));
+			while (!pq.isEmpty()) 
+			{
+				Edge top = pq.poll();
+				int u = top.node, distToU=top.weight;
+				if(distToU>=dist[u])
+				{
+					for (Edge edge : adjList[u]) 
+					{
+						int v=edge.node, weightUV=edge.weight;
+						if(dist[u]+weightUV<dist[v])
+						{
+							dist[v]=dist[u]+weightUV;
+							path[v]=u;
+							pq.offer(new Edge (v,dist[v]));
+						}
+					}
+				}
+			}
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < dist.length; i++)
+				if(dist[i]<=time)
+					sb.append(i+" ");
+			sb.replace(sb.length(), sb.length(), "");
+			//System.out.println(Arrays.toString(dist));
+			return sb.toString();
+		}
+
+
+	}
+	public static void main(String[] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			String [] line = sn.nextLine().split(" ");
+			int nodes = Integer.parseInt(line[0]);
+			int exit = Integer.parseInt(line[1]);
+			int time = Integer.parseInt(line[2]);
+			int edges = Integer.parseInt(sn.nextLine());
+			WeightedGraph gr = new WeightedGraph(nodes);
+			for (int j = 0; j < edges; j++) 
+			{
+				line = sn.nextLine().split(" ");
+				int u = Integer.parseInt(line[0]);
+				int v = Integer.parseInt(line[1]);
+				int w = Integer.parseInt(line[2]);
+				gr.connect(v,u,w);
+			}
+			System.out.println(gr.dijkstra(exit, time));
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ProblemaA {
+	
+	public static class GraphList
+	{
+		ArrayList<Integer>[] adjLists;
+
+		public GraphList(int v)
+		{
+			adjLists = new ArrayList [v];
+			for (int i = 0; i < adjLists.length; i++) {
+				adjLists[i]=new ArrayList<Integer>();
+			}
+		}
+
+		public void connect(int a, int b) 
+		{
+				adjLists[a].add(b);
+		}
+
+		public int allConnections(int s) {
+			HashSet<Integer> con = new HashSet<>();
+			boolean visited[] = new boolean[adjLists.length];
+			Queue<Integer> q = new LinkedList<Integer>();
+			q.add(s);
+			while (!q.isEmpty())
+			{
+				int x = q.poll();
+				for (Integer i : adjLists[x]) 
+				{
+					con.add(i);
+					if(!visited[i])
+						q.add(i);
+				}
+				visited[x]=true;
+			}
+			return con.size();
+		}
+		
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner sn = new Scanner (System.in);
+		int t = Integer.parseInt(sn.nextLine());
+		for (int i = 1; i <= t; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			String[] line = sn.nextLine().split(" ");
+			int v = Integer.parseInt(line[0]);
+			int e = Integer.parseInt(line[1]);
+			GraphList gr = new GraphList(v);
+			for (int j = 0; j < e; j++) 
+			{
+				line = sn.nextLine().split(" ");
+				int a = Integer.parseInt(line[0]);
+				int b = Integer.parseInt(line[1]);
+				gr.connect(a,b);
+				gr.connect(b,a);
+			}
+			int s = Integer.parseInt(sn.nextLine());
+			int x = gr.allConnections(s);
+			System.out.println(x==0 ? x : x-1);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

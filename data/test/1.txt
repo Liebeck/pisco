@@ -1,0 +1,7497 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProA {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner scan = new Scanner(System.in); 
+        int k, n = Integer.parseInt(scan.nextLine());
+        for(int i=0; i<n; i++){
+            int may=0,men=0,equ=0;
+            k=Integer.parseInt(scan.nextLine());
+            String mun[]= scan.nextLine().split(" ");
+            int num[]= new int[k];
+            for(int j=0; j<k; j++){
+                num[j]=Integer.parseInt(mun[j]);
+            }
+                
+        for(int j=0; j<k; j++){
+            for(int j2=0; j2<k; j2++){
+                if(j!=j2){
+                    if(num[j]==num[j2]){
+                    equ++;
+                    }else if (num[j]<num[j2]){
+                    men++;
+                    }else{
+                    may++;
+                    }
+                }
+            }
+        }
+        System.out.println("Case #"+(i+1)+":");
+        System.out.println(may);
+        System.out.println(men);
+        System.out.println(equ);
+        }
+     /*   for(int i=0;i<n;i++){
+        System.out.println("Case #"+(i+1)+":");
+        System.out.println(orden[0][i]);
+        System.out.println(orden[1][i]);
+        System.out.println(orden[2][i]);}*/
+    }
+    }
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProB {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+        int n,gano,casos=1;
+        while(scan.hasNext()){
+            gano=0;
+        n = Integer.parseInt(scan.nextLine());
+        int matrix [][]= new int[n][n];
+        
+        for(int i=0; i<n; i++){
+        String mun[]= scan.nextLine().split(" ");
+            for(int j=0; j<n; j++){
+                matrix[i][j]=Integer.parseInt(mun[j]);
+            }
+        }
+        
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+            if(ganadora(i,j,matrix,n)){
+            gano++;
+            }
+            }
+        }
+        System.out.println("Case #"+casos+":");
+        System.out.println(gano);
+        casos++;
+        }
+    }
+
+    private static boolean ganadora(int a, int b, int m [][], int n) {
+        int sumFila=0,sumCol=0;
+        for(int i=0; i<n; i++){
+        sumFila+= m[a][i];
+        sumCol+= m[i][b];
+        }
+        return (sumFila<sumCol);
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+/**
+ *
+ */
+public class ProC {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+    int t, n, p;
+    char color[],po[];
+    Vector comb = new Vector (20);
+    t=Integer.parseInt(scan.nextLine());
+    for(int i=0; i<t; i++){
+        n= Integer.parseInt(scan.nextLine());
+        color= new char [n];
+        po=new char [n];
+        color= scan.nextLine().replace(" ", "").toCharArray();
+      
+    }
+    }
+
+    private static boolean existe(char[] po, Vector comb) {
+    return comb.contains(po);
+    }
+
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProD {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+        int n,t;
+        int num[][];
+        t= Integer.parseInt(scan.nextLine());
+        for(int i=0; i<t; i++){
+        n= Integer.parseInt(scan.nextLine());
+        int visit=0;
+        num= new int [n][2];
+        for(int k=0; k<n; k++){
+        String mun[]= scan.nextLine().split(" ");
+            for(int j=0; j<2; j++){
+                num[k][j]=Integer.parseInt(mun[j]);
+            }
+        }
+        for(int k=0; k<n; k++){
+         visit+= igual(num [k][0],n,num);
+         }
+            System.out.println("Case #"+(i+1)+":");
+            System.out.println(visit);
+        }
+        }
+    
+
+ private static int igual(int num, int tam,int[][]d) {
+int cont=0;    
+for (int i=0; i<tam;i++){    
+    if(num==d[i][1]){
+    cont++;
+    }
+    }
+return cont;
+ }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProD {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+        int n,t;
+        int num[][];
+        t= Integer.parseInt(scan.nextLine());
+        for(int i=0; i<t; i++){
+        n= Integer.parseInt(scan.nextLine());
+        int visit=0;
+        num= new int [n][2];
+        for(int k=0; k<n; k++){
+        String mun[]= scan.nextLine().split(" ");
+            for(int j=0; j<2; j++){
+                num[k][j]=Integer.parseInt(mun[j]);
+            }
+        }
+        for(int k=0; k<n; k++){
+         visit+= igual(num [k][0],n,num);
+         }
+            System.out.println("Case #"+(i+1)+":");
+            System.out.println(visit);
+        }
+        }
+    
+
+ private static int igual(int num, int tam,int[][]d) {
+int cont=0;    
+for (int i=0; i<tam;i++){    
+    if(num==d[i][1]){
+    cont++;
+    }
+    }
+return cont;
+ }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProD {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+        int n,t;
+        int num[][];
+        t= Integer.parseInt(scan.nextLine());
+        for(int i=0; i<t; i++){
+        n= Integer.parseInt(scan.nextLine());
+        int visit=0;
+        num= new int [n][2];
+        for(int k=0; k<n; k++){
+        String mun[]= scan.nextLine().split(" ");
+            for(int j=0; j<2; j++){
+                num[k][j]=Integer.parseInt(mun[j]);
+            }
+        }
+        for(int k=0; k<n; k++){
+         visit+= igual(num [k][0],n,num);
+         }
+            System.out.println("Case #"+(i+1)+":");
+            System.out.println(visit);
+        }
+        }
+    
+
+ private static int igual(int num, int tam,int[][]d) {
+int cont=0;    
+for (int i=0; i<tam;i++){    
+    if((num==d[i][1])&&(num!=d[i][0])){
+    cont++;
+    }
+    }
+return cont;
+ }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProD {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+        int n,t;
+        int num[][];
+        t= Integer.parseInt(scan.nextLine());
+        for(int i=0; i<t; i++){
+        n= Integer.parseInt(scan.nextLine());
+        int visit=0;
+        num= new int [n][2];
+        for(int k=0; k<n; k++){
+        String mun[]= scan.nextLine().split(" ");
+            for(int j=0; j<2; j++){
+                num[k][j]=Integer.parseInt(mun[j]);
+            }
+        }
+        for(int k=0; k<n; k++){
+         
+            visit+= igual(num [k][0],n,num,k);
+         }
+            System.out.println("Case #"+(i+1)+":");
+            System.out.println(visit);
+        }
+        }
+    
+
+ private static int igual(int num, int tam,int[][]d,int k) {
+int cont=0;    
+for (int i=0; i<tam;i++){    
+    if((num==d[i][1])&&(k!=i)){
+    cont++;
+    }
+    }
+return cont;
+ }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proa;
+
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class ProE {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in); 
+        int n,t,arr[],cont=0,i1=0,j1;
+        
+        t= Integer.parseInt(scan.nextLine());
+        for(int i=0; i<t; i++){
+        n= Integer.parseInt(scan.nextLine());
+        arr = new int [n];
+        String [] mun= scan.nextLine().split(" ");
+        for(int j=0; j<n; j++){
+        arr[j]=Integer.parseInt(mun[j]);
+        }
+        for(int j=0; j<n; j++){
+        if(arr[j]==0){
+        i1=j; 
+        break;
+        }
+        }
+        for  (int j=i1;j<n;j++){
+        if(arr[j]==0){
+        arr[j]=1;
+        }else{
+        arr[j]=0;
+        }
+        if(contar(arr,n)>cont){
+        cont=contar(arr,n);
+        }
+        }
+        System.out.println(cont);
+        }
+    }
+
+    private static int contar(int[] arr, int n) {
+        int cont=0;
+        for(int i=0;i<n;i++){
+        if (arr[i]==1){
+        cont++;
+        }
+        }
+        return cont;
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hashpro;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class HashPro {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)throws Exception {
+        // TODO code application logic here
+    Scanner scan;
+        File f = new File("A_2.txt");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            String[] nm=scan.nextLine().split(" ");
+            int n=Integer.parseInt(nm[0]);
+            int m=Integer.parseInt(nm[1]);
+            String[] x=scan.nextLine().split(" ");
+            String[] fx=scan.nextLine().split(" ");
+            
+            SeparateChainingHashTable<Integer> [] df = new SeparateChainingHashTable[m];
+            int colisions=0,colid=0;
+            for(int j=0;j<m;j++){
+                SeparateChainingHashTable<Integer>aux=new SeparateChainingHashTable(Integer.parseInt(fx[j]));
+                for(int k=0;k<n;k++){
+                    aux.insert(Integer.parseInt(x[k]));
+                }
+                if(j==0){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont<colisions){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont==colisions){
+                    if(aux.theLists.length<Integer.parseInt(fx[colid])){
+                    colisions=aux.colcont;
+                    colid=j;
+                    }
+                }
+                df[j]=aux;
+            }
+            BinaryHeap <Integer> fy = new BinaryHeap();
+            for(int y: df[colid].colisions){
+               Collections.sort( df[colid].theLists[df[colid].myhash(y)]);
+               fy.insert(df[colid].theLists[df[colid].myhash(y)].get(0));
+            }
+            System.out.println(fx[colid]);
+            System.out.println(df[colid].colcont);
+            while(!fy.isEmpty()){
+              for (int y: df[colid].theLists[df[colid].myhash(fy.deleteMin())] ){
+                  System.out.print(y+" ");
+              }
+              System.out.println();
+            }
+            colisions=0; colid=0;
+        }
+    }
+public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}    
+public static class SeparateChainingHashTable<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        colcont=0;
+        colisions= new LinkedList();
+        theLists = new LinkedList[  size  ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        
+            if(whichList.size()>0){
+            colcont ++;
+                if(whichList.size()==1){
+                colisions.add(myhash(x));
+                }
+            }
+            whichList.add( x );
+                // Rehash; see Section 5.5
+        
+        
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x)
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+    private int colcont;
+    private List<Integer> colisions;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hashpro;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class HashProB {
+public static void main(String[] args)throws Exception {
+        // TODO code application logic here
+    Scanner scan;
+        File f = new File("B_2.txt");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida2.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            int n = Integer.parseInt(scan.nextLine());
+            QuadraticProbingHashTable<Integer> pokemon= new QuadraticProbingHashTable(n);
+            int charged=0;
+            for(int j=0;j<n;j++){
+                String [] ab= scan.nextLine().split(" ");
+                if(!ab[0].equals(ab[1])){
+                    pokemon.insert(Integer.parseInt(ab[0]));
+                    if(!pokemon.remove(Integer.parseInt(ab[1]))){
+                    charged++;
+                    }
+                }
+            }
+            System.out.println(charged);
+        }
+}    
+    
+    public static class QuadraticProbingHashTable<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public QuadraticProbingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size the approximate initial size.
+     */
+    public QuadraticProbingHashTable( int size )
+    {
+        allocateArray( size );
+        doClear( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, do nothing.
+     * @param x the item to insert.
+     * @return 
+     */
+    public boolean insert( AnyType x )
+    {
+            // Insert x as active
+        int currentPos = findPos( x );
+        if( isActive( currentPos ) ){
+            array[ currentPos ].counter++;
+            return false;}
+
+        array[ currentPos ] = new HashEntry<>( x, true,1 );
+        theSize++;
+        
+            // Rehash; see Section 5.5
+        if( ++occupied > array.length / 2 )
+            rehash( );
+        
+        return true;
+    }
+
+    /**
+     * Expand the hash table.
+     */
+    private void rehash( )
+    {
+        HashEntry<AnyType> [ ] oldArray = array;
+
+            // Create a new double-sized, empty table
+        allocateArray( 2 * oldArray.length );
+        occupied = 0;
+        theSize = 0;
+
+            // Copy table over
+        for( HashEntry<AnyType> entry : oldArray )
+            if( entry != null && entry.isActive )
+                insert( entry.element );
+    }
+
+    /**
+     * Method that performs quadratic probing resolution.
+     * @param x the item to search for.
+     * @return the position where the search terminates.
+     */
+    private int findPos( AnyType x )
+    {
+        int offset = 1;
+        int currentPos = myhash( x );
+        
+        while( array[ currentPos ] != null &&
+                !array[ currentPos ].element.equals( x ) )
+        {
+            currentPos += offset;  // Compute ith probe
+            offset += 2;
+            if( currentPos >= array.length )
+                currentPos -= array.length;
+        }
+        
+        return currentPos;
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     * @return true if item removed
+     */
+    public boolean remove( AnyType x )
+    {
+        int currentPos = findPos( x );
+        if( isActive( currentPos ) )
+        {
+            if(array[ currentPos ].counter==1){
+            array[ currentPos ].isActive = false;
+            theSize--;}else{
+                array[ currentPos ].counter--;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+    
+    /**
+     * Get current size.
+     * @return the size.
+     */
+    public int size( )
+    {
+        return theSize;
+    }
+    
+    /**
+     * Get length of internal table.
+     * @return the size.
+     */
+    public int capacity( )
+    {
+        return array.length;
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return the matching item.
+     */
+    public boolean contains( AnyType x )
+    {
+        int currentPos = findPos( x );
+        return isActive( currentPos );
+    }
+
+    /**
+     * Return true if currentPos exists and is active.
+     * @param currentPos the result of a call to findPos.
+     * @return true if currentPos is active.
+     */
+    private boolean isActive( int currentPos )
+    {
+        return array[ currentPos ] != null && array[ currentPos ].isActive;
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        doClear( );
+    }
+
+    private void doClear( )
+    {
+        occupied = 0;
+        for( int i = 0; i < array.length; i++ )
+            array[ i ] = null;
+    }
+    
+    private int myhash( AnyType x )
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= array.length;
+        if( hashVal < 0 )
+            hashVal += array.length;
+
+        return hashVal;
+    }
+    
+    private static class HashEntry<AnyType>
+    {
+        public AnyType  element;   // the element
+        public boolean isActive;  // false if marked deleted
+        public int counter; 
+        public HashEntry( AnyType e )
+        {
+            this( e, true, 1 );
+        }
+
+        public HashEntry( AnyType e, boolean i,int c )
+        {
+            element  = e;
+            isActive = i;
+            counter =c;
+        }
+    }
+
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+    private HashEntry<AnyType> [ ] array; // The array of elements
+    private int occupied;                 // The number of occupied cells
+    private int theSize;                  // Current size
+
+    /**
+     * Internal method to allocate array.
+     * @param arraySize the size of the array.
+     */
+    private void allocateArray( int arraySize )
+    {
+        array = new HashEntry[ nextPrime( arraySize ) ];
+    }
+
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hashpro;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class HashPro {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)throws Exception {
+        // TODO code application logic here
+    Scanner scan;
+        File f = new File("A_2.txt");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            String[] nm=scan.nextLine().split(" ");
+            int n=Integer.parseInt(nm[0]);
+            int m=Integer.parseInt(nm[1]);
+            String[] x=scan.nextLine().split(" ");
+            String[] fx=scan.nextLine().split(" ");
+            
+            SeparateChainingHashTable<Integer> [] df = new SeparateChainingHashTable[m];
+            int colisions=0,colid=0;
+            for(int j=0;j<m;j++){
+                SeparateChainingHashTable<Integer>aux=new SeparateChainingHashTable(Integer.parseInt(fx[j]));
+                for(int k=0;k<n;k++){
+                    aux.insert(Integer.parseInt(x[k]));
+                }
+                if(j==0){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont<colisions){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont==colisions){
+                    if(aux.theLists.length<Integer.parseInt(fx[colid])){
+                    colisions=aux.colcont;
+                    colid=j;
+                    }
+                }
+                df[j]=aux;
+            }
+            BinaryHeap <Integer> fy = new BinaryHeap();
+            for(int y: df[colid].colisions){
+               Collections.sort( df[colid].theLists[df[colid].myhash(y)]);
+               fy.insert(df[colid].theLists[df[colid].myhash(y)].get(0));
+            }
+            System.out.println(fx[colid]);
+            System.out.println(df[colid].colcont);
+            while(!fy.isEmpty()){
+              for (int y: df[colid].theLists[df[colid].myhash(fy.deleteMin())] ){
+                  System.out.print(y+" ");
+              }
+              System.out.println();
+            }
+            colisions=0; colid=0;
+        }
+    }
+public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}    
+public static class SeparateChainingHashTable<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        colcont=0;
+        colisions= new LinkedList();
+        theLists = new LinkedList[  size  ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        
+            if(whichList.size()>0){
+            colcont ++;
+                if(whichList.size()==1){
+                colisions.add(myhash(x));
+                }
+            }
+            whichList.add( x );
+                // Rehash; see Section 5.5
+        
+        
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x)
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+    private int colcont;
+    private List<Integer> colisions;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hashpro;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class HashPro {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)throws Exception {
+        // TODO code application logic here
+    Scanner scan;
+        File f = new File("A_2.txt");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            String[] nm=scan.nextLine().split(" ");
+            int n=Integer.parseInt(nm[0]);
+            int m=Integer.parseInt(nm[1]);
+            String[] x=scan.nextLine().split(" ");
+            String[] fx=scan.nextLine().split(" ");
+            
+            SeparateChainingHashTable<Integer> [] df = new SeparateChainingHashTable[m];
+            int colisions=0,colid=0;
+            for(int j=0;j<m;j++){
+                SeparateChainingHashTable<Integer>aux=new SeparateChainingHashTable(Integer.parseInt(fx[j]));
+                for(int k=0;k<n;k++){
+                    aux.insert(Integer.parseInt(x[k]));
+                }
+                if(j==0){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont<colisions){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont==colisions){
+                    if(aux.theLists.length<Integer.parseInt(fx[colid])){
+                    colisions=aux.colcont;
+                    colid=j;
+                    }
+                }
+                df[j]=aux;
+            }
+            BinaryHeap <Integer> fy = new BinaryHeap();
+            for(int y: df[colid].colisions){
+               Collections.sort( df[colid].theLists[df[colid].myhash(y)]);
+               fy.insert(df[colid].theLists[df[colid].myhash(y)].get(0));
+            }
+            System.out.println(fx[colid]);
+            System.out.println(df[colid].colcont);
+            while(!fy.isEmpty()){
+              for (int y: df[colid].theLists[df[colid].myhash(fy.deleteMin())] ){
+                  System.out.print(y+" ");
+              }
+              System.out.println();
+            }
+            colisions=0; colid=0;
+        }
+    }
+public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}    
+public static class SeparateChainingHashTable<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        colcont=0;
+        colisions= new LinkedList();
+        theLists = new LinkedList[  size  ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        
+            if(whichList.size()>0){
+            colcont ++;
+                if(whichList.size()==1){
+                colisions.add(myhash(x));
+                }
+            }
+            whichList.add( x );
+                // Rehash; see Section 5.5
+        
+        
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x)
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+    private int colcont;
+    private List<Integer> colisions;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hashpro;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class HashPro {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)throws Exception {
+        // TODO code application logic here
+    Scanner scan;
+        File f = new File("A_2.txt");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            String[] nm=scan.nextLine().split(" ");
+            int n=Integer.parseInt(nm[0]);
+            int m=Integer.parseInt(nm[1]);
+            String[] x=scan.nextLine().split(" ");
+            String[] fx=scan.nextLine().split(" ");
+            
+            SeparateChainingHashTable<Integer> [] df = new SeparateChainingHashTable[m];
+            int colisions=0,colid=0;
+            for(int j=0;j<m;j++){
+                SeparateChainingHashTable<Integer>aux=new SeparateChainingHashTable(Integer.parseInt(fx[j]));
+                for(int k=0;k<n;k++){
+                    aux.insert(Integer.parseInt(x[k]));
+                }
+                if(j==0){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont<colisions){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont==colisions){
+                    if(aux.theLists.length<Integer.parseInt(fx[colid])){
+                    colisions=aux.colcont;
+                    colid=j;
+                    }
+                }
+                df[j]=aux;
+            }
+            BinaryHeap <Integer> fy = new BinaryHeap();
+            for(int y: df[colid].colisions){
+               Collections.sort( df[colid].theLists[df[colid].myhash(y)]);
+               fy.insert(df[colid].theLists[df[colid].myhash(y)].get(0));
+            }
+            System.out.println(fx[colid]);
+            System.out.println(df[colid].colcont);
+            while(!fy.isEmpty()){
+              for (int y: df[colid].theLists[df[colid].myhash(fy.deleteMin())] ){
+                  System.out.print(y+" ");
+              }
+              System.out.println();
+            }
+            colisions=0; colid=0;
+        }
+    }
+public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}    
+public static class SeparateChainingHashTable<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        colcont=0;
+        colisions= new LinkedList();
+        theLists = new LinkedList[  size  ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        
+            if(whichList.size()>0){
+            colcont ++;
+                if(whichList.size()==1){
+                colisions.add(myhash(x));
+                }
+            }
+            whichList.add( x );
+                // Rehash; see Section 5.5
+        
+        
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x)
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+    private int colcont;
+    private List<Integer> colisions;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hashpro;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class HashPro {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)throws Exception {
+        // TODO code application logic here
+    Scanner scan;
+        File f = new File("A_2.txt");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            String[] nm=scan.nextLine().split(" ");
+            int n=Integer.parseInt(nm[0]);
+            int m=Integer.parseInt(nm[1]);
+            String[] x=scan.nextLine().split(" ");
+            String[] fx=scan.nextLine().split(" ");
+            
+            SeparateChainingHashTable<Integer> [] df = new SeparateChainingHashTable[m];
+            int colisions=0,colid=0;
+            for(int j=0;j<m;j++){
+                SeparateChainingHashTable<Integer>aux=new SeparateChainingHashTable(Integer.parseInt(fx[j]));
+                for(int k=0;k<n;k++){
+                    aux.insert(Integer.parseInt(x[k]));
+                }
+                if(j==0){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont<colisions){
+                    colisions=aux.colcont;
+                    colid=j;
+                }else if(aux.colcont==colisions){
+                    if(aux.theLists.length<Integer.parseInt(fx[colid])){
+                    colisions=aux.colcont;
+                    colid=j;
+                    }
+                }
+                df[j]=aux;
+            }
+            BinaryHeap <Integer> fy = new BinaryHeap();
+            for(int y: df[colid].colisions){
+               Collections.sort( df[colid].theLists[df[colid].myhash(y)]);
+               fy.insert(df[colid].theLists[df[colid].myhash(y)].get(0));
+            }
+            System.out.println(fx[colid]);
+            System.out.println(df[colid].colcont);
+            while(!fy.isEmpty()){
+              for (int y: df[colid].theLists[df[colid].myhash(fy.deleteMin())] ){
+                  System.out.print(y+" ");
+              }
+              System.out.println();
+            }
+            colisions=0; colid=0;
+        }
+    }
+public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}    
+public static class SeparateChainingHashTable<AnyType>
+{
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        colcont=0;
+        colisions= new LinkedList();
+        theLists = new LinkedList[  size  ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        
+        
+            if(whichList.size()>0){
+            colcont ++;
+                if(whichList.size()==1){
+                colisions.add(myhash(x));
+                }
+            }
+            whichList.add( x );
+                // Rehash; see Section 5.5
+        
+        
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x)
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+    private int colcont;
+    private List<Integer> colisions;
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class Last {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7A_15_2_1.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida1.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+            String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int m=Integer.parseInt(aux[1]);
+            QuickUnion dis= new QuickUnion(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int a=Integer.parseInt(aux2[0]);
+                int b=Integer.parseInt(aux2[1]);
+                dis.union(a, b);
+            }
+           int s = Integer.parseInt(scan.nextLine());
+            System.out.println(dis.connected(s));
+        }
+    }
+    public static class QuickUnion{
+    private int[] id;
+    private int[] weight;
+    private int count;
+    public QuickUnion(int N){
+        count = N;
+        id = new int[N];
+        weight= new int[N];
+        for (int i = 0; i < N; i++){
+        id[i] = i;
+        weight[i]=1;}
+    }
+    private int find(int i){
+    if (i == id[i]) 
+        return id[i]; 
+    else
+        return id[i]=find(id[i]); 
+    }
+    
+    public boolean find(int p, int q) {
+        return find(p) == find(q);
+    }
+    public int connected(int p){
+        return weight[find(p)]-1;
+    }
+    public void union(int p, int q) {
+        int i = find(p), j = find(q);
+        if (i == j) return;
+        id[i] = j;
+        weight[j]+=weight[i];
+        count--;
+    }
+    public int count()
+        { return count; }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class BLast {
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7B_15_2_1.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida2.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+        String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int m=Integer.parseInt(aux[1]);
+            Graph dis= new Graph(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int u=Integer.parseInt(aux2[0]);
+                int v=Integer.parseInt(aux2[1]);
+                dis.link(u, v);
+            }
+            if(dis.oneway()){
+            System.out.println("Deberia empezar a estudiar");
+        }
+    }
+    public static class Graph{
+        Vertex [] v;
+            public Graph(int n){
+                v = new Vertex[n];
+                for(int i=0;i<n;i++){
+                v[i]= new Vertex(i);
+                }
+            }
+            
+            public static class Vertex{
+                int value;
+                int indegree;
+                int topnum;
+                LinkedList<Integer> adj;
+                public Vertex(int a){
+                value=a;
+                indegree=0;
+                adj= new LinkedList<>();
+                topnum=-1;
+                }
+            }
+            public void link(int a, int b){
+                v[a].adj.add(b);
+                v[b].indegree++;
+            }
+            public boolean oneway(){
+                
+                for(Vertex x: v){
+                    if(x.indegree==0){
+                        return oneway(x.value)== v.length;
+                    }
+                }
+                return false;
+            }
+            private int oneway(int a){
+                if(v[a].adj.isEmpty())
+                    return 1;
+                for (Integer x: v[a].adj){
+                    v[x].indegree--;
+                    }
+                for (Integer x: v[a].adj){
+                    if(v[x].indegree==0){
+                    return oneway(x)+1;
+                    }
+                }
+                return 0;
+            }
+            
+        
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class CLast {
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7C_15_2_2.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida3.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        
+        for(int i=0;i<t;i++){
+            String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int e=Integer.parseInt(aux[1]);
+            int time=Integer.parseInt(aux[2]);
+            System.out.println("Case #"+(i+1)+":");
+            int m = Integer.parseInt(scan.nextLine());
+            Graph dis= new Graph(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int u=Integer.parseInt(aux2[0]);
+                int v=Integer.parseInt(aux2[1]);
+                int w=Integer.parseInt(aux2[2]);
+                dis.link(u, v, w);
+            }
+            
+            int cont=0;
+            for(Vertex x:dis.v){
+                if(dis.dijkstra(x.value,e)<=time)
+                 cont++;
+            }
+            System.out.println(cont);
+        }
+    }
+    public static class Vertex implements Comparable<Vertex> {
+                int value;
+                int indegree;
+                int dist;
+                int father;
+                boolean known;
+                LinkedList<Adjack> adj;
+                
+                public Vertex(int a){
+                value=a;
+                indegree=0;
+                adj= new LinkedList<>();
+                known=false;
+                dist=10000;
+                }
+                public int compareTo(Vertex x){
+                    return this.dist-x.dist;
+                }
+            }
+    
+    public static class Adjack{
+                int id;
+                int weight;
+                public Adjack(int a, int b){
+                id=a; weight=b;
+                }
+            }
+    public static class Graph{
+        Vertex [] v;
+            public Graph(int n){
+                v = new Vertex[n];
+                for(int i=0;i<n;i++){
+                v[i]= new Vertex(i);
+                }
+            }
+            
+            
+            public void link(int a, int b, int c){
+                Adjack aux= new Adjack(b,c);
+                v[a].adj.add(aux);
+                v[b].indegree++;
+            }
+            public int dijkstra(int s, int e) throws Exception{
+                for(Vertex x:v){
+                x.dist=10000;
+                x.known=false;
+                }
+                v[s].dist=0;
+                BinaryHeap <Vertex> a = new BinaryHeap();
+                a.insert(v[s]);
+                while(!a.isEmpty()){
+                Vertex aux = a.deleteMin();
+                if (aux.value==e){
+                return aux.dist;
+                }    
+                aux.known=true;
+                for (Adjack x: aux.adj){
+                 if ((!v[x.id].known)&&(v[x.id].dist>(aux.dist+x.weight))){
+                     v[x.id].dist=aux.dist+x.weight;
+                     v[x.id].father=aux.value;
+                     a.insert(v[x.id]);
+                 }
+                }
+                }
+                return v[e].dist;
+            }
+            public boolean oneway(){
+                
+                for(Vertex x: v){
+                    if(x.indegree==0){
+                        return oneway(x.value)== v.length;
+                    }
+                }
+                return false;
+            }
+            private int oneway(int a){
+                if(v[a].adj.isEmpty())
+                    return 1;
+                for (Adjack x: v[a].adj){
+                    v[x.id].indegree--;
+                    }
+                for (Adjack x: v[a].adj){
+                    if(v[x.id].indegree==0){
+                    return oneway(x.id)+1;
+                    }
+                }
+                return 0;
+            }
+    }
+    public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class CLast {
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7C_15_2_2.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida3.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        
+        for(int i=0;i<t;i++){
+            String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int e=Integer.parseInt(aux[1]);
+            int time=Integer.parseInt(aux[2]);
+            System.out.println("Case #"+(i+1)+":");
+            int m = Integer.parseInt(scan.nextLine());
+            Graph dis= new Graph(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int u=Integer.parseInt(aux2[0]);
+                int v=Integer.parseInt(aux2[1]);
+                int w=Integer.parseInt(aux2[2]);
+                dis.link(u, v, w);
+            }
+            
+            int cont=0;
+            for(Vertex x:dis.v){
+                if(dis.dijkstra(x.value,e)<=time)
+                 cont++;
+            }
+            System.out.println(cont);
+        }
+    }
+    public static class Vertex implements Comparable<Vertex> {
+                int value;
+                int indegree;
+                int dist;
+                int father;
+                boolean known;
+                LinkedList<Adjack> adj;
+                
+                public Vertex(int a){
+                value=a;
+                indegree=0;
+                adj= new LinkedList<>();
+                known=false;
+                dist=10000;
+                }
+                public int compareTo(Vertex x){
+                    return this.dist-x.dist;
+                }
+            }
+    
+    public static class Adjack{
+                int id;
+                int weight;
+                public Adjack(int a, int b){
+                id=a; weight=b;
+                }
+            }
+    public static class Graph{
+        Vertex [] v;
+            public Graph(int n){
+                v = new Vertex[n];
+                for(int i=0;i<n;i++){
+                v[i]= new Vertex(i);
+                }
+            }
+            
+            
+            public void link(int a, int b, int c){
+                Adjack aux= new Adjack(b,c);
+                v[a].adj.add(aux);
+                v[b].indegree++;
+            }
+            public int dijkstra(int s, int e) throws Exception{
+                for(Vertex x:v){
+                x.dist=10000;
+                x.known=false;
+                }
+                v[s].dist=0;
+                BinaryHeap <Vertex> a = new BinaryHeap();
+                a.insert(v[s]);
+                while(!a.isEmpty()){
+                Vertex aux = a.deleteMin();
+                if (aux.value==e){
+                return aux.dist;
+                }    
+                aux.known=true;
+                for (Adjack x: aux.adj){
+                 if ((!v[x.id].known)&&(v[x.id].dist>(aux.dist+x.weight))){
+                     v[x.id].dist=aux.dist+x.weight;
+                     v[x.id].father=aux.value;
+                     a.insert(v[x.id]);
+                 }
+                }
+                }
+                return v[e].dist;
+            }
+            public boolean oneway(){
+                
+                for(Vertex x: v){
+                    if(x.indegree==0){
+                        return oneway(x.value)== v.length;
+                    }
+                }
+                return false;
+            }
+            private int oneway(int a){
+                if(v[a].adj.isEmpty())
+                    return 1;
+                for (Adjack x: v[a].adj){
+                    v[x.id].indegree--;
+                    }
+                for (Adjack x: v[a].adj){
+                    if(v[x.id].indegree==0){
+                    return oneway(x.id)+1;
+                    }
+                }
+                return 0;
+            }
+    }
+    public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class CLast {
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7C_15_2_2.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida3.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        
+        for(int i=0;i<t;i++){
+            String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int e=Integer.parseInt(aux[1]);
+            int time=Integer.parseInt(aux[2]);
+            System.out.println("Case #"+(i+1)+":");
+            int m = Integer.parseInt(scan.nextLine());
+            Graph dis= new Graph(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int u=Integer.parseInt(aux2[0]);
+                int v=Integer.parseInt(aux2[1]);
+                int w=Integer.parseInt(aux2[2]);
+                dis.link(u, v, w);
+            }
+            
+            int cont=0;
+            for(Vertex x:dis.v){
+                dis.dijkstra(x.value);
+                if(dis.v[e].dist<=time){
+                 cont++;}
+            }
+            System.out.println(cont);
+        }
+    }
+    public static class Vertex implements Comparable<Vertex> {
+                int value;
+                int indegree;
+                int dist;
+                int father;
+                boolean known;
+                LinkedList<Adjack> adj;
+                
+                public Vertex(int a){
+                value=a;
+                indegree=0;
+                adj= new LinkedList<>();
+                known=false;
+                dist=10000002;
+                }
+                public int compareTo(Vertex x){
+                    return this.dist-x.dist;
+                }
+            }
+    
+    public static class Adjack{
+                int id;
+                int weight;
+                public Adjack(int a, int b){
+                id=a; weight=b;
+                }
+            }
+    public static class Graph{
+        Vertex [] v;
+            public Graph(int n){
+                v = new Vertex[n];
+                for(int i=0;i<n;i++){
+                v[i]= new Vertex(i);
+                }
+            }
+            
+            
+            public void link(int a, int b, int c){
+                Adjack aux= new Adjack(b,c);
+                v[a].adj.add(aux);
+                v[b].indegree++;
+            }
+            public void dijkstra(int s) throws Exception{
+                for(Vertex x:v){
+                x.dist=10000002;
+                x.known=false;
+                }
+                v[s].dist=0;
+                BinaryHeap <Vertex> a = new BinaryHeap();
+                a.insert(v[s]);
+                while(!a.isEmpty()){
+                Vertex aux = a.deleteMin();
+                
+                aux.known=true;
+                for (Adjack x: aux.adj){
+                 if ((!v[x.id].known)&&(v[x.id].dist>(aux.dist+x.weight))){
+                     v[x.id].dist=aux.dist+x.weight;
+                     v[x.id].father=aux.value;
+                     a.insert(v[x.id]);
+                 }
+                }
+                }
+                
+            }
+            public boolean oneway(){
+                
+                for(Vertex x: v){
+                    if(x.indegree==0){
+                        return oneway(x.value)== v.length;
+                    }
+                }
+                return false;
+            }
+            private int oneway(int a){
+                if(v[a].adj.isEmpty())
+                    return 1;
+                for (Adjack x: v[a].adj){
+                    v[x.id].indegree--;
+                    }
+                for (Adjack x: v[a].adj){
+                    if(v[x.id].indegree==0){
+                    return oneway(x.id)+1;
+                    }
+                }
+                return 0;
+            }
+    }
+    public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class CLast {
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7C_15_2_2.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida3.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        
+        for(int i=0;i<t;i++){
+            String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int e=Integer.parseInt(aux[1]);
+            int time=Integer.parseInt(aux[2]);
+            System.out.println("Case #"+(i+1)+":");
+            int m = Integer.parseInt(scan.nextLine());
+            Graph dis= new Graph(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int u=Integer.parseInt(aux2[0]);
+                int v=Integer.parseInt(aux2[1]);
+                int w=Integer.parseInt(aux2[2]);
+                dis.link(u, v, w);
+            }
+            
+            int cont=0;
+            for(Vertex x:dis.v){
+                dis.dijkstra(x.value);
+                if(dis.v[e].dist<=time){
+                 cont++;}
+            }
+            System.out.println(cont);
+        }
+    }
+    public static class Vertex implements Comparable<Vertex> {
+                int value;
+                int indegree;
+                int dist;
+                int father;
+                boolean known;
+                LinkedList<Adjack> adj;
+                
+                public Vertex(int a){
+                value=a;
+                indegree=0;
+                adj= new LinkedList<>();
+                known=false;
+                dist=100000000;
+                }
+                public int compareTo(Vertex x){
+                    return this.dist-x.dist;
+                }
+            }
+    
+    public static class Adjack{
+                int id;
+                int weight;
+                public Adjack(int a, int b){
+                id=a; weight=b;
+                }
+            }
+    public static class Graph{
+        Vertex [] v;
+            public Graph(int n){
+                v = new Vertex[n];
+                for(int i=0;i<n;i++){
+                v[i]= new Vertex(i);
+                }
+            }
+            
+            
+            public void link(int a, int b, int c){
+                Adjack aux= new Adjack(b,c);
+                v[a].adj.add(aux);
+                v[b].indegree++;
+            }
+            public void dijkstra(int s) throws Exception{
+                for(Vertex x:v){
+                x.dist=100000000;
+                x.known=false;
+                }
+                v[s].dist=0;
+                BinaryHeap <Vertex> a = new BinaryHeap();
+                a.insert(v[s]);
+                while(!a.isEmpty()){
+                Vertex aux = a.deleteMin();
+                
+                aux.known=true;
+                for (Adjack x: aux.adj){
+                 if ((!v[x.id].known)&&(v[x.id].dist>(aux.dist+x.weight))){
+                     v[x.id].dist=aux.dist+x.weight;
+                     v[x.id].father=aux.value;
+                     a.insert(v[x.id]);
+                 }
+                }
+                }
+                
+            }
+            public boolean oneway(){
+                
+                for(Vertex x: v){
+                    if(x.indegree==0){
+                        return oneway(x.value)== v.length;
+                    }
+                }
+                return false;
+            }
+            private int oneway(int a){
+                if(v[a].adj.isEmpty())
+                    return 1;
+                for (Adjack x: v[a].adj){
+                    v[x.id].indegree--;
+                    }
+                for (Adjack x: v[a].adj){
+                    if(v[x.id].indegree==0){
+                    return oneway(x.id)+1;
+                    }
+                }
+                return 0;
+            }
+    }
+    public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package last;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class BLast {
+    public static void main( String [ ] args ) throws Exception
+    {
+        Scanner scan;
+        File f = new File("P7B_15_2_1.in");
+        if(f.exists()){
+        scan= new Scanner(f);
+        System.setOut(new PrintStream(new File("salida2.txt")));
+        }else{
+        scan= new Scanner(System.in);}
+        int t = Integer.parseInt(scan.nextLine());
+        for(int i=0;i<t;i++){
+            System.out.println("Case #"+(i+1)+":");
+        String [] aux = scan.nextLine().split(" ");
+            int n=Integer.parseInt(aux[0]);
+            int m=Integer.parseInt(aux[1]);
+            Graph dis= new Graph(n);
+            for(int j=0;j<m;j++){
+                String [] aux2 = scan.nextLine().split(" ");
+                int u=Integer.parseInt(aux2[0]);
+                int v=Integer.parseInt(aux2[1]);
+                dis.link(u, v);
+            }
+            dis.topsort();
+            for (Integer x: dis.way2){
+                System.out.print(x+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static class Graph{
+        Vertex [] v;
+        BinaryHeap<Integer> way;
+        LinkedList<Integer> way2;
+            public Graph(int n){
+                way= new BinaryHeap<>();
+                way2=new LinkedList<>();
+                v = new Vertex[n];
+                for(int i=0;i<n;i++){
+                v[i]= new Vertex(i);
+                }
+            }
+            
+            public static class Vertex{
+                int value;
+                int indegree;
+                int topnum;
+                LinkedList<Integer> adj;
+                public Vertex(int a){
+                value=a;
+                indegree=0;
+                adj= new LinkedList<>();
+                topnum=-1;
+                }
+            }
+            public void link(int a, int b){
+                v[a].adj.add(b);
+                v[b].indegree++;
+            }
+            
+            private void topsort() throws Exception{
+                for(Vertex x: v){
+                    if(x.indegree==0){
+                        way.insert(x.value);}
+                }
+                while(!way.isEmpty()){
+                int c = way.deleteMin();
+                way2.add(c);
+                for (Integer x: v[c].adj){
+                    if(--v[x].indegree==0){
+                     way.insert(x);
+                    }
+                }
+                }
+            }
+            
+        
+    }
+    public static class BinaryHeap <AnyType extends Comparable<? super AnyType>>
+{
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+        this( DEFAULT_CAPACITY );
+    }
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    public BinaryHeap( int capacity )
+    {
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[ capacity + 1 ];
+    }
+    
+    /**
+     * Construct the binary heap given an array of items.
+     * @param items
+     */
+    public BinaryHeap( AnyType [ ] items )
+    {
+            currentSize = items.length;
+            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+            int i = 1;
+            for( AnyType item : items )
+                array[ i++ ] = item;
+            buildHeap( );
+    }
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        if( currentSize == array.length - 1 )
+            enlargeArray( array.length * 2 + 1 );
+
+            // Percolate up
+        int hole = ++currentSize;
+        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+            array[ hole ] = array[ hole / 2 ];
+        array[ hole ] = x;
+    }
+
+
+    private void enlargeArray( int newSize )
+    {
+            AnyType [] old = array;
+            array = (AnyType []) new Comparable[ newSize ];
+            for( int i = 0; i < old.length; i++ )
+                array[ i ] = old[ i ];        
+    }
+    
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType findMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+        return array[ 1 ];
+    }
+
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or throw an UnderflowException if empty.
+     * @throws java.lang.Exception
+     */
+    public AnyType deleteMin( ) throws Exception
+    {
+        if( isEmpty( ) )
+            throw new Exception( );
+
+        AnyType minItem = findMin( );
+        array[ 1 ] = array[ currentSize-- ];
+        percolateDown( 1 );
+
+        return minItem;
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+        for( int i = currentSize / 2; i > 0; i-- )
+            percolateDown( i );
+    }
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+        return currentSize == 0;
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    public void makeEmpty( )
+    {
+        currentSize = 0;
+    }
+
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private int currentSize;      // Number of elements in heap
+    private AnyType [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        int child;
+        AnyType tmp = array[ hole ];
+
+        for( ; hole * 2 <= currentSize; hole = child )
+        {
+            child = hole * 2;
+            if( child != currentSize &&
+                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+                child++;
+            if( array[ child ].compareTo( tmp ) < 0 )
+                array[ hole ] = array[ child ];
+            else
+                break;
+        }
+        array[ hole ] = tmp;
+    }
+
+        // Test program
+    
+}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+casos= int (sys.stdin.readline())
+count=0
+
+while(count <casos):
+    a,b = map(int, sys.stdin.readline().split())
+    c= a+b
+    print c
+    count= count+1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+casos= int (sys.stdin.readline())
+count=0
+
+while(count <casos):
+    leng =int (sys.stdin.readline())
+    L = map(int, sys.stdin.readline().split())
+    mul=1
+    for i in xrange(L):
+        mul=mul*L.pop()
+    print mul
+    count= count+1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+L = sys.stdin.readlines()
+for i in xrange(len(L)):
+    n= int(L[i])
+    if n%5 ==0 and n%3==0:
+        print "FuzzBuzz"
+    elif n%5 ==0:
+        print "Fuzz"
+    elif n%3 ==0:
+        print "Buzz"
+    else:
+        print n
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+L = sys.stdin.readlines()
+for i in xrange(len(L)):
+    n= int(L[i])
+    if n%5 ==0 and n%3==0:
+        print "FuzzBuzz"
+    elif n%3 ==0:
+        print "Fuzz"
+    elif n%5 ==0:
+        print "Buzz"
+    else:
+        print n
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+casos= int (sys.stdin.readline())
+count=0
+
+while(count <casos):
+    leng =int (sys.stdin.readline())
+    L = map(int, sys.stdin.readline().split())
+    mul=-1
+    for i in xrange(leng):
+        if int(L[i])== 1:
+            mul=1
+    print mul
+    count= count+1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import sys
+casos= int (sys.stdin.readline())
+count=0
+
+while(count <casos):
+    leng =int (sys.stdin.readline())
+    L = map(int, sys.stdin.readline().split())
+    mul=1
+    for i in xrange(leng):
+        if int(L[i])== 1:
+            mul=-1
+    print mul
+    count= count+1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    cont=0
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+        for j in xrange(len(m[i])):
+            if m[i][j]== "#":
+                cont= cont+1
+    print cont
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    cont=0
+    cont2=0
+    auxcont=0
+    auxcont2=0
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+    for i in xrange(N):
+        for j in xrange(len(m[i])):
+            if m[len(m[i])-i-1][j]== "#":
+                cont= cont+1
+        if auxcont<= cont:
+           auxcont=cont
+           mayori= len(m[i])-i
+        for j in xrange(len(m[i])):
+            if m[len(m[i])-j-1][i]== "#":
+                cont2= cont2+1
+        if auxcont2<= cont2:
+           auxcont2=cont2
+           mayorj= len(m[i])-i-1
+        cont=0
+        cont2=0
+    print ("%i %i") %(mayori,mayorj)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    cont=0
+    cont2=0
+    auxcont=0
+    auxcont2=0
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+    for i in xrange(N):
+        for j in xrange(N):
+            if m[N-i-1][j]== "#":
+                cont= cont+1
+        if auxcont<= cont:
+           auxcont=cont
+           mayori= N-i
+        for j in xrange(N):
+            if m[j][N-i-1]== "#":
+                cont2= cont2+1
+        if auxcont2<= cont2:
+           auxcont2 = cont2
+           mayorj= N-i
+        cont=0
+        cont2=0
+    print ("%i %i") %(mayori,mayorj)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+T = int( sys.stdin.readline().strip())
+while( T>0 ):
+    T-=1
+    N = int(sys.stdin.readline().strip())
+    m = [[]*N for i in range(N)]
+    cherry=0
+    cont=0
+    cont2=0
+    aux=False
+    for i in xrange(N):
+        m[i] = list(sys.stdin.readline().strip())
+        for j in xrange(len(m[i])):
+            if m[i][j]== "#":
+                cherry= cherry+1
+    if (cherry%2==0):
+        for i in xrange(N):
+            for j in xrange(N):
+                if m[i][j]== "#":
+                    cont= cont+1
+            if(cont==cherry/2):
+                aux=True
+                break
+            for j in xrange(N):
+                if m[j][i]== "#":
+                    cont2= cont2+1
+            if(cont2==cherry/2):
+                aux=True
+                break
+    if(aux):
+        print "YES"
+    else:
+        print "NO"
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def misterio(m,n):
+    if m ==1:
+        if n == 0:
+            return 4
+        else:
+            return 2*(n**2) + n**3 + n*2 -1
+    if m == 2:
+        return 3*(n**2) + 4
+t = input()
+for i in range(t):
+    m,n = map(int,raw_input().split())
+    print misterio(m,n)
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def misterio(m):
+    count= (m+1)**3+ m+2
+    return count
+t = input()
+for i in range(t):
+    m = input()
+    print misterio(m)
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def binary_search(A, a):
+    lo =1
+    hi = len(A)
+    while lo<=hi:
+      mid =lo+(hi-lo)/2
+      if A[mid] == a:
+          return mid+1
+      elif A[mid] < a:
+          lo = mid+1
+      else:
+          hi = mid-1
+    if A[mid] < a:
+        return mid+1
+    else:
+        return mid
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    lsta=[]
+    lstb=[]
+    res=""
+    T-=1
+    tam1,tam2=map(int,raw_input().split())
+    X=map(int,raw_input().split())
+    Y=map(int,raw_input().split())
+    for i in range(tam1):
+        l=X.pop()
+        lsta.append(l)
+    lsta.sort()
+    for i in range(tam2):
+        k=Y.pop()
+        lstb.insert(0,k)
+    for i in lstb:
+        res= res +str(binary_search(lsta,i))+ " "
+    print res
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def binary_search(A, a):
+    lo =0
+    hi = len(A)-1
+    while lo<=hi:
+      mid =lo+(hi-lo)/2
+      if A[mid] == a:
+          return mid+1
+      elif A[mid] < a:
+          lo = mid+1
+      else:
+          hi = mid-1
+    if A[mid] < a:
+        return mid+1
+    else:
+        return mid
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    lsta=[]
+    lstb=[]
+    res=""
+    T-=1
+    tam1,tam2=map(int,raw_input().split())
+    X=map(int,raw_input().split())
+    Y=map(int,raw_input().split())
+    for i in range(tam1):
+        l=X.pop()
+        lsta.append(l)
+    lsta.sort()
+    for i in range(tam2):
+        k=Y.pop()
+        lstb.insert(0,k)
+    for i in lstb:
+        res= res +str(binary_search(lsta,i))+ " "
+    print res
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def binary_search(A, a):
+    lo =1
+    hi = len(A)
+    while lo<=hi:
+      mid =lo+(hi-lo)/2
+      if A[mid] == a:
+          return mid+1
+      elif A[mid] < a:
+          lo = mid+1
+      else:
+          hi = mid-1
+    if A[mid] < a:
+        return mid+1
+    else:
+        return mid
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    lsta=[]
+    lstb=[]
+    res=""
+    T-=1
+    tam1,tam2=map(int,raw_input().split())
+    X=map(int,raw_input().split())
+    Y=map(int,raw_input().split())
+    for i in range(tam1):
+        l=X.pop()
+        lsta.append(l)
+    lsta.sort()
+    for i in range(tam2):
+        res= res +str(binary_search(lsta,int(Y[i])))+ " "
+    print res
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def binary_search(A, a):
+    lo =0
+    hi = len(A)-1
+    while lo<=hi:
+      mid =lo+(hi-lo)/2
+      if A[mid] == a:
+          return mid+1
+      elif A[mid] < a:
+          lo = mid+1
+      else:
+          hi = mid-1
+    if A[mid] < a:
+        return mid+1
+    else:
+        return mid
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    lsta=[]
+    lstb=[]
+    res=""
+    T-=1
+    tam1,tam2=map(int,raw_input().split())
+    X=map(int,raw_input().split())
+    Y=map(int,raw_input().split())
+    for i in range(tam1):
+        l=X.pop()
+        lsta.append(l)
+    lsta.sort()
+    for i in range(tam2):
+        res= res +str(binary_search(lsta,int(Y[i])))+ " "
+    print res
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+def binary_search(A, a):
+    lo =0
+    hi = len(A)-1
+    while lo<=hi:
+      mid =lo+(hi-lo)/2
+      if A[mid] <= a:
+          lo = mid+1
+      else:
+          hi = mid-1
+    if A[mid] <= a:
+        return mid+1
+    else:
+        return mid
+
+T = int( sys.stdin.readline().strip())
+while (T>0):
+    lsta=[]
+    lstb=[]
+    res=""
+    T-=1
+    tam1,tam2=map(int,raw_input().split())
+    X=map(int,raw_input().split())
+    Y=map(int,raw_input().split())
+    for i in range(tam1):
+        l=X.pop()
+        lsta.append(l)
+    lsta.sort()
+    for i in range(tam2):
+        res= res +str(binary_search(lsta,int(Y[i])))+ " "
+    print res
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mul( mat1, mat2 ):
+    res = [[0,0],[0,0]]
+    res[0][0] = mat1[0][0]*mat2[0][0] + mat1[0][1]*mat2[1][0]
+    res[0][1] = mat1[0][0]*mat2[0][1] + mat1[0][1]*mat2[1][1]
+    res[1][0] = mat1[1][0]*mat2[0][0] + mat1[1][1]*mat2[1][0]
+    res[1][1] = mat1[1][0]*mat2[0][1] + mat1[1][1]*mat2[1][1]
+    return res
+
+def pow( matrix, n ):
+    if n == 1:
+        return matrix
+    if n % 2 == 0:
+        return mul( pow( matrix, n/2 ), pow( matrix, n/2 ) )
+    else:
+        return mul( matrix, mul( pow( matrix, n/2 ), pow( matrix, n/2 ) ))
+
+t = int(raw_input())
+while t > 0:
+    n = int( raw_input() )
+    matrix = []
+    matrix.append( map( int, raw_input().split(" ") ) )
+    matrix.append( map( int, raw_input().split(" ") ) )
+    res = pow( matrix, n )
+    s1 = str(res[0][0])
+    s2 = str(res[0][1])
+    s3 = str(res[1][0])
+    s4 = str(res[1][1])
+    print s1.replace("L", ""), s2.replace("L", "")
+    print s3.replace("L", ""), s4.replace("L", "")
+    t -= 1
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def solve(n, p):
+    n = float(n*(n-1)/2)
+    return (n *p)
+def solve2(n, p):
+    n = float(n*(n-1)/2)-float((n/2)*((n/2)-1))
+    return (n *p)
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    print int (solve(n/2,p1)+ solve2(n ,p3)+solve(n/2,p3))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def solve(n, p):
+    n = float(n*(n-1)/2)
+    return (n *p)
+def solve2(n, p):
+    n = float(n*(n-1)/2)-float((n/2)*((n/2)-1))
+    return (n *p)
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    print int (solve(n/2,p1)+ solve2(n ,p2)+solve(n/2,p3))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def solve(n, p):
+    n = float(n*(n-1)/2)
+    return (n *p)
+def solve2(n, p):
+    n = float(n*(n-1)/2)-float((n/2)*((n/2)-1))
+    return (n *p)
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    print int (solve((n/2)+n%2,p1)+ solve2(n ,p2)+solve(n/2,p3))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+T = int(raw_input())
+
+for t in range(T):
+    a = [int(x) for x in raw_input().split()]
+    n = len(a)
+    s = sum(a)
+    if(s == 2*(n-1)):
+        print "Arbol"
+    else:
+        print "No arbol"
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def solve(n, p):
+    n = float(n*(n-1)/2)
+    return (n *p)
+def solve2(n, p):
+    n = float(n*(n-1)/2)-float((n/2)*((n/2)-1)/2)-float((n/2+n%2)*((n/2+n%2)-1)/2)
+    return (n *p)
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    print int (solve((n/2)+(n%2),p1)+ solve2(n ,p2)+solve(n/2,p3))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def solve(n, p):
+    n = float(n*(n-1)/2)
+    return (n *p)
+def solve2(n, p):
+
+    n = float(n*(n-1)/2)-float((n/2)*((n/2)-1)/2) -float((n/2+(n%2))*((n/2+(n%2))-1)/2)
+    return (n *p)
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    print int (solve((n/2)+(n%2),p1)+ solve2(n ,p2)+solve(n/2,p3))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def edges(n):
+    return float(n*(n-1)/2)
+
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    if(n%2!=0):
+        a= edges(int(n/2)+1)
+    else:
+        a= edges(int(n/2))
+    c= edges(int(n/2))
+    b= edges(n)-(a+c)
+    print int(a*p1+b*p2+c*p3)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def edges(n):
+    return float(n*(n-1)/2)
+
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    if(n%2!=0):
+        a= edges(int(n/2)+1)
+    else:
+        a= edges(int(n/2))
+    c= edges(int(n/2))
+    b= edges(n)-(a+c)
+    print int(a*p1+b*p2+c*p3)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def edges(n):
+    return float(n*(n-1)/2)
+
+T = int(raw_input())
+
+for t in range(T):
+    n, p1, p2, p3 = map(float, raw_input().split(" "))
+    if(n%2!=0):
+        a= edges(int(n/2)+1)
+    else:
+        a= edges(int(n/2))
+    c= edges(int(n/2))
+    b= edges(n)-(a+c)
+    print int(a*p1+b*p2+c*p3)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+import math
+x= sys.stdin.readlines()
+for i in x:
+    a=i.split(" ")
+    if a[0]== "chain":
+        print int(a[1])-1
+    elif a[0]== "ring":
+        print int(a[1])
+    elif a[0]=="grid":
+        print 2*int(a[1])-int(2*(math.sqrt(int(a[1]))))
+    elif a[0]=="complete":
+        print (int(a[1])*(int(a[1])-1))/2
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#x= sys.stdin.readlines()
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    if not parent2 (graph,u,v):
+        graph[u]=graph[v]
+        nodes[v]+=nodes[u]
+        nodes[u]=nodes[v]
+
+def parent1(graph,u):
+    if graph[u]==u:
+        return u
+    graph[u]=parent1(graph,graph[u])
+
+def parent2 (graph,u,v):
+    return parent1(graph,u)==parent1(graph,v)
+
+x= sys.stdin.readlines()
+for j in x:
+    N, M = map(int, raw_input().strip().split())
+    graph=[]
+    nodes=[]
+    for i in range(N):
+        graph.append(i)
+        nodes.append(1)
+    for i in range (M):
+        u, v = map(int, raw_input().strip().split())
+        unir(graph,u,v,nodes)
+    total=0
+    for i in range(N):
+        if graph[i]==i:
+            total+=edges(nodes[i])
+
+    print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#x= sys.stdin.readlines()
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    if not parent2 (graph,u,v):
+        graph[u]=graph[v]
+        nodes[v]+=nodes[u]
+        nodes[u]=nodes[v]
+
+def parent1(graph,u):
+    if graph[u]==u:
+        return u
+    graph[u]=parent1(graph,graph[u])
+
+def parent2 (graph,u,v):
+    return parent1(graph,u)==parent1(graph,v)
+
+x= int(sys.stdin.readline())
+while x>0:
+    N, M = map(int, sys.stdin.readline().strip().split())
+    graph=[]
+    nodes=[]
+    for i in range(N):
+        graph.append(i)
+        nodes.append(1)
+    for i in range (M):
+        u, v = map(int,sys.stdin.readline().strip().split())
+        unir(graph,u,v,nodes)
+    total=0
+    for i in range(N):
+        if graph[i]==i:
+            total+=edges(nodes[i])
+    x-=1
+    print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#x= sys.stdin.readlines()
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    if not parent2 (graph,u,v):
+        graph[u]=graph[v]
+        nodes[v]+=nodes[u]
+        nodes[u]=nodes[v]
+
+def parent1(graph,u):
+    if graph[u]==u:
+        return u
+    graph[u]=parent1(graph,graph[u])
+
+def parent2 (graph,u,v):
+    return parent1(graph,u)==parent1(graph,v)
+
+x= int(sys.stdin.readline().strip())
+while x>0:
+    N, M = map(int, sys.stdin.readline().strip().split())
+    graph=[]
+    nodes=[]
+    for i in range(N):
+        graph.append(i)
+        nodes.append(1)
+    for i in range (M):
+        u, v = map(int,sys.stdin.readline().strip().split())
+        unir(graph,u,v,nodes)
+    total=0
+    for i in range(N):
+        if graph[i]==i:
+            total+=edges(nodes[i])
+    x-=1
+    print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+#x= sys.stdin.readlines()
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    if not parent2 (graph,u,v):
+        graph[u]=graph[v]
+        nodes[v]+=nodes[u]
+        nodes[u]=nodes[v]
+
+def parent1(graph,u):
+    if graph[u]==u:
+        return u
+    graph[u]=parent1(graph,graph[u])
+
+def parent2 (graph,u,v):
+    return parent1(graph,u)==parent1(graph,v)
+
+
+
+N, M = map(int, sys.stdin.readline().strip().split())
+graph=[]
+nodes=[]
+for i in range(N):
+    graph.append(i)
+    nodes.append(1)
+for i in range (M):
+    u, v = map(int,sys.stdin.readline().strip().split())
+    unir(graph,u,v,nodes)
+total=0
+for i in range(N):
+    if graph[i]==i:
+        total+=edges(nodes[i])
+
+print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    a=find(graph,u)
+    b=find(graph,v)
+    if nodes[a]>nodes[b]:
+        graph[b]=a
+        nodes[a]+=nodes[b]
+    elif nodes[b]>nodes[a]:
+        graph[a]=b
+        nodes[b]+=nodes[a]
+    elif a!=b:
+        graph[b]=a
+        nodes[a]=nodes[a]+1
+
+def find(graph,u):
+    if graph[u]==u:
+        return u
+    else:
+        graph[u]=find(graph,graph[u])
+        return graph[u]
+
+N, M = map(int, sys.stdin.readline().strip().split())
+graph=[]
+nodes=[]
+for i in range(N):
+    graph.append(i)
+    nodes.append(1)
+print graph
+for i in range (M):
+    u, v = map(int,sys.stdin.readline().strip().split())
+    unir(graph,u,v,nodes)
+total=0
+for i in range(N):
+    if graph[i]==i:
+        total+=edges(nodes[i])
+print graph
+print nodes
+print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    a=find(graph,u)
+    b=find(graph,v)
+    if nodes[a]>nodes[b]:
+        graph[b]=a
+        nodes[a]+=nodes[b]
+    elif nodes[b]>nodes[a]:
+        graph[a]=b
+        nodes[b]+=nodes[a]
+    elif a!=b:
+        graph[b]=a
+        nodes[a]=nodes[a]+1
+
+def find(graph,u):
+    if graph[u]==u:
+        return u
+    else:
+        graph[u]=find(graph,graph[u])
+        return graph[u]
+
+N, M = map(int, sys.stdin.readline().strip().split())
+graph=[]
+nodes=[]
+for i in range(N):
+    graph.append(i)
+    nodes.append(1)
+for i in range (M):
+    u, v = map(int,sys.stdin.readline().strip().split())
+    unir(graph,u,v,nodes)
+total=0
+for i in range(N):
+    if graph[i]==i:
+        total+=edges(nodes[i])
+
+print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def edges(n):
+    return float(n*(n-1)/2)
+
+def unir(graph,u,v,nodes):
+    a=find(graph,u)
+    b=find(graph,v)
+    if nodes[a]>nodes[b]:
+        graph[b]=a
+        nodes[a]+=nodes[b]
+    elif nodes[b]>nodes[a]:
+        graph[a]=b
+        nodes[b]+=nodes[a]
+    elif a!=b:
+        graph[b]=a
+        nodes[a]+=nodes[b]
+
+def find(graph,u):
+    if graph[u]==u:
+        return u
+    else:
+        graph[u]=find(graph,graph[u])
+        return graph[u]
+
+N, M = map(int, sys.stdin.readline().strip().split())
+graph=[]
+nodes=[]
+for i in range(N):
+    graph.append(i)
+    nodes.append(1)
+for i in range (M):
+    u, v = map(int,sys.stdin.readline().strip().split())
+    unir(graph,u,v,nodes)
+total=0
+for i in range(N):
+    if graph[i]==i:
+        total+=edges(nodes[i])
+
+print int(edges(N)-total)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def unir(graph,u,v,nodes):
+    a=find(graph,u)
+    b=find(graph,v)
+    if nodes[a]>nodes[b]:
+        graph[b]=a
+        nodes[a]+=nodes[b]
+    elif nodes[b]>nodes[a]:
+        graph[a]=b
+        nodes[b]+=nodes[a]
+    elif a!=b:
+        graph[b]=a
+        nodes[a]+=nodes[b]
+
+def find (graph, u):
+    if graph[u] == u:
+        return u
+    else:
+        graph[u] = find(graph, graph[u])
+        return graph[u]
+t = int(raw_input())
+for j in range(t):
+    n, m = map(int,raw_input().strip().split())
+    graph = []
+    nodes = []
+    for i in range(n):
+        graph.append(i)
+        nodes.append(1)
+    for i in range (m):
+        u, v = map(int,raw_input().strip().split())
+        unir(graph,u,v,nodes)
+    s, p = map(int,raw_input().strip().split())
+    print (n-nodes[find(graph,s)])*p
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+def list_component_sizes(G):
+    marked={}
+    zones=0
+    for v1 in G.keys():
+        if v1 not in marked:
+            mark_component(G, v1, marked)
+            zones+=1
+    return zones
+
+def make_link(G, node1, node2, matrix):
+    if matrix [node1[0]][node1[1]] == '@' and matrix[node2[0]][node2[1]] == '@':
+        if node1 not in G:
+            G[node1] = {}
+        (G[node1])[node2] = 1
+        if node2 not in G:
+            G[node2] = {}
+        (G[node2])[node1] = 1
+    return G
+
+cases = int(raw_input())
+
+for i in range(cases):
+    n, m = map(int, raw_input().strip().split())
+    matrix = []
+    border = ['x' for x in range(m+2)]
+    matrix.append(border)
+    for j in range(n):
+        temp='x'+(raw_input().strip())+'x'
+        matrix.append(temp)
+    matrix.append(border)
+
+    G = {}
+    for j in range(1,n+1,1):
+        for k in range(1,m+1,1):
+            if matrix[j][k] == '@':
+                make_link(G, (j,k), (j+1,k+1), matrix)
+                make_link(G, (j,k), (j-1,k+1), matrix)
+                make_link(G, (j,k), (j+1,k-1), matrix)
+                make_link(G, (j,k), (j-1,k-1), matrix)
+                make_link(G, (j,k), (j+1,k), matrix)
+                make_link(G, (j,k), (j-1,k), matrix)
+                make_link(G, (j,k), (j,k+1), matrix)
+                make_link(G, (j,k), (j,k+1), matrix)
+                make_link(G, (j,k), (j,k), matrix)
+
+
+    print list_component_sizes(G)
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+cases = int(raw_input())
+
+for i in range(cases):
+    n, m, p, q = map(int, raw_input().strip().split())
+    moves=0
+    if (n > p and p>0) or (m > q and q>0) :
+        moves=-1
+    else:
+        while n>0 or p > 0:
+            if p>=2 and(p-2>=n or p-2==0) and q+2>=m:
+                p-=2
+                q+=2
+            elif p>=1 and n>=1 and q+1>=m+1:
+                p-=1
+                q+=1
+                n-=1
+                m+=1
+            elif n>=2 and (q>=m+2 or q==0):
+                n-=2
+                m+=2
+            elif p>=1 and(p-1>=n or p-1==0) and q+1>=m:
+                p-=1
+                q+=1
+            elif n>=1 and (q>=m+1 or q==0):
+                n-=1
+                m+=1
+            else:
+                moves=-1
+                break
+            moves+=1
+
+            if n==0 and p==0:
+                break
+
+            if (p>=n+1 or p==0)and m>=1:
+                m-=1
+                n+=1
+            elif q>=1 and (q-1>=m or q-1==0) and p+1>=n:
+                p+=1
+                q-=1
+            elif p>=n+2 or p==0:
+                n+=2
+                m-=2
+            elif not (q>=1 and m>=1 and p+1>=n+1):
+                moves=-1
+                break
+            else:
+                p+=1
+                q-=1
+                n+=1
+                m-=1
+            moves+=1
+
+    print moves
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def make_key(board):
+    a = ""
+    for i in range(5):
+        a += board[i]
+    return a
+
+def check(board):
+    cond = ["11111",
+            "01111",
+            "00.11",
+            "00001",
+            "00000"]
+    if cond == board:
+        return True
+    else:
+        return False
+
+def poss_way(E):
+    arr = []
+    if E[0]-2 >= 0 and E[1]-1 >= 0:
+        arr.append((E[0]-2,E[1]-1))
+    else:
+        arr.append((-1,-1))
+    if E[0]-2 >= 0 and E[1]+1 < 5:
+        arr.append((E[0]-2,E[1]+1))
+    else:
+        arr.append((-1,-1))
+    if E[0]-1 >= 0 and E[1]-2 >= 0:
+        arr.append((E[0]-1,E[1]-2))
+    else:
+        arr.append((-1,-1))
+    if E[0]-1 >= 0 and E[1]+2 < 5:
+        arr.append((E[0]-1,E[1]+2))
+    else:
+        arr.append((-1,-1))
+    if E[0]+1 < 5 and E[1]+2 < 5:
+        arr.append((E[0]+1,E[1]+2))
+    else:
+        arr.append((-1,-1))
+    if E[0]+2 < 5 and E[1]+1 < 5:
+        arr.append((E[0]+2,E[1]+1))
+    else:
+        arr.append((-1,-1))
+    if E[0]+2 < 5 and E[1]-1 >= 0:
+        arr.append((E[0]+2,E[1]-1))
+    else:
+        arr.append((-1,-1))
+    if E[0]+1 < 5 and E[1]-2 >= 0:
+        arr.append((E[0]+1,E[1]-2))
+    else:
+        arr.append((-1,-1))
+    return arr
+
+t = int(sys.stdin.readline().strip())
+
+for i in range(t):
+    board = []
+    q = []
+    npos = []
+    E = []
+    I = []
+    dp = {}
+    a = False
+    for j in range(5):
+        board.append(sys.stdin.readline().strip())
+        if board[j].find(".") != -1:
+            E = [j,board[j].find(".")]
+    I = [E[0],E[1],board]
+    dp[make_key(board)] = 0
+    q.append(I)
+    while a is False:
+        sizeq = len(q)
+        for k in range(sizeq):
+            I = q.pop(0)
+            E = [int(I[0]),int(I[1])]
+            board = list(I[2])
+            if E[0] == 2 and E[1] == 2:
+                a = check(board)
+                if a is True:
+                    time = dp[make_key(board)]
+                    break
+            if dp[make_key(board)] == 11:
+                a = True
+                time = "no se puede resolver"
+                break
+            npos = (poss_way(E))
+            for l in range(8):
+                if npos[l][0] != -1 and npos[l][1] != -1:
+                    cboard = list(board)
+                    aux = list(cboard[E[0]])
+                    aux[E[1]] = cboard[npos[l][0]][npos[l][1]]
+                    cboard[E[0]] = "".join(aux)
+                    aux = list(cboard[npos[l][0]])
+                    aux[npos[l][1]] = "."
+                    cboard[npos[l][0]] = "".join(aux)
+                    if make_key(cboard) not in dp:
+                        dp[make_key(cboard)] = dp[make_key(board)]+1
+                        q.append([npos[l][0],npos[l][1],list(cboard)])
+    print time
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1,v2):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                if n== v2: return distance[v2]
+                open_list.append(n)
+    return False
+def centrality(G,v):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    return max(distance.values())
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def test():
+    edges = [('a', 'g'), ('a', 'd'), ('g', 'c'), ('g', 'd'),
+             ('b', 'f'), ('f', 'e'), ('e', 'h')]
+    G = {}
+    for v1, v2 in edges:
+        make_link(G, v1, v2)
+    print check_connection(G, "a", "c")
+    print check_connection(G, 'a', 'b')
+
+t= int(raw_input())
+for i in range (t):
+    n, m = map(int, raw_input().strip().split())
+    G = {}
+    for j in range(m):
+        u, v = map(int, raw_input().strip().split())
+        make_link(G,u,v)
+    friends=-1
+    for node in G:
+        if len(G[node])> friends:
+            friends =len(G[node])
+            best= node
+        elif len(G[node])== friends:
+            if node< best:
+                best= node
+    print best,friends
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1,v2):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                if n== v2: return distance[v2]
+                open_list.append(n)
+    return False
+def centrality(G,v):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    return sum(distance.values())
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+
+def test():
+    edges = [(0, 2), (2, 1), (2, 3), (3, 1),
+             (1, 4), (4, 5)]
+    G = {}
+    for v1, v2 in edges:
+        make_link(G, v1, v2)
+    for i in G:
+        print centrality(G,i)
+    print G
+t= int(raw_input())
+for i in range (t):
+    n, m = map(int, raw_input().strip().split())
+    G = {}
+    for j in range(m):
+        u, v = map(int, raw_input().strip().split())
+        make_link(G,u,v)
+    central=100000000
+    for node in G:
+        a= centrality(G,node)
+        if a < central:
+            central =a
+            best= node
+        elif a== central:
+            if node< best:
+                best= node
+    print best
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def giro( a, pos ):
+    b = a[0:pos+1]
+    b.reverse()
+    b += a[pos+1:len(a)]
+    return b
+
+def tostr( a ):
+    return str(a).strip('[]')
+
+t = int( raw_input() )
+for case in range(t):
+    x = map( int, raw_input().strip().split())
+    r = list(x)
+    r.sort()
+    q = []
+    distance = {}
+    q.append( x )
+    distance[tostr(x)] = 0
+    while len(q) > 0:
+        cur = q.pop(0)
+        if( cur == r ):
+            print distance[tostr(cur)]
+            break
+        for i in range( 1, len(x) ):
+            aux = giro(cur, i)
+            if tostr(aux) not in distance:
+                q.append( aux)
+                distance[ tostr(aux) ] = distance[tostr(cur)]+1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+t= int(raw_input())
+for i in range (t):
+    n, m = map(int, raw_input().strip().split())
+    stations=[0 for i in range(n)]
+    mains=[]
+    asd=[]
+    for j in range(m):
+        k = map( int, raw_input().strip().split())
+        for h in range(1,len(k)):
+            stations[k[h]-1]+=1
+            if stations[k[h]-1]>1 and k[h] not in mains:
+                mains.append(k[h])
+        print stations
+    mains.sort()
+    for j in mains:
+        asd.append(stations[j-1])
+    print mains
+    print asd
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def tostr( a ):
+    return str(a).strip('[]')
+
+t= int(raw_input())
+for i in range (t):
+    n, m = map(int, raw_input().strip().split())
+    stations=[0 for i in range(n)]
+    mains=[]
+    asd=[]
+    for j in range(m):
+        k = map( int, raw_input().strip().split())
+        for h in range(1,len(k)):
+            stations[k[h]-1]+=1
+            if stations[k[h]-1]>1 and k[h] not in mains:
+                mains.append(k[h])
+    mains.sort()
+    for j in mains:
+        asd.append(stations[j-1])
+
+    print tostr(mains)
+    print tostr(asd)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def tostr( a ):
+    return str(a).strip('[],')
+
+t= int(raw_input())
+for i in range (t):
+    n, m = map(int, raw_input().strip().split())
+    stations=[0 for i in range(n)]
+    mains=[]
+    asd=[]
+    for j in range(m):
+        k = map( int, raw_input().strip().split())
+        for h in range(1,len(k)):
+            stations[k[h]-1]+=1
+            if stations[k[h]-1]>1 and k[h] not in mains:
+                mains.append(k[h])
+    mains.sort()
+    for j in mains:
+        asd.append(stations[j-1])
+
+    print ' '.join(map(str,mains))
+    print ' '.join(map(str,asd))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+
+t= int(raw_input())
+for i in range (t):
+    n, m = map(int, raw_input().strip().split())
+    stations={}
+    mains=[]
+    asd=[]
+    for j in range(m):
+        k = map( int, raw_input().strip().split())
+        for h in range(1,len(k)):
+            if k[h] not in stations:
+                stations[k[h]]=0
+            stations[k[h]]+=1
+            if stations[k[h]]>1 and k[h] not in mains:
+                mains.append(k[h])
+    mains.sort()
+    for j in mains:
+        asd.append(stations[j])
+
+    print ' '.join(map(str,mains))
+    print ' '.join(map(str,asd))
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+t= int(raw_input())
+for i in range(t):
+    mains=""
+    edges=""
+    n, m = map(int,raw_input().strip().split(" "))
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k.remove(k[0])
+        for h in k:
+            stations[h-1]+=1
+    for j in range(len(stations)):
+        if stations[j]>1:
+            mains+=str(j+1)+" "
+            edges+= str(stations[j]) + " "
+
+    print "Caso "+str(i+1)+":"
+    print mains
+    print edges
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list.pop()
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                open_list.append(n)
+            elif n==v1:
+                return True
+
+    return False
+def centrality(G,v):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    return max(distance.values())
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def make_link2(G,node1,node2):
+    if node1 not in G:
+        G[node1]={}
+    (G[node1])[node2]=1
+    if node2 not in G:
+        G[node2]={}
+    return G
+def test():
+    edges = [(1, 2), (2, 3), (3, 4), (4, 5),(5, 6), (6, 7),
+             (8, 9),(9, 4), (4, 10),(10, 11),
+             (11, 2),(2, 12), (12, 9), (9, 6),(6, 7),
+             (10, 13)
+             ]
+    G = {}
+    for v1, v2 in edges:
+        make_link2(G, v1, v2)
+
+    print path(G,2)
+    #for i in G:
+     #   print len(G[i])
+    print G
+
+t= int(raw_input())
+for i in range(t):
+    n, m = map(int,raw_input().strip().split(" "))
+    G={}
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k0=k[0]
+        k.remove(k[0])
+        for h in range(k0-1):
+            stations[h-1]+=1
+            make_link2(G,k[h],k[h+1])
+    r= False
+    for j in range(n):
+        if stations[j]>1:
+            r= path(G,(j+1))
+            if r:
+                break
+    print "Caso "+str(i+1)+":"
+    if r:
+        print "SI"
+    else:
+        print "NO"
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list.pop()
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                open_list.append(n)
+            elif n==v1:
+                return True
+
+    return False
+def centrality(G,v):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    return max(distance.values())
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def make_link2(G,node1,node2):
+    if node1 not in G:
+        G[node1]={}
+    (G[node1])[node2]=1
+    if node2 not in G:
+        G[node2]={}
+    return G
+def test():
+    edges = [(1, 2), (2, 3), (3, 4), (4, 5),(5, 6), (6, 7),
+             (8, 9),(9, 4), (4, 10),(10, 11),
+             (11, 2),(2, 12), (12, 9), (9, 6),(6, 7),
+             (10, 13)
+             ]
+    G = {}
+    for v1, v2 in edges:
+        make_link2(G, v1, v2)
+
+    print path(G,2)
+    #for i in G:
+     #   print len(G[i])
+    print G
+
+t= int(raw_input())
+for i in range(t):
+    n, m = map(int,raw_input().strip().split(" "))
+    G={}
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k0=k[0]
+        k.remove(k[0])
+        for h in range(k0-1):
+            stations[k[h]-1]+=1
+            make_link2(G,k[h],k[h+1])
+    r= False
+    for j in range(n):
+        if stations[j]>1:
+            r= path(G,(j+1))
+            if r:
+                break
+    print "Caso "+str(i+1)+":"
+    if r:
+        print "SI"
+    else:
+        print "NO"
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list.pop()
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                open_list.append(n)
+            elif n==v1:
+                return True
+
+    return False
+def centrality(G,v,st):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    ds=0
+    #for i in distance:
+      #  if st[i-1]>1:
+       #     ds+=distance[i]
+    return sum(distance.values())
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def make_link2(G,node1,node2):
+    if node1 not in G:
+        G[node1]={}
+    (G[node1])[node2]=1
+    if node2 not in G:
+        G[node2]={}
+    return G
+def test():
+    edges = [(1, 2), (2, 3), (3, 4), (4, 5),(5, 6), (6, 7),
+             (8, 9),(9, 4), (4, 10),(10, 11),
+             (11, 2),(2, 12), (12, 9), (9, 6),(6, 7),
+             (10, 13)
+             ]
+    G = {}
+    for v1, v2 in edges:
+        make_link2(G, v1, v2)
+
+    print path(G,2)
+    #for i in G:
+     #   print len(G[i])
+    print G
+
+t= int(raw_input())
+for i in range(t):
+    n, m = map(int,raw_input().strip().split(" "))
+    G={}
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k0=k[0]
+        k.remove(k[0])
+        for h in range(k0-1):
+            stations[k[h]-1]+=1
+            make_link2(G,k[h],k[h+1])
+        stations[k[k0-1]-1]+=1
+    mindis = 100000
+    mini =10000
+    for j in range(n):
+        if stations[j]>1:
+            r= centrality(G,(j+1),stations)
+            if mindis > r:
+                mindis = r
+                mini = j+1
+            elif mindis == r and mini>j+1:
+                mini = j+1
+    print "Caso "+str(i+1)+":"
+    print mini,mindis
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list.pop()
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                open_list.append(n)
+            elif n==v1:
+                return True
+
+    return False
+def centrality(G,v,st):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    ds=0
+    #for i in distance:
+      #  if st[i-1]>1:
+       #     ds+=distance[i]
+    return sum(distance.values())
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def make_link2(G,node1,node2):
+    if node1 not in G:
+        G[node1]={}
+    (G[node1])[node2]=1
+    if node2 not in G:
+        G[node2]={}
+    return G
+def test():
+    edges = [(1, 2), (2, 3), (3, 4), (4, 5),(5, 6), (6, 7),
+             (8, 9),(9, 4), (4, 10),(10, 11),
+             (11, 2),(2, 12), (12, 9), (9, 6),(6, 7),
+             (10, 13)
+             ]
+    G = {}
+    for v1, v2 in edges:
+        make_link2(G, v1, v2)
+
+    print path(G,2)
+    #for i in G:
+     #   print len(G[i])
+    print G
+
+t= int(raw_input())
+for i in range(t):
+    n, m = map(int,raw_input().strip().split(" "))
+    G={}
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k0=k[0]
+        k.remove(k[0])
+        for h in range(k0-1):
+            stations[k[h]-1]+=1
+            make_link2(G,k[h],k[h+1])
+        stations[k[k0-1]-1]+=1
+    mindis = 1000000000
+    mini =10000000
+    for j in range(n):
+        if stations[j]>1:
+            r= centrality(G,(j+1),stations)
+            if mindis > r:
+                mindis = r
+                mini = j+1
+            elif mindis == r and mini>j+1:
+                mini = j+1
+    print "Caso "+str(i+1)+":"
+    print mini,mindis
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list.pop()
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                open_list.append(n)
+            elif n==v1:
+                return True
+
+    return False
+def centrality(G,v,st):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    ds=0
+    for i in distance:
+        if st[i-1]>1:
+            ds+=distance[i]
+    return ds
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def make_link2(G,node1,node2):
+    if node1 not in G:
+        G[node1]={}
+    (G[node1])[node2]=1
+    if node2 not in G:
+        G[node2]={}
+    return G
+def test():
+    edges = [(1, 2), (2, 3), (3, 4), (4, 5),(5, 6), (6, 7),
+             (8, 9),(9, 4), (4, 10),(10, 11),
+             (11, 2),(2, 12), (12, 9), (9, 6),(6, 7),
+             (10, 13)
+             ]
+    G = {}
+    for v1, v2 in edges:
+        make_link2(G, v1, v2)
+
+    print path(G,2)
+    #for i in G:
+     #   print len(G[i])
+    print G
+
+t= int(raw_input())
+for i in range(t):
+    n, m = map(int,raw_input().strip().split(" "))
+    G={}
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k0=k[0]
+        k.remove(k[0])
+        for h in range(k0-1):
+            stations[k[h]-1]+=1
+            make_link2(G,k[h],k[h+1])
+        stations[k[k0-1]-1]+=1
+    mindis = 1000000000
+    mini =10000000
+    for j in range(n):
+        if stations[j]>1:
+            r= centrality(G,(j+1),stations)
+            if mindis > r:
+                mindis = r
+                mini = j+1
+            elif mindis == r and mini>j+1:
+                mini = j+1
+    print "Caso "+str(i+1)+":"
+    print mini,mindis
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def mark_component(G, node, marked):
+    marked[node] = True
+    total_marked = 1
+    for neighbor in G[node]:
+        if neighbor not in marked:
+            total_marked += mark_component(G, neighbor, marked)
+    return total_marked
+
+def path(G,v1):
+    distance={}
+    open_list=[v1]
+    distance[v1]=0 #[v1]
+    while len(open_list)>0:
+        current= open_list.pop()
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1 #[n]
+                open_list.append(n)
+            elif n==v1:
+                return True
+
+    return False
+def centrality(G,v,st):
+    distance={}
+    open_list=[v]
+    distance[v]=0
+    while len(open_list)>0:
+        current= open_list[0]
+        del open_list[0]
+        for n in G[current].keys():
+            if n not in distance:
+                distance[n]=distance[current]+1
+                open_list.append(n)
+    ds=0
+    for i in distance:
+        if st[i-1]>1:
+            ds+=distance[i]
+    return ds
+
+def check_connection(G, v1, v2):
+    marked={}
+    mark_component(G, v1, marked)
+    # Return True if v1 is connected to v2 in G
+    # or False if otherwise
+    return v2 in marked
+
+def list_component_sizes(G):
+    marked={}
+    for v1 in G.keys():
+        print "Component containing ",v1,": ",mark_component(G, v1, marked)
+
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def make_link2(G,node1,node2):
+    if node1 not in G:
+        G[node1]={}
+    (G[node1])[node2]=1
+    if node2 not in G:
+        G[node2]={}
+    return G
+def test():
+    edges = [(1, 2), (2, 3), (3, 4), (4, 5),(5, 6), (6, 7),
+             (8, 9),(9, 4), (4, 10),(10, 11),
+             (11, 2),(2, 12), (12, 9), (9, 6),(6, 7),
+             (10, 13)
+             ]
+    G = {}
+    for v1, v2 in edges:
+        make_link2(G, v1, v2)
+
+    print path(G,2)
+    #for i in G:
+     #   print len(G[i])
+    print G
+
+t= int(raw_input())
+for i in range(t):
+    n, m = map(int,raw_input().strip().split(" "))
+    G={}
+    stations=[0 for j in range(n)]
+    for j in range(m):
+        k = map(int,raw_input().strip().split(" "))
+        k0=k[0]
+        k.remove(k[0])
+        for h in range(k0-1):
+            stations[k[h]-1]+=1
+            make_link2(G,k[h],k[h+1])
+        stations[k[k0-1]-1]+=1
+    mindis = 1000000000
+    mini =10000000
+    for j in range(n):
+        if stations[j]>1:
+            r= centrality(G,(j+1),stations)
+            if mindis > r:
+                mindis = r
+                mini = j+1
+            elif mindis == r and mini>j+1:
+                mini = j+1
+    print "Caso "+str(i+1)+":"
+    print mini,mindis
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+import heapq
+
+t = int( sys.stdin.readline() )
+
+for case in xrange( t):
+    line = map( str, sys.stdin.readline().strip().split(" ") )
+    heap=[]
+    rta=""
+    count = 0
+    for i in line:
+        if i != "*":
+            heapq.heappush(heap,-(int(i)))
+        else:
+         rta+=str (-heapq.heappop(heap))+" "
+    print rta
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+import heapq
+
+t = int( sys.stdin.readline() )
+
+for case in xrange( t):
+    line = map( str, sys.stdin.readline().strip().split(" ") )
+    heap=[]
+    rta=""
+    count = 0
+    for i in line:
+        if i != "*":
+            heapq.heappush(heap,-(int(i)))
+        else:
+            if len(heap)>1:
+                rta+=str (-heapq.heappop(heap))+" "
+            else:
+                rta+=str(-1)+" "
+    print rta
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+import heapq
+
+t = int( sys.stdin.readline() )
+
+for case in xrange( t):
+    line = map( str, sys.stdin.readline().strip().split(" ") )
+    heap=[]
+    rta=""
+    count = 0
+    for i in line:
+        if i != "*":
+            heapq.heappush(heap,-(int(i)))
+        else:
+            if len(heap)>0:
+                rta+=str (-heapq.heappop(heap))+" "
+            else:
+                rta+=str(-1)+" "
+    print rta
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+lim =10**100
+t= int(raw_input())
+for case in range(t):
+    base=map( int, raw_input().strip().split(" ") )
+    lb = len(base)
+    prox=0
+    while(prox<lim):
+        prox=0
+        for i in range(len(base)-lb,len(base)):
+            prox+=base[i]
+        base.append(prox)
+    print len(base)-1
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import sys
+
+def solucion(primero, segundo, matriz):
+    if primero == 0 and segundo == 0:
+        return 1 % modulo
+
+    numsol = 0
+    if matriz[primero][segundo] != None:
+        numsol += matriz[primero][segundo]
+        return numsol % modulo
+
+    if 0 < segundo or 0 < primero :
+        #var1 = 0
+        #var2 = 0
+        if 0 < segundo :
+            numsol += solucion(primero, segundo-1, matriz)
+        if 0 < primero :
+            numsol += solucion(primero-1, segundo+1, matriz)
+        numsol = numsol % modulo
+    numsol += 1 % modulo
+    matriz[primero][segundo] = numsol
+    return matriz[primero][segundo] % modulo
+
+sys.setrecursionlimit(1000000)
+modulo = 9999959999
+matriz = []
+for i in range(3000):
+    matriz.append([])
+    for j in range(3000):
+        matriz[i].append(None)
+
+T = int(sys.stdin.readline().strip())
+while T > 0:
+    T -= 1
+    primer, segundo = map(int, sys.stdin.readline().strip().split())
+    print  solucion(primer,segundo,matriz)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from sys import stdin
+
+def LCS(a, b):
+    mat = [[0] * (1 + len(b)) for i in range(1 + len(a))]
+    longest=0 
+    longest2 = 0
+    for i in range(1, 1 + len(a)):
+        for j in range(1, 1 + len(b)):
+            if a[i - 1] == b[j - 1]:
+                mat[i][j] = mat[i - 1][j - 1] + 1
+                if mat[i][j] > longest:
+                    longest = mat[i][j]
+                    longest2 = i
+            else:
+                mat[i][j] = 0
+    return a[longest2 - longest: longest2]
+
+T = int(stdin.readline().strip())
+
+while T>0:
+    T-=1
+    a= stdin.readline().strip()
+    b= stdin.readline().strip()
+    t=LCS(a, b)
+    z=t.replace("\n", "")
+    print len(z)
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from sys import stdin
+
+def Mat(X, Y):
+    m = len(X)
+    n = len(Y)
+
+    C = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if X[i-1] == Y[j-1]: 
+                C[i][j] = C[i-1][j-1] + 1
+            else:
+                C[i][j] = max(C[i][j-1], C[i-1][j])
+    return C
+
+def LCS(C, X, Y, i, j):
+    if i == 0 or j == 0:
+        return set([""])
+    elif X[i-1] == Y[j-1]:
+    	s = set([Z + X[i-1] for Z in LCS(C, X, Y, i-1, j-1)])
+        return s
+    else:
+        R = set()
+        if C[i-1][j] >= C[i][j-1]:
+            R.update(LCS(C, X, Y, i-1, j))
+        if C[i][j-1] >= C[i-1][j]:
+            R.update(LCS(C, X, Y, i, j-1))
+        return R
+
+T = int(stdin.readline())
+
+for z in range(T):
+    
+    print "Case #" + str(z+1) + ":"
+    a= stdin.readline().strip()
+    b= stdin.readline().strip()
+ 
+    f = list(LCS(Mat(a, b), a, b, len(a), len(b)))
+    f.sort()
+    for x in f:
+    	if len(x)==0:
+    		print -1
+    	else:	
+    		print x
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from sys import stdin
+
+def solve(n, m, sm):
+	cnt = 0
+	i = 0
+	while n>0 and i<m:
+		cnt += int(n/sm[i])
+		n = n%sm[i]
+		i+=1
+	if n <> 0:
+		cnt = 10000
+	return cnt
+ 
+def c(n, sm):
+	for i in sm:
+		if n%i == 0:
+			return True
+	return False
+ 
+def SMC(n,m,sm):
+	sm = sorted(sm)
+	sm = sm[::-1]
+	menor = solve(n,m,sm)
+	for i in range(m-1):
+		sm = sm[1::]
+		m -= 1
+		if sm[0] < n:
+			x = solve(n,m,sm)
+		else:
+			x = 1000
+		if menor > x and x <> 0:
+			menor =x
+	return menor
+
+T = int(stdin.readline())
+
+while T>0:
+	T-=1
+	n, m = map(int, stdin.readline().split())
+	sm = map(int, stdin.readline().split())
+	x = SMC(n,m,sm)
+	if x == 0 or x > 1000:
+		print str(-1)
+	else:
+		print x
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(array):
+    maximum = max(array)
+    minimum = min(0, min(array))
+    count_array = [0]*(maximum-minimum+1)
+
+    for val in array:
+        count_array[val] += 1
+
+    sorted_array = []
+    for i in range(minimum, maximum+1):
+        if count_array[i] > 0:
+            if i not in  sorted_array:
+                sorted_array.append(i)
+    return sorted_array[::-1]
+
+t = int(raw_input())
+for i in range(t):
+    tam = int(raw_input())
+    v = map(int, raw_input().strip().split())
+    print ' '.join([str(x) for x in (count_sort(v))])
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    std_abc = [0]*26
+    for val in word:
+        std_abc[ord(val)-97] += 1
+    rta=""
+    for val in n_abc:
+        for i in range(std_abc[ord(val)-97]):
+            rta+=val
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc= map(str, raw_input().strip().split())
+     word= str(raw_input())
+     print count_sort(new_abc,word)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    std_abc = [0]*26
+    for val in word:
+        std_abc[ord(val)-97] += 1
+    rta=""
+    for val in n_abc:
+        a=std_abc[ord(val)-97]
+        if a > 0:
+            for i in range(std_abc[ord(val)-97]):
+                rta+=val
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(new_abc,word)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    std_abc = [0]*100
+    for val in word:
+        std_abc[ord(val)-97] += 1
+    rta=""
+    for val in n_abc:
+        for i in range(std_abc[ord(val)-97]):
+            rta+=val
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(new_abc,word)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    a= ord('a')
+    std_abc = [0]*26
+    for val in word:
+        std_abc[ord(val)-a] += 1
+    rta=""
+    for val in n_abc:
+        for i in range(std_abc[ord(val)-a]):
+            rta+=val
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(new_abc,word)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    std_abc = {}
+    for val in n_abc:
+        std_abc[val]=0
+    for val in word:
+        std_abc[val] += 1
+    rta=""
+    for val in n_abc:
+        for i in range(std_abc[val]):
+            rta+=val
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(new_abc,word)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    std_abc = {}
+    for val in n_abc:
+        std_abc[val]=0
+    for val in word:
+        std_abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while std_abc[val]!= 0:
+            rta+=val
+            std_abc[val]-=1
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(new_abc,word)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    sd_abc = {}
+    for val in n_abc:
+        sd_abc[val]=0
+    for val in word:
+        sd_abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while sd_abc[val]!= 0:
+            rta+=val
+            sd_abc[val]-=1
+    return rta
+t = int(raw_input())
+for i in range(t):
+     new_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(new_abc,word)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,word):
+    sd_abc = {}
+    for val in n_abc:
+        sd_abc[val]=0
+    for val in word:
+        sd_abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while sd_abc[val]!= 0:
+            rta+=val
+            sd_abc[val]-=1
+    return rta
+t = int(raw_input())
+for i in range(t):
+     nw_abc = map(str, raw_input().strip().split())
+     word = str(raw_input())
+     print count_sort(nw_abc,word)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,wrd):
+    sd_abc = {}
+    for val in n_abc:
+        sd_abc[val]=0
+    for val in wrd:
+        sd_abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while sd_abc[val]!= 0:
+            rta+=val
+            sd_abc[val]-=1
+    return rta
+t = int(raw_input())
+for i in range(t):
+     nw_abc = map(str, raw_input().strip().split())
+     wrd = str(raw_input())
+     print count_sort(nw_abc,wrd)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,wrd):
+    abc = {}
+    for val in n_abc:
+        abc[val]=0
+    for val in wrd:
+        abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while abc[val]!= 0:
+            rta+=val
+            abc[val]-=1
+    return rta
+t = int(raw_input())
+for i in range(t):
+     nw_abc = map(str, raw_input().strip().split())
+     wrd = str(raw_input())
+     print count_sort(nw_abc,wrd)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,wrd):
+    abc = {}
+    for val in n_abc:
+        abc[val]=0
+    for val in wrd:
+        abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while abc[val]!= 0:
+            rta+=val
+            abc[val]-=1
+    return rta
+t = int(raw_input())
+for i in range(t):
+     nw_abc = map(str, raw_input().strip().split())
+     wrd = list(raw_input())
+     print count_sort(nw_abc,wrd)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def count_sort(n_abc,wrd):
+    abc = {}
+    for val in n_abc:
+        abc[val]=0
+    for val in wrd:
+        abc[val] += 1
+    rta=""
+    for val in n_abc:
+        while abc[val]!= 0:
+            rta+=val
+            abc[val]-=1
+    return rta
+
+t = int(raw_input())
+for i in range(t):
+     nw_abc = map(str, raw_input().strip().split())
+     wrd = list(raw_input().strip())
+     print count_sort(nw_abc,wrd)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from heapq import heappush, heappop
+
+def dijkstra(G, s, t, n):
+    if s not in G or t not in G:
+        return -1
+    d = [ 10000000 for i in xrange(n)]
+    seen = {}
+    d[s] = 0
+    pq = [[d[s], s]]
+    while pq:
+        u = heappop(pq)[1]
+        seen[u] = True
+        for v in G[u]:
+            nd = d[u] + G[u][v]
+            if v not in seen and d[v] > nd:
+                d[v] = nd
+                heappush(pq, [d[v], v])
+    if d[t] == 10000000:
+        return -1
+    else:
+        return d[t]
+
+def make_link(G, u, v, c):
+    if u not in G:
+        G[u] = {}
+    if v not in G:
+        G[v] = {}
+    G[u][v] = c
+
+t = int(raw_input().strip())
+for i in xrange(t):
+    G = {}
+    n,s,f = map(int, raw_input().strip().split() )
+    m = int(raw_input().strip())
+    for _ in xrange(m):
+        u,v,c = map(int, raw_input().strip().split())
+        make_link(G,u,v,c)
+    print "Case #"+str(i+1)+":"
+    print dijkstra(G, s, f, n)
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from heapq import heappush, heappop
+
+def dijkstra(G, s, t, n):
+    if s not in G or t not in G:
+        return -1
+    d = [ 10000000 for i in xrange(n)]
+    seen = {}
+    d[s] = 0
+    pq = [[d[s], s]]
+    while pq:
+        u = heappop(pq)[1]
+        seen[u] = True
+        for v in G[u]:
+            nd = d[u] + G[u][v]
+            if v not in seen and d[v] > nd:
+                d[v] = nd
+                heappush(pq, [d[v], v])
+    if d[t] == 10000000:
+        return -1
+    else:
+        return d[t]
+
+def make_link(G, u, v, c):
+    if u not in G:
+        G[u] = {}
+    if v not in G:
+        G[v] = {}
+    G[u][v] = c
+    G[v][u] = c
+
+t = int(raw_input().strip())
+for i in xrange(t):
+    G = {}
+    n,m,Q = map(int, raw_input().strip().split() )
+    for j in xrange(m):
+        u,v,c = map(int, raw_input().strip().split())
+        make_link(G,u,v,c)
+    for j in xrange(Q):
+        q,d=map(int, raw_input().strip().split() )
+        print dijkstra(G, q, d, n)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from heapq import heappush, heappop
+
+def dijkstra(G, s, t, n):
+    if s not in G or t not in G:
+        return -1
+    d = [ 10000000 for i in xrange(n)]
+    seen = {}
+    d[s] = 0
+    pq = [[d[s], s]]
+    while pq:
+        u = heappop(pq)[1]
+        seen[u] = True
+        for v in G[u]:
+            nd = d[u] + G[u][v]
+            if v not in seen and d[v] > nd:
+                d[v] = nd
+                heappush(pq, [d[v], v])
+    if d[t] == 10000000:
+        return -1
+    else:
+        return d[t]
+
+def make_link(G, u, v, c):
+    if u not in G:
+        G[u] = {}
+    if v not in G:
+        G[v] = {}
+    G[u][v] = c
+    G[v][u] = c
+
+t = int(raw_input().strip())
+for i in xrange(t):
+    G = {}
+    n,m,Q = map(int, raw_input().strip().split() )
+    for j in xrange(m):
+        u,v,c = map(int, raw_input().strip().split())
+        make_link(G,u,v,c)
+    for j in xrange(Q):
+        q,d=map(int, raw_input().strip().split() )
+        print min(dijkstra(G, q, d, n),dijkstra(G, q, d, n))
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from heapq import heappush, heappop
+
+def dijkstra(G, s, t, n):
+    if s not in G or t not in G:
+        return -1
+    d = [ 10000000 for i in xrange(n)]
+    seen = {}
+    d[s] = 0
+    pq = [[d[s], s]]
+    while pq:
+        u = heappop(pq)[1]
+        seen[u] = True
+        for v in G[u]:
+            nd = d[u] + G[u][v]
+            if v not in seen and d[v] > nd:
+                d[v] = nd
+                heappush(pq, [d[v], v])
+    if d[t] == 10000000:
+        return -1
+    else:
+        return d[t]
+
+def make_link(G, u, v, c):
+    if u not in G:
+        G[u] = {}
+    if v not in G:
+        G[v] = {}
+    G[u][v] = c
+    G[v][u] = c
+
+t = int(raw_input().strip())
+for i in xrange(t):
+    G = {}
+    n,m,Q = map(int, raw_input().strip().split() )
+    for j in xrange(m):
+        u,v,c = map(int, raw_input().strip().split())
+        make_link(G,u,v,c)
+    for j in xrange(Q):
+        q,d=map(int, raw_input().strip().split() )
+        print min(dijkstra(G, q, d, n),dijkstra(G, d, q, n))
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from heapq import heappush, heappop
+
+inf = 10000000
+def query(s,f, D):
+    if s == f:
+        return 0
+    if D[s][f] == inf:
+        return -1
+    return D[s][f]
+
+def dijkstra(G, s, dst):
+    if s not in G:
+        return
+    d = [ inf for i in xrange(n)]
+    seen = {}
+
+    d[s] = 0
+    pq = [[d[s], s]]
+
+    while pq:
+        u = heappop(pq)[1]
+        seen[u] = True
+        for v in G[u]:
+            nd = d[u] + G[u][v]
+            if v not in seen and d[v] > nd:
+                d[v] = nd
+                #print "update " + str(v) + " = " + str(nd)
+                heappush(pq, [d[v], v])
+
+    for i in xrange(len(d)):
+        dst[s][i] = d[i]
+
+def make_link(G, u, v, c):
+    if u not in G:
+        G[u] = {}
+    if v not in G:
+        G[v] = {}
+    G[u][v] = c
+    G[v][u] = c
+t = int(raw_input().strip())
+for i in xrange(t):
+    G = {}
+    n,m,q = map(int, raw_input().strip().split() )
+    for j in xrange(m):
+        u,v,c = map(int, raw_input().strip().split())
+        make_link(G,u,v,c)
+    dst = [[inf for j in xrange(n)] for j in xrange(n)]
+
+    for j in xrange(n):
+        dijkstra(G, j, dst)
+
+    for j in xrange(q):
+        s,f = map(int,raw_input().strip().split())
+        print query(s,f, dst)
+        if s == f:
+            print 0
+        elif dst[s][f] == inf:
+            print-1
+        else:
+            print dst[s][f]
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+from heapq import heappush, heappop
+
+def dijkstra(G, s, t, n):
+    if s not in G or t not in G:
+        return -1
+    d = [ 10000000 for i in xrange(n)]
+    seen = {}
+    d[s] = 0
+    pq = [[d[s], s]]
+    while pq:
+        u = heappop(pq)[1]
+        seen[u] = True
+        for v in G[u]:
+            nd = d[u] + G[u][v]
+            if v not in seen and d[v] > nd:
+                d[v] = nd
+                heappush(pq, [d[v], v])
+    if d[t] == 10000000:
+        return -1
+    else:
+        return d[t]
+
+def make_link(G, u, v, c):
+    if u not in G:
+        G[u] = {}
+    if v not in G:
+        G[v] = {}
+    G[u][v] = c
+    G[v][u] = c
+
+t = int(raw_input().strip())
+for i in xrange(t):
+    G = {}
+    n,m,Q = map(int, raw_input().strip().split() )
+    for j in xrange(m):
+        u,v,c = map(int, raw_input().strip().split())
+        make_link(G,u,v,c)
+    for j in xrange(Q):
+        q,d=map(int, raw_input().strip().split() )
+        if q==d:
+            print 0
+        else:
+            print min(dijkstra(G, q, d, n),dijkstra(G, d, q, n))
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def make_link(G, node1, node2):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = 1
+    if node2 not in G:
+        G[node2] = {}
+    (G[node2])[node1] = 1
+    return G
+def k_subsets(lst,k):
+    if len(lst)<k:
+        return[]
+    if len(lst)==k:
+        return[lst]
+    if k==1:
+        return[[i] for i in lst]
+    return k_subsets(lst[1:],k) +map(lambda x: x+[lst[0]],k_subsets(lst[1:],k-1))
+
+def is_clique(G,nodes):
+    for pair in k_subsets(nodes,2):
+        if pair[1] not in G[pair[0]]:
+            return False
+    return True
+
+T = int(raw_input().strip())
+
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v = map(int, raw_input().strip().split())
+        make_link(G,u,v)
+    cert=map(int, raw_input().strip().split())
+    if is_clique(G,cert):
+        print "SI"
+    else:
+        print "NO"
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def FloydWarshall(G):
+    A=[]
+    for u in G:
+        Au = []  # row of A correponding to vertex u
+        for v in G:
+            if  v in G[u]:Au.append(G[u][v])
+            elif u == v : Au.append(0)
+            else: Au.append(float("inf"))
+        A.append(Au)
+
+    Cnext = A
+
+    for k in range(len(G)):
+        C = Cnext
+        for i in range(len(G)):
+            for j in range(len(G)):
+                if C[i][j] > C[i][k]+ C[k][j]:
+                        Cnext[i][j] = C[i][k]+ C[k][j]
+    return Cnext
+
+
+
+def make_link(G, node1, node2,weight):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = weight
+    if node2 not in G:
+        G[node2] = {}
+    return G
+T = int(raw_input().strip())
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v,w = map(int, raw_input().strip().split())
+        make_link(G,u,v,w)
+    asd=FloydWarshall(G)
+    count=0
+    sum=0.0
+    l=[]
+    for i in range(n):
+        for j in range(n):
+            if asd[i][j]!=float("inf"):
+                sum+= asd[i][j]
+                count+=1
+                l.append(asd[i][j])
+    l.sort()
+    if len(l) % 2 == 0:
+        n = len(l)
+        mediana = (l[n/2-1]+ l[n/2] )/2
+    else:
+        mediana =l[len(l)/2]
+    print round(sum/count,2),mediana
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def FloydWarshall(G):
+    A=[]
+    for u in G:
+        Au = []
+        for v in G:
+            if  v in G[u]:Au.append(G[u][v])
+            elif u == v : Au.append(0)
+            else: Au.append(float("inf"))
+        A.append(Au)
+
+    Cnext = A
+
+    for k in range(len(G)):
+        C = Cnext
+        for i in range(len(G)):
+            for j in range(len(G)):
+                if C[i][j] > C[i][k]+ C[k][j]:
+                        Cnext[i][j] = C[i][k]+ C[k][j]
+    return Cnext
+
+
+
+def make_link(G, node1, node2,weight):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = weight
+    if node2 not in G:
+        G[node2] = {}
+    return G
+T = int(raw_input().strip())
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v,w = map(int, raw_input().strip().split())
+        make_link(G,u,v,w)
+    asd=FloydWarshall(G)
+    cnt=0
+    sum=0.0
+    l=[]
+    for i in range(n):
+        for j in range(n):
+            if asd[i][j]!=float("inf"):
+                sum+= asd[i][j]
+                cnt+=1
+                l.append(asd[i][j])
+    l.sort()
+    if len(l) % 2 == 0:
+        n = len(l)
+        mediana = (l[n/2-1]+ l[n/2] )/2
+    else:
+        mediana =l[len(l)/2]
+    print round(sum/cnt,2),mediana
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def FloydWarshall(G):
+    A=[]
+    for u in G:
+        Au = []
+        for v in G:
+            if  v in G[u]:Au.append(G[u][v])
+            elif u == v : Au.append(0)
+            else: Au.append(float("inf"))
+        A.append(Au)
+
+    Cnext = A
+
+    for k in range(len(G)):
+        C = Cnext
+        for i in range(len(G)):
+            for j in range(len(G)):
+                if C[i][j] > C[i][k]+ C[k][j]:
+                        Cnext[i][j] = C[i][k]+ C[k][j]
+    return Cnext
+
+
+
+def make_link(G, node1, node2,weight):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = weight
+    if node2 not in G:
+        G[node2] = {}
+    return G
+T = int(raw_input().strip())
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v,w = map(int, raw_input().strip().split())
+        make_link(G,u,v,w)
+    asd=FloydWarshall(G)
+    cnt=0
+    sum=0.0
+    l=[]
+    for i in range(len(G)):
+        for j in range(len(G)):
+            if asd[i][j]!=float("inf"):
+                sum+= asd[i][j]
+                cnt+=1
+                l.append(asd[i][j])
+    l.sort()
+    x = len(l)
+    if x % 2 == 0:
+        mediana = (l[x/2-1]+ l[x/2])/2
+    else:
+        mediana =l[x/2]
+    print round(sum/cnt,2),mediana
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def FloydWarshall(G):
+    A=[]
+    for u in G:
+        Au = []
+        for v in G:
+            if  v in G[u]:Au.append(G[u][v])
+            elif u == v : Au.append(0)
+            else: Au.append(float("inf"))
+        A.append(Au)
+
+    Cnext = A
+
+    for k in range(len(G)):
+        C = Cnext
+        for i in range(len(G)):
+            for j in range(len(G)):
+                if C[i][j] > C[i][k]+ C[k][j]:
+                        Cnext[i][j] = C[i][k]+ C[k][j]
+    return Cnext
+
+
+
+def make_link(G, node1, node2,weight):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = weight
+    if node2 not in G:
+        G[node2] = {}
+    return G
+T = int(raw_input().strip())
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v,w = map(int, raw_input().strip().split())
+        make_link(G,u,v,w)
+    asd=FloydWarshall(G)
+    cnt=0
+    sum=0.0
+    l=[]
+    for i in range(asd):
+        for j in range(i):
+            if j!=float("inf"):
+                sum+= j
+                cnt+=1
+                l.append(j)
+    l.sort()
+    x = len(l)
+    if x % 2 == 0:
+        mediana = (l[x/2-1]+ l[x/2])/2
+    else:
+        mediana =l[x/2]
+    print round(sum/cnt,2),mediana
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def FloydWarshall(G):
+    A=[]
+    for u in G:
+        Au = []
+        for v in G:
+            if  v in G[u]:Au.append(G[u][v])
+            elif u == v : Au.append(0)
+            else: Au.append(float("inf"))
+        A.append(Au)
+
+    Cnext = A
+
+    for k in range(len(G)):
+        C = Cnext
+        for i in range(len(G)):
+            for j in range(len(G)):
+                if C[i][j] > C[i][k]+ C[k][j]:
+                        Cnext[i][j] = C[i][k]+ C[k][j]
+    return Cnext
+
+
+
+def make_link(G, node1, node2,weight):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = weight
+    if node2 not in G:
+        G[node2] = {}
+    return G
+T = int(raw_input().strip())
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v,w = map(int, raw_input().strip().split())
+        make_link(G,u,v,w)
+    asd=FloydWarshall(G)
+    cnt=0
+    sum=0.0
+    l=[]
+    for i in asd:
+        for j in i:
+            if j!=float("inf"):
+                sum+= j
+                cnt+=1
+                l.append(j)
+    l.sort()
+    x = len(l)
+    if x % 2 == 0:
+        mediana = (l[x/2-1]+ l[x/2])/2
+    else:
+        mediana =l[x/2]
+    print round(sum/cnt,2),mediana
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+def FloydWarshall(G):
+    A=[]
+    for u in G:
+        Au = []
+        for v in G:
+            if  v in G[u]:Au.append(G[u][v])
+            elif u == v : Au.append(0)
+            else: Au.append(float("inf"))
+        A.append(Au)
+
+    Cnext = A
+
+    for k in range(len(G)):
+        C = Cnext
+        for i in range(len(G)):
+            for j in range(len(G)):
+                if C[i][j] > C[i][k]+ C[k][j]:
+                        Cnext[i][j] = C[i][k]+ C[k][j]
+    return Cnext
+
+
+
+def make_link(G, node1, node2,weight):
+    if node1 not in G:
+        G[node1] = {}
+    (G[node1])[node2] = weight
+    if node2 not in G:
+        G[node2] = {}
+    return G
+T = int(raw_input().strip())
+while( T>0 ):
+    G= {}
+    T-=1
+    n,m = map(int,raw_input().strip().split())
+
+    for i in xrange(m):
+        u,v,w = map(int, raw_input().strip().split())
+        make_link(G,u,v,w)
+    asd=FloydWarshall(G)
+    cnt=0
+    sum=0.0
+    l=[]
+    for i in asd:
+        for j in i:
+            if j!=float("inf"):
+                sum+= j
+                cnt+=1
+                l.append(j)
+    l.sort()
+    x = len(l)/2
+    if x % 2 == 0:
+        mediana = (l[x+1]+ l[x+2])/2
+    else:
+        mediana =l[x+1]*1
+    print round(sum/cnt,2),mediana
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

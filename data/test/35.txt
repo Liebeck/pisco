@@ -1,0 +1,6025 @@
+package problemas;
+
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+		  if(i<2){
+			s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+			s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	      }else if(i>(s.length-3)){
+	    	if(i == s.length-2){
+	          s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	    	}
+	    	s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+			s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+	      }else{
+		    s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+		    s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+		    s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+		    s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+		  }
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) {
+	  @SuppressWarnings("resource")
+	Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  for(int i=0; i<n; i++){
+		System.out.println(paredesCaidas(sc.nextLine().toUpperCase().toCharArray()));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+		  if(i<2){
+			s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+			s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	      }else if(i>(s.length-3)){
+	    	if(i == s.length-2){
+	          s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	    	}
+	    	s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+			s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+	      }else{
+		    s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+		    s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+		    s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+		    s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+		  }
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+		  if(i<2){
+			if(s.length > 1) s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+			s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	      }else if(i>(s.length-3)){
+	    	if(i == s.length-2){
+	          s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	    	}
+	    	s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+			s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+	      }else{
+		    s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+		    s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+		    s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+		    s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+		  }
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+		  if(i<2){
+			if(1<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+			if(s.length >2) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+2];
+	      }else if(i>(s.length-3)){
+	    	if(i == s.length-2){
+	          s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	    	}
+	    	s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+			s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+	      }else{
+		    s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+		    s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+		    s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+		    s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+		  }
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+		  if(i<2){
+			if((i+1)<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+			if((i+2)<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+2];
+	      }else if(i>(s.length-3)){
+	    	if(i == s.length-2){
+	          s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+	    	}
+	    	s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+			s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+	      }else{
+		    s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+		    s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+		    s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+		    s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+		  }
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+			if((i+1)<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+			if((i+2)<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+2];
+			if((i-2)>0)s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+			if((i-1)>0)s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+	    	System.out.println("i:" + i);
+			if((i+1)<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+			if((i+2)<s.length) s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+			if((i-1)>=0){
+				System.out.println(i);
+				s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+			}
+			if((i-2)>=0) s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];			
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class ProblemaB {
+
+	public static int paredesCaidas(char[] s){
+	  for(int i=0; i<s.length; i++){
+	    if(s[i]=='B'){
+			if((i+1)<s.length) s[i+1] = s[i+1] == 'W' ? 'C' : s[i+1];
+			if((i+2)<s.length) s[i+2] = s[i+2] == 'W' ? 'C' : s[i+2];
+			if((i-1)>=0) s[i-1] = s[i-1] == 'W' ? 'C' : s[i-1];
+			if((i-2)>=0) s[i-2] = s[i-2] == 'W' ? 'C' : s[i-2];			
+	    }
+	  }
+	  int k = 0;
+	  for(int i=0; i<s.length; i++){
+	    k = k + (s[i] == 'C' ? 1 : 0);
+	  }
+	  return k;
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader in;
+			File f = new File("entrada.in");
+			if (f.exists()) {
+				in = new BufferedReader(new FileReader(f));
+				System.setOut(new PrintStream(new File("salida.in")));
+			} else {
+				in = new BufferedReader(new InputStreamReader(System.in));
+			}
+			int n = Integer.parseInt(in.readLine());
+		for (int i = 0; i < n; i++) {
+		System.out.println(paredesCaidas((in.readLine().toUpperCase().toCharArray())));
+	  }
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+			 if(a[i]>=x){
+				 System.out.println("x:" + x);
+				 y=x;
+				 x=a[i];
+			 }
+			 if(xx>=a[i]){
+				 System.out.println("-yy: " + yy);
+				 System.out.println("-xx: " + xx);
+				 yy=xx;
+				 xx=a[i];
+			 }
+		 }
+		 System.out.println("x*y:" + x*y);
+		 System.out.println("xx*yy:" + xx*yy);
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		a[i] = sc.nextInt();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+			 if(a[i]>=x){
+				 y=x;
+				 x=a[i];
+			 }
+			 if(xx>=a[i]){
+				 yy=xx;
+				 xx=a[i];
+			 }
+		 }
+		 System.out.println("x*y:" + x*y);
+		 System.out.println("xx*yy:" + xx*yy);
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		a[i] = sc.nextInt();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+			 if(a[i]>=x){
+				 y=x;
+				 x=a[i];
+			 }
+			 if(xx>=a[i]){
+				 yy=xx;
+				 xx=a[i];
+			 }
+		 }
+		 System.out.println("x*y:" + x*y);
+		 System.out.println("xx*yy:" + xx*yy);
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		a[i] = sc.nextLong();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+			 if(a[i]>=x){
+				 y=x;
+				 x=a[i];
+			 }
+			 if(xx>=a[i]){
+				 yy=xx;
+				 xx=a[i];
+			 }
+		 }
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		a[i] = sc.nextLong();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+			 if(a[i]>=x){
+				 y=x;
+				 x=a[i];
+			 }
+			 if(xx>=a[i]){
+				 yy=xx;
+				 xx=a[i];
+			 }
+		 }
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		
+		a[i] = sc.nextLong();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+			 System.out.println("a[i]: " + a[i]);
+			 System.out.println("x: " + x);
+			 if(a[i]>=x){
+				 x=a[i];
+			 }
+			 if(a[i]>=y && y<x){
+				 y=a[i];
+			 }
+			 if(xx>=a[i]){
+				 xx=a[i];
+			 }
+			 if(a[i]<=yy && yy>xx){
+				 yy=a[i];
+			 }
+			
+		 }
+		 System.out.println("+:" + x*y);
+		 System.out.println("-:" + xx*yy);
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		
+		a[i] = sc.nextLong();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package problemas;
+
+import java.util.Scanner;
+
+  
+  public class ProblemaA {
+	  
+	  public static long mayorProducto(long[] a){
+		 long x = 0,
+			  y = 0,
+			  xx = 0,
+			  yy = 0;
+		 
+		 for(int i=0; i<a.length; i++){
+
+			 if(a[i]>=x){
+				 x=a[i];
+			 }
+			 if(a[i]>=y && y<x){
+				 y=a[i];
+			 }
+			 if(xx>=a[i]){
+				 xx=a[i];
+			 }
+			 if(a[i]<=yy && yy>xx){
+				 yy=a[i];
+			 }
+			
+		 }
+
+		 return x*y < xx*yy ? xx*yy : x*y; 
+	  }
+	  
+	  
+    public static void main(String[] s){
+	  Scanner sc = new Scanner(System.in);
+	  int n = Integer.parseInt(sc.nextLine());
+	  long a[] = new long[n];
+	  for(int i=0; i<n; i++){
+		
+		a[i] = sc.nextLong();
+	  }
+	  System.out.println(mayorProducto(a));
+	  
+  }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+			return tiempo - o.tiempo;
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a == null)
+					tree.add(new A(j, 0));
+				else 
+					tree.add(a);
+			}
+			for(A a : tree){
+				System.out.println(a.toString());
+			}
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeSet;
+
+public class B {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		int n = Integer.parseInt(in.readLine());
+		LinkedHashMap<String, Integer> ocurrencias = null;
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			int m = Integer.parseInt(in.readLine());
+			ocurrencias = new LinkedHashMap<String, Integer>(m);
+			String line[] = in.readLine().split(" ");
+			Integer aux = 0;
+			for(int j=0; j<m; j++){
+				if(ocurrencias.containsKey(line[j])){
+					ocurrencias.put(line[j], ocurrencias.get(line[j]) + 1);
+				}else{
+					ocurrencias.put(line[j], 1);
+				}
+			}
+			for(Map.Entry<String, Integer> me : ocurrencias.entrySet()){
+				System.out.println(me.getKey() + " " + me.getValue());
+			}
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedHashMap;
+
+public class C {
+	public static class UnionFind {
+		private int id[];
+		public int size[];
+		private int rank[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			id = new int[n];
+			rank = new int[n];
+			size = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				id[i] = i;
+				rank[i] = 1;
+				size[i] = 1;
+			}
+		}
+
+		public int find(int x) {
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+		
+		public int size(int x){
+			return size[find(x)];
+		}
+
+		public void union(int x, int y) {
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				id[a] = b;
+				size[b] += size[a]; 
+			} else {
+				id[b] = a;
+				size[a] += size[b];
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			cont--;
+		}
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		LinkedHashMap<String, Integer> list;
+		UnionFind u;
+		int n = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= n; i++) {
+			int count = 0;
+			System.out.println("Caso #" + i + ":");
+			int m = Integer.parseInt(in.readLine());
+			String[] line;
+			u = new UnionFind(m+m);
+			list = new LinkedHashMap<>();
+			for(int j=0; j<m; j++){
+				line = in.readLine().split(" ");
+				if(!list.containsKey(line[0])){
+					list.put(line[0], count);
+					count++;
+				}
+				if(!list.containsKey(line[1])){
+					list.put(line[1], count);
+					count++;
+				}
+				u.union(list.get(line[0]), list.get(line[1]));
+				System.out.println(u.size(list.get(line[0])));
+			}
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class D {
+	public static class UnionFind {
+		private int id[];
+		public int enemy[];
+		private int rank[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			id = new int[n];
+			rank = new int[n];
+			enemy = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				id[i] = i;
+				rank[i] = 1;
+				enemy[i] = -1;
+			}
+		}
+
+		public int find(int x) {
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+		
+		public boolean connected(int x, int y){
+			return find(x) == find(y);
+		}
+		
+		//se garantiza que a tenga un solo enemigo y si este es b entonces retorna verdadero
+		public boolean isEnemy(int x, int y){
+			return enemy[find(x)] == find(y);
+		}
+
+		public void union(int x, int y) {
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if (rank[a] < rank[b]) {
+				id[a] = b;
+			} else {
+				id[b] = a;
+				if (rank[a] == rank[b])
+					rank[b]++;
+			}
+			if((enemy[a] >= 0) && (enemy[b] >= 0)){
+				union(enemy[a], enemy[b]);//2 enemigos mios son amigos
+				enemy[find(a)] = find(enemy[a]); 
+				enemy[find(enemy[ a ])] = find(a) ;// 2 enemigos anteriores sumados
+			}else if((enemy[a] >= 0) || (enemy[b] >= 0)){
+				int e = enemy[a]>=0 ? a : b;
+				enemy[find(a)] = enemy[e];
+				enemy[find(enemy[e])] = find(a);
+			}
+			cont--;
+		}
+
+		public void setEnemy(int x, int y){
+			int a = find(x);
+			int b = find(y);
+			if(enemy[a] >= 0){
+				union(b, enemy[a]);
+				//enemy[a] = find(b);
+			}else{
+				enemy[a] = b;
+			}
+			if(enemy[b] >= 0){
+				union(a, enemy[b]);
+				enemy[b] = find(a);
+			}else{
+				enemy[b] = a;
+			}
+		}
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		int n = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= n; i++) {
+			System.out.println("Caso #" + i + ":");
+			String line[] = in.readLine().split(" ");
+			UnionFind amigos = new UnionFind(Integer.parseInt(line[0]));
+			int m = Integer.parseInt(line[1]);
+			for (int j = 0; j < m; j++) {
+				line = in.readLine().split(" ");
+				int x = Integer.parseInt(line[1]), 
+						y = Integer.parseInt(line[2]);
+				switch (line[0]){
+				case "1":
+					if(amigos.isEnemy(x, y)){
+						System.out.println(-1);
+					}else{
+						amigos.union(x, y);
+					}
+					break;
+				case "2":
+					if(amigos.connected(x, y)){
+						System.out.println(-1 );
+					}else{
+						amigos.setEnemy(x, y);
+					}
+					break;
+				case "3":
+						System.out.println((amigos.connected(x, y) ? 1 : 0) );
+					break;
+				default: // caso 4
+						System.out.println(amigos.isEnemy(x, y) ? 1 : 0);
+					break;
+				}
+			}
+
+		}
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+			return tiempo - o.tiempo;
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a == null)
+					tree.add(new A(j, 0));
+				else 
+					tree.add(a);
+			}
+			for(A a : tree){
+                            if(!a.p.isEmpty()){
+				System.out.println(a.toString());
+                            }
+                        }
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+			return tiempo - o.tiempo;
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a == null)
+					tree.add(new A(j, 0));
+				else 
+					tree.add(a);
+			}
+			for(A a : tree){
+                            if(a.p != null){
+				System.out.println(a.toString());
+                            }
+                        }
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo != 0){
+                        return tiempo - o.tiempo;
+                    };
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a == null)
+					tree.add(new A(j, 0));
+				else 
+					tree.add(a);
+			}
+			for(A a : tree){
+                            if(a.p != null){
+				System.out.println(a.toString());
+                            }
+                        }
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo != 0){
+                        return tiempo - o.tiempo;
+                    }else{
+                        return concursante - o.concursante;
+                    };
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString());
+                            
+                        }
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo != 0){
+                        return tiempo - o.tiempo;
+                    }else{
+                        return concursante - o.concursante;
+                    }
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString());
+                            
+                        }
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+                    if(p.get(a.problema).acierto){
+                        return;
+                    }
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo == 0){
+                        return concursante - o.concursante;
+                    }else{
+                        return tiempo - o.tiempo;
+                    }
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString());
+                            
+                        }
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class E implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public E(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public E(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+			return tiempo - o.tiempo;
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a == null)
+					tree.add(new A(j, 0));
+				else 
+					tree.add(a);
+			}
+			for(A a : tree){
+				System.out.println(a.toString());
+			}
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+                    if(p.get(a.problema).acierto){
+                        return;
+                    }
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo == 0){
+                        return concursante - o.concursante;
+                    }else{
+                        return tiempo - o.tiempo;
+                    }
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			char Casos[] = new char[4];
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+                                switch(linea[3]){
+                                    case "C":
+                                        Casos[0]++;
+                                        break;
+                                    case "I":
+                                        Casos[1]++;
+                                        break;
+                                    case "T":
+                                        Casos[2]++;
+                                        break;
+                                    case "R":
+                                        Casos[3]++;
+                                        break;
+                                }
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString()); 
+                        }
+                        System.out.println(Casos[0] + " " + Casos[1] + " " + Casos[2] + " " + Casos[3]);
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+                    if(p.get(a.problema).acierto){
+                        return;
+                    }
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo == 0){
+                        return concursante - o.concursante;
+                    }else{
+                        return tiempo - o.tiempo;
+                    }
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			int Casos[] = new int[4];
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));
+                                System.out.println(linea[3]);
+                                
+                                if(linea[3].equals("C") ){
+                                    Casos[0]++;
+                                }else if (linea[3].equals("I")){
+                                        Casos[1]++;
+                                }else if (linea[3].equals("T")){
+                                        Casos[2]++;
+                                }else if (linea[3].equals("R")){
+                                        Casos[3]++;
+                                }
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString()); 
+                        }
+                        System.out.println(Casos[0] + " " + Casos[1] + " " + Casos[2] + " " + Casos[3]);
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+                    if(p.get(a.problema).acierto){
+                        return;
+                    }
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo == 0){
+                        return concursante - o.concursante;
+                    }else{
+                        return tiempo - o.tiempo;
+                    }
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			int Casos[] = new int[4];
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));                                
+                                if(linea[3].equals("C") ){
+                                    Casos[0]++;
+                                }else if (linea[3].equals("I")){
+                                        Casos[1]++;
+                                }else if (linea[3].equals("T")){
+                                        Casos[2]++;
+                                }else if (linea[3].equals("R")){
+                                        Casos[3]++;
+                                }
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString()); 
+                        }
+                        System.out.println(Casos[0] + " " + Casos[1] + " " + Casos[2] + " " + Casos[3]);
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package proyecto7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.TreeSet;
+
+
+
+public class A implements Comparable<A>{	
+	public int concursante;
+	public int problemasCorrectos = 0;
+	public int tiempo = 0;
+	public Hashtable<Integer, Problema> p;
+	
+	public A(int id) {
+		this.concursante = id;
+		this.p = new Hashtable<>();
+	}
+	
+	public A(int id, int a){
+		this.concursante = id;
+	}
+	
+	public void addProblema(Problema a){
+		if(p.containsKey(a.problema)){
+                    if(p.get(a.problema).acierto){
+                        return;
+                    }
+			Problema aux = p.get(a.problema);
+			aux.tiempo += a.acierto ? a.tiempo : 20;
+		}else{
+			a.tiempo = a.acierto ? a.tiempo : 20;
+			p.put(a.problema, a);
+		}
+		if(a.acierto){
+			problemasCorrectos++;
+			tiempo += p.get(a.problema).tiempo;
+		}
+	}
+	
+	@Override
+	public int compareTo(A o) {
+		if(problemasCorrectos == 0 && o.problemasCorrectos == 0){
+			return concursante - o.concursante;
+		}
+                
+		if(problemasCorrectos - o.problemasCorrectos == 0){
+                    if(tiempo - o.tiempo == 0){
+                        return concursante - o.concursante;
+                    }else{
+                        return tiempo - o.tiempo;
+                    }
+
+		} 
+		return o.problemasCorrectos - problemasCorrectos;
+	}
+	
+	@Override
+	public String toString() {
+		return (concursante+1) + " " + problemasCorrectos + " " + tiempo;
+	}
+
+	
+	public static class Problema{
+		public int problema;
+		public int tiempo;
+		public boolean acierto = false;
+		
+		public Problema(int p, int t, String a) {
+			this.problema = p;
+			this.tiempo = t;
+			this.acierto = a.equals("C");
+		}
+		
+		public Problema(String p, String t, String a) {
+			this(Integer.parseInt(p), Integer.parseInt(t), a);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("test");
+		if (f.exists()) {
+			// System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			// System.setOut(new PrintStream(new File("t")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		// in = new BufferedReader(new InputStreamReader(is));
+		TreeSet<A> tree;
+		int n = Integer.parseInt(in.readLine());
+		for(int i=1; i<=n; i++){
+			System.out.println("Caso #" + i + ":");
+			tree = new TreeSet<A>();
+			String linea[];
+			int Casos[] = new int[4];
+			String NK[] = in.readLine().split(" ");
+			A concursantes[] = new A[Integer.parseInt(NK[0])];
+			int K = Integer.parseInt(NK[1]);
+			int id = 0;
+			for(int j=0; j<K; j++){
+				linea = in.readLine().split(" ");
+				id = Integer.parseInt(linea[0]) - 1 ;
+				if(concursantes[id] == null){
+					concursantes[id] = new A(id);
+				}//(concursante problema tiempo L),
+                                //if(concursantes[id].p.containsKey(linea[1])
+				concursantes[id].addProblema(new Problema(linea[1], linea[2], linea[3]));                                
+                                if(linea[3].equals("C") ){
+                                    Casos[0]++;
+                                }else if (linea[3].equals("I")){
+                                        Casos[1]++;
+                                }else if (linea[3].equals("T")){
+                                        Casos[2]++;
+                                }else if (linea[3].equals("R")){
+                                        Casos[3]++;
+                                }
+			}			
+			for(int j=0; j<concursantes.length; j++){
+				A a = concursantes[j];
+				if(a != null) tree.add(a);
+			}
+			for(A a : tree){
+                            System.out.println(a.toString()); 
+                        }
+                        System.out.println(Casos[0] + " " + Casos[1] + " " + Casos[2] + " " + Casos[3]);
+			
+		}
+
+	}
+
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.time.Clock;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class SolveA {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("A_1.txt");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            // System.setOut(new PrintStream(new File("A_1Out.txt")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int n = Integer.parseInt(scan.nextLine());
+        int id;
+        for (int t = 1; t <= n; t++) {
+            System.out.println("Caso #" + t + ":");
+            LinkedList<Integer> fila = new LinkedList<>();
+            HashSet<Integer> parqueo = new HashSet<>();
+            int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+            for (int i = 0; i < Q; i++) {
+                String line[] = scan.nextLine().split(" ");// linea para ver que
+                // tipo de comando
+                String type = line[0];
+                if (type.equals("agregar")) {
+                    fila.add(Integer.parseInt(line[1]));
+                } else if (type.equals("atender")) {
+                    parqueo.add(fila.removeFirst());
+                    
+                } else if (type.equals("existe")) {
+                    System.out.println(parqueo.contains(Integer.parseInt(line[1])) ? "SI" : "NO");
+                }
+
+            }
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.time.Clock;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class SolveA {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("A_1.txt");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            // System.setOut(new PrintStream(new File("A_1Out.txt")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int n = Integer.parseInt(scan.nextLine());
+        int id;
+        for (int t = 1; t <= n; t++) {
+            System.out.println("Caso #" + t + ":");
+            LinkedList<Integer> fila = new LinkedList<>();
+            HashSet<Integer> parqueo = new HashSet<>();
+            int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+            for (int i = 0; i < Q; i++) {
+                String line[] = scan.nextLine().split(" ");// linea para ver que
+                // tipo de comando
+                String type = line[0];
+                if (type.equals("agregar")) {
+                    fila.add(Integer.parseInt(line[1]));
+                } else if (type.equals("atender")) {
+                    parqueo.add(fila.removeFirst());
+                    
+                } else if (type.equals("existe")) {
+                    System.out.println(parqueo.contains(Integer.parseInt(line[1])) ? "SI" : "NO");
+                }
+
+            }
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class SolveA {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("A_1.txt");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            // System.setOut(new PrintStream(new File("A_1Out.txt")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int n = Integer.parseInt(scan.nextLine());
+        int id;
+        for (int t = 1; t <= n; t++) {
+            System.out.println("Caso #" + t + ":");
+            LinkedList<Integer> fila = new LinkedList<>();
+            HashSet<Integer> parqueo = new HashSet<>();
+            int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+            for (int i = 0; i < Q; i++) {
+                String line[] = scan.nextLine().split(" ");// linea para ver que
+                // tipo de comando
+                String type = line[0];
+                if (type.equals("agregar")) {
+                    fila.add(Integer.parseInt(line[1]));
+                } else if (type.equals("atender")) {
+                    parqueo.add(fila.removeFirst());
+                    
+                } else if (type.equals("existe")) {
+                    System.out.println(parqueo.contains(Integer.parseInt(line[1])) ? "SI" : "NO");
+                }
+
+            }
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class SolveA {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("A_1.txt");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            // System.setOut(new PrintStream(new File("A_1Out.txt")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int n = Integer.parseInt(scan.nextLine());
+        int id;
+        for (int t = 1; t <= n; t++) {
+            System.out.println("Caso #" + t + ":");
+            LinkedList<Integer> fila = new LinkedList<>();
+            HashMap<Integer, Integer> parqueo = new HashMap<>();
+            PriorityQueue<Integer> posicionLibre = new PriorityQueue<>();
+            int libre = 0;
+            String s[] = scan.nextLine().split(" ");
+            int Q = Integer.parseInt(s[0]);// numero de consultas
+            int N = Integer.parseInt(s[1]);
+            for (int i = 0; i < Q; i++) {
+                String line[] = scan.nextLine().split(" ");// linea para ver que
+                // tipo de comando
+                String type = line[0];
+                if (type.equals("agregar")) {
+                    fila.add(Integer.parseInt(line[1]));
+                } else if (type.equals("atender")) {
+                    if (!posicionLibre.isEmpty()) {
+                        parqueo.put(fila.removeFirst(), posicionLibre.remove());
+                    } else {
+                        parqueo.put(fila.removeFirst(), libre);
+                        libre++;
+                    }
+                } else if (type.equals("existe")) {
+                    System.out.println(parqueo.containsKey(Integer.parseInt(line[1])) ? "SI " + parqueo.get(Integer.parseInt(line[1])) : "NO");
+                } else if (type.equals("salir")) {
+
+                }
+
+            }
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class SolveA {
+
+    public static void main(String args[]) throws FileNotFoundException {
+        Scanner scan;
+        File f = new File("A_1.txt");
+        if (f.exists()) {
+            scan = new Scanner(f);
+            // System.setOut(new PrintStream(new File("A_1Out.txt")));
+        } else {
+            scan = new Scanner(System.in);
+        }
+        int n = Integer.parseInt(scan.nextLine());
+        int id;
+        for (int t = 1; t <= n; t++) {
+            System.out.println("Caso #" + t + ":");
+            LinkedList<Integer> fila = new LinkedList<>();
+            HashMap<Integer, Integer> parqueo = new HashMap<>();
+            PriorityQueue<Integer> posicionLibre = new PriorityQueue<>();
+            int libre = 0;
+            String s[] = scan.nextLine().split(" ");
+            int Q = Integer.parseInt(s[0]);// numero de consultas
+            int N = Integer.parseInt(s[1]);
+            for (int i = 0; i < Q; i++) {
+                String line[] = scan.nextLine().split(" ");// linea para ver que
+                // tipo de comando
+                String type = line[0];
+                if (type.equals("agregar")) {
+                    fila.add(Integer.parseInt(line[1]));
+                } else if (type.equals("atender")) {
+                    if (!posicionLibre.isEmpty()) {
+                        parqueo.put(fila.removeFirst(), posicionLibre.remove());
+                    } else {
+                        parqueo.put(fila.removeFirst(), libre);
+                        libre++;
+                    }
+                } else if (type.equals("existe")) {
+                    System.out.println(parqueo.containsKey(Integer.parseInt(line[1])) ? "SI " + parqueo.get(Integer.parseInt(line[1])) : "NO");
+                } else if (type.equals("salir")) {
+                    posicionLibre.add(parqueo.remove(Integer.parseInt(line[1])));
+                    
+                    
+                }
+
+            }
+        }
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.PriorityQueue;
+
+public class A {
+	public static class nodo implements Comparable<nodo>{
+		char letra;
+		int grado;
+		PriorityQueue<nodo> adjacentes;
+		
+		nodo(char x){
+			letra = x;
+			grado = 0;
+			adjacentes = new PriorityQueue<>(1);
+		}
+		
+		void cout(String a){
+			System.out.println(letra + a);
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return Character.compare(letra, o.letra);
+		}
+		
+	}
+	
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		HashMap<Character, nodo> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			int N = Integer.parseInt(in.readLine());
+			char[] nodos = in.readLine().replace(" ", "").toCharArray();
+			String[] relaciones = in.readLine().split(" ");
+			grafo = new HashMap<>(N);
+			for (char x : nodos) {
+				grafo.put(x, new nodo(x));
+			}
+			for (String x : relaciones) {
+				switch (x.charAt(1)) {
+				case '<':
+					grafo.get(x.charAt(2)).grado++;
+					grafo.get(x.charAt(0)).adjacentes.add(grafo.get(x.charAt(2)));
+					break;
+				case '>':
+					grafo.get(x.charAt(0)).grado++;
+					grafo.get(x.charAt(2)).adjacentes.add(grafo.get(x.charAt(0)));
+					break;
+				}
+			}
+			imprimirGrafo(grafo);
+		}
+	}
+
+	private static void imprimirGrafo(HashMap<Character, nodo> grafo) {
+		PriorityQueue<nodo> q = new PriorityQueue<>();
+		Iterator<Character> it = grafo.keySet().iterator();
+		StringBuilder out = new StringBuilder();
+		nodo x;
+		while(it.hasNext()){
+			x = grafo.get(it.next());
+			if(grafo.get(x.letra).grado == 0){
+				q.add(grafo.get(x.letra));
+				it.remove();
+			}
+		}
+		while(!q.isEmpty()){
+			 x = q.remove();
+			out.append(x.letra + " " );
+			for(nodo y : x.adjacentes){
+				if(--y.grado == 0){
+					q.add(grafo.remove(y.letra));
+				};
+			}
+		};
+		if(!grafo.isEmpty()){
+			System.out.println("NO");
+		}else{
+			System.out.println(out);
+		}
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = Integer.MAX_VALUE;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( path == Integer.MAX_VALUE ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = Integer.MAX_VALUE;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( path == Integer.MAX_VALUE ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println(T);
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				matriz[i][j] = Integer.parseInt(a[j]);
+			}
+		}
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = Integer.MAX_VALUE/2;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( path == Integer.MAX_VALUE/2 ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = 999999999;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( path == 999999999 ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = 999999999;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( path > 999999999 ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = 999999999;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( (path > 999999999 || path < -999999999) ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import static java.lang.Integer.parseInt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class B {
+	@SuppressWarnings("unchecked")
+	public static class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
+		/**
+		 * Construct the binary heap.
+		 */
+		public BinaryHeap() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		/**
+		 * Construct the binary heap.
+		 * 
+		 * @param capacity
+		 *          the capacity of the binary heap.
+		 */
+
+		public BinaryHeap(int capacity) {
+			currentSize = 0;
+			array = (AnyType[]) new Comparable[capacity + 1];
+		}
+
+		/**
+		 * Construct the binary heap given an array of items.
+		 * 
+		 * @param items
+		 */
+		public BinaryHeap(AnyType[] items) {
+			currentSize = items.length;
+			array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
+
+			int i = 1;
+			for (AnyType item : items)
+				array[i++] = item;
+			buildHeap();
+		}
+
+		/**
+		 * Insert into the priority queue, maintaining heap order. Duplicates are
+		 * allowed.
+		 * 
+		 * @param x
+		 *          the item to insert.
+		 */
+		public void insert(AnyType x) {
+			if (currentSize == array.length - 1)
+				enlargeArray(array.length * 2 + 1);
+
+			// Percolate up
+			int hole = ++currentSize;
+			for (array[0] = x; x.compareTo(array[hole / 2]) < 0; hole /= 2)
+				array[hole] = array[hole / 2];
+			array[hole] = x;
+		}
+
+		private void enlargeArray(int newSize) {
+			AnyType[] old = array;
+			array = (AnyType[]) new Comparable[newSize];
+			for (int i = 0; i < old.length; i++)
+				array[i] = old[i];
+		}
+
+		/**
+		 * Find the smallest item in the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return array[1];
+		}
+
+		/**
+		 * Remove the smallest item from the priority queue.
+		 * 
+		 * @return the smallest item, or throw an UnderflowException if empty.
+		 * @throws java.lang.Exception
+		 */
+		public AnyType deleteMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+
+			AnyType minItem = findMin();
+			array[1] = array[currentSize--];
+			percolateDown(1);
+
+			return minItem;
+		}
+
+		/**
+		 * Establish heap order property from an arbitrary arrangement of items.
+		 * Runs in linear time.
+		 */
+		private void buildHeap() {
+			for (int i = currentSize / 2; i > 0; i--)
+				percolateDown(i);
+		}
+
+		/**
+		 * Test if the priority queue is logically empty.
+		 * 
+		 * @return true if empty, false otherwise.
+		 */
+		public boolean isEmpty() {
+			return currentSize == 0;
+		}
+
+		/**
+		 * Make the priority queue logically empty.
+		 */
+		public void makeEmpty() {
+			currentSize = 0;
+		}
+
+		private static final int DEFAULT_CAPACITY = 10;
+
+		private int currentSize; // Number of elements in heap
+		private AnyType[] array; // The heap array
+
+		/**
+		 * Internal method to percolate down in the heap.
+		 * 
+		 * @param hole
+		 *          the index at which the percolate begins.
+		 */
+		private void percolateDown(int hole) {
+			int child;
+			AnyType tmp = array[hole];
+
+			for (; hole * 2 <= currentSize; hole = child) {
+				child = hole * 2;
+				if (child != currentSize && array[child + 1].compareTo(array[child]) < 0)
+					child++;
+				if (array[child].compareTo(tmp) < 0)
+					array[hole] = array[child];
+				else
+					break;
+			}
+			array[hole] = tmp;
+		}
+	}
+
+	public static class nodo implements Comparable<nodo> {
+		PriorityQueue<arco> adjacentes;
+		int distancia;
+		boolean know;
+
+		public nodo() {
+			this.adjacentes = new PriorityQueue<>();
+			this.distancia = Integer.MAX_VALUE; 
+			this.know = false;
+		}
+
+		@Override
+		public int compareTo(nodo o) {
+			return distancia - o.distancia;
+		}
+	}
+
+	public static class arco implements Comparable<arco>{
+		nodo nodo;
+		int peso;
+
+		arco(nodo n, int p) {
+			nodo = n;
+			peso = p;
+		}
+
+		@Override
+		public int compareTo(arco o) {
+			return peso - o.peso;
+		}
+	}
+
+	static void addArco(nodo n, nodo n2, int peso) {
+		n.adjacentes.add(new arco(n2, peso));
+		n2.adjacentes.add(new arco(n, peso));
+	}
+
+	@SuppressWarnings("unused")
+	private static int dijkstra(int origen, int destino) throws Exception {
+		if (false) {
+			for (nodo x : computadores) {
+				x.distancia = 999999999;
+				x.know = false;
+			}
+		}
+		computadores[origen].distancia = 0;
+		BinaryHeap<nodo> q = new BinaryHeap<>(computadores);
+		while (!q.isEmpty()) {
+			nodo u = q.deleteMin();
+			u.know = true;
+			for (arco v : u.adjacentes) {
+				if(u.distancia + v.peso < v.nodo.distancia){
+					v.nodo.distancia = u.distancia + v.peso;
+					q.buildHeap();
+					v.nodo.know = true;
+				}
+			}
+		}
+		return computadores[destino].distancia;
+	}
+
+	public static nodo computadores[];
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in;
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		// HashMap<Character, Integer> grafo;
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			String[] datos = in.readLine().split(" ");
+			int conexiones = parseInt(datos[1]), origen = parseInt(datos[2]), destino = parseInt(datos[3]);
+			computadores = new nodo[parseInt(datos[0])];
+			for (int j = 0; j < computadores.length; j++) {
+				computadores[j] = new nodo();
+			}
+			for (int j = 0; j < conexiones; j++) {
+				String[] info = in.readLine().split(" ");
+				addArco(computadores[parseInt(info[0])], computadores[parseInt(info[1])], parseInt(info[2]));
+			}
+			int path = dijkstra(origen, destino);
+			System.out.println( (path > 999999999 || path < -999999999) ? "inalcanzable" : path);
+		}
+	}
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + T + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				matriz[i][j] = Integer.parseInt(a[j]);
+			}
+		}
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				matriz[i][j] = Integer.parseInt(a[j]);
+			}
+		}
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				matriz[i][j] = Integer.parseInt(a[j]);
+			}
+		}
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		int pic = 0;
+		int aa = 0;
+		int ee = 0;
+		boolean tu = false;
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				aa = Integer.parseInt(a[j]);
+				if(ee != aa){
+					ee = aa;
+					pic = 0;
+				}else{
+					pic++;
+				}
+				if(pic > n){
+					System.out.println("NO");
+					return;
+				}
+					
+				matriz[i][j] = aa;
+			}
+		}
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		int pic = 0;
+		int aa = 0;
+		int ee = 0;
+		boolean tu = false;
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				aa = Integer.parseInt(a[j]);
+				if(ee != aa){
+					ee = aa;
+					pic = 0;
+				}else{
+					pic++;
+				}
+				if(pic > n){
+					System.out.println("NO");
+					return;
+				}
+					
+				matriz[i][j] = aa;
+			}
+		}
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		int pic = 0;
+		int aa = 0;
+		int ee = 0;
+		boolean tu = false;
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				if(pic < n){
+                                    aa = Integer.parseInt(a[j]);
+                                    if(ee != aa){
+                                            ee = aa;
+                                            pic = 0;
+                                    }else{
+                                            pic++;
+                                    }
+				}
+				matriz[i][j] = aa;
+			}
+		}
+                if(pic > n){
+                    System.err.println("NO");
+                    return;
+                }
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		int pic = 0;
+		int aa = 0;
+		int ee = 0;
+		boolean tu = false;
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				if(pic < n){
+                                    aa = Integer.parseInt(a[j]);
+                                    if(ee != aa){
+                                            ee = aa;
+                                            pic = 0;
+                                    }else{
+                                            pic++;
+                                    }
+				}
+				matriz[i][j] = aa;
+			}
+		}
+                if(pic > n){
+                    System.err.println("YES");
+                    return;
+                }
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+public class C {
+
+	static BufferedReader in = null;
+	static ArrayList<Integer> a = new ArrayList<>();
+
+	static public int flood_fill(int x, int y, int target, int[][] matriz) {
+		int n = matriz.length;
+		if (x >= n || y >= n || x < 0 || y < 0) return 0;
+		if (matriz[x][y] != target) return 0;
+	
+		Integer index = x * n + y;
+		int pos = a.indexOf(index);
+		if (pos == -1) {
+			return 0; 
+		}
+		a.remove(pos);
+
+		int c = 1;
+		c += flood_fill(x, y - 1, target, matriz);
+		c += flood_fill(x, y + 1, target, matriz);
+		c += flood_fill(x - 1, y, target, matriz);
+		c += flood_fill(x + 1, y, target, matriz);
+
+		return c;
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		File f = new File("A_.txt");
+		if (f.exists()) {
+			System.out.println("s");
+			in = new BufferedReader(new FileReader(f));
+			System.setOut(new PrintStream(new File("salida.txt")));
+		} else {
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		int T = Integer.parseInt(in.readLine());
+		for (int i = 1; i <= T; i++) {
+			System.out.println("Caso #" + i + ":");
+			caso(Integer.parseInt(in.readLine()));
+		}
+	}
+
+	private static void caso(int n) throws IOException {
+		int[][] matriz = new int[n][n];
+		int pic = 0;
+		int aa = 0;
+		int ee = 0;
+		boolean tu = false;
+		a = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String[] a = in.readLine().split(" ");
+			for (int j = 0; j < n; j++) {
+				if(pic < n){
+                                    aa = Integer.parseInt(a[j]);
+                                    if(ee != aa){
+                                            ee = aa;
+                                            pic = 0;
+                                    }else{
+                                            pic++;
+                                    }
+				}
+				matriz[i][j] = aa;
+			}
+		}
+                if(pic > n){
+                    System.err.println("YES");
+                    return;
+                }
+		for (int i = 0; i < n * n; i++) {
+			a.add(i);
+		}
+		boolean f = false;
+
+		for(;!a.isEmpty();) {
+			int cur = a.get(0);
+
+			int x = cur / n;
+			int y = cur % n;
+
+			int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+			if (xx != n) {
+				f = true;
+				break;
+			}
+
+		}
+		 if (f) {
+       System.out.println("NO");
+   } else {
+       System.out.println("YES");
+   }
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+public class C {
+
+    static BufferedReader in = null;
+    static ArrayList<Integer> a = new ArrayList<>();
+
+    static public int flood_fill(int x, int y, int target, int[][] matriz) {
+        int n = matriz.length;
+        if (x >= n || y >= n || x < 0 || y < 0) {
+            return 0;
+        }
+        if (matriz[x][y] != target) {
+            return 0;
+        }
+
+        Integer index = x * n + y;
+        int pos = a.indexOf(index);
+        if (pos == -1) {
+            return 0;
+        }
+        a.remove(pos);
+
+        int c = 1;
+        c += flood_fill(x, y - 1, target, matriz);
+        c += flood_fill(x, y + 1, target, matriz);
+        c += flood_fill(x - 1, y, target, matriz);
+        c += flood_fill(x + 1, y, target, matriz);
+
+        return c;
+    }
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        File f = new File("A_.txt");
+        if (f.exists()) {
+            System.out.println("s");
+            in = new BufferedReader(new FileReader(f));
+            System.setOut(new PrintStream(new File("salida.txt")));
+        } else {
+            in = new BufferedReader(new InputStreamReader(System.in));
+        }
+        int T = Integer.parseInt(in.readLine());
+        for (int i = 1; i <= T; i++) {
+            System.out.println("Caso #" + i + ":");
+            caso(Integer.parseInt(in.readLine()));
+        }
+    }
+
+    private static void caso(int n) throws IOException {
+        int[][] matriz = new int[n][n];
+        int pic = 0;
+        int aa = 0;
+        int ee = 0;
+        boolean tu = false;
+        a = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            String[] a = in.readLine().split(" ");
+            for (int j = 0; j < n; j++) {
+                if (pic < n) {
+                    aa = Integer.parseInt(a[j]);
+                    if (ee != aa) {
+                        ee = aa;
+                        pic = 0;
+                    } else {
+                        pic++;
+                    }
+                }
+                matriz[i][j] = aa;
+            }
+        }
+        if (pic > n) {
+            System.out.println("YES");
+            return;
+        }
+        for (int i = 0; i < n * n; i++) {
+            a.add(i);
+        }
+        boolean f = false;
+
+        for (; !a.isEmpty();) {
+            int cur = a.get(0);
+
+            int x = cur / n;
+            int y = cur % n;
+
+            int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+            if (xx != n) {
+                f = true;
+                break;
+            }
+
+        }
+        if (f) {
+            System.out.println("NO");
+        } else {
+            System.out.println("YES");
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+public class C {
+
+    static BufferedReader in = null;
+    static ArrayList<Integer> a = new ArrayList<>();
+
+    static public int flood_fill(int x, int y, int target, int[][] matriz) {
+        int n = matriz.length;
+        if (x >= n || y >= n || x < 0 || y < 0) {
+            return 0;
+        }
+        if (matriz[x][y] != target) {
+            return 0;
+        }
+
+        Integer index = x * n + y;
+        int pos = a.indexOf(index);
+        if (pos == -1) {
+            return 0;
+        }
+        a.remove(pos);
+
+        int c = 1;
+        c += flood_fill(x, y - 1, target, matriz);
+        c += flood_fill(x, y + 1, target, matriz);
+        c += flood_fill(x - 1, y, target, matriz);
+        c += flood_fill(x + 1, y, target, matriz);
+
+        return c;
+    }
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        File f = new File("A_.txt");
+        if (f.exists()) {
+            System.out.println("s");
+            in = new BufferedReader(new FileReader(f));
+            System.setOut(new PrintStream(new File("salida.txt")));
+        } else {
+            in = new BufferedReader(new InputStreamReader(System.in));
+        }
+        int T = Integer.parseInt(in.readLine());
+        for (int i = 1; i <= T; i++) {
+            System.out.println("Caso #" + i + ":");
+            caso(Integer.parseInt(in.readLine()));
+        }
+    }
+
+    private static void caso(int n) throws IOException {
+        int[][] matriz = new int[n][n];
+        int pic = 0;
+        int aa = 0;
+        int ee = 0;
+        boolean tu = false;
+        a = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            String[] a = in.readLine().split(" ");
+            for (int j = 0; j < n; j++) {
+                if (pic < n) {
+                    aa = Integer.parseInt(a[j]);
+                    if (ee != aa) {
+                        ee = aa;
+                        pic = 0;
+                    } else {
+                        pic++;
+                    }
+                }
+                matriz[i][j] = aa;
+            }
+        }
+        if (pic == n) {
+            System.out.println("YES");
+            return;
+        }
+        for (int i = 0; i < n * n; i++) {
+            a.add(i);
+        }
+        boolean f = false;
+
+        for (; !a.isEmpty();) {
+            int cur = a.get(0);
+
+            int x = cur / n;
+            int y = cur % n;
+
+            int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+            if (xx != n) {
+                f = true;
+                break;
+            }
+
+        }
+        if (f) {
+            System.out.println("NO");
+        } else {
+            System.out.println("YES");
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class C {
+
+    static BufferedReader in = null;
+    static ArrayList<Integer> a = new ArrayList<>();
+
+    static public int flood_fill(int x, int y, int target, int[][] matriz) {
+        int n = matriz.length;
+        if (x >= n || y >= n || x < 0 || y < 0) {
+            return 0;
+        }
+        if (matriz[x][y] != target) {
+            return 0;
+        }
+
+        Integer index = x * n + y;
+        int pos = a.indexOf(index);
+        if (pos == -1) {
+            return 0;
+        }
+        a.remove(pos);
+
+        int c = 1;
+        c += flood_fill(x, y - 1, target, matriz);
+        c += flood_fill(x, y + 1, target, matriz);
+        c += flood_fill(x - 1, y, target, matriz);
+        c += flood_fill(x + 1, y, target, matriz);
+
+        return c;
+    }
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        File f = new File("A_.txt");
+        if (f.exists()) {
+            System.out.println("s");
+            in = new BufferedReader(new FileReader(f));
+            System.setOut(new PrintStream(new File("salida.txt")));
+        } else {
+            in = new BufferedReader(new InputStreamReader(System.in));
+        }
+        int T = Integer.parseInt(in.readLine());
+        for (int i = 1; i <= T; i++) {
+            System.out.println("Caso #" + i + ":");
+            caso(Integer.parseInt(in.readLine()));
+        }
+    }
+
+    private static void caso(int n) throws IOException {
+        int[][] matriz = new int[n][n];
+        int pic = 0;
+        int aa = 0;
+        int ee = 0;
+        HashSet<Integer> regiones = new HashSet<>();
+        boolean tu = false;
+        a = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            String[] a = in.readLine().split(" ");
+            for (int j = 0; j < n; j++) {
+                if (pic < n) {
+                    aa = Integer.parseInt(a[j]);
+                    if (ee != aa) {
+                       
+                        ee = aa;
+                        pic = 0;
+                    } else {
+                        pic++;
+                    }
+                }
+                matriz[i][j] = aa;
+                regiones.add(aa);
+                
+            }
+        }
+        
+        for (int i = 0; i < n * n; i++) {
+            a.add(i);
+        }
+        boolean f = false;
+
+        for (; !a.isEmpty();) {
+            int cur = a.get(0);
+
+            int x = cur / n;
+            int y = cur % n;
+
+            int xx = flood_fill(x, y, matriz[x][y], matriz);
+
+            if (xx != (n*n/regiones.size())) {
+                f = true;
+                break;
+            }
+
+        }
+        
+        if (f) {
+            System.out.println("NO");
+        } else {
+            System.out.println("YES");
+        }
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class C {
+
+    static BufferedReader in = null;
+    static ArrayList<Integer> a = new ArrayList<>();
+    static int abc = 0; 
+    static public int flood_fill(int x, int y, int target, int[][] matriz) {
+        int n = matriz.length;
+        if (x >= n || y >= n || x < 0 || y < 0) {
+            return 0;
+        }
+        if (matriz[x][y] != target) {
+            abc++;
+            return 0;
+        }
+
+        Integer index = x * n + y;
+        int pos = a.indexOf(index);
+        if (pos == -1) {
+            return 0;
+        }
+        a.remove(pos);
+
+        int c = 1;
+        c += flood_fill(x, y - 1, target, matriz);
+        c += flood_fill(x, y + 1, target, matriz);
+        c += flood_fill(x - 1, y, target, matriz);
+        c += flood_fill(x + 1, y, target, matriz);
+
+        return c;
+    }
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        File f = new File("A_.txt");
+        if (f.exists()) {
+            System.out.println("s");
+            in = new BufferedReader(new FileReader(f));
+            System.setOut(new PrintStream(new File("salida.txt")));
+        } else {
+            in = new BufferedReader(new InputStreamReader(System.in));
+        }
+        int T = Integer.parseInt(in.readLine());
+        for (int i = 1; i <= T; i++) {
+            System.out.println("Caso #" + i + ":");
+            caso(Integer.parseInt(in.readLine()));
+        }
+    }
+
+    private static void caso(int n) throws IOException {
+        int[][] matriz = new int[n][n];
+        int pic = 0;
+        int aa = 0;
+        int ee = 0;
+        HashSet<Integer> regiones = new HashSet<>();
+        boolean tu = false;
+        a = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            String[] a = in.readLine().split(" ");
+            for (int j = 0; j < n; j++) {
+                if (pic < n) {
+                    aa = Integer.parseInt(a[j]);
+                    if (ee != aa) {
+                       
+                        ee = aa;
+                        pic = 0;
+                    } else {
+                        pic++;
+                    }
+                }
+                matriz[i][j] = aa;
+                regiones.add(aa);
+                
+            }
+        }
+        
+        for (int i = 0; i < n * n; i++) {
+            a.add(i);
+        }
+        boolean f = false;
+        int i = 0;
+        for (; !a.isEmpty();i++) {
+            int cur = a.get(0);
+
+            int x = cur / n;
+            int y = cur % n;
+
+            int xx = flood_fill(x, y, matriz[x][y], matriz);
+            
+            if (xx != (n*n/regiones.size())) {
+                f = true;
+                break;
+            }
+
+        }
+        
+         System.out.print(abc);
+        
+        /*if (f) {
+            System.out.println("NO");
+        } else {
+            System.out.println("YES");
+        }*/
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

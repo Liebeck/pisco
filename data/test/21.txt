@@ -1,0 +1,3461 @@
+import java.util.Scanner;
+
+public class A {
+
+	public static int casos;
+	public static int numeros;
+	public static int[] vec;
+	public static int menor;
+	public static int mayor;
+	public static int igual;
+	public static int s=0;
+
+	public static void main(String[] args) {
+
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+
+		for (int a = 0; a < casos; a++) {
+
+			numeros = Entrada.nextInt();
+            s=s+1;
+			vec = new int[numeros];
+
+			menor = 0;
+			igual = 0;
+			mayor = 0;
+
+			for (int i = 0; i < numeros; i++) {
+				vec[i] = Entrada.nextInt();
+			}
+
+			for (int i = 0; i < numeros; i++) {
+
+				comparar(i);
+			}
+		
+            System.out.println("Case #" + s);
+			System.out.println(mayor);
+			System.out.println(menor);
+			System.out.println(igual);
+		}
+	}
+	
+	public static void comparar(int i) {
+
+		for (int k = 0; k < numeros; k++) {
+			if (i != k) {
+				if (vec[i] > vec[k]) {
+					mayor++;
+				} else if (vec[i] < vec[k]) {
+					menor++;
+				} else if (vec[i] == vec[k]) {
+					igual++;
+				}
+
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B {
+
+	public static int x = 0;
+	public static int y = 0;
+	public static int c;
+	public static int n;
+	public static int[] colum;
+	public static int[] fila;
+	public static int matriz[][];
+	public static int ganador;
+	public static int s;
+
+	public static void main(String[] args) {
+		
+		Scanner casos = new Scanner(System.in);
+		c = casos.nextInt();
+		
+		for(int c=0; c<1000; c++ ){
+            s=s+1;
+			int ganador=0;
+			
+		Scanner Entrada1 = new Scanner(System.in);
+		n = Entrada1.nextInt();
+		x = n;
+		y = n;
+		
+		matriz = new int[x][y];
+		
+		Scanner consola = new Scanner(System.in);
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				matriz[y][x] = consola.nextInt();
+			}
+		}
+		colum = new int[x];
+		fila = new int[y];
+
+		columnas(y, x);
+		filas(y, x);
+
+		for (int i = 0; i < x; i++) {
+			for (int j = 0; j < x; j++) {
+		if(fila[i]<colum[j]){
+			ganador++;
+		}	
+		}
+		}
+		System.out.println("Case #" + s);
+		System.out.println(ganador);
+		
+		}
+
+	}
+
+
+	public static void columnas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				colum[x] = colum[x] + matriz[y][x];
+			}
+		}
+	}
+
+	public static void filas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				fila[y] = fila[y] + matriz[y][x];
+			}
+		}
+	}
+
+}
+			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class C {
+
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int casos;
+	public static int n;
+	public static int comb;
+	public static int r;
+	public static String[] letras;
+	public static String c1;
+	public static String c2;
+	public static String c3;
+	public static String c4;
+	public static String matriz[][];
+	public static int numeroFilasEliminadas;
+
+	public static boolean compararFilas(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < letras.length; k++) {
+			if (matriz[var][k].equals(matriz[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == letras.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminarFila(int i) {
+		for (int m = i + 1; m < (comb - numeroFilasEliminadas); m++) {
+			for (int n = 0; n < letras.length; n++) {
+				matriz[i][n] = matriz[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		casos = Entrada.nextInt();
+		for (int h = 0; h < casos; h++) {
+
+			int variable = 0;
+			int w;
+			boolean decision;
+			numeroFilasEliminadas = 0;
+			
+			n = Entrada.nextInt();
+			letras = new String[n];
+
+			if (letras.length == 1) {
+				comb = 1;
+				matriz = new String[comb][n];
+			}
+			if (letras.length == 2) {
+				comb = 2;
+				matriz = new String[comb][n];
+			}
+			if (letras.length == 3) {
+				comb = 6;
+				matriz = new String[comb][n];
+			}
+			if (letras.length == 4) {
+				comb = 24;
+				matriz = new String[comb][n];
+			}
+
+			for (int i = 0; i < letras.length; i++) {
+				letras[i] = Entrada.next();
+				matriz[0][i] = letras[i];
+			}
+
+			if (letras.length == 1) {
+				matriz[0][0] = letras[0];
+			}
+			else if (letras.length == 2) {
+				c1 = letras[0];
+				c2 = letras[1];
+				dos(c1, c2, 1, 0);
+			} else if (letras.length == 3) {
+
+				c1 = letras[0];
+				c2 = letras[1];
+				c3 = letras[2];
+				tres(c1, c2, c3, 0, 0, 0, 0);
+			} else if (letras.length == 4) {
+				c1 = letras[0];
+				c2 = letras[1];
+				c3 = letras[2];
+				c4 = letras[3];
+				cuatro(c1, c2, c3, c4, 0, 0, 0);
+			}
+
+			while (variable < comb) {
+				w = variable;
+				while (w < (comb - 1 - numeroFilasEliminadas)) {
+					decision = compararFilas(variable, w + 1);
+					if (decision) {
+						eliminarFila(w + 1);
+						numeroFilasEliminadas++;
+					} else
+						w++;
+				}
+				variable++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (comb - numeroFilasEliminadas); i++) {
+				for (int j = 0; j < n; j++) {
+					System.out.print(matriz[i][j] + " ");
+				}
+				System.out.println();
+			}
+		}
+	}
+
+	public static void dos(String color1, String color2, int i, int j) {
+
+		matriz[i][j] = color2;
+		matriz[i][j + 1] = color1;
+
+	}
+
+	public static void tres(String color1, String color2, String color3, int i, int j, int r, int x) {
+
+		for (int k = x; k < x + 2; k++) {
+			matriz[k][r] = color1;
+		}
+		for (int k = x + 2; k < x + 4; k++) {
+			matriz[k][r] = color2;
+		}
+		for (int k = x + 4; k < x + 6; k++) {
+			matriz[k][r] = color3;
+		}
+
+		dos(color2, color3, i + 1, j + 1);
+		dos(color3, color1, i + 2, j + 1);
+		dos(color1, color3, i + 3, j + 1);
+		dos(color2, color1, i + 4, j + 1);
+		dos(color1, color2, i + 5, j + 1);
+
+	}
+
+	public static void cuatro(String color1, String color2, String color3, String color4, int i, int j, int r) {
+
+		for (int k = 1; k < 6; k++) {
+			matriz[k][0] = c1;
+		}
+		for (int k = 6; k < 12; k++) {
+			matriz[k][0] = c2;
+		}
+		for (int k = 12; k < 18; k++) {
+			matriz[k][0] = c3;
+		}
+		for (int k = 18; k < 24; k++) {
+			matriz[k][0] = c4;
+		}
+
+		c1 = letras[1];
+		c2 = letras[2];
+		c3 = letras[3];
+		tres(c1, c2, c3, 0, 1, 1, 0);
+
+		c1 = letras[0];
+		c2 = letras[2];
+		c3 = letras[3];
+		dos(c3, c2, 6, 2);
+		tres(c1, c2, c3, 6, 1, 1, 6);
+
+		c1 = letras[0];
+		c2 = letras[1];
+		c3 = letras[3];
+		dos(c3, c2, 12, 2);
+		tres(c1, c2, c3, 12, 1, 1, 12);
+
+		c1 = letras[0];
+		c2 = letras[1];
+		c3 = letras[2];
+		dos(c3, c2, 18, 2);
+		tres(c1, c2, c3, 18, 1, 1, 18);
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class D {
+	
+	public static int casos;
+	public static int n;
+	public static int i;
+	public static int k;
+	public static int y;
+	public static int x;
+	public static int m;
+	public static int p;
+	public static int e;
+	public static int s;
+	public static int matriz[][];
+	public static int partidos=0;
+	
+	public static void main(String[] args) {
+		
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+		
+        for (int a = 0; a < casos; a++) {
+        	
+        s=s+1;	
+        	
+        n = Entrada.nextInt();
+		partidos=n*(n-1);
+		e=0;
+		matriz = new int[n][2];
+		Scanner consola = new Scanner(System.in);
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < 2; x++) {
+				matriz[y][x] = consola.nextInt();
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+		for(int k = 0; k < n; k++){
+		if(matriz[i][0]==matriz[k][1]){
+					e++;
+		}	
+		}
+		}
+		
+		System.out.println("Case #" + s);
+        System.out.println(e);
+        
+        
+        }
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class A {
+
+	public static int casos;
+	public static int numeros;
+	public static int[] vec;
+	public static int menor;
+	public static int mayor;
+	public static int igual;
+	public static int s=0;
+
+	public static void main(String[] args) {
+
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+
+		for (int a = 0; a < casos; a++) {
+
+			numeros = Entrada.nextInt();
+            s=s+1;
+			vec = new int[numeros];
+
+			menor = 0;
+			igual = 0;
+			mayor = 0;
+
+			for (int i = 0; i < numeros; i++) {
+				vec[i] = Entrada.nextInt();
+			}
+
+			for (int i = 0; i < numeros; i++) {
+
+				comparar(i);
+			}
+		
+            System.out.println("Case #:" + s);
+			System.out.println(mayor);
+			System.out.println(menor);
+			System.out.println(igual);
+		}
+	}
+	
+	public static void comparar(int i) {
+
+		for (int k = 0; k < numeros; k++) {
+			if (i != k) {
+				if (vec[i] > vec[k]) {
+					mayor++;
+				} else if (vec[i] < vec[k]) {
+					menor++;
+				} else if (vec[i] == vec[k]) {
+					igual++;
+				}
+
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class A {
+
+	public static int casos;
+	public static int numeros;
+	public static int[] vec;
+	public static int menor;
+	public static int mayor;
+	public static int igual;
+	public static int s=0;
+
+	public static void main(String[] args) {
+
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+
+		for (int a = 0; a < casos; a++) {
+
+			numeros = Entrada.nextInt();
+            s=s+1;
+			vec = new int[numeros];
+
+			menor = 0;
+			igual = 0;
+			mayor = 0;
+
+			for (int i = 0; i < numeros; i++) {
+				vec[i] = Entrada.nextInt();
+			}
+
+			for (int i = 0; i < numeros; i++) {
+
+				comparar(i);
+			}
+		
+            System.out.println("Case #" + s + ":");
+			System.out.println(mayor);
+			System.out.println(menor);
+			System.out.println(igual);
+		}
+	}
+	
+	public static void comparar(int i) {
+
+		for (int k = 0; k < numeros; k++) {
+			if (i != k) {
+				if (vec[i] > vec[k]) {
+					mayor++;
+				} else if (vec[i] < vec[k]) {
+					menor++;
+				} else if (vec[i] == vec[k]) {
+					igual++;
+				}
+
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B {
+
+	public static int x = 0;
+	public static int y = 0;
+	public static int c;
+	public static int n;
+	public static int[] colum;
+	public static int[] fila;
+	public static int matriz[][];
+	public static int ganador;
+	public static int s;
+
+	public static void main(String[] args) {
+		
+		Scanner casos = new Scanner(System.in);
+		c = casos.nextInt();
+		
+		for(int c=0; c<1000; c++ ){
+            s=s+1;
+			int ganador=0;
+			
+		//Scanner casos = new Scanner(System.in);
+		n = casos.nextInt();
+		x = n;
+		y = n;
+		
+		matriz = new int[x][y];
+		
+		//Scanner consola = new Scanner(System.in);
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				matriz[y][x] = casos.nextInt();
+			}
+		}
+		colum = new int[x];
+		fila = new int[y];
+
+		columnas(y, x);
+		filas(y, x);
+
+		for (int i = 0; i < x; i++) {
+			for (int j = 0; j < x; j++) {
+		if(fila[i]<colum[j]){
+			ganador++;
+		}	
+		}
+		}
+		System.out.println("Case #" + s +":");
+		System.out.println(ganador);
+		
+		}
+
+	}
+
+
+	public static void columnas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				colum[x] = colum[x] + matriz[y][x];
+			}
+		}
+	}
+
+	public static void filas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				fila[y] = fila[y] + matriz[y][x];
+			}
+		}
+	}
+
+}
+			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class D {
+	
+	public static int casos;
+	public static int n;
+	public static int i;
+	public static int k;
+	public static int y;
+	public static int x;
+	public static int m;
+	public static int p;
+	public static int e;
+	public static int s;
+	public static int matriz[][];
+	public static int partidos=0;
+	
+	public static void main(String[] args) {
+		
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+		
+        for (int a = 0; a < casos; a++) {
+        	
+        s=s+1;	
+        	
+        n = Entrada.nextInt();
+		partidos=n*(n-1);
+		e=0;
+		matriz = new int[n][2];
+		//Scanner consola = new Scanner(System.in);
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < 2; x++) {
+				matriz[y][x] = Entrada.nextInt();
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+		for(int k = 0; k < n; k++){
+		if(matriz[i][0]==matriz[k][1]){
+					e++;
+		}	
+		}
+		}
+		
+		System.out.println("Case #" + s +":");
+        System.out.println(e);
+        
+        
+        }
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B {
+
+	public static int x = 0;
+	public static int y = 0;
+	public static int c;
+	public static int n;
+	public static int[] colum;
+	public static int[] fila;
+	public static int matriz[][];
+	public static int ganador;
+	public static int s;
+
+	public static void main(String[] args) {
+		
+		Scanner casos = new Scanner(System.in);
+		c = casos.nextInt();
+		
+		while(casos.hasNextInt()){
+            s=s+1;
+			int ganador=0;
+			
+		//Scanner casos = new Scanner(System.in);
+		n = casos.nextInt();
+		x = n;
+		y = n;
+		
+		matriz = new int[x][y];
+		
+		//Scanner consola = new Scanner(System.in);
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				matriz[y][x] = casos.nextInt();
+			}
+		}
+		colum = new int[x];
+		fila = new int[y];
+
+		columnas(y, x);
+		filas(y, x);
+
+		for (int i = 0; i < x; i++) {
+			for (int j = 0; j < x; j++) {
+		if(fila[i]<colum[j]){
+			ganador++;
+		}	
+		}
+		}
+		System.out.println("Case #" + s +":");
+		System.out.println(ganador);
+		
+		}
+
+	}
+
+
+	public static void columnas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				colum[x] = colum[x] + matriz[y][x];
+			}
+		}
+	}
+
+	public static void filas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				fila[y] = fila[y] + matriz[y][x];
+			}
+		}
+	}
+
+}
+			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class D {
+	
+	public static int casos;
+	public static int n;
+	public static int i;
+	public static int k;
+	public static int y;
+	public static int x;
+	public static int m;
+	public static int p;
+	public static int e;
+	public static int s;
+	public static int matriz[][];
+	public static int partidos=0;
+	
+	public static void main(String[] args) {
+		
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+		
+        for (int a = 0; a < casos; a++) {
+        	
+        s=s+1;	
+        	
+        n = Entrada.nextInt();
+
+		e=0;
+		matriz = new int[n][2];
+
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < 2; x++) {
+				matriz[y][x] = Entrada.nextInt();
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+		for(int k = 0; k < n; k++){
+		if(matriz[i][0]==matriz[k][1]){
+					e++;
+		}	
+		}
+		}
+		
+		System.out.println("Case #" + s +":");
+        System.out.println(e);
+        
+        
+        }
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class D {
+	
+	public static int casos;
+	public static int n;
+	public static int i;
+	public static int k;
+	public static int y;
+	public static int x;
+	public static int m;
+	public static int p;
+	public static int e;
+	public static int s;
+	public static int matriz[][];
+	public static int partidos=0;
+	
+	public static void main(String[] args) {
+		
+		Scanner Entrada = new Scanner(System.in);
+		casos = Entrada.nextInt();
+		
+        for (int a = 0; a < casos; a++) {
+        	
+        s=s+1;	
+        	
+        n = Entrada.nextInt();
+
+		e=0;
+		matriz = new int[n][2];
+
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < 2; x++) {
+				matriz[y][x] = Entrada.nextInt();
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+		for(int k = 0; k < n; k++){
+		if(matriz[i][0]==matriz[k][1] && k!=i){
+					e++;
+		}	
+		}
+		}
+		
+		System.out.println("Case #" + s +":");
+        System.out.println(e);
+        
+        
+        }
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class B {
+
+	public static int x = 0;
+	public static int y = 0;
+	public static int c;
+	public static int ca=0;
+	public static int n;
+	public static int[] colum;
+	public static int[] fila;
+	public static int matriz[][];
+	public static int ganador;
+	public static int s;
+
+	public static void main(String[] args) {
+		
+		Scanner casos = new Scanner(System.in);
+		while(casos.hasNext()){
+			
+            ca++;
+            
+			int ganador=0;
+			
+		//Scanner casos = new Scanner(System.in);
+		n = casos.nextInt();
+		x = n;
+		y = n;
+		
+		matriz = new int[x][y];
+		
+		//Scanner consola = new Scanner(System.in);
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				matriz[y][x] = casos.nextInt();
+			}
+		}
+		colum = new int[x];
+		fila = new int[y];
+
+		columnas(y, x);
+		filas(y, x);
+
+		for (int i = 0; i < x; i++) {
+			for (int j = 0; j < x; j++) {
+		if(fila[i]<colum[j]){
+			ganador++;
+		}	
+		}
+		}
+		System.out.println("Case #" + ca +":");
+		System.out.println(ganador);
+		
+		}
+
+	}
+
+
+	public static void columnas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				colum[x] = colum[x] + matriz[y][x];
+			}
+		}
+	}
+
+	public static void filas(int y, int x) {
+		for (y = 0; y < n; y++) {
+			for (x = 0; x < n; x++) {
+				fila[y] = fila[y] + matriz[y][x];
+			}
+		}
+	}
+
+}
+			
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class C {
+
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int casos;
+	public static int n;
+	public static int comb;
+	public static int r;
+	public static String[] letras;
+	public static String c1;
+	public static String c2;
+	public static String c3;
+	public static String c4;
+	public static String matriz[][];
+	public static int numeroFilasEliminadas;
+
+	public static boolean compararFilas(int var, int i) {
+		int filaIgual = 0;
+		boolean decision;
+		for (int k = 0; k < letras.length; k++) {
+			if (matriz[var][k].equals(matriz[i][k])) {
+				filaIgual++;
+			}
+		}
+		if (filaIgual == letras.length) {
+			decision = true;
+		} else
+			decision = false;
+		return decision;
+
+	}
+
+	public static void eliminarFila(int i) {
+		for (int m = i + 1; m < (comb - numeroFilasEliminadas); m++) {
+			for (int n = 0; n < letras.length; n++) {
+				matriz[i][n] = matriz[m][n];
+			}
+			i++;
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		casos = Entrada.nextInt();
+		for (int h = 0; h < casos; h++) {
+
+			int variable = 0;
+			int w;
+			boolean decision;
+			numeroFilasEliminadas = 0;
+			
+			n = Entrada.nextInt();
+			letras = new String[n];
+
+			if (letras.length == 1) {
+				comb = 1;
+				matriz = new String[comb][n];
+			}
+			if (letras.length == 2) {
+				comb = 2;
+				matriz = new String[comb][n];
+			}
+			if (letras.length == 3) {
+				comb = 6;
+				matriz = new String[comb][n];
+			}
+			if (letras.length == 4) {
+				comb = 24;
+				matriz = new String[comb][n];
+			}
+
+			for (int i = 0; i < letras.length; i++) {
+				letras[i] = Entrada.next();
+				matriz[0][i] = letras[i];
+			}
+
+			if (letras.length == 1) {
+				matriz[0][0] = letras[0];
+			}
+			else if (letras.length == 2) {
+				c1 = letras[0];
+				c2 = letras[1];
+				dos(c1, c2, 1, 0);
+			} else if (letras.length == 3) {
+
+				c1 = letras[0];
+				c2 = letras[1];
+				c3 = letras[2];
+				tres(c1, c2, c3, 0, 0, 0, 0);
+			} else if (letras.length == 4) {
+				c1 = letras[0];
+				c2 = letras[1];
+				c3 = letras[2];
+				c4 = letras[3];
+				cuatro(c1, c2, c3, c4, 0, 0, 0);
+			}
+
+			while (variable < comb) {
+				w = variable;
+				while (w < (comb - 1 - numeroFilasEliminadas)) {
+					decision = compararFilas(variable, w + 1);
+					if (decision) {
+						eliminarFila(w + 1);
+						numeroFilasEliminadas++;
+					} else
+						w++;
+				}
+				variable++;
+			}
+
+			System.out.println("Case #" + (h + 1) + ":");
+			for (int i = 0; i < (comb - numeroFilasEliminadas); i++) {
+				for (int j = 0; j < n; j++) {
+					System.out.print(matriz[i][j] + " ");
+				}
+				System.out.println();
+			}
+		}
+	}
+
+	public static void dos(String color1, String color2, int i, int j) {
+
+		matriz[i][j] = color2;
+		matriz[i][j + 1] = color1;
+
+	}
+
+	public static void tres(String color1, String color2, String color3, int i, int j, int r, int x) {
+
+		for (int k = x; k < x + 2; k++) {
+			matriz[k][r] = color1;
+		}
+		for (int k = x + 2; k < x + 4; k++) {
+			matriz[k][r] = color2;
+		}
+		for (int k = x + 4; k < x + 6; k++) {
+			matriz[k][r] = color3;
+		}
+
+		dos(color2, color3, i + 1, j + 1);
+		dos(color3, color1, i + 2, j + 1);
+		dos(color1, color3, i + 3, j + 1);
+		dos(color2, color1, i + 4, j + 1);
+		dos(color1, color2, i + 5, j + 1);
+
+	}
+
+	public static void cuatro(String color1, String color2, String color3, String color4, int i, int j, int r) {
+
+		for (int k = 1; k < 6; k++) {
+			matriz[k][0] = c1;
+		}
+		for (int k = 6; k < 12; k++) {
+			matriz[k][0] = c2;
+		}
+		for (int k = 12; k < 18; k++) {
+			matriz[k][0] = c3;
+		}
+		for (int k = 18; k < 24; k++) {
+			matriz[k][0] = c4;
+		}
+
+		c1 = letras[1];
+		c2 = letras[2];
+		c3 = letras[3];
+		tres(c1, c2, c3, 0, 1, 1, 0);
+
+		c1 = letras[0];
+		c2 = letras[2];
+		c3 = letras[3];
+		dos(c3, c2, 6, 2);
+		tres(c1, c2, c3, 6, 1, 1, 6);
+
+		c1 = letras[0];
+		c2 = letras[1];
+		c3 = letras[3];
+		dos(c3, c2, 12, 2);
+		tres(c1, c2, c3, 12, 1, 1, 12);
+
+		c1 = letras[0];
+		c2 = letras[1];
+		c3 = letras[2];
+		dos(c3, c2, 18, 2);
+		tres(c1, c2, c3, 18, 1, 1, 18);
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+
+public class E {
+
+	public static int casos;
+	public static int s;
+	public static int numeros;
+	public static int pasos;
+	public static int[] vec;
+	
+	public static void main(String[] args) {
+	Scanner Entrada = new Scanner(System.in);
+	casos = Entrada.nextInt();
+	
+    for (int a = 0; a < casos; a++) {
+    	numeros = Entrada.nextInt();
+        s=s+1;
+        pasos = 0;
+        vec = new int[numeros];
+    for (int i = 0; i < numeros; i++) {
+			vec[i] = Entrada.nextInt();
+		}
+		
+	for(int i = 0; i < vec.length; i++){
+		for(int j = 1; j < vec.length ; j++){
+		if(vec[i]==0 && vec[i+j]!=0){
+			pasos++;
+		}
+		}
+		
+	}
+	 System.out.println("Case #" + s + ":");
+		System.out.println(pasos++);
+    }
+   
+    
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class B {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int T;
+	public static int N;
+	public static int A;
+	public static int B;
+	public static int aliminicial;
+	public static Integer alimento;
+	public static Integer pokemon;
+	
+	public static void main(String[] args) {
+		
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 1; i <= T; i++) {
+			
+			System.out.println("Case #"+i+":");
+			
+			N = Integer.parseInt(Entrada.nextLine());
+			
+			HashMap<Integer,Integer> bolsa = new HashMap<>();
+			
+			aliminicial=0;
+			
+			for (int j = 0; j < N; j++) {
+				String [] lines = Entrada.nextLine().split(" ");
+				A = Integer.parseInt(lines[0]);
+				B = Integer.parseInt(lines[1]);
+				
+				if(A!=B){	
+					alimento = bolsa.get(A);
+					if(alimento==null){
+						bolsa.put(A, 1);
+					}
+					else{
+						bolsa.put(A, alimento+1);
+					}
+					
+				    pokemon = bolsa.get(B);
+					if(pokemon==null || pokemon<=0){
+						aliminicial++;
+					}
+					else{
+						bolsa.put(B, pokemon-1);
+					}
+				}
+			}
+			System.out.println(aliminicial);
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.TreeSet;
+
+public class D {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int l;
+	public static int T;
+	public static int N;
+	public static int ganador;
+
+	public static void main(String[] args) 
+	{
+		
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 1; i <= T; i++) {
+			System.out.println("Case #"+i+":");
+			HashMap<String,Nodo > candidatos = new HashMap<>();
+			N = Integer.parseInt(Entrada.nextLine());
+			for (j = 0; j < N; j++)
+			{
+				String [] line = Entrada.nextLine().split(" ");
+				candidatos.put(line[0], new Nodo(line[1],0));
+			}
+			int q = Integer.parseInt(Entrada.nextLine());
+			for (l = 0; l < q; l++) 
+			{
+				String name = Entrada.nextLine();
+				candidatos.put(name, new Nodo(candidatos.get(name).Nombre,candidatos.get(name).votos+1));
+			}
+			
+			TreeSet<Nodo> resultados = new TreeSet<>(candidatos.values());
+			ganador = resultados.first().votos;
+			for(Nodo aux : resultados)
+			{
+				if(aux.votos==ganador)
+					System.out.println(aux);
+				else
+					break;
+			}
+		}
+	}
+
+	public static class Nodo implements Comparable<Nodo>
+	{
+		String Nombre;
+		Integer votos;
+		
+		public Nodo(String nombre, int voto) {
+			super();
+			this.Nombre= nombre;
+			this.votos = voto;
+		}
+
+		@Override
+		public int compareTo(Nodo aux) {
+			if(this.votos.equals(aux.votos))
+				return this.Nombre.compareTo(aux.Nombre);
+			return aux.votos.compareTo(this.votos);
+		}
+
+		@Override
+		public String toString() {
+			return Nombre;
+		}
+		
+	}
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+
+public class A {
+
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int l;
+	public static int h;
+	public static int m;
+	public static int T;
+	public static int N;
+	public static int M;
+	public static int llave;
+	public static int colisiones;
+	public static int llavedef;
+	public static int [] nnum;
+	public static int [] nfunc;
+	public static int funcion;
+	public static int coltotal;
+	public static int numero;
+	
+	public static void main(String[] args) 
+	{
+		
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 1; i <= T; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			
+			String [] lines=Entrada.nextLine().split(" ");
+			N = Integer.parseInt(lines[0]);
+			M = Integer.parseInt(lines[1]);
+			lines=Entrada.nextLine().split(" ");
+			nnum = new int [N];
+			for (j = 0; j < lines.length; j++) {
+				nnum[j]=Integer.parseInt(lines[j]);
+			}
+			lines=Entrada.nextLine().split(" ");
+			nfunc = new int [M];
+			for (l = 0; l < lines.length; l++){
+				nfunc[l]=Integer.parseInt(lines[l]);
+			}
+			
+			HashMap<Integer,ArrayList<Integer>> colisionTotal = new HashMap<>();
+			
+			coltotal=0;
+			llavedef=0;
+			
+			for (h = 0; h < nfunc.length; h++) 
+			{
+				HashMap<Integer,Integer> funciones = new HashMap<>();
+				HashMap<Integer,ArrayList<Integer>> colision = new HashMap<>();
+				colisiones=0;
+				llave=nfunc[h];
+				for (m = 0; m < nnum.length; m++) 
+				{
+					funcion = nnum[m]%nfunc[h];
+					numero = nnum[m];
+					
+					if(funciones.containsKey(funcion))
+					{
+						colisiones++;
+						if(!colision.containsKey(funcion))
+						{
+							ArrayList<Integer> valores= new ArrayList<>();
+							valores.add(funciones.get(funcion));
+							colision.put(funcion, valores);
+						}
+						colision.get(funcion).add(numero);
+					}
+					else
+						funciones.put(funcion, numero);
+				}
+				if(h==0||colisiones<coltotal||colisiones==coltotal && llave<llavedef)
+				{
+					colisionTotal=colision;
+					coltotal=colisiones+1;
+					llavedef=llave;
+				}
+			}
+			System.out.println(llavedef);
+			System.out.println(coltotal);
+			
+			if(coltotal!=0)
+			{
+				ArrayList<Nodo> ordenados = new ArrayList<>();
+				for(Map.Entry<Integer, ArrayList<Integer>> entry :colisionTotal.entrySet())
+				{
+					ArrayList<Integer> arr=entry.getValue();
+					Collections.sort(arr);
+					ordenados.add(new Nodo (arr));
+				}
+				Collections.sort(ordenados);
+				for (Nodo aux : ordenados)
+					System.out.println(aux);
+			}
+		}
+	}
+	
+	public static class Nodo implements Comparable<Nodo>
+	{
+		ArrayList<Integer> tree;
+
+		@Override
+		public int compareTo(Nodo aux) {
+			return this.tree.get(0).compareTo(aux.tree.get(0));
+		}
+
+		public Nodo(ArrayList<Integer> tree) {
+			this.tree = tree;
+		}
+
+		@Override
+		public String toString() {
+			return tree.toString().replaceAll("\\[", "").replaceAll("\\]", "").replaceAll(",", "");
+		}
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class C {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int k;
+	public static int l;
+	public static int T;
+	public static int NumNorma;
+	public static int NumMario;
+	public static int NumPipe;
+	public static boolean mejer;
+	public static boolean pejer;
+	public static Integer iN;
+	public static Integer iM;
+	public static boolean iP;
+	
+	public static void main(String[] args) {
+
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (int i = 0; i <= T; i++) {
+			
+			System.out.println("Case #"+i+":");
+			
+			String [] lines = Entrada.nextLine().split(" ");
+			HashSet<Integer> N = new HashSet<>();
+			HashSet<Integer> M = new HashSet<>();
+			HashSet<Integer> P = new HashSet<>();
+			
+			lines= Entrada.nextLine().split(" ");
+			for (j = 0; j < lines.length; j++){
+				N.add(Integer.parseInt(lines[j]));
+			}
+			lines= Entrada.nextLine().split(" ");
+			for (k = 0; k < lines.length; k++){
+				M.add(Integer.parseInt(lines[k]));
+			}
+			lines= Entrada.nextLine().split(" ");
+			for (l = 0; l < lines.length; l++){
+				P.add(Integer.parseInt(lines[l]));
+			}
+			Iterator<Integer> ejerciciosN = N.iterator();
+			while(ejerciciosN.hasNext())
+			{
+				iN=ejerciciosN.next();
+				mejer = M.remove(iN);
+				pejer = P.remove(iN);
+				if(mejer || pejer)
+					ejerciciosN.remove();
+			}
+			Iterator<Integer> ejerciciosM = M.iterator();
+			while (ejerciciosM.hasNext())
+			{
+				iM=ejerciciosM.next();
+				iP = P.remove(iM);
+				if(iP)
+					ejerciciosM.remove();
+			}
+			
+			NumNorma=N.size();
+			NumMario=M.size();
+			NumPipe=P.size();
+			
+			if(NumNorma>=NumMario && NumNorma>=NumPipe)
+			{
+				TreeSet<Integer> aNorma = new TreeSet<>(N);
+				System.out.println("Norma "+NumNorma+" "+ 
+				aNorma.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if(NumMario>=NumPipe && NumMario>=NumNorma)
+			{
+				TreeSet<Integer> aMario = new TreeSet<>(M);
+				System.out.println("Mario "+NumMario+" "+ 
+				aMario.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if(NumPipe>=NumNorma && NumPipe>=NumMario)
+			{
+				TreeSet<Integer> aPipe = new TreeSet<>(P);
+				System.out.println("Pipe "+NumPipe+" "+ 
+				aPipe.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class C {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int k;
+	public static int l;
+	public static int T;
+	public static int NumNorma;
+	public static int NumMario;
+	public static int NumPipe;
+	public static boolean mejer;
+	public static boolean pejer;
+	public static Integer iN;
+	public static Integer iM;
+	public static boolean iP;
+	
+	public static void main(String[] args) {
+
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (int i = 1; i <= T; i++) {
+			
+			System.out.println("Case #"+i+":");
+			
+			String [] lines = Entrada.nextLine().split(" ");
+			HashSet<Integer> N = new HashSet<>();
+			HashSet<Integer> M = new HashSet<>();
+			HashSet<Integer> P = new HashSet<>();
+			
+			lines= Entrada.nextLine().split(" ");
+			for (j = 0; j < lines.length; j++){
+				N.add(Integer.parseInt(lines[j]));
+			}
+			lines= Entrada.nextLine().split(" ");
+			for (k = 0; k < lines.length; k++){
+				M.add(Integer.parseInt(lines[k]));
+			}
+			lines= Entrada.nextLine().split(" ");
+			for (l = 0; l < lines.length; l++){
+				P.add(Integer.parseInt(lines[l]));
+			}
+			Iterator<Integer> ejerciciosN = N.iterator();
+			while(ejerciciosN.hasNext())
+			{
+				iN=ejerciciosN.next();
+				mejer = M.remove(iN);
+				pejer = P.remove(iN);
+				if(mejer || pejer)
+					ejerciciosN.remove();
+			}
+			Iterator<Integer> ejerciciosM = M.iterator();
+			while (ejerciciosM.hasNext())
+			{
+				iM=ejerciciosM.next();
+				iP = P.remove(iM);
+				if(iP)
+					ejerciciosM.remove();
+			}
+			
+			NumNorma=N.size();
+			NumMario=M.size();
+			NumPipe=P.size();
+			
+			if(NumNorma>=NumMario && NumNorma>=NumPipe)
+			{
+				TreeSet<Integer> aNorma = new TreeSet<>(N);
+				System.out.println("Norma "+NumNorma+" "+ 
+				aNorma.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if(NumMario>=NumPipe && NumMario>=NumNorma)
+			{
+				TreeSet<Integer> aMario = new TreeSet<>(M);
+				System.out.println("Mario "+NumMario+" "+ 
+				aMario.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+			if(NumPipe>=NumNorma && NumPipe>=NumMario)
+			{
+				TreeSet<Integer> aPipe = new TreeSet<>(P);
+				System.out.println("Pipe "+NumPipe+" "+ 
+				aPipe.toString().replace("[", "").replace("]", "").replace(",", ""));
+			}
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+
+public class A {
+
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int l;
+	public static int h;
+	public static int m;
+	public static int T;
+	public static int N;
+	public static int M;
+	public static int llave;
+	public static int colisiones;
+	public static int llavedef;
+	public static int [] nnum;
+	public static int [] nfunc;
+	public static int funcion;
+	public static int coltotal;
+	public static int numero;
+	
+	public static void main(String[] args) 
+	{
+		
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 1; i <= T; i++) 
+		{
+			System.out.println("Case #"+i+":");
+			
+			String [] lines=Entrada.nextLine().split(" ");
+			N = Integer.parseInt(lines[0]);
+			M = Integer.parseInt(lines[1]);
+			lines=Entrada.nextLine().split(" ");
+			nnum = new int [N];
+			for (j = 0; j < lines.length; j++) {
+				nnum[j]=Integer.parseInt(lines[j]);
+			}
+			lines=Entrada.nextLine().split(" ");
+			nfunc = new int [M];
+			for (l = 0; l < lines.length; l++){
+				nfunc[l]=Integer.parseInt(lines[l]);
+			}
+			
+			HashMap<Integer,ArrayList<Integer>> colisionTotal = new HashMap<>();
+			
+			coltotal=0;
+			llavedef=0;
+			
+			for (h = 0; h < nfunc.length; h++) 
+			{
+				HashMap<Integer,Integer> funciones = new HashMap<>();
+				HashMap<Integer,ArrayList<Integer>> colision = new HashMap<>();
+				colisiones=0;
+				llave=nfunc[h];
+				for (m = 0; m < nnum.length; m++) 
+				{
+					funcion = nnum[m]%nfunc[h];
+					numero = nnum[m];
+					
+					if(funciones.containsKey(funcion))
+					{
+						colisiones++;
+						if(!colision.containsKey(funcion))
+						{
+							ArrayList<Integer> valores= new ArrayList<>();
+							valores.add(funciones.get(funcion));
+							colision.put(funcion, valores);
+						}
+						colision.get(funcion).add(numero);
+					}
+					else
+						funciones.put(funcion, numero);
+				}
+				if(h==0||colisiones<coltotal||colisiones==coltotal && llave<llavedef)
+				{
+					colisionTotal=colision;
+					coltotal=colisiones;
+					llavedef=llave;
+				}
+			}
+			System.out.println(llavedef);
+			System.out.println(coltotal);
+			
+			if(coltotal!=0)
+			{
+				ArrayList<Nodo> ordenados = new ArrayList<>();
+				for(Map.Entry<Integer, ArrayList<Integer>> entry :colisionTotal.entrySet())
+				{
+					ArrayList<Integer> arr=entry.getValue();
+					Collections.sort(arr);
+					ordenados.add(new Nodo (arr));
+				}
+				Collections.sort(ordenados);
+				for (Nodo aux : ordenados)
+					System.out.println(aux);
+			}
+		}
+	}
+	
+	public static class Nodo implements Comparable<Nodo>
+	{
+		ArrayList<Integer> tree;
+
+		@Override
+		public int compareTo(Nodo aux) {
+			return this.tree.get(0).compareTo(aux.tree.get(0));
+		}
+
+		public Nodo(ArrayList<Integer> tree) {
+			this.tree = tree;
+		}
+
+		@Override
+		public String toString() {
+			return tree.toString().replaceAll("\\[", "").replaceAll("\\]", "").replaceAll(",", "");
+		}
+		
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class E {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int T;
+	public static int N;
+	public static int A;
+	public static int B;
+	public static int aliminicial;
+	public static Integer alimento;
+	public static Integer pokemon;
+	public static Integer numinicial;
+	
+	public static void main(String[] args) {
+		
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 1; i <= T; i++) {
+			
+			System.out.println("Case #"+i+":");
+			
+			N = Integer.parseInt(Entrada.nextLine());
+			
+			HashMap<Integer,Integer> bolsa = new HashMap<>();
+			HashMap<Integer,Integer> numalimentos = new HashMap<>();
+			
+			aliminicial=0;
+			
+			for (int j = 0; j < N; j++) {
+				String [] lines = Entrada.nextLine().split(" ");
+				A = Integer.parseInt(lines[0]);
+				B = Integer.parseInt(lines[1]);
+				
+				if(A!=B){	
+					alimento = bolsa.get(A);
+					if(alimento==null){
+						bolsa.put(A, 1);
+					}
+					else{
+						bolsa.put(A, alimento+1);
+					}
+					
+				    pokemon = bolsa.get(B);
+					if(pokemon==null || pokemon<=0){
+						aliminicial++;
+						numinicial = numalimentos.get(B);
+						if(numinicial==null){
+						numalimentos.put(B, 1);
+						}
+						else{
+
+							numalimentos.put(B, numinicial+1);
+						}
+					}
+					else{
+						bolsa.put(B, pokemon-1);
+					}
+				}
+			}
+	
+			for(Map.Entry<Integer, Integer> entry :numalimentos.entrySet())
+			{
+				System.out.print(entry.getKey()+" ");
+				System.out.println(entry.getValue());
+				
+			}
+
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class E {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int j;
+	public static int T;
+	public static int N;
+	public static int A;
+	public static int B;
+	public static Integer inicial;
+	public static Integer inicial2;
+	public static Integer nmayor;
+	public static Integer nmenor;
+	public static Integer nmayork;
+	public static Integer nmenork;
+	public static int aliminicial;
+	public static Integer alimento;
+	public static Integer pokemon;
+	public static Integer numinicial;
+	
+	public static void main(String[] args) {
+		
+		T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 1; i <= T; i++) {
+			
+			System.out.println("Case #"+i+":");
+			
+			N = Integer.parseInt(Entrada.nextLine());
+			
+			HashMap<Integer,Integer> bolsa = new HashMap<>();
+			HashMap<Integer,Integer> numalimentos = new HashMap<>();
+			
+			aliminicial=0;
+			
+			for (int j = 0; j < N; j++) {
+				String [] lines = Entrada.nextLine().split(" ");
+				A = Integer.parseInt(lines[0]);
+				B = Integer.parseInt(lines[1]);
+				
+				if(A!=B){	
+					alimento = bolsa.get(A);
+					if(alimento==null){
+						bolsa.put(A, 1);
+					}
+					else{
+						bolsa.put(A, alimento+1);
+					}
+					
+				    pokemon = bolsa.get(B);
+					if(pokemon==null || pokemon<=0){
+						aliminicial++;
+						numinicial = numalimentos.get(B);
+						if(numinicial==null){
+						numalimentos.put(B, 1);
+						}
+						else{
+
+							numalimentos.put(B, numinicial+1);
+						}
+					}
+					else{
+						bolsa.put(B, pokemon-1);
+					}
+				}
+			}
+	          inicial=0;
+	          inicial2=0;
+			for(Map.Entry<Integer, Integer> entry :numalimentos.entrySet())
+			{
+				//System.out.print(entry.getKey()+" ");
+				//System.out.println(entry.getValue());
+				if(inicial==0){
+					nmayor=entry.getValue();
+					nmenor=entry.getValue();
+					inicial++;
+				} else if(entry.getValue()<nmenor){
+					nmenor=entry.getValue();
+				} else if(entry.getValue()>nmayor){
+					nmayor=entry.getValue();
+				} 
+			}
+			
+			for(Map.Entry<Integer, Integer> entry :numalimentos.entrySet())
+			{
+				//System.out.print(entry.getKey()+" ");
+				//System.out.println(entry.getValue());
+				if(inicial2==0){
+					nmayork=entry.getKey();
+					nmenork=entry.getKey();
+					inicial2++;
+				} else if(entry.getKey()<nmenork){
+					nmenork=entry.getKey();
+				} else if(entry.getKey()>nmayork){
+					nmayork=entry.getKey();
+				} 
+			}
+
+			System.out.println(nmayor +" "+nmayork);
+			System.out.println(nmenor+" "+nmenork);
+			
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+//Clase Dikstra propiedad de Jhosimar George Arias Figueroa
+
+public class C {
+
+	//similar a los definidos de C++
+	static final int MAX = 10005;  //maximo numero de vértices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int ratones;
+	static int E;
+	static int T;
+	
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady ; //lista de adyacencia
+	static int distancia[ ];          //distancia[ u ] distancia de vértice inicial a vértice con ID = u
+	static boolean visitado[ ] ;   //para vértices visitados
+	static PriorityQueue< Node > Q ; //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[];              //para la impresion de caminos
+	
+	//función de inicialización
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vértices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion(int actual, int adyacente, int peso) {
+		if (distancia[actual] + peso < distancia[adyacente]) {
+			distancia[adyacente] = distancia[actual] + peso;
+			previo[adyacente] = actual;
+			Q.add(new Node(adyacente, distancia[adyacente]));
+		}
+	}
+	
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra(int inicial) {
+		init();
+		Q.add(new Node(inicial, 0));
+		distancia[inicial] = 0;
+		int actual, adyacente, peso;
+		while (!Q.isEmpty()) {
+			actual = Q.element().first;
+			Q.remove();
+			if (visitado[actual])
+				continue;
+			visitado[actual] = true;
+
+			for (int i = 0; i < ady.get(actual).size(); ++i) {
+				adyacente = ady.get(actual).get(i).first;
+				peso = ady.get(actual).get(i).second;
+				if (!visitado[adyacente]) {
+					relajacion(actual, adyacente, peso);
+				}
+			}
+		}
+
+		if (distancia[E] <= T)
+			ratones++;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		int i;
+		int j;
+		int l;
+		int k;
+		int casos;
+		int M;
+		int origen;
+		int destino;
+		int peso;
+		
+		casos=sc.nextInt();
+				
+		for(i=0; i<casos; i++){
+			System.out.println("Case #" + (i + 1) + ":");
+		
+		V = sc.nextInt();
+		E = sc.nextInt()+1;
+		T = sc.nextInt();
+		
+		M =sc.nextInt();
+	    
+		ratones=0;
+		
+		ady = new ArrayList<List<Node>>();
+		distancia = new int[MAX];
+		visitado = new boolean[MAX];
+		Q = new PriorityQueue<Node>();
+		previo = new int[MAX];
+		
+		for( j = 0 ; j <= V ; j++ ){
+			ady.add(new ArrayList<Node>());
+		}
+		for( l = 0 ; l < M ; l++ ){
+			origen = sc.nextInt()+1; 
+			destino = sc.nextInt()+1; 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );   
+		}
+	
+		
+		for (k = 1; k <= V; k++) {
+			dijkstra(k);
+		}
+	    
+		System.out.println(ratones);
+	}
+	}
+	
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+//Clase Dikstra propiedad de Jhosimar George Arias Figueroa
+
+public class C {
+
+	//similar a los definidos de C++
+	static final int MAX = 10005;  //maximo numero de vértices
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int ratones;
+	static int E;
+	static int T;
+	
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady ; //lista de adyacencia
+	static int distancia[ ];          //distancia[ u ] distancia de vértice inicial a vértice con ID = u
+	static boolean visitado[ ] ;   //para vértices visitados
+	static PriorityQueue< Node > Q ; //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[];              //para la impresion de caminos
+	
+	//función de inicialización
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; //inicializamos todos los vértices como no visitados
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion(int actual, int adyacente, int peso) {
+		if (distancia[actual] + peso < distancia[adyacente]) {
+			distancia[adyacente] = distancia[actual] + peso;
+			previo[adyacente] = actual;
+			Q.add(new Node(adyacente, distancia[adyacente]));
+		}
+	}
+	
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra(int inicial) {
+		init();
+		Q.add(new Node(inicial, 0));
+		distancia[inicial] = 0;
+		int actual, adyacente, peso;
+		while (!Q.isEmpty()) {
+			actual = Q.element().first;
+			Q.remove();
+			if (visitado[actual])
+				continue;
+			visitado[actual] = true;
+
+			for (int i = 0; i < ady.get(actual).size(); ++i) {
+				adyacente = ady.get(actual).get(i).first;
+				peso = ady.get(actual).get(i).second;
+				if (!visitado[adyacente]) {
+					relajacion(actual, adyacente, peso);
+				}
+			}
+		}
+
+		if (distancia[E] <= T)
+			ratones++;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		int i;
+		int j;
+		int l;
+		int k;
+		int casos;
+		int M;
+		int origen;
+		int destino;
+		int peso;
+		
+		casos=sc.nextInt();
+				
+		for(i=0; i<casos; i++){
+			System.out.println("Case #" + (i + 1) + ":");
+		
+		V = sc.nextInt();
+		E = sc.nextInt()+1;
+		T = sc.nextInt();
+		
+		M =sc.nextInt();
+	    
+		ratones=0;
+		
+		ady = new ArrayList<List<Node>>();
+		distancia = new int[MAX];
+		visitado = new boolean[MAX];
+		Q = new PriorityQueue<Node>();
+		previo = new int[MAX];
+		
+		for( j = 0 ; j <= V ; j++ ){
+			ady.add(new ArrayList<Node>());
+		}
+		for( l = 0 ; l < M ; l++ ){
+			origen = sc.nextInt()+1; 
+			destino = sc.nextInt()+1; 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );   
+		}
+	
+		
+		for (k = 1; k <= V; k++) {
+			dijkstra(k);
+		}
+	    
+		System.out.println(ratones);
+	}
+	}
+	
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.*;
+
+//Clase Dikstra propiedad de Jhosimar George Arias Figueroa
+
+public class C {
+
+	//similar a los definidos de C++
+	static final int MAX = 10005;  
+	static final int INF = 1<<30;  //definimos un valor grande que represente la distancia infinita inicial, basta conque sea superior al maximo valor del peso en alguna de las aristas
+	static int ratones;
+	static int E;
+	static int T;
+	
+	//En el caso de java usamos una clase que representara el pair de C++
+	static class Node implements Comparable<Node>{
+		int first, second;
+		Node( int d , int p ){							//constructor
+			this.first = d;
+			this.second = p;
+		}
+		public int compareTo( Node other){				//es necesario definir un comparador para el correcto funcionamiento del PriorityQueue
+			if( second > other.second ) return 1;
+			if( second == other.second ) return 0;
+			return -1;
+		}
+	};
+	
+
+	
+	static Scanner sc = new Scanner( System.in );	   //para lectura de datos
+	static List< List< Node > > ady ; //lista de adyacencia
+	static int distancia[ ];         
+	static boolean visitado[ ] ;  
+	static PriorityQueue< Node > Q ; //priority queue propia de Java, usamos el comparador definido para que el de menor valor este en el tope
+	static int V;                                      //numero de vertices
+	static int previo[];              //para la impresion de caminos
+	
+	
+	static void init(){
+	    for( int i = 0 ; i <= V ; ++i ){
+	        distancia[ i ] = INF;  //inicializamos todas las distancias con valor infinito
+	        visitado[ i ] = false; 
+	        previo[ i ] = -1;      //inicializamos el previo del vertice i con -1
+	    }
+	}
+
+	//Paso de relajacion
+	static void relajacion(int actual, int adyacente, int peso) {
+		if (distancia[actual] + peso < distancia[adyacente]) {
+			distancia[adyacente] = distancia[actual] + peso;
+			previo[adyacente] = actual;
+			Q.add(new Node(adyacente, distancia[adyacente]));
+		}
+	}
+	
+	//Impresion del camino mas corto desde el vertice inicial y final ingresados
+	static void print( int destino ){
+	    if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
+	        print( previo[ destino ] );  //recursivamente sigo explorando
+	    System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
+	}
+
+	
+	static void dijkstra(int inicial) {
+		init();
+		Q.add(new Node(inicial, 0));
+		distancia[inicial] = 0;
+		int actual, adyacente, peso;
+		while (!Q.isEmpty()) {
+			actual = Q.element().first;
+			Q.remove();
+			if (visitado[actual])
+				continue;
+			visitado[actual] = true;
+
+			for (int i = 0; i < ady.get(actual).size(); ++i) {
+				adyacente = ady.get(actual).get(i).first;
+				peso = ady.get(actual).get(i).second;
+				if (!visitado[adyacente]) {
+					relajacion(actual, adyacente, peso);
+				}
+			}
+		}
+
+		if (distancia[E] <= T)
+			ratones++;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		int i;
+		int j;
+		int l;
+		int k;
+		int casos;
+		int M;
+		int origen;
+		int destino;
+		int peso;
+		
+		casos=sc.nextInt();
+				
+		for(i=0; i<casos; i++){
+			System.out.println("Case #" + (i + 1) + ":");
+		
+		V = sc.nextInt();
+		E = sc.nextInt()+1;
+		T = sc.nextInt();
+		
+		M =sc.nextInt();
+	    
+		ratones=0;
+		
+		ady = new ArrayList<List<Node>>();
+		distancia = new int[MAX];
+		visitado = new boolean[MAX];
+		Q = new PriorityQueue<Node>();
+		previo = new int[MAX];
+		
+		for( j = 0 ; j <= V ; j++ ){
+			ady.add(new ArrayList<Node>());
+		}
+		for( l = 0 ; l < M ; l++ ){
+			origen = sc.nextInt()+1; 
+			destino = sc.nextInt()+1; 
+			peso = sc.nextInt();
+			ady.get( origen ).add( new Node( destino , peso ) );   
+		}
+	
+		
+		for (k = 1; k <= V; k++) {
+			dijkstra(k);
+		}
+	    
+		System.out.println(ratones);
+	}
+	}
+	
+	
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+
+public class A {
+	
+	public static Scanner Entrada = new Scanner(System.in);
+	public static int i;
+	public static int estaciones;
+	public static int T;
+	public static int N;
+	public static int M;
+	public static int e1;
+	public static int e2;
+	public static int numero;
+
+	static class MyCola<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyCola( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	    /**
+	     * Returns the number of items in this collection.
+	     * @return the number of items in this collection.
+	     */
+	    public int size( )
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( )
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    public void enqueue(AnyType x )
+	    {
+	       add(x);
+	    }
+	    
+	    public AnyType dequeue()
+	    {
+	    	return remove(0);
+	    }
+	    
+	    public AnyType peek()
+	    {
+	    	return get(0);
+	    }
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).data;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.data;
+	        
+	        p.data = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.data;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( );
+
+	        for( AnyType x : this )
+	            sb.append( x );
+	 
+
+	        return new String( sb );
+	    }
+
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.data;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyCola.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private static class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            data = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType data;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+	
+	static class MyLinkedList<AnyType> implements Iterable<AnyType> {
+
+		public MyLinkedList() {
+			doClear();
+		}
+
+		private void clear() {
+			doClear();
+		}
+
+		public void doClear() {
+			beginMarker = new Node<>(null, null, null);
+			endMarker = new Node<>(null, beginMarker, null);
+			beginMarker.next = endMarker;
+
+			theSize = 0;
+			modCount++;
+		}
+
+		public int size() {
+			return theSize;
+		}
+
+		public boolean isEmpty() {
+			return size() == 0;
+		}
+
+		public boolean add(AnyType x) {
+
+			add(size(), x);
+			return true;
+		}
+
+		public void add(int idx, AnyType x) {
+			addBefore(getNode(idx, 0, size()), x);
+		}
+
+		private void addBefore(Node<AnyType> p, AnyType x) {
+			Node<AnyType> newNode = new Node<>(x, p.prev, p);
+			newNode.prev.next = newNode;
+			p.prev = newNode;
+			theSize++;
+			modCount++;
+		}
+
+		public AnyType get(int idx) {
+			return getNode(idx).data;
+		}
+
+		public AnyType set(int idx, AnyType newVal) {
+			Node<AnyType> p = getNode(idx);
+			AnyType oldVal = p.data;
+
+			p.data = newVal;
+			return oldVal;
+		}
+
+		private Node<AnyType> getNode(int idx) {
+			return getNode(idx, 0, size() - 1);
+		}
+
+		private Node<AnyType> getNode(int idx, int lower, int upper) {
+			Node<AnyType> p;
+			if (idx < lower || idx > upper)
+				throw new IndexOutOfBoundsException("getNode index: " + idx + "; size: " + size());
+			if (idx < size() / 2) {
+				p = beginMarker.next;
+				for (int i = 0; i < idx; i++)
+					p = p.next;
+			} else {
+				p = endMarker;
+				for (int i = size(); i > idx; i--)
+					p = p.prev;
+			}
+			return p;
+		}
+
+		public AnyType remove(int idx) {
+			return remove(getNode(idx));
+		}
+
+		private AnyType remove(Node<AnyType> p) {
+			p.next.prev = p.prev;
+			p.prev.next = p.next;
+			theSize--;
+			modCount++;
+
+			return p.data;
+		}
+
+		public String toString() {
+			StringBuilder sb = new StringBuilder();
+
+			for (AnyType x : this)
+				sb.append(x);
+
+			return new String(sb);
+		}
+
+		public java.util.Iterator<AnyType> iterator() {
+			return new LinkedListIterator();
+		}
+
+		private class LinkedListIterator implements java.util.Iterator<AnyType> {
+			private Node<AnyType> current = beginMarker.next;
+			private int expectedModCount = modCount;
+			private boolean okToRemove = false;
+
+			public boolean hasNext() {
+				return current != endMarker;
+			}
+
+			public AnyType next() {
+				if (modCount != expectedModCount)
+					throw new java.util.ConcurrentModificationException();
+				if (!hasNext())
+					throw new java.util.NoSuchElementException();
+
+				AnyType nextItem = current.data;
+				current = current.next;
+				okToRemove = true;
+				return nextItem;
+			}
+
+			public void remove() {
+				if (modCount != expectedModCount)
+					throw new java.util.ConcurrentModificationException();
+				if (!okToRemove)
+					throw new IllegalStateException();
+
+				MyLinkedList.this.remove(current.prev);
+				expectedModCount++;
+				okToRemove = false;
+			}
+		}
+
+		private static class Node<AnyType> {
+			public Node(AnyType d, Node<AnyType> p, Node<AnyType> n) {
+				data = d;
+				prev = p;
+				next = n;
+			}
+
+			public AnyType data;
+			public Node<AnyType> prev;
+			public Node<AnyType> next;
+		}
+
+		private int theSize;
+		private int modCount = 0;
+		private Node<AnyType> beginMarker;
+		private Node<AnyType> endMarker;
+	}
+	
+	static class Nodo {
+		MyLinkedList<Integer> cadenaNodos;
+
+		public Nodo() {
+			cadenaNodos = new MyLinkedList<>();
+		}
+	}
+
+	static class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
+		public BinarySearchTree() {
+			root = null;
+		}
+
+		public void insert(AnyType x) {
+			root = insert(x, root);
+		}
+
+		public void remove(AnyType x) {
+			root = remove(x, root);
+		}
+
+		public AnyType findMin() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return findMin(root).element;
+		}
+
+		public AnyType findMax() throws Exception {
+			if (isEmpty())
+				throw new Exception();
+			return findMax(root).element;
+		}
+
+		public boolean contains(AnyType x) {
+			return contains(x, root);
+		}
+
+		public void makeEmpty() {
+			root = null;
+		}
+
+		public boolean isEmpty() {
+			return root == null;
+		}
+
+		public void printTree() {
+			if (isEmpty())
+				System.out.println("Empty tree");
+			else
+				printTree(root);
+		}
+
+		private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+			if (t == null)
+				return new BinaryNode<>(x, null, null);
+
+			int compareResult = x.compareTo(t.element);
+
+			if (compareResult < 0)
+				t.left = insert(x, t.left);
+			else if (compareResult > 0)
+				t.right = insert(x, t.right);
+			else
+				;
+			return t;
+		}
+
+		private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+			if (t == null)
+				return t;
+
+			int compareResult = x.compareTo(t.element);
+
+			if (compareResult < 0)
+				t.left = remove(x, t.left);
+			else if (compareResult > 0)
+				t.right = remove(x, t.right);
+			else if (t.left != null && t.right != null) {
+				t.element = findMin(t.right).element;
+				t.right = remove(t.element, t.right);
+			} else
+				t = (t.left != null) ? t.left : t.right;
+			return t;
+		}
+
+		private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
+			if (t == null)
+				return null;
+			else if (t.left == null)
+				return t;
+			return findMin(t.left);
+		}
+
+		private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+			if (t != null)
+				while (t.right != null)
+					t = t.right;
+
+			return t;
+		}
+
+		private boolean contains(AnyType x, BinaryNode<AnyType> t) {
+			if (t == null)
+				return false;
+
+			int compareResult = x.compareTo(t.element);
+
+			if (compareResult < 0)
+				return contains(x, t.left);
+			else if (compareResult > 0)
+				return contains(x, t.right);
+			else
+				return true;
+		}
+
+		private void printTree(BinaryNode<AnyType> t) {
+			if (t != null) {
+				printTree(t.left);
+				System.out.println(t.element);
+				printTree(t.right);
+			}
+		}
+
+		private static class BinaryNode<AnyType> {
+			BinaryNode(AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt) {
+				element = theElement;
+				left = lt;
+				right = rt;
+			}
+
+			AnyType element;
+			BinaryNode<AnyType> left;
+			BinaryNode<AnyType> right;
+		}
+
+		private BinaryNode<AnyType> root;
+	}
+	
+	   
+		public static void main(String[] args) {
+			
+			T = Integer.parseInt(Entrada.nextLine());
+			
+			for (i = 0; i < T; i++) {
+				
+				System.out.println("Case #" + (i + 1) + ":");
+				
+				estaciones = 0;
+				String line[] = Entrada.nextLine().split(" ");
+				N = Integer.parseInt(line[0]);
+				M = Integer.parseInt(line[1]);
+
+				MyCola<Integer> cola = new MyCola<>();
+				BinarySearchTree<Integer> caminos = new BinarySearchTree<>();
+				Nodo[] BFS = new Nodo[N];
+				
+				for (int j = 0; j < M; j++) {
+					String line2[] = Entrada.nextLine().split(" ");
+					e1 = Integer.parseInt(line2[0]);
+					e2 = Integer.parseInt(line2[1]);
+					if (BFS[e1] == null) {
+						Nodo aux = new Nodo();
+						BFS[e1] = aux;
+					}
+					if (BFS[e2] == null) {
+						Nodo aux = new Nodo();
+						BFS[e2] = aux;
+					}
+					BFS[e1].cadenaNodos.add(e2);
+					BFS[e2].cadenaNodos.add(e1);
+				}
+				int s = Integer.parseInt(Entrada.nextLine());
+				
+				cola.enqueue(s);
+				caminos.insert(s);
+				
+				while (!cola.isEmpty()) {
+					numero = cola.dequeue();
+					if (BFS[numero] != null) {
+					for (Integer n : BFS[numero].cadenaNodos) {
+					if (!caminos.contains(n)) {
+							cola.enqueue(n);
+							caminos.insert(n);
+							estaciones++;
+							}
+						}
+					}
+				}
+				System.out.println(estaciones);
+			}
+		}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class TopologicalSortGraph {
+
+    public static Scanner Entrada = new Scanner(System.in);
+    public static int T;
+    public static int i;
+    public static int j;
+    public static int k;
+    public static int N;
+    public static int M;
+    public static String u;
+    public static String v;
+	
+    /**
+     *  This Topological Sort implementation takes the example graph in 
+     *  Version 1: implementation with unweighted
+     *  Assumption : Graph is directed 
+     */
+    TopologicalSortGraph Graph = new TopologicalSortGraph();
+    //public LinkedList<Node> nodes  = new LinkedList<Node>();
+
+    public static void  topologicalSort(Graph graph) {
+        Queue<Node> q = new LinkedList<Node>();
+        int vertexProcessesCtr = 0;
+        for(Node m : graph.nodes){
+            if(m.inDegree==0){
+                ++vertexProcessesCtr;
+                q.add(m);
+                System.out.println(m.data);
+            }
+        }
+        while(!q.isEmpty()) {
+            Node m = q.poll();
+
+            //System.out.println(m.data);
+            for(Node child : m.AdjacenctNode){
+                --child.inDegree;
+                if(child.inDegree==0){
+                    q.add(child);
+                    ++vertexProcessesCtr;
+                    System.out.println(child.data);
+                }
+            }
+
+        }
+        if(vertexProcessesCtr > graph.vertices) {
+            System.out.println();
+        }
+
+
+    }
+
+    public static void main(String[] args) {
+    	
+    	String nombre;
+    	
+    	T = Integer.parseInt(Entrada.nextLine());
+		
+		for (i = 0; i < T; i++) {
+			
+			System.out.println("Case #" + (i + 1) + ":");
+
+			String line[] = Entrada.nextLine().split(" ");
+			N = Integer.parseInt(line[0]);
+			M = Integer.parseInt(line[1]);
+
+			Graph g= new Graph();
+			g.vertices=N;
+
+			for (j = 0; j < M; j++) {
+				String lines[] = Entrada.nextLine().split(" ");
+				u =lines[0];
+				v = lines[1];
+				
+				Node u = new Node("u");
+				Node v = new Node("v");
+				
+				u.AdjacenctNode.add(v);
+				    v.inDegree++;	
+				    
+				    g.nodes.add(u);    
+				    g.nodes.add(v); 
+			}
+			
+			topologicalSort(g);
+		}
+
+    }
+}
+
+class Graph {
+    public int vertices;
+    LinkedList<Node> nodes = new LinkedList<Node>();
+}
+
+class Node {
+    public String data;
+    public int dist;
+    public int inDegree;
+    LinkedList<Node> AdjacenctNode = new LinkedList<Node>( );
+
+    public void addAdjNode(final Node Child){
+        AdjacenctNode.add(Child);
+        Child.inDegree++;
+    }
+
+    public Node(String data) {
+        super();
+        this.data = data;
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class TopologicalSortGraph {
+	public static Scanner entrada = new Scanner(System.in);
+	public static Node[] arreglo; 
+
+	public static void main(String[] args) {
+		int numeroCasos = Integer.parseInt(entrada.nextLine());
+		for (int z = 0; z < numeroCasos; z++) {
+			System.out.println("Case #" + (z + 1) + ":");
+			
+			String line[] = entrada.nextLine().split(" ");
+			int N = Integer.parseInt(line[0]);
+			int M = Integer.parseInt(line[1]);
+			arreglo = new Node[N];
+			
+			for (int i = 0; i < N; i++) {
+				Node aux = new Node(String.valueOf(i));
+				arreglo[i] = aux; 
+			}
+			
+			for (int j = 0; j < M; j++) {
+				String line2[] = entrada.nextLine().split(" ");
+				int u = Integer.parseInt(line2[0]);
+				int v = Integer.parseInt(line2[1]);
+				arreglo[u].addEdge(arreglo[v]);
+			}
+
+			Node[] allNodes = arreglo;
+			// L <- Empty list that will contain the sorted elements
+			ArrayList<Node> L = new ArrayList<Node>();
+
+			// S <- Set of all nodes with no incoming edges
+			HashSet<Node> S = new HashSet<Node>();
+			for (Node n : allNodes) {
+				if (n.inEdges.size() == 0) {
+					S.add(n);
+				}
+			}
+
+			// while S is non-empty do
+			while (!S.isEmpty()) {
+				// remove a node n from S
+				Node n = S.iterator().next();
+				S.remove(n);
+
+				// insert n into L
+				L.add(n);
+
+				// for each node m with an edge e from n to m do
+				for (Iterator<Edge> it = n.outEdges.iterator(); it.hasNext();) {
+					// remove edge e from the graph
+					Edge e = it.next();
+					Node m = e.to;
+					it.remove();// Remove edge from n
+					m.inEdges.remove(e);// Remove edge from m
+
+					// if m has no other incoming edges then insert m into S
+					if (m.inEdges.isEmpty()) {
+						S.add(m);
+					}
+				}
+			}
+			// Check to see if all edges are removed
+			boolean cycle = false;
+			for (Node n : allNodes) {
+				if (!n.inEdges.isEmpty()) {
+					cycle = true;
+					break;
+				}
+			}
+			if (cycle) {
+				System.out.println("Cycle present, topological sort not possible");
+			} else {
+				System.out.println(L.toString().replace("[", "").replace(",", "").replace("]", ""));
+			}
+		}
+	}
+
+	static class Node {
+		public final String name;
+		public final HashSet<Edge> inEdges;
+		public final HashSet<Edge> outEdges;
+
+		public Node(String name) {
+			this.name = name;
+			inEdges = new HashSet<Edge>();
+			outEdges = new HashSet<Edge>();
+		}
+
+		public Node addEdge(Node node) {
+			Edge e = new Edge(this, node);
+			outEdges.add(e);
+			node.inEdges.add(e);
+			return this;
+		}
+
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+
+	static class Edge {
+		public final Node from;
+		public final Node to;
+
+		public Edge(Node from, Node to) {
+			this.from = from;
+			this.to = to;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			Edge e = (Edge) obj;
+			return e.from == from && e.to == to;
+		}
+	}
+
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class TopologicalSortGraph {
+
+		public static Scanner entrada = new Scanner(System.in);
+		public static Node[] arreglo; 
+		static PriorityQueue<Node> S;
+
+		public static void main(String[] args) {
+			int numeroCasos = Integer.parseInt(entrada.nextLine());
+			for (int z = 0; z < numeroCasos; z++) {
+				System.out.println("Case #" + (z + 1) + ":");
+				S = new PriorityQueue<>();
+				
+				String line[] = entrada.nextLine().split(" ");
+				int N = Integer.parseInt(line[0]);
+				int M = Integer.parseInt(line[1]);
+				arreglo = new Node[N];
+				
+				for (int i = 0; i < N; i++) {
+					Node aux = new Node(String.valueOf(i),i);
+					arreglo[i] = aux; 
+				}
+				
+				for (int j = 0; j < M; j++) {
+					String line2[] = entrada.nextLine().split(" ");
+					int u = Integer.parseInt(line2[0]);
+					int v = Integer.parseInt(line2[1]);
+					arreglo[u].addEdge(arreglo[v]);
+				}
+
+				Node[] allNodes = arreglo;
+				// L <- Empty list that will contain the sorted elements
+				ArrayList<Node> L = new ArrayList<Node>();
+
+				// S <- Set of all nodes with no incoming edges
+				
+				for (Node n : allNodes) {
+					if (n.inEdges.size() == 0) {
+						S.add(n);
+					}
+				}
+
+				// while S is non-empty do
+				while (!S.isEmpty()) {
+					// remove a node n from S
+					Node n = S.iterator().next();
+					S.remove(n);
+
+					// insert n into L
+					L.add(n);
+
+					// for each node m with an edge e from n to m do
+					for (Iterator<Edge> it = n.outEdges.iterator(); it.hasNext();) {
+						// remove edge e from the graph
+						Edge e = it.next();
+						Node m = e.to;
+						it.remove();// Remove edge from n
+						m.inEdges.remove(e);// Remove edge from m
+
+						// if m has no other incoming edges then insert m into S
+						if (m.inEdges.isEmpty()) {
+							S.add(m);
+						}
+					}
+				}
+				// Check to see if all edges are removed
+				boolean cycle = false;
+				for (Node n : allNodes) {
+					if (!n.inEdges.isEmpty()) {
+						cycle = true;
+						break;
+					}
+				}
+				if (cycle) {
+					System.out.println("Cycle present, topological sort not possible");
+				} else {
+					System.out.println(L.toString().replace("[", "").replace(",", "").replace("]", ""));
+				}
+			}
+		}
+
+		static class Node  implements Comparable<Node>{
+			public final String name;
+			public final HashSet<Edge> inEdges;
+			public final HashSet<Edge> outEdges;
+			int id;
+
+			public Node(String name, int id) {
+				this.name = name;
+				inEdges = new HashSet<Edge>();
+				outEdges = new HashSet<Edge>();
+				this.id = id;
+			}
+
+			public Node addEdge(Node node) {
+				Edge e = new Edge(this, node);
+				outEdges.add(e);
+				node.inEdges.add(e);
+				return this;
+			}
+
+			@Override
+			public String toString() {
+				return name;
+			}
+			
+			public int compareTo(Node o) {
+				if (id < o.id)
+					return -1;
+				if (id > o.id)
+					return 1;
+				return 0;
+			}
+			
+		}
+
+		static class Edge {
+			public final Node from;
+			public final Node to;
+
+			public Edge(Node from, Node to) {
+				this.from = from;
+				this.to = to;
+			}
+
+			@Override
+			public boolean equals(Object obj) {
+				Edge e = (Edge) obj;
+				return e.from == from && e.to == to;
+			}
+		}
+
+	}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class TopologicalSortGraph {
+
+		public static Scanner entrada = new Scanner(System.in);
+		public static Node[] arreglo; 
+		static Queue<Node> S;
+
+		public static void main(String[] args) {
+			int numeroCasos = Integer.parseInt(entrada.nextLine());
+			for (int z = 0; z < numeroCasos; z++) {
+				System.out.println("Case #" + (z + 1) + ":");
+				S = new LinkedList<>();
+				boolean decision = false;
+				
+				String line[] = entrada.nextLine().split(" ");
+				int N = Integer.parseInt(line[0]);
+				int M = Integer.parseInt(line[1]);
+				arreglo = new Node[N];
+				
+				for (int i = 0; i < N; i++) {
+					Node aux = new Node(String.valueOf(i),i);
+					arreglo[i] = aux; 
+				}
+				
+				for (int j = 0; j < M; j++) {
+					String line2[] = entrada.nextLine().split(" ");
+					int u = Integer.parseInt(line2[0]);
+					int v = Integer.parseInt(line2[1]);
+					arreglo[u].addEdge(arreglo[v]);
+				}
+
+				Node[] allNodes = arreglo;
+				// L <- Empty list that will contain the sorted elements
+				ArrayList<Node> L = new ArrayList<Node>();
+
+				// S <- Set of all nodes with no incoming edges
+				
+				for (Node n : allNodes) {
+					if (n.inEdges.size() == 0) {
+						S.add(n);
+					}
+				}
+
+				if(S.size()>1)
+					decision = true;
+				
+				if(!decision) {
+					while (!S.isEmpty()) {
+						if(S.size()>1){
+							decision = true;
+							break;
+						}// remove a node n from S
+						Node n = S.iterator().next();
+						S.remove(n);
+
+						// insert n into L
+						L.add(n);
+
+						// for each node m with an edge e from n to m do
+						for (Iterator<Edge> it = n.outEdges.iterator(); it.hasNext();) {
+							// remove edge e from the graph
+							Edge e = it.next();
+							Node m = e.to;
+							it.remove();// Remove edge from n
+							m.inEdges.remove(e);// Remove edge from m
+
+							// if m has no other incoming edges then insert m into S
+							if (m.inEdges.isEmpty()) {
+								S.add(m);
+							}
+						}
+					}
+				}
+				if (decision)
+				else
+					System.out.println("Deberia empezar a estudiar");
+				
+			}
+		}
+
+		static class Node  implements Comparable<Node>{
+			public final String name;
+			public final HashSet<Edge> inEdges;
+			public final HashSet<Edge> outEdges;
+			int id;
+
+			public Node(String name, int id) {
+				this.name = name;
+				inEdges = new HashSet<Edge>();
+				outEdges = new HashSet<Edge>();
+				this.id = id;
+			}
+
+			public Node addEdge(Node node) {
+				Edge e = new Edge(this, node);
+				outEdges.add(e);
+				node.inEdges.add(e);
+				return this;
+			}
+
+			@Override
+			public String toString() {
+				return name;
+			}
+			
+			public int compareTo(Node o) {
+				if (id < o.id)
+					return -1;
+				if (id > o.id)
+					return 1;
+				return 0;
+			}
+			
+		}
+
+		static class Edge {
+			public final Node from;
+			public final Node to;
+
+			public Edge(Node from, Node to) {
+				this.from = from;
+				this.to = to;
+			}
+
+			@Override
+			public boolean equals(Object obj) {
+				Edge e = (Edge) obj;
+				return e.from == from && e.to == to;
+			}
+		}
+
+	}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

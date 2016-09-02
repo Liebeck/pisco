@@ -1,0 +1,3453 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+public class ProblemaA {
+
+    public static void main(String[] args) throws IOException {
+        
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String input = in.readLine();
+        
+        int n= Integer.parseInt(input);
+        
+        long lista[]= new long [n];
+        input=in.readLine();
+        
+        lista=readInts(input, n);
+        
+        System.out.println(maximoProducto(lista));
+        
+    }
+    
+    public static long maximoProducto(long arreglo[]){ 
+    	long aux;
+    	for(int i=0; i< arreglo.length; i++){
+    		for(int j=0; j< arreglo.length-1; j++){
+    			
+    			if(arreglo[j]< arreglo[j+1]){
+    				aux= arreglo[j];
+    				arreglo[j]=arreglo[j+1];
+    				arreglo[j+1]=aux;
+    			}
+    			
+    		}
+    		
+    	}
+    	if(arreglo[0]*arreglo[1]>arreglo[arreglo.length-1]*arreglo[arreglo.length-2])
+			return arreglo[0]*arreglo[1];
+    	else 
+    		return arreglo[arreglo.length-1]*arreglo[arreglo.length-2];
+   }
+    
+    
+    	
+	public static long[] readInts(String s, int n) {
+		String split[] = s.split(" ");
+		long arr[] = new long[n];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(split[i]);
+		}
+		return arr;
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+
+
+
+public class ProblemaB {
+	
+	public static void main(String[] args) throws IOException  {
+		
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		String cadena[]= new String [n];
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		for(int i=0; i<n;i++){
+			cadena[i]= in.readLine();
+		}
+		int w[]= wall(cadena);
+		for(int i=0; i<w.length;i++){
+			System.out.println(w[i]);
+		}
+	}
+
+	
+	public static int[] wall(String [] wb){
+		
+		String aux[]= new String [wb.length];
+		int walls[]=new int [wb.length];
+		int w=0;
+		char x='x';
+		for(int i=0; i<wb.length;i++){
+
+			aux[i]= "xx"+wb[i]+"xx";
+		}
+			
+		for(int j=0; j<aux.length;j++){
+			for(int i=2; i<aux[j].length()-2;i++){
+
+				if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')&&(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+			
+					w=w+4;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W' && aux[j].charAt(i+1)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					w=w+3;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W' && aux[j].charAt(i-1)=='W')){
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					aux[j]=cambiar(aux[j],i-1);
+					w=w+3;
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')){
+								
+					w=w+2;
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					
+				}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'){
+					
+					w=w+1;
+					aux[j]=cambiar(aux[j],i-1);
+			}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'){
+				w=w+1;
+				aux[j]=cambiar(aux[j],i+1);
+			}
+		}
+			walls[j]=w;
+			w=0;
+				
+			}
+		
+		
+		return walls;
+		
+	}
+
+	public static String cambiar (String cadena, int indice){
+		String aux="";
+		for(int i=0; i<cadena.length();i++){
+			if (i==indice){
+				aux=aux+'x';
+			}else
+				aux=aux+cadena.charAt(i);
+		}
+		return aux;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+
+public class ProblemaC {
+
+	public static void main(String[] args) throws IOException {
+		int t,n;
+		String input;
+		int aux[];
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		input= in.readLine();
+		t=Integer.parseInt(input);
+		String cadena;
+		aux= new int [t];
+		for(int i=0; i<t; i++){
+			input=in.readLine();
+			n= Integer.parseInt(input);
+			cadena= in.readLine();
+			aux[i]=sub_Cadenas(cadena, n);
+
+		}
+		for(int i=0; i<aux.length;i++){
+			System.out.println(aux[i]);
+		}
+
+	}
+	
+	public static int sub_Cadenas(String cadena, int n){
+		String x= cadena+" ";
+		int count=n;
+		int k=0;
+		for(int i=0; i<x.length()-1;i++){
+				k=i;
+				while((x.charAt(k)<=x.charAt(k+1))&& k<x.length()-1){
+					count++;
+					k++;
+				}
+				
+				
+			} 
+				return count;
+			}
+		
+		
+		
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class ProblemaD {
+
+	public static void main(String[] args) throws IOException {
+		int t,n = 0;
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		String input;
+		String [] chocolate_nxn = null;
+		String [] output;
+		input= in.readLine();
+		t= Integer.parseInt(input);
+		output= new String [t];
+		
+		for(int i=0; i<t; i++){
+			input= in.readLine();
+			n=Integer.parseInt(input);
+			chocolate_nxn= new String [n];
+			for(int j=0; j<n; j++){
+				input= in.readLine();
+				chocolate_nxn [j]= input;
+				
+			}		
+			output[i]=chocolate(chocolate_nxn,n);
+		}
+		for (int i=0; i<t;i++){
+		System.out.println(output[i]);
+		}
+	}
+	
+	public static String chocolate (String [] x,int n){
+			char aux [][]= new char [n][n];
+			int cereza=0;
+			int [] columnaCerezas= new int [n], filaCerezas= new int [n];
+			for (int i=0; i<n; i++){
+				for (int j=0; j<n;j++){
+					aux[i][j]= x[i].charAt(j);
+				}
+			}
+			
+			for (int i=0; i<n;i++){
+				for(int j=0; j<n; j++){
+					if(aux[i][j]== '#' ){
+						filaCerezas[i]++;
+						cereza++;
+					}
+				}
+				
+			}
+			for (int j=0; j<n;j++){
+			for(int i=0; i<n; i++){
+					if(aux[j][i]== '#' ){
+						columnaCerezas[i]++;
+					}
+				}
+			}
+			if(cereza==n*n && cereza%2==0 ){
+				return"YES";
+			}else if (cereza==n*n && cereza%2 !=0){ 
+				return "NO";
+			}else{
+				
+				
+				for(int i=0; i<n;++i){
+					if(i!=0){
+						if((columnaCerezas[i]+columnaCerezas[i-1])==(cereza-(columnaCerezas[i]+columnaCerezas[i-1])) ){
+							return "YES";
+						}else if((filaCerezas[i]+filaCerezas[i-1])==(cereza-(filaCerezas[i]+filaCerezas[i-1]) ) ){
+							return "YES";
+						}
+				}else if(columnaCerezas[i]==cereza-columnaCerezas[i]&& i==0){
+						return "YES";
+					}else if (filaCerezas[i]==cereza-filaCerezas[i]&& i==0 ){
+						return "YES";
+					}else if ((filaCerezas[i]==cereza && cereza%2==0)||(columnaCerezas[i]==cereza && cereza%2==0)){
+						return "YES";
+					}
+					}
+				
+				
+			}
+			
+		return "NO";
+				
+	}
+
+	}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class ProblemaD {
+
+	public static void main(String[] args) throws IOException {
+		int t,n = 0;
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		String input;
+		String [] chocolate_nxn = null;
+		String [] output;
+		input= in.readLine();
+		t= Integer.parseInt(input);
+		output= new String [t];
+		
+		for(int i=0; i<t; i++){
+			input= in.readLine();
+			n=Integer.parseInt(input);
+			chocolate_nxn= new String [n];
+			for(int j=0; j<n; j++){
+				input= in.readLine();
+				chocolate_nxn [j]= input;
+				
+			}		
+			output[i]=chocolate(chocolate_nxn,n);
+		}
+		for (int i=0; i<t;i++){
+		System.out.println(output[i]);
+		}
+	}
+	
+	public static String chocolate (String [] x,int n){
+			char aux [][]= new char [n][n];
+			int cereza=0;
+			int [] columnaCerezas= new int [n], filaCerezas= new int [n];
+			for (int i=0; i<n; i++){
+				for (int j=0; j<n;j++){
+					aux[i][j]= x[i].charAt(j);
+				}
+			}
+			
+			for (int i=0; i<n;i++){
+				for(int j=0; j<n; j++){
+					if(aux[i][j]== '#' ){
+						filaCerezas[i]++;
+						cereza++;
+					}
+				}
+				
+			}
+			for (int j=0; j<n;j++){
+			for(int i=0; i<n; i++){
+					if(aux[j][i]== '#' ){
+						columnaCerezas[i]++;
+					}
+				}
+			}
+			if(cereza==n*n && cereza%2==0 ){
+				return"YES";
+			}else if (cereza==n*n && cereza%2 !=0){ 
+				return "NO";
+			}else{
+				
+				
+				for(int i=0; i<n;++i){
+					if(i!=0){
+						if((columnaCerezas[i]+columnaCerezas[i-1])==(cereza-(columnaCerezas[i]+columnaCerezas[i-1])) ){
+							return "YES";
+						}else if((filaCerezas[i]+filaCerezas[i-1])==(cereza-(filaCerezas[i]+filaCerezas[i-1]) ) ){
+							return "YES";
+						}
+				}else if(columnaCerezas[i]==cereza-columnaCerezas[i]&& i==0){
+						return "YES";
+					}else if (filaCerezas[i]==cereza-filaCerezas[i]&& i==0 ){
+						return "YES";
+					}else if ((filaCerezas[i]==cereza && cereza%2==0)||(columnaCerezas[i]==cereza && cereza%2==0)){
+						return "YES";
+					}
+					}
+				
+				
+			}
+			
+		return "NO";
+				
+	}
+
+	}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class ProblemaD {
+
+	public static void main(String[] args) throws IOException {
+		int t,n = 0;
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		String input;
+		String [] chocolate_nxn = null;
+		String [] output;
+		input= in.readLine();
+		t= Integer.parseInt(input);
+		output= new String [t];
+		
+		for(int i=0; i<t; i++){
+			input= in.readLine();
+			n=Integer.parseInt(input);
+			chocolate_nxn= new String [n];
+			for(int j=0; j<n; j++){
+				input= in.readLine();
+				chocolate_nxn [j]= input;
+				
+			}		
+			output[i]=chocolate(chocolate_nxn,n);
+		}
+		for (int i=0; i<t;i++){
+		System.out.println(output[i]);
+		}
+	}
+	
+	public static String chocolate (String [] x,int n){
+			char aux [][]= new char [n][n];
+			int cereza=0;
+			int [] columnaCerezas= new int [n], filaCerezas= new int [n];
+			for (int i=0; i<n; i++){
+				for (int j=0; j<n;j++){
+					aux[i][j]= x[i].charAt(j);
+				}
+			}
+			
+			for (int i=0; i<n;i++){
+				for(int j=0; j<n; j++){
+					if(aux[i][j]== '#' ){
+						filaCerezas[i]++;
+						cereza++;
+					}
+				}
+				
+			}
+			for (int j=0; j<n;j++){
+			for(int i=0; i<n; i++){
+					if(aux[j][i]== '#' ){
+						columnaCerezas[i]++;
+					}
+				}
+			}
+			if(cereza==n*n && cereza%2==0 ){
+				return"YES";
+			}else if (cereza==n*n && cereza%2 !=0){ 
+				return "NO";
+			}else{
+				
+				
+				for(int i=0; i<n;++i){
+					if(i!=0){
+						if((columnaCerezas[i]+columnaCerezas[i-1])==(cereza-(columnaCerezas[i]+columnaCerezas[i-1])) ){
+							return "YES";
+						}else if((filaCerezas[i]+filaCerezas[i-1])==(cereza-(filaCerezas[i]+filaCerezas[i-1]) ) ){
+							return "YES";
+						}
+				}else if(columnaCerezas[i]==cereza-columnaCerezas[i]&& i==0){
+						return "YES";
+					}else if (filaCerezas[i]==cereza-filaCerezas[i]&& i==0 ){
+						return "YES";
+					}else if ((filaCerezas[i]==cereza && cereza%2==0)||(columnaCerezas[i]==cereza && cereza%2==0)){
+						return "YES";
+					}
+					}
+				
+				
+			}
+			
+		return "NO";
+				
+	}
+
+	}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+
+
+
+public class ProblemaB {
+	
+	public static void main(String[] args) throws IOException  {
+		
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		String cadena[]= new String [n];
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		for(int i=0; i<n;i++){
+			cadena[i]= in.readLine();
+		}
+		int w[]= wall(cadena);
+		for(int i=0; i<w.length;i++){
+			System.out.println(w[i]);
+		}
+	}
+
+	
+	public static int[] wall(String [] wb){
+		
+		String aux[]= new String [wb.length];
+		int walls[]=new int [wb.length];
+		int w=0;
+		char x='x';
+		for(int i=0; i<wb.length;i++){
+
+			aux[i]= "xx"+wb[i]+"xx";
+		}
+			
+		for(int j=0; j<aux.length;j++){
+			for(int i=2; i<aux[j].length()-2;i++){
+
+				if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')&&(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+			
+					w=w+4;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W' && aux[j].charAt(i+1)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					w=w+3;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W' && aux[j].charAt(i-1)=='W')){
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					aux[j]=cambiar(aux[j],i-1);
+					w=w+3;
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')){
+								
+					w=w+2;
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i-1)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i-1);
+					
+				}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'){
+					
+					w=w+1;
+					aux[j]=cambiar(aux[j],i-1);
+			}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'){
+				w=w+1;
+				aux[j]=cambiar(aux[j],i+1);
+			}
+		}
+			walls[j]=w;
+			w=0;
+				
+			}
+		
+		
+		return walls;
+		
+	}
+
+	public static String cambiar (String cadena, int indice){
+		String aux="";
+		for(int i=0; i<cadena.length();i++){
+			if (i==indice){
+				aux=aux+'x';
+			}else
+				aux=aux+cadena.charAt(i);
+		}
+		return aux;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+public class ProblemaB {
+	
+	public static void main(String[] args) throws IOException  {
+		
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		String cadena[]= new String [n];
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		for(int i=0; i<n;i++){
+			cadena[i]= in.readLine();
+		}
+		int w[]= wall(cadena);
+		for(int i=0; i<w.length;i++){
+			System.out.println(w[i]);
+		}
+	}
+
+	
+	public static int[] wall(String [] wb){
+		
+		String aux[]= new String [wb.length];
+		int walls[]=new int [wb.length];
+		int w=0;
+		for(int i=0; i<wb.length;i++){
+
+			aux[i]= "xx"+wb[i]+"xx";
+		}
+			
+		for(int j=0; j<aux.length;j++){
+			for(int i=2; i<aux[j].length()-2;i++){
+
+				if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')&&(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+			
+					w=w+4;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W' && aux[j].charAt(i+1)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					w=w+3;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W' && aux[j].charAt(i-1)=='W')){
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					aux[j]=cambiar(aux[j],i-1);
+					w=w+3;
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')){
+								
+					w=w+2;
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i-1)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i-1);
+					
+				}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'){
+					
+					w=w+1;
+					aux[j]=cambiar(aux[j],i-1);
+			}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'){
+				w=w+1;
+				aux[j]=cambiar(aux[j],i+1);
+			}
+		}
+			walls[j]=w;
+			w=0;
+				
+			}
+		
+		
+		return walls;
+		
+	}
+
+	public static String cambiar (String cadena, int indice){
+		String aux="";
+		for(int i=0; i<cadena.length();i++){
+			if (i==indice){
+				aux=aux+'x';
+			}else
+				aux=aux+cadena.charAt(i);
+		}
+		return aux;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+public class ProblemaB {
+	
+	public static void main(String[] args) throws IOException  {
+		
+		
+		
+	
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		String naux= in.readLine();
+		int n= Integer.parseInt(naux);
+		String cadena[]= new String [n];
+		
+		for(int i=0; i<n;i++){
+			cadena[i]= in.readLine();
+		}
+		int w[]= wall(cadena);
+		for(int i=0; i<w.length;i++){
+			System.out.println(w[i]);
+		}
+	}
+
+	
+	public static int[] wall(String [] wb){
+		
+		String aux[]= new String [wb.length];
+		int walls[]=new int [wb.length];
+		int w=0;
+		for(int i=0; i<wb.length;i++){
+
+			aux[i]= "xx"+wb[i]+"xx";
+		}
+			
+		for(int j=0; j<aux.length;j++){
+			for(int i=2; i<aux[j].length()-2;i++){
+
+				if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')&&(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+			
+					w=w+4;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W' && aux[j].charAt(i+1)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					w=w+3;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W' && aux[j].charAt(i-1)=='W')){
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					aux[j]=cambiar(aux[j],i-1);
+					w=w+3;
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')){
+								
+					w=w+2;
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i-1)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i-1);
+					
+				}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'){
+					
+					w=w+1;
+					aux[j]=cambiar(aux[j],i-1);
+			}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'){
+				w=w+1;
+				aux[j]=cambiar(aux[j],i+1);
+			}
+		}
+			walls[j]=w;
+			w=0;
+				
+			}
+		
+		
+		return walls;
+		
+	}
+
+	public static String cambiar (String cadena, int indice){
+		String aux="";
+		for(int i=0; i<cadena.length();i++){
+			if (i==indice){
+				aux=aux+'x';
+			}else
+				aux=aux+cadena.charAt(i);
+		}
+		return aux;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+public class ProblemaB {
+	
+	public static void main(String[] args) throws IOException  {
+		
+		
+		
+	
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		String naux= in.readLine();
+		int n= Integer.parseInt(naux);
+		String cadena[]= new String [n];
+		
+		for(int i=0; i<n;i++){
+			cadena[i]= in.readLine();
+		}
+		int w[]= wall(cadena);
+		for(int i=0; i<w.length;i++){
+			System.out.println(w[i]);
+		}
+	}
+
+	
+	public static int[] wall(String [] wb){
+		
+		String aux[]= new String [wb.length];
+		int walls[]=new int [wb.length];
+		int w=0;
+		for(int i=0; i<wb.length;i++){
+
+			aux[i]= "xx"+wb[i]+"xx";
+		}
+			
+		for(int j=0; j<aux.length;j++){
+			for(int i=2; i<aux[j].length()-2;i++){
+
+				if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')&&(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+			
+					w=w+4;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W' && aux[j].charAt(i+1)=='W')){
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					aux[j]=cambiar(aux[j],i+1);
+					w=w+3;
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W' && aux[j].charAt(i-1)=='W')){
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					aux[j]=cambiar(aux[j],i-1);
+					w=w+3;
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'&&aux[j].charAt(i-2)=='W')){
+								
+					w=w+2;
+					aux[j]=cambiar(aux[j],i-1);
+					aux[j]=cambiar(aux[j],i-2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i+2)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i+2);
+					
+				}else if((aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'&&aux[j].charAt(i-1)=='W')){
+					
+					w=w+2;
+					aux[j]=cambiar(aux[j],i+1);
+					aux[j]=cambiar(aux[j],i-1);
+					
+				}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i-1)=='W'){
+					
+					w=w+1;
+					aux[j]=cambiar(aux[j],i-1);
+			}else if(aux[j].charAt(i)=='B'&& aux[j].charAt(i+1)=='W'){
+				w=w+1;
+				aux[j]=cambiar(aux[j],i+1);
+			}
+		}
+			walls[j]=w;
+			w=0;
+				
+			}
+		
+		
+		return walls;
+		
+	}
+
+	public static String cambiar (String cadena, int indice){
+		String aux="";
+		for(int i=0; i<cadena.length();i++){
+			if (i==indice){
+				aux=aux+'x';
+			}else
+				aux=aux+cadena.charAt(i);
+		}
+		return aux;
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaA {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p))
+							map.get(c).getTimeAux().put(p, 0);
+						
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,0);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+					}else{
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:													
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p))//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+		}
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Hashtable;
+import java.util.Scanner;
+//No funciona 
+class ProblemaC {
+	
+	  static int[] relacion;
+	  static int[] tam;
+
+	
+            public static int findSet(int i) {
+                if (relacion[i] == i) {
+                    return i;
+                }
+                return findSet(relacion[i]);
+            }
+
+                public static boolean isSameSet(int i, int j) {
+                    return findSet(i) == findSet(j);
+                }
+
+    public static void union(int i, int j) {
+        if (!isSameSet(i, j)) {
+            tam[findSet(j)] += tam[findSet(i)];   
+            relacion[findSet(i)] = findSet(j);
+        }
+    }
+
+
+public static void main(String[] args) {
+    int aux = 1;
+    Scanner in = new Scanner(System.in);    
+    int t = Integer.parseInt(in.nextLine());
+    
+    relacion = new int[100000];
+    tam = new int[100000];
+    
+    for (int i = 0; i < t; i++) {
+    	
+        int n = Integer.parseInt(in.nextLine());
+            for (int j = 0; j <= n+1; j++) {////// j<n+1
+                relacion[j] = j;
+                tam[j] = 1;        
+            }
+        System.out.println("Caso #" + (aux) + ":" );
+        aux++;
+        
+        int cur = 0;//id keys
+        Hashtable<String, Integer> table = new Hashtable<String, Integer>();
+        
+        for (int j = 0; j < n; j++) {
+            
+            String[] s = in.nextLine().split(" ");
+            String a = s[0];
+            String b = s[1];
+            
+            int x = 0, y = 0;
+          
+            if (table.containsKey(a)) {
+                x = table.get(a);
+                
+            } else {
+            	
+                x = relacion[cur]; 
+                table.put(a, cur);
+                cur++;
+                
+            }
+            
+            
+            
+            if (table.containsKey(b)) {
+                y = table.get(b);
+            } else {
+            	
+                y = relacion[cur];
+                table.put(b, cur);
+                cur++;
+            }
+           
+           // System.out.println("x"+findSet(x));
+            //System.out.println("y"+findSet(y));
+            union(x, y);
+            
+            System.out.println(tam[findSet(x)]);
+            
+            
+        }
+    }
+}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+
+class ProblemaB{
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		Queue<Integer> queue = new LinkedList<Integer>();
+		Scanner in2= new Scanner(System.in);
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		int t=0;
+		int n;
+		TreeSet<Integer> Ts;
+		Map<Integer, Integer> map = null;		
+		t= in2.nextInt();
+		for(int tt=0;tt<t;tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			n=in2.nextInt();
+			map = new Hashtable<Integer, Integer>();///
+			Ts = new TreeSet<Integer>();
+			for(int nn=0;nn<n;nn++){
+				int aux;
+				aux=in2.nextInt();
+				queue.add(aux);
+				if(!map.containsKey(aux)){
+						map.put(aux, 1);
+				}else{
+					map.replace(aux, map.get(aux)+1);
+				}
+				
+			}
+			while (queue.size()!=0){
+				int aux=queue.remove();
+				if(map.containsKey(aux)){
+				System.out.println(aux+" "+map.get(aux));
+				map.remove(aux);
+				}
+			}
+		}		
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.concurrent.SynchronousQueue;
+//import java.math.BigInteger;
+//import java.util.*;
+
+class ProblemaD {
+	
+  public static int Max ;
+    public static int n;  
+    public static void main(String args[]) throws NumberFormatException, IOException {
+        // Scanner leer = new Scanner(System.in);
+         BufferedReader leer= new BufferedReader(new InputStreamReader(System.in));
+         String input[];
+         int operation,personA,personB,k,t;
+         t = Integer.parseInt(leer.readLine());         
+         for (int tt = 0; tt < t; tt++) {
+         	System.out.println("Caso #" + (tt+1) + ":");
+             input=leer.readLine().split(" ");
+             n = Integer.parseInt(input[0]); 
+             Max=n;
+             relacion= new int[Max + Max + 1];
+             k = Integer.parseInt(input[1]);     
+             for (int i = 0; i < (Max + Max); i++) {
+                 relacion[i] = i;//rank
+             }        
+             
+           //  System.out.println(Arrays.toString(relacion));
+             
+                for(int nn=0; nn<k; nn++){
+                     input=leer.readLine().split(" ");
+                     operation = Integer.parseInt(input[0]);
+                     personA = Integer.parseInt(input[1]);
+                     personB = Integer.parseInt(input[2]);
+                     
+                    switch (operation) {
+					case 1:
+						setFriend(personA, personB);
+						break;
+						
+					case 2:
+						setEnemies(personA, personB);
+						break;
+						
+					case 3:
+						getFriend(personA, personB);
+						break;
+						
+					case 4:
+						getEnemies(personA, personB);
+						break;
+
+					default:
+						break;
+					}
+                    System.out.println(Arrays.toString(relacion));
+                 }
+             }
+         }
+
+    public static int[] relacion ;
+
+    public static int FindSet(int i) {
+        return relacion[i] == i ? i : (relacion[i] = FindSet(relacion[i]));
+    }
+
+    public static void setFriend(int X, int Y) {
+        int A1;
+        int B1;
+        int A2;
+        int B2;
+
+        A1 = FindSet(X);
+        A2 = FindSet(Y);
+        B1 = FindSet(X + n);
+        B2 = FindSet(Y + n);
+
+        if (A1 == B2 || A2 == B1) {
+            System.out.println("-1");
+        } else {
+            relacion[A2] = A1;
+            relacion[B2] = B1;
+        }
+    }
+
+    public static void getFriend(int X, int Y) {
+        System.out.println(FindSet(X) == FindSet(Y) ? "1" : "0");
+
+    }
+//A amigos B enemigos
+    public static void setEnemies(int X, int Y) {
+        
+    	int A1, B1, A2, B2;
+        A1 = FindSet(X);
+        A2 = FindSet(Y);
+        B1 = FindSet(X + n);
+        B2 = FindSet(Y + n);
+
+        if (A1 == A2) {
+            System.out.println("-1");
+        } else {
+            relacion[B1] = A2;
+            relacion[B2] = A1;
+        }
+    }
+
+    public static void getEnemies(int X, int Y) {
+        
+    	int A1, B1, A2, B2;
+        A1 = FindSet(X);
+        A2 = FindSet(Y);
+        B1 = FindSet(X + n);
+        B2 = FindSet(Y + n);
+
+        System.out.println((A1 == B2 || A2 == B1) ? "1" : "0");
+    }             
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaA {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p))
+							map.get(c).getTimeAux().put(p, 0);
+						
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,0);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+					}else{
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:													
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p))//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+		}
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+
+class ProblemaB{
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		Queue<Integer> queue = new LinkedList<Integer>();
+		Scanner in2= new Scanner(System.in);
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		int t=0;
+		int n;
+		TreeSet<Integer> Ts;
+		Map<Integer, Integer> map = null;		
+		t= in2.nextInt();
+		for(int tt=0;tt<t;tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			n=in2.nextInt();
+			map = new Hashtable<Integer, Integer>();///
+			Ts = new TreeSet<Integer>();
+			for(int nn=0;nn<n;nn++){
+				int aux;
+				aux=in2.nextInt();
+				queue.add(aux);
+				if(!map.containsKey(aux)){
+						map.put(aux, 1);
+				}else{
+					int value= map.get(aux)+1;
+					map.put(aux, value);
+				}
+				
+			}
+			while (queue.size()!=0){
+				int aux=queue.remove();
+				if(map.containsKey(aux)){
+				System.out.println(aux+" "+map.get(aux));
+				map.remove(aux);
+				}
+			}
+		}		
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaE {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs, countI,countT,countR,countC;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			countI=countT=countR=countC=0;
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					countC++;
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p))
+							map.get(c).getTimeAux().put(p, 0);
+						
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,0);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+					}else{
+						
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:			
+					switch (l) {
+					case 'I':
+						countI++;
+						break;
+					case 'T':
+						countT++;
+						break;	
+						
+					case 'R':
+						countR++;
+						break;
+						
+					default:
+						break;
+					}
+					if(map.containsKey(c)){
+						
+						
+						if(!map.get(c).getTimeAux().containsKey(p))//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+				System.out.println(countC+" "+countI+" "+countT+" "+countR);
+		}
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.put(key, value);//this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaA {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			
+			System.out.println("Caso #"+(tt+1)+":");
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p)){
+							map.get(c).getTimeAux().put(p, 0);
+						}
+						if(map.get(c).getTimeAux().containsKey(p)&&map.get(c).getTimeAux().get(p)!=-1){
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,-1);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+						
+						}	
+					}else{
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:													
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p)){//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						}else 
+							if(map.get(c).getTimeAux().get(p)==-1)
+							break;
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+				
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+		}
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private boolean correcto=false;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+
+		public boolean getCorrecto() {
+			return correcto;
+		}
+
+
+		public void setCorrecto(boolean correcto) {
+			this.correcto = correcto;
+		}
+
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.put(key, value);//this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaE {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs, countI,countT,countR,countC;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			countI=countT=countR=countC=0;
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					countC++;
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p))
+							map.get(c).getTimeAux().put(p, 0);
+						
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,0);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+					}else{
+						
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:			
+					switch (l) {
+					case 'I':
+						countI++;
+						break;
+					case 'T':
+						countT++;
+						break;	
+						
+					case 'R':
+						countR++;
+						break;
+						
+					default:
+						break;
+					}
+					if(map.containsKey(c)){
+						
+						
+						if(!map.get(c).getTimeAux().containsKey(p))//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+				System.out.println(countC+" "+countI+" "+countT+" "+countR);
+		}
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.put(key, value);//this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaE {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs;
+		int countC=0, countI=0, countT = 0, countR = 0;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			countC= countI= countT= countR=0;
+			System.out.println("Caso #"+(tt+1)+":");
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					if(map.containsKey(c)){
+						countC++;
+						
+						if(!map.get(c).getTimeAux().containsKey(p)){
+							map.get(c).getTimeAux().put(p, 0);
+						}
+						if(map.get(c).getTimeAux().containsKey(p)&&map.get(c).getTimeAux().get(p)!=-1){
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,-1);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+						
+						}	
+					}else{
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:					
+					switch (c) {
+					case 'I':
+						countI++;
+						break;
+					case 'T':
+						countT++;
+						break;
+					case 'R':
+						countR++;
+						break;
+
+
+					default:
+						break;
+					}
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p)){//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						}else 
+							if(map.get(c).getTimeAux().get(p)==-1)
+							break;
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+				
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+				System.out.println(countC+" "+countI+" "+countT+" "+countR);
+		} 
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private boolean correcto=false;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+
+		public boolean getCorrecto() {
+			return correcto;
+		}
+
+
+		public void setCorrecto(boolean correcto) {
+			this.correcto = correcto;
+		}
+
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.put(key, value);//this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class ProblemaE {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Map<Integer, Concursante> map ;
+		TreeSet<Concursante> Ts;
+		int t,n,k, c, p,time,auxs;
+		int countC=0, countI=0, countT = 0, countR = 0;
+		char l;
+		t=toInt(in.nextLine());
+		for(int tt=0; tt<t; tt++){
+			countC= countI= countT= countR=0;
+			System.out.println("Caso #"+(tt+1)+":");
+			map= new HashMap<Integer, Concursante>();
+			Ts=new TreeSet();
+			String [] split= in.nextLine().split(" ");
+			n=toInt(split[0]);
+			k=toInt(split[1]);
+			for(int kk=0; kk<k;kk++){
+				
+				split= in.nextLine().split(" ");
+				c= toInt(split[0]);
+				p= toInt(split[1]);
+				time= toInt(split[2]);
+				auxs=0;
+				l=split[3].charAt(0);
+				switch (l) {
+				case 'C':
+					countC++;
+					if(map.containsKey(c)){
+						
+						
+						if(!map.get(c).getTimeAux().containsKey(p)){
+							map.get(c).getTimeAux().put(p, 0);
+						}
+						if(map.get(c).getTimeAux().containsKey(p)&&map.get(c).getTimeAux().get(p)!=-1){
+						//map.get(c).setTime(time);
+						if(map.get(c).getTime()==0){
+						map.get(c).setTime(time+map.get(c).getTimeAux().get(p));
+						}else if(map.get(c).getTimeAux().get(p)==0){
+							map.get(c).setTime(map.get(c).getTime()+time);
+						}else{
+							auxs =  map.get(c).getTime();
+						map.get(c).setTime(map.get(c).getTime()+map.get(c).getTimeAux().get(p)+time);//map.get(c).getTime()+map.get(c).getTimeAux());
+						
+						}
+						map.get(c).setTimeAux( p,-1);//setTimeAux(0);
+						map.get(c).setProblem(map.get(c).getProblem()+1);
+						
+						}	
+					}else{
+						map.put(c, new Concursante(c,1,time,l,new HashMap<Integer,Integer>()));
+						
+					}
+					
+					
+					break;
+					
+
+				default:	
+					
+					switch (l) {
+					case 'I':
+						countI++;
+						break;
+					case 'T':
+						countT++;
+						break;
+					case 'R':
+						countR++;
+						break;
+
+
+					default:
+						break;
+					}
+					if(map.containsKey(c)){
+						
+						if(!map.get(c).getTimeAux().containsKey(p)){//si ya registro el problema p
+						map.get(c).getTimeAux().put(p, 0);
+						}else 
+							if(map.get(c).getTimeAux().get(p)==-1)
+							break;
+						map.get(c).setTimeAux(p, map.get(c).getTimeAux().get(p)+20);//map.get(c).setTimeAux(map.get(c).getTimeAux()+20);
+						
+					}else{
+						map.put(c,new Concursante(c,0,0,l,new HashMap<Integer,Integer>()));//map.put(c, new Concursante(c,0,0,l,20));
+						map.get(c).getTimeAux().put(p, 20);
+					}
+					
+					
+					break;
+				}
+				
+			}
+			
+				for (Entry<Integer, Concursante> entry : map.entrySet()) {
+				Ts.add(entry.getValue() );
+
+		}
+				
+				String out=(Ts.toString().replaceAll(", ", ""));
+				
+
+				out=out.substring(1,out.length()-2);
+				System.out.println(out);
+				System.out.println(countC+" "+countI+" "+countT+" "+countR);
+		} 
+
+	}
+	
+	public static int toInt(String s){
+		return Integer.parseInt(s);
+	}
+	
+	public static class Concursante implements Comparable {
+		private Integer id;
+		private Integer problem;
+		private Integer time;
+		private Map<Integer, Integer> timeAux;
+		private boolean correcto=false;
+		private char l;
+
+		public void setTime(Integer time) {
+			this.time = time;
+		}
+
+
+		public boolean getCorrecto() {
+			return correcto;
+		}
+
+
+		public void setCorrecto(boolean correcto) {
+			this.correcto = correcto;
+		}
+
+
+		public Map<Integer, Integer> getTimeAux() {
+			return timeAux;
+		}
+
+		public void setTimeAux(Integer key, Integer value) {
+			this.timeAux.put(key, value);//this.timeAux.replace(key, value);
+		}
+
+		public Integer getTime() {
+			return this.time;
+		}
+
+		public Integer getProblem() {
+			return problem;
+		}
+
+		public void setProblem(Integer problem) {
+			this.problem = problem;
+		}
+
+		Concursante(int id, int problem, int time, char l, Map<Integer, Integer> timeAux) {
+			this.id = id;
+			this.problem = problem;
+			this.time = time;
+			this.l = l;
+			this.timeAux = timeAux;
+
+		}
+
+		@Override
+		public int compareTo(Object o) {
+			Concursante obj = (Concursante) o;
+			int compare = problem.compareTo(obj.problem);
+			if (compare == 0) {
+				compare = -1 * time.compareTo(obj.time);
+				if (compare == 0) {
+					compare = -id.compareTo(obj.id);
+				}
+			}
+			return -compare;
+		}
+
+		@Override
+		public String toString() {
+			return "" + id + " " + problem + " " + time +"\n" ;
+		}
+
+		
+		
+	}
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class A {		
+		
+		public static void main(String args[]) throws FileNotFoundException {
+			Scanner scan;
+			TreeSet<Integer> tS= new TreeSet<>();
+			Queue<Integer> queue = new LinkedList<Integer>();
+			Map<Integer, Integer> map = new Hashtable<Integer, Integer>();
+			File f = new File("A_1.txt");
+			if (f.exists()) {
+				scan = new Scanner(f);
+				// System.setOut(new PrintStream(new File("A_1Out.txt")));
+			} else {
+				scan = new Scanner(System.in);
+			}
+			BinaryHeap<Integer> bH = new BinaryHeap<>( );
+			
+			int n = Integer.parseInt(scan.nextLine());
+			for (int t = 0; t < n; t++) {
+				int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+				for (int i = 0; i < Q; i++) {
+					String line[] = scan.nextLine().split(" ");// linea para ver que
+																// tipo de comando
+					String type = line[0];
+					if (type.equals("agregar")) {
+						
+						tS.add(Integer.parseInt(line[1]));
+						queue.add(Integer.parseInt(line[1]));
+						
+					} else if (type.equals("atender")) {
+						if(!queue.isEmpty())
+							tS.remove(queue.remove());
+
+					} else if (type.equals("existe")) {
+
+						if(!tS.contains(Integer.parseInt(line[1]))){
+						System.out.println("SI");
+						}else
+							System.out.println("NO");
+					}
+
+				}
+			}
+		}
+		
+		// BinaryHeap class
+		//
+		// CONSTRUCTION: with optional capacity (that defaults to 100)
+//		               or an array containing initial items
+		//
+		// ******************PUBLIC OPERATIONS*********************
+		// void insert( x )       --> Insert x
+		// Comparable deleteMin( )--> Return and remove smallest item
+		// Comparable findMin( )  --> Return smallest item
+		// boolean isEmpty( )     --> Return true if empty; else false
+		// void makeEmpty( )      --> Remove all items
+		// ******************ERRORS********************************
+		// Throws UnderflowException as appropriate
+
+		/**
+		 * Implements a binary heap.
+		 * Note that all "matching" is based on the compareTo method.
+		 * @param <AnyType>
+		 */
+		public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		        // Test program
+		   
+		}
+
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class A {		
+		
+		public static void main(String args[]) throws FileNotFoundException {
+			Scanner scan;
+			TreeSet<Integer> tS= new TreeSet<>();
+			Queue<Integer> queue = new LinkedList<Integer>();
+			Map<Integer, Integer> map = new Hashtable<Integer, Integer>();
+			File f = new File("A_1.txt");
+			if (f.exists()) {
+				scan = new Scanner(f);
+				// System.setOut(new PrintStream(new File("A_1Out.txt")));
+			} else {
+				scan = new Scanner(System.in);
+			}
+			BinaryHeap<Integer> bH = new BinaryHeap<>( );
+			
+			int n = Integer.parseInt(scan.nextLine());
+			for (int t = 0; t < n; t++) {
+				int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+				for (int i = 0; i < Q; i++) {
+					String line[] = scan.nextLine().split(" ");// linea para ver que
+																// tipo de comando
+					String type = line[0];
+					if (type.equals("agregar")) {
+						
+						queue.add(Integer.parseInt(line[1]));
+						
+					} else if (type.equals("atender")) {
+						if(!queue.isEmpty())
+							 tS.add(queue.remove());
+
+					} else if (type.equals("existe")) {
+
+						if(tS.contains(Integer.parseInt(line[1]))){
+						System.out.println("SI");
+						}else
+							System.out.println("NO");
+					}
+
+				}
+			}
+		}
+		
+		// BinaryHeap class
+		//
+		// CONSTRUCTION: with optional capacity (that defaults to 100)
+//		               or an array containing initial items
+		//
+		// ******************PUBLIC OPERATIONS*********************
+		// void insert( x )       --> Insert x
+		// Comparable deleteMin( )--> Return and remove smallest item
+		// Comparable findMin( )  --> Return smallest item
+		// boolean isEmpty( )     --> Return true if empty; else false
+		// void makeEmpty( )      --> Remove all items
+		// ******************ERRORS********************************
+		// Throws UnderflowException as appropriate
+
+		/**
+		 * Implements a binary heap.
+		 * Note that all "matching" is based on the compareTo method.
+		 * @param <AnyType>
+		 */
+		public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		        // Test program
+		   
+		}
+
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class A {		
+		
+		public static void main(String args[]) throws FileNotFoundException {
+			Scanner scan;
+			TreeSet<Integer> tS= new TreeSet<>();
+			Queue<Integer> queue = new LinkedList<Integer>();
+			Map<Integer, Integer> map = new Hashtable<Integer, Integer>();
+			File f = new File("A_1.txt");
+			if (f.exists()) {
+				scan = new Scanner(f);
+				// System.setOut(new PrintStream(new File("A_1Out.txt")));
+			} else {
+				scan = new Scanner(System.in);
+			}
+			BinaryHeap<Integer> bH = new BinaryHeap<>( );
+			
+			int n = Integer.parseInt(scan.nextLine());
+			for (int t = 0; t < n; t++) {
+				System.out.println("Caso #"+(t+1)+":");
+				int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+				for (int i = 0; i < Q; i++) {
+					String line[] = scan.nextLine().split(" ");// linea para ver que
+																// tipo de comando
+					String type = line[0];
+					if (type.equals("agregar")) {
+						
+						queue.add(Integer.parseInt(line[1]));
+						
+					} else if (type.equals("atender")) {
+						if(!queue.isEmpty())
+							 tS.add(queue.remove());
+
+					} else if (type.equals("existe")) {
+
+						if(tS.contains(Integer.parseInt(line[1]))){
+						System.out.println("SI");
+						}else
+							System.out.println("NO");
+					}
+
+				}
+			}
+		}
+		
+		// BinaryHeap class
+		//
+		// CONSTRUCTION: with optional capacity (that defaults to 100)
+//		               or an array containing initial items
+		//
+		// ******************PUBLIC OPERATIONS*********************
+		// void insert( x )       --> Insert x
+		// Comparable deleteMin( )--> Return and remove smallest item
+		// Comparable findMin( )  --> Return smallest item
+		// boolean isEmpty( )     --> Return true if empty; else false
+		// void makeEmpty( )      --> Remove all items
+		// ******************ERRORS********************************
+		// Throws UnderflowException as appropriate
+
+		/**
+		 * Implements a binary heap.
+		 * Note that all "matching" is based on the compareTo method.
+		 * @param <AnyType>
+		 */
+		public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		        // Test program
+		   
+		}
+
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class A {		
+		
+		public static void main(String args[]) throws FileNotFoundException {
+			Scanner scan;
+			TreeSet<Integer> tS= new TreeSet<>();
+			Queue<Integer> queue = new LinkedList<Integer>();
+			//Map<Integer, Integer> map = new Hashtable<Integer, Integer>();
+			File f = new File("A_1.txt");
+			if (f.exists()) {
+				scan = new Scanner(f);
+				// System.setOut(new PrintStream(new File("A_1Out.txt")));
+			} else {
+				scan = new Scanner(System.in);
+			}
+			BinaryHeap<Integer> bH = new BinaryHeap<>( );
+			
+			int n = Integer.parseInt(scan.nextLine());
+			for (int t = 0; t < n; t++) {
+				queue= new LinkedList<Integer>();
+				tS= new TreeSet<>();
+				System.out.println("Caso #"+(t+1)+":");
+				int Q = Integer.parseInt(scan.nextLine());// numero de consultas
+				for (int i = 0; i < Q; i++) {
+					String line[] = scan.nextLine().split(" ");// linea para ver que
+																// tipo de comando
+					String type = line[0];
+					if (type.equals("agregar")) {
+						
+						queue.add(Integer.parseInt(line[1]));
+						
+					} else if (type.equals("atender")) {
+						if(!queue.isEmpty())
+							 tS.add(queue.remove());
+
+					} else if (type.equals("existe")) {
+
+						if(tS.contains(Integer.parseInt(line[1]))){
+						System.out.println("SI");
+						}else
+							System.out.println("NO");
+					}
+
+				}
+			}
+		}
+		
+		// BinaryHeap class
+		//
+		// CONSTRUCTION: with optional capacity (that defaults to 100)
+//		               or an array containing initial items
+		//
+		// ******************PUBLIC OPERATIONS*********************
+		// void insert( x )       --> Insert x
+		// Comparable deleteMin( )--> Return and remove smallest item
+		// Comparable findMin( )  --> Return smallest item
+		// boolean isEmpty( )     --> Return true if empty; else false
+		// void makeEmpty( )      --> Remove all items
+		// ******************ERRORS********************************
+		// Throws UnderflowException as appropriate
+
+		/**
+		 * Implements a binary heap.
+		 * Note that all "matching" is based on the compareTo method.
+		 * @param <AnyType>
+		 */
+		public static class BinaryHeap<AnyType extends Comparable<? super AnyType>>
+		{
+		    /**
+		     * Construct the binary heap.
+		     */
+		    public BinaryHeap( )
+		    {
+		        this( DEFAULT_CAPACITY );
+		    }
+
+		    /**
+		     * Construct the binary heap.
+		     * @param capacity the capacity of the binary heap.
+		     */
+		    public BinaryHeap( int capacity )
+		    {
+		        currentSize = 0;
+		        array = (AnyType[]) new Comparable[ capacity + 1 ];
+		    }
+		    
+		    /**
+		     * Construct the binary heap given an array of items.
+		     * @param items
+		     */
+		    public BinaryHeap( AnyType [ ] items )
+		    {
+		            currentSize = items.length;
+		            array = (AnyType[]) new Comparable[ ( currentSize + 2 ) * 11 / 10 ];
+
+		            int i = 1;
+		            for( AnyType item : items )
+		                array[ i++ ] = item;
+		            buildHeap( );
+		    }
+
+		    /**
+		     * Insert into the priority queue, maintaining heap order.
+		     * Duplicates are allowed.
+		     * @param x the item to insert.
+		     */
+		    public void insert( AnyType x )
+		    {
+		        if( currentSize == array.length - 1 )
+		            enlargeArray( array.length * 2 + 1 );
+
+		            // Percolate up
+		        int hole = ++currentSize;
+		        for( array[ 0 ] = x; x.compareTo( array[ hole / 2 ] ) < 0; hole /= 2 )
+		            array[ hole ] = array[ hole / 2 ];
+		        array[ hole ] = x;
+		    }
+
+
+		    private void enlargeArray( int newSize )
+		    {
+		            AnyType [] old = array;
+		            array = (AnyType []) new Comparable[ newSize ];
+		            for( int i = 0; i < old.length; i++ )
+		                array[ i ] = old[ i ];        
+		    }
+		    
+		    /**
+		     * Find the smallest item in the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType findMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+		        return array[ 1 ];
+		    }
+
+		    /**
+		     * Remove the smallest item from the priority queue.
+		     * @return the smallest item, or throw an UnderflowException if empty.
+		     * @throws java.lang.Exception
+		     */
+		    public AnyType deleteMin( ) throws Exception
+		    {
+		        if( isEmpty( ) )
+		            throw new Exception( );
+
+		        AnyType minItem = findMin( );
+		        array[ 1 ] = array[ currentSize-- ];
+		        percolateDown( 1 );
+
+		        return minItem;
+		    }
+
+		    /**
+		     * Establish heap order property from an arbitrary
+		     * arrangement of items. Runs in linear time.
+		     */
+		    private void buildHeap( )
+		    {
+		        for( int i = currentSize / 2; i > 0; i-- )
+		            percolateDown( i );
+		    }
+
+		    /**
+		     * Test if the priority queue is logically empty.
+		     * @return true if empty, false otherwise.
+		     */
+		    public boolean isEmpty( )
+		    {
+		        return currentSize == 0;
+		    }
+
+		    /**
+		     * Make the priority queue logically empty.
+		     */
+		    public void makeEmpty( )
+		    {
+		        currentSize = 0;
+		    }
+
+		    private static final int DEFAULT_CAPACITY = 10;
+
+		    private int currentSize;      // Number of elements in heap
+		    private AnyType [ ] array; // The heap array
+
+		    /**
+		     * Internal method to percolate down in the heap.
+		     * @param hole the index at which the percolate begins.
+		     */
+		    private void percolateDown( int hole )
+		    {
+		        int child;
+		        AnyType tmp = array[ hole ];
+
+		        for( ; hole * 2 <= currentSize; hole = child )
+		        {
+		            child = hole * 2;
+		            if( child != currentSize &&
+		                    array[ child + 1 ].compareTo( array[ child ] ) < 0 )
+		                child++;
+		            if( array[ child ].compareTo( tmp ) < 0 )
+		                array[ hole ] = array[ child ];
+		            else
+		                break;
+		        }
+		        array[ hole ] = tmp;
+		    }
+
+		        // Test program
+		   
+		}
+
+		
+
+	}
+
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+
+class ProblemaB{
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		Queue<Integer> queue = new LinkedList<Integer>();
+		Scanner in2= new Scanner(System.in);
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		int t=0;
+		int n;
+		TreeSet<Integer> Ts;
+		Map<Integer, Integer> map = null;		
+		t= in2.nextInt();
+		for(int tt=0;tt<t;tt++){
+			System.out.println("Caso #"+(tt+1)+":");
+			n=in2.nextInt();
+			map = new Hashtable<Integer, Integer>();///
+			Ts = new TreeSet<Integer>();
+			for(int nn=0;nn<n;nn++){
+				int aux;
+				aux=in2.nextInt();
+				queue.add(aux);
+				if(!map.containsKey(aux)){
+						map.put(aux, 1);
+				}else{
+					int value= map.get(aux)+1;
+					map.put(aux, value);
+				}
+				
+			}
+			while (queue.size()!=0){
+				int aux=queue.remove();
+				if(map.containsKey(aux)){
+				System.out.println(aux+" "+map.get(aux));
+				map.remove(aux);
+				}
+			}
+		}		
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

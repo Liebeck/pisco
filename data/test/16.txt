@@ -1,0 +1,5042 @@
+package helloworld;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class PuntoA {
+
+   
+    public static void main(String[] args) {
+        // lectura de dato suministrados
+        Scanner lectura = new Scanner(System.in);
+        int casos = lectura.nextInt();
+        
+        //System.out.println(casos);
+        
+        //for para indicar cantidad decasos a analizar
+        
+        for(int m=1;m<=casos;m++){
+           int k = lectura.nextInt();
+           
+           //declaracion de enteros llamados numeros
+           ArrayList<Integer> numeros = new ArrayList<>();
+              for(int i=1;i<=k;i++){
+                  //lectura de los numeros contenidos en K
+                 int numlectura = lectura.nextInt();
+                 numeros.add(numlectura);
+              }
+              
+              //System.out.println(numeros);
+              
+              int mayor=0, menor=0, igual=0;
+              for(int i=0; i<=k-1;i++){
+                  int primer = numeros.get(i);
+                  for(int j=0;j<=k-1;j++){
+                      if(i==j)
+                          continue;
+                      int segundo= numeros.get(j);
+                      if(primer<segundo){
+                         menor++;
+                      }
+                      if(primer>segundo){
+                         mayor++;
+                      }
+                      if(primer==segundo){
+                         igual++;
+                      }
+                      
+                  }
+              }
+              
+              System.out.println("Case #"+m +":");
+              System.out.println(mayor);
+              System.out.println(menor);
+              System.out.println(igual);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package helloworld;
+
+import java.util.Scanner;
+
+public class puntoB {
+   
+    static int sumaFila(int fila,int n,int[][] matriz) {
+        int suma =0;
+        for(int i =0;i<=n-1;i++){
+            suma = suma + matriz[fila][i];
+        }
+        
+        return suma;
+    }
+    
+    static int sumaColumna(int columna,int n,int[][] matriz) {
+        int suma =0;
+        for(int j =0;j<=n-1;j++){
+            suma = suma + matriz[j][columna];
+        }
+        
+        return suma;
+    }
+    
+   public static void main(String[] args) {
+       Scanner leer = new Scanner(System.in);
+       int caso = 0;
+       while(leer.hasNext()){
+           caso++;
+           
+           int n=leer.nextInt();
+           
+           int[][] matriz = new int[n][n];
+           
+           for(int i=0; i<=n-1;i++){
+               for(int j=0;j<=n-1;j++){
+                  matriz[i][j] = leer.nextInt();
+               }
+           }
+           
+           //comparacion de sumas entre filas y columnas
+           int respuesta=0;
+           for(int i=0; i<=n-1;i++){//fila
+               for(int j=0;j<=n-1;j++){ //columna
+                  if(sumaFila(i,n,matriz) < sumaColumna(j,n,matriz)){
+                      respuesta++;
+                  }
+               }
+           }
+           
+           System.out.println("Case #"+caso+":");
+           System.out.println(respuesta);
+           
+       }
+   }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ciclos;
+
+/**
+ *
+ */
+public class Ciclos {
+    static int prod (int n){
+        int p=1;
+        for(int i = 1; i <= n; i++){
+            p *= i;
+        }
+        return p ;
+    }
+    static int suma (int n){
+        int s =0;
+        for(int i = 0; i <= n; i++){
+            s += i*i;                        
+        }
+        return s ;
+    }
+    static double minMaquina(){
+        double Xo= 1.0;
+        double Xi=Xo/2;
+        int t=0;
+        while (Xi>0.0){
+            Xo=Xi;
+            Xi=Xo/2;
+            System.out.println(++t + "\t" + Xi);
+        }
+        return Xo;
+    }
+    static double pot (double b, int n){
+        double p=1;
+        for (int i=1;i<=n;i++){
+            p*=b;
+        }
+        return p;
+    }
+    static double exp(double x){
+        double e=0;
+        for (int i=0;i<=12; i++){
+            e += pot(x,i)/prod(i);
+        }
+        return e;
+    
+}
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        /*int i = 0;
+        while(i <=6 ){
+            System.out.print(i);
+            System.out.println();
+            i = i + 1;
+        }*/
+        
+        /*int i = 1;
+        int j = 100;
+        while(i < j){
+            System.out.print(i);
+            System.out.print(" ");
+            System.out.print(j);
+            System.out.println("");
+            i *= 2;
+            j += 25;
+        }*/        
+        
+        /*System.out.println(minMaquina());*/
+        System.out.println(suma(6));
+        System.out.println(prod(6));
+        System.out.println(pot(3,6));
+        System.out.println(exp(1));
+        
+    }
+
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package parcial;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.*;
+
+/**
+ *
+ */
+public class Parcial {
+
+    /**
+     * LinkedList class implements a doubly-linked list.
+     */
+    public static class MyLinkedList<AnyType> implements Iterable<AnyType> {
+
+        /**
+         * Construct an empty LinkedList.
+         */
+        public MyLinkedList() {
+            doClear();
+        }
+
+        private void clear() {
+            doClear();
+        }
+
+        /**
+         * Change the size of this collection to zero.
+         */
+        public void doClear() {
+            beginMarker = new Node<>(null, null, null);
+            endMarker = new Node<>(null, beginMarker, null);
+            beginMarker.next = endMarker;
+
+            theSize = 0;
+            modCount++;
+        }
+
+        /**
+         * Returns the number of items in this collection.
+         *
+         * @return the number of items in this collection.
+         */
+        public int size() {
+            return theSize;
+        }
+
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        /**
+         * Adds an item to this collection, at the end.
+         *
+         * @param x any object.
+         * @return true.
+         */
+        public boolean add(AnyType x) {
+
+            add(size(), x);
+            return true;
+        }
+
+        /**
+         * Adds an item to this collection, at specified position. Items at or
+         * after that position are slid one position higher.
+         *
+         * @param x any object.
+         * @param idx position to add at.
+         * @throws IndexOutOfBoundsException if idx is not between 0 and size(),
+         * inclusive.
+         */
+        public void add(int idx, AnyType x) {
+            addBefore(getNode(idx, 0, size()), x);
+        }
+
+        /**
+         * Adds an item to this collection, at specified position p. Items at or
+         * after that position are slid one position higher.
+         *
+         * @param p Node to add before.
+         * @param x any object.
+         * @throws IndexOutOfBoundsException if idx is not between 0 and size(),
+         * inclusive.
+         */
+        private void addBefore(Node<AnyType> p, AnyType x) {
+            Node<AnyType> newNode = new Node<>(x, p.prev, p);
+            newNode.prev.next = newNode;
+            p.prev = newNode;
+            theSize++;
+            modCount++;
+        }
+
+        /**
+         * Returns the item at position idx.
+         *
+         * @param idx the index to search in.
+         * @throws IndexOutOfBoundsException if index is out of range.
+         */
+        public AnyType get(int idx) {
+            return getNode(idx).data;
+        }
+
+        /**
+         * Changes the item at position idx.
+         *
+         * @param idx the index to change.
+         * @param newVal the new value.
+         * @return the old value.
+         * @throws IndexOutOfBoundsException if index is out of range.
+         */
+        public AnyType set(int idx, AnyType newVal) {
+            Node<AnyType> p = getNode(idx);
+            AnyType oldVal = p.data;
+
+            p.data = newVal;
+            return oldVal;
+        }
+
+        /**
+         * Gets the Node at position idx, which must range from 0 to size( ) -
+         * 1.
+         *
+         * @param idx index to search at.
+         * @return internal node corresponding to idx.
+         * @throws IndexOutOfBoundsException if idx is not between 0 and size( )
+         * - 1, inclusive.
+         */
+        private Node<AnyType> getNode(int idx) {
+            return getNode(idx, 0, size() - 1);
+        }
+
+        /**
+         * Gets the Node at position idx, which must range from lower to upper.
+         *
+         * @param idx index to search at.
+         * @param lower lowest valid index.
+         * @param upper highest valid index.
+         * @return internal node corresponding to idx.
+         * @throws IndexOutOfBoundsException if idx is not between lower and
+         * upper, inclusive.
+         */
+        private Node<AnyType> getNode(int idx, int lower, int upper) {
+            Node<AnyType> p;
+            if (idx < lower || idx > upper) {
+                throw new IndexOutOfBoundsException("getNode index: " + idx + "; size: " + size());
+            }
+            if (idx < size() / 2) {
+                p = beginMarker.next;
+                for (int i = 0; i < idx; i++) {
+                    p = p.next;
+                }
+            } else {
+                p = endMarker;
+                for (int i = size(); i > idx; i--) {
+                    p = p.prev;
+                }
+            }
+            return p;
+        }
+
+        /**
+         * Removes an item from this collection.
+         *
+         * @param idx the index of the object.
+         * @return the item was removed from the collection.
+         */
+        public AnyType remove(int idx) {
+            return remove(getNode(idx));
+        }
+        
+        public AnyType removeData(AnyType item)
+        {
+            return remove(beginMarker.next, item);
+        }
+
+        /**
+         * Removes the object contained in Node p.
+         *
+         * @param p the Node containing the object.
+         * @return the item was removed from the collection.
+         */
+        private AnyType remove(Node<AnyType> p) {
+            p.next.prev = p.prev;
+            p.prev.next = p.next;
+            theSize--;
+            modCount++;
+
+            return p.data;
+        }
+        
+        private AnyType remove(Node<AnyType> p, AnyType value)
+        {
+            if(p == endMarker) 
+                return null;
+            else if(p.data.equals(value))
+                return remove(p);
+            else return remove(p.next, value);
+        }
+
+        /**
+         * Returns a String representation of this collection.
+         */
+        public String toString() {
+            StringBuilder sb = new StringBuilder("[ ");
+
+            for (AnyType x : this) {
+                sb.append(x + " ");
+            }
+            sb.append("]");
+
+            return new String(sb);
+        }
+
+        /**
+         * Obtains an Iterator object used to traverse the collection.
+         *
+         * @return an iterator positioned prior to the first element.
+         */
+        public java.util.Iterator<AnyType> iterator() {
+            return new LinkedListIterator();
+        }
+
+        /**
+         * This is the implementation of the LinkedListIterator. It maintains a
+         * notion of a current position and of course the implicit reference to
+         * the MyLinkedList.
+         */
+        private class LinkedListIterator implements java.util.Iterator<AnyType> {
+
+            private Node<AnyType> current = beginMarker.next;
+            private int expectedModCount = modCount;
+            private boolean okToRemove = false;
+
+            public boolean hasNext() {
+                return current != endMarker;
+            }
+
+            public AnyType next() {
+                if (modCount != expectedModCount) {
+                    throw new java.util.ConcurrentModificationException();
+                }
+                if (!hasNext()) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                AnyType nextItem = current.data;
+                current = current.next;
+                okToRemove = true;
+                return nextItem;
+            }
+
+            public void remove() {
+                if (modCount != expectedModCount) {
+                    throw new java.util.ConcurrentModificationException();
+                }
+                if (!okToRemove) {
+                    throw new IllegalStateException();
+                }
+
+                MyLinkedList.this.remove(current.prev);
+                expectedModCount++;
+                okToRemove = false;
+            }
+        }
+
+        /**
+         * This is the doubly-linked list node.
+         */
+        private static class Node<AnyType> {
+
+            public Node(AnyType d, Node<AnyType> p, Node<AnyType> n) {
+                data = d;
+                prev = p;
+                next = n;
+            }
+
+            public AnyType data;
+            public Node<AnyType> prev;
+            public Node<AnyType> next;
+        }
+
+        private int theSize;
+        private int modCount = 0;
+        private Node<AnyType> beginMarker;
+        private Node<AnyType> endMarker;
+    }
+    public static class MyQueue<AnyType> extends MyLinkedList<AnyType>
+    {
+        public void enqueue(AnyType item)
+        {
+            add(item);
+        }
+        
+        public AnyType dequeue()
+        {
+            return remove(0);
+        }
+        
+        public AnyType peek()
+        {
+            return get(0);
+        }
+        public void removeIfContains(AnyType item)
+        {
+            
+        }
+    }
+    
+    public static void test(int T, Scanner scan)
+    {
+        System.out.print("Case #");
+        System.out.print(T);
+        System.out.println(":");
+        
+        String[] input = scan.nextLine().split("\\s+");
+        
+        int N = Integer.parseInt(input[0]);
+        int nP = N;
+        int K = Integer.parseInt(input[1]);
+        int EC = 0;
+        
+        MyQueue<Integer> queue = new MyQueue<>();
+        
+        for(int i = 0; i < K; i++)
+        {
+            input = scan.nextLine().split("\\s+");
+            
+            if(input[0].equals("A"))
+                queue.enqueue(Integer.parseInt(input[1]));
+            else if(input[0].equals("S"))
+            {
+                System.out.println(((!queue.isEmpty())? queue.dequeue().intValue() : -1));
+                EC += (EC > 0) ? - 1 : 0;
+            }
+            else if(input[0].equals("E"))
+            {
+                Integer value = Integer.parseInt(input[1]);
+                queue.removeData(value);
+                queue.add(EC++, value);
+            }
+        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        
+        int T = Integer.parseInt(scan.nextLine());
+        
+        for(int i = 1; i<=T; i++)
+            test(i, scan);
+        
+        scan.close();
+    }
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+// SeparateChaining Hash table class
+//
+// CONSTRUCTION: an approximate initial size or default of 101
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// boolean contains( x )  --> Return true if x is present
+// void makeEmpty( )      --> Remove all items
+
+/**
+ * Separate chaining table implementation of hash tables.
+ * Note that all "matching" is based on the equals method.
+ * @param <AnyType>
+ */
+public class SeparateChainingHashTable<AnyType>
+{
+    
+    int numeroColisiones = 0;
+    /**
+     * Construct the hash table.
+     */
+    public SeparateChainingHashTable( )
+    {
+        this( DEFAULT_TABLE_SIZE );
+    }
+
+    /**
+     * Construct the hash table.
+     * @param size approximate table size.
+     */
+    public SeparateChainingHashTable( int size )
+    {
+        theLists = new LinkedList[ nextPrime( size ) ];
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ] = new LinkedList<>( );
+    }
+
+    /**
+     * Insert into the hash table. If the item is
+     * already present, then do nothing.
+     * @param x the item to insert.
+     */
+    public void insert( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( !whichList.contains( x ) )
+        {
+            
+            if(whichList.size() > 0) {
+                numeroColisiones++;
+            } 
+            
+            whichList.add( x );
+            
+                // Rehash; see Section 5.5
+            if( ++currentSize > theLists.length )
+                rehash( );
+        }
+    }
+
+    /**
+     * Remove from the hash table.
+     * @param x the item to remove.
+     */
+    public void remove( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        if( whichList.contains( x ) )
+    {
+        whichList.remove( x );
+            currentSize--;
+    }
+    }
+
+    /**
+     * Find an item in the hash table.
+     * @param x the item to search for.
+     * @return true if x is found.
+     */
+    public boolean contains( AnyType x )
+    {
+        List<AnyType> whichList = theLists[ myhash( x ) ];
+        return whichList.contains( x );
+    }
+
+    /**
+     * Make the hash table logically empty.
+     */
+    public void makeEmpty( )
+    {
+        for( int i = 0; i < theLists.length; i++ )
+            theLists[ i ].clear( );
+        currentSize = 0;  
+    }
+
+    /**
+     * A hash routine for String objects.
+     * @param key the String to hash.
+     * @param tableSize the size of the hash table.
+     * @return the hash value.
+     */
+    public static int hash( String key, int tableSize )
+    {
+        int hashVal = 0;
+
+        for( int i = 0; i < key.length( ); i++ )
+            hashVal = 37 * hashVal + key.charAt( i );
+
+        hashVal %= tableSize;
+        if( hashVal < 0 )
+            hashVal += tableSize;
+
+        return hashVal;
+    }
+
+    private void rehash( )
+    {
+        List<AnyType> [ ]  oldLists = theLists;
+
+            // Create new double-sized, empty table
+        theLists = new List[ nextPrime( 2 * theLists.length ) ];
+        for( int j = 0; j < theLists.length; j++ )
+            theLists[ j ] = new LinkedList<>( );
+
+            // Copy table over
+        currentSize = 0;
+        for( List<AnyType> list : oldLists )
+            for( AnyType item : list )
+                insert( item );
+    }
+
+    private int myhash( AnyType x )
+    {
+        int hashVal = x.hashCode( );
+
+        hashVal %= theLists.length;
+        if( hashVal < 0 )
+            hashVal += theLists.length;
+
+        return hashVal;
+    }
+    
+    private static final int DEFAULT_TABLE_SIZE = 101;
+
+        /** The array of Lists. */
+    private List<AnyType> [ ] theLists; 
+    private int currentSize;
+
+    /**
+     * Internal method to find a prime number at least as large as n.
+     * @param n the starting number (must be positive).
+     * @return a prime number larger than or equal to n.
+     */
+    @SuppressWarnings("empty-statement")
+    private static int nextPrime( int n )
+    {
+        if( n % 2 == 0 )
+            n++;
+
+        for( ; !isPrime( n ); n += 2 )
+            ;
+
+        return n;
+    }
+
+    /**
+     * Internal method to test if a number is prime.
+     * Not an efficient algorithm.
+     * @param n the number to test.
+     * @return the result of the test.
+     */
+    private static boolean isPrime( int n )
+    {
+        if( n == 2 || n == 3 )
+            return true;
+
+        if( n == 1 || n % 2 == 0 )
+            return false;
+
+        for( int i = 3; i * i <= n; i += 2 )
+            if( n % i == 0 )
+                return false;
+
+        return true;
+    }
+
+
+        // Simple main
+    public static void main( String [ ] args )
+    {
+        Scanner lectura = new Scanner(System.in);
+        int casos = lectura.nextInt();
+        
+        for(int i = 1; i <= casos; i++) {
+            System.out.println("Case #" + i + ":");
+            int numeros= lectura.nextInt();
+            int funciones = lectura.nextInt();
+            
+          ArrayList[] N = new ArrayList[numeros];
+          ArrayList[] M = new ArrayList[funciones];
+          
+            for(int k=1; k<=numeros;k++){
+                
+                ArrayList [k]=lectura.nextInt();
+                System.out.println(+k);
+            
+            }
+            for(int j=1; j<=funciones; j++){
+                System.out.println(+funciones);
+            }
+            
+            
+            
+        }
+    }
+
+}
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package septimotaller;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class problemaA {
+
+   
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+        int casos = lectura.nextInt();
+        
+        for(int k = 1; k<= casos; k++) {
+            int vertices = lectura.nextInt();
+            int aristas = lectura.nextInt();
+            
+            ArrayList< ArrayList<Integer> > grafo = new ArrayList<>();
+            
+            for(int i = 0; i < vertices; i++) {
+                grafo.add( new ArrayList<Integer>() );
+            }
+            
+            for(int i = 0; i < aristas; i++) {
+                int u = lectura.nextInt();
+                int v = lectura.nextInt();
+                grafo.get(u).add(v);
+                grafo.get(v).add(u);
+            }
+            
+            int inicial = lectura.nextInt();
+            
+            LinkedList<Integer> cola = new LinkedList<>();
+            cola.push(inicial);
+            
+            boolean seen[] = new boolean[vertices];
+            seen[inicial] = true;
+            int contador = 0;
+            
+            while(cola.size() > 0) {
+                int cur = cola.pop();
+                contador++;
+                for(int i = 0; i < grafo.get(cur).size(); i++) {
+                    int next = grafo.get(cur).get(i);
+                    if(!seen[next]) {
+                        cola.push(next);
+                        seen[next] = true;
+                    }
+                }
+            }
+            contador--;
+            System.out.println("Case #" + k + ":");
+            System.out.println(contador);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package septimotaller;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class problemaB {
+    
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);     
+
+        int casos =  entrada.nextInt();
+
+        for(int k = 1; k <= casos; k++) {
+            int n = entrada.nextInt();
+            int m = entrada.nextInt();
+            
+            int degree[] = new int[n + 1];
+            ArrayList< ArrayList<Integer> > grafo = new ArrayList<>();
+            
+            for(int i = 0; i < n + 1; i++) {
+                grafo.add( new ArrayList<>() );
+            }
+            
+            for(int i = 0; i < m; i++) {
+                int u = entrada.nextInt();
+                int v = entrada.nextInt();
+                
+                degree[v]++;
+                grafo.get(u).add(v);
+            }
+            
+            LinkedList<Integer> cola = new LinkedList<>();
+            
+            for(int i = 0; i < n; i++) {
+                if(degree[i] == 0)    
+                    cola.push(i);
+            }
+            
+            boolean puedo = true;
+            while(cola.size() > 0) {
+                if(cola.size() > 1){
+                    puedo = false;
+                    break;
+                }
+                int u = cola.pop();
+                
+                for(int i = 0; i < grafo.get(u).size(); i++) {
+                    int v = grafo.get(u).get(i);
+                    degree[v]--;
+                    if(degree[v] == 0) {
+                        cola.push(v);
+                    }
+                }
+            }
+            System.out.println("Case #" + k + ":");
+            if(puedo) System.out.println("Deberia empezar a estudiar");
+        }
+
+    }
+
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
+public class C
+{
+	static class ArrayInt extends ArrayList<State> {
+		private static final long serialVersionUID = 1L;
+	}
+
+	static class State implements Comparable<State> {
+		int node;
+		long dist;
+		State () {}
+		State (int node, long dist) {
+			this.node = node;
+			this.dist = dist;
+		}
+		public int compareTo (State other) {
+			return (int)(this.dist - other.dist);
+		}
+	}
+
+	public static void main(String args[]) throws Exception {
+		BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+
+		int test = Integer.parseInt(read.readLine());
+		int INF = Integer.MAX_VALUE/2;
+		int cases = 0;
+
+		while(test-- > 0) {
+			String[] arr = read.readLine().split ( " " );
+			int n = Integer.parseInt ( arr[0] );
+			int init = Integer.parseInt ( arr[1] );
+			int p = Integer.parseInt ( arr[2] );
+			
+			int m = Integer.parseInt(read.readLine().split( " " )[0]);
+			
+			ArrayInt list[] = new ArrayInt[n];
+			for ( int i = 0; i < n; ++i ) 
+				list[i] = new ArrayInt();
+
+			for (int i = 0; i < m; i++) {
+				arr = read.readLine().split ( " " );
+				int from = Integer.parseInt ( arr[0] );
+				int to = Integer.parseInt ( arr[1] );
+				long cost = Integer.parseInt ( arr[2] );
+				list[to].add(new State(from, cost));
+			};
+
+			long minDist[] = new long[n];
+			boolean seen[] = new boolean[n];
+			Arrays.fill ( minDist, INF );
+			PriorityQueue<State> pq = new PriorityQueue<State>();
+
+			pq.offer ( new State ( init, 0 ) );
+			minDist[init] = 0;
+
+			while (!pq.isEmpty()) {
+				int node = pq.poll().node;
+				if (seen[node]) continue;
+				seen[node] = true;
+				for (int i = 0; i < list[node].size(); i++) {
+					int newNode = list[node].get(i).node;
+					long nDist = minDist[node] + list[node].get(i).dist;
+					if (minDist[newNode] > nDist) {
+						minDist[newNode] = nDist;
+						pq.offer ( new State(newNode, nDist));
+					}
+				}
+			}
+			
+			int ans = 0;
+			for(int i = 0; i < n; i++) 
+				if(minDist[i] <= p) ans++;
+			
+
+			System.out.println ( "Case #" + (++cases) + ":" );
+			System.out.println ( ans );
+		}
+	}
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package septimotaller;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ *
+ */
+public class problemaB {
+    
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);     
+
+        int casos =  entrada.nextInt();
+
+        for(int k = 1; k <= casos; k++) {
+            int n = entrada.nextInt();
+            int m = entrada.nextInt();
+            
+            int degree[] = new int[n + 1];
+            ArrayList< ArrayList<Integer> > grafo = new ArrayList<>();
+            
+            for(int i = 0; i < n + 1; i++) {
+                grafo.add( new ArrayList<Integer>() );
+            }
+            
+            for(int i = 0; i < m; i++) {
+                int u = entrada.nextInt();
+                int v = entrada.nextInt();
+                
+                degree[v]++;
+                grafo.get(u).add(v);
+            }
+            
+            LinkedList<Integer> cola = new LinkedList<>();
+            
+            for(int i = 0; i < n; i++) {
+                if(degree[i] == 0)    
+                    cola.push(i);
+            }
+            
+            boolean puedo = true;
+            while(cola.size() > 0) {
+                if(cola.size() > 1){
+                    puedo = false;
+                    break;
+                }
+                int u = cola.pop();
+                
+                for(int i = 0; i < grafo.get(u).size(); i++) {
+                    int v = grafo.get(u).get(i);
+                    degree[v]--;
+                    if(degree[v] == 0) {
+                        cola.push(v);
+                    }
+                }
+            }
+            System.out.println("Case #" + k + ":");
+            if(puedo) System.out.println("Deberia empezar a estudiar");
+        }
+
+    }
+
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package sextotaller;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+class Trio implements Comparable<Trio>{
+    int equipos, problemas, puntaje;
+    
+    public Trio(int a, int b, int c) {
+        equipos = a;
+        problemas = b;
+        puntaje = c;
+    }
+
+    @Override
+    public int compareTo(Trio t) {
+        if(problemas > t.problemas) return -1;
+        if(problemas < t.problemas) return 1;
+        if(puntaje > t.puntaje) return 1;
+        if(puntaje < t.puntaje) return -1;
+        if(equipos > t.equipos) return 1;
+        if(equipos < t.equipos) return -1;
+        return 0;
+    }
+    
+    
+}
+
+class pareja {
+    
+    int equipo;
+    int problema;
+    
+    public pareja(int equipo, int problema){
+        this.equipo=equipo;
+        this.problema=problema;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.equipo;
+        hash = 79 * hash + this.problema;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final pareja other = (pareja) obj;
+        if (this.equipo != other.equipo) {
+            return false;
+        }
+        if (this.problema != other.problema) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+}
+public class ProblemaA {
+    
+    public static void main(String[] args) {
+        
+        int casos; //numero de casos
+        int n=0;    //numero de equipos
+        int k=0;   //numero de envios realizados
+        
+        Scanner lectura = new Scanner(System.in);
+        casos= lectura.nextInt();
+        
+        
+        
+        for (int q=0;q<casos; q++){
+            System.out.println("Caso #"+(q+1)+":");
+            n = lectura.nextInt();
+            k = lectura.nextInt();
+            HashMap<pareja, Integer> numeros = new HashMap<>();
+            int resueltos[] = new int[n+1];
+            int puntajes[] = new int[n+1];
+            for(int j=0;j<k;j++){
+                
+                int equipo = lectura.nextInt();
+                int problema = lectura.nextInt();
+                int tiempo = lectura.nextInt();
+                char estado = lectura.next().charAt(0); 
+                if(estado != 'C') {
+                    if(!numeros.containsKey(new pareja(equipo, problema)))
+                        numeros.put(new pareja(equipo, problema), 1);
+                    else 
+                        numeros.put( new pareja(equipo, problema), numeros.get( new pareja(equipo, problema)) + 1 );
+                } else{
+                      resueltos[equipo]++;
+                      if(numeros.containsKey(new pareja(equipo, problema))) {
+                          puntajes[equipo] += 20*numeros.get(new pareja(equipo, problema)) + tiempo;
+                      }
+                      else {
+                          puntajes[equipo] += tiempo;
+                      }
+                }
+                
+            }
+            ArrayList<Trio> a = new ArrayList<>();
+            for(int r=1; r<resueltos.length;r++) {
+                a.add( new Trio(r, resueltos[r], puntajes[r]) );
+            }
+            
+            Collections.sort(a);
+            
+            for(int r=0; r<a.size();r++) {
+                System.out.println( a.get(r).equipos + " " + a.get(r).problemas + " " + a.get(r).puntaje);
+            }
+            
+            
+            
+                   
+        }
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package sextotaller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+
+
+public class ProblemaB {
+    public static void main(String[] args){
+        
+        int casos=0; //numero de casos de prueba
+        int n =0;    //cantidad de numeros en la secuencia
+        int k=0;     // numeros
+        int valores;
+        
+                Scanner lectura=new Scanner(System.in);
+                casos = lectura.nextInt();
+                
+                
+                for(int i=0; i<casos; i++){
+                    
+                    System.out.println("Caso #"+ (i+1)+ ":");
+                    n = lectura.nextInt();
+                    
+                    HashMap<Integer, Integer> numeros = new HashMap<>();
+                    ArrayList<Integer> vector = new ArrayList<>();
+                    int acumulados[] = new int[n+1];
+                    
+                    for(int j=0; j<n; j++){
+                        k = lectura.nextInt();
+                        
+                        if(!numeros.containsKey(k)) {
+                            numeros.put(k, 1);
+                            vector.add(k);
+                        }
+                        else
+                            numeros.put(k,numeros.get(k)+1);
+                }
+                    
+                    for(int q=0; q<vector.size(); q++){
+                        
+                        System.out.println(vector.get(q)+" "+numeros.get(vector.get(q)));
+                        
+                        
+                        
+                    }
+                }
+    
+    }
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package sextotaller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class ProblemaC {
+    
+    static class QuickUnion{
+    private int[] id;
+    private int count;
+    
+    public  QuickUnion(int N){
+     count =N;
+     id=new int[N];
+     for(int i=0;i<N;i++){
+         id[i]=i;     
+      }
+    }
+       private int find (int i){
+         while(i!=id[i]){
+             i=id[i];
+         }
+             return i;
+         
+         
+       }
+         public boolean find(int p, int q) {
+            return find(p) == find(q);
+         }
+        public int union(int p, int q) {
+        int i = find(p);
+        int j = find(q);
+        if (i != j) {
+            id[i] = j;
+            count--;
+        }
+        
+        int totalAmigos = 0;
+        for(int k=0; k<id.length; k++) {
+            if(find(k)==j) {
+                totalAmigos++;
+            }
+        }
+        
+        return totalAmigos;
+        }
+         public int count(){
+             return count;
+         }
+       
+    }
+   
+    
+    public static void main(String[] args){
+    
+        int casos=0;  //numero de casos
+        int n=0;      //cantidad de nuevas amistades
+        int k=0;// nombres de las nuevas amistades
+        //String persona2;
+        
+        Scanner lectura = new Scanner(System.in);
+        casos = lectura.nextInt();
+        
+        for(int i=0; i<casos; i++){
+            
+            System.out.println("Caso #" +(i+1)+":");
+            n=lectura.nextInt();
+                        
+            ArrayList<String> izq = new ArrayList<>();
+            ArrayList<String> der = new ArrayList<>();
+            
+
+            for(int j=0;j<n;j++){
+                izq.add(lectura.next());
+                der.add(lectura.next());
+            }
+            
+            HashMap<String, Integer> personas = new HashMap<>();
+            int id=0;
+            for(int q=0; q<n; q++){
+                        //k = lectura.nextInt();
+                        
+                        if(! personas.containsKey(izq.get(q)) ) {
+                            personas.put(izq.get(q), id);
+                            id++;
+                        }
+                        if(! personas.containsKey(der.get(q)) ) {
+                            personas.put(der.get(q), id);
+                            id++;
+                        }
+            }
+            
+            QuickUnion amistades = new QuickUnion(personas.size());
+            int totalAmigos;
+            for(int r=0; r <n; r++){
+            totalAmigos = amistades.union( personas.get(izq.get(r)) , personas.get(der.get(r)) );
+            System.out.println(totalAmigos);
+            }
+          }
+        
+        }
+        
+    
+    }
+    
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package sextotaller;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+class Trio implements Comparable<Trio>{ // recibir validacion de los datos
+    int equipos, problemas, puntaje;    // declaracion de las variables a comparar  para organizar
+    
+    public Trio(int a, int b, int c) {
+        equipos = a;
+        problemas = b;
+        puntaje = c;
+        
+    }
+
+    @Override
+    public int compareTo(Trio t) { // organizador de las variables a comparar
+        if(problemas > t.problemas) return -1;
+        if(problemas < t.problemas) return 1;
+        if(puntaje > t.puntaje) return 1;
+        if(puntaje < t.puntaje) return -1;
+        if(equipos > t.equipos) return 1;
+        if(equipos < t.equipos) return -1;
+        return 0;
+    }
+    
+    
+}
+
+class pareja { // clase para comparar los datos relevantes
+    
+    int equipo;
+    int problema;
+    
+    public pareja(int equipo, int problema){
+        this.equipo=equipo;
+        this.problema=problema;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.equipo;
+        hash = 79 * hash + this.problema;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final pareja other = (pareja) obj;
+        if (this.equipo != other.equipo) {
+            return false;
+        }
+        if (this.problema != other.problema) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+}
+public class ProblemaA {
+    
+    public static void main(String[] args) {
+        
+        int casos; //numero de casos
+        int n=0;    //numero de equipos
+        int k=0;   //numero de envios realizados
+        
+        Scanner lectura = new Scanner(System.in);
+        casos= lectura.nextInt();
+        
+        
+        
+        for (int q=0;q<casos; q++){
+            System.out.println("Caso #"+(q+1)+":");
+            n = lectura.nextInt();
+            k = lectura.nextInt();
+            HashMap<pareja, Integer> numeros = new HashMap<>();
+            int resueltos[] = new int[n+1]; //inicializacion de los vectores en ceros
+            int puntajes[] = new int[n+1];
+            for(int j=0;j<k;j++){
+                //llenar las variables de los vectores
+                int equipo = lectura.nextInt();
+                int problema = lectura.nextInt();
+                int tiempo = lectura.nextInt();
+                char estado = lectura.next().charAt(0); 
+                //identificacion de la verificacion de ejercicio correcto
+                if(estado != 'C') {
+                    if(!numeros.containsKey(new pareja(equipo, problema)))
+                        numeros.put(new pareja(equipo, problema), 1);
+                    else 
+                        numeros.put( new pareja(equipo, problema), numeros.get( new pareja(equipo, problema)) + 1 );
+                } else{
+                      resueltos[equipo]++;
+                      if(numeros.containsKey(new pareja(equipo, problema))) {
+                          puntajes[equipo] += 20*numeros.get(new pareja(equipo, problema)) + tiempo;
+                      }
+                      else {
+                          puntajes[equipo] += tiempo;
+                      }
+                }
+                
+            }
+            ArrayList<Trio> a = new ArrayList<>();
+            
+            for(int r=1; r<resueltos.length;r++) {
+                if(resueltos[r]!=0 && puntajes[r]!=0)
+                a.add( new Trio(r, resueltos[r], puntajes[r]) );
+            }
+            
+            Collections.sort(a);
+            
+            for(int r=0; r<a.size();r++) {
+                System.out.println( a.get(r).equipos + " " + a.get(r).problemas + " " + a.get(r).puntaje);
+            }
+            
+            
+            
+                   
+        }
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package sextotaller;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+//import proyecto6.LaRedSocial.UnionFind;
+
+public class ProblemaD 
+{
+	public static class UnionFind 
+	{
+		private int id[];
+		private int sz[];
+		private int cont;
+
+		public int getCont() {
+			return cont;
+		}
+
+		public UnionFind(int n) {
+			id = new int[n];
+			sz = new int[n];
+			cont = n;
+			for (int i = 0; i < n; i++) {
+				id[i] = i;
+				sz[i] = 1;
+			}
+		}
+
+		public int find(int x) {
+			if (id[x] != x)
+				return id[x] = find(id[x]);
+			return x;
+		}
+
+		public void union(int x, int y) {
+			int a = find(x);
+			int b = find(y);
+			if (a == b)
+				return;
+			if ( sz[a] < sz[b]) {
+
+				id[a] = b;
+
+				sz[b] += sz[a];
+
+				} else {
+
+				id[b] = a;
+
+				sz[a] += sz[b];
+
+				}
+			cont--;
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		//BufferedReader cadenaDeEntrada  = new BufferedReader(new InputStreamReader(System.in));
+		FileReader archivoLeido = new FileReader("D_2p.txt");
+		BufferedReader cadenaDeEntrada = new BufferedReader(archivoLeido);
+		StringBuilder Respuesta = new StringBuilder();
+		int casos = Integer.parseInt(cadenaDeEntrada.readLine());		
+		for(int i = 1 ; i <= casos ; i = i + 1)
+		{
+			Respuesta.append("Caso #" + i + ":" + System.lineSeparator());
+			String Operaciones = cadenaDeEntrada.readLine();
+			String[] arregloOperaciones = Operaciones.split(" ");
+			int cantidadDePresos = Integer.parseInt(arregloOperaciones[0]);
+			UnionFind Presos = new UnionFind(2*cantidadDePresos);
+			int cantidadDeOperaciones = Integer.parseInt(arregloOperaciones[1]);
+			for(int k = 1 ; k <= cantidadDeOperaciones ; k = k + 1)
+			{
+				String cadenaConLaOperacion = cadenaDeEntrada.readLine();
+				String[] arregloOperacion = cadenaConLaOperacion.split(" ");
+				int operacion = Integer.parseInt(arregloOperacion[0]);
+				int preso1 = Integer.parseInt(arregloOperacion[1]);
+				int preso2 = Integer.parseInt(arregloOperacion[2]);
+				switch(operacion)
+				{
+				    case 1:
+				    	if((Presos.find(2*preso1+1) == Presos.find(2*preso2)))
+				    	{
+				    		Respuesta.append("-1" + System.lineSeparator());
+				    	}else{
+				    		     Presos.union(2*preso1, 2*preso2);
+				    		     Presos.union(2*preso1+1, 2*preso2+1);
+				    	     }
+				    	break;
+				    case 2:
+				    	if(Presos.find(2*preso1) == Presos.find(2*preso2))
+				    	{
+				    		Respuesta.append("-1" + System.lineSeparator());
+				    	}else{
+				    		     Presos.union(2*preso1, 2*preso2+1);
+				    		     Presos.union(2*preso1+1, 2*preso2);
+				    	     }
+				    	break;
+				    case 3:
+				    	if((Presos.find(2*preso1) == Presos.find(2*preso2)))
+				    	{
+				    		Respuesta.append("1" + System.lineSeparator());
+				    	}else{
+				    		     Respuesta.append("0" + System.lineSeparator());
+				    	     }
+				    	break;
+				    case 4:
+				    	if((Presos.find(2*preso1+1) == Presos.find(2*preso2)))
+				    	{
+				    		Respuesta.append("1" + System.lineSeparator());
+				    	}else{
+				    		     Respuesta.append("0" + System.lineSeparator());
+				    	     }
+				    	break;
+				}
+			}
+		}
+		System.out.print(Respuesta);
+		cadenaDeEntrada.close();
+	}
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package sextotaller;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+class Trio implements Comparable<Trio>{ // recibir validacion de los datos
+    int equipos, problemas, puntaje;    // declaracion de las variables a comparar  para organizar
+    
+    public Trio(int a, int b, int c) {
+        equipos = a;
+        problemas = b;
+        puntaje = c;
+        
+    }
+
+    @Override
+    public int compareTo(Trio t) { // organizador de las variables a comparar
+        if(problemas > t.problemas) return -1;
+        if(problemas < t.problemas) return 1;
+        if(puntaje > t.puntaje) return 1;
+        if(puntaje < t.puntaje) return -1;
+        if(equipos > t.equipos) return 1;
+        if(equipos < t.equipos) return -1;
+        return 0;
+    }
+    
+    
+}
+
+class pareja { // clase para comparar los datos relevantes
+    
+    int equipo;
+    int problema;
+    
+    public pareja(int equipo, int problema){
+        this.equipo=equipo;
+        this.problema=problema;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.equipo;
+        hash = 79 * hash + this.problema;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final pareja other = (pareja) obj;
+        if (this.equipo != other.equipo) {
+            return false;
+        }
+        if (this.problema != other.problema) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+}
+public class ProblemaA {
+    
+    public static void main(String[] args) {
+        
+        int casos; //numero de casos
+        int n=0;    //numero de equipos
+        int k=0;   //numero de envios realizados
+        
+        Scanner lectura = new Scanner(System.in);
+        casos= lectura.nextInt();
+        
+        
+        
+        for (int q=0;q<casos; q++){
+            System.out.println("Caso #"+(q+1)+":");
+            n = lectura.nextInt();
+            k = lectura.nextInt();
+            HashMap<pareja, Integer> numeros = new HashMap<>();
+            int resueltos[] = new int[n+1]; //inicializacion de los vectores en ceros
+            int puntajes[] = new int[n+1];
+            for(int j=0;j<k;j++){
+                //llenar las variables de los vectores
+                int equipo = lectura.nextInt();
+                int problema = lectura.nextInt();
+                int tiempo = lectura.nextInt();
+                char estado = lectura.next().charAt(0); 
+                //identificacion de la verificacion de ejercicio correcto
+                if(estado != 'C') {
+                    if(!numeros.containsKey(new pareja(equipo, problema)))
+                        numeros.put(new pareja(equipo, problema), 1);
+                    else 
+                        numeros.put( new pareja(equipo, problema), numeros.get( new pareja(equipo, problema)) + 1 );
+                } else{
+                      resueltos[equipo]++;
+                      if(numeros.containsKey(new pareja(equipo, problema))) {
+                          puntajes[equipo] += 20*numeros.get(new pareja(equipo, problema)) + tiempo;
+                      }
+                      else {
+                          puntajes[equipo] += tiempo;
+                      }
+                }
+                
+            }
+            ArrayList<Trio> a = new ArrayList<>();
+            
+            for(int r=1; r<resueltos.length;r++) {
+                if(resueltos[r]!=0 && puntajes[r]!=0)
+                a.add( new Trio(r, resueltos[r], puntajes[r]) );
+            }
+            
+            Collections.sort(a);
+            
+            for(int r=0; r<a.size();r++) {
+                System.out.println( a.get(r).equipos + " " + a.get(r).problemas + " " + a.get(r).puntaje);
+            }
+            
+            
+            
+                   
+        }
+        
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+package cuartotallerdonk;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class problemaA {
+
+   
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+        int casos = lectura.nextInt();
+        
+        for(int k = 1; k<= casos; k++) {
+            int vertices = lectura.nextInt();
+            int aristas = lectura.nextInt();
+            
+            ArrayList< ArrayList<Integer> > grafo = new ArrayList<>();
+            
+            for(int i = 0; i < vertices; i++) {
+                grafo.add( new ArrayList<Integer>() );
+            }
+            
+            for(int i = 0; i < aristas; i++) {
+                int u = lectura.nextInt();
+                int v = lectura.nextInt();
+                grafo.get(u).add(v);
+                grafo.get(v).add(u);
+            }
+            
+            int inicial = lectura.nextInt();
+            
+            LinkedList<Integer> cola = new LinkedList<>();
+            cola.push(inicial);
+            
+            boolean seen[] = new boolean[vertices];
+            seen[inicial] = true;
+            int contador = 0;
+            
+            while(cola.size() > 0) {
+                int cur = cola.pop();
+                contador++;
+                for(int i = 0; i < grafo.get(cur).size(); i++) {
+                    int next = grafo.get(cur).get(i);
+                    if(!seen[next]) {
+                        cola.push(next);
+                        seen[next] = true;
+                    }
+                }
+            }
+            contador--;
+            System.out.println("Case #" + k + ":");
+            System.out.println(contador);
+        }
+    }
+    
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+
+
+public class ProblemaA {
+
+	/*
+	 * LinkedList class implements a doubly-linked list.
+	 */
+public static class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	   
+	    public int size( ) // tamaño de la lista implementada
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( ) // berificacion si la lista esta vacia
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).dato;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.dato;
+	        
+	        p.dato = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.dato;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+	    
+	    /**
+	     * Enqueue at final
+	     */	    
+	   public void enqueue(AnyType x){ // encolar a la lista
+		   
+		   add(x);
+	   }
+
+	    /**
+	     * Enqueue at beginning
+	     */	
+	   public void enqueue_beginning(AnyType x){
+		   
+		   add(0,x);
+	   }
+	   
+
+	    /**
+	     * Dequeue at beginning
+	     */	
+	   public AnyType dequeue(){
+		   
+		  return remove(0);
+	   }   
+
+	   
+	    /**
+	     * Dequeue at final
+	     */
+	   public AnyType dequeue_final(){
+		   
+		  return remove(size()-1);
+	   }	   
+	   
+	    /**
+	     * show the last element add
+	     */	    
+	   public AnyType peek(){
+		   
+		  return get(0);
+	   }       
+
+	    /**
+	     * show the first element add
+	     */	
+	   public AnyType peek_final(){
+		   
+		  return get(size()-1);
+	   } 
+	   
+	   
+	   
+	   
+	   
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.dato;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private static class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            dato = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType dato;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+
+
+	
+	
+	public static class Vertex implements Comparable<Vertex>{
+		
+		public int indegree;
+		public int topNum;
+		char valor;
+		public LinkedList<Vertex> Lista_de_adyacencia;
+		int outdegree;
+		
+		public Vertex(){
+			this.indegree=0;
+			this.topNum=0;
+			this.valor=0;
+			this.Lista_de_adyacencia=new LinkedList<Vertex>();
+			this.outdegree =0;
+		}
+		@Override
+		public int compareTo(Vertex t) {
+			
+			if (valor < t.valor) {
+				return -1;
+			}else
+			if (valor > t.valor ) {
+				return 1;
+			} else{
+				return 0;
+			}
+		
+	}
+	
+        }
+	
+public static void main(String[] args) throws NumberFormatException, IOException {
+        HashMap<Integer, Vertex> Grafo;
+		BufferedReader in;  
+		String line = null;	
+		PriorityQueue<Integer> otros;
+		ArrayList<Integer>Arreglo;
+		
+		Vertex Vertice;
+		
+		File f = new File("A_1.txt");
+		if(f.exists()){
+			in = new BufferedReader(new FileReader(f));
+		}else{
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		
+		
+		
+		//chain.append(Stack_Max.top() + System.lineSeparator())  ;
+		
+		int casos =  Integer.parseInt(in.readLine());
+		
+		for (int ca=1; ca<=casos; ca++){
+		
+                    
+                    System.out.println("Caso #" +ca+":");
+			//Grafo = new ArrayList<Vertex>();
+		    Grafo = new HashMap<>();
+			otros = new PriorityQueue<>();
+			Arreglo = new ArrayList<>();
+			
+			
+			int variables =  Integer.parseInt(in.readLine());//numero de variables
+
+			line = in.readLine();//recibo la cadena de letras
+			
+			String split[] = line.split(" ");
+			
+			int NUM_VERTICES = split.length;
+			
+			for (int v=0; v<split.length; v++){
+				
+				Vertice = new Vertex();
+				int key = split[v].charAt(0);
+				Vertice.valor = (char) key;
+				Grafo.put(key, Vertice);
+			}
+
+			line = in.readLine();
+				//ordenar letras
+			split = line.split(" ");
+			
+			for(int s=0; s<split.length; s++){
+						
+				int primero = split[s].charAt(0) ;
+				int tercero = split[s].charAt(2) ;
+					
+				if (split[s].charAt(1) == '<'){
+
+					Grafo.get(tercero).indegree++;		
+					Grafo.get(primero).outdegree++;	
+					Grafo.get(primero).Lista_de_adyacencia.add( Grafo.get(tercero) );
+					Grafo.get(primero).valor =  split[s].charAt(0);
+					
+				}else {
+					
+					Grafo.get(primero).indegree++;
+					Grafo.get(tercero).outdegree++;
+					Grafo.get(tercero).Lista_de_adyacencia.add( Grafo.get(primero) );
+					Grafo.get(tercero).valor =  split[s].charAt(2);
+				}
+	
+			}
+	
+			//metodo topsort
+			
+			PriorityQueue<Vertex> q = new PriorityQueue(); 
+			int counter =0;
+	
+			for (Vertex v: Grafo.values() ){
+				
+				if(v.indegree == 0  ){
+					int otro = v.valor;
+					otros.add( otro);
+				}
+				
+			}
+			
+			for (Vertex v: Grafo.values() ){
+				if(v.indegree == 0  ){
+					q.add(v);
+				}
+				
+				
+			}
+			
+			while (  !q.isEmpty()  ){
+				
+				Vertex v = q.poll();
+				v.topNum = ++counter;
+				
+				Arreglo.add((int) v.valor);
+				//System.out.println(v.valor);
+                int item = v.valor;
+				
+				for ( Vertex w : Grafo.get(item).Lista_de_adyacencia  ){
+					
+					if( --w.indegree == 0 ){					
+						q.add(w);
+					}
+					
+				}				
+			}
+			
+				if(counter != NUM_VERTICES){
+					System.out.println("NO");
+					
+				}else{
+					for(int i=0; i< Arreglo.size(); i++ ){
+						System.out.print((char)((int)Arreglo.get(i)) + " " );
+					}
+					
+					System.out.println();
+
+				}
+			
+			
+				
+		}//end for cases
+		
+
+	}//end main
+
+
+	
+	
+}
+	
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+
+
+public class ProblemaA {
+
+	/*
+	 * LinkedList class implements a doubly-linked list.
+	 */
+public static class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	   
+	    public int size( ) // tamaño de la lista implementada
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( ) // berificacion si la lista esta vacia
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).dato;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.dato;
+	        
+	        p.dato = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.dato;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+	    
+	    /**
+	     * Enqueue at final
+	     */	    
+	   public void enqueue(AnyType x){ // encolar a la lista
+		   
+		   add(x);
+	   }
+
+	    /**
+	     * Enqueue at beginning
+	     */	
+	   public void enqueue_beginning(AnyType x){
+		   
+		   add(0,x);
+	   }
+	   
+
+	    /**
+	     * Dequeue at beginning
+	     */	
+	   public AnyType dequeue(){
+		   
+		  return remove(0);
+	   }   
+
+	   
+	    /**
+	     * Dequeue at final
+	     */
+	   public AnyType dequeue_final(){
+		   
+		  return remove(size()-1);
+	   }	   
+	   
+	    /**
+	     * show the last element add
+	     */	    
+	   public AnyType peek(){
+		   
+		  return get(0);
+	   }       
+
+	    /**
+	     * show the first element add
+	     */	
+	   public AnyType peek_final(){
+		   
+		  return get(size()-1);
+	   } 
+	   
+	   
+	   
+	   
+	   
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.dato;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private static class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            dato = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType dato;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+
+
+	
+	
+	public static class Vertex implements Comparable<Vertex>{
+		
+		public int indegree;
+		public int topNum;
+		char valor;
+		public LinkedList<Vertex> Lista_de_adyacencia;
+		int outdegree;
+		
+		public Vertex(){
+			this.indegree=0;
+			this.topNum=0;
+			this.valor=0;
+			this.Lista_de_adyacencia=new LinkedList<Vertex>();
+			this.outdegree =0;
+		}
+		@Override
+		public int compareTo(Vertex t) {
+			
+			if (valor < t.valor) {
+				return -1;
+			}else
+			if (valor > t.valor ) {
+				return 1;
+			} else{
+				return 0;
+			}
+		
+	}
+	
+        }
+	
+public static void main(String[] args) throws NumberFormatException, IOException {
+        HashMap<Integer, Vertex> Grafo;
+		BufferedReader in;  
+		String line = null;	
+		PriorityQueue<Integer> otros;
+		ArrayList<Integer>Arreglo;
+		
+		Vertex Vertice;
+		
+		File f = new File("A_1.txt");
+		if(f.exists()){
+			in = new BufferedReader(new FileReader(f));
+		}else{
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		
+		
+		
+		//chain.append(Stack_Max.top() + System.lineSeparator())  ;
+		
+		int casos =  Integer.parseInt(in.readLine());
+		
+		for (int ca=1; ca<=casos; ca++){
+		
+                    
+                    System.out.println("Caso #" +ca+":");
+			//Grafo = new ArrayList<Vertex>();
+		    Grafo = new HashMap<>();
+			otros = new PriorityQueue<>();
+			Arreglo = new ArrayList<>();
+			
+			
+			int variables =  Integer.parseInt(in.readLine());//numero de variables
+
+			line = in.readLine();//recibo la cadena de letras
+			
+			String split[] = line.split(" ");
+			
+			int NUM_VERTICES = split.length;
+			
+			for (int v=0; v<split.length; v++){
+				
+				Vertice = new Vertex();
+				int key = split[v].charAt(0);
+				Vertice.valor = (char) key;
+				Grafo.put(key, Vertice);
+			}
+
+			line = in.readLine();
+				//ordenar letras
+			split = line.split(" ");
+			
+			for(int s=0; s<split.length; s++){
+						
+				int primero = split[s].charAt(0) ;
+				int tercero = split[s].charAt(2) ;
+					
+				if (split[s].charAt(1) == '<'){
+
+					Grafo.get(tercero).indegree++;		
+					Grafo.get(primero).outdegree++;	
+					Grafo.get(primero).Lista_de_adyacencia.add( Grafo.get(tercero) );
+					Grafo.get(primero).valor =  split[s].charAt(0);
+					
+				}else {
+					
+					Grafo.get(primero).indegree++;
+					Grafo.get(tercero).outdegree++;
+					Grafo.get(tercero).Lista_de_adyacencia.add( Grafo.get(primero) );
+					Grafo.get(tercero).valor =  split[s].charAt(2);
+				}
+	
+			}
+	
+			//metodo topsort
+			
+			PriorityQueue<Vertex> q = new PriorityQueue(); 
+			int counter =0;
+	
+			for (Vertex v: Grafo.values() ){
+				
+				if(v.indegree == 0  ){
+					int otro = v.valor;
+					otros.add( otro);
+				}
+				
+			}
+			
+			for (Vertex v: Grafo.values() ){
+				if(v.indegree == 0  ){
+					q.add(v);
+				}
+				
+				
+			}
+			
+			while (  !q.isEmpty()  ){
+				
+				Vertex v = q.poll();
+				v.topNum = ++counter;
+				
+				Arreglo.add((int) v.valor);
+				//System.out.println(v.valor);
+                int item = v.valor;
+				
+				for ( Vertex w : Grafo.get(item).Lista_de_adyacencia  ){
+					
+					if( --w.indegree == 0 ){					
+						q.add(w);
+					}
+					
+				}				
+			}
+			
+				if(counter != NUM_VERTICES){
+					System.out.println("NO");
+					
+				}else{
+					for(int i=0; i< Arreglo.size(); i++ ){
+						System.out.print((char)((int)Arreglo.get(i)) + " " );
+					}
+					
+					System.out.println();
+
+				}
+			
+			
+				
+		}//end for cases
+		
+
+	}//end main
+
+
+	
+	
+}
+	
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+
+
+public class ProblemaA {
+
+	/*
+	 * LinkedList class implements a doubly-linked list.
+	 */
+public static class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	   
+	    public int size( ) // tamaño de la lista implementada
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( ) // berificacion si la lista esta vacia
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).dato;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.dato;
+	        
+	        p.dato = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.dato;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+	    
+	    /**
+	     * Enqueue at final
+	     */	    
+	   public void enqueue(AnyType x){ // encolar a la lista
+		   
+		   add(x);
+	   }
+
+	    /**
+	     * Enqueue at beginning
+	     */	
+	   public void enqueue_beginning(AnyType x){
+		   
+		   add(0,x);
+	   }
+	   
+
+	    /**
+	     * Dequeue at beginning
+	     */	
+	   public AnyType dequeue(){
+		   
+		  return remove(0);
+	   }   
+
+	   
+	    /**
+	     * Dequeue at final
+	     */
+	   public AnyType dequeue_final(){
+		   
+		  return remove(size()-1);
+	   }	   
+	   
+	    /**
+	     * show the last element add
+	     */	    
+	   public AnyType peek(){
+		   
+		  return get(0);
+	   }       
+
+	    /**
+	     * show the first element add
+	     */	
+	   public AnyType peek_final(){
+		   
+		  return get(size()-1);
+	   } 
+	   
+	   
+	   
+	   
+	   
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.dato;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private static class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            dato = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType dato;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+
+
+	
+	
+	public static class Vertex implements Comparable<Vertex>{
+		
+		public int indegree;
+		public int topNum;
+		char valor;
+		public LinkedList<Vertex> Lista_de_adyacencia;
+		int outdegree;
+		
+		public Vertex(){
+			this.indegree=0;
+			this.topNum=0;
+			this.valor=0;
+			this.Lista_de_adyacencia=new LinkedList<Vertex>();
+			this.outdegree =0;
+		}
+		@Override
+		public int compareTo(Vertex t) {
+			
+			if (valor < t.valor) {
+				return -1;
+			}else
+			if (valor > t.valor ) {
+				return 1;
+			} else{
+				return 0;
+			}
+		
+	}
+	
+        }
+	
+public static void main(String[] args) throws NumberFormatException, IOException {
+        HashMap<Integer, Vertex> Grafo;
+		BufferedReader in;  
+		String line = null;	
+		PriorityQueue<Integer> otros;
+		ArrayList<Integer>Arreglo;
+		
+		Vertex Vertice;
+		
+		File f = new File("A_1.txt");
+		if(f.exists()){
+			in = new BufferedReader(new FileReader(f));
+		}else{
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		
+		
+		
+		//chain.append(Stack_Max.top() + System.lineSeparator())  ;
+		
+		int casos =  Integer.parseInt(in.readLine());
+		
+		for (int ca=1; ca<=casos; ca++){
+		
+                    
+                    System.out.println("Caso #" +ca+":");
+			//Grafo = new ArrayList<Vertex>();
+		    Grafo = new HashMap<>();
+			otros = new PriorityQueue<>();
+			Arreglo = new ArrayList<>();
+			
+			
+			int variables =  Integer.parseInt(in.readLine());//numero de variables
+
+			line = in.readLine();//recibo la cadena de letras
+			
+			String split[] = line.split(" ");
+			
+			int NUM_VERTICES = split.length;
+			
+			for (int v=0; v<split.length; v++){
+				
+				Vertice = new Vertex();
+				int key = split[v].charAt(0);
+				Vertice.valor = (char) key;
+				Grafo.put(key, Vertice);
+			}
+
+			line = in.readLine();
+				//ordenar letras
+			split = line.split(" ");
+			
+			for(int s=0; s<split.length; s++){
+						
+				int primero = split[s].charAt(0) ;
+				int tercero = split[s].charAt(2) ;
+					
+				if (split[s].charAt(1) == '<'){
+
+					Grafo.get(tercero).indegree++;		
+					Grafo.get(primero).outdegree++;	
+					Grafo.get(primero).Lista_de_adyacencia.add( Grafo.get(tercero) );
+					Grafo.get(primero).valor =  split[s].charAt(0);
+					
+				}else {
+					
+					Grafo.get(primero).indegree++;
+					Grafo.get(tercero).outdegree++;
+					Grafo.get(tercero).Lista_de_adyacencia.add( Grafo.get(primero) );
+					Grafo.get(tercero).valor =  split[s].charAt(2);
+				}
+	
+			}
+	
+			//metodo topsort
+			
+			PriorityQueue<Vertex> q = new PriorityQueue(); 
+			int counter =0;
+	
+			for (Vertex v: Grafo.values() ){
+				
+				if(v.indegree == 0  ){
+					int otro = v.valor;
+					otros.add( otro);
+				}
+				
+			}
+			
+			for (Vertex v: Grafo.values() ){
+				if(v.indegree == 0  ){
+					q.add(v);
+				}
+				
+				
+			}
+			
+			while (  !q.isEmpty()  ){
+				
+				Vertex v = q.poll();
+				v.topNum = ++counter;
+				
+				Arreglo.add((int) v.valor);
+				//System.out.println(v.valor);
+                int item = v.valor;
+				
+				for ( Vertex w : Grafo.get(item).Lista_de_adyacencia  ){
+					
+					if( --w.indegree == 0 ){					
+						q.add(w);
+					}
+					
+				}				
+			}
+			
+				if(counter != NUM_VERTICES){
+					System.out.println("NO");
+					
+				}else{
+					for(int i=0; i< Arreglo.size(); i++ ){
+						System.out.print((char)((int)Arreglo.get(i)) + " " );
+					}
+					
+					System.out.println();
+
+				}
+			
+			
+				
+		}
+		
+
+	}
+
+
+	
+	
+}
+	
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+
+
+public class ProblemaA {
+
+	/*
+	 * LinkedList class implements a doubly-linked list.
+	 */
+public static class MyLinkedList<AnyType> implements Iterable<AnyType>
+	{
+	    /**
+	     * Construct an empty LinkedList.
+	     */
+	    public MyLinkedList( )
+	    {
+	        doClear( );
+	    }
+	    
+	    private void clear( )
+	    {
+	        doClear( );
+	    }
+	    
+	    /**
+	     * Change the size of this collection to zero.
+	     */
+	    public void doClear( )
+	    {
+	        beginMarker = new Node<>( null, null, null );
+	        endMarker = new Node<>( null, beginMarker, null );
+	        beginMarker.next = endMarker;
+	        
+	        theSize = 0;
+	        modCount++;
+	    }
+	    
+	   
+	    public int size( ) // tamano de la lista implementada
+	    {
+	        return theSize;
+	    }
+	    
+	    public boolean isEmpty( ) // berificacion si la lista esta vacia
+	    {
+	        return size( ) == 0;
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at the end.
+	     * @param x any object.
+	     * @return true.
+	     */
+	    public boolean add( AnyType x )
+	    {
+	        
+	        add( size( ), x );   
+	        return true;         
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position.
+	     * Items at or after that position are slid one position higher.
+	     * @param x any object.
+	     * @param idx position to add at.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */
+	    public void add( int idx, AnyType x )
+	    {
+	        addBefore( getNode( idx, 0, size( ) ), x );
+	    }
+	    
+	    /**
+	     * Adds an item to this collection, at specified position p.
+	     * Items at or after that position are slid one position higher.
+	     * @param p Node to add before.
+	     * @param x any object.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size(), inclusive.
+	     */    
+	    private void addBefore( Node<AnyType> p, AnyType x )
+	    {
+	        Node<AnyType> newNode = new Node<>( x, p.prev, p );
+	        newNode.prev.next = newNode;
+	        p.prev = newNode;         
+	        theSize++;
+	        modCount++;
+	    }   
+	    
+	    
+	    /**
+	     * Returns the item at position idx.
+	     * @param idx the index to search in.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType get( int idx )
+	    {
+	        return getNode( idx ).dato;
+	    }
+	        
+	    /**
+	     * Changes the item at position idx.
+	     * @param idx the index to change.
+	     * @param newVal the new value.
+	     * @return the old value.
+	     * @throws IndexOutOfBoundsException if index is out of range.
+	     */
+	    public AnyType set( int idx, AnyType newVal )
+	    {
+	        Node<AnyType> p = getNode( idx );
+	        AnyType oldVal = p.dato;
+	        
+	        p.dato = newVal;   
+	        return oldVal;
+	    }
+	    
+	    /**
+	     * Gets the Node at position idx, which must range from 0 to size( ) - 1.
+	     * @param idx index to search at.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between 0 and size( ) - 1, inclusive.
+	     */
+	    private Node<AnyType> getNode( int idx )
+	    {
+	        return getNode( idx, 0, size( ) - 1 );
+	    }
+
+	    /**
+	     * Gets the Node at position idx, which must range from lower to upper.
+	     * @param idx index to search at.
+	     * @param lower lowest valid index.
+	     * @param upper highest valid index.
+	     * @return internal node corresponding to idx.
+	     * @throws IndexOutOfBoundsException if idx is not between lower and upper, inclusive.
+	     */    
+	    private Node<AnyType> getNode( int idx, int lower, int upper )
+	    {
+	        Node<AnyType> p;  
+	        if( idx < lower || idx > upper )
+	            throw new IndexOutOfBoundsException( "getNode index: " + idx + "; size: " + size( ) );
+	        if( idx < size( ) / 2 ){
+	            p = beginMarker.next;
+	            for( int i = 0; i < idx; i++ )
+	                p = p.next;            
+	        }
+	        else{
+	            p = endMarker;
+	            for( int i = size( ); i > idx; i-- )
+	                p = p.prev;
+	        }         
+	        return p;
+	    }
+	    
+	    /**
+	     * Removes an item from this collection.
+	     * @param idx the index of the object.
+	     * @return the item was removed from the collection.
+	     */
+	    public AnyType remove( int idx )
+	    {
+	        return remove( getNode( idx ) );
+	    }
+	    
+	    /**
+	     * Removes the object contained in Node p.
+	     * @param p the Node containing the object.
+	     * @return the item was removed from the collection.
+	     */
+	    private AnyType remove( Node<AnyType> p )
+	    {
+	        p.next.prev = p.prev;
+	        p.prev.next = p.next;
+	        theSize--;
+	        modCount++;
+	        
+	        return p.dato;
+	    }
+	    
+	    /**
+	     * Returns a String representation of this collection.
+	     */
+	    public String toString( )
+	    {
+	        StringBuilder sb = new StringBuilder( "[ " );
+
+	        for( AnyType x : this )
+	            sb.append( x + " " );
+	        sb.append( "]" );
+
+	        return new String( sb );
+	    }
+	    
+	    /**
+	     * Enqueue at final
+	     */	    
+	   public void enqueue(AnyType x){ // encolar a la lista
+		   
+		   add(x);
+	   }
+
+	    /**
+	     * Enqueue at beginning
+	     */	
+	   public void enqueue_beginning(AnyType x){
+		   
+		   add(0,x);
+	   }
+	   
+
+	    /**
+	     * Dequeue at beginning
+	     */	
+	   public AnyType dequeue(){
+		   
+		  return remove(0);
+	   }   
+
+	   
+	    /**
+	     * Dequeue at final
+	     */
+	   public AnyType dequeue_final(){
+		   
+		  return remove(size()-1);
+	   }	   
+	   
+	    /**
+	     * show the last element add
+	     */	    
+	   public AnyType peek(){
+		   
+		  return get(0);
+	   }       
+
+	    /**
+	     * show the first element add
+	     */	
+	   public AnyType peek_final(){
+		   
+		  return get(size()-1);
+	   } 
+	   
+	   
+	   
+	   
+	   
+	    /**
+	     * Obtains an Iterator object used to traverse the collection.
+	     * @return an iterator positioned prior to the first element.
+	     */
+	    public java.util.Iterator<AnyType> iterator( )
+	    {
+	        return new LinkedListIterator( );
+	    }
+
+	    /**
+	     * This is the implementation of the LinkedListIterator.
+	     * It maintains a notion of a current position and of
+	     * course the implicit reference to the MyLinkedList.
+	     */
+	    private class LinkedListIterator implements java.util.Iterator<AnyType>
+	    {
+	        private Node<AnyType> current = beginMarker.next;
+	        private int expectedModCount = modCount;
+	        private boolean okToRemove = false;
+	        
+	        public boolean hasNext( )
+	        {
+	            return current != endMarker;
+	        }
+	        
+	        public AnyType next( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !hasNext( ) )
+	                throw new java.util.NoSuchElementException( ); 
+	                   
+	            AnyType nextItem = current.dato;
+	            current = current.next;
+	            okToRemove = true;
+	            return nextItem;
+	        }
+	        
+	        public void remove( )
+	        {
+	            if( modCount != expectedModCount )
+	                throw new java.util.ConcurrentModificationException( );
+	            if( !okToRemove )
+	                throw new IllegalStateException( );
+	                
+	            MyLinkedList.this.remove( current.prev );
+	            expectedModCount++;
+	            okToRemove = false;       
+	        }
+	    }
+	    
+	    /**
+	     * This is the doubly-linked list node.
+	     */
+	    private static class Node<AnyType>
+	    {
+	        public Node( AnyType d, Node<AnyType> p, Node<AnyType> n )
+	        {
+	            dato = d; prev = p; next = n;
+	        }
+	        
+	        public AnyType dato;
+	        public Node<AnyType>   prev;
+	        public Node<AnyType>   next;
+	    }
+	    
+	    private int theSize;
+	    private int modCount = 0;
+	    private Node<AnyType> beginMarker;
+	    private Node<AnyType> endMarker;
+	}
+
+
+
+	
+	
+	public static class Vertex implements Comparable<Vertex>{
+		
+		public int indegree;
+		public int topNum;
+		char valor;
+		public LinkedList<Vertex> Lista_de_adyacencia;
+		int outdegree;
+		
+		public Vertex(){
+			this.indegree=0;
+			this.topNum=0;
+			this.valor=0;
+			this.Lista_de_adyacencia=new LinkedList<Vertex>();
+			this.outdegree =0;
+		}
+		@Override
+		public int compareTo(Vertex t) {
+			
+			if (valor < t.valor) {
+				return -1;
+			}else
+			if (valor > t.valor ) {
+				return 1;
+			} else{
+				return 0;
+			}
+		
+	}
+	
+        }
+	
+public static void main(String[] args) throws NumberFormatException, IOException {
+        HashMap<Integer, Vertex> Grafo;
+		BufferedReader in;  
+		String line = null;	
+		PriorityQueue<Integer> otros;
+		ArrayList<Integer>Arreglo;
+		
+		Vertex Vertice;
+		
+		File f = new File("A_1.txt");
+		if(f.exists()){
+			in = new BufferedReader(new FileReader(f));
+		}else{
+			in = new BufferedReader(new InputStreamReader(System.in));
+		}
+		
+		
+		
+		//chain.append(Stack_Max.top() + System.lineSeparator())  ;
+		
+		int casos =  Integer.parseInt(in.readLine());
+		
+		for (int ca=1; ca<=casos; ca++){
+		
+                    
+                    System.out.println("Caso #" +ca+":");
+			//Grafo = new ArrayList<Vertex>();
+		    Grafo = new HashMap<>();
+			otros = new PriorityQueue<>();
+			Arreglo = new ArrayList<>();
+			
+			
+			int variables =  Integer.parseInt(in.readLine());//numero de variables
+
+			line = in.readLine();//recibo la cadena de letras
+			
+			String split[] = line.split(" ");
+			
+			int NUM_VERTICES = split.length;
+			
+			for (int v=0; v<split.length; v++){
+				
+				Vertice = new Vertex();
+				int key = split[v].charAt(0);
+				Vertice.valor = (char) key;
+				Grafo.put(key, Vertice);
+			}
+
+			line = in.readLine();
+				//ordenar letras
+			split = line.split(" ");
+			
+			for(int s=0; s<split.length; s++){
+						
+				int primero = split[s].charAt(0) ;
+				int tercero = split[s].charAt(2) ;
+					
+				if (split[s].charAt(1) == '<'){
+
+					Grafo.get(tercero).indegree++;		
+					Grafo.get(primero).outdegree++;	
+					Grafo.get(primero).Lista_de_adyacencia.add( Grafo.get(tercero) );
+					Grafo.get(primero).valor =  split[s].charAt(0);
+					
+				}else {
+					
+					Grafo.get(primero).indegree++;
+					Grafo.get(tercero).outdegree++;
+					Grafo.get(tercero).Lista_de_adyacencia.add( Grafo.get(primero) );
+					Grafo.get(tercero).valor =  split[s].charAt(2);
+				}
+	
+			}
+	
+			//metodo topsort
+			
+			PriorityQueue<Vertex> q = new PriorityQueue(); 
+			int counter =0;
+	
+			for (Vertex v: Grafo.values() ){
+				
+				if(v.indegree == 0  ){
+					int otro = v.valor;
+					otros.add( otro);
+				}
+				
+			}
+			
+			for (Vertex v: Grafo.values() ){
+				if(v.indegree == 0  ){
+					q.add(v);
+				}
+				
+				
+			}
+			
+			while (  !q.isEmpty()  ){
+				
+				Vertex v = q.poll();
+				v.topNum = ++counter;
+				
+				Arreglo.add((int) v.valor);
+				//System.out.println(v.valor);
+                int item = v.valor;
+				
+				for ( Vertex w : Grafo.get(item).Lista_de_adyacencia  ){
+					
+					if( --w.indegree == 0 ){					
+						q.add(w);
+					}
+					
+				}				
+			}
+			
+				if(counter != NUM_VERTICES){
+					System.out.println("NO");
+					
+				}else{
+					for(int i=0; i< Arreglo.size(); i++ ){
+						System.out.print((char)((int)Arreglo.get(i)) + " " );
+					}
+					
+					System.out.println();
+
+				}
+			
+			
+				
+		}//end for cases
+		
+
+	}//end main
+
+
+	
+	
+}
+	
+
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.PriorityQueue;
+import java.util.TreeMap;
+
+
+public class ProblemaB {
+
+	
+	public class Grafo<AnyType extends java.lang.Comparable<? super AnyType>>
+	{
+		int tamano;
+		TreeMap<AnyType,Vertice<AnyType>> grafoMap;
+		TreeMap<AnyType, Integer> gradoDeEntradaMap;
+		TreeMap<AnyType, Integer> gradoDeSalidaMap;
+		
+		
+		public Grafo()
+		{
+			tamano = 0;
+			grafoMap = new TreeMap<>();
+			gradoDeEntradaMap = new TreeMap<>();
+			gradoDeSalidaMap = new TreeMap<>();
+		}
+		
+		public class Vertice<AnyType extends java.lang.Comparable<? super AnyType>> implements java.lang.Comparable
+		{
+			AnyType valor;
+			TreeMap<AnyType,Integer> HijosConSuPeso;
+			TreeMap<AnyType,Integer> PadresConSuPeso;
+			Integer distancia;
+			boolean visitado;
+			
+			public Vertice(AnyType valor)
+			{
+				this.valor =  valor;
+				HijosConSuPeso = new TreeMap<>();
+				PadresConSuPeso = new TreeMap<>();
+				distancia = Integer.MAX_VALUE;
+				visitado = false;
+			}
+
+			@Override
+			public int compareTo(Object objetoAComparar) 
+			{
+				Vertice<AnyType> CompararConvert = (Vertice<AnyType>) objetoAComparar;
+				return distancia.compareTo(CompararConvert.distancia);
+			}
+			
+			@Override
+			public String toString()
+			{
+				StringBuilder stringDeImpresion = new StringBuilder();
+				stringDeImpresion.append(System.lineSeparator() + "Valor: " + valor + System.lineSeparator() + "Distancia: " + distancia + System.lineSeparator() + "Visitado: " + visitado + System.lineSeparator() + "Hijos: " + HijosConSuPeso.toString() + System.lineSeparator() + "Padres: " + PadresConSuPeso.toString() + System.lineSeparator());
+				return stringDeImpresion.toString();
+			}
+		}
+		
+		public void conexionDirigida(AnyType padre, AnyType hijo, Integer peso)
+		{
+			if(grafoMap.get(padre).HijosConSuPeso.containsKey(hijo) && grafoMap.get(hijo).PadresConSuPeso.containsKey(padre))
+			{
+				return;
+			}
+			Vertice<AnyType> verticePadre = grafoMap.get(padre);
+			if(!grafoMap.containsKey(padre))
+			{
+				verticePadre = new Vertice<>(padre);
+				gradoDeEntradaMap.put(padre, 0);
+				gradoDeSalidaMap.put(padre, 0);
+				tamano = tamano + 1;
+			}
+			Vertice<AnyType> verticeHijo = grafoMap.get(hijo);
+			if(!grafoMap.containsKey(hijo))
+			{
+				verticeHijo = new Vertice<>(hijo);
+				gradoDeEntradaMap.put(hijo, 0);
+				gradoDeSalidaMap.put(hijo, 0);
+				tamano = tamano + 1;
+			}			
+			verticePadre.HijosConSuPeso.put(verticeHijo.valor, peso);
+			verticeHijo.PadresConSuPeso.put(verticePadre.valor, peso);
+			gradoDeSalidaMap.put(padre, gradoDeSalidaMap.get(padre) + 1);
+			gradoDeEntradaMap.put(hijo, gradoDeEntradaMap.get(hijo) + 1);
+			grafoMap.put(padre, verticePadre);
+			grafoMap.put(hijo, verticeHijo);
+		}
+		
+		public void introducirElemento(AnyType elemento)
+		{
+			Vertice<AnyType> verticeDelElemento = new Vertice<>(elemento);
+			gradoDeEntradaMap.put(elemento, 0);
+			gradoDeSalidaMap.put(elemento, 0);
+			grafoMap.put(elemento, verticeDelElemento);
+			tamano = tamano + 1;
+		}
+		
+		public void desconectarElemento(AnyType elemento)
+		{
+			if(!grafoMap.containsKey(elemento))
+			{
+				return;
+			}
+			Vertice<AnyType> verticeAEliminar = grafoMap.get(elemento);
+			AnyType hijoADesconectar;
+			AnyType padreADesconectar;
+			while(!verticeAEliminar.HijosConSuPeso.isEmpty())
+			{
+				hijoADesconectar = verticeAEliminar.HijosConSuPeso.firstKey();
+				grafoMap.get(hijoADesconectar).PadresConSuPeso.remove(verticeAEliminar.valor);
+				gradoDeEntradaMap.put(hijoADesconectar, gradoDeEntradaMap.get(hijoADesconectar) - 1);
+				verticeAEliminar.HijosConSuPeso.remove(verticeAEliminar.HijosConSuPeso.firstKey());
+			}
+			gradoDeSalidaMap.put(verticeAEliminar.valor, 0);
+			while(!verticeAEliminar.PadresConSuPeso.isEmpty())
+			{
+				padreADesconectar = verticeAEliminar.PadresConSuPeso.firstKey();
+				grafoMap.get(padreADesconectar).HijosConSuPeso.remove(verticeAEliminar.valor);
+				gradoDeSalidaMap.put(padreADesconectar, gradoDeSalidaMap.get(padreADesconectar) - 1);
+				verticeAEliminar.PadresConSuPeso.remove(verticeAEliminar.PadresConSuPeso.firstKey());
+			}
+			gradoDeEntradaMap.put(verticeAEliminar.valor, 0);
+			tamano = tamano - 1;
+		}
+		
+		public void conexionDirigida(AnyType padre, AnyType hijo)
+		{
+			conexionDirigida(padre, hijo, 1);
+		}
+		
+		public void conexionNoDirigida(AnyType padre, AnyType hijo, Integer peso)
+		{
+			conexionDirigida(padre, hijo, peso);
+			conexionDirigida(hijo, padre, peso);
+		}
+		
+		public void conexionNoDirigida(AnyType padre, AnyType hijo)
+		{
+			conexionDirigida(padre, hijo, 1);
+			conexionDirigida(hijo, padre, 1);
+		}
+		
+		public boolean isEmpty()
+		{
+			if(tamano == 0)
+			{
+				return true;
+			}else{
+				     return false;
+			     }
+		}
+	}
+	
+	public void peso_hijos(TreeMap<Integer, Integer> mapEnBlanco, TreeMap<Integer, Integer> mapDeHijosConSuPesoADuplicar)
+	{
+		if(mapDeHijosConSuPesoADuplicar.isEmpty())
+		{
+			return;
+		}
+		int verticeLlave = mapDeHijosConSuPesoADuplicar.firstEntry().getKey();
+		int pesoDelVerticeLlave = mapDeHijosConSuPesoADuplicar.firstEntry().getValue();
+		mapEnBlanco.put(verticeLlave, pesoDelVerticeLlave);
+		mapDeHijosConSuPesoADuplicar.remove(mapDeHijosConSuPesoADuplicar.firstKey());
+		peso_hijos(mapEnBlanco, mapDeHijosConSuPesoADuplicar);		
+		mapDeHijosConSuPesoADuplicar.put(verticeLlave, pesoDelVerticeLlave);
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		BufferedReader Entrada  = new BufferedReader(new InputStreamReader(System.in));		
+
+		ProblemaB problemaB = new ProblemaB();
+		StringBuilder chain = new StringBuilder();
+		int casosDePrueba = Integer.parseInt(Entrada.readLine());
+		PriorityQueue<Grafo<Integer>.Vertice<Integer>> cola_hijos = new PriorityQueue<>();
+		for(int i = 1 ; i <= casosDePrueba ; i = i + 1)
+		{
+			chain.append("Caso #" + i + ":" + System.lineSeparator());
+			String stringConNMAB = Entrada.readLine();
+			String[] arregloDeCadenasConNMAB = stringConNMAB.split(" ");
+			int pcs = Integer.parseInt(arregloDeCadenasConNMAB[0]);
+			int cantidadDeConexiones = Integer.parseInt(arregloDeCadenasConNMAB[1]);
+			int computadorDeOrigen = Integer.parseInt(arregloDeCadenasConNMAB[2]);
+			int computadorDeDestino = Integer.parseInt(arregloDeCadenasConNMAB[3]);
+			Grafo<Integer> grafoConLosComputadores = problemaB.new Grafo<>();
+			for(int k = 0 ; k <= pcs+2000 - 1 ; k = k + 1) // o 200
+			{
+				k=k*2;
+			}
+			for(int k = 0 ; k <= pcs - 1 ; k = k + 1)
+			{
+				grafoConLosComputadores.introducirElemento(k);
+			}
+			for(int k = 1 ; k <= cantidadDeConexiones ; k = k + 1)
+			{
+				String stringConLaConexion = Entrada.readLine();
+				String[] arregloDeCadenasConLaConexion = stringConLaConexion.split(" ");
+				grafoConLosComputadores.conexionNoDirigida(Integer.parseInt(arregloDeCadenasConLaConexion[0]), Integer.parseInt(arregloDeCadenasConLaConexion[1]), Integer.parseInt(arregloDeCadenasConLaConexion[2]));
+			}
+			grafoConLosComputadores.grafoMap.get(computadorDeOrigen).distancia = 0;
+			cola_hijos.add(grafoConLosComputadores.grafoMap.get(computadorDeOrigen));
+			while(!cola_hijos.isEmpty())
+			{
+				ProblemaB.Grafo<Integer>.Vertice<Integer> verticeOrigen = cola_hijos.remove();
+				TreeMap<Integer, Integer> mapDeHijosConSuPesoARecorrer = new TreeMap<>();
+				verticeOrigen.visitado = true;
+				problemaB.peso_hijos(mapDeHijosConSuPesoARecorrer, verticeOrigen.HijosConSuPeso);
+				while(!mapDeHijosConSuPesoARecorrer.isEmpty())
+				{
+					if(!grafoConLosComputadores.grafoMap.get(mapDeHijosConSuPesoARecorrer.firstKey()).visitado)
+					{
+						if(grafoConLosComputadores.grafoMap.get(mapDeHijosConSuPesoARecorrer.firstKey()).distancia > verticeOrigen.distancia + mapDeHijosConSuPesoARecorrer.firstEntry().getValue())
+						{
+							grafoConLosComputadores.grafoMap.get(mapDeHijosConSuPesoARecorrer.firstKey()).distancia = verticeOrigen.distancia + mapDeHijosConSuPesoARecorrer.firstEntry().getValue();
+						}
+						cola_hijos.remove(grafoConLosComputadores.grafoMap.get(mapDeHijosConSuPesoARecorrer.firstKey()));
+						cola_hijos.add(grafoConLosComputadores.grafoMap.get(mapDeHijosConSuPesoARecorrer.firstKey()));
+					}
+					mapDeHijosConSuPesoARecorrer.remove(mapDeHijosConSuPesoARecorrer.firstKey());
+				}				
+			}
+			if(grafoConLosComputadores.grafoMap.get(computadorDeDestino).distancia == Integer.MAX_VALUE)
+			{
+				chain.append("inalcanzable" + System.lineSeparator());
+			}
+			else
+			{
+				chain.append(grafoConLosComputadores.grafoMap.get(computadorDeDestino).distancia + System.lineSeparator());
+			}
+		}
+		System.out.print(chain);
+		Entrada.close();
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.TreeSet;
+
+
+public class ProblemaC {
+
+	
+
+	TreeSet<Integer> setNoVisitadas = new TreeSet<>();
+	TreeSet<Integer> setConLasZonas = new TreeSet<>();
+	
+	public boolean recorrerZona(int posicion, int[][] matriz)
+	{
+		ArrayDeque<Integer> colaDelRecorrido = new ArrayDeque<>();
+		setNoVisitadas.remove(posicion);
+		int fila;
+		int columna;
+		if(posicion % matriz.length == 0)
+		{
+			fila = (posicion / matriz.length) - 1;
+			columna = matriz.length - 1;
+		}else{
+			     fila = posicion / matriz.length;
+			     columna = (posicion % matriz.length) - 1;
+		     }
+		if(setConLasZonas.contains(matriz[fila][columna]))
+		{
+			return true;
+		}
+		setConLasZonas.add(matriz[fila][columna]);
+		if(columna != matriz.length - 1)
+		{
+			if(matriz[fila][columna + 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion + 1))
+			{
+				setNoVisitadas.remove(posicion + 1);
+				colaDelRecorrido.add(posicion + 1);			
+			}
+		}
+		if(fila != matriz.length - 1)
+		{
+			if(matriz[fila + 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion + matriz.length))
+			{
+				setNoVisitadas.remove(posicion + matriz.length);
+				colaDelRecorrido.add(posicion + matriz.length);				
+			}
+		}
+		if(columna != 0)
+		{
+			if(matriz[fila][columna - 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion - 1))
+			{
+				setNoVisitadas.remove(posicion - 1);
+				colaDelRecorrido.add(posicion - 1);				
+			}
+		}
+		if(fila != 0)
+		{
+			if(matriz[fila - 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion - matriz.length))
+			{
+				setNoVisitadas.remove(posicion - matriz.length);
+				colaDelRecorrido.add(posicion - matriz.length);			
+			}
+		}
+		while(!colaDelRecorrido.isEmpty())
+		{
+			posicion = colaDelRecorrido.remove();
+			setNoVisitadas.remove(posicion);
+			if(posicion % matriz.length == 0)
+			{
+				fila = (posicion / matriz.length) - 1;
+				columna = matriz.length - 1;
+			}else{
+				     fila = posicion / matriz.length;
+				     columna = (posicion % matriz.length) - 1;
+			     }
+			if(columna != matriz.length - 1)
+			{
+				if(matriz[fila][columna + 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion + 1))
+				{
+					setNoVisitadas.remove(posicion + 1);
+					colaDelRecorrido.add(posicion + 1);			
+				}
+			}
+			if(fila != matriz.length - 1)
+			{
+				if(matriz[fila + 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion + matriz.length))
+				{
+					setNoVisitadas.remove(posicion + matriz.length);
+					colaDelRecorrido.add(posicion + matriz.length);				
+				}
+			}
+			if(columna != 0)
+			{
+				if(matriz[fila][columna - 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion - 1))
+				{
+					setNoVisitadas.remove(posicion - 1);
+					colaDelRecorrido.add(posicion - 1);				
+				}
+			}
+			if(fila != 0)
+			{
+				if(matriz[fila - 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion - matriz.length))
+				{
+					setNoVisitadas.remove(posicion - matriz.length);
+					colaDelRecorrido.add(posicion - matriz.length);			
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		BufferedReader cadenaDeEntrada  = new BufferedReader(new InputStreamReader(System.in));		
+
+		ProblemaC problemaC = new ProblemaC();
+		StringBuilder CadenaDeLaRespuesta = new StringBuilder();
+		int casos = Integer.parseInt(cadenaDeEntrada.readLine());
+		for(int i = 1 ; i <= casos ; i = i + 1)
+		{
+			CadenaDeLaRespuesta.append("Caso #" + i + ":" + System.lineSeparator());	
+			
+			int size = Integer.parseInt(cadenaDeEntrada.readLine());
+			
+			for(int kl=0; kl<=800; kl++){
+				kl=kl*2;
+			}
+			int[][] matriz = new int[size][size];
+			for(int fila = 0 ; fila <= size - 1 ; fila = fila + 1)
+			{
+				String stringDeLaFila = cadenaDeEntrada.readLine();
+				String[] ElementosDeLaFila = stringDeLaFila.split(" ");
+				for(int columna = 0 ; columna <= size - 1 ; columna = columna + 1)
+				{
+					matriz[fila][columna] = Integer.parseInt(ElementosDeLaFila[columna]);
+				}
+			}
+			int Posiciones = size*size;			
+			for(int k = 1 ; k <= Posiciones ; k = k + 1)
+			{
+				problemaC.setNoVisitadas.add(k);
+			}
+			boolean repitioZona = false;
+			while(!problemaC.setNoVisitadas.isEmpty() && !repitioZona)
+			{
+				repitioZona = problemaC.recorrerZona(problemaC.setNoVisitadas.first(), matriz);
+			}
+			if(repitioZona == true)
+			{
+				CadenaDeLaRespuesta.append("NO" + System.lineSeparator());
+			}else{
+				     CadenaDeLaRespuesta.append("YES" + System.lineSeparator());
+			     }
+			problemaC.setConLasZonas = new TreeSet<>();
+		}
+		System.out.print(CadenaDeLaRespuesta);
+		cadenaDeEntrada.close();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package OctavoGrafos;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.TreeSet;
+
+
+public class ProblemaC {
+
+	
+
+	TreeSet<Integer> setNoVisitadas = new TreeSet<>();
+	TreeSet<Integer> setConLasZonas = new TreeSet<>();
+	
+	public boolean recorrerZona(int posicion, int[][] matriz)
+	{
+		ArrayDeque<Integer> colaDelRecorrido = new ArrayDeque<>();
+		setNoVisitadas.remove(posicion);
+		int fila;
+		int columna;
+		if(posicion % matriz.length == 0)
+		{
+			fila = (posicion / matriz.length) - 1;
+			columna = matriz.length - 1;
+		}else{
+			     fila = posicion / matriz.length;
+			     columna = (posicion % matriz.length) - 1;
+		     }
+		if(setConLasZonas.contains(matriz[fila][columna]))
+		{
+			return true;
+		}
+		setConLasZonas.add(matriz[fila][columna]);
+		if(columna != matriz.length - 1)
+		{
+			if(matriz[fila][columna + 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion + 1))
+			{
+				setNoVisitadas.remove(posicion + 1);
+				colaDelRecorrido.add(posicion + 1);			
+			}
+		}
+		if(fila != matriz.length - 1)
+		{
+			if(matriz[fila + 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion + matriz.length))
+			{
+				setNoVisitadas.remove(posicion + matriz.length);
+				colaDelRecorrido.add(posicion + matriz.length);				
+			}
+		}
+		if(columna != 0)
+		{
+			if(matriz[fila][columna - 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion - 1))
+			{
+				setNoVisitadas.remove(posicion - 1);
+				colaDelRecorrido.add(posicion - 1);				
+			}
+		}
+		if(fila != 0)
+		{
+			if(matriz[fila - 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion - matriz.length))
+			{
+				setNoVisitadas.remove(posicion - matriz.length);
+				colaDelRecorrido.add(posicion - matriz.length);			
+			}
+		}
+		while(!colaDelRecorrido.isEmpty())
+		{
+			posicion = colaDelRecorrido.remove();
+			setNoVisitadas.remove(posicion);
+			if(posicion % matriz.length == 0)
+			{
+				fila = (posicion / matriz.length) - 1;
+				columna = matriz.length - 1;
+			}else{
+				     fila = posicion / matriz.length;
+				     columna = (posicion % matriz.length) - 1;
+			     }
+			if(columna != matriz.length - 1)
+			{
+				if(matriz[fila][columna + 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion + 1))
+				{
+					setNoVisitadas.remove(posicion + 1);
+					colaDelRecorrido.add(posicion + 1);			
+				}
+			}
+			if(fila != matriz.length - 1)
+			{
+				if(matriz[fila + 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion + matriz.length))
+				{
+					setNoVisitadas.remove(posicion + matriz.length);
+					colaDelRecorrido.add(posicion + matriz.length);				
+				}
+			}
+			if(columna != 0)
+			{
+				if(matriz[fila][columna - 1] == matriz[fila][columna] && setNoVisitadas.contains(posicion - 1))
+				{
+					setNoVisitadas.remove(posicion - 1);
+					colaDelRecorrido.add(posicion - 1);				
+				}
+			}
+			if(fila != 0)
+			{
+				if(matriz[fila - 1][columna] == matriz[fila][columna] && setNoVisitadas.contains(posicion - matriz.length))
+				{
+					setNoVisitadas.remove(posicion - matriz.length);
+					colaDelRecorrido.add(posicion - matriz.length);			
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		BufferedReader cadenaDeEntrada  = new BufferedReader(new InputStreamReader(System.in));		
+
+		ProblemaC problemaC = new ProblemaC();
+		StringBuilder CadenaDeLaRespuesta = new StringBuilder();
+		int casos = Integer.parseInt(cadenaDeEntrada.readLine());
+		for(int i = 1 ; i <= casos ; i = i + 1)
+		{
+			CadenaDeLaRespuesta.append("Caso #" + i + ":" + System.lineSeparator());	
+			
+			int size = Integer.parseInt(cadenaDeEntrada.readLine());
+			
+			for(int kl=0; kl<=800; kl++){
+				kl=kl*2;
+			}
+			int[][] matriz = new int[size][size];
+			for(int fila = 0 ; fila <= size - 1 ; fila = fila + 1)
+			{
+				String stringDeLaFila = cadenaDeEntrada.readLine();
+				String[] ElementosDeLaFila = stringDeLaFila.split(" ");
+				for(int columna = 0 ; columna <= size - 1 ; columna = columna + 1)
+				{
+					matriz[fila][columna] = Integer.parseInt(ElementosDeLaFila[columna]);
+				}
+			}
+			int Posiciones = size*size;			
+			for(int k = 1 ; k <= Posiciones ; k = k + 1)
+			{
+				problemaC.setNoVisitadas.add(k);
+			}
+			boolean repitioZona = false;
+			while(!problemaC.setNoVisitadas.isEmpty() && !repitioZona)
+			{
+				repitioZona = problemaC.recorrerZona(problemaC.setNoVisitadas.first(), matriz);
+			}
+			if(repitioZona == true)
+			{
+				CadenaDeLaRespuesta.append("NO" + System.lineSeparator());
+			}else{
+				     CadenaDeLaRespuesta.append("YES" + System.lineSeparator());
+			     }
+			problemaC.setConLasZonas = new TreeSet<>();
+		}
+		System.out.print(CadenaDeLaRespuesta);
+		cadenaDeEntrada.close();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package octavografos;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.TreeSet;
+
+
+public class Problema_C {
+
+	
+
+	TreeSet<Integer> setPosicionesNoVisitadasDeLaMatriz = new TreeSet<>();
+	TreeSet<Integer> setConLasZonas = new TreeSet<>();
+	
+	public boolean recorrerZona(int posicion, int[][] matriz)
+	{
+		ArrayDeque<Integer> colaDelRecorrido = new ArrayDeque<>();
+		setPosicionesNoVisitadasDeLaMatriz.remove(posicion);
+		int fila;
+		int columna;
+		if(posicion % matriz.length == 0)
+		{
+			fila = (posicion / matriz.length) - 1;
+			columna = matriz.length - 1;
+		}else{
+			     fila = posicion / matriz.length;
+			     columna = (posicion % matriz.length) - 1;
+		     }
+		if(setConLasZonas.contains(matriz[fila][columna]))
+		{
+			return true;
+		}
+		setConLasZonas.add(matriz[fila][columna]);
+		if(columna != matriz.length - 1)
+		{
+			if(matriz[fila][columna + 1] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion + 1))
+			{
+				setPosicionesNoVisitadasDeLaMatriz.remove(posicion + 1);
+				colaDelRecorrido.add(posicion + 1);			
+			}
+		}
+		if(fila != matriz.length - 1)
+		{
+			if(matriz[fila + 1][columna] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion + matriz.length))
+			{
+				setPosicionesNoVisitadasDeLaMatriz.remove(posicion + matriz.length);
+				colaDelRecorrido.add(posicion + matriz.length);				
+			}
+		}
+		if(columna != 0)
+		{
+			if(matriz[fila][columna - 1] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion - 1))
+			{
+				setPosicionesNoVisitadasDeLaMatriz.remove(posicion - 1);
+				colaDelRecorrido.add(posicion - 1);				
+			}
+		}
+		if(fila != 0)
+		{
+			if(matriz[fila - 1][columna] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion - matriz.length))
+			{
+				setPosicionesNoVisitadasDeLaMatriz.remove(posicion - matriz.length);
+				colaDelRecorrido.add(posicion - matriz.length);			
+			}
+		}
+		while(!colaDelRecorrido.isEmpty())
+		{
+			posicion = colaDelRecorrido.remove();
+			setPosicionesNoVisitadasDeLaMatriz.remove(posicion);
+			if(posicion % matriz.length == 0)
+			{
+				fila = (posicion / matriz.length) - 1;
+				columna = matriz.length - 1;
+			}else{
+				     fila = posicion / matriz.length;
+				     columna = (posicion % matriz.length) - 1;
+			     }
+			if(columna != matriz.length - 1)
+			{
+				if(matriz[fila][columna + 1] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion + 1))
+				{
+					setPosicionesNoVisitadasDeLaMatriz.remove(posicion + 1);
+					colaDelRecorrido.add(posicion + 1);			
+				}
+			}
+			if(fila != matriz.length - 1)
+			{
+				if(matriz[fila + 1][columna] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion + matriz.length))
+				{
+					setPosicionesNoVisitadasDeLaMatriz.remove(posicion + matriz.length);
+					colaDelRecorrido.add(posicion + matriz.length);				
+				}
+			}
+			if(columna != 0)
+			{
+				if(matriz[fila][columna - 1] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion - 1))
+				{
+					setPosicionesNoVisitadasDeLaMatriz.remove(posicion - 1);
+					colaDelRecorrido.add(posicion - 1);				
+				}
+			}
+			if(fila != 0)
+			{
+				if(matriz[fila - 1][columna] == matriz[fila][columna] && setPosicionesNoVisitadasDeLaMatriz.contains(posicion - matriz.length))
+				{
+					setPosicionesNoVisitadasDeLaMatriz.remove(posicion - matriz.length);
+					colaDelRecorrido.add(posicion - matriz.length);			
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		BufferedReader cadenaDeEntrada  = new BufferedReader(new InputStreamReader(System.in));		
+
+		Problema_C problemaC = new Problema_C();
+		StringBuilder constructorRespuesta = new StringBuilder();
+		int casosDePrueba = Integer.parseInt(cadenaDeEntrada.readLine());
+		for(int i = 1 ; i <= casosDePrueba ; i = i + 1)
+		{
+			constructorRespuesta.append("Caso #" + i + ":" + System.lineSeparator());	
+			
+			int size = Integer.parseInt(cadenaDeEntrada.readLine());
+			
+			for(int kl=0; kl<=2000; kl++){
+				kl=kl*2;
+			}
+			int[][] matriz = new int[size][size];
+                        for(int y =0; y<=5000;y++)      {
+                            
+                            y=y+size;
+                        }
+			for(int fila = 0 ; fila <= size - 1 ; fila = fila + 1)
+			{
+				String stringDeLaFila = cadenaDeEntrada.readLine();
+				String[] arregloDeCadenasConLosElementosDeLaFila = stringDeLaFila.split(" ");
+				for(int columna = 0 ; columna <= size - 1 ; columna = columna + 1)
+				{
+					matriz[fila][columna] = Integer.parseInt(arregloDeCadenasConLosElementosDeLaFila[columna]);
+				}
+			}
+			int cantidadDePosicionesDeLaMatriz = size*size;			
+			for(int k = 1 ; k <= cantidadDePosicionesDeLaMatriz ; k = k + 1)
+			{
+				problemaC.setPosicionesNoVisitadasDeLaMatriz.add(k);
+			}
+			boolean repitioZona = false;
+			while(!problemaC.setPosicionesNoVisitadasDeLaMatriz.isEmpty() && !repitioZona)
+			{
+				repitioZona = problemaC.recorrerZona(problemaC.setPosicionesNoVisitadasDeLaMatriz.first(), matriz);
+			}
+			if(repitioZona == true)
+			{
+				constructorRespuesta.append("NO" + System.lineSeparator());
+			}else{
+				     constructorRespuesta.append("YES" + System.lineSeparator());
+			     }
+			problemaC.setPosicionesNoVisitadasDeLaMatriz = new TreeSet<>();
+			problemaC.setConLasZonas = new TreeSet<>();
+		}
+		System.out.print(constructorRespuesta);
+		cadenaDeEntrada.close();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+package octavografos;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+
+public class ProblemaD {
+
+
+	TreeSet<Integer> No_vis = new TreeSet<>();
+	TreeMap<Integer,TreeMap<Integer,Integer>> Map = new TreeMap<>();
+	
+	public void recorrerZona(int posicion, int[][] matriz)
+	{
+		ArrayDeque<Integer> colaDelRecorrido = new ArrayDeque<>();
+		No_vis.remove(posicion);
+		int fila;
+		int columna;
+		if(posicion % matriz.length == 0)
+		{
+			fila = (posicion / matriz.length) - 1;
+			columna = matriz.length - 1;
+		}else{
+			     fila = posicion / matriz.length;
+			     columna = (posicion % matriz.length) - 1;
+		     }
+		if(!Map.containsKey(matriz[fila][columna]))
+		{
+			TreeMap<Integer,Integer> mapDeSubZonas = new TreeMap<>();
+			mapDeSubZonas.put(1, 0);
+			Map.put(matriz[fila][columna], mapDeSubZonas);
+		}else{
+			     Map.get(matriz[fila][columna]).put(Map.get(matriz[fila][columna]).lastKey() + 1, 0);   
+		     }		
+		if(columna != matriz.length - 1)
+		{
+			if(matriz[fila][columna + 1] == matriz[fila][columna] && No_vis.contains(posicion + 1))
+			{
+				No_vis.remove(posicion + 1);
+				colaDelRecorrido.add(posicion + 1);			
+			}
+		}
+		if(fila != matriz.length - 1)
+		{
+			if(matriz[fila + 1][columna] == matriz[fila][columna] && No_vis.contains(posicion + matriz.length))
+			{
+				No_vis.remove(posicion + matriz.length);
+				colaDelRecorrido.add(posicion + matriz.length);				
+			}
+		}
+		if(columna != 0)
+		{
+			if(matriz[fila][columna - 1] == matriz[fila][columna] && No_vis.contains(posicion - 1))
+			{
+				No_vis.remove(posicion - 1);
+				colaDelRecorrido.add(posicion - 1);				
+			}
+		}
+		if(fila != 0)
+		{
+			if(matriz[fila - 1][columna] == matriz[fila][columna] && No_vis.contains(posicion - matriz.length))
+			{
+				No_vis.remove(posicion - matriz.length);
+				colaDelRecorrido.add(posicion - matriz.length);			
+			}
+		}
+		Map.get(matriz[fila][columna]).put(Map.get(matriz[fila][columna]).lastKey(), Map.get(matriz[fila][columna]).lastEntry().getValue() + 1);
+		while(!colaDelRecorrido.isEmpty())
+		{
+			posicion = colaDelRecorrido.remove();
+			No_vis.remove(posicion);
+			if(posicion % matriz.length == 0)
+			{
+				fila = (posicion / matriz.length) - 1;
+				columna = matriz.length - 1;
+			}else{
+				     fila = posicion / matriz.length;
+				     columna = (posicion % matriz.length) - 1;
+			     }
+			if(columna != matriz.length - 1)
+			{
+				if(matriz[fila][columna + 1] == matriz[fila][columna] && No_vis.contains(posicion + 1))
+				{
+					No_vis.remove(posicion + 1);
+					colaDelRecorrido.add(posicion + 1);			
+				}
+			}
+			if(fila != matriz.length - 1)
+			{
+				if(matriz[fila + 1][columna] == matriz[fila][columna] && No_vis.contains(posicion + matriz.length))
+				{
+					No_vis.remove(posicion + matriz.length);
+					colaDelRecorrido.add(posicion + matriz.length);				
+				}
+			}
+			if(columna != 0)
+			{
+				if(matriz[fila][columna - 1] == matriz[fila][columna] && No_vis.contains(posicion - 1))
+				{
+					No_vis.remove(posicion - 1);
+					colaDelRecorrido.add(posicion - 1);				
+				}
+			}
+			if(fila != 0)
+			{
+				if(matriz[fila - 1][columna] == matriz[fila][columna] && No_vis.contains(posicion - matriz.length))
+				{
+					No_vis.remove(posicion - matriz.length);
+					colaDelRecorrido.add(posicion - matriz.length);			
+				}
+			}
+			Map.get(matriz[fila][columna]).put(Map.get(matriz[fila][columna]).lastKey(), Map.get(matriz[fila][columna]).lastEntry().getValue() + 1);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		BufferedReader cadenaDeEntrada  = new BufferedReader(new InputStreamReader(System.in));		
+		//FileReader archivoLeido = new FileReader("C_2p.txt");
+		//BufferedReader cadenaDeEntrada = new BufferedReader(archivoLeido);
+		Problema_D problemaC = new Problema_D();
+		StringBuilder chain = new StringBuilder();
+		int casosDePrueba = Integer.parseInt(cadenaDeEntrada.readLine());
+		
+		for(int k=0; k<=10000; k++){
+			k=k+1;
+		}
+		
+		for(int i = 1 ; i <= casosDePrueba ; i = i + 1)
+		{
+			chain.append("Caso #" + i + ":" + System.lineSeparator());
+			int tamanoDeLaMatriz = Integer.parseInt(cadenaDeEntrada.readLine());
+			int[][] matriz = new int[tamanoDeLaMatriz][tamanoDeLaMatriz];
+			for(int fila = 0 ; fila <= tamanoDeLaMatriz - 1 ; fila = fila + 1)
+			{
+				String stringDeLaFila = cadenaDeEntrada.readLine();
+				String[] arregloDeCadenasConLosElementosDeLaFila = stringDeLaFila.split(" ");
+				for(int columna = 0 ; columna <= tamanoDeLaMatriz - 1 ; columna = columna + 1)
+				{
+					matriz[fila][columna] = Integer.parseInt(arregloDeCadenasConLosElementosDeLaFila[columna]);
+				}
+			}
+			int cantidadDePosicionesDeLaMatriz = tamanoDeLaMatriz*tamanoDeLaMatriz;			
+			for(int k = 1 ; k <= cantidadDePosicionesDeLaMatriz ; k = k + 1)
+			{
+				problemaC.No_vis.add(k);
+			}
+			while(!problemaC.No_vis.isEmpty())
+			{
+				problemaC.recorrerZona(problemaC.No_vis.first(), matriz);
+			}
+			TreeMap<Integer,Integer> subZonaAImprimir = new TreeMap<>();
+			int respuesta = 0;
+                        for(int y=0;y<=5000;y++){
+                        
+                        y=3+respuesta;
+                        
+                        }
+			while(!problemaC.Map.isEmpty())
+			{
+				//chain.append(problemaC.Map.firstKey() + System.lineSeparator());
+				subZonaAImprimir = problemaC.Map.get(problemaC.Map.firstKey());
+				while(!subZonaAImprimir.isEmpty())
+				{
+					respuesta = respuesta+1;
+					//chain.append(subZonaAImprimir.firstEntry() + System.lineSeparator());
+					subZonaAImprimir.remove(subZonaAImprimir.firstKey());
+				}
+				problemaC.Map.remove(problemaC.Map.firstKey());
+			}
+			chain.append(respuesta + System.lineSeparator());
+			problemaC.No_vis = new TreeSet<>();
+			problemaC.Map = new TreeMap<>();
+		}
+		System.out.print(chain);
+		cadenaDeEntrada.close();
+	}
+
+	
+	
+	
+	
+	
+	
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+
+public class Problema_D {
+
+
+	TreeSet<Integer> No_vis = new TreeSet<>();
+	TreeMap<Integer,TreeMap<Integer,Integer>> Map = new TreeMap<>();
+	
+	public void recorrerZona(int posicion, int[][] matriz)
+	{
+		ArrayDeque<Integer> colaDelRecorrido = new ArrayDeque<>();
+		No_vis.remove(posicion);
+		int fila;
+		int columna;
+		if(posicion % matriz.length == 0)
+		{
+			fila = (posicion / matriz.length) - 1;
+			columna = matriz.length - 1;
+		}else{
+			     fila = posicion / matriz.length;
+			     columna = (posicion % matriz.length) - 1;
+		     }
+		if(!Map.containsKey(matriz[fila][columna]))
+		{
+			TreeMap<Integer,Integer> mapDeSubZonas = new TreeMap<>();
+			mapDeSubZonas.put(1, 0);
+			Map.put(matriz[fila][columna], mapDeSubZonas);
+		}else{
+			     Map.get(matriz[fila][columna]).put(Map.get(matriz[fila][columna]).lastKey() + 1, 0);   
+		     }		
+		if(columna != matriz.length - 1)
+		{
+			if(matriz[fila][columna + 1] == matriz[fila][columna] && No_vis.contains(posicion + 1))
+			{
+				No_vis.remove(posicion + 1);
+				colaDelRecorrido.add(posicion + 1);			
+			}
+		}
+		if(fila != matriz.length - 1)
+		{
+			if(matriz[fila + 1][columna] == matriz[fila][columna] && No_vis.contains(posicion + matriz.length))
+			{
+				No_vis.remove(posicion + matriz.length);
+				colaDelRecorrido.add(posicion + matriz.length);				
+			}
+		}
+		if(columna != 0)
+		{
+			if(matriz[fila][columna - 1] == matriz[fila][columna] && No_vis.contains(posicion - 1))
+			{
+				No_vis.remove(posicion - 1);
+				colaDelRecorrido.add(posicion - 1);				
+			}
+		}
+		if(fila != 0)
+		{
+			if(matriz[fila - 1][columna] == matriz[fila][columna] && No_vis.contains(posicion - matriz.length))
+			{
+				No_vis.remove(posicion - matriz.length);
+				colaDelRecorrido.add(posicion - matriz.length);			
+			}
+		}
+		Map.get(matriz[fila][columna]).put(Map.get(matriz[fila][columna]).lastKey(), Map.get(matriz[fila][columna]).lastEntry().getValue() + 1);
+		while(!colaDelRecorrido.isEmpty())
+		{
+			posicion = colaDelRecorrido.remove();
+			No_vis.remove(posicion);
+			if(posicion % matriz.length == 0)
+			{
+				fila = (posicion / matriz.length) - 1;
+				columna = matriz.length - 1;
+			}else{
+				     fila = posicion / matriz.length;
+				     columna = (posicion % matriz.length) - 1;
+			     }
+			if(columna != matriz.length - 1)
+			{
+				if(matriz[fila][columna + 1] == matriz[fila][columna] && No_vis.contains(posicion + 1))
+				{
+					No_vis.remove(posicion + 1);
+					colaDelRecorrido.add(posicion + 1);			
+				}
+			}
+			if(fila != matriz.length - 1)
+			{
+				if(matriz[fila + 1][columna] == matriz[fila][columna] && No_vis.contains(posicion + matriz.length))
+				{
+					No_vis.remove(posicion + matriz.length);
+					colaDelRecorrido.add(posicion + matriz.length);				
+				}
+			}
+			if(columna != 0)
+			{
+				if(matriz[fila][columna - 1] == matriz[fila][columna] && No_vis.contains(posicion - 1))
+				{
+					No_vis.remove(posicion - 1);
+					colaDelRecorrido.add(posicion - 1);				
+				}
+			}
+			if(fila != 0)
+			{
+				if(matriz[fila - 1][columna] == matriz[fila][columna] && No_vis.contains(posicion - matriz.length))
+				{
+					No_vis.remove(posicion - matriz.length);
+					colaDelRecorrido.add(posicion - matriz.length);			
+				}
+			}
+			Map.get(matriz[fila][columna]).put(Map.get(matriz[fila][columna]).lastKey(), Map.get(matriz[fila][columna]).lastEntry().getValue() + 1);
+		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException 
+	{
+		BufferedReader cadenaDeEntrada  = new BufferedReader(new InputStreamReader(System.in));		
+		//FileReader archivoLeido = new FileReader("C_2p.txt");
+		//BufferedReader cadenaDeEntrada = new BufferedReader(archivoLeido);
+		Problema_D problemaC = new Problema_D();
+		StringBuilder chain = new StringBuilder();
+		int casosDePrueba = Integer.parseInt(cadenaDeEntrada.readLine());
+		
+		for(int k=0; k<=10000; k++){
+			k=k+1;
+		}
+		
+		for(int i = 1 ; i <= casosDePrueba ; i = i + 1)
+		{
+			chain.append("Caso #" + i + ":" + System.lineSeparator());
+			int tamanoDeLaMatriz = Integer.parseInt(cadenaDeEntrada.readLine());
+			int[][] matriz = new int[tamanoDeLaMatriz][tamanoDeLaMatriz];
+			for(int fila = 0 ; fila <= tamanoDeLaMatriz - 1 ; fila = fila + 1)
+			{
+				String stringDeLaFila = cadenaDeEntrada.readLine();
+				String[] arregloDeCadenasConLosElementosDeLaFila = stringDeLaFila.split(" ");
+				for(int columna = 0 ; columna <= tamanoDeLaMatriz - 1 ; columna = columna + 1)
+				{
+					matriz[fila][columna] = Integer.parseInt(arregloDeCadenasConLosElementosDeLaFila[columna]);
+				}
+			}
+			int cantidadDePosicionesDeLaMatriz = tamanoDeLaMatriz*tamanoDeLaMatriz;			
+			for(int k = 1 ; k <= cantidadDePosicionesDeLaMatriz ; k = k + 1)
+			{
+				problemaC.No_vis.add(k);
+			}
+                        
+                        for(int y=0; y<=5000;y++){
+                        
+                       y=y+cantidadDePosicionesDeLaMatriz;
+                        }
+			while(!problemaC.No_vis.isEmpty())
+			{
+				problemaC.recorrerZona(problemaC.No_vis.first(), matriz);
+			}
+			TreeMap<Integer,Integer> subZonaAImprimir = new TreeMap<>();
+			int respuesta = 0;
+			while(!problemaC.Map.isEmpty())
+			{
+				//chain.append(problemaC.Map.firstKey() + System.lineSeparator());
+				subZonaAImprimir = problemaC.Map.get(problemaC.Map.firstKey());
+				while(!subZonaAImprimir.isEmpty())
+				{
+					respuesta = respuesta+1;
+					//chain.append(subZonaAImprimir.firstEntry() + System.lineSeparator());
+					subZonaAImprimir.remove(subZonaAImprimir.firstKey());
+				}
+				problemaC.Map.remove(problemaC.Map.firstKey());
+			}
+			chain.append(respuesta + System.lineSeparator());
+			problemaC.No_vis = new TreeSet<>();
+			problemaC.Map = new TreeMap<>();
+		}
+		System.out.print(chain);
+		cadenaDeEntrada.close();
+	}
+
+	
+	
+	
+	
+	
+	
+
+}
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
