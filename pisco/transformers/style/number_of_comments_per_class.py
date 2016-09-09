@@ -13,7 +13,7 @@ def build(stat='mean', types=['block', 'line', 'javadoc']):
 
 def param_grid():
     return {'union__number_of_comments_per_class__transformer__stat':
-            ['mean', 'max', 'min', 'variance'],
+            ['mean', 'max', 'min', 'variance', 'range'],
             'union__number_of_comments_per_class__transformer__types':
             list(powerset(['block', 'line', 'javadoc']))}
 

@@ -13,7 +13,7 @@ def build(stat='mean', method='lines'):
 
 def param_grid():
     return {'union__length_of_methods_per_class__transformer__stat':
-            ['mean', 'max', 'min', 'variance'],
+            ['mean', 'max', 'min', 'variance', 'range'],
             'union__length_of_methods_per_class__transformer__method':
             ['lines', 'chars']}
 
