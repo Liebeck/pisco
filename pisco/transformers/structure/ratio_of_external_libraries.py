@@ -31,7 +31,7 @@ class RatioOfExternalLibraries(BaseEstimator):
         native_imports_count = sum(map(lambda x: x[0], lengths))
         imports_count = sum(map(lambda x: x[1], lengths))
         if imports_count == 0:
-            imports_count = 0.00001
+            return [0.0]
         return [1.0 * native_imports_count / (imports_count)]
 
     def __transform(self, section):

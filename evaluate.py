@@ -13,6 +13,7 @@ from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.transformers.misc.class_level import class_level
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import pisco.transformers.structure.ratio_of_class_access_modifiers as ratio_of_class_access_modifiers  # noqa
+import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import argparse
@@ -113,6 +114,10 @@ def configure(conf):
     @conf.feature('ratio_of_public_classes')
     def build_ratio_of_class_access_modifiers_feature():
         return [ratio_of_class_access_modifiers.build(modifier='public')]
+
+    @conf.feature('ratio_of_external_libraries')
+    def build_ratio_of_external_libraries_feature():
+        return [ratio_of_external_libraries.build()]
 
     @conf.feature('all')
     def build_all_features():
