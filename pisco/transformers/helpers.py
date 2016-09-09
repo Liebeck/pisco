@@ -39,6 +39,8 @@ def get_stat_function(method='mean'):
         return np.min
     if 'variance' == method:
         return np.var
+    if 'range' == method:
+        return np.ptp
     else:
         raise ValueError('Method {} is not supported!'.format(method))
 
