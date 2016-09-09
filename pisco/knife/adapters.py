@@ -16,6 +16,21 @@ def classes(section):
         return None
 
 
+def imports(section):
+    """Extract all import statements from a section.
+
+    Args:
+        section: string content of a code section
+    Returns:
+        list of strings containing the imports
+    """
+    response = client.extract(section)
+    if response:
+        return response['imports']
+    else:
+        return None
+
+
 def methods(section):
     """Extracts all methods from a section. Note that a section
     can consist of multiple classes. So the result will be a list
