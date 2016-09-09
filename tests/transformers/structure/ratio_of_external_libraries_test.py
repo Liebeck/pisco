@@ -18,7 +18,7 @@ class RatioOfExternalLibrariesTest(unittest.TestCase):
 
     def test_feature_extraction(self):
         self.assertEqual(self.transformer.transform(self.submissions),
-                         [[1.0/3], [0.5]])
+                         [[1.0 / 3], [0.5]])
 
 
 if __name__ == '__main__':
