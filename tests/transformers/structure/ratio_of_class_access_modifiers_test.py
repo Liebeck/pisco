@@ -13,7 +13,7 @@ submission1 = read_submission('tests/resources/submission1.txt')
 submission2 = read_submission('tests/resources/submission2.txt')
 
 
-class RatioOfPublicClassModifiers(unittest.TestCase):
+class RatioOfPublicClassModifiersTest(unittest.TestCase):
     def setUp(self):
         self.transformer = ratio_of_public_class_modifiers
         self.submissions = [submission1, submission2]
@@ -23,7 +23,7 @@ class RatioOfPublicClassModifiers(unittest.TestCase):
                          [[0.5], [1.0 / 3]])
 
 
-class RatioOfPrivateClassModifiers(unittest.TestCase):
+class RatioOfPrivateClassModifiersTest(unittest.TestCase):
     def setUp(self):
         self.transformer = ratio_of_private_class_modifiers
         self.submissions = [submission1, submission2]
@@ -33,7 +33,7 @@ class RatioOfPrivateClassModifiers(unittest.TestCase):
                          [[0.0], [2.0 / 3]])
 
 
-class RatioOfStaticClassModifiers(unittest.TestCase):
+class RatioOfStaticClassModifiersTest(unittest.TestCase):
     def setUp(self):
         self.transformer = ratio_of_static_class_modifiers
         self.submissions = [submission1, submission2]
