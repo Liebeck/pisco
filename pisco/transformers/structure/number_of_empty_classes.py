@@ -30,12 +30,10 @@ class NumberOfEmptyClases(BaseEstimator):
         sections = extract_sections(raw_submission)
         parameter_stats = map(lambda x: self.__transform(x),
                               sections)  # Be aware that a class might contain no functions
-        print parameter_stats
         return [stat(map(lambda x: stat(x), parameter_stats))]
 
     def __transform(self, section):
         clazzes = adapter.classes(section)
-
         if clazzes:
             ret_val = []
             for clazz in clazzes:
