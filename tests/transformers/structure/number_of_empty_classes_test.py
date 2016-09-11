@@ -7,10 +7,10 @@ def read_submission(filename):
     with codecs.open(filename, 'r', encoding='ISO-8859-1') as f:
         return f.read()
 
+
 submission5 = read_submission('tests/resources/submission5.txt')
 submission3 = read_submission('tests/resources/submission3.txt')
 submission6 = read_submission('tests/resources/submission6.txt')
-
 
 
 class NumberOfEmptyClassesTest(unittest.TestCase):
