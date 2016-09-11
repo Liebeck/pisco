@@ -29,7 +29,7 @@ class FunctionNameLength(BaseEstimator):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
         function_stats = map(lambda x: self.__transform(x),
-                              sections)  # Be aware that a class might contain no functions
+                             sections)  # Be aware that a class might contain no functions
         return [stat(map(lambda x: stat(x), function_stats))]
 
     def __transform(self, section):
