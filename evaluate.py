@@ -14,6 +14,7 @@ from pisco.transformers.misc.class_level import class_level
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
 import pisco.transformers.structure.function_name_length as mean_function_name_length  # noqa
+import pisco.transformers.structure.function_parameter_name_length as function_parameter_name_length  # noqa
 import pisco.transformers.structure.ratio_of_class_access_modifiers as ratio_of_class_access_modifiers  # noqa
 import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
@@ -105,6 +106,10 @@ def configure(conf):
     @conf.feature('mean_number_of_function_parameters_per_class')
     def build_mean_number_of_function_parameters_per_class():
         return [number_of_function_parameters_per_class.build(stat='mean')]
+
+    @conf.feature('mean_function_parameter_name_length')
+    def build_mean_function_parameter_name_length():
+        return [function_parameter_name_length.build(stat='mean')]
 
     @conf.feature('mean_function_name_length')
     def build_mean_function_name_length():
