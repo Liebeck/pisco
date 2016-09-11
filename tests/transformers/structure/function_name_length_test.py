@@ -12,7 +12,7 @@ submission2 = read_submission('tests/resources/submission4.txt')
 submission3 = read_submission('tests/resources/submission1.txt')
 
 
-class NumberOfFunctionParametersPerClassTest(unittest.TestCase):
+class FunctionNameLengthTest(unittest.TestCase):
     def setUp(self):
         self.transformer = function_name_length
         self.submissions = [submission1, submission2, submission3]
