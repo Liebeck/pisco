@@ -3,6 +3,7 @@ import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_exte
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
+import pisco.transformers.structure.function_name_length as function_name_length  # noqa
 from pisco.transformers.helpers import powerset
 from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram  # noqa
@@ -27,7 +28,9 @@ FEATURES = [
     ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class),
     ('Ration of External Library Usage', ratio_of_external_libraries),
-    ('Number of function parameters per class', number_of_function_parameters_per_class)
+    ('Number of function parameters per class', number_of_function_parameters_per_class),
+    ('Length of Function names (1-dimensional)', function_name_length),
+
 ]
 SCORE = 'PC'
 
