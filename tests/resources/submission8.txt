@@ -1,0 +1,89 @@
+public class SecondClass {
+
+    public void print(int a) {
+        System.out.println(a);
+    }
+
+  public static void main(String[] args) {
+        System.out.println(2);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ProyectoVI;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+/**
+ *
+ */
+public class ProblemaD {
+    public static void main(String args[]) throws FileNotFoundException{
+        Scanner scan;
+        File f = new File("D_2.txt");
+	if (f.exists()) {
+            scan = new Scanner(f);
+	} else {
+            scan = new Scanner(System.in);
+	}
+        int nCases = 1;
+        int t = Integer.parseInt(scan.nextLine());
+        Map<String, String> parties = new TreeMap<>( );
+        Map<String, Integer> votes = new TreeMap<>( );
+        int winner = -1, index = 0;
+        for (int i = 0; i < t; i++) {
+            System.out.println("Case #" + nCases + ":");
+            parties.clear();
+            votes.clear();
+            int numberCandidates = Integer.parseInt(scan.nextLine());
+            String[] winners = new String[numberCandidates];
+            for (int j = 0; j < numberCandidates; j++) {
+                String candidateAndParty = scan.nextLine();
+                String l[] = candidateAndParty.split(" ");
+                String currentCandidate = l[0];
+                String currentParty = l[1];
+                parties.put(currentCandidate, currentParty);
+                votes.put(currentParty, 0);
+            }
+            int numberVotes = Integer.parseInt(scan.nextLine());
+            for (int j = 0; j < numberVotes; j++) {
+                String currentVote = scan.nextLine();
+                votes.put(parties.get(currentVote), votes.get(parties.get(currentVote))+1);
+            }
+            winner = -1;
+            for (Integer a : votes.values()) {
+                if(winner < a){
+                    winner = a;
+                }
+            }
+            index = 0;
+            for (Map.Entry<String, Integer> b : votes.entrySet()) {
+                if(b.getValue() == winner){
+                    winners[index] = b.getKey();
+                    index++;
+                }
+            }
+            for (int j = index; j < winners.length; j++) {
+                winners[j] = "";
+            }
+            Arrays.sort(winners);
+            for (String c : winners) {
+                if(!c.equals(""))System.out.println(c);
+            }
+            /*System.out.println(parties.entrySet());
+            System.out.println(votes.entrySet());*/
+           // System.out.println("-----------------------------------------------");
+            nCases++;
+        }
+    }
+}
