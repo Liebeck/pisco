@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
                           NumberOfEmptyClases(stat=stat))])
-    return ('function_number_of_empty_classes', pipeline)
+    return ('number_of_empty_classes', pipeline)
 
 
 def param_grid():
