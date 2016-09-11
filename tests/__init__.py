@@ -4,6 +4,7 @@ from pisco.transformers.structure.ratio_of_external_libraries import RatioOfExte
 from pisco.transformers.structure.number_of_function_parameters_per_class import NumberOfFunctionParametersPerClass  # noqa
 from pisco.transformers.structure.function_name_length import FunctionNameLength  # noqa
 from pisco.transformers.structure.function_parameter_name_length import FunctionParameterNameLength  # noqa
+from pisco.transformers.structure.number_of_empty_classes import NumberOfEmptyClases  #noqa
 from pisco.transformers.style.length_of_methods_per_class import LengthOfMethodsPerClass  # noqa
 from pisco.transformers.style.number_of_comments_per_class import NumberOfCommentsPerClass  # noqa
 
@@ -21,6 +22,7 @@ ratio_of_static_class_modifiers = RatioOfClassAccessModifiers(modifier='static')
 number_of_function_parameters_per_class = NumberOfFunctionParametersPerClass(stat='mean')  # noqa
 function_name_length = FunctionNameLength(stat='mean')  # noqa
 function_parameter_name_length = FunctionParameterNameLength(stat='mean')  # noqa
+number_of_empty_classes = NumberOfEmptyClases(stat='sum')  # noqa
 
 
 ratio_of_external_libraries = RatioOfExternalLibraries()
