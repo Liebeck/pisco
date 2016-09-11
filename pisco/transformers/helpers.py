@@ -41,6 +41,8 @@ def get_stat_function(method='mean'):
         return np.var
     if 'range' == method:
         return np.ptp
+    if 'sum' == method:
+        return np.sum
     else:
         raise ValueError('Method {} is not supported!'.format(method))
 
