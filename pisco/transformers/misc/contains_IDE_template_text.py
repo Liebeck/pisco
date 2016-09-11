@@ -30,7 +30,6 @@ class ContainsIDETemplateText(BaseEstimator):
             return [0]
         else:
             section_stats = map(lambda x: self.__transform(x), sections)
-            print max(section_stats)
             return [max(section_stats)]
 
     def __transform(self, section):
