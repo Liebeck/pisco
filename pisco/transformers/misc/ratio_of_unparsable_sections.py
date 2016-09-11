@@ -32,7 +32,6 @@ class RatioOfKnifeUnparsableSection(BaseEstimator):
         else:
             section_stats = map(lambda x: self.__transform(x),
                                 sections)  # Be aware that a class might contain no functions
-            print section_stats
             return [sum(section_stats) / float(len(section_stats))]
 
     def __transform(self, section):
