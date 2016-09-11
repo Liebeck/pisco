@@ -33,7 +33,6 @@ class FunctionNameLength(BaseEstimator):
         return [stat(map(lambda x: stat(x), parameter_stats))]
 
     def __transform(self, section):
-        print "__transform"
         methods = adapter.methods(section)  # can look like this: [[m1,m2], [m3,m4]]
         if methods:
             ret_val = []
