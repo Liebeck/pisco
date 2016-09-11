@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__number_of_function_parameters_per_class__transformer__stat':
-                ['mean', 'max', 'min', 'variance', 'range']}
+            ['mean', 'max', 'min', 'variance', 'range']}
 
 
 class NumberOfFunctionParametersPerClass(BaseEstimator):
@@ -28,9 +28,8 @@ class NumberOfFunctionParametersPerClass(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        parameter_stats = map(lambda x: self.__transform(x), sections)  # Be aware that a class might no functions
-        # methods = map(lambda section: adapter.methods(section), sections) # Can be a list of lists
-        # parameters = map(lambda method: self.__transform(method), methods)
+        parameter_stats = map(lambda x: self.__transform(x),
+                              sections)  # Be aware that a class might contain no functions
         return [stat(map(lambda x: stat(x), parameter_stats))]
 
     def __transform(self, section):
@@ -43,17 +42,10 @@ class NumberOfFunctionParametersPerClass(BaseEstimator):
                     for method in clazz:
                         # print method['name'] + " " + str(len(method['parameters']))
                         ret_val.append(len(method['parameters']))
-                    # print len(methods)
-                    # print methods
-
-                    # print "clazz empty"
-                    # print section
-                    # raise Exception('clazz empty')
             # return map(lambda clazz: map(lambda method: len(method['parameters']), clazz), methods)
             # TypeError: unsupported operand type(s) for /: 'list' and 'int'
             if not ret_val:
-                # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
-                ret_val = [0]
+                ret_val = [0]  # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
             return ret_val
 
         else:
