@@ -20,6 +20,7 @@ import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_exte
 import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
+import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import argparse
 import logging
 
@@ -134,6 +135,10 @@ def configure(conf):
     @conf.feature('ratio_of_public_classes')
     def build_ratio_of_class_access_modifiers_feature():
         return [ratio_of_class_access_modifiers.build(modifier='public')]
+
+    @conf.feature('ratio_of_unparsable_sections')
+    def build_ratio_of_unparsable_sections():
+        return [ratio_of_unparsable_sections.build()]
 
     @conf.feature('ratio_of_external_libraries')
     def build_ratio_of_external_libraries_feature():

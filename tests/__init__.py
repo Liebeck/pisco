@@ -1,4 +1,4 @@
-from pisco.transformers.misc.ratio_of_knife_errors import RatioOfKnifeUnparsableSection  # noqa
+from pisco.transformers.misc.ratio_of_unparsable_sections import RatioOfKnifeUnparsableSection  # noqa
 from pisco.transformers.structure.function_name_length import FunctionNameLength  # noqa
 from pisco.transformers.structure.function_parameter_name_length import FunctionParameterNameLength  # noqa
 from pisco.transformers.structure.number_of_empty_classes import NumberOfEmptyClases  # noqa
