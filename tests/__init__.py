@@ -1,4 +1,5 @@
 from pisco.transformers.misc.ratio_of_unparsable_sections import RatioOfKnifeUnparsableSection  # noqa
+from pisco.transformers.misc.contains_IDE_template_text import ContainsIDETemplateText  # noqa
 from pisco.transformers.structure.function_name_length import FunctionNameLength  # noqa
 from pisco.transformers.structure.function_parameter_name_length import FunctionParameterNameLength  # noqa
 from pisco.transformers.structure.number_of_empty_classes import NumberOfEmptyClases  # noqa
@@ -25,7 +26,7 @@ number_of_function_parameters_per_class = NumberOfFunctionParametersPerClass(sta
 function_name_length = FunctionNameLength(stat='mean')  # noqa
 function_parameter_name_length = FunctionParameterNameLength(stat='mean')  # noqa
 number_of_empty_classes = NumberOfEmptyClases(stat='sum')  # noqa
-
+contains_IDE_template_text = ContainsIDETemplateText()  # noqa
 
 
 ratio_of_external_libraries = RatioOfExternalLibraries()
