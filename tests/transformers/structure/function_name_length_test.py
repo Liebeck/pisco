@@ -10,20 +10,22 @@ def read_submission(filename):
 submission1 = read_submission('tests/resources/submission3.txt')
 submission2 = read_submission('tests/resources/submission4.txt')
 submission3 = read_submission('tests/resources/submission1.txt')
+submission5 = read_submission('tests/resources/submission5.txt')
 
 
 class FunctionNameLengthTest(unittest.TestCase):
     def setUp(self):
         self.transformer = function_name_length
-        self.submissions = [submission1, submission2, submission3]
+        self.submissions = [submission1, submission2, submission3, submission5]
 
     def test_feature_extraction(self):
         # returns the following counts:
-        # 1) [4, 3, 6, 4], [5, 4] -> [4.25, 4.5]
+        # 1) [4, 3, 6, 4], [5, 4] -> [4.25, 4.5] -> [4.375]
         # 2) [4, 3], [5] -> [3.5, 5] -> [4.25]
-        # 3) [4, 3], [5] -> [3.5, 5] -> [4.25
+        # 3) [4, 3], [5] -> [3.5, 5] -> [4.25]
+        # 4) [[11, 4], [0]] -> [7.5, 0] -> [3.75]
         self.assertEqual(self.transformer.transform(self.submissions),
-                         [[4.375], [4.25], [4.25]])
+                         [[4.375], [4.25], [4.25], [3.75]])
 
 
 if __name__ == '__main__':
