@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__number_of_empty_classes__transformer__stat':
-            ['mean', 'max', 'min', 'variance', 'range']}
+            ['sum']}
 
 
 class NumberOfEmptyClases(BaseEstimator):
