@@ -28,9 +28,9 @@ class NumberOfEmptyClases(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        parameter_stats = map(lambda x: self.__transform(x),
+        section_stats = map(lambda x: self.__transform(x),
                               sections)  # Be aware that a class might contain no functions
-        return [stat(map(lambda x: stat(x), parameter_stats))]
+        return [stat(map(lambda x: stat(x), section_stats))]
 
     def __transform(self, section):
         clazzes = adapter.classes(section)
