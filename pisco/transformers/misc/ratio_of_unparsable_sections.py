@@ -28,7 +28,6 @@ class RatioOfKnifeUnparsableSection(BaseEstimator):
     def _transform(self, raw_submission):
         sections = extract_sections(raw_submission)
         if sections is None:
-            print "sections is None"
             return [1]
         else:
             section_stats = map(lambda x: self.__transform(x),
@@ -39,8 +38,6 @@ class RatioOfKnifeUnparsableSection(BaseEstimator):
     def __transform(self, section):
         clazzes = adapter.classes(section)
         if clazzes:
-            print "clazzes is None"
             return 0
         else:
-            print "clazzes is not None"
             return 1
