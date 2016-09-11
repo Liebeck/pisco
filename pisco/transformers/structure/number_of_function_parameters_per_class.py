@@ -42,8 +42,6 @@ class NumberOfFunctionParametersPerClass(BaseEstimator):
                     for method in clazz:
                         # print method['name'] + " " + str(len(method['parameters']))
                         ret_val.append(len(method['parameters']))
-            # return map(lambda clazz: map(lambda method: len(method['parameters']), clazz), methods)
-            # TypeError: unsupported operand type(s) for /: 'list' and 'int'
             if not ret_val:
                 ret_val = [0]  # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
             return ret_val
