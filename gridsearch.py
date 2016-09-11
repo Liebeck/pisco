@@ -6,6 +6,7 @@ import pisco.transformers.structure.number_of_function_parameters_per_class as n
 import pisco.transformers.structure.function_name_length as function_name_length  # noqa
 import pisco.transformers.structure.function_parameter_name_length as function_parameter_name_length  # noqa
 import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
+import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 from pisco.transformers.helpers import powerset
 from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram  # noqa
@@ -33,7 +34,8 @@ FEATURES = [
     ('Number of function parameters per class', number_of_function_parameters_per_class),
     ('Length of function parameter names', function_parameter_name_length),
     ('Length of Function names (1-dimensional)', function_name_length),
-    ('Number of empty classes (1-dimensional)', number_of_empty_classes)
+    ('Number of empty classes (1-dimensional)', number_of_empty_classes),
+    ('Ratio of unparsable sections', ratio_of_unparsable_sections),
 
 ]
 SCORE = 'PC'
