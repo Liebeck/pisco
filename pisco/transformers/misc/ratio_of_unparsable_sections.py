@@ -1,4 +1,4 @@
-from pisco.transformers.helpers import extract_sections, get_stat_function
+from pisco.transformers.helpers import extract_sections
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
