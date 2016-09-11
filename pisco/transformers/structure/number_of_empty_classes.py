@@ -40,10 +40,8 @@ class NumberOfEmptyClases(BaseEstimator):
             ret_val = []
             for clazz in clazzes:
                 if ((len(clazz['methods']) == 0) and (len(clazz['fields']) == 0)):
-                    print clazz['name'] + " 1"
                     ret_val.append(1)
                 else:
-                    print clazz['name'] + " 0"
                     ret_val.append(0)
             return ret_val
         else:
