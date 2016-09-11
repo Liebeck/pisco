@@ -2,7 +2,7 @@ import pisco.transformers.structure.number_of_methods_per_class as number_of_met
 import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
-import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class # noqa
+import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
 from pisco.transformers.helpers import powerset
 from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram  # noqa
@@ -16,7 +16,6 @@ from sklearn.metrics import make_scorer
 from pisco.metrics.metrics import pearson
 from collections import OrderedDict
 import json
-
 
 DIMENSIONS = ['openness']
 RECOGNIZERS = [('Linear Regression', linear_regression),
@@ -52,7 +51,6 @@ def make_score_function(score):
 
 
 FEATURES = powerset(FEATURES)
-
 
 X, Y = load(labels=DIMENSIONS)
 
