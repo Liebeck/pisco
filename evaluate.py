@@ -21,6 +21,7 @@ import pisco.transformers.structure.number_of_empty_classes as number_of_empty_c
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
+import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import argparse
 import logging
 
@@ -139,6 +140,10 @@ def configure(conf):
     @conf.feature('ratio_of_unparsable_sections')
     def build_ratio_of_unparsable_sections():
         return [ratio_of_unparsable_sections.build()]
+
+    @conf.feature('contains_IDE_template_text')
+    def build_contains_IDE_template_text():
+        return [contains_IDE_template_text.build()]
 
     @conf.feature('ratio_of_external_libraries')
     def build_ratio_of_external_libraries_feature():
