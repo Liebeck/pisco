@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          NumberOfFunctionParametersPerClass(stat=stat))])
+                          FunctionNameLength(stat=stat))])
     return ('function_name_length', pipeline)
 
 
