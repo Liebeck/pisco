@@ -24,6 +24,7 @@ This will install all required dependencies.
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_function_parameters_per_class
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_function_name_length
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_function_parameter_name_length
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features sum_number_of_empty_classes
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all
 
 ```
