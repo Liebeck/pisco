@@ -4,10 +4,10 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='mean'):
+def build():
     pipeline = Pipeline([('transformer',
-                          RatioOfKnifeUnparsableSection(stat=stat))])
-    return ('ratio_of_knife_unparsable_section', pipeline)
+                          RatioOfKnifeUnparsableSection())])
+    return ('ratio_of_knife_unparsable_sections', pipeline)
 
 
 def param_grid():
