@@ -10,7 +10,6 @@ import pisco.loaders.plain_loader as plain_loader
 import pisco.transformers.misc.word_unigram as word_unigram
 from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
-from pisco.transformers.misc.class_level import class_level
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
 import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
 import pisco.transformers.structure.function_name_length as function_name_length  # noqa
@@ -98,10 +97,6 @@ def configure(conf):
     def build_word_unigram_feature():
         return [word_unigram.build()]
 
-    @conf.feature('class_level')
-    def build_class_level_feature():
-        return [class_level()]
-
     @conf.feature('mean_number_of_methods_per_class')
     def build_mean_number_of_methods_per_class_feature():
         return [number_of_methods_per_class.build(stat='mean')]
@@ -177,4 +172,5 @@ if __name__ == '__main__':
     recognizer = conf.get_recognizer(args.recognizer_name)
     features = conf.get_feature(args.feature_names)
 
+    print(type(X_train))
     benchmark(X_train, y_train, recognizer, features)
