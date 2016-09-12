@@ -4,8 +4,8 @@ import os
 
 # TODO: Workaround for travis environment variables
 KNIFE_URL = 'http://' + ':'.join([
-    os.getenv('KNIFE_PORT_4567_TCP_ADDR', 'Travis_default'),
-    os.getenv('KNIFE_PORT_4567_TCP_PORT', 'Travis_default')])
+    os.getenv('KNIFE_PORT_4567_TCP_ADDR', 'localhost'),
+    os.getenv('KNIFE_PORT_4567_TCP_PORT', '4567')])
 
 
 class KnifeClient:
