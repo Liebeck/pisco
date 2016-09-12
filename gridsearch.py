@@ -64,6 +64,12 @@ def make_score_function(score):
 FEATURES = powerset(FEATURES)
 
 X, Y = load(labels=DIMENSIONS)
+from pisco.transformers.helpers import extract_sections
+from pisco.knife.adapters import classes
+for x in X:
+    sections = extract_sections(x)
+    for section in sections:
+        classes(section)
 
 result = {}
 result['recognizers'] = []
