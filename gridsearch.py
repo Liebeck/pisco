@@ -8,12 +8,18 @@ import pisco.transformers.structure.function_parameter_name_length as function_p
 import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
+from pisco.transformers.helpers import extract_sections
+from pisco.knife.adapters import classes
 from pisco.transformers.helpers import powerset
 from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram  # noqa
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
 import pisco.recognizers.support_vector_regression as support_vector_regression
+import pisco.recognizers.elastic_net as elastic_net
+import pisco.recognizers.lars as lars
+import pisco.recognizers.lasso as lasso
+import pisco.recognizers.ridge as ridge
 from pisco.loaders.plain_loader import load
 from sklearn.grid_search import GridSearchCV
 from pisco.metrics.metrics import mse
@@ -24,17 +30,22 @@ import json
 
 DIMENSIONS = ['openness']
 RECOGNIZERS = [
-    # ('Linear Regression', linear_regression),
+    ('Linear Regression', linear_regression),
     ('Decision Tree Regressor', decision_tree_regressor),
-    # ('Support Vector Regression', support_vector_regression)
+    ('Support Vector Regression', support_vector_regression)
+    ('ElasticNet', elastic_net),
+    ('Lars', lars),
+    ('Lasso', lasso),
+    ('Ridge', ridge),
 ]
 FEATURES = [
     # ('Word Unigram', word_unigram),
     ('Number of Methods per Class', number_of_methods_per_class),
-    # ('Length of Methods per Class', length_of_methods_per_class),
+    ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class),
     ('Ration of External Library Usage', ratio_of_external_libraries),
-    ('Number of function parameters per class', number_of_function_parameters_per_class),
+    ('Number of function parameters per class',
+     number_of_function_parameters_per_class),
     ('Length of function parameter names', function_parameter_name_length),
     ('Length of Function names (1-dimensional)', function_name_length),
     ('Number of empty classes (1-dimensional)', number_of_empty_classes),
@@ -66,8 +77,6 @@ def make_score_function(score):
 FEATURES = powerset(FEATURES)
 
 X, Y = load(labels=DIMENSIONS)
-from pisco.transformers.helpers import extract_sections
-from pisco.knife.adapters import classes
 for x in X:
     sections = extract_sections(x)
     for section in sections:
