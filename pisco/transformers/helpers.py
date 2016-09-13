@@ -1,5 +1,22 @@
 import numpy as np
+from javalang import tokenizer
 import re
+
+
+TOKENIZER_CACHE = {}
+
+
+def tokenize(code):
+    """Tokenizes a given source code
+
+    Args:
+        tokens: list of string tokens
+    """
+    if code not in TOKENIZER_CACHE:
+        TOKENIZER_CACHE[code] = map(lambda t:
+                                    t.value,
+                                    list(tokenizer.tokenize(code)))
+    return TOKENIZER_CACHE[code]
 
 
 def extract_sections(submission):
