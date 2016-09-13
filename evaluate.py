@@ -177,5 +177,4 @@ if __name__ == '__main__':
     recognizer = conf.get_recognizer(args.recognizer_name)
     features = conf.get_feature(args.feature_names)
 
-    print(type(X_train))
     benchmark(X_train, y_train, recognizer, features)
