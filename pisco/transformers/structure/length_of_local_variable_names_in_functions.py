@@ -30,7 +30,6 @@ class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
         sections = extract_sections(raw_submission)
         section_stats = map(lambda x: self.__transform(x),
                             sections)
-        print(section_stats)
         return [stat(map(lambda x: stat(x), section_stats))]
 
     def __transform(self, section):
@@ -48,11 +47,11 @@ class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
                         if method_values:
                             clazz_values.append(stat(method_values))
                         else:
-                            clazz_values.append([0])
+                            clazz_values.append(0)
                 if clazz_values:
                     ret_val.append(stat(clazz_values))
                 else:
-                    ret_val.append([0])
+                    ret_val.append(0)
             if not ret_val:
                 ret_val = [0]
             return ret_val
