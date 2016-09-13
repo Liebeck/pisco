@@ -30,7 +30,6 @@ class LengthOfFieldNames(BaseEstimator):
         sections = extract_sections(raw_submission)
         clazz_stats = map(lambda x: self.__transform(x),
                           sections)
-        # print clazz_stats
         return [stat(map(lambda x: stat(x), clazz_stats))]
 
     def __transform(self, section):
