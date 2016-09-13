@@ -25,7 +25,7 @@ class LengthOfFieldNamesTest(unittest.TestCase):
         # 1) [[[7]], [[0]]] -> [3.5]
         # 2) [[[0]], [[0]]] -> [0]
         # 3) [[[0]], [[0]], [[1]] -> [1.0 / 3]
-        # 4) [[[1,1], [[1,1,3]]] -> [[[2/2], [[5.0 /3]] -> [4.0 / 3]
+        # 4) [[[1], [[1,1,3]]] -> [[[2/2], [[5.0 /3]] -> [4.0 / 3]
         np.testing.assert_almost_equal(
             self.transformer.transform(self.submissions),
             [[3.5], [0], [1.0 / 3], [4.0 / 3]], decimal=2)
