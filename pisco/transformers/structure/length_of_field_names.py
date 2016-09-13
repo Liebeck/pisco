@@ -47,6 +47,3 @@ class LengthOfFieldNames(BaseEstimator):
             return ret_val
         else:
             return [0]
-
-
-
