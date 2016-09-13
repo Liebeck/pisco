@@ -8,7 +8,7 @@ def read_submission(filename):
         return f.read()
 
 submission1 = read_submission('tests/resources/submission3.txt')
-submission2 = read_submission('tests/resources/submission9.txt')
+submission2 = read_submission('tests/resources/submission10.txt')
 
 
 class DuplicateCodeAvailableTest(unittest.TestCase):
