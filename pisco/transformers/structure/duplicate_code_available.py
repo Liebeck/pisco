@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          DuplicateCodeAvailable(stat=stat))])
+                          DuplicateCodeAvailable())])
     return ('duplicate_code_available', pipeline)
 
 
