@@ -17,6 +17,7 @@ import pisco.transformers.structure.function_parameter_name_length as function_p
 import pisco.transformers.structure.ratio_of_class_access_modifiers as ratio_of_class_access_modifiers  # noqa
 import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
 import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
+import pisco.transformers.structure.number_of_fields_per_class as number_of_fields_per_class  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -112,6 +113,10 @@ def configure(conf):
     @conf.feature('mean_function_name_length')
     def build_mean_function_name_length():
         return [function_name_length.build(stat='mean')]
+
+    @conf.feature('mean_number_of_fields_per_class')
+    def build_mean_number_of_fields_per_class():
+        return [number_of_fields_per_class.build(stat='mean')]
 
     @conf.feature('sum_number_of_empty_classes')
     def build_sum_number_of_empty_classes():
