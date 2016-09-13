@@ -1,4 +1,5 @@
 from pisco import client
+from javalang import tokenizer
 
 
 def classes(section):
@@ -83,6 +84,15 @@ def comments(section, types=['block', 'line']):
         return map(lambda clazz: _comments(clazz, types), classes(section))
     else:
         return None
+
+
+def tokenize(code):
+    """Tokenizes a given source code
+
+    Args:
+        tokens: list of string tokens
+    """
+    return map(lambda t: t.value, list(tokenizer.tokenize(code)))
 
 
 def _methods(clazz):
