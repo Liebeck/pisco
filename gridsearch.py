@@ -33,7 +33,7 @@ DIMENSIONS = ['openness']
 RECOGNIZERS = [
     ('Linear Regression', linear_regression),
     ('Decision Tree Regressor', decision_tree_regressor),
-    ('Support Vector Regression', support_vector_regression)
+    ('Support Vector Regression', support_vector_regression),
     ('ElasticNet', elastic_net),
     ('Lars', lars),
     ('Lasso', lasso),

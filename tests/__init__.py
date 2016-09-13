@@ -9,6 +9,7 @@ from pisco.transformers.structure.ratio_of_class_access_modifiers import RatioOf
 from pisco.transformers.structure.ratio_of_external_libraries import RatioOfExternalLibraries  # noqa
 from pisco.transformers.structure.number_of_fields_per_class import NumberOfFieldsPerClass  # noqa
 from pisco.transformers.structure.length_of_field_names import LengthOfFieldNames  # noqa
+from pisco.transformers.structure.duplicate_code_available import DuplicateCodeAvailable  # noqa
 from pisco.transformers.style.length_of_methods_per_class import LengthOfMethodsPerClass  # noqa
 from pisco.transformers.style.number_of_comments_per_class import NumberOfCommentsPerClass  # noqa
 
@@ -34,3 +35,5 @@ length_of_field_names = LengthOfFieldNames(stat='mean')  # noqa
 
 
 ratio_of_external_libraries = RatioOfExternalLibraries()
+
+duplicate_code_available = DuplicateCodeAvailable(level='method')
