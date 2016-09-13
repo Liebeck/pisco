@@ -2,7 +2,6 @@ public class A {
     int a = 5;
     int b = 10;
 }
-<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
 public class B {
     int a = 5;
     int b = 10;
