@@ -30,9 +30,11 @@ class LengthOfFieldNames(BaseEstimator):
         sections = extract_sections(raw_submission)
         clazz_stats = map(lambda x: self.__transform(x),
                           sections)
+        # print clazz_stats
         return [stat(map(lambda x: stat(x), clazz_stats))]
 
     def __transform(self, section):
+        stat = get_stat_function(self.stat)
         clazzes = adapter.classes(section)
         if clazzes:
             ret_val = []
@@ -41,8 +43,8 @@ class LengthOfFieldNames(BaseEstimator):
                 for field in clazz['fields']:
                     clazz_values.append(len(field['name']))
                 if not clazz_values:
-                    clazz_values = [0]  # a class does not contain any field
-                ret_val.append(clazz_values)
+                    clazz_values = [0]  # if a class does not contain any field
+                ret_val.append(stat(clazz_values))
             return ret_val
         else:
             return [0]
