@@ -30,7 +30,6 @@ class NumberOfLocalVariablesInFunctions(BaseEstimator):
         sections = extract_sections(raw_submission)
         section_stats = map(lambda x: self.__transform(x),
                           sections)
-        print(section_stats)
         return [stat(map(lambda x: stat(x), section_stats))]
 
     def __transform(self, section):
@@ -40,7 +39,6 @@ class NumberOfLocalVariablesInFunctions(BaseEstimator):
             for clazz in methods:
                 if clazz:
                     for method in clazz:
-                        print method['variables']
                         ret_val.append(len(method['variables']))
             if not ret_val:
                 ret_val = [0]
