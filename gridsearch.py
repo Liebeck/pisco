@@ -23,13 +23,15 @@ from collections import OrderedDict
 import json
 
 DIMENSIONS = ['openness']
-RECOGNIZERS = [('Linear Regression', linear_regression),
-               ('Decision Tree Regressor', decision_tree_regressor),
-               ('Support Vector Regression', support_vector_regression)]
+RECOGNIZERS = [
+    # ('Linear Regression', linear_regression),
+    ('Decision Tree Regressor', decision_tree_regressor),
+    # ('Support Vector Regression', support_vector_regression)
+]
 FEATURES = [
     # ('Word Unigram', word_unigram),
     ('Number of Methods per Class', number_of_methods_per_class),
-    ('Length of Methods per Class', length_of_methods_per_class),
+    # ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class),
     ('Ration of External Library Usage', ratio_of_external_libraries),
     ('Number of function parameters per class', number_of_function_parameters_per_class),
@@ -40,7 +42,7 @@ FEATURES = [
     ('Contains IDE template text (binary)', contains_IDE_template_text)
 
 ]
-SCORE = 'PC'
+SCORE = 'RMSE'
 
 
 def pretty(d, indent=0):
@@ -85,7 +87,7 @@ for name, recognizer in RECOGNIZERS:
             param_grid.update(f.param_grid())
         scoring = make_score_function(SCORE)
         grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10,
-                                   cv=2, n_jobs=-1, scoring=scoring)
+                                   cv=10, n_jobs=-1, scoring=scoring)
         grid_search.fit(X, Y)
         # scoring API always maximizes the score, so scores which
         # need to be minimized are negated in order for the unified
