@@ -35,9 +35,12 @@ class DuplicateCodeAvailable(BaseEstimator):
     def __transform(self, sections):
         methods = []
         for section in sections:
+            methods_in_section = adapter.methods(section)
+            if not methods_in_section:
+                return [0.0]
             methods.extend(map(lambda x:
                                map(lambda x: x['codeBlock'], x),
-                               adapter.methods(section)))
+                               methods_in_section))
         methods = [y for x in methods for y in x]
         if len(methods) - len(set(methods)) == 0:
             return [0.0]
