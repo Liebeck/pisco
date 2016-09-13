@@ -7,7 +7,7 @@
 ###########################
 
 # Set the name of the job
-#PBS -N testgpu
+#PBS -N pisco
 
 # Specify the maximum wall clock time. The wall
 # clock time should take possible queue waiting time into
@@ -15,17 +15,14 @@
 # Be sure to specify a reasonable value here.
 # If the job does not finish by the time reached,
 # the job is terminated.
-#PBS -l walltime=03:00:00
-
-# Specify the maximum amount of phisical memory required
-#PBS -l mem=20gb
+#PBS -l walltime=24:00:00
 
 # Send mail when job is aborted
 #PBS -m abe
 #PBS -M p.modaresi@gmx.de
 
-# Specify the number of required GPUs
-#PBS -l ncpus=50
+# Manage resources
+#PBS -l select=1:mem=60gb:ncpus=100:arch=uv2000
 
 # Name of the project (Always AGENT)
 #PBS -A AGENT
@@ -53,12 +50,13 @@ echo ------------------------------------------------------
 
 # Load these module if you want to compute on GPUs
 # module load CUDA/7.0.28
-module load Python/2.7.5
 module load Java/1.8.0
+module load Python/2.7.5
 
 # Exports
-export PKG_CONFIG_PATH=~/lib/pkgconfig
+# export PKG_CONFIG_PATH=~/lib/pkgconfig
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pamod100/lib
+export PYTHONPATH=$PYTHONPATH:/software/python/2.7.5/login/bin/python
 
 ./knife/bin/knife &>/dev/null &
 python /home/pamod100/src/pisco/gridsearch.py
