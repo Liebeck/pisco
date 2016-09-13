@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__number_of_methods_per_class__transformer__stat':
-            ['mean', 'max', 'min', 'variance', 'range']}
+            ['mean', 'variance', 'range']}
 
 
 class NumberOfMethodsPerClass(BaseEstimator):

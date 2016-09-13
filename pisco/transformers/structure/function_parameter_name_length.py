@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__function_parameter_name_length__transformer__stat':
-            ['mean', 'max', 'min', 'variance', 'range']}
+            ['mean', 'variance', 'range']}
 
 
 class FunctionParameterNameLength(BaseEstimator):
