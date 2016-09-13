@@ -24,8 +24,8 @@ def benchmark(X_train, y_train, recognizer, features, n_folds=10):
 
 def report(correlations, errors, y_pred_fold, n_folds=2):
     print('{} {}-fold CV Report {}'.format('*' * 11, n_folds, '*' * 11))
-    print("PC:\t\t%0.2f\t(+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
-    print("RMSE:\t\t%0.2f\t(+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
+    print("PC:\t\t\t%0.2f\t(+/- %0.2f)" % (np.mean(correlations), np.std(correlations) * 2))
+    print("RMSE:\t\t\t%0.2f\t(+/- %0.2f)" % (np.mean(errors), np.std(errors) * 2))
     print("Predictions mean:\t%0.2f" % (np.mean(y_pred_fold)))
     print("Predictions var:\t%0.2f" % (np.var(y_pred_fold)))
     print('{}'.format('*' * 40))
