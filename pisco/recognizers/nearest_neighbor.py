@@ -9,5 +9,5 @@ def param_grid():
 def build():
     pipeline = Pipeline([(
         'nearest_neighbor',
-        neighbors.KNeighborsRegressor(n_neighbors=5))])
+        neighbors.KNeighborsRegressor(n_neighbors=30))])
     return ('recognizer', pipeline)
