@@ -45,6 +45,6 @@ class DuplicateCodeMeasure(BaseEstimator):
                 for j in range(i+1, len(methods)):
                     sim = cosine(vector(str(methods[i]).lower()),
                                  vector(str(methods[j]).lower()))
-                    if sim > 0.8:
+                    if sim > 0.9:
                         return [1.0]
             return [0.0]
