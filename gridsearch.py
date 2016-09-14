@@ -11,6 +11,7 @@ import pisco.transformers.structure.length_of_field_names as length_of_field_nam
 import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
 import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
+import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -65,7 +66,8 @@ FEATURES = [
     ('Length of local variable names in functions',
      length_of_local_variable_names_in_functions),
     ('Duplicate Code Measure', duplicate_code_measure),
-    ('Comment Length', comment_length)
+    ('Comment Length', comment_length),
+    ('Number of Classes per Section', number_of_classes_per_section)
 
 ]
 SCORE = 'RMSE'

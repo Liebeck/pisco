@@ -24,6 +24,7 @@ import pisco.transformers.structure.number_of_local_variables_in_functions as nu
 import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
+import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -131,6 +132,10 @@ def configure(conf):
     @conf.feature('mean_number_of_local_variables_in_functions')
     def build_mean_number_of_local_variables_in_functions():
         return [number_of_local_variables_in_functions.build(stat='mean')]
+
+    @conf.feature('number_of_classes_per_section')
+    def build_number_of_classes_per_section():
+        return [number_of_classes_per_section.build(stat='mean')]
 
     @conf.feature('mean_length_of_local_variable_names_in_functions')
     def build_mean_length_of_local_variable_names_in_functions():

@@ -34,6 +34,7 @@ This will install all required dependencies.
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_local_variable_names_in_functions
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features comment_length
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_suppress_warnings
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features number_of_classes_per_section
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all
 
 ```
