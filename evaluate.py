@@ -23,6 +23,7 @@ import pisco.transformers.structure.length_of_field_names as length_of_field_nam
 import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
 import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
 import pisco.transformers.structure.comment_length as comment_length  # noqa
+import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -173,6 +174,10 @@ def configure(conf):
     @conf.feature('duplicate_code_measure')
     def build_duplicate_code_measure_feature():
         return [duplicate_code_measure.build()]
+
+    @conf.feature('contains_suppress_warnings')
+    def build_contains_suppress_warnings_feature():
+        return [contains_suppress_warnings.build()]
 
     @conf.feature('all')
     def build_all_features():
