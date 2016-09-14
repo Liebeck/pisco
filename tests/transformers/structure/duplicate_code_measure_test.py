@@ -1,6 +1,7 @@
-from tests import duplicate_code_available
+from tests import duplicate_code_measure
 import unittest
 import codecs
+import numpy as np
 
 
 def read_submission(filename):
@@ -11,14 +12,14 @@ submission1 = read_submission('tests/resources/submission3.txt')
 submission2 = read_submission('tests/resources/submission10.txt')
 
 
-class DuplicateCodeAvailableTest(unittest.TestCase):
+class DuplicateCodeMeasureTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = duplicate_code_available
+        self.transformer = duplicate_code_measure
         self.submissions = [submission1, submission2]
 
     def test_feature_extraction(self):
-        self.assertEqual(self.transformer.transform(self.submissions),
-                         [[0], [1]])
+        features = self.transformer.transform(self.submissions)
+        np.testing.assert_almost_equal(features, [[0.57], [0.99]], decimal=2)
 
 if __name__ == '__main__':
     unittest.main()
