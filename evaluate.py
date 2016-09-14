@@ -11,6 +11,7 @@ import pisco.transformers.misc.word_unigram as word_unigram
 from pisco.configuration import Configuration
 from pisco.benchmarks.cv_benchmark import benchmark
 import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
+import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
 import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
 import pisco.transformers.structure.function_name_length as function_name_length  # noqa
 import pisco.transformers.structure.function_parameter_name_length as function_parameter_name_length  # noqa
@@ -148,6 +149,10 @@ def configure(conf):
     @conf.feature('ratio_of_external_libraries')
     def build_ratio_of_external_libraries_feature():
         return [ratio_of_external_libraries.build()]
+
+    @conf.feature('duplicate_code_measure')
+    def build_duplicate_code_measure_feature():
+        return [duplicate_code_measure.build()]
 
     @conf.feature('all')
     def build_all_features():
