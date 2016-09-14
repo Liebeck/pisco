@@ -15,6 +15,7 @@ from pisco.transformers.structure.length_of_local_variable_names_in_functions im
 from pisco.transformers.structure.duplicate_code_available import DuplicateCodeAvailable  # noqa
 from pisco.transformers.structure.contains_suppress_warnings import ContainsSuppressWarnings  # noqa
 from pisco.transformers.structure.comment_length import CommentLength  # noqa
+from pisco.transformers.structure.number_of_classes_per_section import NumberOfClassesPerSection  # noqa
 from pisco.transformers.style.length_of_methods_per_class import LengthOfMethodsPerClass  # noqa
 from pisco.transformers.style.number_of_comments_per_class import NumberOfCommentsPerClass  # noqa
 
@@ -43,3 +44,4 @@ ratio_of_external_libraries = RatioOfExternalLibraries()
 duplicate_code_measure = DuplicateCodeMeasure(level='method')
 comment_length = CommentLength(types='javadoc')
 contains_suppress_warnings = ContainsSuppressWarnings()
+number_of_classes_per_section = NumberOfClassesPerSection(stat='mean')
