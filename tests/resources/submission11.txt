@@ -1,0 +1,46 @@
+package de.hhu.knife.mappers;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.List;
+
+private class Example {
+
+    public static void main(String[] args) {
+        System.out.println(add(2, 3));
+    }
+
+}
+
+private class Example2 {
+    int counter = 5;
+    public static void main(String[] args) {
+        /*
+         * Block Comment
+         */
+        System.out.println(2);
+        System.out.println(3);
+    }
+}
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+public class SecondClass {
+
+    public void print(int a) {
+        System.out.println(a);
+    }
+
+  public static void main(String[] args) {
+        System.out.println(2);
+    }
+}
+
+public class AnotherClass {
+
+    public void print(int a) {
+        System.out.println(a);
+    }
+
+  public static void main(String[] args) {
+        System.out.println(2);
+    }
+}
