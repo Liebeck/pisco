@@ -71,7 +71,7 @@ FEATURES = [
     ('Duplicate Code Measure', duplicate_code_measure),
     ('Comment Length', comment_length),
     ('Number of Classes per Section', number_of_classes_per_section),
-    ('Cyclomatic Complexity', cylomatic_complexity)
+    ('Cyclomatic Complexity', cyclomatic_complexity)
 
 ]
 SCORE = 'RMSE'
