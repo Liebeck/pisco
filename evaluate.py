@@ -25,6 +25,7 @@ import pisco.transformers.structure.length_of_local_variable_names_in_functions 
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section  # noqa
+import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -108,6 +109,10 @@ def configure(conf):
     @conf.feature('mean_number_of_methods_per_class')
     def build_mean_number_of_methods_per_class_feature():
         return [number_of_methods_per_class.build(stat='mean')]
+
+    @conf.feature('cyclomatic_complexity')
+    def build_cylomatic_complexity_feature_feature():
+        return [cyclomatic_complexity.build(stat='mean')]
 
     @conf.feature('mean_number_of_function_parameters_per_class')
     def build_mean_number_of_function_parameters_per_class():

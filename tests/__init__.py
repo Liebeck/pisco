@@ -16,6 +16,7 @@ from pisco.transformers.structure.duplicate_code_available import DuplicateCodeA
 from pisco.transformers.structure.contains_suppress_warnings import ContainsSuppressWarnings  # noqa
 from pisco.transformers.structure.comment_length import CommentLength  # noqa
 from pisco.transformers.structure.number_of_classes_per_section import NumberOfClassesPerSection  # noqa
+from pisco.transformers.structure.cyclomatic_complexity import CyclomaticComplexity  # noqa
 from pisco.transformers.style.length_of_methods_per_class import LengthOfMethodsPerClass  # noqa
 from pisco.transformers.style.number_of_comments_per_class import NumberOfCommentsPerClass  # noqa
 
@@ -45,3 +46,4 @@ duplicate_code_measure = DuplicateCodeMeasure(level='method')
 comment_length = CommentLength(types='javadoc')
 contains_suppress_warnings = ContainsSuppressWarnings()
 number_of_classes_per_section = NumberOfClassesPerSection(stat='mean')
+cyclomatic_complexity = CyclomaticComplexity(stat='mean')

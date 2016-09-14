@@ -8,10 +8,11 @@ import pisco.transformers.structure.function_parameter_name_length as function_p
 import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.structure.number_of_fields_per_class as number_of_fields_per_class  # noqa
 import pisco.transformers.structure.length_of_field_names as length_of_field_names  # noqa
+import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
 import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
-import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section
+import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section  # noqa
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -67,7 +68,8 @@ FEATURES = [
      length_of_local_variable_names_in_functions),
     ('Duplicate Code Measure', duplicate_code_measure),
     ('Comment Length', comment_length),
-    ('Number of Classes per Section', number_of_classes_per_section)
+    ('Number of Classes per Section', number_of_classes_per_section),
+    ('Cyclomatic Complexity', cylomatic_complexity)
 
 ]
 SCORE = 'RMSE'
