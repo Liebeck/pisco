@@ -22,6 +22,7 @@ import pisco.transformers.structure.number_of_fields_per_class as number_of_fiel
 import pisco.transformers.structure.length_of_field_names as length_of_field_names  # noqa
 import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
 import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
+import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
 import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -164,6 +165,10 @@ def configure(conf):
     @conf.feature('ratio_of_external_libraries')
     def build_ratio_of_external_libraries_feature():
         return [ratio_of_external_libraries.build()]
+
+    @conf.feature('comment_length')
+    def build_comment_length_feature():
+        return [comment_length.build()]
 
     @conf.feature('duplicate_code_measure')
     def build_duplicate_code_measure_feature():
