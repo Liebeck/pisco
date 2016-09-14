@@ -29,6 +29,9 @@ This will install all required dependencies.
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_IDE_template_text
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_fields_per_class
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features duplicate_code_measure
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_field_names
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_local_variables_in_functions
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_local_variable_names_in_functions
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all
 
 ```
