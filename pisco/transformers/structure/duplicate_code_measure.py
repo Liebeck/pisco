@@ -28,7 +28,6 @@ class DuplicateCodeMeasure(BaseEstimator):
     def _transform(self, raw_submission):
         sections = extract_sections(raw_submission)
         if self.level == 'method':
-            print self.__transform(sections)
             return self.__transform(sections)
         else:
             raise ValueError('Level {} is not supported!'.format(self.level))
