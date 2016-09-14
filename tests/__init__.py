@@ -13,6 +13,7 @@ from pisco.transformers.structure.length_of_field_names import LengthOfFieldName
 from pisco.transformers.structure.number_of_local_variables_in_functions import NumberOfLocalVariablesInFunctions  # noqa
 from pisco.transformers.structure.length_of_local_variable_names_in_functions import LengthOfLocalVariableNamesInFunctions  # noqa
 from pisco.transformers.structure.duplicate_code_available import DuplicateCodeAvailable  # noqa
+from pisco.transformers.structure.contains_suppress_warnings import ContainsSuppressWarnings  # noqa
 from pisco.transformers.structure.comment_length import CommentLength  # noqa
 from pisco.transformers.style.length_of_methods_per_class import LengthOfMethodsPerClass  # noqa
 from pisco.transformers.style.number_of_comments_per_class import NumberOfCommentsPerClass  # noqa
@@ -38,9 +39,7 @@ number_of_fields_per_class = NumberOfFieldsPerClass(stat='mean')  # noqa
 length_of_field_names = LengthOfFieldNames(stat='mean')  # noqa
 number_of_local_variables_in_functions = NumberOfLocalVariablesInFunctions(stat='mean')  # noqa
 length_of_local_variable_names_in_functions = LengthOfLocalVariableNamesInFunctions(stat='mean')  # noqa
-
 ratio_of_external_libraries = RatioOfExternalLibraries()
-
 duplicate_code_measure = DuplicateCodeMeasure(level='method')
-
 comment_length = CommentLength(types='javadoc')
+contains_suppress_warnings = ContainsSuppressWarnings()
