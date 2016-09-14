@@ -1,7 +1,7 @@
 FROM pasmod/miniconder2
 
 RUN apt-get update && \
-	apt-get install -y build-essential python-dev && \
+	apt-get install -y build-essential python-dev python-matplotlib && \
 	apt-get clean
 
 RUN conda install -y \
@@ -17,6 +17,8 @@ RUN pip install plyj
 RUN pip install javalang
 RUN pip install pandas
 RUN pip install javalang
+RUN pip install statsmodels
+RUN pip install matplotlib
 
 WORKDIR /var/www
 ADD . .
