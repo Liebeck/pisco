@@ -28,8 +28,7 @@ class NumberOfLocalVariablesInFunctions(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        section_stats = map(lambda x: self.__transform(x),
-                          sections)
+        section_stats = map(lambda x: self.__transform(x), sections)
         return [stat(map(lambda x: stat(x), section_stats))]
 
     def __transform(self, section):

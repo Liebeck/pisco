@@ -41,7 +41,7 @@ class DuplicateCodeMeasure(BaseEstimator):
                     for m in ms:
                         methods.append(m['codeBlock'])
             for i in range(0, len(methods)):
-                for j in range(i+1, len(methods)):
+                for j in range(i + 1, len(methods)):
                     sim = cosine(vector(str(methods[i]).lower()),
                                  vector(str(methods[j]).lower()))
                     if sim > 0.9:
