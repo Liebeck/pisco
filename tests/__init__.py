@@ -33,4 +33,4 @@ number_of_fields_per_class = NumberOfFieldsPerClass(stat='mean')  # noqa
 
 ratio_of_external_libraries = RatioOfExternalLibraries()
 
-duplicate_code_measure = DuplicateCodeMeasure(level='method', stat='mean')
+duplicate_code_measure = DuplicateCodeMeasure(level='method')

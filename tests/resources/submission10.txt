@@ -37,6 +37,42 @@ public class Torneo {
 			
 		}
 	}
+
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		int casos, numeq, visit;
+		
+		int[][] colores;
+		
+		casos = in.nextInt();
+		
+		for (int i=1; i<=casos; i++){
+			
+			numeq = in.nextInt();
+			colores = new int[numeq][2];
+			
+			visit = 0;
+			
+			for (int j=0; j<numeq; j++){
+				for (int k=0; k<2; k++){
+					colores[j][k] = in.nextInt();
+				}
+			}
+			
+			for (int j=0; j<colores.length; j++){
+				for (int k=0; k<colores.length; k++){
+					if(colores[j][0]==colores[k][1]){
+						visit++;
+					}
+				}
+			}
+			
+			System.out.println("Case #" + i + ":");
+			System.out.println(visit);
+			
+		}
+	}
 }
 
 <<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>

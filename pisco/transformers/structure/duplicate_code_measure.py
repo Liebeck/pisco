@@ -1,4 +1,4 @@
-from ..helpers import extract_sections, get_stat_function, cosine, vector
+from ..helpers import extract_sections, cosine, vector
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
@@ -12,15 +12,12 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__identical_code_available_transformer__level':
-            ['method'],
-            'union_identical_code_available_transformer__stat':
-            ['variance', 'mean', 'range']}
+            ['method']}
 
 
 class DuplicateCodeMeasure(BaseEstimator):
-    def __init__(self, level='method', stat='mean'):
+    def __init__(self, level='method'):
         self.level = level
-        self.stat = stat
 
     def fit(self, submissions, y):
         return self
@@ -31,24 +28,23 @@ class DuplicateCodeMeasure(BaseEstimator):
     def _transform(self, raw_submission):
         sections = extract_sections(raw_submission)
         if self.level == 'method':
+            print self.__transform(sections)
             return self.__transform(sections)
         else:
             raise ValueError('Level {} is not supported!'.format(self.level))
 
     def __transform(self, sections):
-        stat = get_stat_function(self.stat)
         methods = []
-        similarities = []
         for section in sections:
             methods_in_section = adapter.methods(section)
             if methods_in_section is not None:
                 for ms in methods_in_section:
                     for m in ms:
                         methods.append(m['codeBlock'])
-            sims = []
             for i in range(0, len(methods)):
-                for j in range(i, len(methods)):
-                    sims.append(cosine(vector(str(methods[i]).lower()),
-                                       vector(str(methods[j]).lower())))
-            similarities.append(stat(sims))
-        return [stat(similarities)]
+                for j in range(i+1, len(methods)):
+                    sim = cosine(vector(str(methods[i]).lower()),
+                                 vector(str(methods[j]).lower()))
+                    if sim > 0.8:
+                        return [1.0]
+            return [0.0]

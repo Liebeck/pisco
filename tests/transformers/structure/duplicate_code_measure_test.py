@@ -19,7 +19,7 @@ class DuplicateCodeMeasureTest(unittest.TestCase):
 
     def test_feature_extraction(self):
         features = self.transformer.transform(self.submissions)
-        np.testing.assert_almost_equal(features, [[0.57], [0.99]], decimal=2)
+        np.testing.assert_almost_equal(features, [[0.0], [1.0]], decimal=2)
 
 if __name__ == '__main__':
     unittest.main()
