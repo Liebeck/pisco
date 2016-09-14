@@ -23,6 +23,7 @@ from pisco.transformers.helpers import powerset
 from pisco.pipeline import pipeline
 import pisco.transformers.misc.word_unigram as word_unigram  # noqa
 import pisco.recognizers.linear_regression as linear_regression
+import pisco.recognizers.nearest_neighbor as nearest_neighbor
 import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
 import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.recognizers.elastic_net as elastic_net
@@ -46,6 +47,7 @@ RECOGNIZERS = [
     ('Lars', lars),
     ('Lasso', lasso),
     ('Ridge', ridge),
+    ('Nearest Neighbor', nearest_neighbor)
 ]
 FEATURES = [
     # ('Word Unigram', word_unigram),
