@@ -12,6 +12,7 @@ import pisco.transformers.structure.number_of_local_variables_in_functions as nu
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
 import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
 import pisco.transformers.structure.comment_length as comment_length  # noqa
+import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 from pisco.transformers.helpers import extract_sections
