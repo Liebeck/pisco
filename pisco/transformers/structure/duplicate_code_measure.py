@@ -11,7 +11,7 @@ def build(stat='mean'):
 
 
 def param_grid():
-    return {'union__identical_code_available_transformer__level':
+    return {'union__duplicate_code_measure_transformer__level':
             ['method']}
 
 
