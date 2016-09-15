@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__cyclomatic_complexity__transformer__stat':
-            ['mean', 'variance', 'range']}
+            ['mean']}
 
 
 class CyclomaticComplexity(BaseEstimator):
@@ -30,7 +30,7 @@ class CyclomaticComplexity(BaseEstimator):
         sections = extract_sections(raw_submission)
         complexities = map(lambda x: self.__transform(x), sections)
         complexities = [y for x in complexities for y in x]
-        return [stat(map(lambda x: stat(x), complexities))]
+        return [stat(complexities)]
 
     def __transform(self, section):
         methods = adapter.methods(section)

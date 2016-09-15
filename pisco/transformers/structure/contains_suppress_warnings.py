@@ -1,4 +1,4 @@
-from ..helpers import extract_sections, cosine, vector
+from ..helpers import extract_sections
 from sklearn.base import BaseEstimator
 from sklearn.pipeline import Pipeline
 import re
@@ -11,7 +11,8 @@ def build():
 
 
 def param_grid():
-    return {}
+    return {'union__contains_suppress_warnings__transformer':
+            ['default']}
 
 
 class ContainsSuppressWarnings(BaseEstimator):
