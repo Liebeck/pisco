@@ -16,21 +16,6 @@ def param_grid():
             ['mean', 'variance', 'range']}
 
 
-def detect_outlier(y, thresh=3.5):
-    # warning: this function does not check for NAs
-    # nor does it address issues when 
-    # more than 50% of your data have identical values
-    m = np.median(y)
-    abs_dev = np.abs(y - m)
-    left_mad = np.median(abs_dev[y <= m])
-    right_mad = np.median(abs_dev[y >= m])
-    y_mad = left_mad * np.ones(len(y))
-    y_mad[y > m] = right_mad
-    modified_z_score = 0.6745 * abs_dev / y_mad
-    modified_z_score[y == m] = 0
-    return modified_z_score > thresh
-
-
 class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
     def __init__(self, stat='mean'):
         self.stat = stat
@@ -39,27 +24,7 @@ class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
         return self
 
     def transform(self, raw_submissions):
-        features = map(lambda x: self._transform(x), raw_submissions)
-        features_flat = [el for f in features for el in f]
-        are_outliers = detect_outlier(features_flat)
-        outlier_indices = []
-        non_outliers = []
-        for i, (f, o) in enumerate(zip(features_flat, are_outliers)):
-            if o:
-                outlier_indices.append(i)
-            else:
-                non_outliers.append(f)
-        min_features = min(non_outliers)
-        max_features = max(non_outliers)
-        for outlier_index in outlier_indices:
-            o = features_flat[outlier_index]
-            if o > max_features:
-                o = max_features
-            else:
-                o = min_features
-            features_flat[outlier_index] = o
-        features = [[f] for f in features_flat]
-        return features
+        return map(lambda x: self._transform(x), raw_submissions)
 
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
