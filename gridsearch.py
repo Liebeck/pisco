@@ -25,6 +25,7 @@ import pisco.transformers.misc.word_unigram as word_unigram  # noqa
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.nearest_neighbor as nearest_neighbor
 import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
+import pisco.recognizers.radius_neighbors_regressor as radius_neighbors_regressor  # noqa
 import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.recognizers.elastic_net as elastic_net
 import pisco.recognizers.lars as lars
@@ -47,10 +48,10 @@ RECOGNIZERS = [
     ('Lars', lars),
     ('Lasso', lasso),
     ('Ridge', ridge),
-    ('Nearest Neighbor', nearest_neighbor)
+    ('Nearest Neighbor', nearest_neighbor),
+    ('Radius Neighbors Regressor', radius_neighbors_regressor)
 ]
 FEATURES = [
-    # ('Word Unigram', word_unigram),
     ('Number of Methods per Class', number_of_methods_per_class),
     ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class),
