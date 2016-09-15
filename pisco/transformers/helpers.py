@@ -151,9 +151,6 @@ def powerset(seq):
     Returns:
         a list of all subsets except the empty set
     """
-    if len(seq) <= 1:
-        yield seq
-    else:
-        for item in powerset(seq[1:]):
-            yield [seq[0]] + item
-            yield item
+    import itertools as it
+    s = list(seq)
+    return list(it.chain.from_iterable(it.combinations(s, r) for r in range(len(s)+1)))[1:]
