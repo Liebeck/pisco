@@ -31,7 +31,7 @@ DIMENSIONS = ['neuroticism',
               'agreeableness',
               'conscientiousness']
 FEATURES = [
-    ('Number of Methods per Class', number_of_methods_per_class)
+    ('Number of Methods per Class', number_of_methods_per_class),
     ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class),
     ('Number of function parameters per class', number_of_function_parameters_per_class),  # noqa
@@ -63,6 +63,7 @@ for d in DIMENSIONS:
     for f in FEATURES:
         print "Feature: {}".format(f[0])
         transformer = f[1].build()[1]
+        transformer.fit(X)
         fv = transformer.transform(X)
         results = sm.OLS(Y, sm.add_constant(fv)).fit()
         print results.summary()
