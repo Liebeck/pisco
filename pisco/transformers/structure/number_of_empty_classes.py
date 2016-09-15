@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__number_of_empty_classes__transformer__stat':
-            ['sum']}
+            ['mean']}
 
 
 class NumberOfEmptyClases(BaseEstimator):
@@ -30,7 +30,7 @@ class NumberOfEmptyClases(BaseEstimator):
         sections = extract_sections(raw_submission)
         section_stats = map(lambda x: self.__transform(x),
                             sections)  # Be aware that a class might contain no functions
-        return [stat(map(lambda x: stat(x), section_stats))]
+        return [stat(map(lambda x: sum(x), section_stats))]
 
     def __transform(self, section):
         clazzes = adapter.classes(section)
