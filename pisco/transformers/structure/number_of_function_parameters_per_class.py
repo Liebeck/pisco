@@ -2,6 +2,7 @@ from ..helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+import numpy as np
 
 
 def build(stat='mean'):
@@ -30,7 +31,7 @@ class NumberOfFunctionParametersPerClass(BaseEstimator):
         sections = extract_sections(raw_submission)
         parameter_stats = map(lambda x: self.__transform(x),
                               sections)  # Be aware that a class might contain no functions
-        return [stat(map(lambda x: stat(x), parameter_stats))]
+        return [np.mean(map(lambda x: stat(x), parameter_stats))]
 
     def __transform(self, section):
         methods = adapter.methods(section)  # can look like this: [[m1,m2], [m3,m4]]

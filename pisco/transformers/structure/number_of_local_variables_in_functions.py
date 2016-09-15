@@ -2,6 +2,7 @@ from ..helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+import numpy as np
 
 
 def build(stat='mean'):
@@ -29,7 +30,7 @@ class NumberOfLocalVariablesInFunctions(BaseEstimator):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
         section_stats = map(lambda x: self.__transform(x), sections)
-        return [stat(map(lambda x: stat(x), section_stats))]
+        return [np.mean(map(lambda x: stat(x), section_stats))]
 
     def __transform(self, section):
         methods = adapter.methods(section)  # can look like this: [[m1,m2], [m3,m4]]

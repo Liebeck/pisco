@@ -2,6 +2,7 @@ from ..helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+import numpy as np
 
 
 def build(stat='range'):
@@ -30,7 +31,7 @@ class LengthOfFieldNames(BaseEstimator):
         sections = extract_sections(raw_submission)
         clazz_stats = map(lambda x: self.__transform(x),
                           sections)
-        return [stat(map(lambda x: stat(x), clazz_stats))]
+        return [np.mean(map(lambda x: stat(x), clazz_stats))]
 
     def __transform(self, section):
         stat = get_stat_function(self.stat)
