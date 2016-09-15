@@ -4,7 +4,7 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='mean'):
+def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           LengthOfFieldNames(stat=stat))])
     return ('length_of_field_names', pipeline)
@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__length_of_field_names__transformer__stat':
-            ['mean', 'variance', 'range']}
+            ['mean', 'range']}
 
 
 class LengthOfFieldNames(BaseEstimator):
