@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 
 
-def build(stat='mean'):
+def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           NumberOfLocalVariablesInFunctions(stat=stat))])
     return ('number_of_local_variables_in_functions', pipeline)
