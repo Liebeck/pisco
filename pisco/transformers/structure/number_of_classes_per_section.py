@@ -4,7 +4,7 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='mean'):
+def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           NumberOfClassesPerSection(stat=stat))])
     return ('number_of_classes_per_section', pipeline)
@@ -12,7 +12,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__number_of_classes_per_section__transformer__stat':
-            ['mean', 'variance', 'range']}
+            ['mean', 'range']}
 
 
 class NumberOfClassesPerSection(BaseEstimator):
@@ -28,8 +28,10 @@ class NumberOfClassesPerSection(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        num_classes = map(lambda x: self.__transform(x), sections)
-        return [stat(map(lambda x: stat(x), num_classes))]
+        num_classes = []
+        for section in sections:
+            num_classes.append(self.__transform(section))
+        return [stat(num_classes)]
 
     def __transform(self, section):
         clazzes = adapter.classes(section)
