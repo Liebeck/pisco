@@ -36,25 +36,14 @@ class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
         return a
 
     def __transform(self, section):
-        stat = get_stat_function(self.stat)
         methods = adapter.methods(section)
         if methods:
             ret_val = []
             for clazz in methods:
-                # clazz_values = []
                 if clazz:
                     for method in clazz:
-                        # method_values = []
                         for variable_name in method['variables']:
                             ret_val.append(len(variable_name))
-                        # if method_values:
-                            # clazz_values.append(stat(method_values))
-                        # else:
-                          # clazz_values.append(0)
-                # if clazz_values:
-                    # ret_val.append(stat(clazz_values))
-                # else:
-                    # ret_val.append(0)
             if not ret_val:
                 ret_val = [0]
             return ret_val
