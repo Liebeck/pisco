@@ -7,7 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='variance'):
     pipeline = Pipeline([('transformer',
-                          NumberOfClassesPerSection(stat=stat))])
+                          NumberOfClassesPerSection(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('number_of_classes_per_section', pipeline)
 
 

@@ -7,7 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          NumberOfEmptyClases(stat=stat))])
+                          NumberOfEmptyClases(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('number_of_empty_classes', pipeline)
 
 

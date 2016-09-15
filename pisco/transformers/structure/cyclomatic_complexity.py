@@ -7,7 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          CyclomaticComplexity(stat=stat))])
+                          CyclomaticComplexity(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('cyclomatic_complexity', pipeline)
 
 

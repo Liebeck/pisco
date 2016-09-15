@@ -6,7 +6,8 @@ from sklearn.pipeline import Pipeline
 
 def build(modifier='private'):
     pipeline = Pipeline([('transformer',
-                          RatioOfClassAccessModifiers(modifier=modifier))])
+                          RatioOfClassAccessModifiers(modifier=modifier)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('ratio_of_class_access_modifiers', pipeline)
 
 

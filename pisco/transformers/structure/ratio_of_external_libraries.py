@@ -7,7 +7,8 @@ import re
 
 def build():
     pipeline = Pipeline([('transformer',
-                          RatioOfExternalLibraries())])
+                          RatioOfExternalLibraries()),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('ratio_of_external_libraries', pipeline)
 
 

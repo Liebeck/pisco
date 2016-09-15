@@ -8,7 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='range'):
     pipeline = Pipeline([('transformer',
-                          NumberOfFieldsPerClass(stat=stat))])
+                          NumberOfFieldsPerClass(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('number_of_fields_per_class', pipeline)
 
 

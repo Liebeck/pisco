@@ -8,7 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          LengthOfLocalVariableNamesInFunctions(stat=stat))])
+                          LengthOfLocalVariableNamesInFunctions(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('length_of_local_variable_names_in_functions', pipeline)
 
 

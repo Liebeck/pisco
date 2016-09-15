@@ -7,7 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          NumberOfMethodsPerClass(stat=stat))])
+                          NumberOfMethodsPerClass(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('number_of_methods_per_class', pipeline)
 
 

@@ -7,7 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='mean', types=['line', 'block', 'javadoc']):
     pipeline = Pipeline([('transformer',
-                          NumberOfCommentsPerClass(stat=stat, types=types))])
+                          NumberOfCommentsPerClass(stat=stat, types=types)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('number_of_comments_per_class', pipeline)
 
 

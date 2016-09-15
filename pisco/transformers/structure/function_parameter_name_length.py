@@ -8,7 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def build(stat='range'):
     pipeline = Pipeline([('transformer',
-                          FunctionParameterNameLength(stat=stat))])
+                          FunctionParameterNameLength(stat=stat)),
+                          ('min_max_scaler', MinMaxScaler())])
     return ('function_parameter_name_length', pipeline)
 
 
