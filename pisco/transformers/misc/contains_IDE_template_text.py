@@ -11,7 +11,8 @@ def build():
 
 
 def param_grid():
-    return {}
+    return {'union__contains_ide_template_text__transformer':
+            ['default']}
 
 
 class ContainsIDETemplateText(BaseEstimator):

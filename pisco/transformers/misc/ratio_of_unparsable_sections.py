@@ -11,8 +11,8 @@ def build():
 
 
 def param_grid():
-    return {}
-
+    return {'union__ratio_of_knife_unparsable_sections__transformer':
+            ['default']}
 
 class RatioOfKnifeUnparsableSection(BaseEstimator):
     """Returns a ratio of sections that are unparsable by knife.
