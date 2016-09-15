@@ -4,7 +4,7 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='range'):
+def build(stat='variance'):
     pipeline = Pipeline([('transformer',
                           NumberOfClassesPerSection(stat=stat))])
     return ('number_of_classes_per_section', pipeline)
@@ -12,7 +12,7 @@ def build(stat='range'):
 
 def param_grid():
     return {'union__number_of_classes_per_section__transformer__stat':
-            ['mean', 'range']}
+            ['mean', 'variance']}
 
 
 class NumberOfClassesPerSection(BaseEstimator):
