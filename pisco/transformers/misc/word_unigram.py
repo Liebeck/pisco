@@ -14,6 +14,6 @@ def param_grid():
     return {'union__word_unigram__vec__ngram_range': ngram_ranges(1, 5)}
 
 
-def build(ngram_range=(4, 5)):
-    pipeline = Pipeline([('vec', CountVectorizer(ngram_range=ngram_range))])
+def build(ngram_range=(15, 15)):
+    pipeline = Pipeline([('vec', CountVectorizer(ngram_range=ngram_range, analyzer='char'))])
     return ('word_unigram', pipeline)
