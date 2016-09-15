@@ -2,6 +2,7 @@ from ..helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import MinMaxScaler
 
 
 def build(stat='variance'):

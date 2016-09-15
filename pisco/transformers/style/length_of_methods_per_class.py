@@ -3,6 +3,7 @@ from ..helpers import get_measurement_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import MinMaxScaler
 
 
 def build(stat='mean', method='chars'):
