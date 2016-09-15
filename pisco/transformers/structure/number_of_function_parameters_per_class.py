@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 
 
-def build(stat='mean'):
+def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           NumberOfFunctionParametersPerClass(stat=stat))])
     return ('number_of_function_parameters_per_class', pipeline)
@@ -13,7 +13,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__number_of_function_parameters_per_class__transformer__stat':
-            ['mean']}
+            ['range']}
 
 
 class NumberOfFunctionParametersPerClass(BaseEstimator):

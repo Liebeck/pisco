@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 
 
-def build(stat='variance'):
+def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           NumberOfFieldsPerClass(stat=stat))])
     return ('number_of_fields_per_class', pipeline)
@@ -13,7 +13,7 @@ def build(stat='variance'):
 
 def param_grid():
     return {'union__number_of_fields_per_class__transformer__stat':
-            ['mean', 'variance', 'range']}
+            ['range']}
 
 
 class NumberOfFieldsPerClass(BaseEstimator):

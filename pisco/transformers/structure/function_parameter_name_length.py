@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 
 
-def build(stat='mean'):
+def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           FunctionParameterNameLength(stat=stat))])
     return ('function_parameter_name_length', pipeline)
@@ -13,7 +13,7 @@ def build(stat='mean'):
 
 def param_grid():
     return {'union__function_parameter_name_length__transformer__stat':
-            ['mean', 'variance', 'range']}
+            ['range']}
 
 
 class FunctionParameterNameLength(BaseEstimator):
