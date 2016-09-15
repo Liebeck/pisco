@@ -25,12 +25,15 @@ from pisco.knife.adapters import classes
 import pisco.transformers.misc.word_unigram as word_unigram  # noqa
 from pisco.loaders.plain_loader import load
 
-DIMENSION = ['openness']
+DIMENSIONS = ['neuroticism',
+              'extroversion',
+              'openness',
+              'agreeableness',
+              'conscientiousness']
 FEATURES = [
-    ('Number of Methods per Class', number_of_methods_per_class),
+    ('Number of Methods per Class', number_of_methods_per_class)
     ('Length of Methods per Class', length_of_methods_per_class),
     ('Number of Comments per Class', number_of_comments_per_class),
-    ('Ration of External Library Usage', ratio_of_external_libraries),
     ('Number of function parameters per class', number_of_function_parameters_per_class),  # noqa
     ('Length of function parameter names', function_parameter_name_length),
     ('Length of Function names (1-dimensional)', function_name_length),
@@ -44,31 +47,31 @@ FEATURES = [
     ('Duplicate Code Measure', duplicate_code_measure),
     ('Comment Length', comment_length),
     ('Number of Classes per Section', number_of_classes_per_section),
-    ('Cyclomatic Complexity', cyclomatic_complexity)
+    ('Cyclomatic Complexity', cyclomatic_complexity),
+    ('Supress warnings', contains_suppress_warnings)
 ]
 
-X, Y = load(labels=DIMENSION)
-for x in X:
-    sections = extract_sections(x)
-    for section in sections:
-        classes(section)
 
-Y = [[y] for y in Y]
+for d in DIMENSIONS:
+    X, Y = load(labels=[d])
+    for x in X:
+        sections = extract_sections(x)
+        for section in sections:
+            classes(section)
 
-result = {}
-result['recognizers'] = []
-for f in FEATURES:
-    print "Feature: {}".format(f[0])
-    transformer = f[1].build()[1]
-    fv = transformer.transform(X)
-    results = sm.OLS(Y, sm.add_constant(fv)).fit()
-    print results.summary()
-    if len(fv[0]) > 1:
-        continue
-    plt.scatter(fv, Y)
-    fv = [y for x in fv for y in x]
-    X_plot = np.linspace(min(fv), max(fv), 100)
-    plt.plot(X_plot, X_plot*results.params[1] + results.params[0])
-    plt.title(f[0] + '{}'.format(DIMENSION))
+    Y = [[y] for y in Y]
+    for f in FEATURES:
+        print "Feature: {}".format(f[0])
+        transformer = f[1].build()[1]
+        fv = transformer.transform(X)
+        results = sm.OLS(Y, sm.add_constant(fv)).fit()
+        print results.summary()
+        if len(fv[0]) > 1:
+            continue
+        plt.scatter(fv, Y)
+        fv = [y for x in fv for y in x]
+        X_plot = np.linspace(min(fv), max(fv), 100)
+        plt.plot(X_plot, X_plot*results.params[1] + results.params[0])
+        plt.title(f[0] + '{}'.format(d))
 
-    plt.show()
+        plt.show()
