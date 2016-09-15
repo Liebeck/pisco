@@ -1,11 +1,10 @@
 from ..helpers import extract_sections, get_stat_function
-from ..helpers import powerset
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='mean', types=['block', 'line', 'javadoc']):
+def build(stat='mean', types=['line', 'block', 'javadoc']):
     pipeline = Pipeline([('transformer',
                           NumberOfCommentsPerClass(stat=stat, types=types))])
     return ('number_of_comments_per_class', pipeline)
@@ -13,9 +12,9 @@ def build(stat='mean', types=['block', 'line', 'javadoc']):
 
 def param_grid():
     return {'union__number_of_comments_per_class__transformer__stat':
-            ['mean', 'variance', 'range'],
+            ['mean', 'range'],
             'union__number_of_comments_per_class__transformer__types':
-            list(powerset(['block', 'line', 'javadoc']))}
+            ['block', 'line', 'javadoc']}
 
 
 class NumberOfCommentsPerClass(BaseEstimator):

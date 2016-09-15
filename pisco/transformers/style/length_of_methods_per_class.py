@@ -5,7 +5,7 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='range', method='chars'):
+def build(stat='mean', method='chars'):
     pipeline = Pipeline([('transformer',
                           LengthOfMethodsPerClass(stat=stat, method=method))])
     return ('length_of_methods_per_class', pipeline)
@@ -13,9 +13,9 @@ def build(stat='range', method='chars'):
 
 def param_grid():
     return {'union__length_of_methods_per_class__transformer__stat':
-            ['range'],
+            ['range', 'mean'],
             'union__length_of_methods_per_class__transformer__method':
-            ['chars']}
+            ['chars', 'lines']}
 
 
 class LengthOfMethodsPerClass(BaseEstimator):
