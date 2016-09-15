@@ -4,7 +4,7 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='mean', types='javadoc'):
+def build(stat='range', types='javadoc'):
     pipeline = Pipeline([('transformer',
                           CommentLength(stat=stat, types=types))])
     return ('comment_length', pipeline)
@@ -12,9 +12,9 @@ def build(stat='mean', types='javadoc'):
 
 def param_grid():
     return {'union__comment_length__transformer__stat':
-            ['mean', 'variance', 'range'],
+            ['mean', 'range'],
             'union__comment_length__transformer__types':
-            ['block', 'line', 'javadoc']}
+            ['block', 'javadoc']}
 
 
 class CommentLength(BaseEstimator):
