@@ -96,7 +96,8 @@ def make_score_function(score):
         raise ValueError('Scoring {} is not supported!'.format(score))
 
 
-FEATURES = powerset(FEATURES)
+# FEATURES = powerset(FEATURES)
+FEATURES = [FEATURES]
 
 X, Y = load(labels=DIMENSIONS)
 for x in X:
@@ -118,7 +119,7 @@ for name, recognizer in RECOGNIZERS:
             param_grid.update(f.param_grid())
         scoring = make_score_function(SCORE)
         grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10,
-                                   cv=10, n_jobs=-1, scoring=scoring)
+                                   cv=10, n_jobs=50, scoring=scoring)
         grid_search.fit(X, Y)
         # scoring API always maximizes the score, so scores which
         # need to be minimized are negated in order for the unified
