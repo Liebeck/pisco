@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.nearest_neighbor as nearest_neighbor
+import pisco.recognizers.radius_neighbors_regressor as radius_neighbors_regressor
 import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
 import pisco.recognizers.ridge as ridge
 import pisco.recognizers.elastic_net as elastic_net
@@ -83,6 +84,10 @@ def configure(conf):
     def build_nearest_neighbor():
         return nearest_neighbor.build()
 
+    @conf.recognizer('radius_neighbors_regressor')
+    def build_radius_neighbors_regressor():
+        return radius_neighbors_regressor.build()
+
     @conf.recognizer('decision_tree_regressor')
     def build_decision_tree_regressor():
         return decision_tree_regressor.build()
@@ -157,7 +162,7 @@ def configure(conf):
 
     @conf.feature('mean_length_of_methods_per_class')
     def build_mean_length_of_methods_per_class_feature():
-        return [length_of_methods_per_class.build(stat='mean', method='lines')]
+        return [length_of_methods_per_class.build()]
 
     @conf.feature('mean_number_of_comments_per_class')
     def build_mean_number_of_comments_per_class_feature():
@@ -196,11 +201,8 @@ def configure(conf):
 
     @conf.feature('all')
     def build_all_features():
-        return [word_unigram.build(),
-                number_of_methods_per_class.build(),
-                length_of_methods_per_class.build(),
-                number_of_comments_per_class.build(),
-                ratio_of_class_access_modifiers.build()]
+        return [number_of_function_parameters_per_class.build(),
+                cyclomatic_complexity.build()]
 
 
 def pretty_list(items):
