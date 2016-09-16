@@ -12,7 +12,8 @@ def build():
 
 
 def param_grid():
-    return {}
+    return {'union__ratio_of_external_libraries__transformer':
+            ['default']}
 
 
 class RatioOfExternalLibraries(BaseEstimator):
