@@ -39,43 +39,43 @@ from pisco.metrics.metrics import pearson
 from collections import OrderedDict
 import json
 
-DIMENSIONS = ['openness']
-RECOGNIZERS = [
+DIMENSIONS = ['neuroticism']
+RECOGNIZER = [
     ('Linear Regression', linear_regression),
-    ('Decision Tree Regressor', decision_tree_regressor),
-    ('Support Vector Regression', support_vector_regression),
-    ('ElasticNet', elastic_net),
-    ('Lars', lars),
-    ('Lasso', lasso),
-    ('Ridge', ridge),
-    ('Nearest Neighbor', nearest_neighbor),
-    ('Radius Neighbors Regressor', radius_neighbors_regressor)
+    #('Decision Tree Regressor', decision_tree_regressor),
+    #('Support Vector Regression', support_vector_regression),
+    #('ElasticNet', elastic_net),
+    #('Lars', lars),
+    #('Lasso', lasso),
+    #('Ridge', ridge),
+    #('Nearest Neighbor', nearest_neighbor),
+    #('Radius Neighbors Regressor', radius_neighbors_regressor)
 ]
 FEATURES = [
-    ('Number of Methods per Class', number_of_methods_per_class),
-    ('Length of Methods per Class', length_of_methods_per_class),
-    ('Number of Comments per Class', number_of_comments_per_class),
-    ('Ration of External Library Usage', ratio_of_external_libraries),
-    ('Number of function parameters per class',
-     number_of_function_parameters_per_class),
-    ('Length of function parameter names', function_parameter_name_length),
-    ('Length of Function names (1-dimensional)', function_name_length),
-    ('Number of empty classes (1-dimensional)', number_of_empty_classes),
-    ('Ratio of unparsable sections', ratio_of_unparsable_sections),
-    ('Contains IDE template text (binary)', contains_IDE_template_text),
-    ('Number of fields per class', number_of_fields_per_class),
-    ('Length of field names', length_of_field_names),
+    #('Number of Methods per Class', number_of_methods_per_class),
+    #('Length of Methods per Class', length_of_methods_per_class),
+    #('Number of Comments per Class', number_of_comments_per_class),
+    #('Ration of External Library Usage', ratio_of_external_libraries),
+    #('Number of function parameters per class',
+    # number_of_function_parameters_per_class),
+    #('Length of function parameter names', function_parameter_name_length),
+    #('Length of Function names (1-dimensional)', function_name_length),
+    #('Number of empty classes (1-dimensional)', number_of_empty_classes),
+    #('Ratio of unparsable sections', ratio_of_unparsable_sections),
+    #('Contains IDE template text (binary)', contains_IDE_template_text),
+    #('Number of fields per class', number_of_fields_per_class),
+    #('Length of field names', length_of_field_names),
     ('Number of local variables in functions',
      number_of_local_variables_in_functions),
     ('Length of local variable names in functions',
      length_of_local_variable_names_in_functions),
-    ('Duplicate Code Measure', duplicate_code_measure),
-    ('Comment Length', comment_length),
+    #('Duplicate Code Measure', duplicate_code_measure),
+    # ('Comment Length', comment_length),
     ('Number of Classes per Section', number_of_classes_per_section),
     ('Cyclomatic Complexity', cyclomatic_complexity)
 
 ]
-SCORE = 'RMSE'
+SCORE = 'PC'
 
 
 def pretty(d, indent=0):
@@ -105,35 +105,31 @@ for x in X:
     for section in sections:
         classes(section)
 
-result = {}
-result['recognizers'] = []
-for name, recognizer in RECOGNIZERS:
-    current_recognizer = {}
-    for features in FEATURES:
-        transformers = map(lambda f: f[1].build(), features)
-        p = pipeline.pipeline(transformers=transformers,
-                              recognizer=recognizer.build())
-        param_grid = OrderedDict()
-        param_grid.update(recognizer.param_grid())
-        for name, f in features:
-            param_grid.update(f.param_grid())
-        scoring = make_score_function(SCORE)
-        grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10,
-                                   cv=10, n_jobs=50, scoring=scoring)
-        grid_search.fit(X, Y)
-        # scoring API always maximizes the score, so scores which
-        # need to be minimized are negated in order for the unified
-        # scoring API to work correctly
-        best_score = abs(grid_search.best_score_)
-        best_params = grid_search.best_params_
-        scorer = grid_search.scorer_
-        feature_names = '|'.join(map(lambda x: x[0], features))
-        current_recognizer['name'] = name
-        current_recognizer[feature_names] = {}
-        current_recognizer[feature_names]['best_score'] = best_score
-        current_recognizer[feature_names]['best_params'] = best_params
-        current_recognizer[feature_names]['scorer'] = SCORE
-    result['recognizers'].append(current_recognizer)
+recognizer = RECOGNIZER[0]
+result = {'recognizer_name': recognizer[0]}
+for features in FEATURES:
+    transformers = map(lambda f: f[1].build(), features)
+    p = pipeline.pipeline(transformers=transformers,
+                          recognizer=recognizer[1].build())
+    param_grid = OrderedDict()
+    param_grid.update(recognizer[1].param_grid())
+    for name, f in features:
+        param_grid.update(f.param_grid())
+    scoring = make_score_function(SCORE)
+    grid_search = GridSearchCV(p, param_grid=param_grid, verbose=10,
+                               cv=2, n_jobs=50, scoring=scoring)
+    grid_search.fit(X, Y)
+    # scoring API always maximizes the score, so scores which
+    # need to be minimized are negated in order for the unified
+    # scoring API to work correctly
+    best_score = abs(grid_search.best_score_)
+    best_params = grid_search.best_params_
+    scorer = grid_search.scorer_
+    feature_names = '|'.join(map(lambda x: x[0], features))
+    result['features'] = feature_names
+    result['best_score'] = best_score
+    result['best_params'] = best_params
+    result['scorer'] = SCORE
 print(result)
-with open('result.json', 'w') as outfile:
+with open('result_{}.json'.format(DIMENSIONS[0]), 'w') as outfile:
     json.dump(result, outfile, indent=2)
