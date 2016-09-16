@@ -41,14 +41,14 @@ import json
 
 DIMENSIONS = ['neuroticism']
 RECOGNIZER = [
-    ('Linear Regression', linear_regression),
+    #('Linear Regression', linear_regression),
     #('Decision Tree Regressor', decision_tree_regressor),
     #('Support Vector Regression', support_vector_regression),
     #('ElasticNet', elastic_net),
     #('Lars', lars),
     #('Lasso', lasso),
     #('Ridge', ridge),
-    #('Nearest Neighbor', nearest_neighbor),
+    ('Nearest Neighbor', nearest_neighbor),
     #('Radius Neighbors Regressor', radius_neighbors_regressor)
 ]
 FEATURES = [
@@ -75,7 +75,7 @@ FEATURES = [
     ('Cyclomatic Complexity', cyclomatic_complexity)
 
 ]
-SCORE = 'PC'
+SCORE = 'RMSE'
 
 
 def pretty(d, indent=0):
@@ -107,24 +107,26 @@ for x in X:
 
 recognizer = RECOGNIZER[0]
 result = {'recognizer_name': recognizer[0]}
-for number_features in range(17, 1, -1):
+for number_features in range(16, 1, -1):
     print '***Number of features: {}'.format(number_features)
     for features in FEATURES:
         transformers = map(lambda f: f[1].build(), features)
         p = pipeline.pipeline(transformers=transformers,
-                              recognizer=recognizer[1].build())
+                              recognizer=recognizer[1].build(),
+                             number_of_features=number_features)
         param_grid = OrderedDict()
         param_grid.update(recognizer[1].param_grid())
         for name, f in features:
             param_grid.update(f.param_grid())
         scoring = make_score_function(SCORE)
-        grid_search = GridSearchCV(p, param_grid=param_grid, verbose=100,
+        grid_search = GridSearchCV(p, param_grid=param_grid, verbose=50,
                                    cv=2, n_jobs=50, scoring=scoring)
         grid_search.fit(X, Y)
         # scoring API always maximizes the score, so scores which
         # need to be minimized are negated in order for the unified
         # scoring API to work correctly
         best_score = abs(grid_search.best_score_)
+        print '***Best score: {}'.format(best_score)
         best_params = grid_search.best_params_
         scorer = grid_search.scorer_
         key = number_features + 'features'

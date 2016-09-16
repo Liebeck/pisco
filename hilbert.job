@@ -22,7 +22,7 @@
 #PBS -M p.modaresi@gmx.de
 
 # Manage resources
-#PBS -l select=1:mem=20gb:ncpus=50:arch="uv2000"
+#PBS -l select=1:mem=20gb:ncpus=12:arch="uv2000"
 
 # Name of the project (Always AGENT)
 #PBS -A AGENT
