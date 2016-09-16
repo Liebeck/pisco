@@ -3,11 +3,11 @@ from sklearn.pipeline import Pipeline
 
 
 def param_grid():
-    return {'recognizer__nearest_neghbor__n_neighbors': [2, 4, 6, 8]}
+    return {'recognizer__kneighbors_regressor__n_neighbors': [1, 3, 5, 7]}
 
 
-def build():
+def build(n_neighbors=1):
     pipeline = Pipeline([(
-        'nearest_neighbor',
-        neighbors.KNeighborsRegressor(n_neighbors=1))])
+        'kneighbors_regressor',
+        neighbors.KNeighborsRegressor(n_neighbors=n_neighbors))])
     return ('recognizer', pipeline)
