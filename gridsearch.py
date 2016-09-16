@@ -127,11 +127,11 @@ for number_features in range(17, 1, -1):
         best_score = abs(grid_search.best_score_)
         best_params = grid_search.best_params_
         scorer = grid_search.scorer_
-        feature_names = '|'.join(map(lambda x: x[0], features))
-        result['features'] = feature_names
-        result['best_score'] = best_score
-        result['best_params'] = best_params
-        result['scorer'] = SCORE
+        key = number_features + 'features'
+        result[key] = {} 
+        result[key]['best_score'] = best_score
+        result[key]['best_params'] = best_params
+        result[key]['scorer'] = SCORE
 print(result)
 with open('result_{}.json'.format(DIMENSIONS[0]), 'w') as outfile:
     json.dump(result, outfile, indent=2)
