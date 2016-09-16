@@ -7,8 +7,8 @@ def param_grid():
             'recognizer__linear_regression__normalize': [True, False]}
 
 
-def build():
+def build(fit_intercept=False, normalize=True):
     pipeline = Pipeline([(
         'linear_regression',
-        LinearRegression(fit_intercept=True, normalize=True))])
+        LinearRegression(fit_intercept=fit_intercept, normalize=normalize))])
     return ('recognizer', pipeline)
