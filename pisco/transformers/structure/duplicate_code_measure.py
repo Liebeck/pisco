@@ -4,7 +4,7 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
-def build(stat='mean'):
+def build():
     pipeline = Pipeline([('transformer',
                           DuplicateCodeMeasure())])
     return ('duplicate_code_measure', pipeline)

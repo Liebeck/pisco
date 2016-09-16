@@ -7,12 +7,13 @@ from sklearn.pipeline import Pipeline
 def build():
     pipeline = Pipeline([('transformer',
                           RatioOfKnifeUnparsableSection())])
-    return ('ratio_of_knife_unparsable_sections', pipeline)
+    return ('ratio_of_unparsable_sections', pipeline)
 
 
 def param_grid():
-    return {'union__ratio_of_knife_unparsable_sections__transformer':
+    return {'union__ratio_of_unparsable_sections__transformer':
             ['default']}
+
 
 class RatioOfKnifeUnparsableSection(BaseEstimator):
     """Returns a ratio of sections that are unparsable by knife.

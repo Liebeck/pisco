@@ -1,17 +1,16 @@
 from pisco.transformers.helpers import extract_sections
 from sklearn.base import BaseEstimator
-import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 
 
 def build():
     pipeline = Pipeline([('transformer',
                           ContainsIDETemplateText())])
-    return ('contains_ide_template_text', pipeline)
+    return ('contains_IDE_template_text', pipeline)
 
 
 def param_grid():
-    return {'union__contains_ide_template_text__transformer':
+    return {'union__contains_IDE_template_text__transformer':
             ['default']}
 
 
