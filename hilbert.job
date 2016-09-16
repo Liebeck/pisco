@@ -15,14 +15,14 @@
 # Be sure to specify a reasonable value here.
 # If the job does not finish by the time reached,
 # the job is terminated.
-#PBS -l walltime=24:00:00
+#PBS -l walltime=36:00:00
 
 # Send mail when job is aborted
 #PBS -m abe
 #PBS -M p.modaresi@gmx.de
 
 # Manage resources
-#PBS -l select=1:mem=60gb:ncpus=100:arch=uv2000
+#PBS -l select=1:mem=20gb:ncpus=50:arch="uv2000"
 
 # Name of the project (Always AGENT)
 #PBS -A AGENT
