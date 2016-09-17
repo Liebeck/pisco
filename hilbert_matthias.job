@@ -15,14 +15,14 @@
 # Be sure to specify a reasonable value here.
 # If the job does not finish by the time reached,
 # the job is terminated.
-#PBS -l walltime=24:00:00
+#PBS -l walltime=36:00:00
 
 # Send mail when job is aborted
 #PBS -m abe
 #PBS -M liebeck@cs.uni-duesseldorf.de
 
 # Manage resources
-#PBS -l select=1:mem=40gb:ncpus=20
+#PBS -l select=1:mem=40gb:ncpus=12:arch="ivybridge"
 
 #PBS -A OP-NLP
 
@@ -57,5 +57,5 @@ export PYTHONPATH=$PYTHONPATH:/software/python/2.7.5/login/bin/python
 PRINTFILE=$PBS_O_WORKDIR/$PBS_JOBID".print"
 
 ###### EXECUTION ######
-bash /home/malie102/jobs/pisco/knife/bin &>/dev/null &
+bash /home/malie102/jobs/pisco/knife/bin/knife &>/dev/null &
 python -u /home/malie102/jobs/pisco/gridsearch_non_interactive.py -d $dimension -b $base_path -s $score -r $recognizer -njobs $njobs >> $PRINTFILE
