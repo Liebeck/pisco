@@ -39,37 +39,44 @@ from pisco.metrics.metrics import pearson
 from collections import OrderedDict
 import json
 import argparse
+import os
 
 argparser = argparse.ArgumentParser(description='Pisco gridsearch on Hilbert cluster')
 argparser.add_argument('-d', '--dimension', type=str, required=True, help='Personality dimension')
 argparser.add_argument('-b', '--base_path', type=str, required=True, help='Base path on hilbert cluster')
 argparser.add_argument('-s', '--score', type=str, required=True, help='Score function')
 argparser.add_argument('-r', '--recognizer', type=str, required=True, help='Recognizer')
-argparser.add_argument('--njobs', type=int, help='njobs for GridSearchCV', default=20)
+argparser.add_argument('-njobs', type=int, help='njobs for GridSearchCV', default=20)
+argparser.add_argument('-nfeatures', type=int, help='number features for chi square', default=16)
 
 args = argparser.parse_args()
 
 BASEPATH = args.base_path
-# BASEPATH = '/home/malie102/jobs/pisco/data/training'
-# BASEPATH = '/home/pamod100/src/pisco/data/training'
 SCORE = args.score
 NJOBS = args.njobs
 DIMENSIONS = [args.dimension]
-print(BASEPATH)
-print(NJOBS)
-print(DIMENSIONS)
-print(SCORE)
-RECOGNIZER = [
-    ('Linear Regression', linear_regression),
-    #('Decision Tree Regressor', decision_tree_regressor),
-    #('Support Vector Regression', support_vector_regression),
-    #('ElasticNet', elastic_net),
-    #('Lars', lars),
-    #('Lasso', lasso),
-    #('Ridge', ridge),
-    #('Nearest Neighbor', nearest_neighbor),
-    #('Radius Neighbors Regressor', radius_neighbors_regressor)
-]
+print('NJobs={}'.format(NJOBS))
+print('Dimension={}'.format(args.dimension))
+print('Score={}'.format(SCORE))
+print('NFeatures={}'.format(args.nfeatures))
+print('Recognizer={}'.format(args.recognizer))
+
+
+recognizer_parameter_map = {
+    'linear_regression': ('Linear Regression', linear_regression),
+    'decision_tree_regressor': ('Decision Tree Regressor', decision_tree_regressor),
+    'support_vector_regression': ('Support Vector Regression', support_vector_regression),
+    'elastic_net': ('ElasticNet', elastic_net),
+    'lars': ('Lars', lars),
+    'lasso': ('Lasso', lasso),
+    'ridge': ('Ridge', ridge),
+    'nearest_neighbor': ('Nearest Neighbor', nearest_neighbor),
+    'radius_neighbors_regressor': ('Radius Neighbors Regressor', radius_neighbors_regressor)
+}
+
+RECOGNIZER = [recognizer_parameter_map[args.recognizer]]
+
+
 FEATURES = [
     ('Number of Methods per Class', number_of_methods_per_class),
     ('Length of Methods per Class', length_of_methods_per_class),
@@ -116,8 +123,7 @@ def make_score_function(score):
 
 # FEATURES = powerset(FEATURES)
 FEATURES = [FEATURES]
-
-X, Y = load(corpus_path=BASEPATH, labels=DIMENSIONS)
+X, Y = load(corpus_path=os.path.join(BASEPATH, 'data/training'), labels=DIMENSIONS)
 for x in X:
     sections = extract_sections(x)
     for section in sections:
@@ -125,33 +131,44 @@ for x in X:
 
 recognizer = RECOGNIZER[0]
 result = {'recognizer_name': recognizer[0]}
-for number_features in range(16, 1, -1):
-    print '***Number of features: {}'.format(number_features)
-    for features in FEATURES:
-        transformers = map(lambda f: f[1].build(), features)
-        p = pipeline.pipeline(transformers=transformers,
-                              recognizer=recognizer[1].build(),
-                             number_of_features=number_features)
-        param_grid = OrderedDict()
-        param_grid.update(recognizer[1].param_grid())
-        for name, f in features:
-            param_grid.update(f.param_grid())
-        scoring = make_score_function(SCORE)
-        grid_search = GridSearchCV(p, param_grid=param_grid, verbose=50,
-                                   cv=10, n_jobs=NJOBS, scoring=scoring)
-        grid_search.fit(X, Y)
-        # scoring API always maximizes the score, so scores which
-        # need to be minimized are negated in order for the unified
-        # scoring API to work correctly
-        best_score = abs(grid_search.best_score_)
-        print '***Best score: {}'.format(best_score)
-        best_params = grid_search.best_params_
-        scorer = grid_search.scorer_
-        key = str(number_features) + 'features'
-        result[key] = {} 
-        result[key]['best_score'] = best_score
-        result[key]['best_params'] = best_params
-        result[key]['scorer'] = SCORE
-        print(result)
-        with open('result_{}_{}_{}_{}.json'.format(DIMENSIONS[0], SCORE, recognizer[0], number_features), 'w') as outfile:
-            json.dump(result, outfile, indent=2)
+
+number_features = args.nfeatures
+
+output_filename = os.path.join(BASEPATH, 'result_{}_{}_{}_{}.json'.format(DIMENSIONS[0],
+                                                                         SCORE,
+                                                                         recognizer[0],
+                                                                         number_features))
+# print(output_filename)
+with open(output_filename, 'w') as outfile:
+    outfile.write('Job started')
+
+
+print '***Number of features: {}'.format(number_features)
+# for features in FEATURES:
+#     transformers = map(lambda f: f[1].build(), features)
+#     p = pipeline.pipeline(transformers=transformers,
+#                           recognizer=recognizer[1].build(),
+#                          number_of_features=number_features)
+#     param_grid = OrderedDict()
+#     param_grid.update(recognizer[1].param_grid())
+#     for name, f in features:
+#         param_grid.update(f.param_grid())
+#     scoring = make_score_function(SCORE)
+#     grid_search = GridSearchCV(p, param_grid=param_grid, verbose=50,
+#                                cv=10, n_jobs=NJOBS, scoring=scoring)
+#     grid_search.fit(X, Y)
+#     # scoring API always maximizes the score, so scores which
+#     # need to be minimized are negated in order for the unified
+#     # scoring API to work correctly
+#     best_score = abs(grid_search.best_score_)
+#     print '***Best score: {}'.format(best_score)
+#     best_params = grid_search.best_params_
+#     scorer = grid_search.scorer_
+#     key = str(number_features) + 'features'
+#     result[key] = {}
+#     result[key]['best_score'] = best_score
+#     result[key]['best_params'] = best_params
+#     result[key]['scorer'] = SCORE
+#     print(result)
+#     with open(output_filename, 'w') as outfile:
+#         json.dump(result, outfile, indent=2)
