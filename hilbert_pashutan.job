@@ -58,5 +58,5 @@ module load Python/2.7.5
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pamod100/lib
 export PYTHONPATH=$PYTHONPATH:/software/python/2.7.5/login/bin/python
 
-./knife/bin/knife &>/dev/null &
+./home/pamod100/src/pisco/knife/bin/knife &>/dev/null &
 python /home/pamod100/src/pisco/gridsearch.py
