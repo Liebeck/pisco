@@ -39,6 +39,10 @@ from pisco.metrics.metrics import pearson
 from collections import OrderedDict
 import json
 
+BASEPATH = '/home/malie102/jobs/pisco/data/training'
+# BASEPATH = '/home/pamod100/src/pisco/data/training'
+SCORE = 'PC'
+NJOBS = 20
 DIMENSIONS = ['neuroticism']
 RECOGNIZER = [
     #('Linear Regression', linear_regression),
@@ -99,7 +103,7 @@ def make_score_function(score):
 # FEATURES = powerset(FEATURES)
 FEATURES = [FEATURES]
 
-X, Y = load(labels=DIMENSIONS)
+X, Y = load(corpus_path=BASEPATH, labels=DIMENSIONS)
 for x in X:
     sections = extract_sections(x)
     for section in sections:
@@ -120,7 +124,7 @@ for number_features in range(16, 1, -1):
             param_grid.update(f.param_grid())
         scoring = make_score_function(SCORE)
         grid_search = GridSearchCV(p, param_grid=param_grid, verbose=50,
-                                   cv=2, n_jobs=50, scoring=scoring)
+                                   cv=10, n_jobs=NJOBS, scoring=scoring)
         grid_search.fit(X, Y)
         # scoring API always maximizes the score, so scores which
         # need to be minimized are negated in order for the unified
@@ -129,11 +133,11 @@ for number_features in range(16, 1, -1):
         print '***Best score: {}'.format(best_score)
         best_params = grid_search.best_params_
         scorer = grid_search.scorer_
-        key = number_features + 'features'
+        key = str(number_features) + 'features'
         result[key] = {} 
         result[key]['best_score'] = best_score
         result[key]['best_params'] = best_params
         result[key]['scorer'] = SCORE
-print(result)
-with open('result_{}.json'.format(DIMENSIONS[0]), 'w') as outfile:
-    json.dump(result, outfile, indent=2)
+        print(result)
+        with open('result_{}_{}_{}_{}.json'.format(DIMENSIONS[0], SCORE, recognizer[0], number_features), 'w') as outfile:
+            json.dump(result, outfile, indent=2)
