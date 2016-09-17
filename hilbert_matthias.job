@@ -57,5 +57,5 @@ export PYTHONPATH=$PYTHONPATH:/software/python/2.7.5/login/bin/python
 PRINTFILE=$PBS_O_WORKDIR/$PBS_JOBID".print"
 
 ###### EXECUTION ######
-./home/malie102/jobs/pisco/knife/bin/knife &>/dev/null &
+./home/malie102/jobs/pisco/knife/bin &>/dev/null &
 python -u /home/malie102/jobs/pisco/gridsearch_non_interactive.py -d $dimension -b $base_path -s $score -r $recognizer -njobs $njobs >> $PRINTFILE

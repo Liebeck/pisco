@@ -57,5 +57,5 @@ PRINTFILE=$PBS_O_WORKDIR/$PBS_JOBID".print"
 
 ###### EXECUTION ######
 
-./home/pamod100/src/pisco/knife/bin/knife &>/dev/null &
+./home/pamod100/src/pisco/knife/bin &>/dev/null &
 python -u /home/pamod100/src/pisco/gridsearch_non_interactive.py -d $dimension -b $base_path -s $score -r $recognizer -njobs $njobs >> $PRINTFILE
