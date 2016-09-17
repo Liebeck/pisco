@@ -53,13 +53,5 @@ This will install all required dependencies.
 
 evaluate (see [How to evaluate a feature](#how-to-evaluate-a-feature))
 
-If you want to push your changes you follow these steps:
 
-``` bash
-make run
-py.test --pep8
-git status
-git add 'path'
-git commit -m 'message'
-git push
- ```
+
