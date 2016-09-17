@@ -3,11 +3,12 @@ from sklearn.pipeline import Pipeline
 
 
 def param_grid():
-    return {'recognizer__nearest_neghbor__n_neighbors': [2, 4, 6, 8]}
+    return {'recognizer__radius_neighbors_regressor__radius':
+            [0.2, 0.2, 0.3, 0.4]}
 
 
 def build():
-    pipeline = Pipeline([('nearest_neighbor',
+    pipeline = Pipeline([('radius_neighbors_regressor',
                           neighbors.RadiusNeighborsRegressor(radius=0.4,
                                                              weights='distance'))])
     return ('recognizer', pipeline)
