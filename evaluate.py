@@ -201,7 +201,21 @@ def configure(conf):
 
     @conf.feature('all')
     def build_all_features():
-        return [number_of_function_parameters_per_class.build(),
+        return [number_of_methods_per_class.build(),
+                length_of_methods_per_class.build(),
+                ratio_of_external_libraries.build(),
+                number_of_function_parameters_per_class.build(),
+                function_parameter_name_length.build(),
+                function_name_length.build(),
+                number_of_empty_classes.build(),
+                ratio_of_unparsable_sections.build(),
+                contains_IDE_template_text.build(),
+                number_of_fields_per_class.build(),
+                length_of_field_names.build(),
+                number_of_local_variables_in_functions.build(),
+                length_of_local_variable_names_in_functions.build(),
+                duplicate_code_measure.build(),
+                number_of_classes_per_section.build(),
                 cyclomatic_complexity.build()]
 
 
