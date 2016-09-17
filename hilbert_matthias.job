@@ -15,7 +15,7 @@
 # Be sure to specify a reasonable value here.
 # If the job does not finish by the time reached,
 # the job is terminated.
-#PBS -l walltime=36:00:00
+#PBS -l walltime=24:00:00
 
 # Send mail when job is aborted
 #PBS -m abe
@@ -47,16 +47,15 @@ echo PBS: current home directory is $PBS_O_HOME
 echo PBS: PATH = $PBS_O_PATH
 echo ------------------------------------------------------
 
-
-# Load these module if you want to compute on GPUs
-# module load CUDA/7.0.28
 module load Java/1.8.0
 module load Python/2.7.5
 
 # Exports
-# export PKG_CONFIG_PATH=~/lib/pkgconfig
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/malie102/lib
 export PYTHONPATH=$PYTHONPATH:/software/python/2.7.5/login/bin/python
 
+PRINTFILE=$PBS_O_WORKDIR/$PBS_JOBID".print"
+
+###### EXECUTION ######
 ./home/malie102/jobs/pisco/knife/bin/knife &>/dev/null &
-python /home/malie102/jobs/pisco/gridsearch.py
+python -u /home/malie102/jobs/pisco/gridsearch_non_interactive.py -d $dimension -b $base_path -s $score -r $recognizer -njobs $njobs >> $PRINTFILE
