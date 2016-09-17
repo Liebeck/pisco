@@ -79,7 +79,6 @@ FEATURES = [
     ('Cyclomatic Complexity', cyclomatic_complexity)
 
 ]
-SCORE = 'RMSE'
 
 
 def pretty(d, indent=0):
