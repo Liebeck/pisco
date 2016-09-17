@@ -42,7 +42,7 @@ This will install all required dependencies.
 
 ## Hilbert Cluster Grid Search
 ``` bash
-qsub -v dimension=agreeableness,score=RMSE,recognizer=linear_regression,njobs=20,base_path=/home/malie102/jobs/pisco hilbert_matthias.job
+qsub -v dimension=agreeableness,score=RMSE,recognizer=linear_regression,njobs=20,base_path=/home/malie102/jobs/pisco,nfeatures=16 hilbert_matthias.job
 ```
 
 
