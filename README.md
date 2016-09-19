@@ -45,6 +45,11 @@ This will install all required dependencies.
 qsub -v dimension=agreeableness,score=RMSE,recognizer=linear_regression,njobs=20,base_path=/home/malie102/jobs/pisco,nfeatures=16 hilbert_matthias.job
 ```
 
+## Creating Submission Files
+Copy the required config file into the configs folder or a specific run and execute:
+``` bash
+python run --run_folder runs/run1
+```
 
 ## Workflow
 ``` bash
