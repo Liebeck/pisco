@@ -23,17 +23,24 @@ if __name__ == '__main__':
     candidate_files = []
     for root, directories, files in os.walk(folder):
         for filename in files:
-            splits = filename.split('_')
-            d = splits[1]
-            s = splits[2]
-            r = splits[3]
-            if d == dimension and s == score and r == recognizer:
-                candidate_files.append(filename)
+            if filename.endswith('json'):
+                splits = filename.split('_')
+                d = splits[1]
+                s = splits[2]
+                r = splits[3]
+                if d == dimension and s == score and r == recognizer:
+                    candidate_files.append(filename)
     score_file_map = {}
     for f in candidate_files:
         with open(os.path.join(folder, f)) as data_file:
-            data = json.load(data_file)
-            best_score = data[data.keys()[0]]['best_score']
-            score_file_map[best_score] = f
-    overall_best_score = max(best_score)
+            try:
+                data = json.load(data_file)
+                best_score = data[data.keys()[0]]['best_score']
+                score_file_map[best_score] = f
+            except:
+                print "Error! {}".format(filename)
+    if score == 'RMSE':
+        overall_best_score = min(score_file_map.keys())
+    if score == 'PC':
+        overall_best_score = max(score_file_map.keys())
     print score_file_map[overall_best_score]
