@@ -49,12 +49,20 @@ RECOGNIZERS = {'Linear Regression': linear_regression,
                'Nearest Neighbor': nearest_neighbor}
 
 
-def build_recognizer(params_file):
-    nfeatures = num_features(params_file)
+def build_recognizer(configfile):
+    """Parses the recognizer from a config file and returns
+    an instance of the recognizer
+
+    Args:
+        configfile: JSON config file
+    Returns:
+        An instance of the recognizer
+    """
+    nfeatures = num_features(configfile)
     recognizer_params = {}
-    with open(params_file) as data_file:
+    with open(configfile) as data_file:
         data = json.load(data_file)
-        best_params = data[str(nfeatures)+'features']['best_params']
+        best_params = data[str(nfeatures) + 'features']['best_params']
         recognizer_name = data['recognizer_name']
         for k, v in best_params.iteritems():
             splits = k.split('__')
@@ -62,19 +70,25 @@ def build_recognizer(params_file):
                 if v == u'default':
                     recognizer_params = {}
                 else:
-                    param_name = splits[2]
-                    if param_name not in recognizer_params:
-                        recognizer_params = {}
+                    param_name = splits[-1]
                     recognizer_params[str(param_name)] = v
         return RECOGNIZERS[recognizer_name].build(**recognizer_params)
 
 
-def build_features(params_file):
-    nfeatures = num_features(params_file)
+def build_features(configfile):
+    """Parses the features from a config file and returns
+    instances of the features
+
+    Args:
+        configfile: JSON config file
+    Returns:
+        Instances of the features
+    """
+    nfeatures = num_features(configfile)
     features = {}
-    with open(params_file) as data_file:
+    with open(configfile) as data_file:
         data = json.load(data_file)
-        best_params = data[str(nfeatures)+'features']['best_params']
+        best_params = data[str(nfeatures) + 'features']['best_params']
         for k, v in best_params.iteritems():
             splits = k.split('__')
             if splits[0] == 'union':
@@ -82,7 +96,7 @@ def build_features(params_file):
                 if v == u'default':
                     features[transformer_name] = {}
                 else:
-                    param_name = splits[3]
+                    param_name = splits[-1]
                     if transformer_name not in features:
                         features[transformer_name] = {}
                     features[transformer_name][str(param_name)] = str(v)
@@ -96,12 +110,28 @@ def build_features(params_file):
 
 
 def num_features(configfile):
+    """Parses the number of features from a JSON config file
+
+    Args:
+        configfile: JSON config file
+    Returns:
+        Number of features
+    """
     with open(configfile) as data_file:
         data = json.load(data_file)
         return int(data.keys()[0].replace("features", ""))
 
 
 def predict(configs):
+    """Given a configuration dictionary, predicts
+    the labels for the test data
+
+    Args:
+        configfile: dictionary with dimensions as
+          keys and values as path to config files
+    Returns:
+        Predictions of test data
+    """
     predictions = OrderedDict()
     for dimension, configfile in configs.iteritems():
         X_train, Y_train = load(labels=[dimension])
@@ -123,6 +153,12 @@ def predict(configs):
 
 
 def write_predictions(predictions, filepath):
+    """Writes predictions as a csv file
+
+    Args:
+        predictions: predicted values for test data
+        filepath: path to the output file
+    """
     with open(filepath, 'wb') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         header = ['id'] + predictions[predictions.keys()[0]].keys()
