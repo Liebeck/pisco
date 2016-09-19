@@ -48,7 +48,7 @@ qsub -v dimension=agreeableness,score=RMSE,recognizer=linear_regression,njobs=20
 ## Creating Submission Files
 Copy the required config file into the configs folder or a specific run and execute:
 ``` bash
-python run --run_folder runs/run1
+python run.py --run_folder runs/run1
 ```
 
 ## Workflow
