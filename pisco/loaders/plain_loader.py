@@ -22,5 +22,7 @@ def load(corpus_path='data/training', truth_file='personality.txt', labels=[]):
     documents = parser.parse(truth_file)
     logging.info('Loading...labels={}'.format(labels))
     X = map(lambda doc: doc.code, documents)
+    if not truth_file:
+        return X
     Y = map(lambda doc: [getattr(doc.label, l) for l in labels], documents)
     return X, [y[0] for y in Y]
