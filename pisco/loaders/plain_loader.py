@@ -5,7 +5,8 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 
-def load(corpus_path='data/training', truth_file='personality.txt', labels=[]):
+def load(corpus_path='data/training', truth_file='personality.txt', labels=[],
+         return_ids=False):
     """Loads the data in form of plain texts. This load is particularly useful
     when algorithms have to be applied directly on the raw text.
 
@@ -22,7 +23,13 @@ def load(corpus_path='data/training', truth_file='personality.txt', labels=[]):
     documents = parser.parse(truth_file)
     logging.info('Loading...labels={}'.format(labels))
     X = map(lambda doc: doc.code, documents)
-    if not truth_file:
+    ids = map(lambda d: d.id, documents)
+    if not truth_file and return_ids:
+        return X, ids
+    if not truth_file and not return_ids:
         return X
     Y = map(lambda doc: [getattr(doc.label, l) for l in labels], documents)
-    return X, [y[0] for y in Y]
+    if return_ids:
+        return X, ids, [y[0] for y in Y]
+    else:
+        return X, [y[0] for y in Y]
