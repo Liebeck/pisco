@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import numpy as np
 import argparse
 import json
 import os
@@ -40,14 +41,14 @@ if __name__ == '__main__':
                     if key[0].isdigit():
                         first_key = key
                         break
-                print first_key
                 best_score = data[first_key]['best_score']
                 score_file_map[best_score] = f
             except StandardError as e:
                 print "Error! {} {}".format(data_file, e)
 
     if score == 'RMSE':
-        overall_best_score = min(score_file_map.keys())
+        overall_best_score = np.nanmin(score_file_map.keys())
     if score == 'PC':
-        overall_best_score = max(score_file_map.keys())
+        overall_best_score = np.nanmax(score_file_map.keys())
+    print overall_best_score
     print score_file_map[overall_best_score]
