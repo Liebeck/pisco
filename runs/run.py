@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from helper import predict, write_predictions
+from collections import OrderedDict
 import argparse
 import os
 
@@ -18,18 +19,20 @@ if __name__ == '__main__':
     agreeableness = 'configs/agreeableness.json'
     conscientiousness = 'configs/conscientiousness.json'
 
-    CONFIGS = {'neuroticism':
-               os.path.join(run_folder, neuroticism),
-               'extroversion':
-               os.path.join(run_folder, extroversion),
-               'openness':
-               os.path.join(run_folder, openness),
-               'agreeableness':
-               os.path.join(run_folder, agreeableness),
-               'conscientiousness':
-               os.path.join(run_folder, conscientiousness)}
+    CONFIGS = OrderedDict([('neuroticism',
+                            os.path.join(run_folder, neuroticism)),
+                           ('extroversion',
+                            os.path.join(run_folder, extroversion)),
+                           ('openness',
+                            os.path.join(run_folder, openness)),
+                           ('agreeableness',
+                            os.path.join(run_folder, agreeableness)),
+                           ('conscientiousness',
+                            os.path.join(run_folder, conscientiousness))])
 
     outputfile_name = 'results.txt'
 
     predictions = predict(CONFIGS)
+    print "Prediction Finished!"
     write_predictions(predictions, os.path.join(run_folder, outputfile_name))
+    print "Wrote Predictions to {}".format(outputfile_name)
