@@ -35,10 +35,17 @@ if __name__ == '__main__':
         with open(os.path.join(folder, f)) as data_file:
             try:
                 data = json.load(data_file)
-                best_score = data[data.keys()[0]]['best_score']
+                first_key = None
+                for key in data.keys():
+                    if key[0].isdigit():
+                        first_key = key
+                        break
+                print first_key
+                best_score = data[first_key]['best_score']
                 score_file_map[best_score] = f
-            except:
-                print "Error! {}".format(filename)
+            except StandardError as e:
+                print "Error! {} {}".format(data_file, e)
+
     if score == 'RMSE':
         overall_best_score = min(score_file_map.keys())
     if score == 'PC':
