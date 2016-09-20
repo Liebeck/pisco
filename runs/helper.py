@@ -119,7 +119,12 @@ def num_features(configfile):
     """
     with open(configfile) as data_file:
         data = json.load(data_file)
-        return int(data.keys()[0].replace("features", ""))
+        first_key = None
+        for key in data.keys():
+            if key[0].isdigit():
+                first_key = key
+                break
+        return int(first_key.replace("features", ""))
 
 
 def predict(configs):
