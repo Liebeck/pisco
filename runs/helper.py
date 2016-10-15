@@ -154,7 +154,7 @@ def predict(configs):
         top_ranked_features_indices = map(list, zip(*top_ranked_features))[0]
         feature_names = p.named_steps['union'].get_feature_names()
         print('*'*30)
-        print("Selected {} Features for Dimension".format(len(nfeatures)),
+        print("Selected {} Features for Dimension".format(nfeatures),
               dimension)
         print('*'*30)
         for feature in np.asarray(feature_names)[top_ranked_features_indices]:
