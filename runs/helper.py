@@ -24,6 +24,7 @@ from pisco.loaders.plain_loader import load
 from collections import OrderedDict
 import json
 import csv
+import numpy as np
 
 
 TRANSFORMERS = {'number_of_methods_per_class': number_of_methods_per_class,
@@ -147,6 +148,17 @@ def predict(configs):
                      recognizer=recognizer,
                      number_of_features=nfeatures)
         p.fit(X_train, Y_train)
+        scores = p.named_steps['feature_selection'].scores_
+        top_ranked_features = sorted(enumerate(scores), key=lambda x: x[1],
+                                     reverse=True)[:nfeatures]
+        top_ranked_features_indices = map(list, zip(*top_ranked_features))[0]
+        feature_names = p.named_steps['union'].get_feature_names()
+        print('*'*30)
+        print("Selected {} Features for Dimension".format(len(nfeatures)),
+              dimension)
+        print('*'*30)
+        for feature in np.asarray(feature_names)[top_ranked_features_indices]:
+                    print feature
         X_test, ids = load(corpus_path='data/test', labels=dimension,
                            truth_file=None, return_ids=True)
         Y_pred = p.predict(X_test)
