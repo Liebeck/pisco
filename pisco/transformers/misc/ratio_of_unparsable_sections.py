@@ -2,11 +2,19 @@ from pisco.transformers.helpers import extract_sections
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["ratio_of_unparsable_sections"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build():
     pipeline = Pipeline([('transformer',
                           RatioOfKnifeUnparsableSection())])
+    patch(pipeline)
     return ('ratio_of_unparsable_sections', pipeline)
 
 

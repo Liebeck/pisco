@@ -2,12 +2,21 @@ from ..helpers import extract_sections
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import MinMaxScaler
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["ratio_of_class_access_modifiers"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(modifier='private'):
     pipeline = Pipeline([('transformer',
                           RatioOfClassAccessModifiers(modifier=modifier)),
-                          ('min_max_scaler', MinMaxScaler())])
+                         ('min_max_scaler', MinMaxScaler())])
+    patch(pipeline)
     return ('ratio_of_class_access_modifiers', pipeline)
 
 

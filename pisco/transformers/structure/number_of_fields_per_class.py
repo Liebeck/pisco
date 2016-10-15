@@ -4,12 +4,20 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["number_of_fields_per_class"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           NumberOfFieldsPerClass(stat=stat)),
-                          ('min_max_scaler', MinMaxScaler())])
+                         ('min_max_scaler', MinMaxScaler())])
+    patch(pipeline)
     return ('number_of_fields_per_class', pipeline)
 
 

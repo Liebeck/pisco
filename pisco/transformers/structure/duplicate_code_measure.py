@@ -2,11 +2,19 @@ from ..helpers import extract_sections, cosine, vector
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["duplicate_code_measure"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build():
     pipeline = Pipeline([('transformer',
                           DuplicateCodeMeasure())])
+    patch(pipeline)
     return ('duplicate_code_measure', pipeline)
 
 

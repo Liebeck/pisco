@@ -4,12 +4,20 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["function_parameter_name_length"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='range'):
     pipeline = Pipeline([('transformer',
                           FunctionParameterNameLength(stat=stat)),
-                          ('min_max_scaler', MinMaxScaler())])
+                         ('min_max_scaler', MinMaxScaler())])
+    patch(pipeline)
     return ('function_parameter_name_length', pipeline)
 
 
@@ -32,11 +40,13 @@ class FunctionParameterNameLength(BaseEstimator):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
         parameter_stats = map(lambda x: self.__transform(x),
-                              sections)  # Be aware that a class might contain no functions
+                              sections)
+        # Be aware that a class might contain no functions
         return [np.mean(map(lambda x: stat(x), parameter_stats))]
 
     def __transform(self, section):
-        methods = adapter.methods(section)  # can look like this: [[m1,m2], [m3,m4]]
+        methods = adapter.methods(section)
+        # can look like this: [[m1,m2], [m3,m4]]
         if methods:
             ret_val = []
             # workaround for 66.txt which has a main method that is not in a class, see line 2969
@@ -50,7 +60,8 @@ class FunctionParameterNameLength(BaseEstimator):
                                 # print len(parameter['name'])
                                 ret_val.append(len(parameter['name']))
             if not ret_val:
-                ret_val = [0]  # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
+                ret_val = [0] 
+                # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
             return ret_val
 
         else:

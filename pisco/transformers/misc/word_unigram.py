@@ -1,5 +1,12 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.pipeline import Pipeline
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["word_unigrams"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def ngram_ranges(begin, end):
@@ -15,5 +22,7 @@ def param_grid():
 
 
 def build(ngram_range=(15, 15)):
-    pipeline = Pipeline([('vec', CountVectorizer(ngram_range=ngram_range, analyzer='char'))])
+    pipeline = Pipeline([('vec', CountVectorizer(ngram_range=ngram_range,
+                                                 analyzer='char'))])
+    patch(pipeline)
     return ('word_unigram', pipeline)

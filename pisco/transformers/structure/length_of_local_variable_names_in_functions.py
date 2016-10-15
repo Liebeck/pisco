@@ -4,12 +4,20 @@ import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["length_of_local_variable_names_in_functions"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
                           LengthOfLocalVariableNamesInFunctions(stat=stat)),
-                          ('min_max_scaler', MinMaxScaler())])
+                         ('min_max_scaler', MinMaxScaler())])
+    patch(pipeline)
     return ('length_of_local_variable_names_in_functions', pipeline)
 
 

@@ -3,12 +3,20 @@ from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["cyclomatic_complexity"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='mean'):
-    pipeline = Pipeline([('transformer',
-                          CyclomaticComplexity(stat=stat)),
+    transformer = CyclomaticComplexity(stat=stat)
+    pipeline = Pipeline([('transformer', transformer),
                          ('min_max_scaler', MinMaxScaler())])
+    patch(pipeline)
     return ('cyclomatic_complexity', pipeline)
 
 

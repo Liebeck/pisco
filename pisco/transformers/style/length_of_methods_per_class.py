@@ -4,12 +4,20 @@ from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["length_of_methods_per_class"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='mean', method='chars'):
     pipeline = Pipeline([('transformer',
                           LengthOfMethodsPerClass(stat=stat, method=method)),
-                          ('min_max_scaler', MinMaxScaler())])
+                         ('min_max_scaler', MinMaxScaler())])
+    patch(pipeline)
     return ('length_of_methods_per_class', pipeline)
 
 

@@ -3,11 +3,19 @@ from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
 import re
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["ratio_of_external_libraries"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build():
     pipeline = Pipeline([('transformer',
                           RatioOfExternalLibraries())])
+    patch(pipeline)
     return ('ratio_of_external_libraries', pipeline)
 
 

@@ -2,11 +2,19 @@ from ..helpers import extract_sections
 from sklearn.base import BaseEstimator
 from sklearn.pipeline import Pipeline
 import re
+import types
+
+
+def patch(pipeline):
+    def get_feature_names(pipeline):
+        return ["contains_suppress_warnings"]
+    pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build():
     pipeline = Pipeline([('transformer',
                           ContainsSuppressWarnings())])
+    patch(pipeline)
     return ('contains_suppress_warnings', pipeline)
 
 
