@@ -53,6 +53,7 @@ python evaluate.py --train_corpus=openness --recognizer=linear_regression --feat
 
 ### Misc Features
 ``` bash
+make run
 python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_empty_classes
 python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_unparsable_sections
 ```
