@@ -28,7 +28,6 @@ import pisco.transformers.style.length_of_field_names as length_of_field_names  
 import pisco.transformers.style.length_of_local_variable_names_in_methods as length_of_local_variable_names_in_methods  # noqa
 import pisco.transformers.style.length_of_method_names as length_of_method_names  # noqa
 import pisco.transformers.style.length_of_method_parameter_names as length_of_method_parameter_names  # noqa
-import pisco.transformers.style.number_of_comments as number_of_comments_per_class  # noqa
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.configuration import Configuration
 
@@ -156,13 +155,6 @@ def configure(conf):
     @conf.feature('mean_length_of_methods')
     def build_mean_length_of_methods_feature():
         return [length_of_methods.build()]
-
-    @conf.feature('mean_number_of_comments_per_class')
-    def build_mean_number_of_comments_per_class_feature():
-        return [number_of_comments_per_class.build(stat='mean',
-                                                   types=['block',
-                                                          'line',
-                                                          'javadoc'])]
 
     @conf.feature('ratio_of_unparsable_sections')
     def build_ratio_of_unparsable_sections():

@@ -77,10 +77,7 @@ RECOGNIZER = [recognizer_parameter_map[args.recognizer]]
 FEATURES = [
     ('Number of Methods per Class', number_of_methods),
     ('Length of Methods per Class', length_of_methods),
-    # ('Number of Comments per Class', number_of_comments_per_class),
-    ('Ration of External Library Usage', ratio_of_external_libraries),
-    ('Number of function parameters per class',
-     number_of_method_parameters),
+    ('Ration of External Library Usage', ratio_of_external_libraries), ('Number of function parameters per class', number_of_method_parameters), 
     ('Length of function parameter names', length_of_method_parameter_names),
     ('Length of Function names (1-dimensional)', length_of_method_names),
     ('Number of empty classes (1-dimensional)', number_of_empty_classes),

@@ -14,17 +14,12 @@ from pisco.transformers.style.length_of_field_names import LengthOfFieldNames  #
 from pisco.transformers.style.length_of_local_variable_names_in_methods import LengthOfLocalVariableNamesInMethods  # noqa
 from pisco.transformers.style.length_of_method_names import LengthOfMethodNames  # noqa
 from pisco.transformers.style.length_of_method_parameter_names import LengthOfMethodParameterNames  # noqa
-from pisco.transformers.style.number_of_comments import NumberOfCommentsPerClass  # noqa
 
 mean_number_of_methods = NumberOfMethods(stat='mean')
 
 mean_lines_of_methods_per_class = LengthOfMethods(stat='mean', method='lines')  # noqa
 mean_chars_of_methods_per_class = LengthOfMethods(stat='mean', method='chars')  # noqa
-
-mean_number_of_comments_per_class = NumberOfCommentsPerClass(stat='mean', types=['block', 'line', 'javadoc'])  # noqa
-
 ratio_of_knife_unparsable_sections = RatioOfKnifeUnparsableSection()  # noqa
-
 number_of_method_parameters = NumberOfMethodFunctionParameters(stat='mean')  # noqa
 length_of_method_names = LengthOfMethodNames(stat='mean')  # noqa
 length_of_method_parameter_names = LengthOfMethodParameterNames(stat='mean')  # noqa
