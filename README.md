@@ -50,7 +50,6 @@ This will install all required dependencies.
 
 
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features comment_length
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_suppress_warnings
 
 
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all

@@ -17,7 +17,6 @@ import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classe
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import pisco.transformers.misc.word_unigram as word_unigram
 import pisco.transformers.structure.comment_length as comment_length  # noqa
-import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
 import pisco.transformers.structure.length_of_methods as length_of_methods  # noqa
@@ -190,10 +189,6 @@ def configure(conf):
     @conf.feature('duplicate_code_measure')
     def build_duplicate_code_measure_feature():
         return [duplicate_code_measure.build()]
-
-    @conf.feature('contains_suppress_warnings')
-    def build_contains_suppress_warnings_feature():
-        return [contains_suppress_warnings.build()]
 
     @conf.feature('all')
     def build_all_features():
