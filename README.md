@@ -1,5 +1,6 @@
 # Pisco: Personality Identification in Source Code
 [![Build Status](https://travis-ci.com/Liebeck/pisco.svg?token=qYUFfiWV6mqYYR5fELB6)](https://travis-ci.com/Liebeck/pisco)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/Liebeck/pisco/blob/master/License.md)
 
 Pisco is a program that identifies the personality trait of a software developer based on his or her Java code. It was developed for the [PR-SOCO challenge 2016](http://www.autoritas.net/prsoco/). Our research paper can be accessed [here](http://ceur-ws.org/Vol-1737/T1-8.pdf).
 
