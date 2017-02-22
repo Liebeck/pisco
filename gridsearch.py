@@ -61,24 +61,22 @@ RECOGNIZER = [recognizer_parameter_map[args.recognizer]]
 
 
 FEATURES = [
-    ('Number of Methods per Class', number_of_methods),
-    ('Length of Methods per Class', length_of_methods),
-    ('Ration of External Library Usage', ratio_of_external_libraries), ('Number of function parameters per class', number_of_method_parameters),
-    ('Length of function parameter names', length_of_method_parameter_names),
-    ('Length of Function names (1-dimensional)', length_of_method_names),
-    ('Number of empty classes (1-dimensional)', number_of_empty_classes),
+    ('Number of Methods', number_of_methods),
+    ('Length of Methods', length_of_methods),
+    ('Ration of External Library Usage', ratio_of_external_libraries),
+    ('Number of methods parameters', number_of_method_parameters),
+    ('Length of method parameter names', length_of_method_parameter_names),
+    ('Length of method names', length_of_method_names),
+    ('Number of empty classes', number_of_empty_classes),
     ('Ratio of unparsable sections', ratio_of_unparsable_sections),
     ('Contains IDE template text (binary)', contains_IDE_template_text),
-    ('Number of fields per class', number_of_fields),
+    ('Number of fields', number_of_fields),
     ('Length of field names', length_of_field_names),
-    ('Number of local variables in functions',
-     number_of_local_variables_in_methods),
-    ('Length of local variable names in functions',
-     length_of_local_variable_names_in_methods),
+    ('Number of local variables in methods', number_of_local_variables_in_methods),
+    ('Length of local variable names in methods', length_of_local_variable_names_in_methods),
     ('Duplicate Code Measure', duplicate_code_measure),
-    ('Number of Classes per Section', number_of_classes),
+    ('Number of Classes', number_of_classes),
     ('Cyclomatic Complexity', cyclomatic_complexity)
-
 ]
 
 
