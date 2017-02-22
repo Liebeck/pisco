@@ -1,4 +1,4 @@
-from tests import length_of_local_variable_names_in_functions
+from tests import length_of_local_variable_names_in_methods
 import unittest
 import codecs
 import numpy as np
@@ -15,9 +15,9 @@ submission7 = read_submission('tests/resources/submission7.txt')
 submission9 = read_submission('tests/resources/submission9.txt')
 
 
-class LengthOfFieldNamesTest(unittest.TestCase):
+class LengthOfLocalVarialbeNamesInMethodsTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = length_of_local_variable_names_in_functions
+        self.transformer = length_of_local_variable_names_in_methods
         self.submissions = [submission1, submission6, submission7, submission9]
 
     def test_feature_extraction(self):

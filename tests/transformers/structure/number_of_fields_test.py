@@ -1,7 +1,6 @@
-from tests import number_of_local_variables_in_functions
+from tests import number_of_fields
 import unittest
 import codecs
-import numpy as np
 
 
 def read_submission(filename):
@@ -15,19 +14,19 @@ submission7 = read_submission('tests/resources/submission7.txt')
 submission9 = read_submission('tests/resources/submission9.txt')
 
 
-class LengthOfFieldNamesTest(unittest.TestCase):
+class NumberOfFieldsTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = number_of_local_variables_in_functions
+        self.transformer = number_of_fields
         self.submissions = [submission1, submission6, submission7, submission9]
 
     def test_feature_extraction(self):
         # returns the following counts:
-        # 1) [[[0,0]], [[0]]] -> [0,0] -> [0]
-        # 2) [[[4,4]], [[0]]] -> [4, 0] -> [2]
-        # 3) [[[4,4]], [[0]], [[0]]] -> [4, 0, 0] -> [4.0 / 3]
-        # 4) [[[0],[0]], [[0]]] -> [0, 0] -> [0]
+        # 1) [[1], [0]] -> 0.5
+        # 2) [[0], [0]] -> 0
+        # 3) [[0], [0], [1]] -> 1/3
+        # 4) [[2], [3]] -> 2.5
         self.assertEqual(self.transformer.transform(self.submissions),
-                         [[0], [2], [4.0 / 3], [0]])
+                         [[0.5], [0], [1.0 / 3], [2.5]])
 
 
 if __name__ == '__main__':

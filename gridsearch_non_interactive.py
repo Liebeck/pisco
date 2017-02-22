@@ -16,21 +16,21 @@ import pisco.recognizers.radius_neighbors_regressor as radius_neighbors_regresso
 import pisco.recognizers.ridge as ridge
 import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
+import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
-import pisco.transformers.structure.function_parameter_name_length as function_parameter_name_length  # noqa
-import pisco.transformers.structure.length_of_field_names as length_of_field_names  # noqa
-import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
-import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section  # noqa
-import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
-import pisco.transformers.structure.number_of_fields_per_class as number_of_fields_per_class  # noqa
-import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
-import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
-import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
+import pisco.transformers.structure.length_of_methods as length_of_methods  # noqa
+import pisco.transformers.structure.number_of_classes as number_of_classes  # noqa
+import pisco.transformers.structure.number_of_fields as number_of_fields  # noqa
+import pisco.transformers.structure.number_of_local_variables_in_methods as number_of_local_variables_in_methods  # noqa
+import pisco.transformers.structure.number_of_method_parameters as number_of_method_parameters  # noqa
+import pisco.transformers.structure.number_of_methods as number_of_methods  # noqa
 import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
+import pisco.transformers.style.length_of_field_names as length_of_field_names  # noqa
+import pisco.transformers.style.length_of_local_variable_names_in_methods as length_of_local_variable_names_in_methods  # noqa
 import pisco.transformers.style.length_of_method_names as length_of_method_names  # noqa
-import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
+import pisco.transformers.style.length_of_method_parameter_names as length_of_method_parameter_names  # noqa
 from pisco.knife.adapters import classes
 from pisco.loaders.plain_loader import load
 from pisco.metrics.metrics import mse
@@ -75,26 +75,26 @@ RECOGNIZER = [recognizer_parameter_map[args.recognizer]]
 
 
 FEATURES = [
-    ('Number of Methods per Class', number_of_methods_per_class),
-    ('Length of Methods per Class', length_of_methods_per_class),
+    ('Number of Methods per Class', number_of_methods),
+    ('Length of Methods per Class', length_of_methods),
     # ('Number of Comments per Class', number_of_comments_per_class),
     ('Ration of External Library Usage', ratio_of_external_libraries),
     ('Number of function parameters per class',
-     number_of_function_parameters_per_class),
-    ('Length of function parameter names', function_parameter_name_length),
+     number_of_method_parameters),
+    ('Length of function parameter names', length_of_method_parameter_names),
     ('Length of Function names (1-dimensional)', length_of_method_names),
     ('Number of empty classes (1-dimensional)', number_of_empty_classes),
     ('Ratio of unparsable sections', ratio_of_unparsable_sections),
     ('Contains IDE template text (binary)', contains_IDE_template_text),
-    ('Number of fields per class', number_of_fields_per_class),
+    ('Number of fields per class', number_of_fields),
     ('Length of field names', length_of_field_names),
     ('Number of local variables in functions',
-     number_of_local_variables_in_functions),
+     number_of_local_variables_in_methods),
     ('Length of local variable names in functions',
-     length_of_local_variable_names_in_functions),
+     length_of_local_variable_names_in_methods),
     ('Duplicate Code Measure', duplicate_code_measure),
     # ('Comment Length', comment_length),
-    ('Number of Classes per Section', number_of_classes_per_section),
+    ('Number of Classes per Section', number_of_classes),
     ('Cyclomatic Complexity', cyclomatic_complexity)
 
 ]

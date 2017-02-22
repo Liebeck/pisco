@@ -1,4 +1,4 @@
-from ..helpers import extract_sections, get_stat_function
+from pisco.transformers.helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
@@ -9,24 +9,24 @@ import types
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["number_of_function_parameters_per_class"]
+        return ["length_of_local_variable_names_in_methods"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
-def build(stat='range'):
+def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          NumberOfFunctionParametersPerClass(stat=stat)),
+                          LengthOfLocalVariableNamesInMethods(stat=stat)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('number_of_function_parameters_per_class', pipeline)
+    return ('length_of_local_variable_names_in_methods', pipeline)
 
 
 def param_grid():
-    return {'union__number_of_function_parameters_per_class__transformer__stat':
-            ['range']}
+    return {'union__length_of_local_variable_names_in_methods__transformer__stat':
+            ['mean', 'variance', 'range']}
 
 
-class NumberOfFunctionParametersPerClass(BaseEstimator):
+class LengthOfLocalVariableNamesInMethods(BaseEstimator):
     def __init__(self, stat='mean'):
         self.stat = stat
 
@@ -39,22 +39,23 @@ class NumberOfFunctionParametersPerClass(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        parameter_stats = map(lambda x: self.__transform(x),
-                              sections)  # Be aware that a class might contain no functions
-        return [np.mean(map(lambda x: stat(x), parameter_stats))]
+        section_stats = map(lambda x: self.__transform(x),
+                            sections)
+        stats = map(lambda x: stat(x), section_stats)
+        a = [np.mean(stats)]
+        return a
 
     def __transform(self, section):
-        methods = adapter.methods(section)  # can look like this: [[m1,m2], [m3,m4]]
+        methods = adapter.methods(section)
         if methods:
             ret_val = []
-            # workaround for 66.txt which has a main method that is not in a class, see line 2969
             for clazz in methods:
                 if clazz:
                     for method in clazz:
-                        # print method['name'] + " " + str(len(method['parameters']))
-                        ret_val.append(len(method['parameters']))
+                        for variable_name in method['variables']:
+                            ret_val.append(len(variable_name))
             if not ret_val:
-                ret_val = [0]  # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
+                ret_val = [0]
             return ret_val
 
         else:

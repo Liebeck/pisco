@@ -7,43 +7,43 @@ import numpy as np
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.nearest_neighbor as nearest_neighbor
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
+import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
-import pisco.transformers.structure.function_parameter_name_length as function_parameter_name_length  # noqa
-import pisco.transformers.structure.length_of_field_names as length_of_field_names  # noqa
-import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
-import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section  # noqa
-import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
-import pisco.transformers.structure.number_of_fields_per_class as number_of_fields_per_class  # noqa
-import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
-import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
-import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
+import pisco.transformers.structure.length_of_methods as length_of_methods  # noqa
+import pisco.transformers.structure.number_of_classes as number_of_classes  # noqa
+import pisco.transformers.structure.number_of_fields as number_of_fields  # noqa
+import pisco.transformers.structure.number_of_local_variables_in_methods as number_of_local_variables_in_methods  # noqa
+import pisco.transformers.structure.number_of_method_parameters as number_of_method_parameters  # noqa
+import pisco.transformers.structure.number_of_methods as number_of_methods  # noqa
 import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
+import pisco.transformers.style.length_of_field_names as length_of_field_names  # noqa
+import pisco.transformers.style.length_of_local_variable_names_in_methods as length_of_local_variable_names_in_methods  # noqa
 import pisco.transformers.style.length_of_method_names as length_of_method_names  # noqa
-import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
-import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
+import pisco.transformers.style.length_of_method_parameter_names as length_of_method_parameter_names  # noqa
+import pisco.transformers.style.number_of_comments as number_of_comments_per_class  # noqa
 from pisco.loaders.plain_loader import load
 from pisco.pipeline.pipeline import pipeline
 
-TRANSFORMERS = {'number_of_methods_per_class': number_of_methods_per_class,
-                'length_of_methods_per_class': length_of_methods_per_class,
+TRANSFORMERS = {'number_of_methods': number_of_methods,
+                'length_of_methods': length_of_methods,
                 'number_of_comments_per_class': number_of_comments_per_class,
                 'ratio_of_external_libraries': ratio_of_external_libraries,
-                'number_of_function_parameters_per_class': number_of_function_parameters_per_class,  # noqa
-                'function_parameter_name_length': function_parameter_name_length,  # noqa
+                'number_of_method_parameters': number_of_method_parameters,  # noqa
+                'length_of_method_parameter_names': length_of_method_parameter_names,  # noqa
                 'length_of_method_names': length_of_method_names,
                 'number_of_empty_classes': number_of_empty_classes,
                 'ratio_of_unparsable_sections': ratio_of_unparsable_sections,
                 'contains_IDE_template_text': contains_IDE_template_text,
-                'number_of_fields_per_class': number_of_fields_per_class,
+                'number_of_fields': number_of_fields,
                 'length_of_field_names': length_of_field_names,
-                'number_of_local_variables_in_functions': number_of_local_variables_in_functions,  # noqa
-                'length_of_local_variable_names_in_functions': length_of_local_variable_names_in_functions,  # noqa
+                'number_of_local_variables_in_methods': number_of_local_variables_in_methods,  # noqa
+                'length_of_local_variable_names_in_methods': length_of_local_variable_names_in_methods,  # noqa
                 'duplicate_code_measure': duplicate_code_measure,
                 'comment_length': comment_length,
-                'number_of_classes_per_section': number_of_classes_per_section,
+                'number_of_classes': number_of_classes,
                 'cyclomatic_complexity': cyclomatic_complexity}
 
 RECOGNIZERS = {'Linear Regression': linear_regression,

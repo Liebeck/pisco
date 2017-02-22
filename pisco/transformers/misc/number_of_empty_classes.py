@@ -1,32 +1,31 @@
-from ..helpers import extract_sections, get_stat_function
+from pisco.transformers.helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import types
 
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["length_of_local_variable_names_in_functions"]
+        return ["number_of_empty_classes"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          LengthOfLocalVariableNamesInFunctions(stat=stat)),
+                          NumberOfEmptyClases(stat=stat)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('length_of_local_variable_names_in_functions', pipeline)
+    return ('number_of_empty_classes', pipeline)
 
 
 def param_grid():
-    return {'union__length_of_local_variable_names_in_functions__transformer__stat':
-            ['mean', 'variance', 'range']}
+    return {'union__number_of_empty_classes__transformer__stat':
+            ['mean']}
 
 
-class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
+class NumberOfEmptyClases(BaseEstimator):
     def __init__(self, stat='mean'):
         self.stat = stat
 
@@ -40,23 +39,18 @@ class LengthOfLocalVariableNamesInFunctions(BaseEstimator):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
         section_stats = map(lambda x: self.__transform(x),
-                            sections)
-        stats = map(lambda x: stat(x), section_stats)
-        a = [np.mean(stats)]
-        return a
+                            sections)  # Be aware that a class might contain no functions
+        return [stat(map(lambda x: sum(x), section_stats))]
 
     def __transform(self, section):
-        methods = adapter.methods(section)
-        if methods:
+        clazzes = adapter.classes(section)
+        if clazzes:
             ret_val = []
-            for clazz in methods:
-                if clazz:
-                    for method in clazz:
-                        for variable_name in method['variables']:
-                            ret_val.append(len(variable_name))
-            if not ret_val:
-                ret_val = [0]
+            for clazz in clazzes:
+                if ((len(clazz['methods']) == 0) and (len(clazz['fields']) == 0)):
+                    ret_val.append(1)
+                else:
+                    ret_val.append(0)
             return ret_val
-
         else:
             return [0]

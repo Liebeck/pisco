@@ -1,4 +1,4 @@
-from tests import mean_number_of_methods_per_class
+from tests import mean_number_of_methods
 import unittest
 import codecs
 
@@ -11,9 +11,9 @@ submission1 = read_submission('tests/resources/submission1.txt')
 submission2 = read_submission('tests/resources/submission2.txt')
 
 
-class MeanNumberOfMethodsPerClassTest(unittest.TestCase):
+class MeanNumberOfMethodsTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = mean_number_of_methods_per_class
+        self.transformer = mean_number_of_methods
         self.submissions = [submission1, submission2]
 
     def test_feature_extraction(self):

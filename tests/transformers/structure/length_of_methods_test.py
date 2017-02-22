@@ -13,7 +13,7 @@ submission1 = read_submission('tests/resources/submission1.txt')
 submission2 = read_submission('tests/resources/submission2.txt')
 
 
-class MeanLinesOfMethodsPerClassTest(unittest.TestCase):
+class MeanLinesOfMethodsTest(unittest.TestCase):
     def setUp(self):
         self.transformer = mean_lines_of_methods_per_class
         self.submissions = [submission1, submission2]
@@ -24,7 +24,7 @@ class MeanLinesOfMethodsPerClassTest(unittest.TestCase):
             [[1.75], [2.75]], decimal=2)
 
 
-class MeanCharsOfMethodsPerClassTest(unittest.TestCase):
+class MeanCharsOfMethodsTest(unittest.TestCase):
     def setUp(self):
         self.transformer = mean_chars_of_methods_per_class
         self.submissions = [submission1, submission2]

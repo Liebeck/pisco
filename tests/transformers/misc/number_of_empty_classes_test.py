@@ -1,6 +1,9 @@
-from tests import number_of_empty_classes
-import unittest
 import codecs
+import unittest
+
+import numpy as np
+
+from tests import number_of_empty_classes
 
 
 def read_submission(filename):
@@ -21,13 +24,12 @@ class NumberOfEmptyClassesTest(unittest.TestCase):
 
     def test_feature_extraction(self):
         # returns the following counts:
-        # 1) [[0], [1]] -> 1
+        # 1) [[0], [1]] -> 0.5
         # 2) [[0, 0], [0]] -> 0
         # 3) [[0], [0]] -> 0
-        # 4) [[0], [1], [0]] ->
-        self.assertEqual(self.transformer.transform(self.submissions),
-                         [[1], [0], [0], [1]])
+        # 4) [[0], [1], [0]] -> 0.33
+        np.testing.assert_almost_equal(self.transformer.transform(self.submissions), [[1], [0], [0], [0.33]],
+                                       decimal=2)
 
-
-if __name__ == '__main__':
-    unittest.main()
+        if __name__ == '__main__':
+            unittest.main()

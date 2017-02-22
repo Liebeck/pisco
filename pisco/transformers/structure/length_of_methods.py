@@ -1,5 +1,5 @@
-from ..helpers import extract_sections, get_stat_function
-from ..helpers import get_measurement_function
+from pisco.transformers.helpers import extract_sections, get_stat_function
+from pisco.transformers.helpers import get_measurement_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
@@ -9,26 +9,26 @@ import types
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["length_of_methods_per_class"]
+        return ["length_of_methods"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='mean', method='chars'):
     pipeline = Pipeline([('transformer',
-                          LengthOfMethodsPerClass(stat=stat, method=method)),
+                          LengthOfMethods(stat=stat, method=method)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('length_of_methods_per_class', pipeline)
+    return ('length_of_methods', pipeline)
 
 
 def param_grid():
-    return {'union__length_of_methods_per_class__transformer__stat':
+    return {'union__length_of_methods__transformer__stat':
             ['range', 'mean'],
-            'union__length_of_methods_per_class__transformer__method':
+            'union__length_of_methods__transformer__method':
             ['chars', 'lines']}
 
 
-class LengthOfMethodsPerClass(BaseEstimator):
+class LengthOfMethods(BaseEstimator):
     def __init__(self, stat='mean', method='lines'):
         self.stat = stat
         self.method = method

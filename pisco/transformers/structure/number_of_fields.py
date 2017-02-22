@@ -9,25 +9,25 @@ import types
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["number_of_fields_per_class"]
+        return ["number_of_fields"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='range'):
     pipeline = Pipeline([('transformer',
-                          NumberOfFieldsPerClass(stat=stat)),
+                          NumberOfFields(stat=stat)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('number_of_fields_per_class', pipeline)
+    return ('number_of_fields', pipeline)
 
 
 def param_grid():
-    return {'union__number_of_fields_per_class__transformer__stat':
+    return {'union__number_of_fields__transformer__stat':
             ['range']}
 
 
-class NumberOfFieldsPerClass(BaseEstimator):
-    def __init__(self, stat='mean'):
+class NumberOfFields(BaseEstimator):
+    def __init__(self, stat='range'):
         self.stat = stat
 
     def fit(self, submissions, y):

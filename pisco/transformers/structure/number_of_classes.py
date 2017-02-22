@@ -8,24 +8,24 @@ import types
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["number_of_classes_per_section"]
+        return ["number_of_classes"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='variance'):
     pipeline = Pipeline([('transformer',
-                          NumberOfClassesPerSection(stat=stat)),
+                          NumberOfClasses(stat=stat)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('number_of_classes_per_section', pipeline)
+    return ('number_of_classes', pipeline)
 
 
 def param_grid():
-    return {'union__number_of_classes_per_section__transformer__stat':
+    return {'union__number_of_classes__transformer__stat':
             ['mean', 'variance']}
 
 
-class NumberOfClassesPerSection(BaseEstimator):
+class NumberOfClasses(BaseEstimator):
     def __init__(self, stat='mean'):
         self.stat = stat
 

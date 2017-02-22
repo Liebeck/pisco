@@ -1,7 +1,11 @@
 # Pisco: Personality Identification in Source Code
 [![Build Status](https://travis-ci.com/Liebeck/pisco.svg?token=qYUFfiWV6mqYYR5fELB6)](https://travis-ci.com/Liebeck/pisco)
 
-Given a source code collection of a programmer, Pisco identifies her personality trait!
+## Abstract
+We developed an approach to automatically predict the personality traits of Java developers based on their source code for the PR-SOCO challenge 2016. The challenge provides a data set consisting of source code with their associated developers' personality traits (neuroticism, extraversion, openness, agreeableness, and conscientiousness). Our approach adapts features from the authorship identication domain and utilizes features that were specically engineered for the PR-SOCO challenge. We experiment with two learning methods: linear regression and k-nearest neighbors regressor. The results are reported in terms of the Pearson product-moment correlation and root mean square error.
+
+Our paper is can be accessed [here](http://ceur-ws.org/Vol-1737/T1-8.pdf)
+
 
 ## Dependencies
 * [docker](https://www.docker.com/)
@@ -13,29 +17,42 @@ This will install all required dependencies.
   cd pisco
   make build
 ```
-## How to Evaluate a Feature
+## How to Evaluate Single Features
+### Style Features
 ``` bash
   make run
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features word_unigram
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features class_level
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_methods_per_class
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_methods_per_class
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_external_libraries
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_function_parameters_per_class
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_method_names
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_method_parameter_names
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features sum_number_of_empty_classes
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_unparsable_sections
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_IDE_template_text
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_fields_per_class
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features duplicate_code_measure
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_field_names
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_local_variables_in_functions
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_local_variable_names_in_functions
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_local_variable_names_in_methods
+```
+
+### Style Features
+``` bash
+  make run
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_classes
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features cyclomatic_complexity
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_methods
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_method_parameters
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_methods
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_fields
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_local_variables_in_methods
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features duplicate_code_measure
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_IDE_template_text
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_external_libraries
+```
+
+
+### Misc Features
+``` bash
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_empty_classes
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_unparsable_sections
+
+
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features comment_length
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_suppress_warnings
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features number_of_classes_per_section
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features cyclomatic_complexity
+
+
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all
 
 ```
@@ -50,6 +67,13 @@ Copy the required config file into the configs folder or a specific run and exec
 ``` bash
 python run.py --run_folder runs/run1
 ```
+
+# Citation
+I you want to cite us in your work, please use the following BibTeX entry:
+``` bash
+
+```
+
 
 
 

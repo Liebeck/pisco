@@ -2,31 +2,30 @@ from ..helpers import extract_sections, get_stat_function
 from sklearn.base import BaseEstimator
 import pisco.knife.adapters as adapter
 from sklearn.pipeline import Pipeline
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import types
 
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["number_of_local_variables_in_functions"]
+        return ["number_of_methods"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
-def build(stat='range'):
+def build(stat='mean'):
     pipeline = Pipeline([('transformer',
-                          NumberOfLocalVariablesInFunctions(stat=stat)),
+                          NumberOfMethods(stat=stat)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('number_of_local_variables_in_functions', pipeline)
+    return ('number_of_methods', pipeline)
 
 
 def param_grid():
-    return {'union__number_of_local_variables_in_functions__transformer__stat':
-            ['mean', 'variance', 'range']}
+    return {'union__number_of_methods__transformer__stat':
+            ['mean', 'range']}
 
 
-class NumberOfLocalVariablesInFunctions(BaseEstimator):
+class NumberOfMethods(BaseEstimator):
     def __init__(self, stat='mean'):
         self.stat = stat
 
@@ -39,20 +38,12 @@ class NumberOfLocalVariablesInFunctions(BaseEstimator):
     def _transform(self, raw_submission):
         stat = get_stat_function(self.stat)
         sections = extract_sections(raw_submission)
-        section_stats = map(lambda x: self.__transform(x), sections)
-        return [np.mean(map(lambda x: stat(x), section_stats))]
+        methods = map(lambda x: self.__transform(x), sections)
+        return [stat(map(lambda x: stat(x), methods))]
 
     def __transform(self, section):
-        methods = adapter.methods(section)  # can look like this: [[m1,m2], [m3,m4]]
+        methods = adapter.methods(section)
         if methods:
-            ret_val = []
-            for clazz in methods:
-                if clazz:
-                    for method in clazz:
-                        ret_val.append(len(method['variables']))
-            if not ret_val:
-                ret_val = [0]
-            return ret_val
-
+            return map(lambda x: len(x), methods)
         else:
             return [0]

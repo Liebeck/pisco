@@ -1,4 +1,4 @@
-from tests import number_of_function_parameters_per_class
+from tests import number_of_method_parameters
 import unittest
 import codecs
 
@@ -12,9 +12,9 @@ submission2 = read_submission('tests/resources/submission4.txt')
 submission3 = read_submission('tests/resources/submission1.txt')
 
 
-class NumberOfFunctionParametersPerClassTest(unittest.TestCase):
+class NumberOfFunctionParametersTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = number_of_function_parameters_per_class
+        self.transformer = number_of_method_parameters
         self.submissions = [submission1, submission2, submission3]
 
     def test_feature_extraction(self):

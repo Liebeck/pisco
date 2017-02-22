@@ -1,4 +1,4 @@
-from tests import number_of_classes_per_section
+from tests import number_of_classes
 import unittest
 import codecs
 
@@ -13,9 +13,9 @@ submission2 = read_submission('tests/resources/submission3.txt')
 submission3 = read_submission('tests/resources/submission11.txt')
 
 
-class NumberOfEmptyClassesTest(unittest.TestCase):
+class NumberOfClassesTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = number_of_classes_per_section
+        self.transformer = number_of_classes
         self.submissions = [submission1, submission2, submission3]
 
     def test_feature_extraction(self):

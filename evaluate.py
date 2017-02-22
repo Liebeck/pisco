@@ -13,26 +13,25 @@ import pisco.recognizers.radius_neighbors_regressor as radius_neighbors_regresso
 import pisco.recognizers.ridge as ridge
 import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
+import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
 import pisco.transformers.misc.word_unigram as word_unigram
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.contains_suppress_warnings as contains_suppress_warnings  # noqa
 import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
-import pisco.transformers.structure.function_parameter_name_length as function_parameter_name_length  # noqa
-import pisco.transformers.structure.length_of_field_names as length_of_field_names  # noqa
-import pisco.transformers.structure.length_of_local_variable_names_in_functions as length_of_local_variable_names_in_functions  # noqa
-import pisco.transformers.structure.number_of_classes_per_section as number_of_classes_per_section  # noqa
-import pisco.transformers.structure.number_of_empty_classes as number_of_empty_classes  # noqa
-import pisco.transformers.structure.number_of_fields_per_class as number_of_fields_per_class  # noqa
-import pisco.transformers.structure.number_of_function_parameters_per_class as number_of_function_parameters_per_class  # noqa
-import pisco.transformers.structure.number_of_local_variables_in_functions as number_of_local_variables_in_functions  # noqa
-import pisco.transformers.structure.number_of_methods_per_class as number_of_methods_per_class  # noqa
-import pisco.transformers.structure.ratio_of_class_access_modifiers as ratio_of_class_access_modifiers  # noqa
+import pisco.transformers.structure.length_of_methods as length_of_methods  # noqa
+import pisco.transformers.structure.number_of_classes as number_of_classes  # noqa
+import pisco.transformers.structure.number_of_fields as number_of_fields  # noqa
+import pisco.transformers.structure.number_of_local_variables_in_methods as number_of_local_variables_in_methods  # noqa
+import pisco.transformers.structure.number_of_method_parameters as number_of_method_parameters  # noqa
+import pisco.transformers.structure.number_of_methods as number_of_methods  # noqa
 import pisco.transformers.structure.ratio_of_external_libraries as ratio_of_external_libraries  # noqa
+import pisco.transformers.style.length_of_field_names as length_of_field_names  # noqa
+import pisco.transformers.style.length_of_local_variable_names_in_methods as length_of_local_variable_names_in_methods  # noqa
 import pisco.transformers.style.length_of_method_names as length_of_method_names  # noqa
-import pisco.transformers.style.length_of_methods_per_class as length_of_methods_per_class  # noqa
-import pisco.transformers.style.number_of_comments_per_class as number_of_comments_per_class  # noqa
+import pisco.transformers.style.length_of_method_parameter_names as length_of_method_parameter_names  # noqa
+import pisco.transformers.style.number_of_comments as number_of_comments_per_class  # noqa
 from pisco.benchmarks.cv_benchmark import benchmark
 from pisco.configuration import Configuration
 
@@ -117,53 +116,53 @@ def configure(conf):
     def build_word_unigram_feature():
         return [word_unigram.build()]
 
-    @conf.feature('mean_number_of_methods_per_class')
-    def build_mean_number_of_methods_per_class_feature():
-        return [number_of_methods_per_class.build(stat='mean')]
+    @conf.feature('mean_number_of_methods')
+    def build_mean_number_of_methods_feature():
+        return [number_of_methods.build(stat='mean')]
 
     @conf.feature('cyclomatic_complexity')
     def build_cylomatic_complexity_feature_feature():
         return [cyclomatic_complexity.build(stat='mean')]
 
-    @conf.feature('mean_number_of_function_parameters_per_class')
-    def build_mean_number_of_function_parameters_per_class():
-        return [number_of_function_parameters_per_class.build(stat='mean')]
+    @conf.feature('mean_number_of_method_parameters')
+    def build_mean_number_of_method_parameters():
+        return [number_of_method_parameters.build(stat='mean')]
 
-    @conf.feature('mean_function_parameter_name_length')
-    def build_mean_function_parameter_name_length():
-        return [function_parameter_name_length.build(stat='mean')]
+    @conf.feature('mean_length_of_method_parameter_names')
+    def build_mean_length_of_method_parameter_names():
+        return [length_of_method_parameter_names.build(stat='mean')]
 
     @conf.feature('mean_length_of_method_names')
     def build_mean_length_of_method_names():
         return [length_of_method_names.build(stat='mean')]
 
-    @conf.feature('mean_number_of_fields_per_class')
-    def build_mean_number_of_fields_per_class():
-        return [number_of_fields_per_class.build(stat='mean')]
+    @conf.feature('mean_number_of_fields')
+    def build_mean_number_of_fields():
+        return [number_of_fields.build(stat='mean')]
 
     @conf.feature('mean_length_of_field_names')
     def build_mean_length_of_field_names():
         return [length_of_field_names.build(stat='mean')]
 
-    @conf.feature('mean_number_of_local_variables_in_functions')
-    def build_mean_number_of_local_variables_in_functions():
-        return [number_of_local_variables_in_functions.build(stat='mean')]
+    @conf.feature('mean_number_of_local_variables_in_methods')
+    def build_mean_number_of_local_variables_in_methods():
+        return [number_of_local_variables_in_methods.build(stat='mean')]
 
-    @conf.feature('number_of_classes_per_section')
-    def build_number_of_classes_per_section():
-        return [number_of_classes_per_section.build(stat='mean')]
+    @conf.feature('mean_number_of_classes')
+    def build_mean_number_of_classes():
+        return [number_of_classes.build(stat='mean')]
 
-    @conf.feature('mean_length_of_local_variable_names_in_functions')
-    def build_mean_length_of_local_variable_names_in_functions():
-        return [length_of_local_variable_names_in_functions.build(stat='mean')]
+    @conf.feature('mean_length_of_local_variable_names_in_methods')
+    def build_mean_length_of_local_variable_names_in_methods():
+        return [length_of_local_variable_names_in_methods.build(stat='mean')]
 
-    @conf.feature('sum_number_of_empty_classes')
-    def build_sum_number_of_empty_classes():
+    @conf.feature('mean_number_of_empty_classes')
+    def build_mean_number_of_empty_classes():
         return [number_of_empty_classes.build(stat='mean')]
 
-    @conf.feature('mean_length_of_methods_per_class')
-    def build_mean_length_of_methods_per_class_feature():
-        return [length_of_methods_per_class.build()]
+    @conf.feature('mean_length_of_methods')
+    def build_mean_length_of_methods_feature():
+        return [length_of_methods.build()]
 
     @conf.feature('mean_number_of_comments_per_class')
     def build_mean_number_of_comments_per_class_feature():
@@ -171,10 +170,6 @@ def configure(conf):
                                                    types=['block',
                                                           'line',
                                                           'javadoc'])]
-
-    @conf.feature('ratio_of_public_classes')
-    def build_ratio_of_class_access_modifiers_feature():
-        return [ratio_of_class_access_modifiers.build(modifier='public')]
 
     @conf.feature('ratio_of_unparsable_sections')
     def build_ratio_of_unparsable_sections():
@@ -202,21 +197,21 @@ def configure(conf):
 
     @conf.feature('all')
     def build_all_features():
-        return [number_of_methods_per_class.build(),
-                length_of_methods_per_class.build(),
+        return [number_of_methods.build(),
+                length_of_methods.build(),
                 ratio_of_external_libraries.build(),
-                number_of_function_parameters_per_class.build(),
-                function_parameter_name_length.build(),
+                number_of_method_parameters.build(),
+                length_of_method_parameter_names.build(),
                 length_of_method_names.build(),
                 number_of_empty_classes.build(),
                 ratio_of_unparsable_sections.build(),
                 contains_IDE_template_text.build(),
-                number_of_fields_per_class.build(),
+                number_of_fields.build(),
                 length_of_field_names.build(),
-                number_of_local_variables_in_functions.build(),
-                length_of_local_variable_names_in_functions.build(),
+                number_of_local_variables_in_methods.build(),
+                length_of_local_variable_names_in_methods.build(),
                 duplicate_code_measure.build(),
-                number_of_classes_per_section.build(),
+                number_of_classes.build(),
                 cyclomatic_complexity.build()]
 
 
