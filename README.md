@@ -23,7 +23,7 @@ This will install all required dependencies.
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_external_libraries
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_number_of_function_parameters_per_class
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_method_names
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_function_parameter_name_length
+  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features mean_length_of_method_parameter_names
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features sum_number_of_empty_classes
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_unparsable_sections
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features contains_IDE_template_text
@@ -50,19 +50,6 @@ Copy the required config file into the configs folder or a specific run and exec
 ``` bash
 python run.py --run_folder runs/run1
 ```
-
-## Workflow
-``` bash
-  git pull
-```
-
-(optionally ``` make build```)
-
-``` bash
-  make run
-```
-
-evaluate (see [How to evaluate a feature](#how-to-evaluate-a-feature))
 
 
 
