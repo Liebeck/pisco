@@ -111,10 +111,12 @@ result = {'recognizer_name': recognizer[0]}
 
 number_features = args.nfeatures
 
-output_filename = os.path.join(BASEPATH, 'result_{}_{}_{}_{}.json'.format(DIMENSIONS[0],
-                                                                         SCORE,
-                                                                         recognizer[0],
-                                                                         number_features))
+output_filename = os.path.join(BASEPATH, 'result_{}_{}_{}_{}.json'.format(
+    DIMENSIONS[0],
+    SCORE,
+    recognizer[0],
+    number_features))
+
 # print(output_filename)
 with open(output_filename, 'w') as outfile:
     outfile.write('Job started')
@@ -125,7 +127,7 @@ for features in FEATURES:
     transformers = map(lambda f: f[1].build(), features)
     p = pipeline.pipeline(transformers=transformers,
                           recognizer=recognizer[1].build(),
-                         number_of_features=number_features)
+                          number_of_features=number_features)
     param_grid = OrderedDict()
     param_grid.update(recognizer[1].param_grid())
     for name, f in features:

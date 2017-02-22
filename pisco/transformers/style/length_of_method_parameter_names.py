@@ -60,7 +60,7 @@ class LengthOfMethodParameterNames(BaseEstimator):
                                 # print len(parameter['name'])
                                 ret_val.append(len(parameter['name']))
             if not ret_val:
-                ret_val = [0] 
+                ret_val = [0]
                 # workaround for files that contain empty classes, for instance 51.txt lines 15435-15440
             return ret_val
 

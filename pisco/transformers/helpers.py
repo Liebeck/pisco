@@ -153,4 +153,4 @@ def powerset(seq):
     """
     import itertools as it
     s = list(seq)
-    return list(it.chain.from_iterable(it.combinations(s, r) for r in range(len(s)+1)))[1:]
+    return list(it.chain.from_iterable(it.combinations(s, r) for r in range(len(s) + 1)))[1:]
