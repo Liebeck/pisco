@@ -7,7 +7,7 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import make_scorer
 
 import pisco.recognizers.linear_regression as linear_regression
-import pisco.recognizers.nearest_neighbor as nearest_neighbor
+import pisco.recognizers.nearest_neighbors_regressor as nearest_neighbors_regressor
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -54,7 +54,7 @@ print('Recognizer={}'.format(args.recognizer))
 
 recognizer_parameter_map = {
     'linear_regression': ('Linear Regression', linear_regression),
-    'nearest_neighbor': ('Nearest Neighbor', nearest_neighbor)
+    'nearest_neighbors_regressor': ('Nearest Neighbor', nearest_neighbors_regressor)
 }
 
 RECOGNIZER = [recognizer_parameter_map[args.recognizer]]

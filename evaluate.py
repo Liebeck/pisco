@@ -4,7 +4,7 @@ import logging
 
 import pisco.loaders.plain_loader as plain_loader
 import pisco.recognizers.linear_regression as linear_regression
-import pisco.recognizers.nearest_neighbor as nearest_neighbor
+import pisco.recognizers.nearest_neighbors_regressor as nearest_neighbors_regressor
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -69,13 +69,9 @@ def configure(conf):
     def build_linear_regression():
         return linear_regression.build()
 
-    @conf.recognizer('nearest_neighbor')
-    def build_nearest_neighbor():
-        return nearest_neighbor.build()
-
-    @conf.recognizer('support_vector_regression')
-    def build_supoort_vector_regressiion():
-        return support_vector_regression.build()
+    @conf.recognizer('nearest_neighbors_regressor')
+    def build_nearest_neighbors_regressor():
+        return nearest_neighbors_regressor.build()
 
     @conf.feature('mean_number_of_methods')
     def build_mean_number_of_methods_feature():
