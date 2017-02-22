@@ -15,7 +15,6 @@ import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
-import pisco.transformers.misc.word_unigram as word_unigram
 import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
@@ -110,10 +109,6 @@ def configure(conf):
     @conf.recognizer('support_vector_regression')
     def build_supoort_vector_regressiion():
         return support_vector_regression.build()
-
-    @conf.feature('word_unigram')
-    def build_word_unigram_feature():
-        return [word_unigram.build()]
 
     @conf.feature('mean_number_of_methods')
     def build_mean_number_of_methods_feature():
