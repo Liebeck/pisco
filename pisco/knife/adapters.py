@@ -1,5 +1,4 @@
 from pisco import client
-from javalang import tokenizer
 
 
 def classes(section):
