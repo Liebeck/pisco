@@ -5,7 +5,7 @@ from collections import OrderedDict
 import numpy as np
 
 import pisco.recognizers.linear_regression as linear_regression
-import pisco.recognizers.nearest_neighbor as nearest_neighbor
+import pisco.recognizers.nearest_neighbors_regressor as nearest_neighbor
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa

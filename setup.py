@@ -8,7 +8,7 @@ setup(
     description='Personality Recognition in Source Code',
     url='http://dbs.cs.uni-duesseldorf.de',
     author='HHU Duesseldorf',
-    author_email='modaresi@cs.uni-duesseldorf.de',
+    author_email='{liebeck, modaresi}@cs.uni-duesseldorf.de',
     packages=find_packages(exclude=['tests']),
     classifiers=[
         'Intended Audience :: Developers',
