@@ -1,4 +1,4 @@
-from tests import function_name_length
+from tests import length_of_method_names
 import unittest
 import codecs
 
@@ -15,7 +15,7 @@ submission5 = read_submission('tests/resources/submission5.txt')
 
 class FunctionNameLengthTest(unittest.TestCase):
     def setUp(self):
-        self.transformer = function_name_length
+        self.transformer = length_of_method_names
         self.submissions = [submission1, submission2, submission3, submission5]
 
     def test_feature_extraction(self):

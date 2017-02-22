@@ -6,19 +6,11 @@ RUN apt-get update && \
 
 RUN conda install -y \
   pip \
-  numpy \
-  scikit-learn \
-  nltk
+  numpy=1.12.0 \
+  scikit-learn=0.18.1 \
+  nltk=3.2.2
 
 RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('wordnet')" 
-RUN pip install pytest
-RUN pip install pytest-pep8
-RUN pip install plyj
-RUN pip install javalang
-RUN pip install pandas
-RUN pip install javalang
-RUN pip install statsmodels
-RUN pip install matplotlib
 
 WORKDIR /var/www
 ADD . .
