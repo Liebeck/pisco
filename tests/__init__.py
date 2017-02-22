@@ -23,7 +23,7 @@ ratio_of_knife_unparsable_sections = RatioOfKnifeUnparsableSection()  # noqa
 number_of_method_parameters = NumberOfMethodFunctionParameters(stat='mean')  # noqa
 length_of_method_names = LengthOfMethodNames(stat='mean')  # noqa
 length_of_method_parameter_names = LengthOfMethodParameterNames(stat='mean')  # noqa
-number_of_empty_classes = NumberOfEmptyClases(stat='sum')  # noqa
+number_of_empty_classes = NumberOfEmptyClases(stat='mean')  # noqa
 contains_IDE_template_text = ContainsIDETemplateText()  # noqa
 number_of_fields = NumberOfFields(stat='mean')  # noqa
 length_of_field_names = LengthOfFieldNames(stat='mean')  # noqa

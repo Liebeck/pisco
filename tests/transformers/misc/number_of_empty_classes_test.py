@@ -28,7 +28,7 @@ class NumberOfEmptyClassesTest(unittest.TestCase):
         # 2) [[0, 0], [0]] -> 0
         # 3) [[0], [0]] -> 0
         # 4) [[0], [1], [0]] -> 0.33
-        np.testing.assert_almost_equal(self.transformer.transform(self.submissions), [[1], [0], [0], [0.33]],
+        np.testing.assert_almost_equal(self.transformer.transform(self.submissions), [[0.5], [0], [0], [0.33]],
                                        decimal=2)
 
         if __name__ == '__main__':
