@@ -49,7 +49,6 @@ This will install all required dependencies.
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features ratio_of_unparsable_sections
 
 
-  python evaluate.py --train_corpus=openness --recognizer=linear_regression --features comment_length
 
 
   python evaluate.py --train_corpus=openness --recognizer=linear_regression --features all
@@ -58,7 +57,7 @@ This will install all required dependencies.
 
 ## Hilbert Cluster Grid Search
 ``` bash
-qsub -v dimension=agreeableness,score=RMSE,recognizer=linear_regression,njobs=20,base_path=/home/malie102/jobs/pisco,nfeatures=16 hilbert_matthias.job
+qsub -v dimension=agreeableness, score=RMSE, recognizer=linear_regression, njobs=20, base_path=/home/malie102/jobs/pisco, nfeatures=16 hilbert_matthias.job
 ```
 
 ## Creating Submission Files

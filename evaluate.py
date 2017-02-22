@@ -15,7 +15,6 @@ import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
-import pisco.transformers.structure.comment_length as comment_length  # noqa
 import pisco.transformers.structure.cyclomatic_complexity as cyclomatic_complexity  # noqa
 import pisco.transformers.structure.duplicate_code_measure as duplicate_code_measure  # noqa
 import pisco.transformers.structure.length_of_methods as length_of_methods  # noqa
@@ -176,10 +175,6 @@ def configure(conf):
     @conf.feature('ratio_of_external_libraries')
     def build_ratio_of_external_libraries_feature():
         return [ratio_of_external_libraries.build()]
-
-    @conf.feature('comment_length')
-    def build_comment_length_feature():
-        return [comment_length.build()]
 
     @conf.feature('duplicate_code_measure')
     def build_duplicate_code_measure_feature():

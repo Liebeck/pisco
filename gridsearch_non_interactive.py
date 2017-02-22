@@ -93,7 +93,6 @@ FEATURES = [
     ('Length of local variable names in functions',
      length_of_local_variable_names_in_methods),
     ('Duplicate Code Measure', duplicate_code_measure),
-    # ('Comment Length', comment_length),
     ('Number of Classes per Section', number_of_classes),
     ('Cyclomatic Complexity', cyclomatic_complexity)
 

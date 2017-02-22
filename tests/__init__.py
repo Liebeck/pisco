@@ -1,7 +1,6 @@
 from pisco.transformers.misc.contains_IDE_template_text import ContainsIDETemplateText  # noqa
 from pisco.transformers.misc.number_of_empty_classes import NumberOfEmptyClases  # noqa
 from pisco.transformers.misc.ratio_of_unparsable_sections import RatioOfKnifeUnparsableSection  # noqa
-from pisco.transformers.structure.comment_length import CommentLength  # noqa
 from pisco.transformers.structure.cyclomatic_complexity import CyclomaticComplexity  # noqa
 from pisco.transformers.structure.duplicate_code_measure import DuplicateCodeMeasure  # noqa
 from pisco.transformers.structure.length_of_methods import LengthOfMethods  # noqa
@@ -37,6 +36,5 @@ number_of_local_variables_in_methods = NumberOfLocalVariablesInMethods(stat='mea
 length_of_local_variable_names_in_methods = LengthOfLocalVariableNamesInMethods(stat='mean')  # noqa
 ratio_of_external_libraries = RatioOfExternalLibraries()
 duplicate_code_measure = DuplicateCodeMeasure(level='method')
-comment_length = CommentLength(types='javadoc')
 number_of_classes = NumberOfClasses(stat='mean')
 cyclomatic_complexity = CyclomaticComplexity(stat='mean')
