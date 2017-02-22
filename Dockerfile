@@ -14,6 +14,7 @@ RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); 
 
 WORKDIR /var/www
 ADD . .
+RUN pip install -r requirements.txt
 RUN pip install -e .
 
 #RUN py.test --pep8
