@@ -3,15 +3,8 @@ import argparse
 import logging
 
 import pisco.loaders.plain_loader as plain_loader
-import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
-import pisco.recognizers.elastic_net as elastic_net
-import pisco.recognizers.lars as lars
-import pisco.recognizers.lasso as lasso
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.nearest_neighbor as nearest_neighbor
-import pisco.recognizers.radius_neighbors_regressor as radius_neighbors_regressor
-import pisco.recognizers.ridge as ridge
-import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -79,30 +72,6 @@ def configure(conf):
     @conf.recognizer('nearest_neighbor')
     def build_nearest_neighbor():
         return nearest_neighbor.build()
-
-    @conf.recognizer('radius_neighbors_regressor')
-    def build_radius_neighbors_regressor():
-        return radius_neighbors_regressor.build()
-
-    @conf.recognizer('decision_tree_regressor')
-    def build_decision_tree_regressor():
-        return decision_tree_regressor.build()
-
-    @conf.recognizer('ridge')
-    def build_ridge():
-        return ridge.build()
-
-    @conf.recognizer('lasso')
-    def build_lasso():
-        return lasso.build()
-
-    @conf.recognizer('elastic_net')
-    def build_elastic_net():
-        return elastic_net.build()
-
-    @conf.recognizer('lars')
-    def build_lars():
-        return lars.build()
 
     @conf.recognizer('support_vector_regression')
     def build_supoort_vector_regressiion():

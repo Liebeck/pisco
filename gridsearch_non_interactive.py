@@ -6,15 +6,8 @@ from collections import OrderedDict
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import make_scorer
 
-import pisco.recognizers.decision_tree_regressor as decision_tree_regressor
-import pisco.recognizers.elastic_net as elastic_net
-import pisco.recognizers.lars as lars
-import pisco.recognizers.lasso as lasso
 import pisco.recognizers.linear_regression as linear_regression
 import pisco.recognizers.nearest_neighbor as nearest_neighbor
-import pisco.recognizers.radius_neighbors_regressor as radius_neighbors_regressor  # noqa
-import pisco.recognizers.ridge as ridge
-import pisco.recognizers.support_vector_regression as support_vector_regression
 import pisco.transformers.misc.contains_IDE_template_text as contains_IDE_template_text  # noqa
 import pisco.transformers.misc.number_of_empty_classes as number_of_empty_classes  # noqa
 import pisco.transformers.misc.ratio_of_unparsable_sections as ratio_of_unparsable_sections  # noqa
@@ -61,14 +54,7 @@ print('Recognizer={}'.format(args.recognizer))
 
 recognizer_parameter_map = {
     'linear_regression': ('Linear Regression', linear_regression),
-    'decision_tree_regressor': ('Decision Tree Regressor', decision_tree_regressor),
-    'support_vector_regression': ('Support Vector Regression', support_vector_regression),
-    'elastic_net': ('ElasticNet', elastic_net),
-    'lars': ('Lars', lars),
-    'lasso': ('Lasso', lasso),
-    'ridge': ('Ridge', ridge),
-    'nearest_neighbor': ('Nearest Neighbor', nearest_neighbor),
-    'radius_neighbors_regressor': ('Radius Neighbors Regressor', radius_neighbors_regressor)
+    'nearest_neighbor': ('Nearest Neighbor', nearest_neighbor)
 }
 
 RECOGNIZER = [recognizer_parameter_map[args.recognizer]]
@@ -77,7 +63,7 @@ RECOGNIZER = [recognizer_parameter_map[args.recognizer]]
 FEATURES = [
     ('Number of Methods per Class', number_of_methods),
     ('Length of Methods per Class', length_of_methods),
-    ('Ration of External Library Usage', ratio_of_external_libraries), ('Number of function parameters per class', number_of_method_parameters), 
+    ('Ration of External Library Usage', ratio_of_external_libraries), ('Number of function parameters per class', number_of_method_parameters),
     ('Length of function parameter names', length_of_method_parameter_names),
     ('Length of Function names (1-dimensional)', length_of_method_names),
     ('Number of empty classes (1-dimensional)', number_of_empty_classes),

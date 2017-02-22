@@ -35,14 +35,7 @@ NJOBS = 20
 DIMENSIONS = ['neuroticism']
 RECOGNIZER = [
     # ('Linear Regression', linear_regression),
-    # ('Decision Tree Regressor', decision_tree_regressor),
-    # ('Support Vector Regression', support_vector_regression),
-    # ('ElasticNet', elastic_net),
-    # ('Lars', lars),
-    # ('Lasso', lasso),
-    # ('Ridge', ridge),
-    ('Nearest Neighbor', nearest_neighbor),
-    # ('Radius Neighbors Regressor', radius_neighbors_regressor)
+    ('Nearest Neighbor', nearest_neighbor)
 ]
 FEATURES = [
     ('Number of Methods', number_of_methods),
