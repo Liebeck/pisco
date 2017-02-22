@@ -18,7 +18,7 @@
       "union__function_parameter_name_length__transformer__stat": "range", 
       "union__ratio_of_unparsable_sections__transformer": "default", 
       "union__length_of_methods_per_class__transformer__method": "lines", 
-      "union__function_name_length__transformer__stat": "range"
+      "union__length_of_method_names__transformer__stat": "range"
     }, 
     "scorer": "RMSE", 
     "best_score": 133.24614743856725

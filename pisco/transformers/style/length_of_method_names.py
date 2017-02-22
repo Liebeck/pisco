@@ -9,24 +9,24 @@ import types
 
 def patch(pipeline):
     def get_feature_names(pipeline):
-        return ["function_name_length"]
+        return ["length_of_method_names"]
     pipeline.get_feature_names = types.MethodType(get_feature_names, pipeline)
 
 
 def build(stat='range'):
     pipeline = Pipeline([('transformer',
-                          FunctionNameLength(stat=stat)),
+                          LengthOfMethodNames(stat=stat)),
                          ('min_max_scaler', MinMaxScaler())])
     patch(pipeline)
-    return ('function_name_length', pipeline)
+    return ('length_of_method_names', pipeline)
 
 
 def param_grid():
-    return {'union__function_name_length__transformer__stat':
+    return {'union__length_of_method_names__transformer__stat':
             ['mean', 'variance', 'range']}
 
 
-class FunctionNameLength(BaseEstimator):
+class LengthOfMethodNames(BaseEstimator):
     def __init__(self, stat='mean'):
         self.stat = stat
 

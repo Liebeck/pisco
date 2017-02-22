@@ -18,7 +18,7 @@
       "union__function_parameter_name_length__transformer__stat": "range", 
       "recognizer__linear_regression__normalize": true, 
       "union__length_of_methods_per_class__transformer__method": "lines", 
-      "union__function_name_length__transformer__stat": "mean", 
+      "union__length_of_method_names__transformer__stat": "mean",
       "recognizer__linear_regression__fit_intercept": false
     }, 
     "scorer": "PC", 

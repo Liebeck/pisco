@@ -18,7 +18,7 @@
       "union__function_parameter_name_length__transformer__stat": "range", 
       "union__ratio_of_unparsable_sections__transformer": "default", 
       "union__length_of_methods_per_class__transformer__method": "chars", 
-      "union__function_name_length__transformer__stat": "mean"
+      "union__length_of_method_names__transformer__stat": "mean"
     }, 
     "scorer": "PC", 
     "best_score": 0.39247306935831061
